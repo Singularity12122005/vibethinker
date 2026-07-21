@@ -1,0 +1,10 @@
+schema_version: 1
+extends: verl_128k_base.yaml
+experiment: qwen35-2b-verl-128k-mix1k
+data:
+  variant: Mix1K
+  components:
+    Math500: 500
+    GSM8K: 500
+hydra_overrides:
+  trainer.experiment_name: qwen35_128k_mix1k

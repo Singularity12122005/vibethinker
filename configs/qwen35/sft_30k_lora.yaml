@@ -1,0 +1,45 @@
+schema_version: 1
+experiment: qwen35-2b-30k-lora-sft
+source_provenance: migrated_from_private_training_snapshot
+
+model:
+  path: /path/to/qwen3.5-2b-base
+  attn_implementation: sdpa
+
+data:
+  path: /path/to/audited-30k
+  max_seq_length: 32768
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  target_modules:
+    - in_proj_qkv
+    - in_proj_z
+    - in_proj_b
+    - in_proj_a
+    - out_proj
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training:
+  output_dir: /path/to/output
+  epochs: 10
+  max_steps: -1
+  per_device_batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 5.0e-5
+  min_learning_rate: 8.0e-8
+  warmup_ratio: 0.05
+  save_strategy: epoch
+  save_steps: 500
+  save_total_limit: 20
+  logging_steps: 5
+  dataloader_num_workers: 2
+  seed: 20260716

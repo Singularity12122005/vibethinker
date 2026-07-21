@@ -1,0 +1,31 @@
+schema_version: 1
+upstream:
+  repository: https://github.com/volcengine/verl.git
+  commit: 7aed6b230776f963fa09509c10d9c3a767d1102c
+  license: Apache-2.0
+
+patches:
+  - file: 0001-openthinker3-training-contract.patch
+    status: generated-and-apply-checked
+    sha256: 95ae6777740a62d9a5d6cfce7d4f172ebe17889fb88b426bd8057140052060f3
+    source_worktree_diff_sha256: 3f4f582404ce04212da597e65c1a255cdc02d5a838a914e4be6fdba501a82e2d
+    source_numstat:
+      additions: 248
+      deletions: 41
+    migration_adaptations:
+      - changed imports to the public vibethinker_experiments.openthinker3 namespace
+
+changed_files:
+  - verl/experimental/agent_loop/agent_loop.py
+  - verl/trainer/ppo/ray_trainer.py
+  - verl/utils/checkpoint/checkpoint_manager.py
+  - verl/utils/checkpoint/fsdp_checkpoint_manager.py
+  - verl/workers/engine/fsdp/transformer_impl.py
+  - verl/workers/engine_workers.py
+  - verl/workers/utils/losses.py
+
+excluded:
+  - path: verl/utils/reward_score/livecodebench/
+    reason: >-
+      untracked verifier closure was not part of the seven-file VERL diff and
+      was not copied because its complete redistribution license was absent

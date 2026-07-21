@@ -1,0 +1,27 @@
+schema_version: 1
+
+# Platform-only bindings. Training semantics remain in train.yaml.
+paths:
+  runtime_manifest_env: VT_RUNTIME_MANIFEST
+  runtime_archive_env: VT_RUNTIME_ARCHIVE
+  train_data_env: VT_TRAIN_DATA
+  model_dir_env: VT_MODEL_PATH
+  output_dir_env: VT_OUTPUT_DIR
+  scratch_dir_env: VT_SCRATCH_DIR
+  resume_checkpoint_env: VT_RESUME_CHECKPOINT
+
+rendezvous:
+  node_rank_envs: [NODE_RANK, RANK]
+  node_count_envs: [NNODES, WORLD_NODES]
+  head_address_envs: [MASTER_ADDR, HEAD_ADDR]
+  head_port_envs: [MASTER_PORT, HEAD_PORT]
+  default_head_port: 6379
+
+ray:
+  dashboard: false
+  startup_timeout_seconds: 360
+
+network:
+  # Set these only when required by the deployment environment.
+  nccl_interface_env: NCCL_SOCKET_IFNAME
+  disable_infiniband_env: NCCL_IB_DISABLE

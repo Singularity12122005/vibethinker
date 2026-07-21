@@ -1,0 +1,8 @@
+# Copy and edit locally. The runtime also requires an explicit
+# data_sending_confirmed=true before any prompt or model output is sent.
+endpoint: https://api.example.com/v1/chat/completions
+allowed_hosts:
+  - api.example.com
+data_sending_confirmed: false
+api_key_env: EVALUATION_JUDGE_API_KEY
+model: example-judge

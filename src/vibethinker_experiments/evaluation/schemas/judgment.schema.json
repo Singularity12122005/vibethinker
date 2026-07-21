@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/vibethinker/judgment.schema.json",
+  "title": "Compacted judgment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "panel_id",
+    "domain",
+    "panel_sha256",
+    "generation_sha256",
+    "judge_status",
+    "true_correct",
+    "confidence",
+    "brief_reason",
+    "judge_signature",
+    "attempt",
+    "error_type"
+  ],
+  "properties": {
+    "panel_id": {"type": "string", "minLength": 1},
+    "domain": {"enum": ["math", "code", "stem", "ifc", "knowledge"]},
+    "panel_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "generation_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "judge_status": {"enum": ["correct", "incorrect", "unresolved"]},
+    "true_correct": {"type": "boolean"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "brief_reason": {"type": "string", "maxLength": 500},
+    "judge_signature": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "attempt": {"type": "integer", "minimum": 1},
+    "error_type": {"type": ["string", "null"]}
+  }
+}

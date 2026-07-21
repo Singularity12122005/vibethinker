@@ -1,0 +1,10 @@
+diff --git a/verl/trainer/ppo/ray_trainer.py b/verl/trainer/ppo/ray_trainer.py
+--- a/verl/trainer/ppo/ray_trainer.py
++++ b/verl/trainer/ppo/ray_trainer.py
+@@ -71,5 +71,5 @@
+ from verl.workers.config import DistillationConfig, EngineConfig
+ from verl.workers.rollout.llm_server import LLMServerManager
+ from verl.workers.utils.padding import left_right_2_no_padding, no_padding_2_padding
+-from vibethinker_checkpoint_adapter import (
++from vibethinker_experiments.qwen35.checkpoint_schedule import (
+     mark_checkpoint_committed,

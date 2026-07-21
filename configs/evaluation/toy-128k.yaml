@@ -1,0 +1,8 @@
+profile_id: synthetic-toy-128k-v1
+mode: toy
+context_tokens: 131072
+generation_cap_tokens: 4096
+temperature: 0.0
+top_p: 0.95
+seed: 20260722
+require_judgments: false

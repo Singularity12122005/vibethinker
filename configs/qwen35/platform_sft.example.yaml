@@ -1,0 +1,19 @@
+schema_version: 1
+kind: sft
+platform:
+  cli: trisol
+  job_name: <job-name>
+  base_model: <model-resource>
+  dataset: <dataset-resource>
+  cluster: <cluster-name>
+  image: <public-or-authorized-image>
+  team: <optional-team>
+resources:
+  nodes: 1
+  gpus_per_node: 8
+  gpu_model: <gpu-model>
+paths:
+  experiment_config: /workspace/configs/qwen35/sft_30k_lora.yaml
+  model: /input/model
+  data: /input/data
+  output: /output

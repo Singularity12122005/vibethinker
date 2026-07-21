@@ -1,0 +1,2 @@
+{"id":"synthetic_math_1","domain":"math","problem":"What is 2 + 3?","answer":"5","verifier":"math_equivalence","source_dataset":"synthetic_example","source_id":"1"}
+{"id":"synthetic_code_1","domain":"code","problem":"Read one integer and print it.","answer":"{\"inputs\":[\"7\\n\"],\"outputs\":[\"7\\n\"]}","tests":{"inputs":["7\n"],"outputs":["7\n"]},"verifier":"python_stdin_stdout_not_hardened_sandbox","source_dataset":"synthetic_example","source_id":"2"}

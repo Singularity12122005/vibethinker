@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/vibethinker/scored-result.schema.json",
+  "title": "Immutable scored result",
+  "type": "object",
+  "required": [
+    "panel_id",
+    "domain",
+    "panel_sha256",
+    "generation_sha256",
+    "capability_score",
+    "visible_capability_score",
+    "format_score",
+    "end_to_end_score",
+    "context_limit_hit_score",
+    "judgment_score"
+  ],
+  "properties": {
+    "panel_id": {"type": "string", "minLength": 1},
+    "domain": {"enum": ["math", "code", "stem", "ifc", "knowledge"]},
+    "panel_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "generation_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "capability_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "visible_capability_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "format_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "end_to_end_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "context_limit_hit_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "judgment_score": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+  }
+}

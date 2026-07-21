@@ -1,0 +1,21 @@
+schema_version: 1
+upstream:
+  repository: https://github.com/vllm-project/vllm.git
+  tag: v0.19.0
+  license: Apache-2.0
+
+patches:
+  - file: 0001-resilient-network-allocation.patch
+    sha256: 6855c5d12ab96153ae89e8295eb6a2377a40cd2b68b116de364cbbaf3752b951
+    changed_files:
+      - vllm/utils/network_utils.py
+    purpose:
+      - retry transient psutil virtual-memory parsing failures
+      - serialize colocated engine port allocation with a host-local counter
+    provenance: >-
+      reconstructed from the runtime bootstrap edits against the public
+      v0.19.0 network_utils.py source
+    status: reviewable-parse-checked-not-apply-checked
+    limitation: >-
+      no clean vLLM v0.19.0 checkout was present locally, so exact
+      `git apply --check` verification could not be performed

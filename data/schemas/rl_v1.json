@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rl_v1.json",
+  "title": "VibeThinker RLVR record",
+  "type": "object",
+  "required": ["domain", "problem", "answer", "verifier"],
+  "properties": {
+    "id": {"type": "string"},
+    "domain": {"enum": ["math", "code", "stem"]},
+    "problem": {"type": "string", "minLength": 1},
+    "answer": {"type": "string"},
+    "verifier": {
+      "enum": [
+        "math_equivalence",
+        "multiple_choice_exact",
+        "python_stdin_stdout_not_hardened_sandbox"
+      ]
+    },
+    "tests": {
+      "type": "object",
+      "required": ["inputs", "outputs"],
+      "properties": {
+        "inputs": {"type": "array", "items": {"type": "string"}},
+        "outputs": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "problem_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_dataset": {"type": "string"},
+    "source_id": {"type": "string"},
+    "topic": {"type": "string"},
+    "difficulty_tier": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"domain": {"const": "code"}}},
+      "then": {"required": ["tests"]}
+    }
+  ],
+  "additionalProperties": true
+}

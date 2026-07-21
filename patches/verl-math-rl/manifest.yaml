@@ -1,0 +1,29 @@
+schema_version: 1
+upstream:
+  repository: https://github.com/volcengine/verl.git
+  baseline: v0.8.0
+
+patches:
+  - id: checkpoint-schedule-and-commit-marker
+    file: 0001-checkpoint-schedule-and-commit-marker.patch
+    sha256: 270375eae363070fbac6e373e06ff432640245cf1b5e914264b88ec65fbf489f
+    status: apply-checked-against-v0.8.0
+  - id: qwen25-package-import
+    file: 0002-qwen25-package-import.patch
+    sha256: 6605105b2881da3a8841d63e2869d4d1e99a4918cc80bc9b50b275c6bcccf822
+    status: apply-checked-after-common-patch
+  - id: qwen35-package-import
+    file: 0002-qwen35-package-import.patch
+    sha256: b8fe2b2c2c1e53594076b5f9928fde8ae99d6353a11659c75069419fbb06ad38
+    status: apply-checked-after-common-patch
+
+qwen35_documented_only:
+  - release-backward-cache-before-rollout-wakeup
+  - cuda-hybrid-sleep-level-two
+  - text-only-position-ids-and-chat-stop-token
+  - ulysses-global-shift-labels
+  - chunked-fused-linear-label-alignment
+
+limitations:
+  - All three patches passed exact apply-check against clean upstream v0.8.0.
+  - Documented-only Qwen3.5 runtime behaviors are not represented as fabricated diffs.

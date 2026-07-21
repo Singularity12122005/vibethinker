@@ -1,0 +1,89 @@
+schema_version: 1
+resolved_config: openthinker3-skywork-rl-v1
+formal_runtime_id: REQUIRED_FROM_RUN_MANIFEST
+
+upstream:
+  verl_commit: 7aed6b230776f963fa09509c10d9c3a767d1102c
+  vllm_version: 0.19.0
+model:
+  repository: open-thoughts/OpenThinker3-1.5B
+  revision: 0ee90a38b29bfac8b8b005da9ae32c59e2943785
+data:
+  archive_sha256: c7f7729f91456f38b400763ee82f9e417d8c8adf2e20d5c360eab2bd45dbc127
+  rows_per_epoch: 42000
+  epochs: 5
+  batch_size: 160
+  seed: 20260721
+  max_prompt_length: 4096
+  drop_last: false
+  truncation: error
+rollout:
+  group_size: 16
+  max_response_length: 28672
+  max_model_length: 32768
+  temperature: 1.1
+  top_p: 1.0
+  top_k: -1
+  tensor_parallel_size: 1
+  data_parallel_size: 1
+  gpu_memory_utilization: 0.55
+  max_num_batched_tokens: 32768
+  max_num_seqs: 32
+algorithm:
+  advantage_estimator: grpo
+  normalize_advantage_by_std: true
+  reject_constant_groups: true
+  replace_rejected_groups: false
+  loss_aggregation: token-mean
+  clip_ratio_low: 0.2
+  clip_ratio_high: 0.28
+  dual_clip_c: 10.0
+  use_kl_reward: false
+  use_kl_loss: false
+  adaptive_entropy:
+    target: 0.2
+    initial_coefficient: 0.0
+    minimum_coefficient: 0.0
+    maximum_coefficient: 0.005
+    delta: 0.0001
+actor:
+  strategy: fsdp2
+  fsdp_size: 1
+  learning_rate: 1.0e-6
+  warmup_steps: 0
+  weight_decay: 0.01
+  ppo_epochs: 1
+  dynamic_batching: true
+  max_tokens_per_gpu: 32768
+  gradient_checkpointing: true
+  remove_padding: true
+resources:
+  nodes: 4
+  gpus_per_node: 8
+  minimum_gpu_memory_mib: 80000
+reward:
+  manager: naive
+  process_workers: 16
+  ray_workers: 4
+  verifier_timeout_seconds: 330
+  code_case_timeout_seconds: 6
+  maximum_infrastructure_failure_ratio: 0.01
+checkpoint:
+  save_first_step: true
+  save_frequency: 50
+  save_epoch_boundaries: true
+  replicated_data_parallel: true
+  completion_marker: metadata/COMMITTED
+runtime_environment:
+  VT_FORMAL_RUNTIME: "1"
+  VT_REPLICATED_DP_CHECKPOINT: "1"
+  VT_SAVE_FIRST_STEP_CHECKPOINT: "1"
+  VT_ADAPTIVE_ENTROPY_ENABLED: "1"
+  VT_ENTROPY_COEFF: "0"
+  VT_ENTROPY_TARGET: "0.2"
+  VT_ENTROPY_MIN_COEFF: "0"
+  VT_ENTROPY_MAX_COEFF: "0.005"
+  VT_ENTROPY_DELTA: "0.0001"
+  VT_REWARD_WORKERS: "16"
+  VT_VERIFIER_TIMEOUT_SECONDS: "330"
+  VT_CODE_CASE_TIMEOUT_SECONDS: "6"

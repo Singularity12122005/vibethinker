@@ -1,0 +1,10 @@
+# Example only. A formal run must pair this with a separately supplied,
+# privately controlled panel manifest and panel file.
+profile_id: formal-example-128k-v1
+mode: formal
+context_tokens: 131072
+generation_cap_tokens: 131072
+temperature: 0.0
+top_p: 0.95
+seed: 1
+require_judgments: true

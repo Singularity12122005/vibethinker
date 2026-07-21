@@ -1,0 +1,11 @@
+panel_name: synthetic-five-domain-toy
+panel_version: "1"
+mode: toy
+panel_sha256: 5a3f480e9155baae084c0c39eddecdb6b351c3bbfd3771c3c4b15a710e40fadb
+row_count: 5
+domains:
+  - math
+  - code
+  - stem
+  - ifc
+  - knowledge

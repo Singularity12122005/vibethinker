@@ -1,0 +1,68 @@
+diff --git a/verl/trainer/ppo/ray_trainer.py b/verl/trainer/ppo/ray_trainer.py
+index d1eaa7b..1159217 100644
+--- a/verl/trainer/ppo/ray_trainer.py
++++ b/verl/trainer/ppo/ray_trainer.py
+@@ -71,6 +71,11 @@ from verl.utils.tracking import ValidationGenerationsLogger
+ from verl.workers.config import DistillationConfig, EngineConfig
+ from verl.workers.rollout.llm_server import LLMServerManager
+ from verl.workers.utils.padding import left_right_2_no_padding, no_padding_2_padding
++from vibethinker_checkpoint_adapter import (
++    mark_checkpoint_committed,
++    should_save_training_checkpoint,
++    validate_committed_checkpoint,
++)
+ 
+ 
+ def apply_kl_penalty(data: DataProto, kl_ctrl: core_algos.AdaptiveKLController, kl_penalty="kl"):
+@@ -1037,6 +1042,8 @@ class RayPPOTrainer:
+         local_latest_checkpointed_iteration = os.path.join(
+             self.config.trainer.default_local_dir, "latest_checkpointed_iteration.txt"
+         )
++        marker = mark_checkpoint_committed(local_global_step_folder, self.global_steps)
++        print(f"checkpoint committed: {marker}")
+         with open(local_latest_checkpointed_iteration, "w") as f:
+             f.write(str(self.global_steps))
+ 
+@@ -1069,6 +1076,7 @@ class RayPPOTrainer:
+                 if not os.path.isabs(global_step_folder):
+                     working_dir = os.getcwd()
+                     global_step_folder = os.path.join(working_dir, global_step_folder)
++        validate_committed_checkpoint(global_step_folder)
+         print(f"Load from checkpoint folder: {global_step_folder}")
+         # set global step
+         self.global_steps = int(global_step_folder.split("global_step_")[-1])
+@@ -1655,17 +1663,29 @@ class RayPPOTrainer:
+                         )
+                         # Check if the conditions for saving a checkpoint are met.
+                         # The conditions include a mandatory condition (1) and
+-                        # one of the following optional conditions (2/3/4):
++                        # one of the following optional conditions (2/3/4/5):
+                         # 1. The save frequency is set to a positive value.
+                         # 2. It's the last training step.
+                         # 3. The current step number is a multiple of the save frequency.
+                         # 4. The ESI(Elastic Server Instance)/training plan is close to expiration.
+-                        if self.config.trainer.save_freq > 0 and (
+-                            is_last_step
+-                            or self.global_steps % self.config.trainer.save_freq == 0
+-                            or esi_close_to_expiration
++                        # 5. The current step is the end of an epoch.
++                        steps_per_epoch = len(self.train_dataloader)
++                        epoch_boundary = (
++                            steps_per_epoch > 0 and self.global_steps % steps_per_epoch == 0
++                        )
++                        if should_save_training_checkpoint(
++                            global_steps=self.global_steps,
++                            save_freq=self.config.trainer.save_freq,
++                            steps_per_epoch=steps_per_epoch,
++                            is_last_step=is_last_step,
++                            esi_close_to_expiration=esi_close_to_expiration,
+                         ):
+                             if esi_close_to_expiration:
+                                 print("Force saving checkpoint: ESI instance expiration approaching.")
++                            elif epoch_boundary and self.global_steps % self.config.trainer.save_freq != 0:
++                                print(
++                                    "Saving checkpoint at epoch boundary: "
++                                    f"global_steps={self.global_steps}, steps_per_epoch={steps_per_epoch}."
++                                )
+                             with marked_timer("save_checkpoint", timing_raw, color="green"):
+                                 self._save_checkpoint()

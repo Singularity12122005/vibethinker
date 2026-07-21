@@ -1,0 +1,57 @@
+schema_version: 1
+recipe: qwen25_three_domain_15k
+
+model:
+  family: Qwen2.5-Coder-3B
+  path: null
+  attention_implementation: sdpa
+
+data:
+  path: null
+  rows: 15000
+  domains:
+    math: 5000
+    code: 5000
+    general: 5000
+  protocol: "<think>reasoning</think>visible_answer"
+  max_seq_length: 32768
+  observed_max_chat_tokens: 29967
+  truncation: error
+  packing: false
+  deterministic_seed: 20260710
+  lineage:
+    math: hard-clean verified math selection
+    code: executable-test-verified code selection converted to visible-after-think
+    general: native thinking-teacher distillation from clean prompt-only pools
+  benchmark_audit:
+    status: requires_re_adjudication
+    high_confidence_near_duplicates: 4
+    zero_contamination_claim: false
+
+training:
+  epochs: 10
+  steps_per_epoch: 118
+  planned_optimizer_steps: 1180
+  completed_boundary: epoch_10
+  selected_epoch_for_rl: 1
+  selected_step_for_rl: 118
+  assistant_only_loss: true
+  per_device_batch_size: 1
+  gradient_accumulation_steps: 16
+  effective_global_batch_size: 128
+  learning_rate: 0.00005
+  min_learning_rate: 0.00000008
+  warmup_ratio: 0.05
+  logging_steps: 5
+  save_strategy: epoch
+  save_total_limit: 20
+  dataloader_num_workers: 2
+  seed: 20260710
+  precision: bfloat16
+  gradient_checkpointing: true
+
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.0
+  target_modules: all-linear

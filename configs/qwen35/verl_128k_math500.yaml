@@ -1,0 +1,7 @@
+schema_version: 1
+extends: verl_128k_base.yaml
+experiment: qwen35-2b-verl-128k-math500
+data:
+  variant: Math500
+hydra_overrides:
+  trainer.experiment_name: qwen35_128k_math500

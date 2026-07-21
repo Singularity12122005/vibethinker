@@ -1,0 +1,19 @@
+schema_version: 1
+kind: verl
+platform:
+  cli: trisol
+  job_name: <job-name>
+  base_model: <model-resource>
+  dataset: <dataset-resource>
+  cluster: <cluster-name>
+  image: <public-or-authorized-image>
+  team: <optional-team>
+resources:
+  nodes: 2
+  gpus_per_node: 8
+  gpu_model: <gpu-model>
+paths:
+  experiment_config: /workspace/configs/qwen35/verl_128k_math500.yaml
+  model: /input/runtime-model
+  data: /input/train.parquet
+  output: /output

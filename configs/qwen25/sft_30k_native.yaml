@@ -1,0 +1,56 @@
+schema_version: 1
+recipe: qwen25_native_teacher_30k
+
+model:
+  family: Qwen2.5-Coder-3B
+  path: null
+  attention_implementation: sdpa
+
+data:
+  path: null
+  rows: 30000
+  domains:
+    math: 10000
+    code: 10000
+    general: 10000
+  protocol: "<think>reasoning</think>visible_answer"
+  max_seq_length: 32768
+  observed_max_chat_tokens: 16695
+  truncation: error
+  packing: false
+  deterministic_seed: 20260714
+  lineage:
+    math: original prompts and golds, regenerated native teacher channels, rule verified
+    code: retained executable tests or deterministic verified backfills, execution verified
+    general: native teacher channels, reference-guided judge verified
+  benchmark_audit:
+    status: insufficient_full_dataset_evidence
+    zero_contamination_claim: false
+
+training:
+  epochs: 10
+  steps_per_epoch: 235
+  planned_optimizer_steps: 2350
+  completed_boundary: epoch_10
+  selected_epoch_for_rl: 5
+  selected_step_for_rl: 1175
+  assistant_only_loss: true
+  per_device_batch_size: 1
+  gradient_accumulation_steps: 16
+  effective_global_batch_size: 128
+  learning_rate: 0.00005
+  min_learning_rate: 0.00000008
+  warmup_ratio: 0.05
+  logging_steps: 5
+  save_strategy: epoch
+  save_total_limit: 20
+  dataloader_num_workers: 2
+  seed: 20260714
+  precision: bfloat16
+  gradient_checkpointing: true
+
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.0
+  target_modules: all-linear

@@ -1,0 +1,145 @@
+schema_version: 1
+recipe: qwen25_shared_math500_64k
+
+verl:
+  baseline: v0.8.0
+  entrypoint: verl.trainer.main_ppo
+
+model:
+  input: selected_sft_adapter_merged_into_base
+  reference_policy: merged_sft_policy_with_rl_adapter_disabled
+  rl_adapter: fresh_lora
+  lora_rank: 16
+  lora_alpha: 32
+  lora_dropout: 0.0
+  target_modules: all-linear
+
+data:
+  path: null
+  prompt_rows: 500
+  shared_between_sft_branches: true
+  prompt_contract: single_clean_user_message
+  max_prompt_length: 768
+  max_response_length: 64768
+  truncation: error
+  train_batch_size: 16
+
+cluster:
+  nodes: 2
+  gpus_per_node: 8
+  gpu_class: A100-80GB
+
+actor:
+  strategy: fsdp2
+  learning_rate: 0.000001
+  ppo_mini_batch_size: 16
+  ppo_epochs: 1
+  sequence_parallel_size: 4
+  dynamic_batching: true
+  loss_aggregation: token-mean
+  clip_ratio_low: 0.2
+  clip_ratio_high: 0.28
+  kl_loss: true
+  kl_loss_coefficient: 0.01
+  kl_loss_type: low_var_kl
+
+rollout:
+  engine: vllm
+  mode: async
+  group_size: 8
+  temperature: 1.0
+  top_p: 0.95
+  tensor_model_parallel_size: 1
+  data_parallel_size: 2
+  max_model_len: 65536
+  max_num_batched_tokens: 65536
+  max_num_seqs: 16
+  chunked_prefill: true
+  prefix_caching: true
+
+reward:
+  kind: rule_verified_math
+  format_progress: [0.0, 0.1, 0.2, 0.3]
+  correct_protocol_reward: 1.0
+  overlong_soft_start_tokens: 60000
+  overlong_floor: 0.7
+  hard_limit_reward: 0.0
+
+training:
+  epochs: 5
+  steps_per_epoch: 31
+  planned_steps: 155
+  epoch_boundaries: [31, 62, 93, 124, 155]
+  formal_completed_boundary: epoch_1
+  completed_panels: [capability, health]
+  full_five_epoch_completion_claim: false
+
+hydra_overrides:
+  algorithm.adv_estimator: grpo
+  algorithm.use_kl_in_reward: false
+  algorithm.norm_adv_by_std_in_grpo: true
+  data.train_files: "{train_file}"
+  data.val_files: "{train_file}"
+  data.train_batch_size: 16
+  data.max_prompt_length: 768
+  data.max_response_length: 64768
+  data.filter_overlong_prompts: true
+  data.truncation: error
+  actor_rollout_ref.model.path: "{model_path}"
+  actor_rollout_ref.model.lora_rank: 16
+  actor_rollout_ref.model.lora_alpha: 32
+  actor_rollout_ref.model.target_modules: all-linear
+  actor_rollout_ref.model.use_remove_padding: true
+  actor_rollout_ref.model.enable_gradient_checkpointing: true
+  actor_rollout_ref.actor.strategy: fsdp2
+  actor_rollout_ref.actor.optim.lr: 0.000001
+  actor_rollout_ref.actor.optim.lr_warmup_steps: 0
+  actor_rollout_ref.actor.optim.weight_decay: 0.0
+  actor_rollout_ref.actor.ppo_mini_batch_size: 16
+  actor_rollout_ref.actor.ppo_epochs: 1
+  actor_rollout_ref.actor.shuffle: false
+  actor_rollout_ref.actor.policy_loss.loss_mode: vanilla
+  actor_rollout_ref.actor.loss_agg_mode: token-mean
+  actor_rollout_ref.actor.clip_ratio_low: 0.2
+  actor_rollout_ref.actor.clip_ratio_high: 0.28
+  actor_rollout_ref.actor.use_dynamic_bsz: true
+  actor_rollout_ref.actor.ppo_max_token_len_per_gpu: 65536
+  actor_rollout_ref.actor.use_kl_loss: true
+  actor_rollout_ref.actor.kl_loss_coef: 0.01
+  actor_rollout_ref.actor.kl_loss_type: low_var_kl
+  actor_rollout_ref.actor.entropy_coeff: 0
+  actor_rollout_ref.actor.ulysses_sequence_parallel_size: 4
+  actor_rollout_ref.actor.fsdp_config.param_offload: false
+  actor_rollout_ref.actor.fsdp_config.optimizer_offload: false
+  actor_rollout_ref.rollout.name: vllm
+  actor_rollout_ref.rollout.mode: async
+  actor_rollout_ref.rollout.tensor_model_parallel_size: 1
+  actor_rollout_ref.rollout.data_parallel_size: 2
+  actor_rollout_ref.rollout.n: 8
+  actor_rollout_ref.rollout.temperature: 1.0
+  actor_rollout_ref.rollout.top_p: 0.95
+  actor_rollout_ref.rollout.top_k: -1
+  actor_rollout_ref.rollout.max_model_len: 65536
+  actor_rollout_ref.rollout.max_num_batched_tokens: 65536
+  actor_rollout_ref.rollout.max_num_seqs: 16
+  actor_rollout_ref.rollout.enable_chunked_prefill: true
+  actor_rollout_ref.rollout.enable_prefix_caching: true
+  actor_rollout_ref.ref.strategy: fsdp2
+  actor_rollout_ref.ref.log_prob_max_token_len_per_gpu: 65536
+  reward.num_workers: 8
+  reward.custom_reward_function.path: "{reward_path}"
+  reward.custom_reward_function.name: compute_score
+  reward.reward_manager.source: importlib
+  reward.reward_manager.name: VibeThinkerMathRewardManager
+  reward.reward_manager.module.path: "{reward_manager_path}"
+  trainer.balance_batch: true
+  trainer.logger: '["console"]'
+  trainer.default_local_dir: "{output_dir}"
+  trainer.resume_mode: auto
+  trainer.n_gpus_per_node: 8
+  trainer.nnodes: 2
+  trainer.val_before_train: false
+  trainer.test_freq: -1
+  trainer.save_freq: 31
+  trainer.total_epochs: 5
+  trainer.total_training_steps: 155

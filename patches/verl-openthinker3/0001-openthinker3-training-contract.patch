@@ -1,0 +1,541 @@
+diff --git a/verl/experimental/agent_loop/agent_loop.py b/verl/experimental/agent_loop/agent_loop.py
+index 268f8d5..7a88af5 100644
+--- a/verl/experimental/agent_loop/agent_loop.py
++++ b/verl/experimental/agent_loop/agent_loop.py
+@@ -339,21 +339,10 @@ class AgentLoopBase(ABC):
+         # aligned 1:1 with ``multi_modal_inputs`` features, so we fail loudly instead.
+         prompt_length = self.rollout_config.prompt_length
+         if len(prompt_ids) > prompt_length:
+-            if images or videos or audios:
+-                raise ValueError(
+-                    f"Multimodal prompt produced {len(prompt_ids)} tokens, exceeding "
+-                    f"rollout.prompt_length={prompt_length}. Truncating multimodal token "
+-                    f"sequences corrupts vision/audio feature alignment, so this is treated "
+-                    f"as a configuration error. Reduce the multimodal input size "
+-                    f"(e.g. ``total_pixels`` / ``max_pixels`` / fps / number of frames) or "
+-                    f"increase ``rollout.prompt_length``."
+-                )
+-            logger.warning(
+-                "Prompt of %d tokens exceeds rollout.prompt_length=%d; left-truncating.",
+-                len(prompt_ids),
+-                prompt_length,
++            raise ValueError(
++                f"Prompt produced {len(prompt_ids)} tokens, exceeding "
++                f"rollout.prompt_length={prompt_length}; prompt truncation is forbidden."
+             )
+-            prompt_ids = prompt_ids[-prompt_length:]
+ 
+         return prompt_ids
+ 
+diff --git a/verl/trainer/ppo/ray_trainer.py b/verl/trainer/ppo/ray_trainer.py
+index d1eaa7b..d64ae33 100644
+--- a/verl/trainer/ppo/ray_trainer.py
++++ b/verl/trainer/ppo/ray_trainer.py
+@@ -72,6 +72,18 @@ from verl.workers.config import DistillationConfig, EngineConfig
+ from verl.workers.rollout.llm_server import LLMServerManager
+ from verl.workers.utils.padding import left_right_2_no_padding, no_padding_2_padding
+ 
++from vibethinker_experiments.openthinker3.algorithm import (
++    AdaptiveEntropyController,
++    filter_parallel_values,
++    select_nonconstant_group_indices,
++)
++from vibethinker_experiments.openthinker3.checkpoint import (
++    mark_checkpoint_committed,
++    should_save_checkpoint,
++    validate_replicated_actor_checkpoint,
++    validate_replicated_resume_checkpoint,
++)
++
+ 
+ def apply_kl_penalty(data: DataProto, kl_ctrl: core_algos.AdaptiveKLController, kl_penalty="kl"):
+     """Apply KL penalty to the token-level rewards.
+@@ -366,6 +378,38 @@ class RayPPOTrainer:
+ 
+         self.use_prefix_grouper = self.config.actor_rollout_ref.actor.get("use_prefix_grouper", False)
+ 
++        formal_runtime_env = {
++            "VT_FORMAL_RUNTIME": "1",
++            "VT_REPLICATED_DP_CHECKPOINT": "1",
++            "VT_SAVE_FIRST_STEP_CHECKPOINT": "1",
++            "VT_ADAPTIVE_ENTROPY_ENABLED": "1",
++            "VT_ENTROPY_COEFF": "0",
++            "VT_ENTROPY_TARGET": "0.2",
++            "VT_ENTROPY_MIN_COEFF": "0",
++            "VT_ENTROPY_MAX_COEFF": "0.005",
++            "VT_ENTROPY_DELTA": "0.0001",
++        }
++        formal_runtime_mismatches = {
++            key: {"expected": value, "actual": os.environ.get(key)}
++            for key, value in formal_runtime_env.items()
++            if os.environ.get(key) != value
++        }
++        if formal_runtime_mismatches:
++            raise RuntimeError(
++                f"formal trainer runtime environment mismatch: {formal_runtime_mismatches}"
++            )
++        print(f"[formal-runtime] environment validated: {formal_runtime_env}")
++
++        self.adaptive_entropy = None
++        if os.environ.get("VT_ADAPTIVE_ENTROPY_ENABLED", "0") == "1":
++            self.adaptive_entropy = AdaptiveEntropyController(
++                value=float(os.environ.get("VT_ENTROPY_COEFF", "0")),
++                target_entropy=float(os.environ.get("VT_ENTROPY_TARGET", "0.2")),
++                min_value=float(os.environ.get("VT_ENTROPY_MIN_COEFF", "0")),
++                max_value=float(os.environ.get("VT_ENTROPY_MAX_COEFF", "0.005")),
++                delta=float(os.environ.get("VT_ENTROPY_DELTA", "0.0001")),
++            )
++
+         self._create_dataloader(train_dataset, val_dataset, collate_fn, train_sampler)
+ 
+         self.checkpoint_manager = None
+@@ -409,7 +453,8 @@ class RayPPOTrainer:
+             dataset=self.train_dataset,
+             batch_size=self.config.data.get("gen_batch_size", self.config.data.train_batch_size),
+             num_workers=num_workers,
+-            drop_last=True,
++            # One epoch means every queued prompt is scheduled exactly once.
++            drop_last=False,
+             collate_fn=collate_fn,
+             sampler=train_sampler,
+         )
+@@ -1034,11 +1079,31 @@ class RayPPOTrainer:
+         ):
+             print("skip write latest_checkpointed_iteration.txt when async_save is True")
+             return
++        if self.adaptive_entropy is not None:
++            entropy_state_path = os.path.join(local_global_step_folder, "adaptive_entropy.json")
++            with open(entropy_state_path, "w", encoding="utf-8") as f:
++                json.dump(self.adaptive_entropy.state_dict(), f, sort_keys=True)
++                f.write("\n")
++
++        steps_per_epoch = len(self.train_dataloader)
++        completed_epoch = self.global_steps // steps_per_epoch if self.global_steps % steps_per_epoch == 0 else None
++        if os.environ.get("VT_REPLICATED_DP_CHECKPOINT") == "1":
++            validate_replicated_actor_checkpoint(
++                local_global_step_folder,
++                self.resource_pool_manager.get_n_gpus(),
++            )
++        marker = mark_checkpoint_committed(local_global_step_folder, self.global_steps, completed_epoch)
++        print(f"checkpoint committed: {marker}")
++
+         local_latest_checkpointed_iteration = os.path.join(
+             self.config.trainer.default_local_dir, "latest_checkpointed_iteration.txt"
+         )
+-        with open(local_latest_checkpointed_iteration, "w") as f:
++        tracker_tmp = f"{local_latest_checkpointed_iteration}.tmp"
++        with open(tracker_tmp, "w", encoding="ascii") as f:
+             f.write(str(self.global_steps))
++            f.flush()
++            os.fsync(f.fileno())
++        os.replace(tracker_tmp, local_latest_checkpointed_iteration)
+ 
+     def _load_checkpoint(self):
+         if self.config.trainer.resume_mode == "disable":
+@@ -1076,6 +1141,16 @@ class RayPPOTrainer:
+         print(f"Setting global step to {self.global_steps}")
+         print(f"Resuming from {global_step_folder}")
+ 
++        if os.environ.get("VT_REPLICATED_DP_CHECKPOINT") == "1":
++            validated_step = validate_replicated_resume_checkpoint(
++                global_step_folder,
++                self.resource_pool_manager.get_n_gpus(),
++            )
++            if validated_step != self.global_steps:
++                raise RuntimeError(
++                    f"resume step mismatch: path={self.global_steps}, metadata={validated_step}"
++                )
++
+         actor_path = os.path.join(global_step_folder, "actor")
+         critic_path = os.path.join(global_step_folder, str(Role.Critic))
+         # load actor
+@@ -1107,6 +1182,14 @@ class RayPPOTrainer:
+         else:
+             print(f"Warning: No dataloader state found at {dataloader_local_path}, will start from scratch")
+ 
++        if self.adaptive_entropy is not None:
++            entropy_state_path = os.path.join(global_step_folder, "adaptive_entropy.json")
++            if not os.path.exists(entropy_state_path):
++                raise RuntimeError(f"missing adaptive entropy state: {entropy_state_path}")
++            with open(entropy_state_path, encoding="utf-8") as f:
++                self.adaptive_entropy.load_state_dict(json.load(f))
++            print(f"restored adaptive entropy state: {self.adaptive_entropy.state_dict()}")
++
+     def _start_profiling(self, do_profile: bool) -> None:
+         """Start profiling for all worker groups if profiling is enabled."""
+         if do_profile:
+@@ -1214,6 +1297,7 @@ class RayPPOTrainer:
+             seqlen_list=global_seqlen_lst.tolist(), partitions=global_partition_lst, prefix=logging_prefix
+         )
+         metrics.update(global_balance_stats)
++        return global_idx
+ 
+     def _compute_values(self, batch: DataProto) -> DataProto:
+         batch_td = batch.to_tensordict()
+@@ -1259,6 +1343,16 @@ class RayPPOTrainer:
+         batch_td = batch.to_tensordict()
+         # step 2: convert from padding to nopadding
+         batch_td = left_right_2_no_padding(batch_td)
++        old_logprob_temperature_value = tu.get_non_tensor_data(batch_td, key="temperature", default=None)
++        if old_logprob_temperature_value is None:
++            raise RuntimeError("rollout batch is missing temperature metadata")
++        old_logprob_temperature = float(old_logprob_temperature_value)
++        rollout_temperature = float(self.config.actor_rollout_ref.rollout.temperature)
++        if old_logprob_temperature != rollout_temperature:
++            raise RuntimeError(
++                "old-policy logprob temperature mismatch: "
++                f"batch={old_logprob_temperature}, rollout={rollout_temperature}"
++            )
+         # step 3: add meta info
+         calculate_sum_pi_squared = self.config.actor_rollout_ref.actor.get("calculate_sum_pi_squared", False)
+         tu.assign_non_tensor(
+@@ -1299,7 +1393,7 @@ class RayPPOTrainer:
+         batch_td = batch.to_tensordict()
+         # step 2: convert from padding to no-padding
+         batch_td = left_right_2_no_padding(batch_td)
+-        calculate_entropy = self.config.actor_rollout_ref.actor.calculate_entropy or (
++        calculate_entropy = self.adaptive_entropy is not None or self.config.actor_rollout_ref.actor.calculate_entropy or (
+             self.config.actor_rollout_ref.actor.entropy_coeff != 0.0
+         )
+         distillation_use_topk = (
+@@ -1307,14 +1401,16 @@ class RayPPOTrainer:
+             if is_distillation_enabled(self.config.get("distillation"))
+             else False
+         )
+-        ppo_mini_batch_size = self.config.actor_rollout_ref.actor.ppo_mini_batch_size
+-        ppo_mini_batch_size = ppo_mini_batch_size * self.config.actor_rollout_ref.rollout.n
++        # Group filtering shrinks the rollout batch. The actual retained
++        # trajectory count is one global mini-batch and therefore one update.
++        ppo_mini_batch_size = len(batch)
+         ppo_epochs = self.config.actor_rollout_ref.actor.ppo_epochs
+         seed = self.config.actor_rollout_ref.actor.data_loader_seed
+         shuffle = self.config.actor_rollout_ref.actor.shuffle
+         tu.assign_non_tensor(
+             batch_td,
+             calculate_entropy=calculate_entropy,
++            adaptive_entropy_coeff=(self.adaptive_entropy.realized_value if self.adaptive_entropy is not None else None),
+             distillation_use_topk=distillation_use_topk,
+             global_batch_size=ppo_mini_batch_size,
+             mini_batch_size=ppo_mini_batch_size,
+@@ -1524,6 +1620,53 @@ class RayPPOTrainer:
+                         # extract reward_tensor and reward_extra_infos_dict for training
+                         reward_tensor, reward_extra_infos_dict = extract_reward(batch)
+ 
++                        verifier_ok = reward_extra_infos_dict.get("verifier_ok", [])
++                        verifier_failures = sum(not bool(value) for value in verifier_ok)
++                        verifier_failure_ratio = (
++                            verifier_failures / len(verifier_ok) if len(verifier_ok) else 0.0
++                        )
++                        metrics["reward/verifier_failure_ratio"] = verifier_failure_ratio
++                        if verifier_failure_ratio > 0.01:
++                            raise RuntimeError(
++                                "verifier infrastructure failure ratio exceeded 1%: "
++                                f"{verifier_failures}/{len(verifier_ok)}"
++                            )
++
++                        skip_actor_update = False
++                        selected, filter_metrics = select_nonconstant_group_indices(
++                            batch.non_tensor_batch["uid"],
++                            reward_tensor.sum(dim=-1).detach().cpu().tolist(),
++                            group_size=self.config.actor_rollout_ref.rollout.n,
++                            world_size=self.resource_pool_manager.get_n_gpus(),
++                        )
++                        metrics.update(filter_metrics)
++                        if not selected:
++                            # Every prompt still counts toward the epoch. A fully
++                            # constant batch has zero GRPO signal, so skip only
++                            # the optimizer update and keep step/checkpoint state.
++                            skip_actor_update = True
++                        elif len(selected) != len(batch):
++                            batch = batch[np.asarray(selected, dtype=np.int64)]
++                            reward_tensor = reward_tensor[selected]
++                            reward_extra_infos_dict = {
++                                key: filter_parallel_values(values, selected)
++                                for key, values in reward_extra_infos_dict.items()
++                            }
++                            if self.config.trainer.balance_batch:
++                                reward_permutation = self._balance_batch(
++                                    batch, metrics=metrics, logging_prefix="filtered_seqlen"
++                                )
++                                reward_tensor = reward_tensor[
++                                    reward_permutation.to(reward_tensor.device)
++                                ]
++                                reward_extra_infos_dict = {
++                                    key: filter_parallel_values(values, reward_permutation.tolist())
++                                    for key, values in reward_extra_infos_dict.items()
++                                }
++                            batch.meta_info["global_token_num"] = torch.sum(
++                                batch.batch["attention_mask"], dim=-1
++                            ).tolist()
++
+                     # Operating Mode Selection:
+                     # - Bypass mode: Sets old_log_probs = rollout_log_probs (2 policies: π_rollout, π_θ)
+                     # - Decoupled mode: Recomputes old_log_probs as proximal anchor (3 policies: π_rollout, π_old, π_θ)
+@@ -1644,9 +1787,25 @@ class RayPPOTrainer:
+                         # Still in critic warmup, only update weights to wake up rollout replicas.
+                         self.checkpoint_manager.update_weights(self.global_steps)
+                     else:
+-                        # update actor
+-                        with marked_timer("update_actor", timing_raw, color="red"):
+-                            actor_output = self._update_actor(batch)
++                        if skip_actor_update:
++                            metrics["actor/update_skipped_constant_batch"] = 1.0
++                        else:
++                            with marked_timer("update_actor", timing_raw, color="red"):
++                                actor_output = self._update_actor(batch)
++                            actor_output_metrics = reduce_metrics(actor_output.meta_info["metrics"])
++                            metrics.update(actor_output_metrics)
++                            if self.adaptive_entropy is not None:
++                                entropy = float(metrics["actor/entropy"])
++                                coefficient_used = self.adaptive_entropy.realized_value
++                                self.adaptive_entropy.update(entropy)
++                                metrics["actor/adaptive_entropy_coeff_used"] = coefficient_used
++                                metrics["actor/adaptive_entropy_coeff_next"] = self.adaptive_entropy.value
++                                metrics["actor/adaptive_entropy_coeff_realized_next"] = (
++                                    self.adaptive_entropy.realized_value
++                                )
++                                metrics["actor/adaptive_entropy_loss_enabled_next"] = float(
++                                    self.adaptive_entropy.loss_enabled
++                                )
+ 
+                         # Check if the ESI (Elastic Server Instance)/training plan is close to expiration.
+                         esi_close_to_expiration = should_save_ckpt_esi(
+@@ -1655,18 +1814,34 @@ class RayPPOTrainer:
+                         )
+                         # Check if the conditions for saving a checkpoint are met.
+                         # The conditions include a mandatory condition (1) and
+-                        # one of the following optional conditions (2/3/4):
++                        # one of the following optional conditions (2/3/4/5):
+                         # 1. The save frequency is set to a positive value.
+                         # 2. It's the last training step.
+                         # 3. The current step number is a multiple of the save frequency.
+                         # 4. The ESI(Elastic Server Instance)/training plan is close to expiration.
+-                        if self.config.trainer.save_freq > 0 and (
+-                            is_last_step
+-                            or self.global_steps % self.config.trainer.save_freq == 0
+-                            or esi_close_to_expiration
++                        # 5. The current prompt epoch has completed.
++                        steps_per_epoch = len(self.train_dataloader)
++                        epoch_boundary = steps_per_epoch > 0 and self.global_steps % steps_per_epoch == 0
++                        save_first_step = (
++                            os.environ.get("VT_SAVE_FIRST_STEP_CHECKPOINT") == "1"
++                            and self.global_steps == 1
++                        )
++                        if save_first_step or should_save_checkpoint(
++                            global_step=self.global_steps,
++                            save_freq=self.config.trainer.save_freq,
++                            steps_per_epoch=steps_per_epoch,
++                            is_last_step=is_last_step,
++                            esi_close_to_expiration=esi_close_to_expiration,
+                         ):
+-                            if esi_close_to_expiration:
++                            if save_first_step:
++                                print("Saving first-step checkpoint to validate the complete archive path.")
++                            elif esi_close_to_expiration:
+                                 print("Force saving checkpoint: ESI instance expiration approaching.")
++                            elif epoch_boundary and self.global_steps % self.config.trainer.save_freq != 0:
++                                print(
++                                    "Saving checkpoint at epoch boundary: "
++                                    f"global_steps={self.global_steps}, steps_per_epoch={steps_per_epoch}."
++                                )
+                             with marked_timer("save_checkpoint", timing_raw, color="green"):
+                                 self._save_checkpoint()
+ 
+@@ -1674,9 +1849,6 @@ class RayPPOTrainer:
+                         with marked_timer("update_weights", timing_raw, color="red"):
+                             self.checkpoint_manager.update_weights(self.global_steps)
+ 
+-                        actor_output_metrics = reduce_metrics(actor_output.meta_info["metrics"])
+-                        metrics.update(actor_output_metrics)
+-
+                     # Log rollout generations if enabled
+                     rollout_data_dir = self.config.trainer.get("rollout_data_dir", None)
+                     if rollout_data_dir:
+diff --git a/verl/utils/checkpoint/checkpoint_manager.py b/verl/utils/checkpoint/checkpoint_manager.py
+index 9f48147..aaff866 100644
+--- a/verl/utils/checkpoint/checkpoint_manager.py
++++ b/verl/utils/checkpoint/checkpoint_manager.py
+@@ -222,6 +222,10 @@ def find_latest_ckpt_path(path, directory_format="global_step_{}"):
+     if not os.path.exists(ckpt_path):
+         print("Checkpoint does not exist: %s", ckpt_path)
+         return None
++    committed = os.path.join(ckpt_path, "metadata", "COMMITTED")
++    if not os.path.isfile(committed):
++        print("Checkpoint is not committed: %s", ckpt_path)
++        return None
+ 
+     print("Found checkpoint: %s", ckpt_path)
+     return ckpt_path
+diff --git a/verl/utils/checkpoint/fsdp_checkpoint_manager.py b/verl/utils/checkpoint/fsdp_checkpoint_manager.py
+index 38d22b5..1ee0181 100644
+--- a/verl/utils/checkpoint/fsdp_checkpoint_manager.py
++++ b/verl/utils/checkpoint/fsdp_checkpoint_manager.py
+@@ -52,6 +52,7 @@ class FSDPConfig:
+ 
+     FSDP_version: int
+     world_size: int
++    replicated_data_parallel: bool = False
+ 
+ 
+ class FSDPCheckpointManager(BaseCheckpointManager):
+@@ -98,6 +99,7 @@ class FSDPCheckpointManager(BaseCheckpointManager):
+             checkpoint_config=checkpoint_config,
+         )
+         self.trust_remote_code = trust_remote_code
++        self.replicated_data_parallel = bool(kwargs.pop("replicated_data_parallel", False))
+ 
+     def _get_lora_train_meta(self, unwrap_model):
+         peft_config = getattr(unwrap_model, "peft_config", None)
+@@ -159,7 +161,17 @@ class FSDPCheckpointManager(BaseCheckpointManager):
+                 "optimizer must be provided when checkpoint_contents.load includes ['optimizer']"
+             )
+ 
+-        # every rank download its own checkpoint
++        replicated_manifest = os.path.join(local_path, "replicated_data_parallel.json")
++        checkpoint_is_replicated = os.path.isfile(replicated_manifest)
++        if checkpoint_is_replicated and not self.replicated_data_parallel:
++            raise RuntimeError(
++                "a replicated data-parallel checkpoint requires fsdp_size=1"
++            )
++        state_rank = 0 if checkpoint_is_replicated else self.rank
++
++        # In pure data parallelism every rank has identical model and optimizer
++        # state. Compact checkpoints persist those tensors once on rank 0 while
++        # retaining rank-specific RNG state for deterministic resume.
+         state_dict_cfg = (
+             ShardedStateDictConfig(offload_to_cpu=True if is_cuda_available else False)
+             if self.should_load_model
+@@ -172,14 +184,14 @@ class FSDPCheckpointManager(BaseCheckpointManager):
+         )
+         with get_fsdp_state_ctx(self.model, StateDictType.SHARDED_STATE_DICT, state_dict_cfg, optim_cfg):
+             if self.should_load_model:
+-                remote_model_path = os.path.join(local_path, f"model_world_size_{self.world_size}_rank_{self.rank}.pt")
++                remote_model_path = os.path.join(local_path, f"model_world_size_{self.world_size}_rank_{state_rank}.pt")
+                 local_model_path = copy_to_local(remote_model_path)
+                 model_state_dict = torch.load(local_model_path, weights_only=False)
+                 self.model.load_state_dict(model_state_dict)
+                 log_with_rank(f"Loaded model from {remote_model_path}", rank=self.rank, logger=logger)
+ 
+             if self.should_load_optimizer:
+-                remote_optim_path = os.path.join(local_path, f"optim_world_size_{self.world_size}_rank_{self.rank}.pt")
++                remote_optim_path = os.path.join(local_path, f"optim_world_size_{self.world_size}_rank_{state_rank}.pt")
+                 local_optim_path = copy_to_local(remote_optim_path)
+                 optimizer_state_dict = torch.load(local_optim_path, weights_only=False)
+                 self.optimizer.load_state_dict(optimizer_state_dict)
+@@ -255,7 +267,9 @@ class FSDPCheckpointManager(BaseCheckpointManager):
+                 "optimizer must be provided when checkpoint_contents.save includes ['optimizer']"
+             )
+ 
+-        # every rank will save its own model and optim shard
++        # With fsdp_size=1 the FSDP dimension is unsharded and the 32 ranks are
++        # pure DDP replicas. Persist one model/optimizer copy instead of 32
++        # byte-identical copies; every rank still saves its own RNG state.
+         state_dict_cfg = ShardedStateDictConfig(offload_to_cpu=True if is_cuda_available else False)
+         optim_cfg = ShardedOptimStateDictConfig(offload_to_cpu=True if is_cuda_available else False)
+         with warnings.catch_warnings():
+@@ -267,13 +281,17 @@ class FSDPCheckpointManager(BaseCheckpointManager):
+ 
+                 if self.should_save_model:
+                     model_state_dict = self.model.state_dict()
+-                    torch.save(model_state_dict, model_path)
+-                    log_with_rank(f"Saved model to {os.path.abspath(model_path)}", rank=self.rank, logger=logger)
++                    if not self.replicated_data_parallel or self.rank == 0:
++                        torch.save(model_state_dict, model_path)
++                        log_with_rank(f"Saved model to {os.path.abspath(model_path)}", rank=self.rank, logger=logger)
++                    del model_state_dict
+ 
+                 if self.should_save_optimizer:
+                     optimizer_state_dict = self.optimizer.state_dict()
+-                    torch.save(optimizer_state_dict, optim_path)
+-                    log_with_rank(f"Saved optim to {os.path.abspath(optim_path)}", rank=self.rank, logger=logger)
++                    if not self.replicated_data_parallel or self.rank == 0:
++                        torch.save(optimizer_state_dict, optim_path)
++                        log_with_rank(f"Saved optim to {os.path.abspath(optim_path)}", rank=self.rank, logger=logger)
++                    del optimizer_state_dict
+ 
+                 if self.should_save_extra:
+                     lr_scheduler_state_dict = self.lr_scheduler.state_dict() if self.lr_scheduler is not None else None
+@@ -284,6 +302,16 @@ class FSDPCheckpointManager(BaseCheckpointManager):
+                     torch.save(extra_state_dict, extra_path)
+                     log_with_rank(f"Saved extra_state to {os.path.abspath(extra_path)}", rank=self.rank, logger=logger)
+ 
++        if self.replicated_data_parallel and self.rank == 0:
++            replicated_manifest = os.path.join(local_path, "replicated_data_parallel.json")
++            with open(replicated_manifest, "w", encoding="utf-8") as f:
++                json.dump(
++                    {"world_size": self.world_size, "model_optimizer_rank": 0},
++                    f,
++                    sort_keys=True,
++                )
++                f.write("\n")
++
+         if self.rank == 0:
+             # Save HF tokenizer/processor and model config on rank 0 to huggingface/ directory, no matter whether
+             # huggingface model is requested to be saved or not.
+@@ -330,6 +358,7 @@ class FSDPCheckpointManager(BaseCheckpointManager):
+             fsdp_config = FSDPConfig(
+                 FSDP_version=fsdp_version(self.model),
+                 world_size=self.world_size,
++                replicated_data_parallel=self.replicated_data_parallel,
+             )
+             with open(fsdp_config_path, "w") as f:
+                 json.dump(asdict(fsdp_config), f, indent=4)
+diff --git a/verl/workers/engine/fsdp/transformer_impl.py b/verl/workers/engine/fsdp/transformer_impl.py
+index 2c66c6a..f75e0f9 100644
+--- a/verl/workers/engine/fsdp/transformer_impl.py
++++ b/verl/workers/engine/fsdp/transformer_impl.py
+@@ -197,6 +197,7 @@ class FSDPEngine(BaseEngine):
+             processing_class=self.model_config.get_processor(),
+             checkpoint_config=self.checkpoint_config,
+             trust_remote_code=self.model_config.trust_remote_code,
++            replicated_data_parallel=self.engine_config.fsdp_size == 1,
+         )
+ 
+         self.to(
+diff --git a/verl/workers/engine_workers.py b/verl/workers/engine_workers.py
+index bf379b4..846ff9d 100644
+--- a/verl/workers/engine_workers.py
++++ b/verl/workers/engine_workers.py
+@@ -700,7 +700,14 @@ class ActorRolloutRefWorker(Worker, DistProfilerExtension):
+             return
+ 
+         set_expandable_segments(False)
+-        log_gpu_memory_usage("Before resume weights", logger=logger)
++
++        # Actor forward/backward can leave a large amount of reserved but
++        # unallocated CUDA memory behind.  Release it before colocated vLLM
++        # maps its weight buffers back onto the device; cleaning only after
++        # the weight transfer is too late and can OOM at wake_up(weights).
++        log_gpu_memory_usage("Before pre-wake actor cache release", logger=logger)
++        aggressive_empty_cache(force_sync=True)
++        log_gpu_memory_usage("After pre-wake actor cache release", logger=logger)
+ 
+         # 1. resume rollout memory (weights were released during sleep)
+         if self.config.rollout.free_cache_engine:
+diff --git a/verl/workers/utils/losses.py b/verl/workers/utils/losses.py
+index c865b9d..64d12e6 100644
+--- a/verl/workers/utils/losses.py
++++ b/verl/workers/utils/losses.py
+@@ -82,6 +82,10 @@ def ppo_loss(config: ActorConfig, model_output, data: TensorDict, dp_group=None)
+ 
+     metrics = {}
+ 
++    adaptive_entropy_coeff = tu.get_non_tensor_data(
++        data=data, key="adaptive_entropy_coeff", default=None
++    )
++
+     # select fields and convert to padded tensor
+     fields = ["response_mask", "old_log_probs", "advantages"]
+     if "rollout_is_weights" in data:
+@@ -124,9 +128,10 @@ def ppo_loss(config: ActorConfig, model_output, data: TensorDict, dp_group=None)
+         entropy_loss = agg_loss(
+             loss_mat=entropy, loss_mask=response_mask, loss_agg_mode=loss_agg_mode, **config.global_batch_info
+         )
+-        entropy_coeff = config.entropy_coeff
++        entropy_coeff = config.entropy_coeff if adaptive_entropy_coeff is None else float(adaptive_entropy_coeff)
+         policy_loss -= entropy_coeff * entropy_loss
+         metrics["actor/entropy_loss"] = Metric(value=entropy_loss, aggregation=metric_aggregation)
++        metrics["actor/entropy_coeff"] = entropy_coeff
+ 
+     # add kl loss
+     if config.use_kl_loss:

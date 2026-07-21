@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+credentials*
+secrets/
+
+# Training assets
+/data/raw/
+/data/processed/
+/checkpoints/*
+!/checkpoints/README.md
+/models/
+/adapters/
+/outputs/
+/results/*
+!/results/README.md
+/logs/
+/wandb/
+
+# Large runtime artifacts
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.parquet
+*.arrow
+*.whl
+*.tar
+*.tar.gz
+/runtime/
+/wheelhouse/
+
+# Distributed/runtime caches
+/ray_results/
+/torch_compile_cache/
+/.cache/
+latest_checkpointed_iteration.txt
+TRAINING_SUCCEEDED
+RESULT_COMPLETE
+
+# Editor and OS
+.DS_Store
+.idea/
+.vscode/

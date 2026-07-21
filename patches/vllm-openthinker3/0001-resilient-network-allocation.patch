@@ -1,0 +1,86 @@
+diff --git a/vllm/utils/network_utils.py b/vllm/utils/network_utils.py
+--- a/vllm/utils/network_utils.py
++++ b/vllm/utils/network_utils.py
+@@ -1,8 +1,10 @@
+ # SPDX-License-Identifier: Apache-2.0
+ # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
+ import contextlib
++import fcntl
+ import ipaddress
+ import os
+ import socket
+ import sys
++import time
+ import warnings
+@@ -127,16 +129,47 @@ def get_open_port() -> int:
+     """
+     Get an open port for the vLLM process to listen on.
+     An edge case to handle, is when we run data parallel,
+     we need to avoid ports that are potentially used by
+     the data parallel master process.
+     Right now we reserve 10 ports for the data parallel master
+     process. Currently it uses 2 ports.
+     """
+-    if "VLLM_DP_MASTER_PORT" in os.environ:
+-        dp_master_port = envs.VLLM_DP_MASTER_PORT
+-        reserved_port_range = range(dp_master_port, dp_master_port + 10)
+-        while True:
+-            candidate_port = _get_open_port()
+-            if candidate_port not in reserved_port_range:
+-                return candidate_port
+-    return _get_open_port()
++    counter_path = os.environ.get(
++        "VLLM_LOCKED_PORT_COUNTER", "/tmp/vllm-locked-port-counter"
++    )
++    range_start = int(os.environ.get("VLLM_LOCKED_PORT_START", "30000"))
++    range_end = int(os.environ.get("VLLM_LOCKED_PORT_END", "60000"))
++    reserved = set()
++    if "VLLM_DP_MASTER_PORT" in os.environ:
++        master_port = envs.VLLM_DP_MASTER_PORT
++        reserved.update(range(master_port, master_port + 10))
++
++    with open(counter_path, "a+", encoding="ascii") as counter:
++        fcntl.flock(counter.fileno(), fcntl.LOCK_EX)
++        try:
++            counter.seek(0)
++            raw = counter.read().strip()
++            candidate = int(raw) if raw else range_start
++            for _ in range(range_end - range_start):
++                if candidate >= range_end:
++                    candidate = range_start
++                selected = candidate
++                candidate += 1
++                if selected in reserved:
++                    continue
++                try:
++                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
++                        probe.bind(("", selected))
++                except OSError:
++                    continue
++                counter.seek(0)
++                counter.truncate()
++                counter.write(str(candidate))
++                counter.flush()
++                os.fsync(counter.fileno())
++                return selected
++        finally:
++            fcntl.flock(counter.fileno(), fcntl.LOCK_UN)
++    raise RuntimeError(
++        f"No open port in locked allocator range [{range_start}, {range_end})"
++    )
+@@ -257,7 +290,14 @@ def make_zmq_socket(
+ ) -> zmq.Socket | zmq.asyncio.Socket:  # type: ignore[name-defined]
+     """Make a ZMQ socket with the proper bind/connect semantics."""
+ 
+-    mem = psutil.virtual_memory()
++    for attempt in range(10):
++        try:
++            mem = psutil.virtual_memory()
++            break
++        except (IndexError, ValueError):
++            if attempt == 9:
++                raise
++            time.sleep(0.05)
+     socket = ctx.socket(socket_type)
+ 
+     # Calculate buffer size based on system memory

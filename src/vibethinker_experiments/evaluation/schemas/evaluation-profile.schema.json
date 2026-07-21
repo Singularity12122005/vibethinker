@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/vibethinker/evaluation-profile.schema.json",
+  "title": "Evaluation profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "mode",
+    "context_tokens",
+    "generation_cap_tokens",
+    "temperature",
+    "top_p",
+    "seed",
+    "require_judgments"
+  ],
+  "properties": {
+    "profile_id": {"type": "string", "minLength": 1},
+    "mode": {"enum": ["toy", "formal"]},
+    "context_tokens": {"type": "integer", "minimum": 1},
+    "generation_cap_tokens": {"type": "integer", "minimum": 1},
+    "temperature": {"type": "number", "minimum": 0},
+    "top_p": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+    "seed": {"type": "integer"},
+    "require_judgments": {"type": "boolean"}
+  }
+}

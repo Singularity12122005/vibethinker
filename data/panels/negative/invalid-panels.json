@@ -1,0 +1,24 @@
+[
+  {
+    "case": "duplicate_panel_id",
+    "mode": "toy",
+    "rows": [
+      {"panel_id": "negative-duplicate","domain": "math","fixture": "synthetic-toy","messages": [{"role": "user","content": "Synthetic question one."}],"grading": {"type": "exact","answer": "one"}},
+      {"panel_id": "negative-duplicate","domain": "math","fixture": "synthetic-toy","messages": [{"role": "user","content": "Synthetic question two."}],"grading": {"type": "exact","answer": "two"}}
+    ]
+  },
+  {
+    "case": "protocol_hint_in_prompt",
+    "mode": "toy",
+    "rows": [
+      {"panel_id": "negative-protocol","domain": "ifc","fixture": "synthetic-toy","messages": [{"role": "user","content": "Begin with <think> and then answer."}],"grading": {"type": "ifc","constraints": []}}
+    ]
+  },
+  {
+    "case": "toy_marker_in_formal_panel",
+    "mode": "formal",
+    "rows": [
+      {"panel_id": "negative-mode","domain": "knowledge","fixture": "synthetic-toy","messages": [{"role": "user","content": "A wholly fictional formal-mode check."}],"grading": {"type": "required_strings","required_strings": ["fictional"]}}
+    ]
+  }
+]
