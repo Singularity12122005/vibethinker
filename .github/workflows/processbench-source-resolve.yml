@@ -1,4 +1,4 @@
-name: ProcessBench Source Resolve
+﻿name: ProcessBench Source Resolve
 
 on:
   workflow_dispatch:
@@ -113,9 +113,10 @@ jobs:
           retention-days: 30
           path: |
             processbench-source-resolution-evidence/environment_receipt.json
-            processbench-source-resolution-evidence/pip-freeze.txt
+           
             processbench-source-resolution-evidence/processbench-source-junit.xml
             processbench-source-resolution-evidence/processbench-source-pytest.log
             processbench-source-resolution-evidence/processbench_source_resolution.json
             processbench-source-resolution-evidence/safety_scan.json
             processbench-source-resolution-evidence/SHA256SUMS.txt
+
