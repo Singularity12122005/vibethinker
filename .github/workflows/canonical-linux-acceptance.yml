@@ -1,0 +1,410 @@
+name: Canonical Linux Acceptance
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feat/process-observation
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      BASE_SHA: b882dd502175a0b16e1e39806744197afd3b367f
+      CANDIDATE_SHA: ${{ github.sha }}
+      PYTHON_VERSION: "3.12"
+    steps:
+      - name: Environment
+        run: |
+          set -euxo pipefail
+          cat /etc/os-release
+          uname -a
+
+      - name: Checkout base
+        uses: actions/checkout@v4
+        with:
+          path: base
+          ref: ${{ env.BASE_SHA }}
+          fetch-depth: 0
+
+      - name: Checkout candidate
+        uses: actions/checkout@v4
+        with:
+          path: candidate
+          ref: ${{ env.CANDIDATE_SHA }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Run canonical acceptance
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python --version | tee /tmp/python-version.txt
+          python -m pip --version | tee /tmp/system-pip-version.txt
+
+          run_checkout () {
+            local label="$1"
+            local dir="$2"
+            local venv="/tmp/vibethinker-${label}-venv"
+
+            python -m venv "${venv}"
+            # shellcheck disable=SC1091
+            source "${venv}/bin/activate"
+            python -m pip install --upgrade pip
+            python -m pip --version | tee "/tmp/${label}-pip-version.txt"
+
+            pushd "${dir}"
+            python -m pip install -e ".[dev]"
+
+            set +e
+            python -m pytest -q --junitxml="/tmp/${label}-junit.xml" \
+              2>&1 | tee "/tmp/${label}-pytest.log"
+            local pytest_status=${PIPESTATUS[0]}
+            python -m ruff check . 2>&1 | tee "/tmp/${label}-ruff.log"
+            local ruff_status=${PIPESTATUS[0]}
+            git diff --check 2>&1 | tee "/tmp/${label}-working-tree-diff-check.log"
+            local diff_status=${PIPESTATUS[0]}
+            set -e
+
+            git ls-files --eol "*.jsonl" "*.patch" | tee "/tmp/${label}-eol.txt"
+            popd
+
+            deactivate
+            echo "${pytest_status}" > "/tmp/${label}-pytest-status.txt"
+            echo "${ruff_status}" > "/tmp/${label}-ruff-status.txt"
+            echo "${diff_status}" > "/tmp/${label}-working-tree-diff-check-status.txt"
+          }
+
+          run_checkout base base
+          run_checkout candidate candidate
+
+          pushd candidate
+          git diff --stat "${BASE_SHA}..${CANDIDATE_SHA}" \
+            | tee /tmp/candidate-commit-range-diff-stat.txt
+          set +e
+          git diff --check "${BASE_SHA}..${CANDIDATE_SHA}" \
+            2>&1 | tee /tmp/candidate-commit-range-diff-check.log
+          commit_range_diff_status=${PIPESTATUS[0]}
+          set -e
+          echo "${commit_range_diff_status}" \
+            > /tmp/candidate-commit-range-diff-check-status.txt
+          popd
+
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+
+          def status(label: str, name: str) -> int:
+              return int(Path(f"/tmp/{label}-{name}-status.txt").read_text().strip())
+
+
+          def junit_root(label: str) -> ET.Element | None:
+              path = Path(f"/tmp/{label}-junit.xml")
+              if not path.is_file():
+                  return None
+              try:
+                  return ET.parse(path).getroot()
+              except ET.ParseError:
+                  return None
+
+
+          def junit_counts(label: str) -> dict[str, int]:
+              root = junit_root(label)
+              if root is None:
+                  return {"tests": 0, "failures": 0, "errors": 0, "skipped": 0}
+              if root.tag.endswith("testsuites"):
+                  suites = list(root)
+              else:
+                  suites = [root]
+              totals = {"tests": 0, "failures": 0, "errors": 0, "skipped": 0}
+              for suite in suites:
+                  for key in totals:
+                      totals[key] += int(suite.attrib.get(key, 0))
+              return totals
+
+
+          def testcase_id(testcase: ET.Element) -> str:
+              classname = testcase.attrib.get("classname", "")
+              name = testcase.attrib.get("name", "")
+              file_attr = testcase.attrib.get("file")
+              if file_attr:
+                  return f"{file_attr}::{name}"
+              if classname.startswith("tests."):
+                  return f"{classname.replace('.', '/')}.py::{name}"
+              return f"{classname}::{name}".strip(":")
+
+
+          def failures_and_errors(label: str) -> list[str]:
+              items: set[str] = set()
+              root = junit_root(label)
+              if root is None:
+                  if status(label, "pytest") != 0:
+                      items.add(f"JUNIT_MISSING_OR_INVALID::{label}")
+                  return sorted(items)
+              for testcase in root.iter():
+                  if not testcase.tag.endswith("testcase"):
+                      continue
+                  for child in testcase:
+                      if child.tag.endswith(("failure", "error")):
+                          node = testcase_id(testcase)
+                          message = child.attrib.get("message", "").strip()
+                          items.add(node or f"UNNAMED::{message}")
+              if status(label, "pytest") != 0 and not items:
+                  items.add(f"PYTEST_EXIT_STATUS_{status(label, 'pytest')}_UNPARSED")
+              return sorted(items)
+
+
+          base_pytest = status("base", "pytest")
+          candidate_pytest = status("candidate", "pytest")
+          base_failures = failures_and_errors("base")
+          candidate_failures = failures_and_errors("candidate")
+          regressions = sorted(set(candidate_failures) - set(base_failures))
+          summary = {
+              "base_counts": junit_counts("base"),
+              "base_failures": base_failures,
+              "base_pytest_status": base_pytest,
+              "candidate_counts": junit_counts("candidate"),
+              "candidate_failures": candidate_failures,
+              "candidate_pytest_status": candidate_pytest,
+              "candidate_regressions": regressions,
+              "candidate_ruff_status": status("candidate", "ruff"),
+              "candidate_working_tree_diff_check_status": status(
+                  "candidate", "working-tree-diff-check"
+              ),
+              "base_ruff_status": status("base", "ruff"),
+              "base_working_tree_diff_check_status": status(
+                  "base", "working-tree-diff-check"
+              ),
+          }
+          print(json.dumps(summary, indent=2, sort_keys=True))
+          Path("/tmp/failure-comparison.json").write_text(
+              json.dumps(summary, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+
+          hard_failures = []
+          if base_pytest == 0 and candidate_pytest != 0:
+              hard_failures.append("base pytest passed but candidate pytest failed")
+          if candidate_pytest != 0 and not candidate_failures:
+              hard_failures.append("candidate pytest failed without parseable failure/error")
+          if regressions:
+              hard_failures.append("candidate has new pytest failure/error node IDs")
+          if status("candidate", "ruff") != 0:
+              hard_failures.append("candidate ruff failed")
+          if status("candidate", "working-tree-diff-check") != 0:
+              hard_failures.append("candidate working-tree git diff --check failed")
+          commit_diff_status = int(
+              Path("/tmp/candidate-commit-range-diff-check-status.txt").read_text().strip()
+          )
+          if commit_diff_status != 0:
+              hard_failures.append("candidate commit range git diff --check failed")
+          if hard_failures:
+              raise SystemExit("; ".join(hard_failures))
+          PY
+
+          # shellcheck disable=SC1091
+          source /tmp/vibethinker-candidate-venv/bin/activate
+          pushd candidate
+          python -m pytest -q tests/process_observation
+          python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          import shutil
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          root = Path.cwd()
+          base = root / ".tmp_process_observation_acceptance"
+          if base.exists():
+              shutil.rmtree(base)
+          base.mkdir()
+          profile = root / "configs/process_observation/toy-qwen25-15k.yaml"
+          natural = root / "data/process_observation/toy/natural_rollouts.jsonl"
+          checkpoint = root / "data/process_observation/toy/checkpoint_reference.jsonl"
+          arus = root / "data/process_observation/toy/aru_candidates.jsonl"
+
+
+          def run_cli(*args: str) -> None:
+              subprocess.run(
+                  [
+                      sys.executable,
+                      "-m",
+                      "vibethinker_experiments.process_observation.cli",
+                      *args,
+                  ],
+                  cwd=root,
+                  check=True,
+                  text=True,
+                  capture_output=True,
+              )
+
+
+          def read_jsonl(path: Path) -> list[dict]:
+              return [
+                  json.loads(line)
+                  for line in path.read_text(encoding="utf-8").splitlines()
+                  if line
+              ]
+
+
+          def sha(path: Path) -> str:
+              return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+          def run_once(label: str) -> dict:
+              out = base / label
+              out.mkdir()
+              regions = out / "candidate_regions.jsonl"
+              interventions = out / "interventions.jsonl"
+              requests = out / "branch_requests.jsonl"
+              results = out / "branch_results.jsonl"
+              outcomes = out / "process_outcomes.jsonl"
+              finalized = out / "finalized"
+              run_cli(
+                  "localize",
+                  "--profile",
+                  str(profile),
+                  "--natural-rollouts",
+                  str(natural),
+                  "--output",
+                  str(regions),
+                  "--selection-policy-id",
+                  "deterministic-sparse-token-region-v1",
+                  "--split",
+                  "discovery",
+              )
+              run_cli(
+                  "prepare-interventions",
+                  "--profile",
+                  str(profile),
+                  "--natural-rollouts",
+                  str(natural),
+                  "--candidate-regions",
+                  str(regions),
+                  "--aru-candidates",
+                  str(arus),
+                  "--output",
+                  str(interventions),
+              )
+              run_cli(
+                  "branch",
+                  "--profile",
+                  str(profile),
+                  "--checkpoint-reference",
+                  str(checkpoint),
+                  "--interventions",
+                  str(interventions),
+                  "--prompt-id",
+                  "toy-aru-addition-001",
+                  "--requests-output",
+                  str(requests),
+                  "--output",
+                  str(results),
+                  "--transport",
+                  "toy",
+                  "--transport-config-id",
+                  "deterministic-toy-prefix-branch-v1",
+                  "--continuation-mode",
+                  "short",
+              )
+              run_cli(
+                  "evaluate",
+                  "--profile",
+                  str(profile),
+                  "--branch-results",
+                  str(results),
+                  "--interventions",
+                  str(interventions),
+                  "--aru-candidates",
+                  str(arus),
+                  "--prompt-id",
+                  "toy-aru-addition-001",
+                  "--output",
+                  str(outcomes),
+                  "--evaluator",
+                  "toy",
+              )
+              run_cli(
+                  "finalize",
+                  "--profile",
+                  str(profile),
+                  "--run-dir",
+                  str(finalized),
+                  "--natural-rollouts",
+                  str(natural),
+                  "--candidate-regions",
+                  str(regions),
+                  "--aru-candidates",
+                  str(arus),
+                  "--interventions",
+                  str(interventions),
+                  "--branch-requests",
+                  str(requests),
+                  "--branch-results",
+                  str(results),
+                  "--process-outcomes",
+                  str(outcomes),
+                  "--expected-branch-count",
+                  "7",
+              )
+              marker = json.loads((finalized / "FINALIZED.json").read_text())
+              return {
+                  "request_hashes": sorted(
+                      row["request_sha256"] for row in read_jsonl(requests)
+                  ),
+                  "intervention_hashes": sorted(
+                      row["canonical_sha256"] for row in read_jsonl(interventions)
+                  ),
+                  "branch_response_hashes": sorted(
+                      row["response_sha256"] for row in read_jsonl(results)
+                  ),
+                  "artifact_sha256": marker["artifact_sha256"],
+                  "report_sha256": sha(finalized / "report.json"),
+                  "finalization_sha256": marker["finalization_sha256"],
+              }
+
+
+          left = run_once("run_a")
+          right = run_once("run_b")
+          summary = {"equal": left == right, "summary": left}
+          print(json.dumps(summary, indent=2, sort_keys=True))
+          Path("/tmp/toy-rerun-hashes.json").write_text(
+              json.dumps(summary, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          if left != right:
+              raise SystemExit("toy rerun stable artifacts differ")
+          PY
+          popd
+          deactivate
+
+      - name: Upload acceptance logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: canonical-linux-acceptance-logs
+          path: |
+            /tmp/python-version.txt
+            /tmp/system-pip-version.txt
+            /tmp/base-*.txt
+            /tmp/base-*.log
+            /tmp/base-*.xml
+            /tmp/base-*-status.txt
+            /tmp/candidate-*.txt
+            /tmp/candidate-*.log
+            /tmp/candidate-*.xml
+            /tmp/candidate-*-status.txt
+            /tmp/failure-comparison.json
+            /tmp/toy-rerun-hashes.json
