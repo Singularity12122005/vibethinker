@@ -9,7 +9,10 @@ from __future__ import annotations
 import json
 import math
 import re
+import sys
 import unicodedata
+import urllib.error
+import urllib.request
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -61,6 +64,10 @@ TRACE_PROVENANCE_VALUES: tuple[str, ...] = (
     "target_checkpoint_native",
 )
 PROCESSBENCH_DATASET_ID = "Qwen/ProcessBench"
+PROCESSBENCH_DATASET_REPO_TYPE = "dataset"
+PROCESSBENCH_FORMAL_SOURCE_LOCK_PATH = (
+    "configs/process_observation/processbench_source_lock.json"
+)
 PROCESSBENCH_OFFICIAL_SPLITS: tuple[str, ...] = (
     "gsm8k",
     "math",
@@ -80,9 +87,36 @@ PROCESSBENCH_SELECTION_POLICY_ID = "processbench-balanced-32-v1"
 PROCESSBENCH_SELECTION_SEED = 20260722
 TRACE_RENDERING_POLICY_ID = "processbench-external-macro-text-v1"
 CONFIRMATION_UNSEAL_TOKEN = "processbench-confirmation-policy-freeze-v1"
+PROCESSBENCH_OFFICIAL_EVALUATION_REPOSITORY = "QwenLM/ProcessBench"
+PROCESSBENCH_OFFICIAL_EVALUATION_REVISION = "e8024636bcabdf8bd514440551b531d3f90dd18b"
+PROCESSBENCH_RUN_EVAL_SHA256 = (
+    "66d09fc7a3d20d46f166d4bba4e04835f3d7473e1534b6908cd9045aefc7b704"
+)
+PROCESSBENCH_CRITIQUE_TEMPLATE_SHA256 = (
+    "0e7dba24bfaa9dea379907e11b8dc701c6cd6e74453ab2ffc9b1d63237cc4434"
+)
+PROCESSBENCH_README_SHA256 = (
+    "5c2dbd2264c1a73270929b888f2f45d671f4a771557db2ce4909b08daed97e67"
+)
 FUTURE_ALIGNMENT_SOURCES: tuple[str, ...] = (
     "MATH-500",
     "technical-report Health Panel",
+)
+GIT_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
+FORBIDDEN_SOURCE_REVISION_LABELS = {
+    "latest",
+    "main",
+    "master",
+    "refs/convert/parquet",
+}
+PROCESSBENCH_FORBIDDEN_OUTPUT_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    ("complete problem field", re.compile(r'"problem"\s*:\s*"')),
+    ("complete steps array", re.compile(r'"steps"\s*:\s*\[')),
+    ("authorization header", re.compile(r"authorization\s*:", re.IGNORECASE)),
+    ("bearer credential", re.compile(r"\bbearer\s+[A-Za-z0-9._~+/=-]+", re.IGNORECASE)),
+    ("secret-like key", re.compile(r'"(?:api[_-]?key|password|credential|secret|token)"\s*:')),
+    ("windows absolute path", re.compile(r"[A-Za-z]:[\\/]")),
+    ("unix cache path", re.compile(r'(?:"|\\s)/(?:home|tmp|var/tmp|root)/')),
 )
 
 PROCESSBENCH_OFFICIAL_LABEL_SEMANTICS = {
@@ -173,6 +207,16 @@ def raw_source_sha256(row: dict[str, Any]) -> str:
     return canonical_sha256(row)
 
 
+def validate_processbench_dataset_revision_sha(value: str, field: str) -> str:
+    revision = str(value).strip()
+    lowered = revision.casefold()
+    if lowered in FORBIDDEN_SOURCE_REVISION_LABELS or lowered.startswith("refs/"):
+        raise ValueError(f"{field} must be an immutable 40-character Git SHA")
+    if not GIT_SHA_RE.match(revision):
+        raise ValueError(f"{field} must be an immutable 40-character Git SHA")
+    return revision
+
+
 def deterministic_tie_break(seed: int, *parts: object) -> str:
     return sha256_bytes(
         canonical_json({"parts": [str(part) for part in parts], "seed": seed}).encode("utf-8")
@@ -197,10 +241,20 @@ def build_semantics_source_receipts(
         "evaluation_code_revision": _nonempty_str(
             evaluation_code_revision, "evaluation_code_revision"
         ),
+        "official_evaluation_repository": PROCESSBENCH_OFFICIAL_EVALUATION_REPOSITORY,
         "label_semantics": PROCESSBENCH_OFFICIAL_LABEL_SEMANTICS,
         "readme_or_datacard_sha256": readme_or_datacard_sha256,
         "run_eval_sha256": run_eval_sha256,
     }
+
+
+def pinned_processbench_semantics_source_receipts() -> dict[str, Any]:
+    return build_semantics_source_receipts(
+        evaluation_code_revision=PROCESSBENCH_OFFICIAL_EVALUATION_REVISION,
+        run_eval_sha256=PROCESSBENCH_RUN_EVAL_SHA256,
+        critique_template_sha256=PROCESSBENCH_CRITIQUE_TEMPLATE_SHA256,
+        readme_or_datacard_sha256=PROCESSBENCH_README_SHA256,
+    )
 
 
 def build_snapshot_manifest(
@@ -229,6 +283,236 @@ def build_snapshot_manifest(
 
 def write_snapshot_manifest(path: Path, manifest: dict[str, Any]) -> str:
     return write_immutable(path, canonical_json_bytes(manifest))
+
+
+@dataclass(frozen=True)
+class ProcessBenchSourceLock:
+    schema_version: int
+    dataset_id: str
+    dataset_repo_type: str
+    dataset_revision_sha: str
+    source_license: str
+    expected_split_names: tuple[str, ...]
+    expected_public_row_count: int | None
+    official_evaluation_repository: str
+    official_evaluation_revision: str
+    run_eval_sha256: str
+    critique_template_sha256: str
+    readme_sha256: str
+    resolution_receipt_sha256: str
+    created_at_utc: str
+
+    @classmethod
+    def from_mapping(cls, value: dict[str, Any]) -> ProcessBenchSourceLock:
+        if _int(value.get("schema_version"), "schema_version") != 1:
+            raise ValueError("ProcessBenchSourceLock schema_version must be 1")
+        dataset_id = _nonempty_str(value.get("dataset_id"), "dataset_id")
+        if dataset_id != PROCESSBENCH_DATASET_ID:
+            raise ValueError("ProcessBench source lock must use Qwen/ProcessBench")
+        repo_type = _nonempty_str(value.get("dataset_repo_type"), "dataset_repo_type")
+        if repo_type != PROCESSBENCH_DATASET_REPO_TYPE:
+            raise ValueError("ProcessBench source lock dataset_repo_type must be dataset")
+        revision = validate_processbench_dataset_revision_sha(
+            str(value.get("dataset_revision_sha", "")), "dataset_revision_sha"
+        )
+        expected_split_names = tuple(str(item) for item in value.get("expected_split_names", ()))
+        if expected_split_names != PROCESSBENCH_OFFICIAL_SPLITS:
+            raise ValueError("expected_split_names must match the official ProcessBench splits")
+        expected_count = value.get("expected_public_row_count")
+        if expected_count is not None:
+            expected_count = _int(expected_count, "expected_public_row_count")
+            if expected_count <= 0:
+                raise ValueError("expected_public_row_count must be positive or null")
+        eval_repo = _nonempty_str(
+            value.get("official_evaluation_repository"), "official_evaluation_repository"
+        )
+        if eval_repo != PROCESSBENCH_OFFICIAL_EVALUATION_REPOSITORY:
+            raise ValueError("official evaluation repository must remain separate and pinned")
+        eval_revision = validate_processbench_dataset_revision_sha(
+            str(value.get("official_evaluation_revision", "")),
+            "official_evaluation_revision",
+        )
+        if eval_revision == revision:
+            raise ValueError("dataset-source and semantics-source revisions must be distinct")
+        for field in (
+            "critique_template_sha256",
+            "readme_sha256",
+            "resolution_receipt_sha256",
+            "run_eval_sha256",
+        ):
+            assert_sha256(value.get(field), field)
+        return cls(
+            schema_version=1,
+            dataset_id=dataset_id,
+            dataset_repo_type=repo_type,
+            dataset_revision_sha=revision,
+            source_license=_nonempty_str(value.get("source_license"), "source_license"),
+            expected_split_names=expected_split_names,
+            expected_public_row_count=expected_count,
+            official_evaluation_repository=eval_repo,
+            official_evaluation_revision=eval_revision,
+            run_eval_sha256=str(value["run_eval_sha256"]),
+            critique_template_sha256=str(value["critique_template_sha256"]),
+            readme_sha256=str(value["readme_sha256"]),
+            resolution_receipt_sha256=str(value["resolution_receipt_sha256"]),
+            created_at_utc=_nonempty_str(value.get("created_at_utc"), "created_at_utc"),
+        )
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "created_at_utc": self.created_at_utc,
+            "critique_template_sha256": self.critique_template_sha256,
+            "dataset_id": self.dataset_id,
+            "dataset_repo_type": self.dataset_repo_type,
+            "dataset_revision_sha": self.dataset_revision_sha,
+            "expected_public_row_count": self.expected_public_row_count,
+            "expected_split_names": list(self.expected_split_names),
+            "official_evaluation_repository": self.official_evaluation_repository,
+            "official_evaluation_revision": self.official_evaluation_revision,
+            "readme_sha256": self.readme_sha256,
+            "resolution_receipt_sha256": self.resolution_receipt_sha256,
+            "run_eval_sha256": self.run_eval_sha256,
+            "schema_version": self.schema_version,
+            "source_license": self.source_license,
+        }
+
+    def to_stable_identity(self) -> dict[str, Any]:
+        identity = self.to_dict()
+        identity.pop("created_at_utc", None)
+        return identity
+
+    @property
+    def stable_source_identity_sha256(self) -> str:
+        return canonical_sha256(self.to_stable_identity())
+
+
+def load_formal_processbench_source_lock(path: Path) -> ProcessBenchSourceLock:
+    if not path.is_file():
+        raise ProcessBenchSourceUnavailable("formal ProcessBench inventory requires source lock")
+    return ProcessBenchSourceLock.from_mapping(json.loads(path.read_text(encoding="utf-8")))
+
+
+def source_lock_from_resolution(
+    resolution: dict[str, Any],
+    *,
+    created_at_utc: str,
+    expected_public_row_count: int | None = None,
+) -> ProcessBenchSourceLock:
+    return ProcessBenchSourceLock.from_mapping(
+        {
+            "created_at_utc": created_at_utc,
+            "critique_template_sha256": PROCESSBENCH_CRITIQUE_TEMPLATE_SHA256,
+            "dataset_id": PROCESSBENCH_DATASET_ID,
+            "dataset_repo_type": PROCESSBENCH_DATASET_REPO_TYPE,
+            "dataset_revision_sha": resolution["resolved_revision_sha"],
+            "expected_public_row_count": expected_public_row_count,
+            "expected_split_names": list(PROCESSBENCH_OFFICIAL_SPLITS),
+            "official_evaluation_repository": PROCESSBENCH_OFFICIAL_EVALUATION_REPOSITORY,
+            "official_evaluation_revision": PROCESSBENCH_OFFICIAL_EVALUATION_REVISION,
+            "readme_sha256": PROCESSBENCH_README_SHA256,
+            "resolution_receipt_sha256": resolution["stable_resolution_receipt_sha256"],
+            "run_eval_sha256": PROCESSBENCH_RUN_EVAL_SHA256,
+            "schema_version": 1,
+            "source_license": resolution["source_license"],
+        }
+    )
+
+
+def processbench_metadata_client_versions() -> dict[str, str]:
+    return {
+        "python": sys.version.split()[0],
+        "resolver": "urllib.request",
+        "vibethinker_processbench_resolver": "processbench-source-resolve-v1",
+    }
+
+
+def resolve_processbench_source_metadata(
+    *,
+    dataset_id: str = PROCESSBENCH_DATASET_ID,
+    allow_network: bool = False,
+    metadata_bytes: bytes | None = None,
+    resolution_time: str,
+    client_version: dict[str, str] | None = None,
+) -> dict[str, Any]:
+    if dataset_id != PROCESSBENCH_DATASET_ID:
+        raise ValueError("ProcessBench resolver only allows the official Qwen/ProcessBench source")
+    if metadata_bytes is None:
+        if not allow_network:
+            raise ProcessBenchSourceUnavailable(
+                "ProcessBench source resolution is network-disabled by default"
+            )
+        metadata_bytes = _fetch_processbench_metadata_bytes(dataset_id)
+    metadata = json.loads(metadata_bytes.decode("utf-8"))
+    if str(metadata.get("id", dataset_id)) != PROCESSBENCH_DATASET_ID:
+        raise ValueError("metadata response does not describe Qwen/ProcessBench")
+    resolved = validate_processbench_dataset_revision_sha(
+        str(metadata.get("sha", "")), "resolved_revision_sha"
+    )
+    source_license = _extract_source_license(metadata)
+    file_inventory = _metadata_file_inventory(metadata)
+    semantics_receipts = pinned_processbench_semantics_source_receipts()
+    stable_payload = {
+        "dataset_id": PROCESSBENCH_DATASET_ID,
+        "metadata_response_digest": sha256_bytes(metadata_bytes),
+        "raw_dataset_content_downloaded": False,
+        "repository_file_inventory": file_inventory,
+        "resolved_revision_sha": resolved,
+        "semantics_source_receipts": semantics_receipts,
+        "source_license": source_license,
+    }
+    return {
+        **stable_payload,
+        "client_version": client_version or processbench_metadata_client_versions(),
+        "dataset_repo_type": PROCESSBENCH_DATASET_REPO_TYPE,
+        "resolution_time": _nonempty_str(resolution_time, "resolution_time"),
+        "schema_version": 1,
+        "stable_resolution_receipt_sha256": canonical_sha256(stable_payload),
+    }
+
+
+def _fetch_processbench_metadata_bytes(dataset_id: str) -> bytes:
+    request = urllib.request.Request(
+        f"https://huggingface.co/api/datasets/{dataset_id}?blobs=true",
+        headers={"User-Agent": "vibethinker-processbench-source-resolve-v1"},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            return response.read()
+    except urllib.error.URLError as exc:
+        raise ProcessBenchSourceUnavailable(str(exc)) from exc
+
+
+def _extract_source_license(metadata: dict[str, Any]) -> str:
+    card = metadata.get("cardData")
+    if isinstance(card, dict):
+        license_value = card.get("license")
+        if isinstance(license_value, str) and license_value.strip():
+            return license_value.strip()
+        if isinstance(license_value, list) and license_value:
+            return str(license_value[0]).strip()
+    for tag in metadata.get("tags", ()):
+        text = str(tag)
+        if text.startswith("license:"):
+            return text.split(":", 1)[1]
+    return PROCESSBENCH_LICENSE
+
+
+def _metadata_file_inventory(metadata: dict[str, Any]) -> list[dict[str, Any]]:
+    files: list[dict[str, Any]] = []
+    for sibling in metadata.get("siblings", ()):
+        if not isinstance(sibling, dict):
+            continue
+        lfs = sibling.get("lfs") if isinstance(sibling.get("lfs"), dict) else {}
+        files.append(
+            {
+                "blob_id": sibling.get("blobId"),
+                "lfs_oid": lfs.get("oid"),
+                "lfs_size_bytes": lfs.get("size"),
+                "path": _nonempty_str(sibling.get("rfilename"), "rfilename"),
+                "size_bytes": sibling.get("size"),
+            }
+        )
+    return sorted(files, key=lambda item: str(item["path"]))
 
 
 @dataclass(frozen=True)
@@ -661,6 +945,70 @@ def _load_processbench_from_network(
     )
 
 
+def build_source_lock_validation_report(lock: ProcessBenchSourceLock) -> dict[str, Any]:
+    return {
+        "dataset_id": lock.dataset_id,
+        "dataset_revision_sha": lock.dataset_revision_sha,
+        "expected_public_row_count": lock.expected_public_row_count,
+        "expected_split_names": list(lock.expected_split_names),
+        "official_evaluation_repository": lock.official_evaluation_repository,
+        "official_evaluation_revision": lock.official_evaluation_revision,
+        "schema_version": 1,
+        "source_license": lock.source_license,
+        "stable_source_identity_sha256": lock.stable_source_identity_sha256,
+        "valid": True,
+    }
+
+
+def write_source_lock_validation_report(lock: ProcessBenchSourceLock, output: Path) -> str:
+    return write_immutable(output, canonical_json_bytes(build_source_lock_validation_report(lock)))
+
+
+def build_snapshot_manifest_from_source_lock(
+    *,
+    lock: ProcessBenchSourceLock,
+    snapshot_dir: Path,
+    retrieval_method: str,
+    retrieval_timestamp: str,
+) -> dict[str, Any]:
+    bundle = load_processbench_source(
+        snapshot_dir=snapshot_dir,
+        source_revision=lock.dataset_revision_sha,
+        source_license=lock.source_license,
+    )
+    return build_snapshot_manifest(
+        dataset_revision=lock.dataset_revision_sha,
+        retrieval_method=retrieval_method,
+        retrieval_timestamp=retrieval_timestamp,
+        source_license=lock.source_license,
+        source_file_inventory=bundle.source_file_inventory,
+        raw_split_row_counts=bundle.raw_split_row_counts,
+        semantics_source_receipts={
+            "critique_template_sha256": lock.critique_template_sha256,
+            "evaluation_code_revision": lock.official_evaluation_revision,
+            "official_evaluation_repository": lock.official_evaluation_repository,
+            "readme_or_datacard_sha256": lock.readme_sha256,
+            "run_eval_sha256": lock.run_eval_sha256,
+        },
+    )
+
+
+def total_inventory_row_count(inventory: dict[str, Any]) -> int:
+    return sum(int(split_data["row_count"]) for split_data in inventory["splits"].values())
+
+
+def validate_expected_public_row_count(
+    inventory: dict[str, Any], lock: ProcessBenchSourceLock
+) -> None:
+    if lock.expected_public_row_count is None:
+        return
+    observed = total_inventory_row_count(inventory)
+    if observed != lock.expected_public_row_count:
+        raise ValueError(
+            "observed ProcessBench row count does not match expected_public_row_count"
+        )
+
+
 def _load_snapshot_split(snapshot_dir: Path, split: str) -> list[dict[str, Any]]:
     candidates = [
         snapshot_dir / f"{split}.jsonl",
@@ -739,6 +1087,7 @@ def build_processbench_inventory(
             "label_final_answer_crosstab": _label_final_answer_crosstab(rows),
             "malformed_field_counts": (malformed_field_counts or {}).get(split, {}),
             "normalized_error_position_distribution": _normalized_position_distribution(errors),
+            "normalized_error_position_quantiles": _normalized_position_quantiles(errors),
             "number_of_steps_distribution": dict(
                 sorted(Counter(row.step_count for row in rows).items())
             ),
@@ -756,11 +1105,15 @@ def build_processbench_inventory(
         "duplicate_normalized_problem_hashes_across_splits": _duplicate_hashes_across_splits(
             records
         ),
+        "observed_total_row_count": sum(data["row_count"] for data in split_inventory.values()),
         "official_label_semantics": PROCESSBENCH_OFFICIAL_LABEL_SEMANTICS,
         "semantics_source_receipts": semantics_source_receipts or {},
         "source_file_inventory": list(source_file_inventory),
         "source_license": source_license,
         "source_revision": source_revision,
+        "split_generator_distribution": {
+            split: data["generator_distribution"] for split, data in split_inventory.items()
+        },
         "splits": split_inventory,
     }
 
@@ -861,7 +1214,7 @@ def _step_count_quantiles(rows: list[ProcessBenchExample]) -> dict[str, float | 
     }
 
 
-def _quantile(values: list[int], q: float) -> float:
+def _quantile(values: list[float | int], q: float) -> float:
     if len(values) == 1:
         return float(values[0])
     position = (len(values) - 1) * q
@@ -871,6 +1224,21 @@ def _quantile(values: list[int], q: float) -> float:
         return float(values[lower])
     weight = position - lower
     return values[lower] * (1 - weight) + values[upper] * weight
+
+
+def _normalized_position_quantiles(rows: list[ProcessBenchExample]) -> dict[str, float | None]:
+    values = sorted(
+        position for row in rows if (position := row.normalized_error_position) is not None
+    )
+    if not values:
+        return {"min": None, "p25": None, "median": None, "p75": None, "max": None}
+    return {
+        "max": float(values[-1]),
+        "median": _quantile(values, 0.5),
+        "min": float(values[0]),
+        "p25": _quantile(values, 0.25),
+        "p75": _quantile(values, 0.75),
+    }
 
 
 def _normalized_position_distribution(rows: list[ProcessBenchExample]) -> dict[str, int]:
@@ -1264,6 +1632,104 @@ def render_external_trace(
     }
 
 
+def validate_processbench_real_schema_integration(
+    *,
+    source_lock: ProcessBenchSourceLock,
+    snapshot_dir: Path,
+) -> dict[str, Any]:
+    bundle = load_processbench_source(
+        snapshot_dir=snapshot_dir,
+        source_revision=source_lock.dataset_revision_sha,
+        source_license=source_lock.source_license,
+    )
+    rows: list[dict[str, Any]] = []
+    for split in PROCESSBENCH_OFFICIAL_SPLITS:
+        split_records = [row for row in bundle.records if row.source_split == split]
+        if not split_records:
+            raise ValueError(f"materialized ProcessBench snapshot has no rows for {split}")
+        example = split_records[0]
+        rows.append(
+            {
+                "field_presence": {
+                    "final_answer_correct": True,
+                    "generator": True,
+                    "id": True,
+                    "label": True,
+                    "problem": True,
+                    "steps": True,
+                },
+                "field_types": {
+                    "final_answer_correct": "bool",
+                    "generator": "str",
+                    "id": "str",
+                    "label": "int",
+                    "problem": "str",
+                    "steps": "list[str]",
+                },
+                "label_valid": (
+                    example.raw_label == -1 or 0 <= example.raw_label < example.step_count
+                ),
+                "normalized_problem_sha256": example.conservative_normalized_problem_sha256,
+                "number_of_steps": example.step_count,
+                "row_source_sha256": example.role_record.raw_source_sha256,
+                "source_id": example.source_record_id,
+                "split": split,
+            }
+        )
+    return {
+        "dataset_revision_sha": source_lock.dataset_revision_sha,
+        "row_count_checked": len(rows),
+        "schema_version": 1,
+        "skipped": False,
+        "validated_rows": rows,
+    }
+
+
+def processbench_integration_skip_report(
+    *, source_lock_path: Path | None, snapshot_dir: Path | None
+) -> dict[str, Any]:
+    if source_lock_path is None or not source_lock_path.is_file():
+        return {
+            "reason": "formal ProcessBench source lock is not available",
+            "schema_version": 1,
+            "skipped": True,
+            "synthetic_substitute_used": False,
+        }
+    if snapshot_dir is None or not snapshot_dir.is_dir():
+        return {
+            "reason": "materialized pinned ProcessBench snapshot is not available",
+            "schema_version": 1,
+            "skipped": True,
+            "synthetic_substitute_used": False,
+        }
+    return validate_processbench_real_schema_integration(
+        source_lock=load_formal_processbench_source_lock(source_lock_path),
+        snapshot_dir=snapshot_dir,
+    )
+
+
+def scan_processbench_safe_artifact_paths(paths: list[Path]) -> dict[str, Any]:
+    scanned: list[dict[str, Any]] = []
+    violations: list[dict[str, str]] = []
+    for path in paths:
+        if not path.is_file():
+            raise ValueError("ProcessBench safety scan requires explicit existing files")
+        text = path.read_text(encoding="utf-8", errors="replace")
+        scanned.append(
+            {
+                "path": path.name,
+                "sha256": sha256_bytes(path.read_bytes()),
+                "size_bytes": path.stat().st_size,
+            }
+        )
+        for label, pattern in PROCESSBENCH_FORBIDDEN_OUTPUT_PATTERNS:
+            if pattern.search(text):
+                violations.append({"path": path.name, "violation": label})
+    if violations:
+        raise ValueError(f"unsafe ProcessBench output artifact: {violations}")
+    return {"safe": True, "schema_version": 1, "scanned_files": scanned}
+
+
 def write_inventory_files(
     inventory: dict[str, Any], *, output_json: Path, output_report: Path
 ) -> tuple[str, str]:
@@ -1362,6 +1828,7 @@ def processbench_inventory_report(inventory: dict[str, Any]) -> str:
         f"Source dataset: `{inventory['dataset']}`",
         f"Source revision: `{inventory['source_revision']}`",
         f"Source license: `{inventory['source_license']}`",
+        f"Observed total rows: `{inventory['observed_total_row_count']}`",
         "",
         (
             "This report contains aggregate inventory only. It does not contain raw "
@@ -1391,6 +1858,7 @@ def processbench_inventory_report(inventory: dict[str, Any]) -> str:
                 f"- step quantiles: {data['step_count_quantiles']}",
                 f"- earliest-error positions: {data['earliest_error_position_distribution']}",
                 f"- normalized-error bins: {data['normalized_error_position_distribution']}",
+                f"- normalized-error quantiles: {data['normalized_error_position_quantiles']}",
                 f"- malformed fields: {data['malformed_field_counts']}",
             ]
         )

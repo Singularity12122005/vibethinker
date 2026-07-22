@@ -1,6 +1,11 @@
 """Causal process-observation contracts for the qwen25-15k ARU pilot."""
 
-from .datasets import DatasetRoleRecord, ProcessBenchExample, TraceRenderingPolicy
+from .datasets import (
+    DatasetRoleRecord,
+    ProcessBenchExample,
+    ProcessBenchSourceLock,
+    TraceRenderingPolicy,
+)
 from .models import (
     ARUCandidate,
     CandidateRegion,
@@ -25,6 +30,7 @@ __all__ = [
     "PrefixBranchRequest",
     "PrefixBranchResponse",
     "ProcessBenchExample",
+    "ProcessBenchSourceLock",
     "ProcessOutcome",
     "ProcessRunProfile",
     "TraceRenderingPolicy",

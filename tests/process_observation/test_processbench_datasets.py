@@ -1,10 +1,17 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
 from vibethinker_experiments.process_observation.datasets import (
+    PROCESSBENCH_CRITIQUE_TEMPLATE_SHA256,
+    PROCESSBENCH_OFFICIAL_EVALUATION_REVISION,
     PROCESSBENCH_OFFICIAL_LABEL_SEMANTICS,
     PROCESSBENCH_OFFICIAL_SPLITS,
+    PROCESSBENCH_README_SHA256,
+    PROCESSBENCH_RUN_EVAL_SHA256,
+    ProcessBenchSourceLock,
     ProcessBenchSourceUnavailable,
     TraceRenderingPolicy,
     aggressive_duplicate_review_sha256,
@@ -14,16 +21,26 @@ from vibethinker_experiments.process_observation.datasets import (
     conservative_normalized_problem_sha256,
     external_macro_region_for_example,
     import_processbench_split,
+    load_formal_processbench_source_lock,
     load_processbench_source,
     load_selection_manifest,
     matched_correct_step,
+    processbench_integration_skip_report,
     render_external_trace,
+    resolve_processbench_source_metadata,
+    scan_processbench_safe_artifact_paths,
     select_processbench_pilot,
+    source_lock_from_resolution,
     validate_discovery_confirmation_no_leakage,
+    validate_processbench_dataset_revision_sha,
+    validate_processbench_real_schema_integration,
     validate_unique_selected_problem_hashes,
     write_split_selection_manifests,
 )
-from vibethinker_experiments.process_observation.identity import canonical_jsonl_bytes
+from vibethinker_experiments.process_observation.identity import (
+    canonical_json_bytes,
+    canonical_jsonl_bytes,
+)
 
 
 def _row(split: str, index: int, *, label: int, generator: str, steps: int = 4):
@@ -62,6 +79,45 @@ def _record_from_row(split: str, row: dict):
         source_split=split,
         source_revision="synthetic-revision",
     )[0]
+
+
+def _source_lock_mapping(*, dataset_revision_sha: str = "1" * 40) -> dict:
+    return {
+        "created_at_utc": "2026-07-22T00:00:00Z",
+        "critique_template_sha256": PROCESSBENCH_CRITIQUE_TEMPLATE_SHA256,
+        "dataset_id": "Qwen/ProcessBench",
+        "dataset_repo_type": "dataset",
+        "dataset_revision_sha": dataset_revision_sha,
+        "expected_public_row_count": 1234,
+        "expected_split_names": list(PROCESSBENCH_OFFICIAL_SPLITS),
+        "official_evaluation_repository": "QwenLM/ProcessBench",
+        "official_evaluation_revision": PROCESSBENCH_OFFICIAL_EVALUATION_REVISION,
+        "readme_sha256": PROCESSBENCH_README_SHA256,
+        "resolution_receipt_sha256": "2" * 64,
+        "run_eval_sha256": PROCESSBENCH_RUN_EVAL_SHA256,
+        "schema_version": 1,
+        "source_license": "apache-2.0",
+    }
+
+
+def _metadata_bytes(*, sha: str = "3" * 40) -> bytes:
+    return canonical_json_bytes(
+        {
+            "cardData": {"license": "apache-2.0"},
+            "id": "Qwen/ProcessBench",
+            "sha": sha,
+            "siblings": [
+                {
+                    "blobId": "blob-a",
+                    "lfs": {"oid": "lfs-a", "size": 10},
+                    "rfilename": "README.md",
+                    "size": 9,
+                },
+                {"blobId": "blob-b", "rfilename": "data/gsm8k.parquet", "size": 100},
+            ],
+            "tags": ["license:apache-2.0"],
+        }
+    )
 
 
 def test_processbench_official_field_preservation_and_label_semantics():
@@ -146,6 +202,15 @@ def test_processbench_inventory_counts_and_duplicate_hashes():
         "label_error__final_wrong": 1,
     }
     assert inventory["splits"]["gsm8k"]["number_of_steps_distribution"] == {4: 4, 5: 4}
+    assert inventory["splits"]["gsm8k"]["normalized_error_position_quantiles"] == {
+        "max": 0.875,
+        "median": 0.5,
+        "min": 0.125,
+        "p25": 0.3125,
+        "p75": 0.6875,
+    }
+    assert inventory["observed_total_row_count"] == 32
+    assert inventory["split_generator_distribution"]["gsm8k"]["gen-a"] == 2
     assert inventory["conservative_duplicate_hashes_across_splits"] == {}
 
 
@@ -453,3 +518,151 @@ def test_conservative_duplicate_is_hard_and_aggressive_collision_is_review_only(
 
     assert inventory["conservative_duplicate_hashes_across_splits"]
     assert inventory["aggressive_duplicate_review_clusters"]
+
+
+def test_processbench_source_lock_accepts_only_full_revision_sha():
+    assert validate_processbench_dataset_revision_sha("a" * 40, "dataset_revision_sha")
+    for bad_revision in ("main", "master", "latest", "refs/convert/parquet", "feature-x"):
+        with pytest.raises(ValueError, match="immutable 40-character Git SHA"):
+            ProcessBenchSourceLock.from_mapping(
+                _source_lock_mapping(dataset_revision_sha=bad_revision)
+            )
+
+
+def test_placeholder_source_lock_is_rejected_in_formal_mode(tmp_path):
+    path = tmp_path / "processbench_source_lock.json"
+    path.write_bytes(
+        canonical_json_bytes(_source_lock_mapping(dataset_revision_sha="PLACEHOLDER"))
+    )
+
+    with pytest.raises(ValueError, match="immutable 40-character Git SHA"):
+        load_formal_processbench_source_lock(path)
+    with pytest.raises(ProcessBenchSourceUnavailable, match="source lock"):
+        load_formal_processbench_source_lock(tmp_path / "missing.json")
+
+
+def test_processbench_source_lock_excludes_timestamps_from_stable_identity():
+    first = ProcessBenchSourceLock.from_mapping(_source_lock_mapping())
+    second = ProcessBenchSourceLock.from_mapping(
+        {**_source_lock_mapping(), "created_at_utc": "2026-07-23T00:00:00Z"}
+    )
+
+    assert first.to_dict()["created_at_utc"] != second.to_dict()["created_at_utc"]
+    assert first.to_stable_identity() == second.to_stable_identity()
+    assert first.stable_source_identity_sha256 == second.stable_source_identity_sha256
+
+
+def test_processbench_metadata_resolution_is_network_disabled_by_default():
+    with pytest.raises(ProcessBenchSourceUnavailable, match="network-disabled by default"):
+        resolve_processbench_source_metadata(resolution_time="2026-07-22T00:00:00Z")
+
+
+def test_processbench_metadata_resolution_allows_only_official_dataset_id():
+    with pytest.raises(ValueError, match="official Qwen/ProcessBench"):
+        resolve_processbench_source_metadata(
+            dataset_id="Other/ProcessBench",
+            metadata_bytes=_metadata_bytes(),
+            resolution_time="2026-07-22T00:00:00Z",
+        )
+
+
+def test_processbench_resolution_output_has_canonical_stable_receipt():
+    resolution = resolve_processbench_source_metadata(
+        metadata_bytes=_metadata_bytes(),
+        resolution_time="2026-07-22T00:00:00Z",
+        client_version={"resolver": "synthetic-test"},
+    )
+    same_source_later = resolve_processbench_source_metadata(
+        metadata_bytes=_metadata_bytes(),
+        resolution_time="2026-07-23T00:00:00Z",
+        client_version={"resolver": "different-runtime"},
+    )
+    source_lock = source_lock_from_resolution(
+        resolution,
+        created_at_utc="2026-07-24T00:00:00Z",
+        expected_public_row_count=None,
+    )
+
+    assert resolution["resolved_revision_sha"] == "3" * 40
+    assert resolution["raw_dataset_content_downloaded"] is False
+    assert resolution["repository_file_inventory"][0]["path"] == "README.md"
+    assert resolution["stable_resolution_receipt_sha256"] == (
+        same_source_later["stable_resolution_receipt_sha256"]
+    )
+    assert b"\r" not in canonical_json_bytes(resolution)
+    assert source_lock.dataset_revision_sha == resolution["resolved_revision_sha"]
+    assert source_lock.official_evaluation_revision != source_lock.dataset_revision_sha
+
+
+def test_inventory_source_lock_fail_closed_without_committed_lock(tmp_path):
+    with pytest.raises(ProcessBenchSourceUnavailable, match="formal ProcessBench inventory"):
+        load_formal_processbench_source_lock(tmp_path / "configs/processbench_source_lock.json")
+
+
+def test_processbench_safe_artifact_scan_rejects_directories_and_raw_text(tmp_path):
+    safe = tmp_path / "safe.json"
+    safe.write_bytes(
+        canonical_json_bytes(
+            {
+                "field_presence": {"problem": True, "steps": True},
+                "row_count": 1,
+                "source_ids": ["gsm8k-1"],
+            }
+        )
+    )
+    assert scan_processbench_safe_artifact_paths([safe])["safe"] is True
+
+    with pytest.raises(ValueError, match="explicit existing files"):
+        scan_processbench_safe_artifact_paths([tmp_path])
+
+    leaked = tmp_path / "leaked.json"
+    leaked.write_text('{"problem":"full benchmark problem","steps":["full step"]}\n')
+    with pytest.raises(ValueError, match="unsafe ProcessBench output artifact"):
+        scan_processbench_safe_artifact_paths([leaked])
+
+
+def test_source_revision_is_distinct_from_semantics_revision_in_source_lock():
+    with pytest.raises(ValueError, match="must be distinct"):
+        ProcessBenchSourceLock.from_mapping(
+            _source_lock_mapping(
+                dataset_revision_sha=PROCESSBENCH_OFFICIAL_EVALUATION_REVISION
+            )
+        )
+
+
+def test_real_schema_integration_skips_or_fails_without_formal_snapshot(tmp_path):
+    skip = processbench_integration_skip_report(
+        source_lock_path=tmp_path / "missing-lock.json",
+        snapshot_dir=tmp_path / "missing-snapshot",
+    )
+    assert skip == {
+        "reason": "formal ProcessBench source lock is not available",
+        "schema_version": 1,
+        "skipped": True,
+        "synthetic_substitute_used": False,
+    }
+
+    source_lock = ProcessBenchSourceLock.from_mapping(_source_lock_mapping())
+    with pytest.raises(ProcessBenchSourceUnavailable, match="no local ProcessBench file"):
+        validate_processbench_real_schema_integration(
+            source_lock=source_lock,
+            snapshot_dir=Path("data/process_observation/toy"),
+        )
+
+
+def test_processbench_workflows_are_manual_and_do_not_upload_parent_directories():
+    root = Path(__file__).resolve().parents[2]
+    source_resolve = root / ".github/workflows/processbench-source-resolve.yml"
+    pinned_inventory = root / ".github/workflows/processbench-pinned-inventory.yml"
+    if not source_resolve.exists() or not pinned_inventory.exists():
+        pytest.skip("workflow files not created yet")
+    source_text = source_resolve.read_text(encoding="utf-8")
+    inventory_text = pinned_inventory.read_text(encoding="utf-8")
+
+    assert "workflow_dispatch:" in source_text
+    assert "workflow_dispatch:" in inventory_text
+    assert "processbench-select" not in source_text
+    assert "processbench-select" not in inventory_text
+    assert "configs/process_observation/processbench_source_lock.json" in inventory_text
+    assert "actions/cache" not in inventory_text
+    assert "private_runs" not in source_text

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import UTC, datetime
 from pathlib import Path
 
 from vibethinker_experiments.evaluation.io import read_json, read_jsonl, write_immutable, write_json
@@ -20,13 +21,22 @@ from .datasets import (
     PROCESSBENCH_SELECTION_POLICY_ID,
     PROCESSBENCH_SELECTION_SEED,
     build_processbench_inventory,
+    build_snapshot_manifest_from_source_lock,
+    load_formal_processbench_source_lock,
     load_processbench_source,
+    processbench_integration_skip_report,
+    resolve_processbench_source_metadata,
+    scan_processbench_safe_artifact_paths,
     select_processbench_pilot,
+    validate_expected_public_row_count,
+    validate_processbench_real_schema_integration,
     write_inventory_files,
+    write_snapshot_manifest,
+    write_source_lock_validation_report,
     write_split_selection_manifests,
 )
 from .export import comparison_row, validate_split_leakage
-from .identity import canonical_jsonl_bytes
+from .identity import canonical_json_bytes, canonical_jsonl_bytes
 from .interventions import prepare_toy_interventions
 from .localization import deterministic_candidate_regions
 from .models import CheckpointReference, NaturalRolloutReference
@@ -219,16 +229,52 @@ def cmd_export_comparison(args: argparse.Namespace) -> None:
 
 
 def _load_processbench_from_args(args: argparse.Namespace):
+    source_lock = (
+        load_formal_processbench_source_lock(args.source_lock)
+        if getattr(args, "source_lock", None) is not None
+        else None
+    )
+    source_revision = source_lock.dataset_revision_sha if source_lock else args.source_revision
+    source_license = source_lock.source_license if source_lock else args.source_license
     return load_processbench_source(
         snapshot_dir=args.snapshot_dir,
         allow_network=args.allow_network,
         cache_dir=args.cache_dir,
-        source_revision=args.source_revision,
-        source_license=args.source_license,
+        source_revision=source_revision,
+        source_license=source_license,
     )
 
 
+def cmd_processbench_resolve_source(args: argparse.Namespace) -> None:
+    resolution = resolve_processbench_source_metadata(
+        allow_network=args.allow_network,
+        resolution_time=datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+    )
+    write_immutable(args.output, canonical_json_bytes(resolution))
+
+
+def cmd_processbench_validate_source_lock(args: argparse.Namespace) -> None:
+    lock = load_formal_processbench_source_lock(args.source_lock)
+    write_source_lock_validation_report(lock, args.output)
+
+
+def cmd_processbench_snapshot_manifest(args: argparse.Namespace) -> None:
+    lock = load_formal_processbench_source_lock(args.source_lock)
+    manifest = build_snapshot_manifest_from_source_lock(
+        lock=lock,
+        snapshot_dir=args.snapshot_dir,
+        retrieval_method=args.retrieval_method,
+        retrieval_timestamp=datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+    )
+    write_snapshot_manifest(args.output, manifest)
+
+
 def cmd_processbench_inventory(args: argparse.Namespace) -> None:
+    source_lock = (
+        load_formal_processbench_source_lock(args.source_lock)
+        if getattr(args, "source_lock", None) is not None
+        else None
+    )
     bundle = _load_processbench_from_args(args)
     inventory = build_processbench_inventory(
         list(bundle.records),
@@ -236,6 +282,8 @@ def cmd_processbench_inventory(args: argparse.Namespace) -> None:
         source_license=bundle.source_license,
         source_file_inventory=bundle.source_file_inventory,
     )
+    if source_lock is not None:
+        validate_expected_public_row_count(inventory, source_lock)
     write_inventory_files(
         inventory,
         output_json=args.output_json,
@@ -263,12 +311,32 @@ def cmd_processbench_select(args: argparse.Namespace) -> None:
     )
 
 
+def cmd_processbench_integration_validate(args: argparse.Namespace) -> None:
+    if args.skip_when_unavailable:
+        report = processbench_integration_skip_report(
+            source_lock_path=args.source_lock,
+            snapshot_dir=args.snapshot_dir,
+        )
+    else:
+        report = validate_processbench_real_schema_integration(
+            source_lock=load_formal_processbench_source_lock(args.source_lock),
+            snapshot_dir=args.snapshot_dir,
+        )
+    write_immutable(args.output, canonical_json_bytes(report))
+
+
+def cmd_processbench_safety_scan(args: argparse.Namespace) -> None:
+    report = scan_processbench_safe_artifact_paths(args.paths)
+    write_immutable(args.output, canonical_json_bytes(report))
+
+
 def _add_processbench_source_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--snapshot-dir", type=Path)
     parser.add_argument("--allow-network", action="store_true")
     parser.add_argument("--cache-dir", type=Path)
     parser.add_argument("--source-revision")
     parser.add_argument("--source-license", default=PROCESSBENCH_LICENSE)
+    parser.add_argument("--source-lock", type=Path)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -357,11 +425,43 @@ def build_parser() -> argparse.ArgumentParser:
     export.add_argument("--split", choices=["train", "heldout"], required=True)
     export.set_defaults(func=cmd_export_comparison)
 
+    resolve_source = sub.add_parser("processbench-resolve-source")
+    resolve_source.add_argument("--allow-network", action="store_true")
+    resolve_source.add_argument("--output", type=Path, required=True)
+    resolve_source.set_defaults(func=cmd_processbench_resolve_source)
+
+    validate_lock = sub.add_parser("processbench-validate-source-lock")
+    validate_lock.add_argument("--source-lock", type=Path, required=True)
+    validate_lock.add_argument("--output", type=Path, required=True)
+    validate_lock.set_defaults(func=cmd_processbench_validate_source_lock)
+
+    snapshot_manifest = sub.add_parser("processbench-snapshot-manifest")
+    snapshot_manifest.add_argument("--source-lock", type=Path, required=True)
+    snapshot_manifest.add_argument("--snapshot-dir", type=Path, required=True)
+    snapshot_manifest.add_argument(
+        "--retrieval-method",
+        default="huggingface_hub.snapshot_download",
+    )
+    snapshot_manifest.add_argument("--output", type=Path, required=True)
+    snapshot_manifest.set_defaults(func=cmd_processbench_snapshot_manifest)
+
     inventory = sub.add_parser("processbench-inventory")
     _add_processbench_source_args(inventory)
     inventory.add_argument("--output-json", type=Path, required=True)
     inventory.add_argument("--output-report", type=Path, required=True)
     inventory.set_defaults(func=cmd_processbench_inventory)
+
+    integration = sub.add_parser("processbench-integration-validate")
+    integration.add_argument("--source-lock", type=Path, required=True)
+    integration.add_argument("--snapshot-dir", type=Path)
+    integration.add_argument("--output", type=Path, required=True)
+    integration.add_argument("--skip-when-unavailable", action="store_true")
+    integration.set_defaults(func=cmd_processbench_integration_validate)
+
+    safety = sub.add_parser("processbench-safety-scan")
+    safety.add_argument("--paths", type=Path, nargs="+", required=True)
+    safety.add_argument("--output", type=Path, required=True)
+    safety.set_defaults(func=cmd_processbench_safety_scan)
 
     select = sub.add_parser("processbench-select")
     _add_processbench_source_args(select)

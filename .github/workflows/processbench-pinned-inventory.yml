@@ -1,0 +1,209 @@
+name: ProcessBench Pinned Inventory
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHON_VERSION: "3.12"
+      SOURCE_LOCK: configs/process_observation/processbench_source_lock.json
+      EVIDENCE_DIR: processbench-pinned-inventory-evidence
+    steps:
+      - name: Checkout workflow head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install and record environment
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p "${EVIDENCE_DIR}"
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,data]"
+          python -m pip freeze --all | tee "${EVIDENCE_DIR}/pip-freeze.txt"
+          python - <<'PY' > "${EVIDENCE_DIR}/environment_receipt.json"
+          from __future__ import annotations
+
+          import json
+          import platform
+          import sys
+
+          receipt = {
+              "github_sha": "${{ github.sha }}",
+              "python": sys.version.split()[0],
+              "runner_os": "${{ runner.os }}",
+              "schema_version": 1,
+              "system": platform.system(),
+              "workflow": "processbench-pinned-inventory",
+          }
+          print(json.dumps(receipt, sort_keys=True, separators=(",", ":")))
+          PY
+
+      - name: Fail closed unless a committed formal source lock exists
+        shell: bash
+        run: |
+          set -euxo pipefail
+          if [[ ! -f "${SOURCE_LOCK}" ]]; then
+            printf '%s\n' \
+              '{"schema_version":1,"valid":false,"reason":"committed formal ProcessBench source lock is absent"}' \
+              > "${EVIDENCE_DIR}/source-lock-validation.json"
+            exit 1
+          fi
+          python -m vibethinker_experiments.process_observation.cli \
+            processbench-validate-source-lock \
+            --source-lock "${SOURCE_LOCK}" \
+            --output "${EVIDENCE_DIR}/source-lock-validation.json"
+
+      - name: Linux code gates
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python -m pytest -q --junitxml="${EVIDENCE_DIR}/pytest-junit.xml" \
+            2>&1 | tee "${EVIDENCE_DIR}/pytest.log"
+          python -m pytest -q tests/process_observation \
+            --junitxml="${EVIDENCE_DIR}/process-observation-junit.xml" \
+            2>&1 | tee "${EVIDENCE_DIR}/process-observation-pytest.log"
+          python -m pytest -q tests/process_observation/test_processbench_datasets.py \
+            --junitxml="${EVIDENCE_DIR}/processbench-datasets-junit.xml" \
+            2>&1 | tee "${EVIDENCE_DIR}/processbench-datasets-pytest.log"
+          python -m ruff check . 2>&1 | tee "${EVIDENCE_DIR}/ruff.log"
+          git diff --check 2>&1 | tee "${EVIDENCE_DIR}/diff-check.log"
+          git ls-files --eol "*.jsonl" "*.patch" | tee "${EVIDENCE_DIR}/eol.txt"
+
+      - name: Download exact pinned source revision into runner temp
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import os
+          from pathlib import Path
+
+          from huggingface_hub import HfApi, snapshot_download
+
+          lock = json.loads(Path(os.environ["SOURCE_LOCK"]).read_text(encoding="utf-8"))
+          revision = lock["dataset_revision_sha"]
+          api = HfApi()
+          info = api.repo_info(
+              repo_id="Qwen/ProcessBench",
+              repo_type="dataset",
+              revision=revision,
+          )
+          if info.sha != revision:
+              raise SystemExit("materialized repository revision did not match source lock")
+          snapshot_dir = Path(os.environ["RUNNER_TEMP"]) / "processbench_snapshot"
+          snapshot_download(
+              repo_id="Qwen/ProcessBench",
+              repo_type="dataset",
+              revision=revision,
+              local_dir=snapshot_dir,
+          )
+          with Path(os.environ["GITHUB_ENV"]).open("a", encoding="utf-8") as handle:
+              handle.write(f"PROCESSBENCH_SNAPSHOT_DIR={snapshot_dir}\n")
+          PY
+
+      - name: Build snapshot manifest, inventory, and real-schema report
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python -m vibethinker_experiments.process_observation.cli \
+            processbench-snapshot-manifest \
+            --source-lock "${SOURCE_LOCK}" \
+            --snapshot-dir "${PROCESSBENCH_SNAPSHOT_DIR}" \
+            --output "${EVIDENCE_DIR}/snapshot_manifest.json"
+          python -m vibethinker_experiments.process_observation.cli \
+            processbench-inventory \
+            --source-lock "${SOURCE_LOCK}" \
+            --snapshot-dir "${PROCESSBENCH_SNAPSHOT_DIR}" \
+            --output-json "${EVIDENCE_DIR}/processbench_inventory.json" \
+            --output-report "${EVIDENCE_DIR}/processbench_inventory.md"
+          python -m vibethinker_experiments.process_observation.cli \
+            processbench-integration-validate \
+            --source-lock "${SOURCE_LOCK}" \
+            --snapshot-dir "${PROCESSBENCH_SNAPSHOT_DIR}" \
+            --output "${EVIDENCE_DIR}/real-schema-integration-report.json"
+
+      - name: Safety scan, remove raw snapshot, and hash evidence
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python -m vibethinker_experiments.process_observation.cli \
+            processbench-safety-scan \
+            --paths \
+              "${EVIDENCE_DIR}/diff-check.log" \
+              "${EVIDENCE_DIR}/environment_receipt.json" \
+              "${EVIDENCE_DIR}/eol.txt" \
+              "${EVIDENCE_DIR}/pip-freeze.txt" \
+              "${EVIDENCE_DIR}/process-observation-junit.xml" \
+              "${EVIDENCE_DIR}/process-observation-pytest.log" \
+              "${EVIDENCE_DIR}/processbench-datasets-junit.xml" \
+              "${EVIDENCE_DIR}/processbench-datasets-pytest.log" \
+              "${EVIDENCE_DIR}/processbench_inventory.json" \
+              "${EVIDENCE_DIR}/processbench_inventory.md" \
+              "${EVIDENCE_DIR}/pytest-junit.xml" \
+              "${EVIDENCE_DIR}/pytest.log" \
+              "${EVIDENCE_DIR}/real-schema-integration-report.json" \
+              "${EVIDENCE_DIR}/ruff.log" \
+              "${EVIDENCE_DIR}/snapshot_manifest.json" \
+              "${EVIDENCE_DIR}/source-lock-validation.json" \
+            --output "${EVIDENCE_DIR}/safety_scan.json"
+          rm -rf "${PROCESSBENCH_SNAPSHOT_DIR}"
+          sha256sum \
+            "${EVIDENCE_DIR}/diff-check.log" \
+            "${EVIDENCE_DIR}/environment_receipt.json" \
+            "${EVIDENCE_DIR}/eol.txt" \
+            "${EVIDENCE_DIR}/pip-freeze.txt" \
+            "${EVIDENCE_DIR}/process-observation-junit.xml" \
+            "${EVIDENCE_DIR}/process-observation-pytest.log" \
+            "${EVIDENCE_DIR}/processbench-datasets-junit.xml" \
+            "${EVIDENCE_DIR}/processbench-datasets-pytest.log" \
+            "${EVIDENCE_DIR}/processbench_inventory.json" \
+            "${EVIDENCE_DIR}/processbench_inventory.md" \
+            "${EVIDENCE_DIR}/pytest-junit.xml" \
+            "${EVIDENCE_DIR}/pytest.log" \
+            "${EVIDENCE_DIR}/real-schema-integration-report.json" \
+            "${EVIDENCE_DIR}/ruff.log" \
+            "${EVIDENCE_DIR}/safety_scan.json" \
+            "${EVIDENCE_DIR}/snapshot_manifest.json" \
+            "${EVIDENCE_DIR}/source-lock-validation.json" \
+            | tee "${EVIDENCE_DIR}/SHA256SUMS.txt"
+
+      - name: Upload pinned inventory evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: processbench-pinned-inventory-evidence
+          retention-days: 30
+          path: |
+            processbench-pinned-inventory-evidence/diff-check.log
+            processbench-pinned-inventory-evidence/environment_receipt.json
+            processbench-pinned-inventory-evidence/eol.txt
+            processbench-pinned-inventory-evidence/pip-freeze.txt
+            processbench-pinned-inventory-evidence/process-observation-junit.xml
+            processbench-pinned-inventory-evidence/process-observation-pytest.log
+            processbench-pinned-inventory-evidence/processbench-datasets-junit.xml
+            processbench-pinned-inventory-evidence/processbench-datasets-pytest.log
+            processbench-pinned-inventory-evidence/processbench_inventory.json
+            processbench-pinned-inventory-evidence/processbench_inventory.md
+            processbench-pinned-inventory-evidence/pytest-junit.xml
+            processbench-pinned-inventory-evidence/pytest.log
+            processbench-pinned-inventory-evidence/real-schema-integration-report.json
+            processbench-pinned-inventory-evidence/ruff.log
+            processbench-pinned-inventory-evidence/safety_scan.json
+            processbench-pinned-inventory-evidence/snapshot_manifest.json
+            processbench-pinned-inventory-evidence/source-lock-validation.json
+            processbench-pinned-inventory-evidence/SHA256SUMS.txt

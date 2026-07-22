@@ -1,0 +1,121 @@
+name: ProcessBench Source Resolve
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  resolve-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHON_VERSION: "3.12"
+      EVIDENCE_DIR: processbench-source-resolution-evidence
+    steps:
+      - name: Checkout workflow head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install and record environment
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p "${EVIDENCE_DIR}"
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+          python -m pip freeze --all | tee "${EVIDENCE_DIR}/pip-freeze.txt"
+          python - <<'PY' > "${EVIDENCE_DIR}/environment_receipt.json"
+          from __future__ import annotations
+
+          import json
+          import platform
+          import sys
+
+          receipt = {
+              "github_sha": "${{ github.sha }}",
+              "python": sys.version.split()[0],
+              "runner_os": "${{ runner.os }}",
+              "schema_version": 1,
+              "system": platform.system(),
+              "workflow": "processbench-source-resolve",
+          }
+          print(json.dumps(receipt, sort_keys=True, separators=(",", ":")))
+          PY
+
+      - name: Run source-lock tests
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python -m pytest -q tests/process_observation/test_processbench_datasets.py \
+            --junitxml="${EVIDENCE_DIR}/processbench-source-junit.xml" \
+            2>&1 | tee "${EVIDENCE_DIR}/processbench-source-pytest.log"
+
+      - name: Resolve official metadata only
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python -m vibethinker_experiments.process_observation.cli \
+            processbench-resolve-source \
+            --allow-network \
+            --output "${EVIDENCE_DIR}/processbench_source_resolution.json"
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import re
+          from pathlib import Path
+
+          path = Path("processbench-source-resolution-evidence/processbench_source_resolution.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+          assert data["dataset_id"] == "Qwen/ProcessBench"
+          assert data["raw_dataset_content_downloaded"] is False
+          assert re.fullmatch(r"[0-9a-f]{40}", data["resolved_revision_sha"])
+          text = path.read_text(encoding="utf-8")
+          assert not re.search(r'"problem"\s*:\s*"', text)
+          assert not re.search(r'"steps"\s*:\s*\[', text)
+          PY
+
+      - name: Safety scan and hash manifest
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python -m vibethinker_experiments.process_observation.cli \
+            processbench-safety-scan \
+            --paths \
+              "${EVIDENCE_DIR}/environment_receipt.json" \
+              "${EVIDENCE_DIR}/pip-freeze.txt" \
+              "${EVIDENCE_DIR}/processbench-source-junit.xml" \
+              "${EVIDENCE_DIR}/processbench-source-pytest.log" \
+              "${EVIDENCE_DIR}/processbench_source_resolution.json" \
+            --output "${EVIDENCE_DIR}/safety_scan.json"
+          sha256sum \
+            "${EVIDENCE_DIR}/environment_receipt.json" \
+            "${EVIDENCE_DIR}/pip-freeze.txt" \
+            "${EVIDENCE_DIR}/processbench-source-junit.xml" \
+            "${EVIDENCE_DIR}/processbench-source-pytest.log" \
+            "${EVIDENCE_DIR}/processbench_source_resolution.json" \
+            "${EVIDENCE_DIR}/safety_scan.json" \
+            | tee "${EVIDENCE_DIR}/SHA256SUMS.txt"
+
+      - name: Upload source resolution evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: processbench-source-resolution-evidence
+          retention-days: 30
+          path: |
+            processbench-source-resolution-evidence/environment_receipt.json
+            processbench-source-resolution-evidence/pip-freeze.txt
+            processbench-source-resolution-evidence/processbench-source-junit.xml
+            processbench-source-resolution-evidence/processbench-source-pytest.log
+            processbench-source-resolution-evidence/processbench_source_resolution.json
+            processbench-source-resolution-evidence/safety_scan.json
+            processbench-source-resolution-evidence/SHA256SUMS.txt

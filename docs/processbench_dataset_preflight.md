@@ -54,6 +54,46 @@ file hashes, and semantics-source receipts.
 The aggregate inventory must not contain full problem text or full solution-step
 text.
 
+Synthetic tests are necessary but insufficient. They prove fail-closed schema
+contracts, deterministic sampling behavior, and privacy guards, but they cannot
+prove that the code is compatible with the real official repository layout,
+official field types, row counts, or converted storage files. Real-source
+compatibility begins only after a pinned official snapshot is materialized and
+validated.
+
+## Two-Stage Source Resolution
+
+Official ProcessBench source handling is split into reviewable stages:
+
+1. Metadata-only resolution queries the official `Qwen/ProcessBench` dataset
+   repository and records the exact immutable dataset Git SHA, repository file
+   inventory, source license, client versions, metadata response digest, and the
+   already pinned QwenLM/ProcessBench label-semantics receipts. It downloads no
+   dataset rows.
+2. A human reviews the resolution receipt and commits a formal
+   `ProcessBenchSourceLock` in a separate source-lock commit.
+3. Pinned inventory later reads only that committed source lock, materializes only
+   the locked revision, validates real rows without logging text, and emits safe
+   aggregate inventory.
+4. Pilot selection happens in a later task after inventory review.
+
+The exact dataset commit is reviewed and committed separately so that inventory
+cannot silently follow `main`, `latest`, a tag, or `refs/convert/parquet`.
+Converted Parquet storage may be how Hugging Face serves files, but it is not the
+canonical source identity. The canonical source revision is the immutable dataset
+repository commit SHA.
+
+Source lock, inventory lock, and selection lock are distinct:
+
+- source lock freezes the official dataset revision and semantics-source receipts;
+- inventory lock freezes aggregate facts observed from that revision;
+- selection lock freezes a reviewed deterministic subset and split assignment.
+
+Raw ProcessBench rows are not uploaded as CI artifacts because they contain full
+problem text and solution traces. CI uploads only resolution receipts, aggregate
+inventory, schema validation reports, logs, and SHA-256 manifests after a safety
+scan.
+
 ## Sampling Controls
 
 The deterministic 32-record pilot target is eight records per split: four
