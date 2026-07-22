@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from vibethinker_experiments.evaluation.io import read_jsonl, write_immutable, write_json
+from vibethinker_experiments.evaluation.io import read_json, read_jsonl, write_immutable, write_json
 
 from .artifacts import finalize_process_run, load_profile, load_records
 from .audit import aggregate_raw_and_accepted, gradient_record_from_qwen25_reward
@@ -14,6 +14,16 @@ from .branching import (
     NetworkDisabledPrefixBranchTransport,
     branch_all,
     make_branch_request,
+)
+from .datasets import (
+    PROCESSBENCH_LICENSE,
+    PROCESSBENCH_SELECTION_POLICY_ID,
+    PROCESSBENCH_SELECTION_SEED,
+    build_processbench_inventory,
+    load_processbench_source,
+    select_processbench_pilot,
+    write_inventory_files,
+    write_split_selection_manifests,
 )
 from .export import comparison_row, validate_split_leakage
 from .identity import canonical_jsonl_bytes
@@ -208,6 +218,59 @@ def cmd_export_comparison(args: argparse.Namespace) -> None:
     write_immutable(args.output, canonical_jsonl_bytes(rows))
 
 
+def _load_processbench_from_args(args: argparse.Namespace):
+    return load_processbench_source(
+        snapshot_dir=args.snapshot_dir,
+        allow_network=args.allow_network,
+        cache_dir=args.cache_dir,
+        source_revision=args.source_revision,
+        source_license=args.source_license,
+    )
+
+
+def cmd_processbench_inventory(args: argparse.Namespace) -> None:
+    bundle = _load_processbench_from_args(args)
+    inventory = build_processbench_inventory(
+        list(bundle.records),
+        source_revision=bundle.source_revision,
+        source_license=bundle.source_license,
+        source_file_inventory=bundle.source_file_inventory,
+    )
+    write_inventory_files(
+        inventory,
+        output_json=args.output_json,
+        output_report=args.output_report,
+    )
+
+
+def cmd_processbench_select(args: argparse.Namespace) -> None:
+    inventory = read_json(args.inventory_json)
+    bundle = _load_processbench_from_args(args)
+    if inventory.get("source_revision") != bundle.source_revision:
+        raise SystemExit("inventory source_revision does not match loaded ProcessBench source")
+    rows, report = select_processbench_pilot(
+        list(bundle.records),
+        inventory=inventory,
+        seed=args.selection_seed,
+        policy_id=args.selection_policy_id,
+    )
+    write_split_selection_manifests(
+        rows,
+        report,
+        discovery_jsonl=args.discovery_jsonl,
+        confirmation_jsonl=args.confirmation_jsonl,
+        output_report=args.output_report,
+    )
+
+
+def _add_processbench_source_args(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--snapshot-dir", type=Path)
+    parser.add_argument("--allow-network", action="store_true")
+    parser.add_argument("--cache-dir", type=Path)
+    parser.add_argument("--source-revision")
+    parser.add_argument("--source-license", default=PROCESSBENCH_LICENSE)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="command", required=True)
@@ -293,6 +356,22 @@ def build_parser() -> argparse.ArgumentParser:
     export.add_argument("--surface-paraphrase-family", required=True)
     export.add_argument("--split", choices=["train", "heldout"], required=True)
     export.set_defaults(func=cmd_export_comparison)
+
+    inventory = sub.add_parser("processbench-inventory")
+    _add_processbench_source_args(inventory)
+    inventory.add_argument("--output-json", type=Path, required=True)
+    inventory.add_argument("--output-report", type=Path, required=True)
+    inventory.set_defaults(func=cmd_processbench_inventory)
+
+    select = sub.add_parser("processbench-select")
+    _add_processbench_source_args(select)
+    select.add_argument("--inventory-json", type=Path, required=True)
+    select.add_argument("--discovery-jsonl", type=Path, required=True)
+    select.add_argument("--confirmation-jsonl", type=Path, required=True)
+    select.add_argument("--output-report", type=Path, required=True)
+    select.add_argument("--selection-policy-id", default=PROCESSBENCH_SELECTION_POLICY_ID)
+    select.add_argument("--selection-seed", type=int, default=PROCESSBENCH_SELECTION_SEED)
+    select.set_defaults(func=cmd_processbench_select)
     return parser
 
 
