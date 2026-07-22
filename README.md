@@ -42,6 +42,7 @@ tests/         CPU 单元测试、合同测试及显式跳过的 GPU 测试
 - [`docs/methodology.md`](docs/methodology.md)：实验边界与结论强度；
 - [`docs/engineering.md`](docs/engineering.md)：蒸馏、验证、checkpoint、持久化与 runtime；
 - [`docs/evaluation.md`](docs/evaluation.md)：Panel 评测和产物状态机；
+- [`docs/process_observation.md`](docs/process_observation.md)：ARU 过程观测合同与 toy CPU pipeline；
 - [`docs/reproducibility.md`](docs/reproducibility.md)：复现记录与发布安全要求；
 - [`docs/research/recipe-evidence-summary.md`](docs/research/recipe-evidence-summary.md)：
   公开 recipe 证据摘要。

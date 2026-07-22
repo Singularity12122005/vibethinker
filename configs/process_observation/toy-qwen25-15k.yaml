@@ -1,0 +1,16 @@
+profile_id: synthetic-toy-qwen25-15k-aru-v1
+schema_version: 1
+mode: toy
+context_tokens: 64
+short_continuation_tokens: 8
+full_continuation_tokens: 16
+temperature: 0.0
+top_p: 1.0
+seeds:
+  - 20260722
+checkpoint_ids:
+  - qwen25-15k-sft-epoch1-toy
+outcome_evaluator_id: synthetic-toy-process-outcome-v1
+candidate_selection_policy_id: deterministic-sparse-token-region-v1
+intervention_policy_id: synthetic-toy-six-way-controls-v1
+artifact_format_version: 1

@@ -1,0 +1,1 @@
+{"checkpoint_id":"qwen25-15k-sft-epoch1-toy","checkpoint_receipt_reference":null,"lineage":"qwen25-15k","manifest_sha256":null,"runtime_locator":null,"stage":"sft","status":"unverified","tokenizer_reference":"synthetic-toy-tokenizer-v1","tokenizer_sha256":null}
