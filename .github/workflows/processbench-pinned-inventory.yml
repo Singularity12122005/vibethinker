@@ -148,16 +148,13 @@ jobs:
               "${EVIDENCE_DIR}/diff-check.log" \
               "${EVIDENCE_DIR}/environment_receipt.json" \
               "${EVIDENCE_DIR}/eol.txt" \
-              "${EVIDENCE_DIR}/pip-freeze.txt" \
               "${EVIDENCE_DIR}/process-observation-junit.xml" \
               "${EVIDENCE_DIR}/process-observation-pytest.log" \
               "${EVIDENCE_DIR}/processbench-datasets-junit.xml" \
               "${EVIDENCE_DIR}/processbench-datasets-pytest.log" \
               "${EVIDENCE_DIR}/processbench_inventory.json" \
               "${EVIDENCE_DIR}/processbench_inventory.md" \
-              "${EVIDENCE_DIR}/pytest-junit.xml" \
               "${EVIDENCE_DIR}/pytest.log" \
-              "${EVIDENCE_DIR}/real-schema-integration-report.json" \
               "${EVIDENCE_DIR}/ruff.log" \
               "${EVIDENCE_DIR}/snapshot_manifest.json" \
               "${EVIDENCE_DIR}/source-lock-validation.json" \
