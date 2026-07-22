@@ -92,7 +92,6 @@ jobs:
             processbench-safety-scan \
             --paths \
               "${EVIDENCE_DIR}/environment_receipt.json" \
-              "${EVIDENCE_DIR}/pip-freeze.txt" \
               "${EVIDENCE_DIR}/processbench-source-junit.xml" \
               "${EVIDENCE_DIR}/processbench-source-pytest.log" \
               "${EVIDENCE_DIR}/processbench_source_resolution.json" \
