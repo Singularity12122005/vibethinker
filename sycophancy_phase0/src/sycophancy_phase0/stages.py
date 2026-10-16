@@ -270,6 +270,8 @@ def stage_g2a(ctx: Context, kappa1: Optional[float] = None) -> dict:
     except Exception as e:                                                            # too few strata/classes in a small run
         fe = dict(error=str(e))
     summary = dict(J=est["J"], J_ci95=est["J_ci95"], frac_flagged=est["frac_flagged"], A_of_lambda=est["A_of_lambda"], kappa1_used=est["kappa1_used"],
+                   J_lambda_curve=est.get("J_lambda_curve", {}), J_lambda_dose_curve=est.get("J_lambda_dose_curve", {}),
+                   J_plug_limit=est.get("J_plug_limit"), A_curve_rel_dev=est.get("A_curve_rel_dev", {}),
                    kappa1_is_placeholder=est["kappa1_is_placeholder"], mean_var_q=est["mean_var_q"], frontier_mean=est["frontier_mean"],
                    per_prefix={k: {kk: vv for kk, vv in v.items() if kk != "frontier"} for k, v in est["per_prefix"].items()},
                    testimony_uncorrected=tp, testimony_by_stratum=fe, risk_strata=strata, decision=dec, n_prefix=len(picks), n_y2=len(y2), n_cont=len(conts))

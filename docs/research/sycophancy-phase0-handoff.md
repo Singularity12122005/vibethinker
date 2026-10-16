@@ -27,6 +27,7 @@
 - 规格书 v1.4 与《最小修订确认稿》的逐条处置见 `sycophancy-phase0-revision-response.md`；G0.4 原文未缺失（粘贴截断），并补了设计说明。
 - 种子/`traj_id` 键含脚本与阶段；G2′-a/G5 缺合格前缀 ⇒ GREY 条目；$f_t$ 仅在相邻两轮都 EXPLICIT 且有值时定义；G0.7 以 $-\infty$ 为支持集缺陷。
 - 第五轮：处置文档经对抗式核对（18 条确认）后，G0.4 参考实现按设计说明重做（hooked HF 引擎 + 内存 `ids_3` + 实测 logits + `design_ok`）、G0.3 实现 cache 逐位验证与"不适用"、G0.1 报告 `segment_mismatches`、G4-1 传题目折、Beta 诊断不钳方差、有限 λ 描述曲线、§7.4/§8.4/§8.2 文本与实现对齐。
+- 第六轮复核（11 条）：G0.3 调用形式、有限 λ 曲线落盘（摘要 + `G2a_J_of_lambda.csv`）、$\kappa_1<10$ 的可执行报告规则、`config.hardware`、文本精度修正。
 - 本提交 `pytest`：83 passed（CPU、假引擎）。
 
 ## 3. 没有验证 / 需要 GPU 才能验证

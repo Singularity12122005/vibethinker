@@ -1,6 +1,6 @@
 # RUNBOOK — Phase-0 execution with `sycophancy_phase0`
 
-The specification is `docs/research/sycophancy-phase0-execution-plan.md` (v1.3). This file maps the spec onto the code;
+The specification is `docs/research/sycophancy-phase0-execution-plan.md` (v1.4). This file maps the spec onto the code;
 when they disagree, the spec wins and the disagreement is a bug to report (plan §0.4, last bullet).
 
 ## 0. Hard rules you must enforce while running (plan §0)

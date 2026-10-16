@@ -64,7 +64,7 @@ def test_cache_vs_recompute_and_support_defect(model):
     items = [(_seq(rng, 9), _seq(rng, 6)) for _ in range(5)]
     r = cache_vs_recompute_kl(model, items)
     kl = r["kl"]
-    assert kl.shape == (5,) and r["n_not_applicable"] == 0 and g0_3(kl, r["n_not_applicable"]).passed and float(np.max(kl)) < 1e-4
+    assert kl.shape == (5,) and r["n_not_applicable"] == 0 and g0_3(kl).passed and float(np.max(kl)) < 1e-4
     # v1.4 (memo I2): a real generate cache — covers prompt + generated[:-1]; verified bitwise against ids_3, else "not applicable"
     ids_2 = _seq(rng, 9)
     c = generate_with_cache(model, ids_2, max_new_tokens=4, greedy=True, pad_id=V - 1)

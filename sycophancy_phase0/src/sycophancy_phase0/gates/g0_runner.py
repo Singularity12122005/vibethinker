@@ -132,7 +132,7 @@ def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[i
 
     Cache-reuse regime (plan §4.2 appendix, v1.4 rule, memo I2).  With ``caches[i] = (cached_ids, past)`` from
     ``generate_with_cache`` the cache's actual length (``past.get_seq_length()``) is read, the ids it covers must equal the
-    leading ids of ids_3 **bitwise** (normalisation may have rewritten the EOS or stripped a think block), and only the
+    leading ids of ids_3 **bitwise** (normalisation may have stripped a think block or stray think tokens; an EOS rewrite only touches the last sampled token, which the cache never covers), and only the
     uncovered suffix is fed with the positions/attention of the full history.  Any mismatch makes the item "cache 不适用":
     KL = NaN, counted in ``n_not_applicable`` with its reason, never spliced into a wrong history and never a pass.
     Without ``caches`` the cache is built here on ids_3[:L] (L = len(ids_2), or ``cached_prefix_len[i]``), which

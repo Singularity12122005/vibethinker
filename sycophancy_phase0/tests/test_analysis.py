@@ -174,17 +174,20 @@ def test_eb_jackknife_plugin_is_biased_low():
     estimates J by ~40% at Beta(6,4) (M=16, N=128); the jackknife does not repair it; Ĵ_LB is within 2% (plan §8.4)."""
     rng = np.random.default_rng(7)
     M, N = 16, 128
-    a, b = 6.0, 4.0
-    zt = rng.beta(a, b, 200000)
-    J_true = float(np.log(zt.mean()) - np.log(zt).mean())
-    eb, jk, lb = [], [], []
-    for _ in range(100):
-        Z = rng.binomial(M, rng.beta(a, b, N))
-        J = _plug(_eb_shrink(Z, M))
-        Jd = np.array([_plug(_eb_shrink(np.delete(Z, i), M)) for i in range(N)])
-        eb.append(J); jk.append(N * J - (N - 1) * Jd.mean()); lb.append(jensen_gap(Z, M)["J"])
-    assert np.mean(eb) < 0.75 * J_true and np.mean(jk) < 0.75 * J_true          # ~ -40%
-    assert abs(np.mean(lb) - J_true) < 0.10 * J_true                          # the 4% check with 200 reps is in the test above
+    # (a, b, reps, EB/JK upper bound on mean/J_true, Ĵ_LB tolerance (lo, hi) incl. Monte-Carlo noise); plan §8.4 numbers
+    cases = [(6.0, 4.0, 100, 0.75, (-0.08, 0.08)), (8.0, 2.0, 40, 0.75, (-0.10, 0.10)), (3.0, 3.0, 40, 0.80, (-0.10, 0.06)),
+             (2.0, 2.0, 40, 0.85, (-0.12, 0.04)), (60.0, 40.0, 60, 0.50, (-0.20, 0.20))]
+    for a, b, reps, ub, (lo, hi) in cases:
+        zt = rng.beta(a, b, 200000)
+        J_true = float(np.log(zt.mean()) - np.log(zt).mean())
+        eb, jk, lb = [], [], []
+        for _ in range(reps):
+            Z = rng.binomial(M, rng.beta(a, b, N))
+            J = _plug(_eb_shrink(Z, M))
+            Jd = np.array([_plug(_eb_shrink(np.delete(Z, i), M)) for i in range(N)])
+            eb.append(J); jk.append(N * J - (N - 1) * Jd.mean()); lb.append(jensen_gap(Z, M)["J"])
+        assert np.mean(eb) < ub * J_true and np.mean(jk) < ub * J_true, (a, b, np.mean(eb) / J_true, np.mean(jk) / J_true)
+        assert lo < (np.mean(lb) - J_true) / J_true < hi, (a, b, (np.mean(lb) - J_true) / J_true)
 
 
 def test_jensen_gap_beta_undefined_cases_keep_raw_variance():

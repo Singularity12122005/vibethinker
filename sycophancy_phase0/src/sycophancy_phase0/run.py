@@ -158,6 +158,7 @@ DEFAULT_CONFIG = dict(
                g3=dict(level=0.025, min_frac_rho_sh=0.2), g41=dict(kl_max=0.10, flip_max=0.05, x2_drop=0.03, acc_drop=0.03, alpha_min=0.2),
                g2b=dict(n_y2=32, n_per_arm=16), g42=dict(n_per_arm=32, beta_D_margin=0.2, x4_drop_max=0.03, c4_drop_max=0.05),
                g5=dict(pilot_problems=15, per_problem=3, K=16, G_go=0.05, G_kill=0.03, weights=[0.8, 0.2]), g6=dict(n_h3=200, n_per_arm=32)),
+    hardware=dict(gpu="H100-80GB", throughput_factor=1.0),       # plan §7.13 record: A100-80GB => 0.5, GPU-days scale by 1/factor
     vllm=dict(enable_prefix_caching=False, dtype="bfloat16", top_k=-1, top_p=1.0, min_p=0.0),
 )
 

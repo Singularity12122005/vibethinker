@@ -75,6 +75,11 @@ def figures(run_path: str) -> List[str]:
         s = summaries["G2a"]
         rows = [[lam, A] for lam, A in s["A_of_lambda"].items()]
         p = os.path.join(fig_dir, "G2a_A_of_lambda.csv"); _csv(p, ["lambda_dose", "A"], rows); written.append(p)
+        # descriptive finite-λ curves (plan §8.4): J(λ_KL) on the KL grid and on the dose grid with the relative deviation from the small-λ limit
+        crows = [["kl", lam, J, ""] for lam, J in (s.get("J_lambda_curve") or {}).items()]
+        crows += [["dose", lam, J, (s.get("A_curve_rel_dev") or {}).get(lam, "")] for lam, J in (s.get("J_lambda_dose_curve") or {}).items()]
+        if crows:
+            p = os.path.join(fig_dir, "G2a_J_of_lambda.csv"); _csv(p, ["grid", "lambda", "J_plugin", "rel_dev_vs_limit"], crows); written.append(p)
         if plt is not None and rows:
             fig, ax = plt.subplots(figsize=(4, 3)); ax.plot([float(r[0]) for r in rows], [r[1] for r in rows], "o-"); ax.set_xlabel("λ_dose"); ax.set_ylabel("Â (errors)")
             p = os.path.join(fig_dir, "G2a_A_of_lambda.png"); fig.tight_layout(); fig.savefig(p); plt.close(fig); written.append(p)

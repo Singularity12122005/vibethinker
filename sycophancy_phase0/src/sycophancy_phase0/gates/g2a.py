@@ -148,8 +148,15 @@ def g2a_estimates(counts: Dict[str, Dict[str, object]], lam_kl: float, kappa1: O
         e2_all = np.concatenate([np.asarray(counts[p]["e2"]) for p in pids])
         for lk in lam_curve:
             curve[float(lk)] = jensen_gap_lambda_by_prefix(Z_all, S1_all, S2_all, M_all, e2_all, pref_all, float(lk))["J"]
+        # the same plug-in on the dose grid (λ_KL = λ_dose/κ₁) and its small-λ limit: the §8.4 reporting rule when κ₁ < 10
+        lim = jensen_gap_lambda_by_prefix(Z_all, S1_all, S2_all, M_all, e2_all, pref_all, 1e-3)["J"]
+        dose_curve = {float(lam): jensen_gap_lambda_by_prefix(Z_all, S1_all, S2_all, M_all, e2_all, pref_all, float(lam) / k1)["J"]
+                      for lam in LAMBDA_DOSE_GRID if lam > 0}
+        rel_dev = {lam: (float((v - lim) / lim) if (np.isfinite(lim) and lim != 0 and np.isfinite(v)) else float("nan")) for lam, v in dose_curve.items()}
+    else:
+        lim, dose_curve, rel_dev = float("nan"), {}, {}
     return dict(per_prefix=per, J=jp["J"], J_ci95=(lo, hi), J_lb95=lo, J_ub95=hi, J_se=float(bs.std(ddof=1)), frac_flagged=jp["frac_flagged"],
-                J_per_prefix={pid: jp["per_prefix"][pid] for pid in jp["per_prefix"]}, A_of_lambda=A, J_lambda_curve=curve, kappa1_used=k1,
+                J_per_prefix={pid: jp["per_prefix"][pid] for pid in jp["per_prefix"]}, A_of_lambda=A, J_lambda_curve=curve, J_lambda_dose_curve=dose_curve, J_plug_limit=lim, A_curve_rel_dev=rel_dev, kappa1_used=k1,
                 kappa1_is_placeholder=kappa1 is None, mean_var_q=float(np.mean([per[p]["var_q"] for p in pids])),
                 frontier_mean={k: float(np.mean([per[p]["frontier"].get(k, np.nan) for p in pids])) for k in KAPPAS})
 
