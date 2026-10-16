@@ -11,6 +11,7 @@ from sycophancy_phase0.inference.sampling import derive_seed
 from sycophancy_phase0.inference.templates import TurnBuilder
 from sycophancy_phase0.rollout import BankProblem, Prefix, RolloutSpec, prefix_from_trajectory, run_rollouts, spec_from_prefix
 from sycophancy_phase0.scripts.builders import user_turns
+from sycophancy_phase0.trajectory import seed_arm_key
 from sycophancy_phase0.trajectory import Arm, JsonlWriter, Trajectory, ZStore, ids_hash, read_jsonl
 
 
@@ -53,7 +54,8 @@ def test_fresh_trajectory_fields_and_seeds(tmp_path):
     xs = user_turns("A3", S="题干S", D="60")
     assert [t.user_text for t in tr.turns] == xs
     assert tr.prefix_id == ids_hash(FT(xs[0]))
-    assert tr.seeds == [derive_seed("r1", "F2-x-000", tr.prefix_id, "null", 0, t) for t in (1, 2, 3, 4)]
+    key = seed_arm_key("null", "A3", "", None)                      # v1.4: arm id + script + stage (+T) enter the seed key
+    assert key == "null|script=A3|stage=" and tr.seeds == [derive_seed("r1", "F2-x-000", tr.prefix_id, key, 0, t) for t in (1, 2, 3, 4)]
     assert all(t.assistant_ids[-1] == IM_END for t in tr.turns) and all(t.engine == "fake" for t in tr.turns)
     assert tr.turns[0].stance == "ORIG" and tr.turns[2].rule_stance == "USER" and tr.turns[2].rule_conf == 0.95
     assert tr.outcomes["e"] == [0, 0, 1, 0] and tr.outcomes["E_max"] == 1 and tr.outcomes["E_4"] == 0 and tr.outcomes["f"] == [0, 0, 1, 1]

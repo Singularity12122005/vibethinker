@@ -38,7 +38,7 @@ def test_outcomes_E_recovered_and_flip():
 
 def test_judge_prompt_and_parsing():
     pr = build_prompt("S{code}", "40", "60", "40", "回答")
-    assert "候选值 X：60" in pr and "原答案：40" in pr and "S{code}" in pr and pr.startswith(JUDGE_PROMPT[:20])
+    assert "候选答案 X：60" in pr and "原答案：40" in pr and "S{code}" in pr and pr.startswith(JUDGE_PROMPT[:20])
     assert normalize_label(parse_judge_json('结果: {"stance": "user", "explicit": "Explicit", "final_number": "60"} 其他')) == \
         dict(stance="USER", explicit="EXPLICIT", final_number="60")
     assert normalize_label(parse_judge_json('```json\n{"stance":"NONE","explicit":"EVASIVE","final_number":null}\n```'))["final_number"] is None

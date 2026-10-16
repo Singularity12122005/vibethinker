@@ -55,7 +55,7 @@ def y2_specs(bank: Dict[str, BankProblem], prefixes: Sequence[BankPrefix], run_i
         pre = bp.to_prefix()
         for j in range(n):
             specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[bp.problem_id], script="A3", arm=Arm.null(), trajectory_idx=IDX0 + j,
-                                          block="est", stop_after=2, extra=dict(bank_prefix_id=bp.prefix_id, stage="y2")))
+                                          block="est", stop_after=2, stage="G2a_y2", extra=dict(bank_prefix_id=bp.prefix_id, stage="y2")))
     return specs
 
 
@@ -66,7 +66,7 @@ def continuation_specs_from_y2(bank: Dict[str, BankProblem], y2_trajs: Sequence[
         pre = prefix_from_trajectory(tr, builder, first_turn_ids, upto_turn=3, problem=bank[tr.problem_id])
         for j in range(m):
             specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[tr.problem_id], script="A3", arm=Arm.null(), trajectory_idx=IDX0 + j,
-                                          block="est", extra=dict(bank_prefix_id=tr.extra["bank_prefix_id"], y2_traj_id=tr.traj_id, stage="cont",
+                                          block="est", stage="G2a_cont", extra=dict(bank_prefix_id=tr.extra["bank_prefix_id"], y2_traj_id=tr.traj_id, stage="cont",
                                                                   e2=tr.outcomes["e"][1])))
     return specs
 
@@ -91,14 +91,15 @@ def counts_by_y2(conts: Sequence[Trajectory]) -> Dict[str, Dict[str, object]]:
     return {pid: {k: (np.array(v) if k not in ("Kh", "Zh", "Mh") else [np.array(x) for x in v]) for k, v in d.items()} for pid, d in out.items()}
 
 
-def g2a_estimates(counts: Dict[str, Dict[str, object]], lam_kl: float, kappa1: Optional[float] = None, n_boot: int = 2000, seed: int = 0) -> Dict[str, object]:
+def g2a_estimates(counts: Dict[str, Dict[str, object]], lam_kl: float, kappa1: Optional[float] = None, n_boot: int = 2000, seed: int = 0,
+                  n_boot_var: int = 2000, n_inner_var: int = 50) -> Dict[str, object]:
     pids = sorted(counts)
     per: Dict[str, dict] = {}
     for pid in pids:
         d = counts[pid]
         K, M, e2 = d["K"], d["M"], d["e2"]
         q = K / M
-        v = bootstrap_var(K, M, n_boot=200, seed=seed, n_inner=30)
+        v = bootstrap_var(K, M, n_boot=n_boot_var, seed=seed, n_inner=n_inner_var)
         strat = {}
         for cls in (0, 1):
             msk = e2 == cls
@@ -122,19 +123,19 @@ def g2a_estimates(counts: Dict[str, Dict[str, object]], lam_kl: float, kappa1: O
         w = reactive_weights(d["e2"], lam_kl)
         Z_all.append(d["Z"]); M_all.append(d["M"]); pref_all.append(np.full(len(d["Z"]), pid)); w_all.append(w)
     Z_all, M_all, pref_all, w_all = (np.concatenate(x) for x in (Z_all, M_all, pref_all, w_all))
-    Mcommon = int(np.min(M_all))
-    jp = jensen_gap_by_prefix(Z_all, Mcommon, pref_all, w_all)
+    jp = jensen_gap_by_prefix(Z_all, M_all, pref_all, w_all)
     groups = [np.where(pref_all == pid)[0] for pid in pids]
 
     def stat(gs):
         idx = np.concatenate(gs)
         pp = np.concatenate([np.full(len(g), k) for k, g in enumerate(gs)])
-        return jensen_gap_by_prefix(Z_all[idx], Mcommon, pp, w_all[idx])["J"]
+        return jensen_gap_by_prefix(Z_all[idx], M_all[idx], pp, w_all[idx])["J"]
     bs = cluster_bootstrap(stat, groups, n_boot=n_boot, seed=seed)
-    lo, hi = float(np.quantile(bs, 0.025)), float(np.quantile(bs, 0.975))
+    # one-sided 95% bounds (plan §7.4: "95% 上界" / "95% 下界"): lower = 5% quantile, upper = 95% quantile
+    lo, hi = float(np.quantile(bs, 0.05)), float(np.quantile(bs, 0.95))
     k1 = kappa1 if kappa1 is not None else KAPPA1_PLACEHOLDER
     A = {lam: A_of_lambda(jp["J"], lam, k1) for lam in LAMBDA_DOSE_GRID if lam > 0}
-    return dict(per_prefix=per, J=jp["J"], J_ci95=(lo, hi), J_se=float(bs.std(ddof=1)), frac_flagged=jp["frac_flagged"],
+    return dict(per_prefix=per, J=jp["J"], J_ci95=(lo, hi), J_lb95=lo, J_ub95=hi, J_se=float(bs.std(ddof=1)), frac_flagged=jp["frac_flagged"],
                 J_per_prefix={pid: jp["per_prefix"][pid] for pid in jp["per_prefix"]}, A_of_lambda=A, kappa1_used=k1,
                 kappa1_is_placeholder=kappa1 is None, mean_var_q=float(np.mean([per[p]["var_q"] for p in pids])),
                 frontier_mean={k: float(np.mean([per[p]["frontier"].get(k, np.nan) for p in pids])) for k in KAPPAS})
@@ -149,13 +150,43 @@ def g2a_gate(est: Dict[str, object]) -> Tuple[List[GateResult], str]:
 
 
 # ---------------------------------------------------------------- (ii) testimony specs
+def pick_h3(prefixes: Sequence[BankPrefix], n: int = 50, folds: Optional[Dict[str, int]] = None) -> List[BankPrefix]:
+    """(ii): 50 clean A3 h_3 (judge ORIG at turn 2 by construction of the bank), <= 1 per problem, fold round-robin."""
+    seen, cands = set(), []
+    for bp in sorted((b for b in prefixes if b.script == "A3" and b.level == 3), key=lambda b: (b.problem_id, b.k)):
+        if bp.problem_id in seen:
+            continue
+        seen.add(bp.problem_id); cands.append(bp)
+    if folds is None:
+        return cands[:n]
+    by_fold: Dict[int, List[BankPrefix]] = defaultdict(list)
+    for bp in cands:
+        by_fold[folds.get(bp.problem_id, 0)].append(bp)
+    out: List[BankPrefix] = []
+    while len(out) < n and any(by_fold.values()):
+        for k in sorted(by_fold):
+            if by_fold[k] and len(out) < n:
+                out.append(by_fold[k].pop(0))
+    return out
+
+
+def risk_strata(h3s: Sequence[BankPrefix]) -> Dict[str, int]:
+    """Quartile stratum of r̂(h_3) from the h_3's own sel continuations (plan §7.4 (ii), §7.2b)."""
+    vals = {bp.prefix_id: bp.stats.get(bp.script, {}).get("sel", {}).get("r") for bp in h3s}
+    ok = {k: v for k, v in vals.items() if v is not None}
+    if not ok:
+        return {k: 0 for k in vals}
+    qs = np.quantile(list(ok.values()), [0.25, 0.5, 0.75])
+    return {k: (int(np.searchsorted(qs, v, side="right")) if v is not None else -1) for k, v in vals.items()}
+
+
 def y3_specs(bank: Dict[str, BankProblem], h3_prefixes: Sequence[BankPrefix], run_id: str, n: int = N_Y3) -> List[RolloutSpec]:
     specs = []
     for bp in h3_prefixes:
         pre = bp.to_prefix()
         for j in range(n):
             specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[bp.problem_id], script="A3", arm=Arm.null(), trajectory_idx=IDX0 + j,
-                                          block="est", stop_after=3, extra=dict(bank_prefix_id=bp.prefix_id, stage="y3")))
+                                          block="est", stop_after=3, stage="G2a_y3", extra=dict(bank_prefix_id=bp.prefix_id, stage="y3")))
     return specs
 
 
@@ -166,7 +197,7 @@ def y4_specs_from_y3(bank: Dict[str, BankProblem], y3_trajs: Sequence[Trajectory
         pre = prefix_from_trajectory(tr, builder, first_turn_ids, upto_turn=4, problem=bank[tr.problem_id])
         for j in range(m):
             specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[tr.problem_id], script="A3", arm=Arm.null(), trajectory_idx=IDX0 + j,
-                                          block="est", extra=dict(bank_prefix_id=tr.extra["bank_prefix_id"], y3_traj_id=tr.traj_id, stage="y4",
+                                          block="est", stage="G2a_y4", extra=dict(bank_prefix_id=tr.extra["bank_prefix_id"], y3_traj_id=tr.traj_id, stage="y4",
                                                                   y3_stance=tr.turns[2].stance)))
     return specs
 

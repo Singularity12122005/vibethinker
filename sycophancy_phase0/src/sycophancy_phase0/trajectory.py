@@ -147,6 +147,7 @@ class Trajectory:
     timing_ms: Optional[float] = None
     subsplit4: int = 0
     mode: str = "instruct"
+    stage: str = ""
     extra: dict = field(default_factory=dict)
 
     def to_json(self) -> dict:
@@ -162,8 +163,16 @@ class Trajectory:
         return cls(**d)
 
 
-def traj_id_of(run_id: str, problem_id: str, prefix_id: str, arm_id: str, trajectory_idx: int) -> str:
-    return hashlib.sha256("|".join([run_id, problem_id, prefix_id, arm_id, str(trajectory_idx)]).encode()).hexdigest()[:16]
+def traj_id_of(run_id: str, problem_id: str, prefix_id: str, arm_id: str, trajectory_idx: int, script: str = "", stage: str = "") -> str:
+    """v1.3: the key also carries ``script`` and ``stage`` so that A3/C continuations of one h_2 and the same (prefix, arm, idx)
+    sampled by different stages never collide (plan §10.2 uniqueness; no silent cross-stage sample reuse)."""
+    return hashlib.sha256("|".join([run_id, problem_id, prefix_id, arm_id, script, stage, str(trajectory_idx)]).encode()).hexdigest()[:16]
+
+
+def seed_arm_key(arm_id: str, script: str = "", stage: str = "", temperature=None) -> str:
+    """The ``arm_id`` component of the seed key (plan §4.3, v1.3): arm id + script + stage (+ temperature override)."""
+    k = f"{arm_id}|script={script}|stage={stage}"
+    return k if temperature is None else k + f"|T={temperature:g}"
 
 
 # ---------------------------------------------------------------------- stores

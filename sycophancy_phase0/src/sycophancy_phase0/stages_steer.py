@@ -23,6 +23,7 @@ from .gates import g5 as G5
 from .gates import g6 as G6
 from .gates import g15 as G15
 from .run import Context, record_deviation, write_summary
+from .rollout import prefix_from_trajectory
 from .stages import gate_entry, load_folds, load_pools, load_prefix_bank, load_problems, run_specs, sizes
 from .trajectory import read_jsonl
 
@@ -141,9 +142,14 @@ def stage_g42(ctx: Context, direction: str = "v_cap_perp", scope: str = "S_gen",
     pools, _ = load_pools(ctx)
     sp = _steer_params(ctx, direction)
     pres = load_prefix_bank(ctx)
-    frontier = set(json.load(open(os.path.join(ctx.run_path, "data", "frontier.json"))))
-    h3s = [b for b in pres if b.level == 3 and b.problem_id in frontier and
-           (b.script == "A3" or (b.script == "C" and b.problem_id in set(pools.C)) or (b.script == "D" and b.problem_id in set(pools.D)))]
+    frontier = sorted(set(json.load(open(os.path.join(ctx.run_path, "data", "frontier.json")))))[:100]   # plan §7.9: ≤100 题
+    fset = set(frontier)
+    seen = set()
+    h3s = []
+    for b in sorted((b for b in pres if b.level == 3 and b.problem_id in fset), key=lambda b: (b.script, b.problem_id, b.k)):
+        ok = b.script == "A3" or (b.script == "C" and b.problem_id in set(pools.C)) or (b.script == "D" and b.problem_id in set(pools.D))
+        if ok and (b.script, b.problem_id) not in seen:               # one h_3 (k = 0) per problem and script
+            seen.add((b.script, b.problem_id)); h3s.append(b)
     specs = G42.dose_specs(bank, h3s, ctx.run_id, scope=scope, fold_of_problem=folds, n=sz["g42_n"], **sp)
     trajs = run_specs(ctx, specs, f"G42_{direction}")
     b_a3 = G42.beta_endpoints(trajs, "A3")
@@ -155,7 +161,25 @@ def stage_g42(ctx: Context, direction: str = "v_cap_perp", scope: str = "S_gen",
                    decision=dec, notes=notes, **sp)
     write_summary(ctx.run_path, f"G42_{direction}", summary)
     gate_entry(ctx, "G4-2", f"剂量-响应（{direction}）", f"{len(h3s)} h_3 × 5 α × {sz['g42_n']}", res, dec, "; ".join(notes))
-    return dict(decision=dec, beta_A3=b_a3["beta"])
+    return dict(decision=dec, beta_A3=b_a3["beta"], results=res, notes=notes)
+
+
+def stage_g42_all(ctx: Context, primary: str = "v_cap_perp", exploratory: Sequence[Tuple[str, str]] = (("v_cap", "S_gen"), ("v_warrant", "S_read"))) -> dict:
+    """Primary direction first; exploratory directions only decide when the primary is not GO (plan §7.9/§9)."""
+    prim = stage_g42(ctx, primary, "S_gen", primary=True)
+    expl = {}
+    if prim["decision"] != "GO":
+        for d, scope in exploratory:
+            try:
+                r = stage_g42(ctx, d, scope, primary=False)
+                expl[d] = (r["results"], r["decision"], r["notes"])
+            except RuntimeError as e:           # no alpha_max entry for this direction
+                expl[d] = ([], "GREY", [str(e)])
+    final, chosen, notes = G42.combine_with_exploratory((prim["results"], prim["decision"], prim["notes"]), expl)
+    write_summary(ctx.run_path, "G42_final", dict(decision=final, chosen_direction=chosen, notes=notes, primary=prim["decision"], exploratory={k: v[1] for k, v in expl.items()}))
+    if chosen not in (None, "primary"):
+        record_deviation(ctx.run_path, f"G4-2 主方向改为 {chosen}", "主方向非重推导轴而 exploratory 方向满足判据", "G5–G7")
+    return dict(decision=final, chosen_direction=chosen)
 
 
 # ---------------------------------------------------------------- G5 (§7.10)
@@ -167,27 +191,42 @@ def stage_g5(ctx: Context, direction: str = "v_cap_perp", confirm: bool = False,
     sp = _steer_params(ctx, direction)
     pres = load_prefix_bank(ctx)
     grid = ACTION_GRID if confirm else G5.PILOT_GRID
+    stage = "G5_confirm" if confirm else "G5_pilot"
     if confirm:
+        if u3_star is None:
+            raise ValueError("confirmation needs the frozen pilot u3_star")
         frontier = json.load(open(os.path.join(ctx.run_path, "data", "frontier.json")))
-        cands = G15.select_prefixes(pres, "A3", max_P_e2=1e-9, q_range=(0.15, 0.85), per_problem=sz["g5_per_problem"])
-        keep = set(frontier[: (F or len(frontier))])
+        cands = G15.select_prefixes(pres, "A3", max_P_e2=ctx.config.get("g5_max_P_e2", 1e-9), q_range=(0.15, 0.85), per_problem=sz["g5_per_problem"])
+        cset = set(pools.C)
+        probs = [p for p in frontier if p in cset][: (F or len(frontier))]
+        keep = set(probs)
         prefixes = [b for b in cands if b.problem_id in keep]
     else:
-        prefixes = G5.pick_pilot_prefixes(pres, n_problems=sz["g5_problems"], per_problem=sz["g5_per_problem"])
-    y2 = run_specs(ctx, G5.y2_specs(bank, prefixes, ctx.run_id, u2_grid=grid, fold_of_problem=folds, k=sz["g5_K"], **sp), f"G5_{'confirm' if confirm else 'pilot'}_y2")
-    trajs = run_specs(ctx, G5.split_plot_specs(bank, y2, ctx.builder, ctx.first_turn_ids, ctx.run_id, u3_grid=grid, fold_of_problem=folds, c_pool=pools.C, **sp),
-                      f"G5_{'confirm' if confirm else 'pilot'}")
+        prefixes = G5.pick_pilot_prefixes(pres, n_problems=sz["g5_problems"], per_problem=sz["g5_per_problem"], c_pool=pools.C,
+                                          max_P_e2=ctx.config.get("g5_max_P_e2", 1e-9))
+    if not prefixes:                                                                 # plan §6.1: missing inputs => GREY
+        note = "no eligible A3/C shared h_2 (sel P̂(e_2|h_2) screen, q̂ range, C pool, per-problem count); G5 not run"
+        write_summary(ctx.run_path, stage, dict(decision="GREY", n_prefix=0, note=note, **sp))
+        gate_entry(ctx, "G5" + ("-confirm" if confirm else "-pilot"), "(u_2,u_3) 因子设计", "0 prefixes", [], "GREY", note)
+        return dict(decision="GREY", G=float("nan"), u3_star=u3_star, F_80=None)
+    y2 = run_specs(ctx, G5.y2_specs(bank, prefixes, ctx.run_id, u2_grid=grid, fold_of_problem=folds, k=sz["g5_K"], stage=stage, **sp), stage + "_y2")
+    trajs = run_specs(ctx, G5.split_plot_specs(bank, y2, ctx.builder, ctx.first_turn_ids, ctx.run_id, u3_grid=grid, fold_of_problem=folds, c_pool=pools.C,
+                                               stage=stage, **sp), stage)
     est = G5.g5_estimate(trajs, u3_star, lam=ctx.config["lambda_dose_primary"], confirm=confirm)
-    lrt_p = None
-    res, dec = G5.g5_decision(est, lrt_p, confirm=confirm)
-    write_summary(ctx.run_path, "G5_confirm" if confirm else "G5_pilot", dict(est, decision=dec, n_prefix=len(prefixes), **sp))
-    gate_entry(ctx, "G5" + ("-confirm" if confirm else "-pilot"), "(u_2,u_3) 因子设计", f"{len(prefixes)} prefixes × {len(grid)}×{len(grid)} × K={sz['g5_K']}", res, dec)
-    return dict(decision=dec, G=est["G"], u3_star=est["u3_star"])
+    lrt = G5.var_c_lrt(trajs, u_grid=grid)
+    res, dec = G5.g5_decision(est, lrt.get("p"), confirm=confirm)
+    extra = dict(var_c_lrt={k: v for k, v in lrt.items() if k != "c_tilde"})
+    if not confirm:
+        extra["confirmation_F"] = G5.confirmation_F(trajs, est["u3_star"], delta=0.05, n_cell=sz["g5_K"])
+    write_summary(ctx.run_path, stage, dict(est, decision=dec, n_prefix=len(prefixes), **sp, **extra))
+    gate_entry(ctx, "G5" + ("-confirm" if confirm else "-pilot"), "(u_2,u_3) 因子设计", f"{len(prefixes)} prefixes × {len(grid)}×{len(grid)} × K={sz['g5_K']}", res, dec,
+               ("" if confirm else f"F_80={extra['confirmation_F'].get('F_80')}") + ("；pilot 功效：G=5pp 约 0.42、8pp 约 0.80" if not confirm else ""))
+    return dict(decision=dec, G=est["G"], u3_star=est["u3_star"], F_80=extra.get("confirmation_F", {}).get("F_80"))
 
 
 # ---------------------------------------------------------------- G6 (§7.11)
 def stage_g6(ctx: Context, items: Sequence[Tuple[G15.BankPrefix, int, float]], direction: str = "v_cap_perp") -> dict:
-    """items: (h_3 prefix, type 1/2, r̂^sel) chosen per §7.11 (type 1: A1 wording, short y_2 without d_i; type 2: A3 with rebuttal)."""
+    """items: (h_3 prefix, type 1/2, r̂(h_3) sel) from ``g6_items`` (type 1: A1 wording, short y_2 without d_i; type 2: A3 with rebuttal)."""
     bank = load_problems(ctx)
     sz = sizes(ctx)
     folds = load_folds(ctx)
@@ -195,39 +234,60 @@ def stage_g6(ctx: Context, items: Sequence[Tuple[G15.BankPrefix, int, float]], d
     trajs = run_specs(ctx, G6.g6_specs(bank, items, ctx.run_id, fold_of_problem=folds, n=sz["g6_n"], **sp), "G6")
     inter = G6.matched_risk_interaction(trajs)
     cf, ce = G6.per_prefix_curves(trajs, 0), G6.per_prefix_curves(trajs, 1)
-    reg = G6.regret(cf, ce, lam=ctx.config["lambda_dose_primary"])
-    x4 = G42.paired_rate_drop([t for t in trajs], "A3", 1.0, 0.0, "x") if any(t.script == "A3" for t in trajs) else dict(hi=0.0)
-    res, dec = G6.g6_decision(inter, reg, x4.get("hi", 0.0))
-    write_summary(ctx.run_path, "G6", dict(interaction=inter, regret={k: v for k, v in reg.items() if k != "u_star"}, x4_drop=x4, decision=dec, **sp))
-    gate_entry(ctx, "G6", "命题二", f"{len(items)} h_3 × 5 α × {sz['g6_n']}", res, dec)
+    cf0, ce0 = G6.per_prefix_curves(trajs, 0, lam=0.0), G6.per_prefix_curves(trajs, 1, lam=0.0)
+    reg = G6.regret(cf, ce, lam=ctx.config["lambda_dose_primary"], fold_of_problem=folds)
+    reg0 = G6.regret(cf0, ce0, lam=0.0, fold_of_problem=folds)
+    # co-primary over every A-script prefix (type 1 = A1 wording, type 2 = A3)
+    x4s = [G42.paired_rate_drop(trajs, sc, 1.0, 0.0, "x") for sc in ("A1", "A3") if any(t.script == sc for t in trajs)]
+    x4_hi = max([x["hi"] for x in x4s if x["n_clusters"]], default=0.0)
+    res, dec, notes = G6.g6_decision(inter, reg, x4_hi, reg_lambda0=reg0)
+    write_summary(ctx.run_path, "G6", dict(interaction=inter, regret={k: v for k, v in reg.items() if k != "u_star"},
+                                           regret_lambda0={k: v for k, v in reg0.items() if k not in ("u_star", "policy")}, x4_drop=x4s, decision=dec, notes=notes, **sp))
+    gate_entry(ctx, "G6", "命题二", f"{len(items)} h_3 × 5 α × {sz['g6_n']}", res, dec, "; ".join(notes))
     return dict(decision=dec, regret=reg["regret"], p_interaction=inter["interaction"]["p"])
 
 
 def g6_items(ctx: Context, n_per_type: int = 100) -> List[Tuple[G15.BankPrefix, int, float]]:
-    """Type 1: A1 h_3 whose fixed y_2 is at most the problem's median y_2 length and does not contain d_i; type 2: A3 h_3
-    whose y_2 contains d_i.  r̂^sel from the bank (sel continuations of the parent h_2 as a proxy when h_3 has none)."""
+    """plan §7.11 prefixes.  Type 1: A1 h_3 whose fixed y_2 is at most the problem's median bank y_2 length (over all G1.5
+    continuations of the problem) and does not contain d_i.  Type 2: A3 h_3 whose y_2 contains an explicit rebuttal of
+    d_i — the bank's default h_3 if it qualifies, else the first clean (judge ORIG) sel continuation of the parent h_2
+    whose y_2 contains d_i (a new h_3).  Every chosen h_3 gets 32 sel continuations for r̂(h_3) (stage G15_h3sel)."""
     bank = load_problems(ctx)
     pres = load_prefix_bank(ctx)
-    by_id = {b.prefix_id: b for b in pres}
-    med: Dict[str, float] = {}
+    conts = list(read_jsonl(os.path.join(ctx.run_path, "trajectories", "G15.jsonl")))
     lens: Dict[str, List[int]] = defaultdict(list)
-    for b in pres:
-        if b.level == 3:
-            lens[b.problem_id].append(b.turns[1]["n_new_tokens"])
+    for t in conts:
+        if len(t.turns) >= 2 and t.turns[1].source == "generated":
+            lens[t.problem_id].append(t.turns[1].n_new_tokens)
     med = {p: float(np.median(v)) for p, v in lens.items()}
-    out = []
+    chosen: List[Tuple[G15.BankPrefix, int]] = []
     for typ, sc in ((1, "A1"), (2, "A3")):
-        for b in pres:
-            if b.level != 3 or b.script != sc:
-                continue
+        n_typ = 0
+        for b in sorted((b for b in pres if b.level == 2 and b.script == sc), key=lambda b: (b.problem_id, b.k)):
             d = bank[b.problem_id].distractor or ""
-            y2 = b.turns[1]["assistant_text"]
-            ok = (b.turns[1]["n_new_tokens"] <= med.get(b.problem_id, 1e9) and d not in y2) if typ == 1 else (d in y2)
-            if not ok:
-                continue
-            parent = by_id.get(b.parent_prefix_id)
-            r_sel = (parent.stats.get(parent.script, {}).get("sel", {}).get("r", 0.5) if parent else 0.5)
-            out.append((b, typ, float(r_sel)))
-            if sum(1 for _, t, _ in out if t == typ) >= n_per_type:
+            default = next((h for h in pres if h.level == 3 and h.parent_prefix_id == b.prefix_id and h.script == sc), None)
+            cand = None
+            if typ == 1:
+                if default is not None and default.turns[1]["n_new_tokens"] <= med.get(b.problem_id, 1e9) and d not in default.turns[1]["assistant_text"]:
+                    cand = default
+            else:
+                if default is not None and d in default.turns[1]["assistant_text"]:
+                    cand = default
+                else:
+                    sel = sorted([t for t in conts if t.extra.get("bank_prefix_id") == b.prefix_id and t.script == sc and t.block == "sel"], key=lambda t: t.trajectory_idx)
+                    tr = next((t for t in sel if t.turns[1].stance == "ORIG" and d and d in t.turns[1].assistant_text), None)
+                    if tr is not None:
+                        pre = prefix_from_trajectory(tr, ctx.builder, ctx.first_turn_ids, upto_turn=3)
+                        cand = G15.BankPrefix(prefix_id=pre.prefix_id, problem_id=b.problem_id, script=sc, level=3, k=b.k, source_traj_id=tr.traj_id,
+                                              ids=list(pre.ids), turns=[vars(x) for x in pre.turns], user_span=list(pre.user_span),
+                                              prev_span=list(pre.prev_span) if pre.prev_span else None, parent_prefix_id=b.prefix_id)
+            if cand is not None:
+                chosen.append((cand, typ)); n_typ += 1
+            if n_typ >= n_per_type:
                 break
-    return out
+    h3s = [c for c, _ in chosen]
+    need = [h for h in h3s if h.script not in h.stats or "sel" not in h.stats.get(h.script, {})]
+    if need:
+        sel_conts = run_specs(ctx, G15.h3_sel_specs(bank, need, ctx.run_id, n=32), "G15_h3sel")
+        G15.h3_stats(need, sel_conts)
+    return [(h, typ, float(h.stats.get(h.script, {}).get("sel", {}).get("r", float("nan")))) for h, typ in chosen]

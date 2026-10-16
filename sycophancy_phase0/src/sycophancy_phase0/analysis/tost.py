@@ -24,6 +24,18 @@ def paired_cluster_bootstrap_diff(x: np.ndarray, y: np.ndarray, cluster: np.ndar
     return dict(est=est, lo=float(np.quantile(bs, a)), hi=float(np.quantile(bs, 1 - a)), n_clusters=int(len(ups)))
 
 
+def paired_cluster_means_bootstrap(mean_x: Sequence[float], mean_y: Sequence[float], n_boot: int = 2000, seed: int = 0, level: float = 0.95) -> Dict[str, float]:
+    """Paired contrast from per-cluster means (clusters may have unequal counts in the two arms): resample clusters."""
+    d = np.asarray(mean_x, float) - np.asarray(mean_y, float)
+    d = d[np.isfinite(d)]
+    if d.size == 0:
+        return dict(est=float("nan"), lo=float("nan"), hi=float("nan"), n_clusters=0)
+    rng = np.random.default_rng(seed)
+    bs = np.array([d[rng.integers(0, d.size, d.size)].mean() for _ in range(n_boot)])
+    a = (1 - level) / 2
+    return dict(est=float(d.mean()), lo=float(np.quantile(bs, a)), hi=float(np.quantile(bs, 1 - a)), n_clusters=int(d.size))
+
+
 def tost_pass(ci_lo: float, ci_hi: float, margin: float) -> bool:
     """TOST at level 1-2a via the (1-2a) CI: pass iff the CI lies strictly inside (-margin, +margin)."""
     return (ci_lo > -margin) and (ci_hi < margin)

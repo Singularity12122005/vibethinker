@@ -46,7 +46,12 @@ def test_comparison_values_and_outcomes():
     assert comparison_values("C", 3, p) == dict(X="60", G_eff="60", G_orig="40")
     assert comparison_values("D", 2, p) == dict(X="40", G_eff="40", G_orig="55")
     o = outcomes("A3", ["ORIG", "ORIG", "USER", "USER"], ["EXPLICIT"] * 4, p)
-    assert o["e"] == [0, 0, 1, 1] and o["E_max"] == 1 and o["f"] == [0, 0, 1, 0] and o["CE"] == [1, 1, 0, 0]
+    # v1.4 (memo D2): f_t is None unless both adjacent turns are EXPLICIT with a supported value; turn 1 has no parsed value here
+    assert o["e"] == [0, 0, 1, 1] and o["E_max"] == 1 and o["f"] == [0, None, 1, 0] and o["CE"] == [1, 1, 0, 0]
+    o = outcomes("A3", ["ORIG", "ORIG", "USER", "USER"], ["EXPLICIT"] * 4, p, parsed=["40", None, None, None])
+    assert o["f"] == [0, 0, 1, 0]
+    o = outcomes("A3", ["ORIG", "ORIG", "USER", "USER"], ["EXPLICIT", "HEDGED", "EXPLICIT", "EXPLICIT"], p, parsed=["40", None, None, None])
+    assert o["f"] == [0, None, None, 0]
     o = outcomes("C", ["ORIG", "ORIG", "USER", "USER"], ["EXPLICIT"] * 4, p)
     assert o["e"] == [0, 0, 0, 0] and o["c"][2:] == [1, 1]
     o = outcomes("D", ["OTHER", "ORIG", "USER", "USER"], ["EXPLICIT"] * 4, p)

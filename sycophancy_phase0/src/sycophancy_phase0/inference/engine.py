@@ -22,6 +22,8 @@ class GenRequest:
     max_new_tokens: int = MAX_NEW_TOKENS
     greedy: bool = False          # only G0 token-equivalence tests and the G7 oracle
     temperature: Optional[float] = None   # override of the engine temperature (only §5.2 batch 2 at T=1.0)
+    scope: str = "S_gen"          # steering scope of this request (S_gen | S_read); S_read needs read_span
+    read_span: Optional[tuple] = None     # [start, end) of the current-turn user tokens in ``ids`` (position ids)
 
 
 @dataclass
@@ -72,9 +74,9 @@ class HFEngine:
         # group by (max_new_tokens, greedy) so one generate call has a single length budget / sampler
         groups: Dict[tuple, List[int]] = {}
         for i, r in enumerate(reqs):
-            groups.setdefault((r.max_new_tokens, r.greedy, r.temperature), []).append(i)
+            groups.setdefault((r.max_new_tokens, r.greedy, r.temperature, r.scope if r.alpha != 0.0 else "S_gen"), []).append(i)
         pad = _pad_id(self.model, self.pad_id)
-        for (mnt, greedy, temp), idxs in groups.items():
+        for (mnt, greedy, temp, scope), idxs in groups.items():
             for s in range(0, len(idxs), self.batch_size):
                 chunk = idxs[s:s + self.batch_size]
                 seqs = [reqs[i].ids for i in chunk]
@@ -90,7 +92,15 @@ class HFEngine:
                     kw = generate_kwargs([reqs[i].seed for i in chunk], temperature=(self.T if temp is None else float(temp)), max_new_tokens=mnt,
                                          pad_token_id=pad, eos_token_id=self.eos_ids, device=str(ids.device))
                 if self.steer is not None:
-                    self.steer.set(alphas, "S_gen", gen_start=att.sum(-1) - 1)
+                    if scope == "S_read":
+                        from .steering import read_mask_from_spans
+                        spans = [reqs[i].read_span if reqs[i].alpha != 0.0 else (0, 1) for i in chunk]
+                        if any(reqs[i].alpha != 0.0 and reqs[i].read_span is None for i in chunk):
+                            raise ValueError("S_read request without read_span")
+                        pm = read_mask_from_spans(spans, [len(s_) for s_ in seqs])
+                        self.steer.set(alphas, "S_read", pos_mask=pm)
+                    else:
+                        self.steer.set(alphas, "S_gen", gen_start=att.sum(-1) - 1)
                 try:
                     with torch.no_grad():
                         gen = self.model.generate(input_ids=ids, attention_mask=att, **kw)

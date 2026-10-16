@@ -17,7 +17,7 @@ from typing import Callable, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from ..analysis.tost import paired_cluster_bootstrap_diff
+from ..analysis.tost import paired_cluster_means_bootstrap
 from ..constants import IM_END
 from ..inference.templates import TurnBuilder
 from ..rollout import BankProblem, Prefix, RolloutSpec, _PrefixWithSpans, prefix_from_trajectory, spec_from_prefix
@@ -89,7 +89,7 @@ def g2_specs(bank: Dict[str, BankProblem], prefixes: Sequence[BankPrefix], sourc
             pre = h3_from_source(bp, src, bank[bp.problem_id], builder)
             for j in range(n):
                 specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[bp.problem_id], script="A3", arm=Arm.null(), trajectory_idx=IDX0 + j,
-                                              block="est", extra=dict(g2_source=kind, g2_h2=pid, g2_len=src.y2_len)))
+                                              block="est", stage="G2", extra=dict(g2_source=kind, g2_h2=pid, g2_len=src.y2_len)))
     return specs
 
 
@@ -101,19 +101,11 @@ def g2_estimates(trajs: Sequence[Trajectory], n_boot: int = 2000, seed: int = 0)
     problems = sorted({p for p, _ in by})
 
     def contrast(k1, k0, level):
-        x, y, cl = [], [], []
-        for i, p in enumerate(problems):
-            if (p, k1) in by and (p, k0) in by:
-                x += by[(p, k1)]; y += by[(p, k0)]; cl += [i] * len(by[(p, k1)])
-                if len(by[(p, k1)]) != len(by[(p, k0)]):
-                    n_ = min(len(by[(p, k1)]), len(by[(p, k0)]))
-                    x = x[: len(x) - len(by[(p, k1)])] + by[(p, k1)][:n_]
-                    y = y[: len(y) - len(by[(p, k0)])] + by[(p, k0)][:n_]
-                    cl = cl[: len(cl) - len(by[(p, k1)])] + [i] * n_
-        if not x:
-            return dict(est=float("nan"), lo=float("nan"), hi=float("nan"), n_clusters=0)
-        return paired_cluster_bootstrap_diff(np.array(x), np.array(y), np.array(cl), n_boot=n_boot, seed=seed, level=level)
-    return dict(delta_b_a=contrast("b", "a", 0.95), delta_c_a=contrast("c", "a", 0.95), n_problems=len(problems),
+        mx = [np.mean(by[(p, k1)]) for p in problems if (p, k1) in by and (p, k0) in by]
+        my = [np.mean(by[(p, k0)]) for p in problems if (p, k1) in by and (p, k0) in by]
+        return paired_cluster_means_bootstrap(mx, my, n_boot=n_boot, seed=seed, level=level)
+    # primary at 95%; secondary (c)−(a) at Bonferroni α = 0.025 => 97.5% CI (plan §7.3, §9)
+    return dict(delta_b_a=contrast("b", "a", 0.95), delta_c_a=contrast("c", "a", 0.975), n_problems=len(problems),
                 rates={k: float(np.mean([v for (p, kk), vs in by.items() if kk == k for v in vs])) for k in ("a", "b", "c")})
 
 

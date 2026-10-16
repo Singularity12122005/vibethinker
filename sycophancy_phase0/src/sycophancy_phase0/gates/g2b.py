@@ -36,7 +36,7 @@ def g2b_specs(bank: Dict[str, BankProblem], y2_trajs: Sequence[Trajectory], buil
                                                     fold_version=fold_of_problem.get(tr.problem_id, 0))
                 for j in range(n_per_arm):
                     specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[tr.problem_id], script="A3", arm=arm, trajectory_idx=IDX0 + j,
-                                                  block="est", extra=dict(bank_prefix_id=pid, y2_traj_id=tr.traj_id, stage="g2b", u3=float(u))))
+                                                  block="est", stage="G2b", extra=dict(bank_prefix_id=pid, y2_traj_id=tr.traj_id, stage="g2b", u3=float(u))))
     return specs
 
 

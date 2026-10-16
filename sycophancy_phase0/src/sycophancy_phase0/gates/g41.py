@@ -13,7 +13,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from ..analysis.tost import paired_cluster_bootstrap_diff
+from ..analysis.tost import paired_cluster_means_bootstrap
 from ..inference.calibration import FINE_GRID, KL_MAX, FLIP_MAX
 from ..rollout import BankProblem, RolloutSpec, spec_from_prefix
 from ..trajectory import Arm, Trajectory
@@ -33,16 +33,18 @@ def provisional_alpha_max(fine: Dict[float, Dict[str, float]], kl_max: float = K
 
 
 def layer_screen_specs(bank: Dict[str, BankProblem], h3s: Sequence[BankPrefix], run_id: str, layer: int, alpha_max_L: float,
-                       direction: str = "v_cap", fold_version: int = 0, n: int = N_PER_ARM) -> List[RolloutSpec]:
-    """Two arms per h_3: u = (0,0,0,0) and u = (0,0,−1,0) with this layer's provisional alpha_max."""
+                       direction: str = "v_cap", fold_of_problem: Optional[Dict[str, int]] = None, n: int = N_PER_ARM) -> List[RolloutSpec]:
+    """Two arms per h_3: u = (0,0,0,0) and u = (0,0,−1,0) with this layer's provisional alpha_max; the direction version is
+    the LOFO one that left out the h_3's problem fold (plan §5.6)."""
     specs = []
-    arm_neg = Arm(u=[0, 0, -1.0, 0], direction=direction, layer=layer, alpha_max=alpha_max_L, scope="S_gen", fold_version=fold_version)
     for bp in h3s:
         pre = bp.to_prefix()
+        fold = (fold_of_problem or {}).get(bp.problem_id, 0)
+        arm_neg = Arm(u=[0, 0, -1.0, 0], direction=direction, layer=layer, alpha_max=alpha_max_L, scope="S_gen", fold_version=fold)
         for arm in (Arm.null(), arm_neg):
             for j in range(n):
                 specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[bp.problem_id], script="A3", arm=arm, trajectory_idx=IDX0 + j,
-                                              block="est", stop_after=3, extra=dict(bank_prefix_id=bp.prefix_id, stage="g41_screen", layer=layer)))
+                                              block="est", stop_after=3, stage=f"G41_L{layer}", extra=dict(bank_prefix_id=bp.prefix_id, stage="g41_screen", layer=layer)))
     return specs
 
 
@@ -54,13 +56,9 @@ def e3_drop_by_layer(trajs: Sequence[Trajectory], n_boot: int = 1000, seed: int 
     layers = sorted({k[0] for k in by})
     out = {}
     for L in layers:
-        pids = sorted({k[1] for k in by if k[0] == L})
-        x, y, cl = [], [], []
-        for i, p in enumerate(pids):
-            a0, a1 = by.get((L, p, True), []), by.get((L, p, False), [])
-            n = min(len(a0), len(a1))
-            x += a0[:n]; y += a1[:n]; cl += [i] * n
-        r = paired_cluster_bootstrap_diff(np.array(x), np.array(y), np.array(cl), n_boot=n_boot, seed=seed, level=0.95)
+        pids = sorted({k[1] for k in by if k[0] == L and (L, k[1], True) in by and (L, k[1], False) in by})
+        r = paired_cluster_means_bootstrap([np.mean(by[(L, p, True)]) for p in pids], [np.mean(by[(L, p, False)]) for p in pids],
+                                           n_boot=n_boot, seed=seed, level=0.95)
         out[L] = dict(drop=r["est"], ci95=(r["lo"], r["hi"]), n_h3=len(pids))
     return out
 

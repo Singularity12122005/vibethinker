@@ -94,23 +94,35 @@ def sampler_chi2(model, ids: Sequence[int], n: int = 5000, temperature: float = 
 
 
 # ---------------------------------------------------------------- G0.3 cache-reuse vs recompute (§4.2 appendix regime)
-def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[int]]]) -> np.ndarray:
+def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[int]]], cached_prefix_len: Optional[Sequence[int]] = None) -> np.ndarray:
     """items: (ids_2, suffix) with suffix = y_2_ids + delta_ids(x_3) so that ids_3 = ids_2 + suffix.
-    Returns KL(P_cache || P_recompute) of the fp32 first-token distribution per item (B=1, no padding)."""
+
+    Cache-reuse regime (plan §4.2 appendix, v1.4 rule): the cache is built on a prefix of ids_3 — by default ids_2, or, when
+    ``cached_prefix_len[i]`` is given (a cache taken from ``generate``, which covers the prompt and every generated token
+    except the last sampled one), that many leading ids of ids_3 — and only the **uncovered suffix** is fed with the
+    positions/attention of the full history.  The cached ids must be a prefix of ids_3 (verified by construction here;
+    with a real generate cache the caller must verify the normalised y_2 still matches the generated ids, and mark the
+    item not applicable otherwise).  Returns KL(P_cache || P_recompute) of the fp32 first-token distribution."""
     import torch
 
     kls = []
     with torch.no_grad():
-        for ids_2, suffix in items:
-            a = torch.tensor([list(ids_2)], device=model.device)
-            out = model(input_ids=a, use_cache=True)
-            past = out.past_key_values
-            s = torch.tensor([list(suffix)], device=model.device)
-            pos = torch.arange(a.shape[1], a.shape[1] + s.shape[1], device=model.device)[None]
-            att = torch.ones(1, a.shape[1] + s.shape[1], dtype=torch.long, device=model.device)
+        for i, (ids_2, suffix) in enumerate(items):
+            full_ids = list(ids_2) + list(suffix)
+            L = len(ids_2) if cached_prefix_len is None else int(cached_prefix_len[i])
+            if not (0 < L < len(full_ids)):
+                raise ValueError(f"cached prefix length {L} must lie in (0, {len(full_ids)})")
+            a = torch.tensor([full_ids[:L]], device=model.device)
+            past = model(input_ids=a, use_cache=True).past_key_values
+            n_cached = past.get_seq_length() if hasattr(past, "get_seq_length") else a.shape[1]
+            if int(n_cached) != L:
+                raise RuntimeError(f"cache covers {n_cached} positions, expected {L}")
+            s = torch.tensor([full_ids[L:]], device=model.device)
+            pos = torch.arange(L, len(full_ids), device=model.device)[None]
+            att = torch.ones(1, len(full_ids), dtype=torch.long, device=model.device)
             o2 = model(input_ids=s, past_key_values=past, attention_mask=att, position_ids=pos, use_cache=True)
             lp_cache = torch.log_softmax(o2.logits.float()[0, -1], -1)
-            full = torch.tensor([list(ids_2) + list(suffix)], device=model.device)
+            full = torch.tensor([full_ids], device=model.device)
             lp_full = torch.log_softmax(model(input_ids=full, use_cache=False).logits.float()[0, -1], -1)
             kls.append(float((lp_cache.exp() * (lp_cache - lp_full)).sum()))
     return np.asarray(kls)
@@ -223,7 +235,7 @@ def g04_phase1(ctx, h2_prefixes: Sequence[Tuple[object, Prefix]], *, n_y2: int =
                                                          scope="S_gen", fold_version=0)
             for j in range(n_y2):
                 specs.append(spec_from_prefix(pre, run_id=ctx.run_id, problem=problem, script="A3", arm=arm, trajectory_idx=64 + j, block="est",
-                                              stop_after=2, extra=dict(g04_h2=pre.prefix_id, g04_alpha=a)))
+                                              stop_after=2, stage="G04_y2", extra=dict(g04_h2=pre.prefix_id, g04_alpha=a)))
     y2 = run_specs(ctx, specs, stage + "_y2", judge=True)
     # continuation specs (alpha = 0) from the in-memory y_2 trajectories; greedy handled by a dedicated request
     cont_specs = []
@@ -231,7 +243,7 @@ def g04_phase1(ctx, h2_prefixes: Sequence[Tuple[object, Prefix]], *, n_y2: int =
         pre3 = prefix_from_trajectory(tr, ctx.builder, ctx.first_turn_ids, upto_turn=3, problem=next(p for p, _ in h2_prefixes if p.problem_id == tr.problem_id))
         for j in range(n_cont):
             cont_specs.append(spec_from_prefix(pre3, run_id=ctx.run_id, problem=next(p for p, _ in h2_prefixes if p.problem_id == tr.problem_id), script="A3",
-                                               arm=Arm.null(), trajectory_idx=64 + j, block="est", stop_after=3,
+                                               arm=Arm.null(), trajectory_idx=64 + j, block="est", stop_after=3, stage="G04_cont",
                                                extra=dict(g04_h2=tr.extra["g04_h2"], g04_y2=tr.traj_id, g04_path="i", ids3_hash=pre3.prefix_id)))
     conts = run_specs(ctx, cont_specs, stage + "_cont_i", judge=True)
     greedy = {}
@@ -243,9 +255,11 @@ def g04_phase1(ctx, h2_prefixes: Sequence[Tuple[object, Prefix]], *, n_y2: int =
 
 
 def g04_phase2(ctx, h2_prefixes: Sequence[Tuple[object, Prefix]], phase1_y2: Sequence[Trajectory], text_path_ids: Optional[Callable] = None, *,
-               n_cont: int = 32, stage: str = "G04_phase2") -> Dict[str, object]:
+               n_cont: int = 32, stage: str = "G04_phase2", idx0: int = 96) -> Dict[str, object]:
     """New process, no hook: rebuild ids_3 from the JSONL assistant_ids (path ii) and from assistant_text via the chat
-    template (path iii); compare, then continue (greedy 1 + n_cont sampled).  Returns the g0_4 inputs."""
+    template (path iii); compare ids and the greedy continuation bitwise, then sample n_cont continuations on a DISJOINT
+    trajectory_idx range (idx0..) so that the paired TOST on e_3 tests distributional equivalence rather than replaying
+    phase 1's seeds (v1.4, G0.4 design note).  Returns the g0_4 inputs."""
     from ..stages import run_specs
     by_pid = {p.problem_id: p for p, _ in h2_prefixes}
     specs, ids_identical, text_mismatch, greedy2 = [], True, 0, {}
@@ -262,8 +276,8 @@ def g04_phase2(ctx, h2_prefixes: Sequence[Tuple[object, Prefix]], phase1_y2: Seq
         res = ctx.router.generate([GenRequest(pre3.ids, seed=0, alpha=0.0, max_new_tokens=32, greedy=True)])[0]
         greedy2[tr.traj_id] = dict(ids3_hash=pre3.prefix_id, greedy_ids=res.ids)
         for j in range(n_cont):
-            specs.append(spec_from_prefix(pre3, run_id=ctx.run_id, problem=by_pid[tr.problem_id], script="A3", arm=Arm.null(), trajectory_idx=64 + j,
-                                          block="est", stop_after=3, extra=dict(g04_h2=tr.extra["g04_h2"], g04_y2=tr.traj_id, g04_path="ii", ids3_hash=pre3.prefix_id)))
+            specs.append(spec_from_prefix(pre3, run_id=ctx.run_id, problem=by_pid[tr.problem_id], script="A3", arm=Arm.null(), trajectory_idx=idx0 + j,
+                                          block="est", stop_after=3, stage="G04_cont", extra=dict(g04_h2=tr.extra["g04_h2"], g04_y2=tr.traj_id, g04_path="ii", ids3_hash=pre3.prefix_id)))
     conts = run_specs(ctx, specs, stage + "_cont_ii", judge=True)
     return dict(conts=conts, greedy=greedy2, text_path_mismatch_rate=(text_mismatch / max(1, len(phase1_y2))))
 

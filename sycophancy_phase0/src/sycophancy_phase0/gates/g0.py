@@ -127,11 +127,17 @@ def g0_6(u3_arm_idx_a: Sequence[int], u3_arm_idx_b: Sequence[int], deterministic
 
 # ---------------------------------------------------------------- G0.7
 def g0_7(logp0_tokens: np.ndarray) -> GateResult:
-    """logp0_tokens: log P^0 of every token of the alpha=±1 steered responses under alpha=0 (fp32 log_softmax)."""
+    """logp0_tokens: fp32 log P^0 (temperature-0.7 conditional) of every token of the alpha=±1 steered responses.
+    v1.4: support defect = tokens with log P^0 = −inf (zero probability); NaN/+inf = numerical fault; both fail.  Finite
+    values below −60 are reported as the 'extremely low baseline probability' share and do not fail the test."""
     arr = np.asarray(logp0_tokens, dtype=float)
-    defect = float(np.mean(arr < -60.0)) if arr.size else float("nan")
-    return GateResult("G0.7", arr.size > 0 and defect == 0.0, dict(support_defect=defect, n_tokens=int(arr.size)),
-                      criteria="defect = log P^0(y_k) < −60 的 token 比例；纯温度采样下 = 0")
+    n = int(arr.size)
+    n_neg_inf = int(np.sum(np.isneginf(arr)))
+    n_bad = int(np.sum(np.isnan(arr) | np.isposinf(arr)))
+    low = float(np.mean(np.isfinite(arr) & (arr < -60.0))) if n else float("nan")
+    return GateResult("G0.7", n > 0 and n_neg_inf == 0 and n_bad == 0,
+                      dict(support_defect=(n_neg_inf / n if n else float("nan")), numerical_faults=n_bad, extremely_low_prob_share=low, n_tokens=n),
+                      criteria="支持集缺陷 = log P^0(y_k) = −∞ 的 token 比例（须为 0）；NaN/+∞ 为数值故障（须为 0）；有限但 <−60 的比例只报告")
 
 
 # ---------------------------------------------------------------- GATES.md (§7.0)

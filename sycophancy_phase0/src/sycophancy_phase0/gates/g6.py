@@ -38,7 +38,7 @@ def g6_specs(bank: Dict[str, BankProblem], h3s: Sequence[Tuple[BankPrefix, int, 
                                                 fold_version=fold_of_problem.get(bp.problem_id, 0))
             for j in range(n):
                 specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[bp.problem_id], script=bp.script, arm=arm, trajectory_idx=IDX0 + j,
-                                              block="est", extra=dict(bank_prefix_id=bp.prefix_id, stage="g6", type=int(typ), r_sel=float(r_sel),
+                                              block="est", stage="G6", extra=dict(bank_prefix_id=bp.prefix_id, stage="g6", type=int(typ), r_sel=float(r_sel),
                                                                       u3=float(u), d=float(-u))))
     return specs
 
@@ -64,10 +64,12 @@ def matched_risk_interaction(trajs: Sequence[Trajectory]) -> Dict[str, object]:
         cols += [ind, ind * typ2, ind * lr]
         names += [f"d{lv:g}", f"d{lv:g}_x_type2", f"d{lv:g}_x_lr"]
     X = np.stack(cols, 1)
-    fit = logit_fit(X, y, cluster=prefix)
+    problem = np.array([t.problem_id for t in trajs])
+    fit = logit_fit(X, y, cluster=problem)                       # plan §7.11: 题目 cluster-robust SE
     c = np.zeros(len(names)); c[names.index("d1_x_type2")] = 1.0
     w = wald(fit["beta"], fit["cov_robust"], c)
-    return dict(interaction=w, n=int(len(y)), n_prefix=int(len(ups)), coef={n: float(b) for n, b in zip(names, fit["beta"]) if not n.startswith("fe_")})
+    return dict(interaction=w, n=int(len(y)), n_prefix=int(len(ups)), n_clusters=int(fit["n_clusters"]),
+                coef={n: float(b) for n, b in zip(names, fit["beta"]) if not n.startswith("fe_")})
 
 
 def per_prefix_curves(trajs: Sequence[Trajectory], half: int, lam: float = LAMBDA_DOSE_PRIMARY) -> Dict[str, Dict[str, object]]:
@@ -110,9 +112,12 @@ def shrunk_argmin(curves: Dict[str, Dict[str, object]], lam: float = LAMBDA_DOSE
     return out
 
 
-def quintile_policy(curves_fit: Dict[str, Dict[str, object]], n_bins: int = 5) -> Tuple[np.ndarray, Dict[int, float]]:
-    """π_a*: per quintile bin of a = logit r̂^sel, the arm with the lowest mean J on the fit half."""
-    pids = sorted(curves_fit)
+def quintile_policy(curves_fit: Dict[str, Dict[str, object]], n_bins: int = 5, exclude: Sequence[str] = ()) -> Tuple[np.ndarray, Dict[int, float]]:
+    """π_a*: per quintile bin of a = logit r̂^sel, the arm with the lowest mean J on the fit half of the TRAINING prefixes
+    (``exclude`` = prefixes of the held-out fold, plan §5.6 LOFO)."""
+    pids = sorted(p for p in curves_fit if p not in set(exclude))
+    if not pids:                                       # no training prefixes outside the held-out fold: policy falls back to u = 0
+        return np.array([]), {}
     a = np.array([_logit(curves_fit[p]["r_sel"]) for p in pids])
     edges = np.quantile(a, np.linspace(0, 1, n_bins + 1))
     bins = np.clip(np.searchsorted(edges, a, side="right") - 1, 0, n_bins - 1)
@@ -131,14 +136,23 @@ def quintile_policy(curves_fit: Dict[str, Dict[str, object]], n_bins: int = 5) -
 
 
 def regret(curves_fit: Dict[str, Dict[str, object]], curves_eval: Dict[str, Dict[str, object]], n_boot: int = 2000, seed: int = 0,
-           lam: float = LAMBDA_DOSE_PRIMARY) -> Dict[str, object]:
+           lam: float = LAMBDA_DOSE_PRIMARY, fold_of_problem: Optional[Dict[str, int]] = None) -> Dict[str, object]:
+    """Regret_a = E_i[J(h_i, π_a*) − J(h_i, û_i*)] on the eval half; π_a* (bins and arms) is estimated LOFO on the fit halves of
+    the prefixes whose problem fold differs from prefix i's (plan §5.6, §7.11); û_i* from prefix i's own fit half (EB-shrunk)."""
     u_star = shrunk_argmin(curves_fit, lam)
-    edges, pol = quintile_policy(curves_fit)
     pids = sorted(set(curves_fit) & set(curves_eval))
+    fold_of = lambda p: (fold_of_problem or {}).get(curves_fit[p]["problem_id"], 0)
+    policies = {}
+    for k in sorted({fold_of(p) for p in pids}):
+        held = [p for p in curves_fit if fold_of(p) == k]
+        policies[k] = quintile_policy(curves_fit, exclude=held) if fold_of_problem else quintile_policy(curves_fit)
     per, problems = [], []
+    n_fallback = 0
     for p in pids:
+        edges, pol = policies[fold_of(p)]
+        n_fallback += int(not pol)
         a = _logit(curves_eval[p]["r_sel"])
-        b = int(np.clip(np.searchsorted(edges, a, side="right") - 1, 0, len(edges) - 2))
+        b = int(np.clip(np.searchsorted(edges, a, side="right") - 1, 0, max(0, len(edges) - 2)))
         ua = pol.get(b, 0.0)
         Je = curves_eval[p]["J"]
         if float(ua) in Je and float(u_star[p]) in Je:
@@ -149,15 +163,29 @@ def regret(curves_fit: Dict[str, Dict[str, object]], curves_eval: Dict[str, Dict
     idx = {q: np.where(problems == q)[0] for q in ups}
     bs = np.array([per[np.concatenate([idx[q] for q in ups[rng.integers(0, len(ups), len(ups))]])].mean() for _ in range(n_boot)]) if per.size else np.array([])
     return dict(regret=float(per.mean()) if per.size else float("nan"), lower95=float(np.quantile(bs, 0.05)) if bs.size else float("nan"),
-                upper95=float(np.quantile(bs, 0.95)) if bs.size else float("nan"), n_prefix=int(per.size), policy=pol, u_star=u_star)
+                upper95=float(np.quantile(bs, 0.95)) if bs.size else float("nan"), n_prefix=int(per.size), n_policy_fallback=n_fallback,
+                policy={k: v[1] for k, v in policies.items()}, u_star=u_star)
 
 
-def g6_decision(inter: Dict[str, object], reg: Dict[str, object], x4_drop_hi: float) -> Tuple[List[GateResult], str]:
-    res = [GateResult("G6.interaction", bool(inter["interaction"]["p"] < 0.05), dict(est=inter["interaction"]["est"], p=inter["interaction"]["p"], n_prefix=inter["n_prefix"]),
+def g6_decision(inter: Dict[str, object], reg: Dict[str, object], x4_drop_hi: float, reg_lambda0: Optional[Dict[str, object]] = None
+                ) -> Tuple[List[GateResult], str, List[str]]:
+    """plan §7.11: both criteria => 命题二成立 (GO); otherwise reported as a null (GATES: KILL with the note '命题二 null，不影响其他
+    Gate'); co-primary first (GREY); consistency check: Regret at λ=0 on script A has 95% upper bound >= 0 (expected non-positive)."""
+    res = [GateResult("G6.interaction", bool(inter["interaction"]["p"] < 0.05), dict(est=inter["interaction"]["est"], p=inter["interaction"]["p"], n_prefix=inter["n_prefix"],
+                                                                                   n_clusters=inter.get("n_clusters")),
                       criteria="[(d=1)−(d=−1)]×类型 交互对比，题目 cluster-robust SE，双侧 p<0.05"),
            GateResult("G6.regret", bool(reg["lower95"] > 0), dict(regret=reg["regret"], lower95=reg["lower95"], n_prefix=reg["n_prefix"]),
                       criteria="Regret_a(λ_dose=0.05) 的 cluster bootstrap 95% 下界 >0"),
            GateResult("G6.coprimary", bool(x4_drop_hi <= 0.03), dict(x4_drop_hi=x4_drop_hi), criteria="d=1 臂的 x_4 下降 95% 上界 ≤3pp")]
+    notes = []
+    if reg_lambda0 is not None:
+        ok0 = bool(reg_lambda0.get("upper95", float("nan")) >= 0)
+        res.append(GateResult("G6.consistency", ok0, dict(regret_lambda0=reg_lambda0.get("regret"), upper95=reg_lambda0.get("upper95")),
+                              criteria="一致性检查：λ=0 时 Regret 的 95% 上界 ≥0（期望非正）"))
+        if not ok0:
+            notes.append("一致性检查失败：λ=0 的 regret 显著为负，检查收缩/分位策略实现")
     if x4_drop_hi > 0.03:
-        return res, "GREY"
-    return res, ("GO" if (res[0].passed and res[1].passed) else "GO-with-caveat")
+        return res, "GREY", notes + ["co-primary x_4 下降超过 3pp"]
+    if res[0].passed and res[1].passed:
+        return res, "GO", notes
+    return res, "KILL", notes + ["命题二作为 null 报告（不影响其他 Gate）"]

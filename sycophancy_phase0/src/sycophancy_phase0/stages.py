@@ -73,7 +73,7 @@ def run_specs(ctx: Context, specs: Sequence[RolloutSpec], stage: str, *, z_fn=No
                 run_rollouts(todo[s:s + batch], builder=ctx.builder, router=ctx.router, first_turn_ids=ctx.first_turn_ids, decode=ctx.decode,
                              judge=ctx.judge if judge else None, judge2=ctx.judge2 if judge else None, z_fn=z_fn, z_turns=z_turns, writer=w,
                              zstore=ctx.extra.get("zstore"))
-    return list(read_jsonl(path))
+    return list(read_jsonl(path)) if os.path.exists(path) else []
 
 
 def budget_snapshot(ctx: Context, stage: str) -> dict:
@@ -105,7 +105,7 @@ def _json(path: str, obj=None):
 def stage_mine(ctx: Context) -> dict:
     bank = load_bank(ctx)
     sz = sizes(ctx)
-    specs = [RolloutSpec(run_id=ctx.run_id, problem=p, script="A3", arm=Arm.null(), trajectory_idx=j, stop_after=1, extra=dict(batch=1))
+    specs = [RolloutSpec(run_id=ctx.run_id, problem=p, script="A3", arm=Arm.null(), trajectory_idx=j, stop_after=1, stage="mine", extra=dict(batch=1))
              for p in bank.values() for j in range(sz["mining_n"])]
     # script A3 is only used for its x_1 (identical for every script); the distractor placeholder is not needed at turn 1
     for sp in specs:
@@ -117,7 +117,7 @@ def stage_mine(ctx: Context) -> dict:
     need2 = [pid for pid in bank if needs_batch2(samples[pid], bank[pid].gold, bank[pid].kind)]
     if need2:
         specs2 = [RolloutSpec(run_id=ctx.run_id, problem=bank[pid], script="A3", arm=Arm.null(), trajectory_idx=j, stop_after=1, temperature=1.0,
-                              extra=dict(batch=2)) for pid in need2 for j in range(sz["mining_n"])]
+                              stage="mine", extra=dict(batch=2)) for pid in need2 for j in range(sz["mining_n"])]
         for tr in run_specs(ctx, specs2, "mine_batch2", judge=False):
             samples[tr.problem_id].append(SingleTurnSample(tr.trajectory_idx, 2, tr.turns[0].parsed, tr.turns[0].assistant_text, tr.turns[0].assistant_ids))
     mining = {pid: mine(pid, bank[pid].gold, bank[pid].kind, samples[pid], ctx.config["pools"]["distractor_min_freq"]) for pid in bank}
@@ -241,24 +241,38 @@ def stage_g2a(ctx: Context, kappa1: Optional[float] = None) -> dict:
     sz = sizes(ctx)
     folds = load_folds(ctx)
     pres = load_prefix_bank(ctx)
-    picks = G2A.pick_prefixes(pres, n=sz["g2a_n_prefix"], folds=folds)
+    picks = G2A.pick_prefixes(pres, n=sz["g2a_n_prefix"], folds=folds, max_P_e2=ctx.config.get("g2a_max_P_e2", 0.1),
+                              q_range=tuple(ctx.config.get("g2a_q_range", (0.15, 0.85))))
+    if not picks:                                                                   # plan §6.1: missing inputs => GREY, never a verdict
+        note = "no A3 h_2 satisfies sel P̂(e_2|h_2) < g2a_max_P_e2 and q̂ in g2a_q_range; G2′-a not run"
+        write_summary(ctx.run_path, "G2a", dict(decision="GREY", n_prefix=0, note=note))
+        gate_entry(ctx, "G2′-a", "无 steering 的 MPC 预算与证言模型", "0 prefixes", [], "GREY", note)
+        return dict(decision="GREY", J=float("nan"), n_prefix=0)
     y2 = run_specs(ctx, G2A.y2_specs(bank, picks, ctx.run_id, n=sz["g2a_N"]), "G2a_y2")
     conts = run_specs(ctx, G2A.continuation_specs_from_y2(bank, y2, ctx.builder, ctx.first_turn_ids, ctx.run_id, m=sz["g2a_M"]), "G2a_cont")
     counts = G2A.counts_by_y2(conts)
     lam_kl = ctx.config["lambda_dose_primary"] / (kappa1 if kappa1 else G2A.KAPPA1_PLACEHOLDER)
     est = G2A.g2a_estimates(counts, lam_kl=lam_kl, kappa1=kappa1)
     res, dec = G2A.g2a_gate(est)
-    # (ii) testimony
-    h3s = [h for h in pres if h.script == "A3" and h.level == 3][: sz["g2a_n_h3"]]
+    # (ii) testimony: 50 clean A3 h_3, <= 1 per problem, fold rotation; risk strata from r̂(h_3) (32 sel continuations)
+    h3s = G2A.pick_h3(pres, n=sz["g2a_n_h3"], folds=folds)
+    need = [h for h in h3s if "sel" not in h.stats.get(h.script, {})]
+    if need:
+        G15.h3_stats(need, run_specs(ctx, G15.h3_sel_specs(bank, need, ctx.run_id, n=32), "G15_h3sel"))
+    strata = G2A.risk_strata(h3s)
     y3 = run_specs(ctx, G2A.y3_specs(bank, h3s, ctx.run_id, n=sz["g2a_Ms"]), "G2a_y3")
     y4 = run_specs(ctx, G2A.y4_specs_from_y3(bank, y3, ctx.builder, ctx.first_turn_ids, ctx.run_id, m=sz["g2a_m"]), "G2a_y4")
     rows = G2A.y4_table(y4)
-    from .analysis.testimony import testimony_point
+    from .analysis.testimony import fe_logit_stance_by_stratum, testimony_point
     tp = testimony_point(rows["prefix"], rows["stance"], rows["qbar"], 1.0, 1.0)      # PPV/NPV = 1 until the human subset exists
+    try:
+        fe = fe_logit_stance_by_stratum(rows["prefix"], rows["stance"], np.array([strata.get(p, -1) for p in rows["prefix"]]), rows["qbar"])
+    except Exception as e:                                                            # too few strata/classes in a small run
+        fe = dict(error=str(e))
     summary = dict(J=est["J"], J_ci95=est["J_ci95"], frac_flagged=est["frac_flagged"], A_of_lambda=est["A_of_lambda"], kappa1_used=est["kappa1_used"],
                    kappa1_is_placeholder=est["kappa1_is_placeholder"], mean_var_q=est["mean_var_q"], frontier_mean=est["frontier_mean"],
                    per_prefix={k: {kk: vv for kk, vv in v.items() if kk != "frontier"} for k, v in est["per_prefix"].items()},
-                   testimony_uncorrected=tp, decision=dec, n_prefix=len(picks), n_y2=len(y2), n_cont=len(conts))
+                   testimony_uncorrected=tp, testimony_by_stratum=fe, risk_strata=strata, decision=dec, n_prefix=len(picks), n_y2=len(y2), n_cont=len(conts))
     write_summary(ctx.run_path, "G2a", summary)
     gate_entry(ctx, "G2′-a", "无 steering 的 MPC 预算与证言模型", f"{len(picks)} prefixes × {sz['g2a_N']} y_2 × {sz['g2a_M']}", res, dec,
                "κ_1 占位 15 nats（G4-1 后回填）" if est["kappa1_is_placeholder"] else "")

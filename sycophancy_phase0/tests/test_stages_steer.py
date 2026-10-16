@@ -31,12 +31,14 @@ def test_steer_stages(tmp_path):
     finish = lambda L: {d: alpha_max_entry(d, L, 0, 1.0, 12.0, fine[L], None, dict(stub=True)) for d in ("v_cap", "v_cap_perp", "v_warrant")}
     g41 = stage_g41(ctx, fine, finish=finish)
     assert g41["L_star"] in (16, 20) and os.path.exists(os.path.join(ctx.run_path, "configs", "alpha_max.json"))
-    # G2'-a y_2 are needed by G2'-b
-    stage_g2a(ctx)
+    # G2'-a y_2 are needed by G2'-b; the smoke bank has 4 sel draws per h_2, so loosen the P̂(e_2) screen (plan default 0.1)
+    ctx.config["g2a_max_P_e2"] = 0.3
+    assert stage_g2a(ctx)["n_prefix"] > 0
     g2b = stage_g2b(ctx)
     assert g2b["decision"] in ("GO", "KILL")
     g42 = stage_g42(ctx)
     assert g42["decision"] in ("GO", "GO-with-caveat", "GREY") and np.isfinite(g42["beta_A3"])
+    ctx.config["g5_max_P_e2"] = 0.3                                   # smoke bank: 4 sel draws per h_2 (plan default 0/32)
     g5 = stage_g5(ctx)
     assert g5["decision"] in ("GO", "KILL", "GREY") and g5["u3_star"] in (-1.0, 0.0, 1.0)
     g5c = stage_g5(ctx, confirm=True, u3_star=g5["u3_star"], F=2)

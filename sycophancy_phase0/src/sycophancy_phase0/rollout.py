@@ -25,7 +25,7 @@ from .inference.templates import TurnBuilder
 from .scoring.labels import Problem, comparison_values, outcomes
 from .scoring.parse import canonical, classify_final, is_hedged, parse_final_answer, rule_stance, values_equal
 from .scripts.builders import user_turns
-from .trajectory import (Arm, Trajectory, TurnRecord, block_of, ids_hash, subsplit4_of, subsplit_of, traj_id_of)
+from .trajectory import (Arm, Trajectory, TurnRecord, block_of, ids_hash, seed_arm_key, subsplit4_of, subsplit_of, traj_id_of)
 
 
 @dataclass
@@ -89,6 +89,7 @@ class RolloutSpec:
     T: int = 4
     stop_after: Optional[int] = None            # generate turns <= stop_after only (partial trajectory; e.g. y_2 sampling)
     temperature: Optional[float] = None         # engine-temperature override (only the §5.2 second mining batch, T=1.0)
+    stage: str = ""                             # enters the seed and traj_id keys (v1.3): no cross-stage sample reuse
     extra: dict = field(default_factory=dict)
 
 
@@ -163,11 +164,13 @@ def run_rollouts(specs: Sequence[RolloutSpec], *, builder: TurnBuilder, router, 
             if t in z_turns:
                 z_pending.append((i, t, list(st.ids), st.user_span, st.prev_span))
             alpha = st.spec.arm.alpha_at(t)
-            arm_id = st.spec.arm.arm_id() + ("" if st.spec.temperature is None else f";T={st.spec.temperature:g}")
-            seed = derive_seed(st.spec.run_id, st.spec.problem.problem_id, st.prefix_id, arm_id, st.spec.trajectory_idx, t)
+            arm_key = seed_arm_key(st.spec.arm.arm_id(), st.spec.script, st.spec.stage, st.spec.temperature)
+            seed = derive_seed(st.spec.run_id, st.spec.problem.problem_id, st.prefix_id, arm_key, st.spec.trajectory_idx, t)
             st.seeds[t - 1] = seed
             mnt = st.spec.max_new_tokens or (MAX_NEW_TOKENS_THINK if st.spec.mode == "hybrid_think" else MAX_NEW_TOKENS)
-            reqs.append(GenRequest(ids=list(st.ids), seed=seed, alpha=alpha, max_new_tokens=mnt, temperature=st.spec.temperature))
+            scope = st.spec.arm.scope if (alpha != 0.0 and st.spec.arm.scope) else "S_gen"
+            reqs.append(GenRequest(ids=list(st.ids), seed=seed, alpha=alpha, max_new_tokens=mnt, temperature=st.spec.temperature,
+                                   scope=scope, read_span=(tuple(st.user_span) if scope == "S_read" else None)))
         if progress:
             progress(f"turn {t}: {len(reqs)} requests")
         results: List[GenResult] = router.generate(reqs)
@@ -197,7 +200,7 @@ def run_rollouts(specs: Sequence[RolloutSpec], *, builder: TurnBuilder, router, 
     out: List[Trajectory] = []
     for i, st in enumerate(states):
         sp = st.spec
-        tid = traj_id_of(sp.run_id, sp.problem.problem_id, st.prefix_id, sp.arm.arm_id(), sp.trajectory_idx)
+        tid = traj_id_of(sp.run_id, sp.problem.problem_id, st.prefix_id, sp.arm.arm_id(), sp.trajectory_idx, sp.script, sp.stage)
         block = sp.block or block_of(sp.trajectory_idx)
         traj = Trajectory(traj_id=tid, run_id=sp.run_id, config_sha256=sp.config_sha256, model=sp.model, regime=sp.regime,
                           problem_id=sp.problem.problem_id, family=sp.problem.family, script=sp.script,
@@ -207,7 +210,7 @@ def run_rollouts(specs: Sequence[RolloutSpec], *, builder: TurnBuilder, router, 
                           truncated=any(tr.truncated for tr in st.turns),
                           truncated_in_think=any(tr.truncated_in_think for tr in st.turns),
                           timing_ms=1000.0 * (time.time() - st.t0), subsplit4=subsplit4_of(sp.trajectory_idx),
-                          mode=sp.mode, extra={k: v for k, v in sp.extra.items() if not k.startswith("_")})
+                          mode=sp.mode, stage=sp.stage, extra={k: v for k, v in sp.extra.items() if not k.startswith("_")})
         if i in z_refs:
             if zstore is not None:
                 ref = {}
@@ -275,10 +278,11 @@ def _score(states: List[_State], judge: Optional[JudgeFn], judge2: Optional[Judg
                 tr.judge = lab
                 tr.stance, tr.explicit = lab["stance"], lab["explicit"]
                 tr.parsed = canonical(lab.get("final_number"), it["kind"])
-            else:                                                     # no judge: provisional rule labels
+            else:                                                     # no judge: provisional rule labels (never final, plan §6.1)
                 tr.stance = tr.rule_stance
                 tr.explicit = "EXPLICIT" if tr.rule_stance != "NONE" else "EVASIVE"
                 tr.judge = None
+                states[i].spec.extra["labels_provisional"] = True
             tr.judge2 = lab2
     for st in states:
         stances = [tr.stance or "NONE" for tr in st.turns]
@@ -291,7 +295,7 @@ def _score(states: List[_State], judge: Optional[JudgeFn], judge2: Optional[Judg
 def spec_traj_id(spec: RolloutSpec, builder: TurnBuilder, first_turn_ids: FirstTurnIds, decode: Decode) -> str:
     """The traj_id a spec will produce (needs the root prefix id, hence the same ids construction as the runner)."""
     st = _init_state(spec, builder, first_turn_ids, decode)
-    return traj_id_of(spec.run_id, spec.problem.problem_id, st.prefix_id, spec.arm.arm_id(), spec.trajectory_idx)
+    return traj_id_of(spec.run_id, spec.problem.problem_id, st.prefix_id, spec.arm.arm_id(), spec.trajectory_idx, spec.script, spec.stage)
 
 
 def hf_first_turn_ids(tokenizer, mode: str, system_prompt: str) -> FirstTurnIds:

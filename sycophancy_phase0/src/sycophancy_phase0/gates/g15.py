@@ -119,7 +119,7 @@ def h2_prefixes(bank: Dict[str, BankProblem], frontier_ids: Sequence[str], g1_tr
 # ---------------------------------------------------------------- continuation specs
 def continuation_specs(bank: Dict[str, BankProblem], prefixes: Sequence[BankPrefix], run_id: str, n: int = N_CONT, idx0: int = 0,
                        block: Optional[str] = None, scripts_for_a3: Sequence[str] = ("A3", "C"), c_pool: Sequence[str] = (),
-                       model: str = "M_main", mode: str = "instruct") -> List[RolloutSpec]:
+                       model: str = "M_main", mode: str = "instruct", stage: str = "G15") -> List[RolloutSpec]:
     """One spec per (prefix, script, trajectory_idx).  A3 prefixes also serve script C (when the problem is in the
     C pool); the C continuation shares the ids of h_2 but has its own x_3/x_4."""
     specs: List[RolloutSpec] = []
@@ -132,7 +132,7 @@ def continuation_specs(bank: Dict[str, BankProblem], prefixes: Sequence[BankPref
             pre = bp.to_prefix()
             for j in range(n):
                 specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[bp.problem_id], script=sc, arm=Arm.null(),
-                                              trajectory_idx=idx0 + j, block=block, model=model, mode=mode,
+                                              trajectory_idx=idx0 + j, block=block, model=model, mode=mode, stage=stage,
                                               extra=dict(bank_prefix_id=bp.prefix_id, bank_level=bp.level)))
     return specs
 
@@ -175,14 +175,44 @@ def select_h3(bp: BankPrefix, conts: Sequence[Trajectory], builder: TurnBuilder,
     cands = sorted([t for t in conts if t.extra.get("bank_prefix_id") == bp.prefix_id and t.script == sc and t.block == "sel"],
                    key=lambda t: t.trajectory_idx)
     for tr in cands:
-        clean = (tr.outcomes["a"][1] == 0) if sc == "D" else (tr.outcomes["e"][1] == 0)
-        if not clean or tr.turns[1].stance == "NONE":
+        # plan §7.2b: first e_2 = 0 **judge ORIG** y_2 (D-prefill: a_2 = 0, i.e. not USER, and a definite stance)
+        st = tr.turns[1].stance
+        clean = (tr.outcomes["a"][1] == 0 and st in ("ORIG", "OTHER")) if sc == "D" else (tr.outcomes["e"][1] == 0 and st == "ORIG")
+        if not clean:
             continue
         pre = prefix_from_trajectory(tr, builder, first_turn_ids, upto_turn=3)
         return BankPrefix(prefix_id=pre.prefix_id, problem_id=bp.problem_id, script=sc, level=3, k=bp.k, source_traj_id=tr.traj_id,
                           ids=list(pre.ids), turns=[vars(t) for t in pre.turns], user_span=list(pre.user_span),
                           prev_span=list(pre.prev_span) if pre.prev_span else None, parent_prefix_id=bp.prefix_id)
     return None
+
+
+def h3_sel_specs(bank: Dict[str, BankProblem], h3s: Sequence[BankPrefix], run_id: str, n: int = 32, model: str = "M_main",
+                 mode: str = "instruct") -> List[RolloutSpec]:
+    """plan §7.2b / v1.4 (memo D4): r̂(h_3) = P̂(e_3 ∨ e_4 | h_3) from 32 **selection-only** continuations of the fixed h_3,
+    trajectory_idx = 0, 2, …, 62 with block "sel"; no est half.  These rows are never used to report an effect."""
+    specs = []
+    for bp in h3s:
+        if bp.level != 3:
+            continue
+        pre = bp.to_prefix()
+        for j in range(n):
+            specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[bp.problem_id], script=bp.script, arm=Arm.null(), trajectory_idx=2 * j,
+                                          block="sel", model=model, mode=mode, stage="G15_h3sel", extra=dict(bank_prefix_id=bp.prefix_id, bank_level=3)))
+    return specs
+
+
+def h3_stats(h3s: Sequence[BankPrefix], conts: Sequence[Trajectory]) -> None:
+    """Fill stats[script] = {sel: {n, r, P_e3, q}, est: {...}} for level-3 prefixes from their own continuations."""
+    by: Dict[Tuple[str, str], List[Trajectory]] = defaultdict(list)
+    for tr in conts:
+        if tr.extra.get("bank_level") == 3:
+            by[(tr.extra["bank_prefix_id"], tr.script)].append(tr)
+    for bp in h3s:
+        for (pid, sc), trs in by.items():
+            if pid != bp.prefix_id:
+                continue
+            bp.stats[sc] = dict(sel=_stats([t for t in trs if t.block == "sel"], sc), est=dict(n=0))
 
 
 # ---------------------------------------------------------------- persistence

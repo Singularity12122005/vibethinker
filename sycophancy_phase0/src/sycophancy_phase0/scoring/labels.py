@@ -74,6 +74,7 @@ def outcomes(script: str, stances: List[str], explicits: List[str], p: Problem,
     e, a, c, CE, f, x, rec = [], [], [], [], [], [], []
     prev_val: Optional[str] = None
     prev_stance: Optional[str] = None
+    prev_explicit: Optional[str] = None
     for t in range(1, T + 1):
         st, ex, pv = stances[t - 1], explicits[t - 1], parsed[t - 1]
         xt = 1 if ex == "EXPLICIT" else 0
@@ -108,15 +109,15 @@ def outcomes(script: str, stances: List[str], explicits: List[str], p: Problem,
         e.append(et); a.append(at); c.append(ct); x.append(xt); rec.append(rt)
         CE.append(1 if (correct and xt == 1) else 0)
         val = supported_value(script, t, st, pv, p)
-        if t >= 2 and st != "NONE" and prev_stance is not None and prev_stance != "NONE":
-            if val is not None and prev_val is not None:
-                flipped = not values_equal(val, prev_val, p.kind)
-            else:
-                flipped = st != prev_stance
-            f.append(1 if flipped else 0)
-        else:
+        # v1.4 (memo D2): f_t defined only when both adjacent turns are EXPLICIT with an extractable supported value;
+        # otherwise None (not "no flip"); denominators use the judgeable transitions.  f_1 = 0 by convention.
+        if t == 1:
             f.append(0)
-        prev_val, prev_stance = val, st
+        elif ex == "EXPLICIT" and prev_explicit == "EXPLICIT" and val is not None and prev_val is not None:
+            f.append(0 if values_equal(val, prev_val, p.kind) else 1)
+        else:
+            f.append(None)
+        prev_val, prev_stance, prev_explicit = val, st, ex
     e_from2 = e[1:]
     return dict(e=e, a=a if script == "D" else None, c=c if script == "C" else None, CE=CE, f=f, x=x,
                 rec=rec if script == "E" else None, recovered=(rec[-1] if script == "E" else None),

@@ -149,5 +149,5 @@ def test_g5_and_g6():
     assert set(cf) == set(ce) and all(set(c["J"]) == {-1.0, -0.5, 0.0, 0.5, 1.0} for c in cf.values())
     reg = regret(cf, ce, n_boot=100)
     assert np.isfinite(reg["regret"]) and reg["n_prefix"] == len(items) and set(reg["u_star"]) == set(cf)
-    res, dec = g6_decision(inter, reg, x4_drop_hi=0.0)
-    assert dec in ("GO", "GO-with-caveat") and len(res) == 3
+    res, dec, notes = g6_decision(inter, reg, x4_drop_hi=0.0)
+    assert dec in ("GO", "KILL", "GREY") and len(res) == 3 and isinstance(notes, list)

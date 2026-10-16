@@ -57,29 +57,33 @@ def central_moments(m: np.ndarray) -> Dict[str, float]:
     return dict(mu=float(mu), c2=float(c2), c3=float(c3), c4=float(c4))
 
 
-def jensen_gap_lb(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None, kmax: Optional[int] = None) -> Dict[str, float]:
-    """Primary estimator: log μ̂ (second-order corrected) + Σ_{k=1}^{K} (1/k) Σ_j w_j F_j^(k)/M^(k), K = min(kmax, M)."""
+def jensen_gap_lb(Z: np.ndarray, M, w: Optional[np.ndarray] = None, kmax: Optional[int] = None) -> Dict[str, float]:
+    """Primary estimator: log μ̂ (second-order corrected) + Σ_{k=1}^{K} (1/k) Σ_j w_j F_j^(k)/M_j^(k), K = min(kmax, min_j M_j).
+    ``M`` may be a per-response array (unequal continuation counts): each j uses its own falling-factorial denominators
+    and the series is truncated at the smallest M_j so every term keeps its unbiased estimator."""
     Z = np.asarray(Z, float)
     N = Z.shape[0]
-    if N < 2 or M < 2:
-        raise ValueError("need N>=2 responses and M>=2 continuations")
-    if np.any(Z < 0) or np.any(Z > M):
-        raise ValueError("counts must lie in [0, M]")
+    Ma = np.broadcast_to(np.asarray(M, float), Z.shape).astype(float)
+    if N < 2 or np.any(Ma < 2):
+        raise ValueError("need N>=2 responses and M_j>=2 continuations")
+    if np.any(Z < 0) or np.any(Z > Ma):
+        raise ValueError("counts must lie in [0, M_j]")
     ww = _weights(N, w)
-    F = M - Z
-    mu = float((ww * Z).sum() / M)
+    F = Ma - Z
+    q = Z / Ma
+    mu = float((ww * q).sum())
     if mu <= 0:
         return dict(J=float("nan"), mu=mu, n_zero=int((Z == 0).sum()), K=0)
-    # Var(μ̂) for weighted mean of Z_j/M: Σ w_j² (Z_j/M − μ)² (unbiased-ish for independent j)
-    var_mu = float((ww ** 2 * (Z / M - mu) ** 2).sum())
+    var_mu = float((ww ** 2 * (q - mu) ** 2).sum())
     total = float(np.log(mu) + var_mu / (2 * mu ** 2))
-    K = M if kmax is None else min(int(kmax), M)
+    Kmax = int(Ma.min())
+    K = Kmax if kmax is None else min(int(kmax), Kmax)
     num = np.ones_like(F)
-    den = 1.0
+    den = np.ones_like(F)
     for k in range(1, K + 1):
         num = num * (F - (k - 1))
-        den *= (M - (k - 1))
-        total += float((ww * num).sum() / den) / k
+        den = den * (Ma - (k - 1))
+        total += float((ww * num / den).sum()) / k
     return dict(J=total, mu=mu, n_zero=int((Z == 0).sum()), K=K, var_mu=var_mu)
 
 
@@ -119,19 +123,22 @@ def regime_flags(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None, mu_min: 
                 flagged=(n_zero > n_zero_max) or (mu < mu_min))
 
 
-def jensen_gap(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None) -> Dict[str, float]:
-    """One prefix: primary Ĵ_LB plus diagnostics and regime flags."""
+def jensen_gap(Z: np.ndarray, M, w: Optional[np.ndarray] = None) -> Dict[str, float]:
+    """One prefix: primary Ĵ_LB plus diagnostics and regime flags (diagnostics need a scalar M: they use the minimum)."""
     lb = jensen_gap_lb(Z, M, w)
-    ser = jensen_gap_series(Z, M, w) if M >= 4 else dict(J=float("nan"), delta=float("nan"))
-    beta = jensen_gap_beta(Z, M, w)
-    fl = regime_flags(Z, M, w)
+    Ms = int(np.min(np.asarray(M)))
+    balanced = bool(np.all(np.asarray(M) == Ms))
+    ser = jensen_gap_series(Z, Ms, w) if (balanced and Ms >= 4) else dict(J=float("nan"), delta=float("nan"))
+    beta = jensen_gap_beta(Z, Ms, w) if balanced else dict(J=float("nan"))
+    fl = regime_flags(Z, Ms, w)
     return dict(J=lb["J"], J_series=ser["J"], J_beta=beta["J"], delta=ser["delta"], zbar=lb["mu"], n_zero=fl["n_zero"],
                 near_zero_mass=fl["near_zero_mass"], low_mean=fl["low_mean"], flagged=fl["flagged"])
 
 
-def jensen_gap_by_prefix(Z: np.ndarray, M: int, prefix: np.ndarray, w: Optional[np.ndarray] = None) -> Dict[str, object]:
-    """Per-prefix Ĵ_LB (weights renormalised within prefix) and their unweighted mean over prefixes."""
+def jensen_gap_by_prefix(Z: np.ndarray, M, prefix: np.ndarray, w: Optional[np.ndarray] = None) -> Dict[str, object]:
+    """Per-prefix Ĵ_LB (weights renormalised within prefix) and their unweighted mean over prefixes; M scalar or per-row."""
     Z, prefix = np.asarray(Z, float), np.asarray(prefix)
+    Ma = np.broadcast_to(np.asarray(M, float), Z.shape).astype(float)
     w = None if w is None else np.asarray(w, float)
     per: Dict[object, Dict[str, float]] = {}
     for p in np.unique(prefix):
@@ -139,7 +146,7 @@ def jensen_gap_by_prefix(Z: np.ndarray, M: int, prefix: np.ndarray, w: Optional[
         wp = None if w is None else w[m]
         if wp is not None and wp.sum() <= 0:
             continue
-        per[p] = jensen_gap(Z[m], M, wp)
+        per[p] = jensen_gap(Z[m], Ma[m], wp)
     Js = np.array([d["J"] for d in per.values()])
     return dict(J=float(np.nanmean(Js)) if len(Js) else float("nan"), per_prefix=per, n_prefix=len(per),
                 frac_flagged=float(np.mean([d["flagged"] for d in per.values()])) if per else float("nan"))

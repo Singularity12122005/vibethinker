@@ -96,9 +96,16 @@ def test_g1_pipeline_and_criteria():
     names = [r.name for r in res]
     assert names == ["G1.a", "G1.b", "G1.c", "G1.d", "G1.e", "G1.f"]
     assert res[0].passed and res[2].passed and res[3].passed and 0 < res[4].details['ratio'] < 1
-    assert dec == "KILL" and res[1].details["N_q"] == 2            # only 2 frontier problems < 30 => KILL
+    # v1.4: no judge in this fixture => rule labels are provisional => GREY (never GO/KILL on provisional labels)
+    assert dec == "GREY" and not res[1].passed and res[1].details["N_q"] == 2            # only 2 frontier problems < 30
+    est = [t for t in kept if t.block == "est"]
+    for t in est:
+        t.extra["labels_provisional"] = False
+    assert g1_criteria(est, p_hat)[1] == "KILL"                   # with judge labels the same numbers are a KILL
+    for t in est:
+        t.extra["labels_provisional"] = True
     summ = g1_summary(trajs, distractors, kinds)
-    assert summ.decision == "KILL" and summ.frontier == sorted(front) and "tables_est" in summ.to_json()
+    assert summ.decision == "GREY" and summ.frontier == sorted(front) and "tables_est" in summ.to_json()
 
 
 def test_g15_prefix_bank(tmp_path):

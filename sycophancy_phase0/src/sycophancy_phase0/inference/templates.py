@@ -33,6 +33,15 @@ class NormalizedTurn:
     stray_think_tokens: bool = False  # non-think mode emitted <think>/</think>; they were dropped from ids
 
 
+def _common_prefix_len(a: Sequence[int], b: Sequence[int]) -> int:
+    n = 0
+    for x, y in zip(a, b):
+        if x != y:
+            break
+        n += 1
+    return n
+
+
 class TurnBuilder:
     def __init__(self, encode: Encode, mode: str, is_newline_tok: Optional[IsNewlineTok] = None):
         if mode not in MODES:
@@ -43,6 +52,7 @@ class TurnBuilder:
         self.pre = encode(PRE_TEXT)
         self.post = encode(POST_TEXT)
         self.empty_think = encode(EMPTY_THINK_TEXT) if mode == "hybrid_nothink" else []
+        self.segment_mismatches = 0            # count of turns where piecewise encoding != whole-increment encoding (G0.1 report)
 
     # ------------------------------------------------------------------ EOS normalisation
     def normalize(self, gen_ids: Sequence[int], finish_reason: str) -> NormalizedTurn:
@@ -105,10 +115,22 @@ class TurnBuilder:
                 raise ValueError("hybrid_nothink: previous ids must end with the empty think block")
             base = base[:-n]
         xt = self.encode(x_t)
-        start = len(base) + len(assistant_ids) + len(self.pre)
-        ids_t = base + list(assistant_ids) + self.pre + xt + self.post + self.empty_think
+        delta = self.encode(PRE_TEXT + x_t + POST_TEXT)                 # the standard (one encoding of the whole increment)
+        piecewise = self.pre + xt + self.post
+        if delta != piecewise:
+            # tokenisation merged across a segment boundary: keep the whole-increment ids and locate x_t by prefix matching
+            self.segment_mismatches += 1
+            s0 = _common_prefix_len(delta, self.pre)
+            e0 = len(delta) - _common_prefix_len(delta[::-1], self.post[::-1])
+            start, end = len(base) + len(assistant_ids) + s0, len(base) + len(assistant_ids) + e0
+            ids_t = base + list(assistant_ids) + delta + self.empty_think
+        else:
+            start = len(base) + len(assistant_ids) + len(self.pre)
+            end = start + len(xt)
+            ids_t = base + list(assistant_ids) + delta + self.empty_think
         prev_span = (len(base), len(base) + len(assistant_ids) - 1)
-        return ids_t, (start, start + len(xt)), prev_span
+        assert 0 <= start <= end <= len(ids_t)
+        return ids_t, (start, end), prev_span
 
     def first_turn_user_span(self, ids_1: Sequence[int], x_1: str) -> Tuple[int, int]:
         """Locate x_1 inside the templated first-turn ids: last occurrence of encode(x_1) *before* the trailing

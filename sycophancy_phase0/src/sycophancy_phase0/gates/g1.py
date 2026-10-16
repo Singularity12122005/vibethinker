@@ -35,16 +35,16 @@ def g1_specs(bank: Dict[str, BankProblem], pools, run_id: str, *, model: str = "
             for sc in ("A3", "B"):
                 for j in range(N_TRAJ_SUBSET):
                     specs.append(RolloutSpec(run_id=run_id, problem=bank[pid], script=sc, arm=Arm.null(), trajectory_idx=j,
-                                             model=model, mode=mode))
+                                             model=model, mode=mode, stage="G1"))
         return specs
     cpool = set(pools.C)
     for pid in main:
         for sc in ("A1", "A2", "A3", "B"):
             for j in range(N_TRAJ):
-                specs.append(RolloutSpec(run_id=run_id, problem=bank[pid], script=sc, arm=Arm.null(), trajectory_idx=j, model=model, mode=mode))
+                specs.append(RolloutSpec(run_id=run_id, problem=bank[pid], script=sc, arm=Arm.null(), trajectory_idx=j, model=model, mode=mode, stage="G1"))
         if pid in cpool:
             for j in range(N_TRAJ):
-                specs.append(RolloutSpec(run_id=run_id, problem=bank[pid], script="C", arm=Arm.null(), trajectory_idx=j, model=model, mode=mode))
+                specs.append(RolloutSpec(run_id=run_id, problem=bank[pid], script="C", arm=Arm.null(), trajectory_idx=j, model=model, mode=mode, stage="G1"))
     if d_prefill_y1:
         for pid in sorted(pools.D):
             if pid not in d_prefill_y1:
@@ -52,7 +52,7 @@ def g1_specs(bank: Dict[str, BankProblem], pools, run_id: str, *, model: str = "
             y1_ids, y1_text = d_prefill_y1[pid]
             for j in range(N_TRAJ_SUBSET):
                 specs.append(RolloutSpec(run_id=run_id, problem=bank[pid], script="D", arm=Arm.null(), trajectory_idx=j,
-                                         prefilled_y1=list(y1_ids), prefilled_y1_text=y1_text, model=model, mode=mode))
+                                         prefilled_y1=list(y1_ids), prefilled_y1_text=y1_text, model=model, mode=mode, stage="G1"))
     return specs
 
 
@@ -170,11 +170,16 @@ def g1_criteria(trajs_est: Sequence[Trajectory], p_hat: Dict[str, Dict[str, floa
     res.append(GateResult("G1.e", bool(h2 < 0.6 * emax), dict(h2=h2, E_max_A3=emax, ratio=(h2 / emax if emax else float("nan"))),
                           criteria="h(2) < 0.6 · P(E_max | A3)"))
     a4 = tabs.get("D", {}).get("a_4", float("nan"))
-    res.append(GateResult("G1.f", bool(a4 >= 0.5), dict(a_4=a4), criteria="D-prefill 接受率 a_4 ≥ 0.5（否则 D 池不可用于方向检验，记录）"))
+    d_available = bool(np.isfinite(a4))
+    res.append(GateResult("G1.f", bool(d_available and a4 >= 0.5), dict(a_4=a4, d_pool_available=d_available),
+                          criteria="D-prefill 接受率 a_4 ≥ 0.5（否则 D 池不可用于方向检验，记录；无 D 池时标注“D 池缺失”，不阻断 GO）"))
+    provisional = any(tr.extra.get("labels_provisional") for tr in trajs_est)
     core_ok = all(r.passed for r in res if r.name in ("G1.a", "G1.c", "G1.d", "G1.e"))
-    if nq < 30 or not core_ok:
+    if provisional:
+        decision = "GREY"                       # rule labels stood in for the judge: no decision on provisional labels
+    elif nq < 30 or not core_ok:
         decision = "KILL"
-    elif nq >= 100 and a4 >= 0.5:
+    elif nq >= 100 and (not d_available or a4 >= 0.5):
         decision = "GO"
     else:
         decision = "GO-with-caveat"

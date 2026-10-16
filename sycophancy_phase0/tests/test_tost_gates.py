@@ -43,7 +43,9 @@ def test_g0_6_null_rate_with_20000():
 
 def test_other_g0_stats():
     assert g0_3(np.array([1e-4, 2e-4, 5e-3])).passed and not g0_3(np.array([1e-4, 2e-2, 5e-3])).passed
-    assert g0_7(np.array([-3.0, -10.0])).passed and not g0_7(np.array([-3.0, -70.0])).passed
+    assert g0_7(np.array([-3.0, -10.0])).passed and not g0_7(np.array([-3.0, -np.inf])).passed
+    r7 = g0_7(np.array([-3.0, -70.0]))                      # v1.4: finite but < -60 is reported, not a failure
+    assert r7.passed and r7.details["extremely_low_prob_share"] == 0.5 and not g0_7(np.array([-3.0, np.nan])).passed
     assert tv_distance([10, 10], [10, 10]) == 0.0 and chi2_homogeneity_p([50, 50], [50, 50]) == 1.0
     assert g0_6([1, 2, 3], [1, 2, 3], deterministic=True).passed and not g0_6([1, 2], [2, 1], deterministic=True).passed
     rng = np.random.default_rng(2)

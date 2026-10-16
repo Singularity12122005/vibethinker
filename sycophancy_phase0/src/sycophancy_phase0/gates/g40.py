@@ -38,7 +38,7 @@ def turn3_specs(bank: Dict[str, BankProblem], h3s: Sequence[BankPrefix], run_id:
         pre = bp.to_prefix()
         for j in range(n):
             specs.append(spec_from_prefix(pre, run_id=run_id, problem=bank[bp.problem_id], script=bp.script, arm=Arm.null(), trajectory_idx=IDX0 + j,
-                                          block="est", stop_after=3, extra=dict(bank_prefix_id=bp.prefix_id, stage="g40")))
+                                          block="est", stop_after=3, stage="G40", extra=dict(bank_prefix_id=bp.prefix_id, stage="g40")))
     return specs
 
 
