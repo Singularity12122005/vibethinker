@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sycophancy-phase0"
+version = "0.1.0"
+description = "Phase-0 harness for the multi-turn sycophancy dynamic-control study (see docs/research/sycophancy-phase0-execution-plan.md)"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+hf = ["torch>=2.4", "transformers==4.57.1", "accelerate"]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
