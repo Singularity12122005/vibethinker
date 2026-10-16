@@ -129,8 +129,16 @@ def test_sampler_reseeds_per_generate_call(model):
     ids, att = left_pad([s, s], pad_id=V - 1)
     with torch.no_grad():
         a = model.generate(input_ids=ids, attention_mask=att, **kw)
-        b = model.generate(input_ids=ids, attention_mask=att, **kw)     # same kwargs dict reused
-    assert torch.equal(a, b)
+        with pytest.raises(RuntimeError):                                # round 7: a sampler serves ONE generate call —
+            model.generate(input_ids=ids, attention_mask=att, **kw)      # reuse is an error, never inferred from lengths
+        kw["logits_processor"][0].reset()
+        b = model.generate(input_ids=ids, attention_mask=att, **kw)      # explicit reset() restores reproducibility
+        assert torch.equal(a, b)
+        kw["logits_processor"][0].reset()
+        longer, att2 = left_pad([s + s, s + s], pad_id=V - 1)              # the reviewer's case: a longer prompt after a shorter call
+        model.generate(input_ids=longer, attention_mask=att2, **kw)
+        with pytest.raises(RuntimeError):
+            model.generate(input_ids=longer, attention_mask=att2, **kw)
     samp = SeededGumbelSampler([1], 0.7, device="cpu")
     with pytest.raises(ValueError):
         samp(torch.zeros(1, 3, dtype=torch.long), torch.full((1, 5), float("-inf")))

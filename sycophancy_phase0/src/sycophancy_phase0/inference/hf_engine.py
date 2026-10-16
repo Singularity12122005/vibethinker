@@ -99,9 +99,11 @@ def extract_z(model, seqs: Sequence[Sequence[int]], layers: Sequence[int],
               steer=None) -> Dict[str, Dict[int, torch.Tensor]]:
     """z_t (plan §4.5) from a clean forward: R1 last prompt token, R2 mean over user_span, R3 mean over y_{t-1}.
 
-    Spans are validated against each row's length (no pad leakage, no empty means); ``steer`` (if given) must be
-    off, because the recorder is pre-hook only at the hooked layer — layers above it would be steered.
-    Returned rows are fp32 on CPU; the store decides the dtype (fp16 unless a value overflows, plan §4.5).
+    Spans are validated against each row's length (no pad leakage); an EMPTY previous-assistant span (y_{t-1} had no
+    content, e.g. an unclosed think block, plan §4.1) makes R3 *missing* for that row: a NaN row plus ``valid["R3"][b] =
+    False`` — never a mean over an empty slice, never a zero vector, and the trajectory is kept (plan §4.5, round 7).
+    ``steer`` (if given) must be off, because the recorder is pre-hook only at the hooked layer — layers above it would
+    be steered.  Returned rows are fp32 on CPU; the store decides the dtype (fp16 unless a value overflows, plan §4.5).
     """
     if steer is not None and (steer.alpha is not None or steer.delta is not None):
         raise RuntimeError("extract_z requires the Steer hook to be off (plan §4.2 clean-read)")
@@ -110,11 +112,18 @@ def extract_z(model, seqs: Sequence[Sequence[int]], layers: Sequence[int],
     for b, (s, e) in enumerate(user_spans):
         if not (0 <= s < e <= lens[b]):
             raise ValueError(f"user_span {(s, e)} outside row {b} (len {lens[b]})")
+    r3_valid = None
     if prev_assistant_spans is not None:
+        r3_valid = torch.zeros(len(seqs), dtype=torch.bool)
         for b, sp in enumerate(prev_assistant_spans):
-            if sp is not None and not (0 <= sp[0] < sp[1] <= lens[b]):
+            if sp is None or sp[0] == sp[1]:
+                continue                                   # no previous content: R3 missing for this row
+            if not (0 <= sp[0] < sp[1] <= lens[b]):
                 raise ValueError(f"prev_assistant_span {sp} outside row {b} (len {lens[b]})")
+            r3_valid[b] = True
     res: Dict[str, Dict[int, torch.Tensor]] = {"R1": {}, "R2": {}, "R3": {}}
+    if r3_valid is not None:
+        res["valid"] = {"R3": r3_valid}
     for L in layers:
         h = layer_output(out.hidden_states, L).float()
         B = h.shape[0]
@@ -125,11 +134,13 @@ def extract_z(model, seqs: Sequence[Sequence[int]], layers: Sequence[int],
         if prev_assistant_spans is not None:
             rows = []
             for b, sp in enumerate(prev_assistant_spans):
-                rows.append(h[b, sp[0]:sp[1]].mean(0) if sp is not None else torch.zeros(h.shape[-1], device=h.device))
+                rows.append(h[b, sp[0]:sp[1]].mean(0) if bool(r3_valid[b]) else torch.full((h.shape[-1],), float("nan"), device=h.device))
             res["R3"][L] = torch.stack(rows).cpu()
         for pos in ("R1", "R2", "R3"):
-            if L in res[pos] and not torch.isfinite(res[pos][L]).all():
-                raise ValueError(f"non-finite z at layer {L} ({pos})")
+            if L in res[pos]:
+                chk = res[pos][L] if (pos != "R3" or r3_valid is None) else res[pos][L][r3_valid]
+                if not torch.isfinite(chk).all():
+                    raise ValueError(f"non-finite z at layer {L} ({pos})")
     return res
 
 

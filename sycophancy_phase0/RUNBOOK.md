@@ -8,6 +8,9 @@ when they disagree, the spec wins and the disagreement is a bug to report (plan 
   via `run.record_deviation`.
 - Selection only on `sel`-block, pre-treatment quantities (`gates.g15.select_prefixes` reads `stats[...]["sel"]`); effects only on `est`.
 - Seeds are derived, never shared across arms (`inference.sampling.derive_seed`; `Arm.arm_id()`); `enable_prefix_caching=False` in vLLM.
+- One `SeededGumbelSampler` per `generate` call (the engines build one per call); reusing one without `reset()` raises (plan §4.3, round 7).
+- z extraction: an empty previous-assistant span (unclosed think block) yields a NaN R3 row with `valid.R3=false`; keep the trajectory, drop the row in probes (plan §4.5).
+- The §7.10 u_1 inoculation arm is NOT screened on e_1 (intention-to-treat); every other analysis keeps the §3 first-turn screen.
 - Stop and report (do not improvise) on: any G0 failure; G1 N_q < 30; any GREY; judge parse failure > 1%; template mismatch > 1%;
   truncation > 5% (the single allowed fix is `max_new_tokens=768`, recorded as a deviation).
 

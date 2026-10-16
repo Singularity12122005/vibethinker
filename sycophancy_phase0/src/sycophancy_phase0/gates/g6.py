@@ -186,6 +186,8 @@ def g6_decision(inter: Dict[str, object], reg: Dict[str, object], x4_drop_hi: fl
             notes.append("一致性检查失败：λ=0 的 regret 显著为负，检查收缩/分位策略实现")
     if x4_drop_hi > 0.03:
         return res, "GREY", notes + ["co-primary x_4 下降超过 3pp"]
+    scope = ("结论范围（§7.11，第七轮）：规定的风险估计（32 条 sel 续写的 r̂）与五分位统一策略没有保留取得同等控制效果所需的信息；"
+             "不推断真实风险不具有控制充分性（r̂ 的估计误差与五箱粗化本身即可产生正 regret 与类型×剂量交互），也不证明内部状态具有控制充分性")
     if res[0].passed and res[1].passed:
-        return res, "GO", notes
-    return res, "KILL", notes + ["命题二作为 null 报告（不影响其他 Gate）"]
+        return res, "GO", notes + [scope]
+    return res, "KILL", notes + ["命题二作为 null 报告（不影响其他 Gate）", scope]

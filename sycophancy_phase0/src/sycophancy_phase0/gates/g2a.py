@@ -118,9 +118,12 @@ def g2a_estimates(counts: Dict[str, Dict[str, object]], lam_kl: float, kappa1: O
             f10 = tilt_frontier(Kh[1] / Mh[1], Kh[0] / Mh[0], KAPPAS)
             fr = {k: 0.5 * (f01[k] + f10[k]) for k in f01}
         dual = dual_frontier(q, KAPPAS)
-        bern = {k: bernstein_bound(max(v["est"], 0.0), k) for k in KAPPAS}
+        # plan §8.2 (round 7): the Bernstein bound is defined with the population Var(q); plugging in an estimate gives a
+        # REFERENCE curve (point estimate truncated at 0) and a conservative curve (one-sided 95% upper bound of Var(q)).
+        bern_ref = {k: bernstein_bound(max(v["est"], 0.0), k) for k in KAPPAS}
+        bern_ub = {k: bernstein_bound(max(v["upper95"], 0.0), k) for k in KAPPAS}
         per[pid] = dict(var_q=v["est"], var_q_upper95=v["upper95"], icc=icc(K, M)["icc"], var_by_e2=strat, frontier=fr, dual=dual,
-                        bernstein=bern, mu=float(q.mean()), N=int(len(K)))
+                        bernstein_ref=bern_ref, bernstein_ub=bern_ub, mu=float(q.mean()), N=int(len(K)))
     # J per prefix (P_r weights: e^{-e2/λ} ≈ uniform on e2 = 0)
     Z_all, M_all, pref_all, w_all = [], [], [], []
     for pid in pids:

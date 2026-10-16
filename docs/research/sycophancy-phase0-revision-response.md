@@ -53,10 +53,30 @@ v1.3 已把配对的聚类单位改为 $h_2$（50 簇；$y_2$ 嵌套其中）—
 - `g5.confirmation_F` 按 §8.6 调用 $F_{80}(\hat\sigma^2_{f,\mathrm{UB80}},\hat\sigma^2_p,P,n,\delta,\bar p)$（此前传参错误；`tests/test_confirmation_f.py` 直接覆盖公式路径——第五轮补，此前的链路测试在公式前即返回）；G0.4 第二阶段的采样续写用不相交的 `trajectory_idx`（96..127），测试断言 traj_id 不相交而非逐位相同。
 - 第五轮（本文对账后的改动）：`GenRequest/RolloutSpec.engine` 路由覆盖（`"hf"` = α=0 也走挂 hook 的 HF 引擎）；部分轨迹在内存中保留 `next_ids/next_spans`（不序列化）；`g04_phase1/2` 与 `g04_inputs` 按 §7.1 设计说明重做（内存 `ids_3`、`logits_fn`、`design_ok`）；`g0_runner.generate_with_cache` + `cache_vs_recompute_kl(caches=)` + `g0_3(r["kl"])`（NaN = 不适用，由 Gate 计数）；`template_consistency` 返回 `segment_mismatches` → `g0_1`；`stage_g41` 传题目折；`jensen_gap_beta` 不钳制方差并给 `reason`、`jensen_gap` 输出 `J_beta_reason`；`jensen_gap_lambda_by_prefix` 与 `g2a_estimates["J_lambda_curve"]`（`counts_by_y2` 增 `S1/S2`）；`gpu_glue.first_token_logits_fn`；RUNBOOK 同步。
 - 第六轮：`g2a_estimates` 增 `J_lambda_dose_curve/J_plug_limit/A_curve_rel_dev`，`stage_g2a` 摘要与 `report.py` 写入有限 λ 曲线；`DEFAULT_CONFIG.hardware`；`labels.py` 说明去掉"等于立场变化"的旧注；测试强化（EB+jackknife 模拟覆盖五个先验、$F_{80}$ 参数顺序与交换变体、G0.3 调用形式）。
-- 测试：`pytest sycophancy_phase0/tests` 在 CPU 假引擎上 83 项全部通过（本次提交；含 EB+jackknife 偏差模拟、Beta 未定义分支、有限 λ 曲线、cache 验证/不适用、`next_ids`、路由覆盖、`confirmation_F` 公式路径）。
+- 第七轮：见 §5。
+- 测试：`pytest sycophancy_phase0/tests` 在 CPU 假引擎上 84 项全部通过（本次提交；含 EB+jackknife 偏差模拟、Beta 未定义分支、有限 λ 曲线、cache 验证/不适用、`next_ids`、路由覆盖、`confirmation_F` 公式路径）。
+
+## 5. 第七轮：外部第二次审查（6 条 + 3 处残留冲突）的处置
+先确认审查方认可的三项已解决：G0.4 完整要求可从设计说明恢复；G5 明确规定共享第 2 轮回答；§7.4 的停止已限定为资源分配决定。以下逐条：
+
+| 编号 | 处置 | 说明 |
+| --- | --- | --- |
+| 1. §8.4 "无偏截断下界"混合两种性质 | **采纳（改估计量）** | 审查正确：总体量 $T_{16}\le J_0$ 是下界，但样本式中 $\log\hat\mu+\widehat{\mathrm{Var}}/(2\hat\mu^2)$ 是二阶偏差修正，其期望不保证 $\le\log\mu$。采用审查建议的"差分 U 统计量"：$\hat J_{\mathrm U}=\sum_{k\le16}\frac1k[\frac1N\sum_jF_j^{(k)}/M^{(k)}-e_k(\hat p)/\binom Nk]$，对 $T_{16}$ 严格无偏，$\hat\mu=0$ 时取 0（不再有不可计算分支），不增加生成量；CI 目标明确为 $\bar T_{16}$。模拟（M=16、N=128）：Beta(60,40)/(6,4)/(3,3)/(8,2)/(2,2)/(1,10) 下均值与 $T_{16}$ 一致到 MC 误差（Beta(1,10)：$T_{16}=0.147$，旧式 0.058）；常数 $z$ 下 0。`desirability.jensen_gap_u`；旧式降为 `J_approx`。 |
+| 2. 近零标记不控制截断余项 | **采纳（删保证性描述）** | 按本稿公式复算审查的反例：$J_0=0.09849$、$T_{16}=0.00187$（与审查一致）、单前缀触发率 0.73%（审查 0.75%），40 前缀 ≥4 个触发约 0.02%。§8.4/附录 G 改为"标记能发现部分近零情形；未触发不保证余项小"，并写入反例；§7.4 的 KILL 保持为资源规则。另加 rule-of-three 的未观测 0 计数质量上界作描述。无新实验。 |
+| 3. G6 联合判据不证明"真实风险不充分" | **采纳（限定结论范围）** | 审查的例子成立（$q=r+(0.9-4r)d$，两类前缀同 $\hat r$ 时同箱统一动作为 0，regret 5pp）。§7.11 与 `g6_decision` 的备注改为"规定的风险估计方法与五箱策略没有保留取得同等控制效果所需的信息"，不推断真实风险不充分，也不证明内部状态充分。实验不变。 |
+| 4. 首轮干预 vs 首轮筛选 | **采纳（规格冲突确认）** | §7.10 的 $u_1$ inoculation 臂在第 1 轮干预，而 §3 要求 $e_1=0$ 筛选——确为按处理后结果筛选。§3、§0.2、§7.10 写明：首轮干预臂保留全部随机分配轨迹（ITT），$e_1$ 作结局报告；其余实验沿用首轮正确筛选。代码中该臂尚未实现规格生成器，RUNBOOK 已记此规则。 |
+| 5a. $10^{-4}$ 相对精度 | **采纳（删除声明）** | 对 $z$ 的绝对误差经对数后不保留：自算例 $z^0\in\{0.6,0.002\}$ 在 $\lambda_{KL}=0.1$ 下相对差 0.48%（审查例 0.82%）。删除统一保证；有限 λ 与 $J_0$ 的相对差一律报告（不限 $\kappa_1<10$）。 |
+| 5b. G5 联合功效 | **采纳（更正数字）** | 复算：$\mathrm{SE}=0.017847$，显著阈值 0.03498 < 0.05，两条件嵌套，联合功效 = $P(\hat G\ge5\text{pp})=0.50$；80% 对应真值 6.50pp。§7.10 已改。pilot 声明的 0.42 指下界条件（pilot SE 更大，该条件起约束），已注明。 |
+| 6a. 采样器调用边界 | **采纳** | 仓库实现确实按"输入长度不递增"重置，审查的反例（11→20）成立。改为单次调用对象：构造/`reset()` 播种，长度不递增即报错；引擎本就每次调用新建。测试覆盖复用报错、`reset()` 复现、更长 prompt 复用报错。 |
+| 6b. Steer 片段属性 | **采纳（片段）** | 仓库 `steering.py` 已有 `self.model/self.layer`（测试通过）；规格书片段补齐。 |
+| 6c. 空回答与 R3 | **采纳** | `extract_z` 对空 `prev_assistant_span` 记 NaN 行 + `valid.R3=false`，不抛错、不写零向量、轨迹保留；§4.5 写明；探针丢弃该行。此前实现对空区间抛 ValueError（整批中止）或写零向量。 |
+| 6d. Bernstein 代入有符号方差 | **采纳（分别命名）** | `bernstein_ref`（截断到 0 的点估计）与 `bernstein_ub`（单侧 95% 上限）分别输出；§8.2 写明理论上界以总体方差定义。 |
+| 残留：§1 总表 $A^*<1$pp | 采纳 | 改为 $\hat J_{\mathrm U}$ 规则。 |
+| 残留：§5.6 探针入五折 | 采纳 | 改为探针一律 LOQO。 |
+| 残留：附录 F 停止依赖 | 采纳 | 写明 G6 无下游、G2′-a KILL 只停 MPC 分支。 |
 
 ## 4. 仍待外部确认的项
-规格书 v1.4 已按下列口径冻结（文本中没有"待定"标记，代码亦照此实现）；列在此处是因为它们与修订稿的建议不同，需用户确认是否接受——不接受则规格与代码都要改：
+（第七轮后第 1 项的估计量已改为 $\hat J_{\mathrm U}$，目标 $\bar T_{16}$；其余不变。）规格书 v1.4 已按下列口径冻结（文本中没有"待定"标记，代码亦照此实现）；列在此处是因为它们与修订稿的建议不同，需用户确认是否接受——不接受则规格与代码都要改：
 1. S1 的主统计量口径（小 $\lambda$ 极限 $J_0$ + $\hat J_{\mathrm{LB}}$ 估计量 + regime 标记）——与修订稿第 3 点的估计量不同，需用户确认采用 v1.3/v1.4 版本。
 2. G6 的 null 记法（GATES 决策 KILL + 备注"命题二 null，不影响其他 Gate"）。
 3. 硬件替换（A100）的吞吐系数记入 `config.hardware.throughput_factor`（A100 建议 0.5），规格 §7.13 只写换算规则——系数本身需按实测确认。

@@ -3,7 +3,7 @@ import pytest
 from sycophancy_phase0.analysis.varcomp import u_stat_var, anova_mom_var, icc, bootstrap_var, cluster_bootstrap, two_stage_bootstrap
 from sycophancy_phase0.analysis.frontier import tilt_frontier, dual_frontier, cs_bound, bernstein_bound
 from sycophancy_phase0.analysis.desirability import (jensen_gap, jensen_gap_beta, jensen_gap_by_prefix, jensen_gap_exact, jensen_gap_lambda_by_prefix,
-                                                     g2a_decision, reactive_weights)
+                                                     jensen_gap_u, g2a_decision, reactive_weights)
 from sycophancy_phase0.analysis.covvar import cov_within_prefix, policy_value_halves, cluster_bootstrap_cov
 from sycophancy_phase0.analysis.power import paired_components, F_required
 
@@ -214,3 +214,42 @@ def test_finite_lambda_curve_matches_small_lambda_limit():
     assert np.isfinite(r1["J"]) and 0 <= r1["J"] < r_small["J"]                # failures count partially: less dispersion
     Zz = Z.copy(); Zz[:4] = 0
     assert np.isfinite(jensen_gap_lambda_by_prefix(Zz, M - Zz, np.zeros(N, int), np.full(N, M), e2, pref, 0.1)["J"])
+
+
+def _T_K_beta(a, b, K):
+    tot, e = 0.0, 1.0
+    for k in range(1, K + 1):
+        e *= (b + k - 1) / (a + b + k - 1)
+        tot += (e - (b / (a + b)) ** k) / k
+    return tot
+
+
+def test_jensen_gap_u_is_unbiased_for_the_truncated_target():
+    """Round 7: Ĵ_U is unbiased for T_16 = Σ_{k<=16}[E(1−z)^k − (1−μ)^k]/k (not for J_0), including the low-μ regime where the
+    old delta-corrected estimator falls far below T_16; null => 0; μ̂ = 0 => 0; the reviewer's mixture gives T_16 ≈ 0.0019
+    while J_0 ≈ 0.098 and the n_zero flag fires in < 1% of datasets (the remainder is not controlled by the data)."""
+    rng = np.random.default_rng(11)
+    M, N = 16, 128
+    for a, b, reps, tol in [(6.0, 4.0, 200, 0.004), (3.0, 3.0, 200, 0.006), (1.0, 10.0, 200, 0.010), (60.0, 40.0, 200, 0.0015)]:
+        T = _T_K_beta(a, b, M)
+        ju = [jensen_gap_u(rng.binomial(M, rng.beta(a, b, N)), M)["J"] for _ in range(reps)]
+        assert abs(np.mean(ju) - T) < tol, (a, b, np.mean(ju), T)
+    assert abs(np.mean([jensen_gap_u(rng.binomial(M, 0.6, N), M)["J"] for _ in range(200)])) < 0.0007
+    assert jensen_gap_u(np.zeros(16), M)["J"] == 0.0 and jensen_gap_u(np.full(16, M), M)["J"] == 0.0
+    eps, p0 = np.exp(-100), 0.001
+    mu = (1 - p0) * 0.6 + p0 * eps
+    J0 = np.log(mu) - ((1 - p0) * np.log(0.6) + p0 * np.log(eps))
+    T = sum((((1 - p0) * 0.4 ** k + p0 * (1 - eps) ** k) - (1 - mu) ** k) / k for k in range(1, M + 1))
+    assert 0.098 < J0 < 0.099 and 0.0018 < T < 0.0020
+    ju, flags = [], []
+    for _ in range(1500):
+        Z = rng.binomial(M, np.where(rng.random(N) < p0, eps, 0.6))
+        r = jensen_gap(Z, M); ju.append(r["J"]); flags.append(r["near_zero_mass"])
+    assert abs(np.mean(ju) - T) < 0.0004 and np.mean(flags) < 0.02 and np.mean(ju) < 0.05 * J0
+    # the primary in jensen_gap is the U estimator; weights uniform on e_2 = 0 are accepted, non-uniform weights fall back
+    Z = rng.binomial(M, rng.beta(6, 4, N))
+    w = np.where(rng.random(N) < 0.3, 0.0, 1.0)
+    r = jensen_gap(Z, M, w)
+    assert r["estimator"] == "U" and r["target"] == "T_16" and abs(r["J"] - jensen_gap_u(Z[w > 0], M)["J"]) < 1e-12
+    assert jensen_gap(Z, M, reactive_weights(rng.integers(0, 2, N), 0.3))["estimator"] == "approx_weighted"
+    assert jensen_gap(Z, M)["zero_count_mass_ub95"] == 3.0 / N or jensen_gap(Z, M)["n_zero"] > 0

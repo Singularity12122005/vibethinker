@@ -5,7 +5,8 @@ J = log E_{P_r}[z_3] - E_{P_r}[log z_3];  A(λ_dose) = λ_dose * J / κ_1.  J is
 over prefixes (between-prefix dispersion of z_3 is not exploitable at turn 2 and must not enter J).
 
 Estimators (counts Z_j = error-free continuations out of M for response j; F_j = M - Z_j failures):
-  * ``jensen_gap_lb``     — PRIMARY (v1.3): -E log z = Σ_{k>=1} E[(1-z)^k]/k, truncated at k = M, with each
+  * ``jensen_gap_u``      — PRIMARY (v1.4 r7): difference of U-statistics, unbiased for the truncated target T_K <= J_0.
+  * ``jensen_gap_lb``     — diagnostic (v1.3 primary): -E log z = Σ_{k>=1} E[(1-z)^k]/k, truncated at k = M, with each
     E[(1-z)^k] estimated UNBIASEDLY by the failure falling factorials F^(k)/M^(k).  All omitted terms are
     positive, so the estimator is a lower bound of J in expectation (up to the O(1/N) plug-in bias of log μ̂, which
     is corrected to second order).  It converges for every z in (0, 1] (no divergence at low μ) and is unbiased to
@@ -58,9 +59,11 @@ def central_moments(m: np.ndarray) -> Dict[str, float]:
 
 
 def jensen_gap_lb(Z: np.ndarray, M, w: Optional[np.ndarray] = None, kmax: Optional[int] = None) -> Dict[str, float]:
-    """Primary estimator: log μ̂ (second-order corrected) + Σ_{k=1}^{K} (1/k) Σ_j w_j F_j^(k)/M_j^(k), K = min(kmax, min_j M_j).
-    ``M`` may be a per-response array (unequal continuation counts): each j uses its own falling-factorial denominators
-    and the series is truncated at the smallest M_j so every term keeps its unbiased estimator."""
+    """DIAGNOSTIC since round 7 (``J_approx``): log μ̂ + Var̂(μ̂)/(2μ̂²) + Σ_{k=1}^{K} (1/k) Σ_j w_j F_j^(k)/M_j^(k).  The first
+    two terms are a second-order bias correction for log μ, not an unbiased estimator of it, so the expectation of the
+    whole is not guaranteed to stay below J_0 ("the dropped terms are positive" only applies to the population target
+    T_K).  Agrees with ``jensen_gap_u`` to 4 decimals when z stays away from 0, falls below T_K at low μ.  Supports
+    non-uniform weights (finite-λ descriptive use) and unequal M_j (series truncated at the smallest M_j)."""
     Z = np.asarray(Z, float)
     N = Z.shape[0]
     Ma = np.broadcast_to(np.asarray(M, float), Z.shape).astype(float)
@@ -85,6 +88,50 @@ def jensen_gap_lb(Z: np.ndarray, M, w: Optional[np.ndarray] = None, kmax: Option
         den = den * (Ma - (k - 1))
         total += float((ww * num / den).sum()) / k
     return dict(J=total, mu=mu, n_zero=int((Z == 0).sum()), K=K, var_mu=var_mu)
+
+
+def jensen_gap_u(Z: np.ndarray, M, w: Optional[np.ndarray] = None, kmax: Optional[int] = None) -> Dict[str, object]:
+    """PRIMARY (v1.4, round 7): difference of U-statistics, strictly unbiased for the truncated target
+
+        T_K = Σ_{k=1}^{K} [E(1−z)^k − (1−μ)^k] / k  ≤  J_0 = Σ_{k≥1} [E(1−z)^k − (1−μ)^k] / k,   K = min_j M_j,
+
+    every term ≥ 0 by Jensen (x^k convex on [0,1]).  E(1−z)^k is estimated by the unbiased falling-factorial moment of the
+    failure counts F_j = M_j − Z_j, (1−μ)^k by the degree-k U-statistic U_k = e_k(p̂_1..p̂_N)/C(N,k) with p̂_j = F_j/M_j
+    (independent across responses, each unbiased for 1−z_j), e_k the elementary symmetric polynomial.  No logarithm, no
+    delta correction: μ̂ = 0 gives 0, not NaN.  ``w`` must be uniform on its support (the small-λ reactive weights are:
+    uniform on e_2 = 0); non-uniform weights are refused (use ``jensen_gap_lb`` as an approximate estimator then).
+    The truncation remainder J_0 − T_K is non-negative and NOT controlled by the data (plan §8.4, regime flags)."""
+    from math import comb
+    Z = np.asarray(Z, float)
+    Ma = np.broadcast_to(np.asarray(M, float), Z.shape).astype(float)
+    if w is not None:
+        w = np.asarray(w, float)
+        sup = w > 0
+        if not np.allclose(w[sup], w[sup][0]):
+            raise ValueError("jensen_gap_u needs weights that are uniform on their support")
+        Z, Ma = Z[sup], Ma[sup]
+    N = Z.shape[0]
+    if N < 2 or np.any(Ma < 2):
+        raise ValueError("need N>=2 responses and M_j>=2 continuations")
+    if np.any(Z < 0) or np.any(Z > Ma):
+        raise ValueError("counts must lie in [0, M_j]")
+    F = Ma - Z
+    p = F / Ma
+    Kmax = int(Ma.min())
+    K = Kmax if kmax is None else min(int(kmax), Kmax)
+    e = np.zeros(K + 1)
+    e[0] = 1.0
+    for pj in p:                                           # elementary symmetric polynomials e_1..e_K of p̂ (O(N K))
+        for k in range(K, 0, -1):
+            e[k] += pj * e[k - 1]
+    total = 0.0
+    num = np.ones_like(F)
+    den = np.ones_like(F)
+    for k in range(1, K + 1):
+        num = num * (F - (k - 1))
+        den = den * (Ma - (k - 1))
+        total += (float((num / den).mean()) - e[k] / comb(N, k)) / k
+    return dict(J=float(total), target=f"T_{K}", K=K, mu=float((Z / Ma).mean()), n_zero=int((Z == 0).sum()), N=N)
 
 
 def jensen_gap_series(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None) -> Dict[str, float]:
@@ -130,20 +177,32 @@ def regime_flags(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None, mu_min: 
     support = ww > 0
     n_zero = int(((Z == 0) & support).sum())
     mu = float((ww * Z).sum() / M)
+    n_sup = int(support.sum())
     return dict(n_zero=n_zero, mu=mu, near_zero_mass=n_zero > n_zero_max, low_mean=mu < mu_min,
-                flagged=(n_zero > n_zero_max) or (mu < mu_min))
+                flagged=(n_zero > n_zero_max) or (mu < mu_min),
+                # rule of three: 95% upper bound on the probability of a zero-count y_2 when none/few were seen (descriptive)
+                zero_count_mass_ub95=float(3.0 / n_sup) if n_zero == 0 and n_sup > 0 else float("nan"))
 
 
 def jensen_gap(Z: np.ndarray, M, w: Optional[np.ndarray] = None) -> Dict[str, float]:
-    """One prefix: primary Ĵ_LB plus diagnostics and regime flags (diagnostics need a scalar M: they use the minimum)."""
+    """One prefix: primary Ĵ_U (unbiased for the truncated target T_K; falls back to the approximate Ĵ_LB only for
+    non-uniform weights) plus diagnostics and regime flags (diagnostics need a scalar M: they use the minimum)."""
     lb = jensen_gap_lb(Z, M, w)
+    try:
+        ju = jensen_gap_u(Z, M, w)
+        J, estimator, target = ju["J"], "U", ju["target"]
+    except ValueError as exc:                                 # non-uniform weights (finite λ): approximate estimator, flagged
+        if "uniform" not in str(exc):
+            raise
+        J, estimator, target = lb["J"], "approx_weighted", "J(lambda) plug-in-like"
     Ms = int(np.min(np.asarray(M)))
     balanced = bool(np.all(np.asarray(M) == Ms))
     ser = jensen_gap_series(Z, Ms, w) if (balanced and Ms >= 4) else dict(J=float("nan"), delta=float("nan"))
     beta = jensen_gap_beta(Z, Ms, w) if balanced else dict(J=float("nan"), reason="unbalanced_M")
     fl = regime_flags(Z, Ms, w)
-    return dict(J=lb["J"], J_series=ser["J"], J_beta=beta["J"], J_beta_reason=beta.get("reason"), delta=ser["delta"], zbar=lb["mu"],
-                n_zero=fl["n_zero"], near_zero_mass=fl["near_zero_mass"], low_mean=fl["low_mean"], flagged=fl["flagged"])
+    return dict(J=J, estimator=estimator, target=target, J_approx=lb["J"], J_series=ser["J"], J_beta=beta["J"], J_beta_reason=beta.get("reason"),
+                delta=ser["delta"], zbar=lb["mu"], n_zero=fl["n_zero"], near_zero_mass=fl["near_zero_mass"], low_mean=fl["low_mean"],
+                flagged=fl["flagged"], zero_count_mass_ub95=fl["zero_count_mass_ub95"])
 
 
 def jensen_gap_by_prefix(Z: np.ndarray, M, prefix: np.ndarray, w: Optional[np.ndarray] = None) -> Dict[str, object]:

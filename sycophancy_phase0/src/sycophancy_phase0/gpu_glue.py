@@ -52,7 +52,10 @@ def z_fn_for(ctx: Context, layers: Sequence[int] = Z_LAYERS, batch_size: int = 8
                           [tuple(p) if p else None for p in prev_spans[s:s + batch_size]])
             n = len(ids_list[s:s + batch_size])
             for b in range(n):
-                rows.append({pos: {int(L): z[pos][L][b].numpy() for L in layers if L in z[pos]} for pos in ("R1", "R2", "R3") if z[pos]})
+                row = {pos: {int(L): z[pos][L][b].numpy() for L in layers if L in z[pos]} for pos in ("R1", "R2", "R3") if z[pos]}
+                if "valid" in z:                            # R3 missing (empty y_{t-1}): NaN rows + validity flag, trajectory kept
+                    row["valid"] = {"R3": bool(z["valid"]["R3"][b])}
+                rows.append(row)
         return rows
     return z_fn
 
@@ -80,7 +83,7 @@ def g3_features_for(ctx: Context, prefixes, distractor_of: Dict[str, str], gold_
         for pos in ("R1", "R2", "R3"):
             for L in layers:
                 if L in z[pos]:
-                    z_acc[f"{pos}_L{L}"].append(z[pos][L].numpy())
+                    z_acc[f"{pos}_L{L}"].append(z[pos][L].numpy())      # R3 rows of empty y_1 are NaN (dropped by the ladder)
     return dict(logits_top50=np.concatenate(top), suffix_ratio=np.concatenate(ratio), z={k: np.concatenate(v) for k, v in z_acc.items()})
 
 

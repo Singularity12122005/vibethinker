@@ -32,12 +32,19 @@ class SeededGumbelSampler(LogitsProcessor):
         self.gens: Optional[List[torch.Generator]] = None
         self._last_len = -1
 
+    def reset(self) -> None:
+        """Re-seed the per-row generators.  One sampler serves ONE generate call: the engine builds a new sampler (or calls
+        ``reset()``) per call.  Call boundaries are never inferred from the input length (a new call whose prompt is longer
+        than the previous call's final length would be missed), so reuse without ``reset()`` raises."""
+        self.gens = None
+        self._last_len = -1
+
     def _ensure(self, device, cur_len: int):
-        """(Re)seed the generators at the first step of every generate call: within one call the input length
-        strictly increases, so a non-increasing length means a new call (reusing the kwargs dict is then safe)."""
-        if self.gens is None or cur_len <= self._last_len:
+        if self.gens is None:
             dev = torch.device(self._device) if self._device is not None else device
             self.gens = [torch.Generator(device=dev).manual_seed(s) for s in self.seeds]
+        elif cur_len <= self._last_len:
+            raise RuntimeError("SeededGumbelSampler reused across generate calls: construct a new sampler or call reset() first")
         self._last_len = cur_len
 
     def __call__(self, input_ids, scores):
