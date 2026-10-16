@@ -187,7 +187,7 @@ def test_template_consistency_and_batch_conditions():
     user = encode("user")
     def responder(ids, seed, alpha, mnt):
         n_user = sum(1 for i in range(len(ids)) if ids[i] == im_start and ids[i + 1:i + 1 + len(user)] == user)
-        txt = "最终答案：40" if n_user in (1, 4) else ("答案是 60" if seed % 3 == 0 else f"答案是 40（{seed % 997}）")  # distinct y_2 => distinct h_3
+        txt = "最终答案：40" if n_user in (1, 4) else f"答案是 {'60' if seed % 3 == 0 else '40'}（{seed % 997}）"  # distinct y_2 => distinct h_3
         return encode(txt) + [IM_END]
     eng = FakeEngine(responder)
     router = EngineRouter(eng, eng)
