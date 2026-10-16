@@ -55,14 +55,23 @@ def estimate_directions(acts_by_layer: Dict[int, np.ndarray], trajs: Sequence[Tr
     script = np.array([tr.script for tr in trajs])
     item_folds = np.array([folds.get(tr.problem_id, 0) for tr in trajs])
     out: Dict[str, Dict[int, Dict[int, dict]]] = {"v_cap": {}, "d_agree": {}, "v_cap_perp": {}}
+    def safe(fn):
+        def wrapped(m):
+            try:
+                return fn(m)
+            except ValueError as e:                      # a fold version without enough labelled responses: recorded, not fatal
+                return dict(v=None, error=str(e))
+        return wrapped
     for L, acts in acts_by_layer.items():
         a3 = script == "A3"
-        vc = lofo(lambda m: v_cap(acts[m & a3], stances[m & a3], prefix[m & a3], min_per_class), item_folds, n_folds)
-        da = lofo(lambda m: d_agree({sc: (acts[m & (script == sc)], stances[m & (script == sc)]) for sc in ("A3", "D")
-                                     if (m & (script == sc)).any()}), item_folds, n_folds)
+        vc = lofo(safe(lambda m: v_cap(acts[m & a3], stances[m & a3], prefix[m & a3], min_per_class)), item_folds, n_folds)
+        da = lofo(safe(lambda m: d_agree({sc: (acts[m & (script == sc)], stances[m & (script == sc)]) for sc in ("A3", "D")
+                                          if (m & (script == sc)).any()})), item_folds, n_folds)
         out["v_cap"][L] = vc
         out["d_agree"][L] = da
-        out["v_cap_perp"][L] = {k: dict(v=orthogonalise(vc[k]["v"], da[k]["v"]), cos_cap_agree=float(vc[k]["v"] @ da[k]["v"])) for k in vc}
+        out["v_cap_perp"][L] = {k: (dict(v=orthogonalise(vc[k]["v"], da[k]["v"]), cos_cap_agree=float(vc[k]["v"] @ da[k]["v"]))
+                                    if vc[k].get("v") is not None and da[k].get("v") is not None else dict(v=None, error="missing v_cap or d_agree"))
+                                for k in vc}
     return out
 
 
@@ -92,11 +101,13 @@ def persist(root: str, dirs: Dict[str, Dict[int, Dict[int, dict]]]) -> Dict[str,
     meta = {}
     for name, by_layer in dirs.items():
         for L, by_fold in by_layer.items():
-            vs = [by_fold[k]["v"] for k in sorted(by_fold)]
-            cm = cosine_matrix(vs)
-            for k in sorted(by_fold):
+            ok = [k for k in sorted(by_fold) if by_fold[k].get("v") is not None]
+            vs = [by_fold[k]["v"] for k in ok]
+            cm = cosine_matrix(vs) if vs else np.zeros((0, 0))
+            for i, k in enumerate(ok):
                 m = {kk: vv for kk, vv in by_fold[k].items() if kk != "v"}
-                m["cosine_with_other_folds"] = cm[k].tolist()
+                m["cosine_with_other_folds"] = cm[i].tolist()
                 save_direction(root, name, L, k, by_fold[k]["v"], m)
-            meta[f"{name}_L{L}"] = dict(min_cosine_between_folds=float(cm[np.triu_indices(len(vs), 1)].min()) if len(vs) > 1 else 1.0)
+            meta[f"{name}_L{L}"] = dict(min_cosine_between_folds=float(cm[np.triu_indices(len(vs), 1)].min()) if len(vs) > 1 else (1.0 if vs else float("nan")),
+                                        missing_folds=[k for k in sorted(by_fold) if k not in ok])
     return meta

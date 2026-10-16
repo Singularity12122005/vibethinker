@@ -61,10 +61,12 @@ def quarter_table(trajs: Sequence[Trajectory]) -> Tuple[np.ndarray, np.ndarray, 
 def g2b_estimate(trajs: Sequence[Trajectory], lam: float = LAMBDA_DOSE_PRIMARY, n_boot: int = 2000, seed: int = 0) -> Dict[str, object]:
     p_hat, cost, prefix, _ = quarter_table(trajs)
     ok = ~np.isnan(p_hat).any(axis=(1, 2))
+    if ok.sum() == 0:
+        raise ValueError("no y_2 has all 5 arms × 4 quarters (need >= 8 rollouts per arm so every subsplit4 quarter is filled)")
     p_hat, prefix = p_hat[ok], prefix[ok]
     Va, Vb = policy_value_halves(p_hat, cost, lam)
     r = cluster_bootstrap_cov(Va, Vb, prefix, n_boot=n_boot, seed=seed)
-    return dict(**r, n_y2=int(ok.sum()), lam=lam)
+    return dict(**r, n_y2=int(ok.sum()), n_dropped=int((~ok).sum()), lam=lam)
 
 
 def g2b_gate(est: Dict[str, object]) -> Tuple[List[GateResult], str]:

@@ -39,7 +39,8 @@ class VLLMEngine:
 
     def _params(self, r: GenRequest):
         from vllm import SamplingParams
-        return SamplingParams(temperature=0.0 if r.greedy else self.T, top_k=-1, top_p=1.0, min_p=0.0,
+        T = 0.0 if r.greedy else (self.T if r.temperature is None else float(r.temperature))
+        return SamplingParams(temperature=T, top_k=-1, top_p=1.0, min_p=0.0,
                               repetition_penalty=1.0, presence_penalty=0.0, frequency_penalty=0.0,
                               max_tokens=int(r.max_new_tokens), seed=int(r.seed),
                               stop_token_ids=self.eos_ids, skip_special_tokens=False, n=1, logprobs=None)

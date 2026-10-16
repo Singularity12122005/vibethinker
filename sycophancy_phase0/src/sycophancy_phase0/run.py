@@ -48,7 +48,7 @@ def sha256_text(text: str) -> str:
 
 def git_commit(cwd: str) -> str:
     try:
-        return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=cwd, text=True).strip()
+        return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=cwd, text=True, stderr=subprocess.DEVNULL).strip()
     except Exception:
         return "unknown"
 

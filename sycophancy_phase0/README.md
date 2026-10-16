@@ -8,7 +8,15 @@ padding/`position_ids`, `hidden_states` indexing, logits-processor order, teache
 ```
 pip install -e ".[hf,test]"        # transformers is pinned to 4.57.1 on purpose (plan §2.1)
 pytest -q                           # HF-semantics tests are skipped if torch/transformers are absent
+python -m sycophancy_phase0.run init --run-id R1     # runs/R1/{config.yaml, config.sha256, env.txt, git_commit.txt, GATES.md, DEVIATIONS.md}
+python -m sycophancy_phase0.run data --run-id R1     # F2/F3 banks (F1 needs the GSM8K rows: see data/f1.py)
 ```
+
+GPU pipeline (see `stages.py` / `stages_steer.py`): build a `Context.from_config(...)` (HF model + vLLM + judge URL), then
+call `stage_mine`, `stage_g1`, `stage_g15`, `stage_g2`, `stage_g2a`, `stage_g3(features=...)`, `stage_g40(acts_fn=...)`,
+`stage_g41(fine_by_layer, finish)`, `stage_g2b`, `stage_g42`, `stage_g5` (pilot, then `confirm=True`), `stage_g6(g6_items(ctx))`,
+and finally `report.write_report` / `report.figures`.  `tests/test_stages*.py` run the same chain end-to-end on the fake
+context with shrunk sizes.
 
 Layout (plan §2.4):
 
@@ -45,4 +53,8 @@ Layout (plan §2.4):
 | `gates/g2b.py`, `gates/g42.py` | §7.8 steering-class Var(V₃) (quarters, Cov of half-estimates, prefix bootstrap); §7.9 dose–response β_S endpoints, co-primary x₄ drop, C update drop, decision |
 | `gates/g5.py`, `gates/g6.py` | §7.10 split-plot factorial (y₂ reuse across u₃ and scripts), u₃* freeze, G with problem bootstrap, co-primary; §7.11 matched-risk FE logit interaction, per-prefix curves, EB-shrunk argmin, quintile policy, regret |
 | `run.py` | §0.3 / §2.4 run directory, frozen config + SHA-256, env/git capture, GATES/DEVIATIONS writers, GPU/fake contexts, data stage |
+| `stages.py`, `stages_steer.py` | stage glue reading/writing only under `runs/<run_id>/`: mine (§5.2–5.6), G1, G1.5, G2, G2′-a; G3, G4-0, G4-1, G2′-b, G4-2, G5 (pilot/confirm), G6; resumable per stage JSONL |
+| `gates/g3.py` | §7.5 targets/reliability/text features, probe ladder run, positive control, two-path decision |
+| `scoring/human_validation.py` | §6.2 stratified human-validation sample (750/750, HEDGED/EVASIVE over-sampled), Cohen's κ, per-arm sensitivity/specificity, PPI switch rule |
+| `report.py` | §8.10 / §10.3 REPORT.md assembly and figure data (PNG when matplotlib is importable, CSV always) |
 | `analysis/testimony.py`, `analysis/ppi.py` | §8.9 PPV/NPV-corrected LOR and λ_m/τ with joint bootstrap, FE logit by risk stratum, same-stance ICC + permutation; §8.7 PPI difference estimator, sensitivity/specificity with Wilson CIs |

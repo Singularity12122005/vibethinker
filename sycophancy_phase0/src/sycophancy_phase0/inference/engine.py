@@ -21,6 +21,7 @@ class GenRequest:
     alpha: float = 0.0            # absolute alpha in units of r_L; 0 => no steering
     max_new_tokens: int = MAX_NEW_TOKENS
     greedy: bool = False          # only G0 token-equivalence tests and the G7 oracle
+    temperature: Optional[float] = None   # override of the engine temperature (only §5.2 batch 2 at T=1.0)
 
 
 @dataclass
@@ -69,9 +70,9 @@ class HFEngine:
         # group by (max_new_tokens, greedy) so one generate call has a single length budget / sampler
         groups: Dict[tuple, List[int]] = {}
         for i, r in enumerate(reqs):
-            groups.setdefault((r.max_new_tokens, r.greedy), []).append(i)
+            groups.setdefault((r.max_new_tokens, r.greedy, r.temperature), []).append(i)
         pad = _pad_id(self.model, self.pad_id)
-        for (mnt, greedy), idxs in groups.items():
+        for (mnt, greedy, temp), idxs in groups.items():
             for s in range(0, len(idxs), self.batch_size):
                 chunk = idxs[s:s + self.batch_size]
                 seqs = [reqs[i].ids for i in chunk]
@@ -84,7 +85,7 @@ class HFEngine:
                               repetition_penalty=1.0, max_new_tokens=mnt, pad_token_id=pad,
                               eos_token_id=list(self.eos_ids), use_cache=True)
                 else:
-                    kw = generate_kwargs([reqs[i].seed for i in chunk], temperature=self.T, max_new_tokens=mnt,
+                    kw = generate_kwargs([reqs[i].seed for i in chunk], temperature=(self.T if temp is None else float(temp)), max_new_tokens=mnt,
                                          pad_token_id=pad, eos_token_id=self.eos_ids, device=str(ids.device))
                 if self.steer is not None:
                     self.steer.set(alphas, "S_gen", gen_start=att.sum(-1) - 1)

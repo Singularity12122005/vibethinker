@@ -88,6 +88,7 @@ class RolloutSpec:
     config_sha256: str = ""
     T: int = 4
     stop_after: Optional[int] = None            # generate turns <= stop_after only (partial trajectory; e.g. y_2 sampling)
+    temperature: Optional[float] = None         # engine-temperature override (only the §5.2 second mining batch, T=1.0)
     extra: dict = field(default_factory=dict)
 
 
@@ -162,11 +163,11 @@ def run_rollouts(specs: Sequence[RolloutSpec], *, builder: TurnBuilder, router, 
             if t in z_turns:
                 z_pending.append((i, t, list(st.ids), st.user_span, st.prev_span))
             alpha = st.spec.arm.alpha_at(t)
-            seed = derive_seed(st.spec.run_id, st.spec.problem.problem_id, st.prefix_id, st.spec.arm.arm_id(),
-                               st.spec.trajectory_idx, t)
+            arm_id = st.spec.arm.arm_id() + ("" if st.spec.temperature is None else f";T={st.spec.temperature:g}")
+            seed = derive_seed(st.spec.run_id, st.spec.problem.problem_id, st.prefix_id, arm_id, st.spec.trajectory_idx, t)
             st.seeds[t - 1] = seed
             mnt = st.spec.max_new_tokens or (MAX_NEW_TOKENS_THINK if st.spec.mode == "hybrid_think" else MAX_NEW_TOKENS)
-            reqs.append(GenRequest(ids=list(st.ids), seed=seed, alpha=alpha, max_new_tokens=mnt))
+            reqs.append(GenRequest(ids=list(st.ids), seed=seed, alpha=alpha, max_new_tokens=mnt, temperature=st.spec.temperature))
         if progress:
             progress(f"turn {t}: {len(reqs)} requests")
         results: List[GenResult] = router.generate(reqs)
@@ -287,6 +288,12 @@ def _score(states: List[_State], judge: Optional[JudgeFn], judge2: Optional[Judg
 
 
 # ---------------------------------------------------------------------- helpers for callers
+def spec_traj_id(spec: RolloutSpec, builder: TurnBuilder, first_turn_ids: FirstTurnIds, decode: Decode) -> str:
+    """The traj_id a spec will produce (needs the root prefix id, hence the same ids construction as the runner)."""
+    st = _init_state(spec, builder, first_turn_ids, decode)
+    return traj_id_of(spec.run_id, spec.problem.problem_id, st.prefix_id, spec.arm.arm_id(), spec.trajectory_idx)
+
+
 def hf_first_turn_ids(tokenizer, mode: str, system_prompt: str) -> FirstTurnIds:
     """apply_chat_template path for turn 1 (plan §4.1).  ``enable_thinking`` passed explicitly for every mode."""
     def f(x_1: str) -> List[int]:

@@ -15,6 +15,7 @@ from __future__ import annotations
 
 from typing import Dict, List, Optional, Sequence, Tuple
 
+import numpy as np
 import torch
 import torch.nn.functional as F
 
@@ -274,3 +275,24 @@ def generate_steered(model, seqs: Sequence[Sequence[int]], steer, alphas: Sequen
             reasons.append("length" if (mnt and len(g) >= mnt) else "stop")
         gens.append(g)
     return gens, reasons
+
+
+@torch.no_grad()
+def confidence_features(model, seqs: Sequence[Sequence[int]], suffix_ids: Sequence[Sequence[Sequence[int]]], top_k: int = 50,
+                        pad_id: Optional[int] = None) -> Dict[str, object]:
+    """plan §4.5 baseline features for each prompt: top-k logits (sorted) and ids at the last prompt token, and the
+    summed log-prob of each forced suffix (``suffix_ids[b]`` = list of suffix id lists, e.g. encode("最终答案：" + d_i)
+    and ... g_i), scored only over the suffix tokens.  Right padding + explicit positions."""
+    out, att = clean_forward(model, seqs, pad_id=pad_id)
+    lens = att.sum(-1).tolist()
+    last = torch.stack([out.logits[b, lens[b] - 1].float() for b in range(len(seqs))])
+    top = torch.topk(last, top_k, dim=-1)
+    res = dict(top_logits=top.values.cpu().numpy(), top_ids=top.indices.cpu().numpy(), suffix_logp=[])
+    for b, seq in enumerate(seqs):
+        lps = []
+        for suf in suffix_ids[b]:
+            lp = response_logprobs(model, list(seq) + list(suf), len(seq))
+            lps.append(float(lp.sum()))
+        res["suffix_logp"].append(lps)
+    res["suffix_logp"] = np.asarray(res["suffix_logp"]) if res["suffix_logp"] else np.zeros((len(seqs), 0))
+    return res
