@@ -117,7 +117,7 @@ def jensen_gap_u(Z: np.ndarray, M, w: Optional[np.ndarray] = None, kmax: Optiona
         raise ValueError("counts must lie in [0, M_j]")
     F = Ma - Z
     p = F / Ma
-    Kmax = int(Ma.min())
+    Kmax = min(int(Ma.min()), N)                           # a degree-k U-statistic needs k responses: K <= N as well as <= M_j
     K = Kmax if kmax is None else min(int(kmax), Kmax)
     e = np.zeros(K + 1)
     e[0] = 1.0
