@@ -1,6 +1,6 @@
 import numpy as np
 from sycophancy_phase0.analysis.tost import paired_cluster_bootstrap_diff, tost_pass, tv_distance, chi2_homogeneity_p
-from sycophancy_phase0.gates.g0 import g0_3, g0_4, g0_5, g0_6, g0_7
+from sycophancy_phase0.gates.g0 import g0_3, g0_4, g0_5, g0_6, g0_7, g0_8
 
 
 def test_paired_bootstrap_tost_power_and_level():
