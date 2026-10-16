@@ -150,7 +150,7 @@ def test_controller_contract_and_gates_md(tmp_path):
     assert g0_6(a, b, deterministic=True).passed
     a, b = contract_check(StatefulCheater(), ids3, None, hists, n=5, deterministic=True)
     assert not g0_6(a, b, deterministic=True).passed
-    a, b = contract_check(random_placeholder, ids3, None, hists, n=20000, deterministic=False)
+    a, b = contract_check(random_placeholder, ids3, None, hists, n=50000, deterministic=False)
     assert g0_6(a, b, deterministic=False).passed
     r1 = g0_1(1, 200)
     r2 = g0_2(dict(x=True, y=True), 0.5)

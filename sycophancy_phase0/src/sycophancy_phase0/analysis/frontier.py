@@ -1,13 +1,15 @@
-"""Exponential-tilt KL frontier of the delayed effect (plan §8.2)."""
+"""Exponential-tilt KL frontier of the delayed effect (plan §8.2, v1.3)."""
 from __future__ import annotations
 
 from typing import Dict, Sequence
 
 import numpy as np
+from scipy.special import logsumexp
 
 
 def eb_shrink(K: np.ndarray, M: int, mu: float, var: float) -> np.ndarray:
-    """Beta-prior moment match (mu, var) -> posterior mean (K+a)/(M+a+b); falls back to K/M if var<=0."""
+    """Beta-prior moment match (mu, var) -> posterior mean (K+a)/(M+a+b); falls back to K/M if var<=0.
+    In a balanced design this is an affine map of K, so the tilt frontier is unchanged by it."""
     K = np.asarray(K, dtype=float)
     if var <= 0 or mu <= 0 or mu >= 1 or var >= mu * (1 - mu):
         return K / M
@@ -16,12 +18,13 @@ def eb_shrink(K: np.ndarray, M: int, mu: float, var: float) -> np.ndarray:
     return (K + a) / (M + a + b)
 
 
-def tilt_frontier(q_sel: np.ndarray, q_est: np.ndarray, kappas: Sequence[float],
-                  betas: np.ndarray = None) -> Dict[float, float]:
+def tilt_frontier(q_sel: np.ndarray, q_est: np.ndarray, kappas: Sequence[float], betas: np.ndarray = None) -> Dict[float, float]:
     """Cross-fitted frontier: tilt weights from q_sel, risk reduction measured on q_est.
 
-    w_j(beta) ∝ exp(-beta q_sel_j);  tau(beta) = mean(q_est) - sum_j w_j q_est_j;  KL(beta) = sum_j w_j log(N w_j).
-    tau*(kappa) = max{tau(beta): KL(beta) <= kappa}.
+    w_j(beta) ∝ exp(-beta q_sel_j);  KL(beta) = Σ_j w_j log(N w_j) depends on q_sel only and is monotone in beta,
+    so beta*(kappa) = max{beta: KL(beta) <= kappa} is chosen WITHOUT looking at q_est; the reported value is
+    tau_est(beta*) = mean(q_est) − Σ_j w_j(beta*) q_est_j.  (Maximising tau over beta on the est half leaks a
+    winner's curse of ≈0.7 sd under the null — v1.2 behaviour, removed.)
     """
     q_sel = np.asarray(q_sel, float)
     q_est = np.asarray(q_est, float)
@@ -39,8 +42,8 @@ def tilt_frontier(q_sel: np.ndarray, q_est: np.ndarray, kappas: Sequence[float],
     taus, kls = np.array(taus), np.array(kls)
     out = {}
     for k in kappas:
-        ok = kls <= k
-        out[float(k)] = float(taus[ok].max()) if ok.any() else 0.0
+        ok = np.where(kls <= k)[0]
+        out[float(k)] = float(taus[ok[-1]]) if ok.size else 0.0      # largest admissible beta (KL monotone in beta)
     return out
 
 
@@ -49,16 +52,17 @@ def dual_frontier(q: np.ndarray, kappas: Sequence[float]) -> Dict[float, float]:
     q = np.asarray(q, float)
     d = q.mean() - q
     betas = np.logspace(-3, 3, 600)
-    lam = np.array([np.log(np.mean(np.exp(b * d))) for b in betas])
+    lam = np.array([logsumexp(b * d) - np.log(d.shape[0]) for b in betas])
     return {float(k): float(np.min((lam + k) / betas)) for k in kappas}
 
 
-def cs_bound(q: np.ndarray, kappa: float) -> float:
+def cs_bound(var_q: float, kappa: float) -> float:
     """sd(q)·sqrt(e^kappa − 1): Cauchy–Schwarz evaluated at the *minimal* chi^2 consistent with KL = kappa.
     Reference only — at fixed KL chi^2 is unbounded above, so this is NOT an upper bound on tau*(kappa)."""
-    return float(np.std(q, ddof=0) * np.sqrt(np.exp(kappa) - 1))
+    return float(np.sqrt(max(var_q, 0.0)) * np.sqrt(np.exp(kappa) - 1))
 
 
-def bernstein_bound(q: np.ndarray, kappa: float) -> float:
-    v = float(np.var(q, ddof=0))
-    return float(np.sqrt(2 * v * kappa) + kappa / 3)
+def bernstein_bound(var_q: float, kappa: float) -> float:
+    """sqrt(2 Var(q) kappa) + kappa/3 — takes the U-statistic Var(q) (plan §8.1), never the raw variance of q̂
+    (which adds the binomial noise E q(1−q)/M and inflates the bound ≈2× at M = 8)."""
+    return float(np.sqrt(2 * max(var_q, 0.0) * kappa) + kappa / 3)

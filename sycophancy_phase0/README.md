@@ -21,9 +21,9 @@ Layout (plan §2.4):
 | `scoring/parse.py`, `scoring/labels.py` | §6.1 deterministic parsing, hedge detection, rule stance; §3 comparison-value table and outcomes |
 | `scripts/builders.py` | Appendix A script templates |
 | `analysis/varcomp.py` | §8.1 U-statistic variance component, ICC |
-| `analysis/frontier.py` | §8.2 cross-fitted exponential-tilt KL frontier |
-| `analysis/desirability.py` | §8.4 Jensen gap $\hat J$ via the unbiased factorial-moment cumulant series (+ Beta cross-check), $A(\lambda)$ |
-| `analysis/covvar.py` | §7.8 covariance estimator of the 4-sample policy-value heterogeneity |
+| `analysis/frontier.py` | §8.2 cross-fitted exponential-tilt KL frontier (β* from the sel half only), dual and Bernstein bounds |
+| `analysis/desirability.py` | §8.4 Jensen gap: primary $\hat J_{\mathrm{LB}}$ ((1−z)-expansion with unbiased failure falling-factorial moments, per prefix), diagnostic series/Beta, regime flags, $A(\lambda)$, G2′-a rule |
+| `analysis/covvar.py` | §7.8 covariance estimator of the 4-sample policy-value heterogeneity, prefix-level bootstrap |
 | `analysis/power.py` | §8.6 paired-design variance components, $F_{80}$, $n^*$ |
 | `analysis/tost.py`, `gates/g0.py` | §7.1 paired cluster-bootstrap TOST, TV/χ² checks, G0.1–G0.8 decision functions, §7.0 GATES.md writer |
 | `gates/g0_runner.py` | §7.1 data collection: hook self-checks + sampler χ² (G0.2), cache-vs-recompute KL (G0.3), support defect (G0.7), template consistency (G0.1), batch-condition and continuation orchestration (G0.4/G0.5/G0.8) |
@@ -34,3 +34,15 @@ Layout (plan §2.4):
 | `data/f1.py`, `data/f2.py`, `data/f3.py` | §2.3 / Appendices B–C: GSM8K-zh loader with numeric-multiset check, 8 parametrised templates × 15 (seed 20261016, exact ≤2-decimal golds), sandboxed program generator with script-C modifications |
 | `data/pools.py` | §5.2–§5.6 p₀/distractor mining, pools (main / D / D-nat / C), 5 folds, sel/est blocks |
 | `controllers.py` | §0.2 rule 7 controller contract `policy(ids_t, z_t, t, rng)`, placeholders, G0.6 history-replay check |
+| `gates/g1.py`, `gates/g15.py` | §7.2 G1 specs, pre-treatment filter, per-turn tables, criteria G1.a–f, frontier/shrinkage; §7.2b prefix bank (h₂/h₃ construction, continuations, sel/est prefix-level quantities, selection) |
+| `inference/calibration.py`, `analysis/isotonic.py` | §4.7 fine-grid KL/route-flip, coarse-grid isotonic lower bounds, α_max rule, κ₁ |
+| `inference/directions.py` | §4.8 first-16-token activations, `v_cap`/`v_press`/`v_warrant`/`d_agree`/`v_cap⊥`, LOFO versions, persistence |
+| `analysis/scores.py`, `analysis/glm.py` | §8.3 response gradients (Steer gradient mode), S_v, natural gradient + out-of-fold R²_steer, linear region, disattenuated ρ_v; logistic regression with cluster-robust SE |
+| `analysis/probes.py` | §8.5 LOQO ridge ladder (dual form), ΔR² question-bootstrap CI, LRT approximation, shuffled-label null, AUROC, Spearman–Brown, G3 rule |
+| `analysis/factorial.py` | §8.8 empirical-logit WLS per prefix, DerSimonian–Laird pooling, cluster-robust SE, LRT for Var(c_i), EB shrinkage, backward induction MPC vs myopic, G5 statistic |
+| `gates/g2.py`, `gates/g2a.py` | §7.3 single-shot text channel (sources a/b/c, paired contrasts, decision); §7.4 G2′-a prefix selection, y₂ sampling + continuations, variance components, frontier, Ĵ_LB with prefix bootstrap, A(λ), testimony specs |
+| `gates/g40.py`, `gates/g41.py` | §7.6 direction data + LOFO direction estimation/persistence; §7.7 provisional α_max, layer screen, L* selection |
+| `gates/g2b.py`, `gates/g42.py` | §7.8 steering-class Var(V₃) (quarters, Cov of half-estimates, prefix bootstrap); §7.9 dose–response β_S endpoints, co-primary x₄ drop, C update drop, decision |
+| `gates/g5.py`, `gates/g6.py` | §7.10 split-plot factorial (y₂ reuse across u₃ and scripts), u₃* freeze, G with problem bootstrap, co-primary; §7.11 matched-risk FE logit interaction, per-prefix curves, EB-shrunk argmin, quintile policy, regret |
+| `run.py` | §0.3 / §2.4 run directory, frozen config + SHA-256, env/git capture, GATES/DEVIATIONS writers, GPU/fake contexts, data stage |
+| `analysis/testimony.py`, `analysis/ppi.py` | §8.9 PPV/NPV-corrected LOR and λ_m/τ with joint bootstrap, FE logit by risk stratum, same-stance ICC + permutation; §8.7 PPI difference estimator, sensitivity/specificity with Wilson CIs |

@@ -39,3 +39,21 @@ def chi2_homogeneity_p(counts_a: Sequence[int], counts_b: Sequence[int]) -> floa
     table = np.array([counts_a, counts_b], float)
     table = table[:, table.sum(0) > 0]
     return float(stats.chi2_contingency(table, correction=False)[1])
+
+
+def tv_upper_bound(counts_a: Sequence[int], counts_b: Sequence[int], n_boot: int = 4000, seed: int = 0, level: float = 0.95) -> Dict[str, float]:
+    """Equivalence version of the G0.6 random-controller check (v1.3): TV̂ + z_level · SE_boot, with SE from a
+    parametric (multinomial) bootstrap around the observed frequencies.  (The bootstrap *quantile* of TV is not
+    used: TV̂ is a non-negative statistic biased upward under the null and the quantile doubles that bias.)
+    Under the null at n = 20000 per sample the bound is ≈0.013; pass iff it is below the margin."""
+    from scipy import stats
+    rng = np.random.default_rng(seed)
+    a = np.asarray(counts_a, float); b = np.asarray(counts_b, float)
+    na, nb = int(a.sum()), int(b.sum())
+    pa, pb = a / na, b / nb
+    tvs = np.empty(n_boot)
+    for i in range(n_boot):
+        tvs[i] = 0.5 * np.abs(rng.multinomial(na, pa) / na - rng.multinomial(nb, pb) / nb).sum()
+    tv = tv_distance(a, b)
+    z = float(stats.norm.ppf(level))
+    return dict(tv=tv, tv_upper=float(tv + z * tvs.std(ddof=1)), boot_sd=float(tvs.std(ddof=1)), n=min(na, nb))

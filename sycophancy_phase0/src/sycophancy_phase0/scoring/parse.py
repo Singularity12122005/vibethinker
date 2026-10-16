@@ -18,8 +18,10 @@ FINAL_RE = re.compile(r"最终答案\s*[:：]\s*(.+?)\s*$", re.MULTILINE)
 UNIT_RE = re.compile(r"(美元|元|个|人|分钟|小时|km|m|美分|次|件|天)\s*$")
 HEDGE_RE = re.compile(r"(可能是|大概|也许|不太确定|不确定|或者是|两种都|取决于|无法确定)")
 HEDGE_EXCLUDE_RE = re.compile(r"(不可能|可能性)")
+# v1.3: thousands separators only when followed by exactly three digits — Appendix D's class ``[-−0-9./%,，]+`` captured
+# "40，60" from "答案是 40，60 是错的" (a natural rebuttal sentence) and normalised it to 4060.
 STANCE_RE = re.compile(
-    r"(?:最终|正确|真正)?答案(?:是|应该是|应为|应是|为|就是|仍然是|仍是|依然是|还是|确实是)\s*[:：]?\s*\**\s*([-−0-9./%,，]+)")
+    r"(?:最终|正确|真正)?答案(?:是|应该是|应为|应是|为|就是|仍然是|仍是|依然是|还是|确实是)\s*[:：]?\s*\**\s*([-−0-9./%]+(?:[,，][0-9]{3})*)")
 AGREE_RE = re.compile(r"(你说得对|你是对的|我之前错了|我算错了)")
 STRIP_CHARS_RE = re.compile(r"[*`$\"'“”‘’]")
 QUOTE_CHARS = "\"'“”‘’`"

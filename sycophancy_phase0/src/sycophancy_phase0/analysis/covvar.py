@@ -39,7 +39,27 @@ def policy_value_halves(p_hat: np.ndarray, cost: np.ndarray, lam: float):
     return half(0, 1), half(2, 3)
 
 
+def cluster_bootstrap_cov(Va, Vb, prefix, n_boot: int = 2000, seed: int = 0) -> Dict[str, float]:
+    """Prefix-only bootstrap of the within-prefix covariance (plan §7.8, v1.3): resample prefixes with replacement,
+    keep their y_2 intact.  The two-stage version double-counts within-prefix noise (SE ≈1.4× too large at 40×32)."""
+    rng = np.random.default_rng(seed)
+    Va, Vb, prefix = np.asarray(Va, float), np.asarray(Vb, float), np.asarray(prefix)
+    ups = np.unique(prefix)
+    idx_by_p = {p: np.where(prefix == p)[0] for p in ups}
+    est = cov_within_prefix(Va, Vb, prefix)
+    bs = np.empty(n_boot)
+    for b in range(n_boot):
+        pick = ups[rng.integers(0, len(ups), len(ups))]
+        ia, ib, ip = [], [], []
+        for k, p in enumerate(pick):
+            idx = idx_by_p[p]
+            ia.append(Va[idx]); ib.append(Vb[idx]); ip.append(np.full(len(idx), k))
+        bs[b] = cov_within_prefix(np.concatenate(ia), np.concatenate(ib), np.concatenate(ip))
+    return dict(est=est, se=float(bs.std(ddof=1)), lower95_onesided=float(np.quantile(bs, 0.05)), n_prefix=int(len(ups)))
+
+
 def two_stage_bootstrap_cov(Va, Vb, prefix, n_boot: int = 2000, seed: int = 0) -> Dict[str, float]:
+    """v1.2 two-stage resampling; NOT used by any gate (over-estimates SE).  Kept for comparison only."""
     rng = np.random.default_rng(seed)
     Va, Vb, prefix = np.asarray(Va, float), np.asarray(Vb, float), np.asarray(prefix)
     ups = np.unique(prefix)

@@ -177,8 +177,9 @@ def response_logprobs(model, ids: Sequence[int], prompt_len: int, *, steer=None,
 
 @torch.no_grad()
 def next_token_kl(model, ids: Sequence[int], prompt_len: int, steer, alpha: float, scope: str = "S_gen",
-                  pos_mask: Optional[torch.Tensor] = None) -> torch.Tensor:
-    """Per-position KL(P^0 || P^alpha) over response positions (plan §4.7 step 1), fp32; caller takes the mean."""
+                  pos_mask: Optional[torch.Tensor] = None, direction: str = "zero_to_alpha") -> torch.Tensor:
+    """Per-position KL over response positions, fp32; caller takes the mean (plan §4.7 step 1: KL(P^0 || P^alpha),
+    ``direction="zero_to_alpha"``) or the sum (kappa_1, §4.7 step 4: KL(P^alpha || P^0), ``"alpha_to_zero"``)."""
     ids_t = torch.as_tensor(list(ids), dtype=torch.long, device=model.device)[None]
     att = torch.ones_like(ids_t)
     pos = position_ids_from_mask(att)
@@ -191,7 +192,39 @@ def next_token_kl(model, ids: Sequence[int], prompt_len: int, steer, alpha: floa
         lpa = F.log_softmax(model(input_ids=ids_t, attention_mask=att, position_ids=pos, use_cache=False).logits[0, sl].float(), -1)
     finally:
         steer.restore(saved)
-    return (lp0.exp() * (lp0 - lpa)).sum(-1)                     # [n_response_positions]
+    if direction == "zero_to_alpha":
+        return (lp0.exp() * (lp0 - lpa)).sum(-1)                 # [n_response_positions]
+    if direction == "alpha_to_zero":
+        return (lpa.exp() * (lpa - lp0)).sum(-1)
+    raise ValueError(direction)
+
+
+@torch.no_grad()
+def router_topk_sets(model, ids: Sequence[int], prompt_len: int, steer, alpha: float, top_k: int = 8, scope: str = "S_gen",
+                     pos_mask: Optional[torch.Tensor] = None) -> Dict[int, "np.ndarray"]:
+    """Top-k expert ids per response position for every MoE layer (output_router_logits), under ``alpha``.
+    Returns {layer: int array [n_response_positions, top_k]} with positions prompt_len-1 .. len-2 (the positions that
+    predict the response tokens)."""
+    import numpy as np
+    ids_t = torch.as_tensor(list(ids), dtype=torch.long, device=model.device)[None]
+    att = torch.ones_like(ids_t)
+    pos = position_ids_from_mask(att)
+    saved = steer.state()
+    steer.set([alpha], scope, gen_start=torch.tensor([prompt_len - 1]), pos_mask=pos_mask)
+    try:
+        out = model(input_ids=ids_t, attention_mask=att, position_ids=pos, use_cache=False, output_router_logits=True)
+    finally:
+        steer.restore(saved)
+    S = ids_t.shape[1]
+    sl = slice(prompt_len - 1, S - 1)
+    sets = {}
+    for ell, rl in enumerate(out.router_logits):
+        if rl is None:
+            continue
+        E = rl.shape[-1]
+        r = rl.float().view(1, S, E)[0, sl]
+        sets[ell] = torch.topk(r, top_k, dim=-1).indices.cpu().numpy()
+    return sets
 
 
 def route_flip_fraction(router_logits_0: Sequence[torch.Tensor], router_logits_a: Sequence[torch.Tensor],

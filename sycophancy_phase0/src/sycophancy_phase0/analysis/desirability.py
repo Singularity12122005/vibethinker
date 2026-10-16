@@ -1,18 +1,26 @@
-"""Scale-free Jensen gap J and the KL-class MPC advantage A(λ) = λ_KL · J (plan §8.4).
+"""Scale-free Jensen gap J and the KL-class MPC advantage A(λ) = λ_KL · J (plan §8.4, v1.3).
 
 z_3(y_2) = continuation success probability under no intervention (for λ_KL <= 0.1, e^{-(e3+e4)/λ} ≈ 1[e3=e4=0]).
-J = log E_{P_r}[z_3] - E_{P_r}[log z_3];  A(λ_dose) = λ_dose * J / κ_1.
+J = log E_{P_r}[z_3] - E_{P_r}[log z_3];  A(λ_dose) = λ_dose * J / κ_1.  J is computed **per prefix** and averaged
+over prefixes (between-prefix dispersion of z_3 is not exploitable at turn 2 and must not enter J).
 
-Estimators (counts Z_j = error-free continuations out of M for response j):
-  * ``jensen_gap_series``  — primary: cumulant series J ≈ c2/(2μ²) − c3/(3μ³) + c4/(4μ⁴) with central moments built
-    from UNBIASED falling-factorial raw moments E[q^k] = E[Z^(k)]/M^(k) (no shrinkage, no log of a proportion);
-  * ``jensen_gap_beta``    — parametric cross-check: Beta moment match, J = log μ − (ψ(a) − ψ(a+b));
-  * ``delta``              — second-order term only (lower bound for right-skewed z).
-Shrinkage-based plug-ins are biased downward (shrinking z̃ toward the mean shrinks the gap) and are not used.
+Estimators (counts Z_j = error-free continuations out of M for response j; F_j = M - Z_j failures):
+  * ``jensen_gap_lb``     — PRIMARY (v1.3): -E log z = Σ_{k>=1} E[(1-z)^k]/k, truncated at k = M, with each
+    E[(1-z)^k] estimated UNBIASEDLY by the failure falling factorials F^(k)/M^(k).  All omitted terms are
+    positive, so the estimator is a lower bound of J in expectation (up to the O(1/N) plug-in bias of log μ̂, which
+    is corrected to second order).  It converges for every z in (0, 1] (no divergence at low μ) and is unbiased to
+    4 decimals whenever z stays away from 0 (Beta(60,40), Beta(6,4), Beta(8,2): simulation in tests).
+  * ``jensen_gap_series`` — diagnostic: μ-centred cumulant series c2/(2μ²) − c3/(3μ³) + c4/(4μ⁴) (v1.2 primary;
+    one-sidedly low under near-zero mass, divergent for μ < 0.25 — see tests/test_analysis.py).
+  * ``jensen_gap_beta``   — diagnostic: Beta moment match, J = log μ − (ψ(a) − ψ(a+b)).
+Regime flags (per prefix): ``n_zero`` = #{j: Z_j = 0} among the P_r support (>= 2 => near-zero mass: under any
+smooth truth with z̄ >= 0.5, P(Z = 0) = E(1-z)^M ≈ 0) and ``mu < 0.25``.  When flags are present Ĵ_LB is loose
+(a lower bound only): the G2′-a KILL rule is suspended (plan §7.4).
+Shrinkage-based plug-ins are biased downward and are not used.
 """
 from __future__ import annotations
 
-from typing import Dict, Optional
+from typing import Dict, Optional, Sequence
 
 import numpy as np
 from scipy.special import digamma
@@ -25,7 +33,7 @@ def _weights(N: int, w: Optional[np.ndarray]) -> np.ndarray:
 
 
 def raw_moments_unbiased(Z: np.ndarray, M: int, kmax: int = 4, w: Optional[np.ndarray] = None) -> np.ndarray:
-    """m_k = Σ_j w_j Z_j^(k) / M^(k): unbiased for E_w[q^k] (falling factorials)."""
+    """m_k = Σ_j w_j Z_j^(k) / M^(k): unbiased for E_w[q^k] (falling factorials), k <= M."""
     Z = np.asarray(Z, float)
     w = _weights(Z.shape[0], w)
     out = np.empty(kmax + 1)
@@ -41,6 +49,7 @@ def raw_moments_unbiased(Z: np.ndarray, M: int, kmax: int = 4, w: Optional[np.nd
 
 
 def central_moments(m: np.ndarray) -> Dict[str, float]:
+    """Plug-in central moments from unbiased raw moments (O(1/N) bias in the products)."""
     mu = m[1]
     c2 = m[2] - mu ** 2
     c3 = m[3] - 3 * mu * m[2] + 2 * mu ** 3
@@ -48,7 +57,34 @@ def central_moments(m: np.ndarray) -> Dict[str, float]:
     return dict(mu=float(mu), c2=float(c2), c3=float(c3), c4=float(c4))
 
 
+def jensen_gap_lb(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None, kmax: Optional[int] = None) -> Dict[str, float]:
+    """Primary estimator: log μ̂ (second-order corrected) + Σ_{k=1}^{K} (1/k) Σ_j w_j F_j^(k)/M^(k), K = min(kmax, M)."""
+    Z = np.asarray(Z, float)
+    N = Z.shape[0]
+    if N < 2 or M < 2:
+        raise ValueError("need N>=2 responses and M>=2 continuations")
+    if np.any(Z < 0) or np.any(Z > M):
+        raise ValueError("counts must lie in [0, M]")
+    ww = _weights(N, w)
+    F = M - Z
+    mu = float((ww * Z).sum() / M)
+    if mu <= 0:
+        return dict(J=float("nan"), mu=mu, n_zero=int((Z == 0).sum()), K=0)
+    # Var(μ̂) for weighted mean of Z_j/M: Σ w_j² (Z_j/M − μ)² (unbiased-ish for independent j)
+    var_mu = float((ww ** 2 * (Z / M - mu) ** 2).sum())
+    total = float(np.log(mu) + var_mu / (2 * mu ** 2))
+    K = M if kmax is None else min(int(kmax), M)
+    num = np.ones_like(F)
+    den = 1.0
+    for k in range(1, K + 1):
+        num = num * (F - (k - 1))
+        den *= (M - (k - 1))
+        total += float((ww * num).sum() / den) / k
+    return dict(J=total, mu=mu, n_zero=int((Z == 0).sum()), K=K, var_mu=var_mu)
+
+
 def jensen_gap_series(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None) -> Dict[str, float]:
+    """Diagnostic μ-centred series (v1.2 primary)."""
     if M < 4:
         raise ValueError("series estimator needs M >= 4 continuations")
     cm = central_moments(raw_moments_unbiased(Z, M, 4, w))
@@ -61,14 +97,11 @@ def jensen_gap_series(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None) -> 
 
 
 def jensen_gap_beta(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None) -> Dict[str, float]:
-    """Beta(a,b) moment match on (μ, Var) → J = log μ − (ψ(a) − ψ(a+b))."""
+    """Diagnostic Beta(a,b) moment match on (μ, Var) → J = log μ − (ψ(a) − ψ(a+b))."""
     Z = np.asarray(Z, float)
     ww = _weights(Z.shape[0], w)
     mu = float((ww * Z).sum() / M)
-    if w is None:
-        var = max(u_stat_var(Z, M), 1e-12)
-    else:
-        var = max(central_moments(raw_moments_unbiased(Z, M, 2, w) if False else raw_moments_unbiased(Z, M, 4, w))["c2"], 1e-12)
+    var = max((u_stat_var(Z, M) if w is None else central_moments(raw_moments_unbiased(Z, M, 4, w))["c2"]), 1e-12)
     if mu <= 0 or mu >= 1 or var >= mu * (1 - mu):
         return dict(J=float("nan"), a=float("nan"), b=float("nan"), mu=mu, var=var)
     s = mu * (1 - mu) / var - 1
@@ -76,13 +109,40 @@ def jensen_gap_beta(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None) -> Di
     return dict(J=float(np.log(mu) - (digamma(a) - digamma(a + b))), a=float(a), b=float(b), mu=mu, var=var)
 
 
+def regime_flags(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None, mu_min: float = 0.25, n_zero_max: int = 1) -> Dict[str, object]:
+    Z = np.asarray(Z, float)
+    ww = _weights(Z.shape[0], w)
+    support = ww > 0
+    n_zero = int(((Z == 0) & support).sum())
+    mu = float((ww * Z).sum() / M)
+    return dict(n_zero=n_zero, mu=mu, near_zero_mass=n_zero > n_zero_max, low_mean=mu < mu_min,
+                flagged=(n_zero > n_zero_max) or (mu < mu_min))
+
+
 def jensen_gap(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None) -> Dict[str, float]:
-    """Primary estimate (series) with the parametric cross-check and a heavy-tail flag."""
-    ser = jensen_gap_series(Z, M, w)
+    """One prefix: primary Ĵ_LB plus diagnostics and regime flags."""
+    lb = jensen_gap_lb(Z, M, w)
+    ser = jensen_gap_series(Z, M, w) if M >= 4 else dict(J=float("nan"), delta=float("nan"))
     beta = jensen_gap_beta(Z, M, w)
-    J, Jb = ser["J"], beta["J"]
-    flag = bool(np.isfinite(Jb) and np.isfinite(J) and abs(J - Jb) > 0.3 * max(abs(J), abs(Jb), 1e-9))
-    return dict(J=J, J_beta=Jb, delta=ser["delta"], zbar=ser["mu"], heavy_tail_flag=flag)
+    fl = regime_flags(Z, M, w)
+    return dict(J=lb["J"], J_series=ser["J"], J_beta=beta["J"], delta=ser["delta"], zbar=lb["mu"], n_zero=fl["n_zero"],
+                near_zero_mass=fl["near_zero_mass"], low_mean=fl["low_mean"], flagged=fl["flagged"])
+
+
+def jensen_gap_by_prefix(Z: np.ndarray, M: int, prefix: np.ndarray, w: Optional[np.ndarray] = None) -> Dict[str, object]:
+    """Per-prefix Ĵ_LB (weights renormalised within prefix) and their unweighted mean over prefixes."""
+    Z, prefix = np.asarray(Z, float), np.asarray(prefix)
+    w = None if w is None else np.asarray(w, float)
+    per: Dict[object, Dict[str, float]] = {}
+    for p in np.unique(prefix):
+        m = prefix == p
+        wp = None if w is None else w[m]
+        if wp is not None and wp.sum() <= 0:
+            continue
+        per[p] = jensen_gap(Z[m], M, wp)
+    Js = np.array([d["J"] for d in per.values()])
+    return dict(J=float(np.nanmean(Js)) if len(Js) else float("nan"), per_prefix=per, n_prefix=len(per),
+                frac_flagged=float(np.mean([d["flagged"] for d in per.values()])) if per else float("nan"))
 
 
 def jensen_gap_exact(z: np.ndarray, w: Optional[np.ndarray] = None) -> float:
@@ -103,3 +163,14 @@ def reactive_weights(e2: np.ndarray, lam_kl: float) -> np.ndarray:
     lw = lw - lw.max()
     w = np.exp(lw)
     return w / w.sum()
+
+
+def g2a_decision(J_hat: float, lo95: float, hi95: float, frac_flagged: float, kill_ub: float = 0.02, go_lb: float = 0.08,
+                 max_flagged: float = 0.10) -> str:
+    """plan §7.4: UB < 0.02 => KILL (only when < 10% of prefixes carry regime flags, since Ĵ_LB is then a loose lower
+    bound); LB >= 0.08 => GO (always valid: Ĵ_LB under-estimates); else GO-with-caveat."""
+    if lo95 >= go_lb:
+        return "GO"
+    if hi95 < kill_ub and frac_flagged < max_flagged:
+        return "KILL"
+    return "GO-with-caveat"

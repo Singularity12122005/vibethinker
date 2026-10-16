@@ -87,6 +87,7 @@ class RolloutSpec:
     max_new_tokens: Optional[int] = None
     config_sha256: str = ""
     T: int = 4
+    stop_after: Optional[int] = None            # generate turns <= stop_after only (partial trajectory; e.g. y_2 sampling)
     extra: dict = field(default_factory=dict)
 
 
@@ -152,7 +153,7 @@ def run_rollouts(specs: Sequence[RolloutSpec], *, builder: TurnBuilder, router, 
     T_max = max(s.T for s in specs) if specs else 0
     z_pending: List[Tuple[int, int, List[int], Tuple[int, int], Optional[Tuple[int, int]]]] = []  # (state idx, t, ids, uspan, pspan)
     for t in range(1, T_max + 1):
-        active = [i for i, st in enumerate(states) if st.t_next == t and t <= st.spec.T]
+        active = [i for i, st in enumerate(states) if st.t_next == t and t <= st.spec.T and (st.spec.stop_after is None or t <= st.spec.stop_after)]
         if not active:
             continue
         reqs: List[GenRequest] = []
@@ -181,7 +182,7 @@ def run_rollouts(specs: Sequence[RolloutSpec], *, builder: TurnBuilder, router, 
                             truncated=norm.truncated, truncated_in_think=norm.truncated_in_think,
                             no_think_close=norm.no_think_close, stray_think_tokens=norm.stray_think_tokens)
             st.turns.append(tr)
-            if t < st.spec.T:
+            if t < st.spec.T and (st.spec.stop_after is None or t < st.spec.stop_after):
                 st.ids, st.user_span, st.prev_span = builder.next_turn_ex(st.ids, norm.ids, st.xs[t])
             st.t_next = t + 1
     # ---- z extraction (clean forward on the prompt ids of turns 2-3; done after generation so the batch is large)
@@ -238,6 +239,7 @@ def _score(states: List[_State], judge: Optional[JudgeFn], judge2: Optional[Judg
     for i, st in enumerate(states):
         p = st.spec.problem
         T = st.spec.T
+        complete = st.spec.stop_after is None or st.spec.stop_after >= T
         for tr in st.turns:
             if tr.source == "inherited" and tr.stance is not None:
                 continue                                   # keep the bank's labels
@@ -248,14 +250,15 @@ def _score(states: List[_State], judge: Optional[JudgeFn], judge2: Optional[Judg
                     p.y1_parsed = parsed
                 continue
             cv = comparison_values(st.spec.script, tr.t, p.to_problem())
-            if tr.t == T:
+            if tr.t == T and complete:
                 stance, explicit, raw = classify_final(tr.assistant_text, cv["X"], cv["G_orig"], p.kind)
                 tr.parsed, tr.stance, tr.explicit = canonical(raw, p.kind), stance, explicit
                 tr.t4_format_miss = canonical(raw, p.kind) is None
-            # rule labels for every turn >= 2 (consistency diagnostics); judge for 2..T-1
+            # rule labels for every turn >= 2 (consistency diagnostics); judge for 2..T-1 (and the last generated turn
+            # of a partial trajectory)
             rs, rc = rule_stance(tr.assistant_text, cv["X"], cv["G_orig"])
             tr.rule_stance, tr.rule_conf = rs, rc
-            if 2 <= tr.t <= T - 1:
+            if 2 <= tr.t <= T - 1 or (tr.t == T and not complete):
                 judge_items.append((i, tr.t, dict(S=p.statement_for_turn(st.spec.script, tr.t), G_eff=cv["G_eff"],
                                                   X=cv["X"], G_orig=cv["G_orig"], Y=tr.assistant_text,
                                                   kind=p.kind, no_think_close=tr.no_think_close)))
@@ -295,9 +298,19 @@ def hf_first_turn_ids(tokenizer, mode: str, system_prompt: str) -> FirstTurnIds:
     return f
 
 
-def prefix_from_trajectory(traj: Trajectory, builder: TurnBuilder, first_turn_ids: FirstTurnIds, upto_turn: int) -> Prefix:
-    """Rebuild h_{upto_turn} (ids fed to turn ``upto_turn``) from a stored trajectory via the id-concatenation path."""
+def prefix_from_trajectory(traj: Trajectory, builder: TurnBuilder, first_turn_ids: FirstTurnIds, upto_turn: int,
+                           problem: Optional[BankProblem] = None, script: Optional[str] = None) -> Prefix:
+    """Rebuild h_{upto_turn} (ids fed to turn ``upto_turn``) from a stored trajectory via the id-concatenation path.
+    For a partial trajectory (fewer recorded turns than ``upto_turn - 1`` user texts needed) the missing user texts
+    are regenerated from the script templates, which needs ``problem`` (and optionally another ``script`` sharing the
+    recorded turns, e.g. C after an A3 turn 2)."""
+    if len(traj.turns) < upto_turn - 1:
+        raise ValueError(f"trajectory has {len(traj.turns)} turns; need {upto_turn - 1} to build h_{upto_turn}")
     xs = [tr.user_text for tr in traj.turns]
+    if len(xs) < upto_turn:
+        if problem is None:
+            raise ValueError("partial trajectory: pass problem= to regenerate the next user text")
+        xs = user_turns(script or traj.script, **_placeholders(problem))
     ids = list(first_turn_ids(xs[0]))
     uspan = builder.first_turn_user_span(ids, xs[0])
     pspan = None

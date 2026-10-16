@@ -1,5 +1,6 @@
 import numpy as np
-from sycophancy_phase0.analysis.tost import paired_cluster_bootstrap_diff, tost_pass, tv_distance, chi2_homogeneity_p
+import pytest
+from sycophancy_phase0.analysis.tost import paired_cluster_bootstrap_diff, tost_pass, tv_distance, chi2_homogeneity_p, tv_upper_bound
 from sycophancy_phase0.gates.g0 import g0_3, g0_4, g0_5, g0_6, g0_7, g0_8
 
 
@@ -26,11 +27,18 @@ def test_paired_bootstrap_tost_power_and_level():
 def test_g0_6_null_rate_with_20000():
     rng = np.random.default_rng(1)
     fails = 0
-    for rep in range(30):
-        a = rng.integers(0, 5, 20000); b = rng.integers(0, 5, 20000)
-        if not g0_6(a.tolist(), b.tolist(), deterministic=False).passed:
+    for rep in range(12):
+        a = rng.integers(0, 5, 50000); b = rng.integers(0, 5, 50000)
+        if not g0_6(a, b, deterministic=False).passed:
             fails += 1
-    assert fails <= 3                                  # TV<0.02 has null q95≈0.013 at n=20000
+    assert fails == 0                                  # null: TV̂ ≈ 0.005, upper bound ≈ 0.008-0.012 < 0.02 at n=50000
+    # a real shift of TV=0.02 between two arms is detected (upper bound above the margin)
+    p = np.array([0.2, 0.2, 0.2, 0.2, 0.2]); q = np.array([0.22, 0.18, 0.2, 0.2, 0.2])
+    a = rng.choice(5, 50000, p=p); b = rng.choice(5, 50000, p=q)
+    assert not g0_6(a, b, deterministic=False).passed
+    assert not g0_6(rng.integers(0, 5, 20000), rng.integers(0, 5, 20000), deterministic=False).details["n"] >= 50000
+    with pytest.raises(ValueError):
+        g0_6([-1.0, 0.5], [0.0, 1.0], deterministic=False)         # u values are not arm indices
 
 
 def test_other_g0_stats():

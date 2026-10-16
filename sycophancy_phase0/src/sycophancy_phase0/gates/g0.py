@@ -10,7 +10,7 @@ from typing import Dict, List, Optional, Sequence
 
 import numpy as np
 
-from ..analysis.tost import chi2_homogeneity_p, paired_cluster_bootstrap_diff, tost_pass, tv_distance
+from ..analysis.tost import chi2_homogeneity_p, paired_cluster_bootstrap_diff, tost_pass, tv_distance, tv_upper_bound
 
 DECISIONS = ("GO", "GO-with-caveat", "KILL", "GREY")
 G0_TESTS = ("G0.1", "G0.2", "G0.3", "G0.4", "G0.5", "G0.6", "G0.7", "G0.8")
@@ -69,14 +69,16 @@ def paired_tost_gate(name: str, e_a: np.ndarray, e_b: np.ndarray, cluster: np.nd
     return GateResult(name, ok, d, criteria=criteria)
 
 
-def g0_4(e3_same_process: np.ndarray, e3_rebuilt: np.ndarray, y2_cluster: np.ndarray, ids_identical: bool,
+def g0_4(e3_same_process: np.ndarray, e3_rebuilt: np.ndarray, h2_cluster: np.ndarray, ids_identical: bool,
          greedy_identical: bool, first_logit_maxdiff: float, text_path_mismatch_rate: float) -> GateResult:
+    """Clusters = the 50 h_2 (y_2 nested within h_2; v1.3 — the y_2-level cluster was too fine if the discrepancy is
+    h_2-specific)."""
     extra_ok = ids_identical and greedy_identical and first_logit_maxdiff < 1e-3 and text_path_mismatch_rate <= 0.01
-    return paired_tost_gate("G0.4", e3_same_process, e3_rebuilt, y2_cluster, margin_pp=1.5, extra_pass=extra_ok,
+    return paired_tost_gate("G0.4", e3_same_process, e3_rebuilt, h2_cluster, margin_pp=1.5, extra_pass=extra_ok,
                             extra=dict(ids_identical=ids_identical, greedy_identical=greedy_identical,
                                        first_logit_maxdiff=first_logit_maxdiff, text_path_mismatch_rate=text_path_mismatch_rate),
                             criteria="(i)(ii) ids_3 逐位相同、greedy 续写逐 token 相同、首 token logits max|Δ|<1e-3；(ii)(iii) 不一致率 ≤1%；"
-                                     "e_3 率差的配对 cluster bootstrap 90% CI ⊂ (−1.5, 1.5)pp")
+                                     "e_3 率差的配对（按 h_2 聚类）cluster bootstrap 90% CI ⊂ (−1.5, 1.5)pp")
 
 
 def g0_5(e3_batch1: np.ndarray, e3_batch8: np.ndarray, e3_grouped: np.ndarray, h3_cluster: np.ndarray,
@@ -102,16 +104,25 @@ def g0_8(e3_hf: np.ndarray, e3_vllm: np.ndarray, h3_cluster: np.ndarray, steered
 
 
 # ---------------------------------------------------------------- G0.6
-def g0_6(u3_hist_a: Sequence[int], u3_hist_b: Sequence[int], deterministic: bool, n_arms: int = 5) -> GateResult:
-    crit = "确定性：u_3 逐位相同；随机：各 n≥20000，5 臂频率 TV<0.02 且 χ² p>0.01"
+def g0_6(u3_arm_idx_a: Sequence[int], u3_arm_idx_b: Sequence[int], deterministic: bool, n_arms: int = 5) -> GateResult:
+    """Inputs are per-draw ARM INDICES (0..n_arms-1) of u_3 under two histories (controllers.contract_check).
+    Random policies: equivalence via the 95% upper bound TV̂ + 1.645·SE_boot < 0.02 at n >= 50000 draws per
+    history (null bound ≈0.01; at n = 20000 the null itself fails ≈8%); χ² p reported only (v1.2's "p>0.01" made
+    the written TV tolerance illusory — effective tolerance ≈0.005)."""
+    crit = "确定性：u_3 逐位相同；随机：各 n≥50000，5 臂频率 TV 的 95% 上界 TV̂+1.645·SE_boot <0.02（χ² p 仅报告）"
+    a = np.asarray(u3_arm_idx_a); b = np.asarray(u3_arm_idx_b)
+    for arr in (a, b):
+        if arr.size == 0 or not np.issubdtype(arr.dtype, np.integer) or arr.min() < 0 or arr.max() >= n_arms:
+            raise ValueError("g0_6 expects integer arm indices in [0, n_arms) per draw, not u values or histograms")
     if deterministic:
-        ok = list(u3_hist_a) == list(u3_hist_b)
-        return GateResult("G0.6", ok, dict(identical=ok, n=len(u3_hist_a)), criteria=crit)
-    ca = np.bincount(np.asarray(u3_hist_a), minlength=n_arms)
-    cb = np.bincount(np.asarray(u3_hist_b), minlength=n_arms)
-    tv, p = tv_distance(ca, cb), chi2_homogeneity_p(ca, cb)
-    n = min(len(u3_hist_a), len(u3_hist_b))
-    return GateResult("G0.6", n >= 20000 and tv < 0.02 and p > 0.01, dict(tv=tv, chi2_p=p, n=n), criteria=crit)
+        ok = a.shape == b.shape and bool(np.all(a == b))
+        return GateResult("G0.6", ok, dict(identical=ok, n=int(a.size)), criteria=crit)
+    ca = np.bincount(a, minlength=n_arms)
+    cb = np.bincount(b, minlength=n_arms)
+    tvr = tv_upper_bound(ca, cb)
+    p = chi2_homogeneity_p(ca, cb)
+    n = min(int(a.size), int(b.size))
+    return GateResult("G0.6", n >= 50000 and tvr["tv_upper"] < 0.02, dict(tv=tvr["tv"], tv_upper95=tvr["tv_upper"], chi2_p=p, n=n), criteria=crit)
 
 
 # ---------------------------------------------------------------- G0.7

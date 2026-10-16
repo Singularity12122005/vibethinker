@@ -1,9 +1,9 @@
 import numpy as np
 import pytest
-from sycophancy_phase0.analysis.varcomp import u_stat_var, anova_mom_var, icc, bootstrap_var
+from sycophancy_phase0.analysis.varcomp import u_stat_var, anova_mom_var, icc, bootstrap_var, cluster_bootstrap, two_stage_bootstrap
 from sycophancy_phase0.analysis.frontier import tilt_frontier, dual_frontier, cs_bound, bernstein_bound
-from sycophancy_phase0.analysis.desirability import jensen_gap, reactive_weights
-from sycophancy_phase0.analysis.covvar import cov_within_prefix, policy_value_halves, two_stage_bootstrap_cov
+from sycophancy_phase0.analysis.desirability import jensen_gap, jensen_gap_by_prefix, jensen_gap_exact, g2a_decision, reactive_weights
+from sycophancy_phase0.analysis.covvar import cov_within_prefix, policy_value_halves, cluster_bootstrap_cov
 from sycophancy_phase0.analysis.power import paired_components, F_required
 
 
@@ -24,22 +24,62 @@ def test_u_stat_equals_anova_and_is_unbiased():
     assert abs(np.mean(nulls)) < 0.0015
 
 
-def test_jensen_gap_series_is_nearly_unbiased():
+def test_jensen_gap_lb_unbiased_in_benign_regimes_and_lower_bound_elsewhere():
     rng = np.random.default_rng(1)
     M, N = 16, 128
-    for a, b in [(6.0, 4.0), (3.0, 3.0), (8.0, 2.0)]:
+    for a, b in [(60.0, 40.0), (6.0, 4.0), (3.0, 3.0), (8.0, 2.0)]:
         z_true = rng.beta(a, b, 400000)
         J_true = np.log(z_true.mean()) - np.log(z_true).mean()
-        ser, beta, delta = [], [], []
-        for _ in range(300):
+        lb, ser, beta = [], [], []
+        for _ in range(200):
             Z = rng.binomial(M, rng.beta(a, b, N))
             r = jensen_gap(Z, M)
-            ser.append(r["J"]); beta.append(r["J_beta"]); delta.append(r["delta"])
-        assert abs(np.mean(ser) - J_true) < 0.06 * J_true + 0.002       # 4th-order series: a few % bias
-        assert abs(np.mean(beta) - J_true) < 0.06 * J_true + 0.002      # parametric cross-check (Beta truth)
-        assert np.mean(delta) < J_true * 1.02                            # delta term is a lower bound here
+            lb.append(r["J"]); ser.append(r["J_series"]); beta.append(r["J_beta"])
+        assert abs(np.mean(lb) - J_true) < 0.04 * J_true + 0.001          # primary: unbiased when z stays away from 0
+        assert abs(np.mean(ser) - J_true) < 0.09 * J_true + 0.002         # diagnostic series: a few % low
+        assert abs(np.mean(beta) - J_true) < 0.06 * J_true + 0.002
     nulls = [jensen_gap(rng.binomial(M, 0.6, N), M)["J"] for _ in range(300)]
-    assert abs(np.mean(nulls)) < 0.002
+    assert abs(np.mean(nulls)) < 0.0015
+    # near-zero mass: the primary is a lower bound (never above truth), the series is lower still; flags fire
+    lbs, sers, flags, truths = [], [], [], []
+    for _ in range(100):
+        z = rng.beta(60, 40, N); z[rng.random(N) < 0.02] = 0.02
+        Z = rng.binomial(M, z); r = jensen_gap(Z, M)
+        lbs.append(r["J"]); sers.append(r["J_series"]); flags.append(r["near_zero_mass"]); truths.append(jensen_gap_exact(z))
+    assert np.mean(lbs) < np.mean(truths) and np.mean(lbs) > np.mean(sers) and np.mean(flags) > 0.5
+    # low mean: the series explodes, the lower bound stays finite and below the truth
+    z = rng.beta(1, 10, N); Z = rng.binomial(M, z); r = jensen_gap(Z, M)
+    assert r["low_mean"] and r["J"] < jensen_gap_exact(z) and np.isfinite(r["J"])
+    # per-prefix: a between-prefix-only heterogeneity must give J ≈ 0 (pooling would give a false GO)
+    Zs, pref = [], []
+    for p in range(40):
+        zp = 0.15 + 0.7 * p / 39
+        Zs.append(rng.binomial(M, zp, N)); pref.append(np.full(N, p))
+    r = jensen_gap_by_prefix(np.concatenate(Zs), M, np.concatenate(pref))
+    assert abs(r["J"]) < 0.01 and jensen_gap(np.concatenate(Zs), M)["J"] > 0.05 and r["n_prefix"] == 40
+    assert g2a_decision(0.01, 0.005, 0.015, 0.0) == "KILL" and g2a_decision(0.01, 0.005, 0.015, 0.2) == "GO-with-caveat"
+    assert g2a_decision(0.1, 0.085, 0.12, 0.5) == "GO"
+
+
+def test_u_stat_unbalanced_and_bootstrap_t():
+    rng = np.random.default_rng(7)
+    a, b = 2.4, 3.6
+    true_var = a * b / ((a + b) ** 2 * (a + b + 1))
+    ests = []
+    for _ in range(300):
+        q = rng.beta(a, b, 128)
+        M = rng.choice([12, 14, 16], 128)
+        K = rng.binomial(M, q)
+        ests.append(u_stat_var(K, M))
+    assert abs(np.mean(ests) - true_var) < 0.003
+    with pytest.raises(ValueError):
+        u_stat_var(np.array([3, 5]), np.array([4, 4]))
+    r = bootstrap_var(rng.binomial(16, rng.beta(a, b, 128)), 16, n_boot=100, seed=0, n_inner=20)
+    assert r["upper95"] > r["est"] > r["lower95"] and r["upper95"] >= r["upper95_normal"] - 0.01
+    # prefix-only bootstrap has smaller spread than the two-stage one (which double-counts within-prefix noise)
+    groups = [rng.binomial(16, rng.beta(a, b, 32)) for _ in range(40)]
+    stat = lambda gs: np.mean([u_stat_var(g, 16) for g in gs])
+    assert cluster_bootstrap(stat, groups, 200, 0).std() < two_stage_bootstrap(stat, groups, 200, 0).std()
 
 
 def test_reactive_weights_small_lambda_is_uniform_on_e2_zero():
@@ -69,7 +109,7 @@ def test_cov_estimator_null_and_alternative():
     assert abs(np.mean(nulls)) < 0.0025                 # unbiased at zero (null SE ≈ 0.0036 per the plan)
     assert np.mean(alts) > 0.008                        # positive under heterogeneity
     Va, Vb, pref = simulate(True)
-    bs = two_stage_bootstrap_cov(Va, Vb, pref, n_boot=200, seed=0)
+    bs = cluster_bootstrap_cov(Va, Vb, pref, n_boot=200, seed=0)
     assert bs["lower95_onesided"] > 0
 
 
@@ -83,9 +123,17 @@ def test_frontier_bounds_order():
     for k in kappas:
         assert tilt[k] >= prev - 1e-9; prev = tilt[k]
         assert tilt[k] <= dual[k] + 1e-6
-        assert dual[k] <= bernstein_bound(q, k) + 1e-6          # Bernstein is the KL-matched bound
-        assert cs_bound(q, k) > 0                                 # chi^2-minimal reference only, NOT a bound at fixed KL
+        assert dual[k] <= bernstein_bound(np.var(q), k) + 1e-6  # Bernstein is the KL-matched bound (takes Var(q))
+        assert cs_bound(np.var(q), k) > 0                         # chi^2-minimal reference only, NOT a bound at fixed KL
     assert tilt[1.0] <= q.mean() - q.min() + 1e-9
+    # cross-fit under the null (Var(q)=0): no winner's curse — mean tau* ≈ 0 at every kappa
+    nulls = []
+    for _ in range(150):
+        Ks = rng.binomial(8, 0.4, 128); Ke = rng.binomial(8, 0.4, 128)
+        nulls.append(tilt_frontier(Ks / 8, Ke / 8, [0.25, 1.0]))
+    for k in (0.25, 1.0):
+        vals = np.array([d[k] for d in nulls])
+        assert abs(vals.mean()) < 2.5 * vals.std() / np.sqrt(len(vals)) + 1e-3
 
 
 def test_power_identity_and_F_table():
