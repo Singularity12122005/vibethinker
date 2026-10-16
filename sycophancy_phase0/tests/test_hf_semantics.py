@@ -155,7 +155,7 @@ def test_S_gen_generate_matches_teacher_forcing(model):
     st = Steer(model, 1, v, r_L=2.0)
     try:
         ids, att = left_pad([s], pad_id=V - 1)
-        st.set([1.0], "S_gen", generating=True)
+        st.set([1.0], "S_gen", gen_start=att.sum(-1) - 1)
         out = model.generate(input_ids=ids, attention_mask=att, do_sample=False, max_new_tokens=1, output_logits=True,
                              return_dict_in_generate=True, pad_token_id=V - 1)
         gen_logits = out.logits[0][0].float()
@@ -220,7 +220,7 @@ def test_residual_norm_median_and_generate_steered(model):
     st = Steer(model, 1, torch.randn(D), r_L=r)
     try:
         kw = generate_kwargs([1, 2], temperature=0.7, max_new_tokens=4, pad_token_id=V - 1, eos_token_id=[V - 2], device="cpu")
-        outs = generate_steered(model, seqs, st, [0.0, 1.0], kw)
+        outs, reasons = generate_steered(model, seqs, st, [0.0, 1.0], kw)
     finally:
         st.remove()
     assert len(outs) == 2 and all(len(o) == 4 for o in outs)

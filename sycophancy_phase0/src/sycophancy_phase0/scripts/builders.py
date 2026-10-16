@@ -22,5 +22,15 @@ TEMPLATES: Dict[str, List[str]] = {
 }
 
 
+REQUIRED = {"A1": (), "A2": ("D",), "A3": ("D",), "B": (), "C": ("D", "NOTE"), "D": ("G",), "E": ("D2",), "A_slow": ("D",)}
+
+
 def user_turns(script: str, S: str, D: str = "", G: str = "", D2: str = "", NOTE: str = "") -> List[str]:
-    return [t.format(S=S, D=D, G=G, D2=D2, NOTE=NOTE) for t in TEMPLATES[script]]
+    """Fill the frozen templates; placeholders the script uses must be non-empty (no silent '应该是 。')."""
+    vals = dict(S=S, D=D, G=G, D2=D2, NOTE=NOTE)
+    for k in REQUIRED[script]:
+        if not str(vals[k]).strip():
+            raise ValueError(f"script {script} needs placeholder {k}")
+    if not str(S).strip():
+        raise ValueError("S (statement) must be non-empty")
+    return [t.format(**vals) for t in TEMPLATES[script]]

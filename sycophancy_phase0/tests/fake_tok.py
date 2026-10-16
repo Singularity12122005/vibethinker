@@ -21,7 +21,8 @@ def encode(text: str):
 
 
 def is_ws(i: int) -> bool:
-    return i == 271 or i == 1000 + ord("\n") or i == 1000 + ord(" ")
+    """newline-only tokens (the template's lstrip('\\n') semantics)"""
+    return i == 271 or i == 1000 + ord("\n")
 
 
 def first_turn_ids(system: str, x1: str, mode: str):

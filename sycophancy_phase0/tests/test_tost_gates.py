@@ -41,5 +41,5 @@ def test_other_g0_stats():
     rng = np.random.default_rng(2)
     cl = np.repeat(np.arange(50), 8)
     x = rng.binomial(1, 0.3, 400); y = x.copy()
-    assert g0_8(x, y, cl).passed and g0_5(x, y, cl, 1.0).passed and not g0_5(x, y, cl, 0.98).passed
+    assert g0_8(x, y, cl).passed and g0_5(x, y, y, cl, 1.0).passed and not g0_5(x, y, y, cl, 0.98).passed
     assert g0_4(x, y, cl, True, True, 1e-5, 0.0).passed and not g0_4(x, y, cl, False, True, 1e-5, 0.0).passed

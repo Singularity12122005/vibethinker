@@ -1,7 +1,8 @@
 """HF-side primitives (plan §4.4–4.7, §8.3).
 
 Rules enforced here:
-  * ``generate`` uses LEFT padding (the hook's prefill rule ``[:, -1]`` must hit a real token);
+  * ``generate`` uses LEFT padding (generate then assigns position ids 0..prompt_len-1 to each row's real tokens, so
+    the hook's position-id rule ``pid >= prompt_len - 1`` is exact for every row);
   * every non-``generate`` forward uses RIGHT padding and an explicit ``position_ids`` — a direct ``model(...)``
     call does not derive positions from ``attention_mask`` (it uses ``cache_position``). RoPE is exactly invariant
     to a uniform shift in fp32, but bf16 leaks ~1e-2 logit differences at large pad counts (measured in
@@ -17,7 +18,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 import torch
 import torch.nn.functional as F
 
-from ..constants import PAD_ID
+from ..constants import ENDOFTEXT, IM_END, PAD_ID
 
 
 # ---------------------------------------------------------------------- batching
@@ -93,39 +94,73 @@ def residual_norm_median(model, seqs: Sequence[Sequence[int]], layer: int, min_p
 
 @torch.no_grad()
 def extract_z(model, seqs: Sequence[Sequence[int]], layers: Sequence[int],
-              user_spans: Sequence[Tuple[int, int]], prev_assistant_spans: Optional[Sequence[Optional[Tuple[int, int]]]] = None
-              ) -> Dict[str, Dict[int, torch.Tensor]]:
-    """z_t (plan §4.5) from a clean forward: R1 last prompt token, R2 mean over user_span, R3 mean over y_{t-1}."""
+              user_spans: Sequence[Tuple[int, int]], prev_assistant_spans: Optional[Sequence[Optional[Tuple[int, int]]]] = None,
+              steer=None) -> Dict[str, Dict[int, torch.Tensor]]:
+    """z_t (plan §4.5) from a clean forward: R1 last prompt token, R2 mean over user_span, R3 mean over y_{t-1}.
+
+    Spans are validated against each row's length (no pad leakage, no empty means); ``steer`` (if given) must be
+    off, because the recorder is pre-hook only at the hooked layer — layers above it would be steered.
+    Returned rows are fp32 on CPU; the store decides the dtype (fp16 unless a value overflows, plan §4.5).
+    """
+    if steer is not None and (steer.alpha is not None or steer.delta is not None):
+        raise RuntimeError("extract_z requires the Steer hook to be off (plan §4.2 clean-read)")
     out, att = clean_forward(model, seqs, output_hidden_states=True)
-    lens = att.sum(-1)
+    lens = att.sum(-1).tolist()
+    for b, (s, e) in enumerate(user_spans):
+        if not (0 <= s < e <= lens[b]):
+            raise ValueError(f"user_span {(s, e)} outside row {b} (len {lens[b]})")
+    if prev_assistant_spans is not None:
+        for b, sp in enumerate(prev_assistant_spans):
+            if sp is not None and not (0 <= sp[0] < sp[1] <= lens[b]):
+                raise ValueError(f"prev_assistant_span {sp} outside row {b} (len {lens[b]})")
     res: Dict[str, Dict[int, torch.Tensor]] = {"R1": {}, "R2": {}, "R3": {}}
     for L in layers:
         h = layer_output(out.hidden_states, L).float()
         B = h.shape[0]
         r1 = torch.stack([h[b, lens[b] - 1] for b in range(B)])
         r2 = torch.stack([h[b, s:e].mean(0) for b, (s, e) in enumerate(user_spans)])
-        res["R1"][L] = r1.half().cpu()
-        res["R2"][L] = r2.half().cpu()
+        res["R1"][L] = r1.cpu()
+        res["R2"][L] = r2.cpu()
         if prev_assistant_spans is not None:
             rows = []
             for b, sp in enumerate(prev_assistant_spans):
                 rows.append(h[b, sp[0]:sp[1]].mean(0) if sp is not None else torch.zeros(h.shape[-1], device=h.device))
-            res["R3"][L] = torch.stack(rows).half().cpu()
+            res["R3"][L] = torch.stack(rows).cpu()
+        for pos in ("R1", "R2", "R3"):
+            if L in res[pos] and not torch.isfinite(res[pos][L]).all():
+                raise ValueError(f"non-finite z at layer {L} ({pos})")
+    return res
+
+
+def extract_z_think(model, seqs_with_think: Sequence[Sequence[int]], layers: Sequence[int], steer=None
+                    ) -> Dict[int, torch.Tensor]:
+    """Thinking arm (plan §4.5, §7.5): hidden state of the last token *before* ``</think>`` from a clean forward on
+    ``prompt_ids + think_ids`` (think_ids ends with 151668).  Position = len(seq) - 2."""
+    if steer is not None and (steer.alpha is not None or steer.delta is not None):
+        raise RuntimeError("extract_z_think requires the Steer hook to be off")
+    out, att = clean_forward(model, seqs_with_think, output_hidden_states=True)
+    lens = att.sum(-1).tolist()
+    res: Dict[int, torch.Tensor] = {}
+    for L in layers:
+        h = layer_output(out.hidden_states, L).float()
+        res[L] = torch.stack([h[b, lens[b] - 2] for b in range(h.shape[0])]).cpu()
     return res
 
 
 # ---------------------------------------------------------------------- teacher forcing
 def response_logprobs(model, ids: Sequence[int], prompt_len: int, *, steer=None, alpha: float = 0.0,
-                      scope: str = "S_gen", grad_delta: Optional[torch.Tensor] = None) -> torch.Tensor:
+                      scope: str = "S_gen", grad_delta: Optional[torch.Tensor] = None,
+                      pos_mask: Optional[torch.Tensor] = None) -> torch.Tensor:
     """Per-token log P(y_k | y_<k, h) for the response ids[prompt_len:], B=1, fp32 log_softmax.
 
-    With ``steer`` the hook is applied at positions >= prompt_len - 1 (teacher-forcing semantics, plan §4.4).
+    With ``steer`` the hook is applied at positions >= prompt_len - 1 (S_gen) or on ``pos_mask`` (S_read).
+    The hook state the caller had set is restored afterwards.
     """
     ids_t = torch.as_tensor(list(ids), dtype=torch.long, device=model.device)[None]
     att = torch.ones_like(ids_t)
+    saved = steer.state() if steer is not None else None
     if steer is not None:
-        steer.set([alpha], scope, generating=False,
-                  gen_start=torch.tensor([prompt_len - 1], device=model.device), delta=grad_delta)
+        steer.set([alpha], scope, gen_start=torch.tensor([prompt_len - 1]), pos_mask=pos_mask, delta=grad_delta)
     try:
         ctx = torch.enable_grad() if grad_delta is not None else torch.no_grad()
         with ctx:
@@ -136,24 +171,26 @@ def response_logprobs(model, ids: Sequence[int], prompt_len: int, *, steer=None,
             lp = F.log_softmax(logits, dim=-1).gather(-1, targets[:, None])[:, 0]
     finally:
         if steer is not None:
-            steer.off()
+            steer.restore(saved)
     return lp
 
 
 @torch.no_grad()
-def next_token_kl(model, ids: Sequence[int], prompt_len: int, steer, alpha: float, scope: str = "S_gen") -> torch.Tensor:
-    """Per-position KL(P^0 || P^alpha) over response positions (plan §4.7 step 1), fp32."""
+def next_token_kl(model, ids: Sequence[int], prompt_len: int, steer, alpha: float, scope: str = "S_gen",
+                  pos_mask: Optional[torch.Tensor] = None) -> torch.Tensor:
+    """Per-position KL(P^0 || P^alpha) over response positions (plan §4.7 step 1), fp32; caller takes the mean."""
     ids_t = torch.as_tensor(list(ids), dtype=torch.long, device=model.device)[None]
     att = torch.ones_like(ids_t)
     pos = position_ids_from_mask(att)
     sl = slice(prompt_len - 1, ids_t.shape[1] - 1)
+    saved = steer.state()
     steer.off()
-    lp0 = F.log_softmax(model(input_ids=ids_t, attention_mask=att, position_ids=pos, use_cache=False).logits[0, sl].float(), -1)
-    steer.set([alpha], scope, generating=False, gen_start=torch.tensor([prompt_len - 1], device=model.device))
     try:
+        lp0 = F.log_softmax(model(input_ids=ids_t, attention_mask=att, position_ids=pos, use_cache=False).logits[0, sl].float(), -1)
+        steer.set([alpha], scope, gen_start=torch.tensor([prompt_len - 1]), pos_mask=pos_mask)
         lpa = F.log_softmax(model(input_ids=ids_t, attention_mask=att, position_ids=pos, use_cache=False).logits[0, sl].float(), -1)
     finally:
-        steer.off()
+        steer.restore(saved)
     return (lp0.exp() * (lp0 - lpa)).sum(-1)                     # [n_response_positions]
 
 
@@ -175,13 +212,32 @@ def route_flip_fraction(router_logits_0: Sequence[torch.Tensor], router_logits_a
 
 # ---------------------------------------------------------------------- generation
 def generate_steered(model, seqs: Sequence[Sequence[int]], steer, alphas: Sequence[float], gen_kwargs: dict,
-                     scope: str = "S_gen", pad_id: Optional[int] = None):
-    """Left-padded generate with per-row alpha; returns list of generated id lists (prompt stripped)."""
+                     scope: str = "S_gen", pad_id: Optional[int] = None, pos_mask: Optional[torch.Tensor] = None,
+                     eos_ids: Sequence[int] = (IM_END, ENDOFTEXT)):
+    """Left-padded generate with per-row alpha; returns (gen_ids, finish_reasons): ids cut after the first EOS
+    (trailing pads removed), finish_reason "length" iff no EOS within max_new_tokens.
+
+    ``pos_mask`` (S_read) is indexed by position id = index in the unpadded prompt; it is shifted here for left
+    padding automatically because generate assigns position ids 0..prompt_len-1 to the real tokens.
+    """
+    if gen_kwargs.get("return_dict_in_generate"):
+        raise ValueError("generate_steered expects plain tensor output")
     ids, att = left_pad(seqs, pad_id=_pad_id(model, pad_id), device=model.device)
-    steer.set(list(alphas), scope, generating=True)
+    steer.set(list(alphas), scope, gen_start=att.sum(-1) - 1, pos_mask=pos_mask)
     try:
         out = model.generate(input_ids=ids, attention_mask=att, **gen_kwargs)
     finally:
         steer.off()
     L = ids.shape[1]
-    return [out[b, L:].tolist() for b in range(out.shape[0])]
+    mnt = int(gen_kwargs.get("max_new_tokens", 0))
+    gens, reasons = [], []
+    for b in range(out.shape[0]):
+        g = out[b, L:].tolist()
+        cut = next((k for k, t in enumerate(g) if t in eos_ids), None)
+        if cut is not None:
+            g = g[: cut + 1]
+            reasons.append("stop")
+        else:
+            reasons.append("length" if (mnt and len(g) >= mnt) else "stop")
+        gens.append(g)
+    return gens, reasons

@@ -30,20 +30,26 @@ class SeededGumbelSampler(LogitsProcessor):
         self.seeds: List[int] = [int(s) for s in seeds]
         self._device = device
         self.gens: Optional[List[torch.Generator]] = None
+        self._last_len = -1
 
-    def _ensure(self, device):
-        if self.gens is None:
+    def _ensure(self, device, cur_len: int):
+        """(Re)seed the generators at the first step of every generate call: within one call the input length
+        strictly increases, so a non-increasing length means a new call (reusing the kwargs dict is then safe)."""
+        if self.gens is None or cur_len <= self._last_len:
             dev = torch.device(self._device) if self._device is not None else device
             self.gens = [torch.Generator(device=dev).manual_seed(s) for s in self.seeds]
+        self._last_len = cur_len
 
     def __call__(self, input_ids, scores):
         if scores.shape[0] != len(self.seeds):
             raise ValueError(f"{scores.shape[0]} rows but {len(self.seeds)} seeds")
-        self._ensure(scores.device)
+        self._ensure(scores.device, int(input_ids.shape[1]) if input_ids is not None else 0)
         s = scores.float() / self.T
         out = torch.full_like(scores, float("-inf"))
         V = s.shape[-1]
         for b, g in enumerate(self.gens):
+            if not torch.isfinite(s[b]).any():
+                raise ValueError(f"row {b}: no finite logits to sample from")
             u = torch.rand(V, generator=g, device=g.device, dtype=torch.float32).to(s.device)
             tok = torch.argmax(s[b] - torch.log(-torch.log(u.clamp_(1e-20, 1.0))))
             out[b, tok] = 0.0
