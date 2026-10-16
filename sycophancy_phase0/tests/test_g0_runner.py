@@ -8,8 +8,8 @@ from transformers.models.qwen3_moe import Qwen3MoeConfig, Qwen3MoeForCausalLM
 
 from fake_tok import encode, first_turn_ids, is_ws
 from sycophancy_phase0.constants import IM_END, SYSTEM_PROMPT, THINK_END, THINK_START
-from sycophancy_phase0.gates.g0 import g0_2, g0_3, g0_7
-from sycophancy_phase0.gates.g0_runner import (batch_conditions, cache_vs_recompute_kl, continuation_specs, hook_selfcheck,
+from sycophancy_phase0.gates.g0 import g0_1, g0_2, g0_3, g0_7
+from sycophancy_phase0.gates.g0_runner import (batch_conditions, cache_vs_recompute_kl, continuation_specs, generate_with_cache, hook_selfcheck,
                                                paired_e3, sampler_chi2, support_defect_logps, template_consistency)
 from sycophancy_phase0.inference.engine import EngineRouter, FakeEngine, HFEngine, GenRequest
 from sycophancy_phase0.inference.hf_engine import generate_steered, left_pad, response_logprobs, extract_z
@@ -62,8 +62,21 @@ def test_hook_selfcheck_and_sampler_chi2(model):
 def test_cache_vs_recompute_and_support_defect(model):
     rng = np.random.default_rng(1)
     items = [(_seq(rng, 9), _seq(rng, 6)) for _ in range(5)]
-    kl = cache_vs_recompute_kl(model, items)
-    assert kl.shape == (5,) and g0_3(kl).passed and float(np.max(kl)) < 1e-4
+    r = cache_vs_recompute_kl(model, items)
+    kl = r["kl"]
+    assert kl.shape == (5,) and r["n_not_applicable"] == 0 and g0_3(kl, r["n_not_applicable"]).passed and float(np.max(kl)) < 1e-4
+    # v1.4 (memo I2): a real generate cache — covers prompt + generated[:-1]; verified bitwise against ids_3, else "not applicable"
+    ids_2 = _seq(rng, 9)
+    c = generate_with_cache(model, ids_2, max_new_tokens=4, greedy=True, pad_id=V - 1)
+    assert len(c["gen_ids"]) == 4 and c["cached_ids"] == ids_2 + c["gen_ids"][:-1] and c["n_cached"] == len(c["cached_ids"])
+    delta = _seq(rng, 3)
+    good = (ids_2, c["gen_ids"] + delta)
+    bad = (ids_2, [c["gen_ids"][0], (c["gen_ids"][1] + 1) % V] + c["gen_ids"][2:] + delta)       # "normalisation" rewrote a cached token
+    r2 = cache_vs_recompute_kl(model, [good, bad, good], caches=[(c["cached_ids"], c["past"])] * 3)
+    assert np.isfinite(r2["kl"][0]) and r2["kl"][0] < 1e-4 and np.isnan(r2["kl"][1]) and r2["n_not_applicable"] == 1
+    assert "not a prefix" in r2["reasons"][1] and r2["reasons"][0] is None and np.isfinite(r2["kl"][2])   # the caller's cache is untouched
+    g3 = g0_3(r2["kl"])                                                       # NaN entries are counted by the gate itself
+    assert g3.passed and g3.details["n_not_applicable"] == 1 and g3.details["n"] == 2
     lps = support_defect_logps(model, [(_seq(rng, 8), _seq(rng, 5)) for _ in range(3)])
     assert lps.shape == (15,) and g0_7(lps).passed
 
@@ -199,7 +212,8 @@ def test_template_consistency_and_batch_conditions():
         for m in msgs:
             t += f"<|im_start|>{m['role']}\n{m['content']}<|im_end|>\n"
         return encode(t + "<|im_start|>assistant\n")
-    n_mis, n_tot, ex = template_consistency(base, builder, FT, text_path, SYSTEM_PROMPT)
+    n_mis, n_tot, ex, seg = template_consistency(base, builder, FT, text_path, SYSTEM_PROMPT)
+    assert seg == 0 and g0_1(n_mis, n_tot, seg).details["segment_mismatches"] == 0
     assert (n_mis, n_tot) == (0, 3)
     # batch conditions: fake engine is order-independent, so all three conditions agree exactly
     pres = [(prob, prefix_from_trajectory(tr, builder, FT, upto_turn=3)) for tr in base]

@@ -101,7 +101,7 @@ def stage_g41(ctx: Context, fine_by_layer: Dict[int, Dict[float, Dict[str, float
     specs = []
     for L, a in prov.items():
         if a > 0:
-            specs += G41.layer_screen_specs(bank, h3s, ctx.run_id, L, a, n=sz["g41_n"])
+            specs += G41.layer_screen_specs(bank, h3s, ctx.run_id, L, a, fold_of_problem=folds, n=sz["g41_n"])
     trajs = run_specs(ctx, specs, "G41_screen")
     drops = G41.e3_drop_by_layer(trajs)
     L_star = G41.select_layer(drops)

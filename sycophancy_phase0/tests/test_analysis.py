@@ -2,7 +2,8 @@ import numpy as np
 import pytest
 from sycophancy_phase0.analysis.varcomp import u_stat_var, anova_mom_var, icc, bootstrap_var, cluster_bootstrap, two_stage_bootstrap
 from sycophancy_phase0.analysis.frontier import tilt_frontier, dual_frontier, cs_bound, bernstein_bound
-from sycophancy_phase0.analysis.desirability import jensen_gap, jensen_gap_by_prefix, jensen_gap_exact, g2a_decision, reactive_weights
+from sycophancy_phase0.analysis.desirability import (jensen_gap, jensen_gap_beta, jensen_gap_by_prefix, jensen_gap_exact, jensen_gap_lambda_by_prefix,
+                                                     g2a_decision, reactive_weights)
 from sycophancy_phase0.analysis.covvar import cov_within_prefix, policy_value_halves, cluster_bootstrap_cov
 from sycophancy_phase0.analysis.power import paired_components, F_required
 
@@ -37,7 +38,8 @@ def test_jensen_gap_lb_unbiased_in_benign_regimes_and_lower_bound_elsewhere():
             lb.append(r["J"]); ser.append(r["J_series"]); beta.append(r["J_beta"])
         assert abs(np.mean(lb) - J_true) < 0.04 * J_true + 0.001          # primary: unbiased when z stays away from 0
         assert abs(np.mean(ser) - J_true) < 0.09 * J_true + 0.002         # diagnostic series: a few % low
-        assert abs(np.mean(beta) - J_true) < 0.06 * J_true + 0.002
+        beta = np.array(beta)                                           # v1.4: undefined (Var<=0) fits are NaN, not a clamped ~0
+        assert np.mean(np.isnan(beta)) < 0.5 and abs(np.nanmean(beta) - J_true) < 0.06 * J_true + 0.002
     nulls = [jensen_gap(rng.binomial(M, 0.6, N), M)["J"] for _ in range(300)]
     assert abs(np.mean(nulls)) < 0.0015
     # near-zero mass: the primary is a lower bound (never above truth), the series is lower still; flags fire
@@ -152,3 +154,60 @@ def test_power_identity_and_F_table():
     assert abs(np.mean(se2s) - np.var(taus, ddof=1)) < 0.35 * np.var(taus, ddof=1)
     F80 = F_required(0.08 ** 2, 0.10 ** 2, 4, 32, 0.03)
     assert 100 <= F80 <= 112                           # plan §11.4 / deep-dive: ≈105 (+3)
+
+
+def _eb_shrink(Z, M):
+    q = Z / M
+    mu = q.mean()
+    var = max(u_stat_var(Z, M), 1e-6)
+    s = max(mu * (1 - mu) / var - 1, 1e-3)
+    a, b = mu * s, (1 - mu) * s
+    return (Z + a) / (M + a + b)
+
+
+def _plug(qt):
+    return float(np.log(qt.mean()) - np.log(qt).mean())
+
+
+def test_eb_jackknife_plugin_is_biased_low():
+    """The external memo's estimator (EB-shrunk plug-in + delete-one jackknife with the prior refit per replicate) under-
+    estimates J by ~40% at Beta(6,4) (M=16, N=128); the jackknife does not repair it; Ĵ_LB is within 2% (plan §8.4)."""
+    rng = np.random.default_rng(7)
+    M, N = 16, 128
+    a, b = 6.0, 4.0
+    zt = rng.beta(a, b, 200000)
+    J_true = float(np.log(zt.mean()) - np.log(zt).mean())
+    eb, jk, lb = [], [], []
+    for _ in range(100):
+        Z = rng.binomial(M, rng.beta(a, b, N))
+        J = _plug(_eb_shrink(Z, M))
+        Jd = np.array([_plug(_eb_shrink(np.delete(Z, i), M)) for i in range(N)])
+        eb.append(J); jk.append(N * J - (N - 1) * Jd.mean()); lb.append(jensen_gap(Z, M)["J"])
+    assert np.mean(eb) < 0.75 * J_true and np.mean(jk) < 0.75 * J_true          # ~ -40%
+    assert abs(np.mean(lb) - J_true) < 0.10 * J_true                          # the 4% check with 200 reps is in the test above
+
+
+def test_jensen_gap_beta_undefined_cases_keep_raw_variance():
+    """memo S4 / v1.4: Var<=0 (all-equal counts) => NaN with reason and the raw (negative) U-statistic kept, no clamped fit."""
+    r = jensen_gap_beta(np.array([10] * 8), 16)
+    assert np.isnan(r["J"]) and r["reason"] == "var_le_0" and r["var"] < 0
+    assert jensen_gap_beta(np.array([16] * 8), 16)["reason"] == "mu_out_of_(0,1)"
+    assert jensen_gap_beta(np.array([0, 16, 0, 16]), 16)["reason"] == "var_ge_mu(1-mu)"
+    g = jensen_gap(np.array([10] * 8), 16)
+    assert np.isnan(g["J_beta"]) and g["J_beta_reason"] == "var_le_0"
+    assert jensen_gap(np.array([2, 14, 5, 12, 3, 13, 6, 11]), 16)["J_beta_reason"] is None
+
+
+def test_finite_lambda_curve_matches_small_lambda_limit():
+    rng = np.random.default_rng(3)
+    M, N = 16, 64
+    Z = rng.integers(3, 15, N); S2 = rng.integers(0, M - Z + 1); S1 = M - Z - S2        # Z > 0: the plug-in on Z/M is finite
+    e2 = np.zeros(N, int)
+    pref = np.array(["a"] * (N // 2) + ["b"] * (N // 2))
+    r_small = jensen_gap_lambda_by_prefix(Z, S1, S2, np.full(N, M), e2, pref, 0.01)
+    plug = np.mean([_plug(Z[pref == p] / M) for p in ("a", "b")])
+    assert abs(r_small["J"] - plug) < 1e-6 and r_small["n_prefix"] == 2         # λ -> 0: the plug-in on Z/M
+    r1 = jensen_gap_lambda_by_prefix(Z, S1, S2, np.full(N, M), e2, pref, 1.0)
+    assert np.isfinite(r1["J"]) and 0 <= r1["J"] < r_small["J"]                # failures count partially: less dispersion
+    Zz = Z.copy(); Zz[:4] = 0
+    assert np.isfinite(jensen_gap_lambda_by_prefix(Zz, M - Zz, np.zeros(N, int), np.full(N, M), e2, pref, 0.1)["J"])

@@ -101,16 +101,27 @@ def jensen_gap_series(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None) -> 
 
 
 def jensen_gap_beta(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None) -> Dict[str, float]:
-    """Diagnostic Beta(a,b) moment match on (μ, Var) → J = log μ − (ψ(a) − ψ(a+b))."""
+    """Diagnostic Beta(a,b) moment match on (μ, Var) → J = log μ − (ψ(a) − ψ(a+b)).
+
+    v1.4 (memo S4): undefined — J = NaN with ``reason`` — when μ ∉ (0,1), when the unbiased variance estimate is ≤ 0
+    (returned as is, negative values included; it is never clamped into a degenerate fit) or when Var ≥ μ(1−μ)
+    (no Beta has that dispersion)."""
     Z = np.asarray(Z, float)
     ww = _weights(Z.shape[0], w)
     mu = float((ww * Z).sum() / M)
-    var = max((u_stat_var(Z, M) if w is None else central_moments(raw_moments_unbiased(Z, M, 4, w))["c2"]), 1e-12)
-    if mu <= 0 or mu >= 1 or var >= mu * (1 - mu):
-        return dict(J=float("nan"), a=float("nan"), b=float("nan"), mu=mu, var=var)
+    var = float(u_stat_var(Z, M) if w is None else central_moments(raw_moments_unbiased(Z, M, 4, w))["c2"])
+    reason = None
+    if not (0.0 < mu < 1.0):
+        reason = "mu_out_of_(0,1)"
+    elif var <= 0.0:
+        reason = "var_le_0"
+    elif var >= mu * (1 - mu):
+        reason = "var_ge_mu(1-mu)"
+    if reason is not None:
+        return dict(J=float("nan"), a=float("nan"), b=float("nan"), mu=mu, var=var, reason=reason)
     s = mu * (1 - mu) / var - 1
     a, b = mu * s, (1 - mu) * s
-    return dict(J=float(np.log(mu) - (digamma(a) - digamma(a + b))), a=float(a), b=float(b), mu=mu, var=var)
+    return dict(J=float(np.log(mu) - (digamma(a) - digamma(a + b))), a=float(a), b=float(b), mu=mu, var=var, reason=None)
 
 
 def regime_flags(Z: np.ndarray, M: int, w: Optional[np.ndarray] = None, mu_min: float = 0.25, n_zero_max: int = 1) -> Dict[str, object]:
@@ -129,10 +140,10 @@ def jensen_gap(Z: np.ndarray, M, w: Optional[np.ndarray] = None) -> Dict[str, fl
     Ms = int(np.min(np.asarray(M)))
     balanced = bool(np.all(np.asarray(M) == Ms))
     ser = jensen_gap_series(Z, Ms, w) if (balanced and Ms >= 4) else dict(J=float("nan"), delta=float("nan"))
-    beta = jensen_gap_beta(Z, Ms, w) if balanced else dict(J=float("nan"))
+    beta = jensen_gap_beta(Z, Ms, w) if balanced else dict(J=float("nan"), reason="unbalanced_M")
     fl = regime_flags(Z, Ms, w)
-    return dict(J=lb["J"], J_series=ser["J"], J_beta=beta["J"], delta=ser["delta"], zbar=lb["mu"], n_zero=fl["n_zero"],
-                near_zero_mass=fl["near_zero_mass"], low_mean=fl["low_mean"], flagged=fl["flagged"])
+    return dict(J=lb["J"], J_series=ser["J"], J_beta=beta["J"], J_beta_reason=beta.get("reason"), delta=ser["delta"], zbar=lb["mu"],
+                n_zero=fl["n_zero"], near_zero_mass=fl["near_zero_mass"], low_mean=fl["low_mean"], flagged=fl["flagged"])
 
 
 def jensen_gap_by_prefix(Z: np.ndarray, M, prefix: np.ndarray, w: Optional[np.ndarray] = None) -> Dict[str, object]:
@@ -157,6 +168,28 @@ def jensen_gap_exact(z: np.ndarray, w: Optional[np.ndarray] = None) -> float:
     z = np.asarray(z, float)
     w = _weights(z.shape[0], w)
     return float(np.log((w * z).sum()) - (w * np.log(z)).sum())
+
+
+def jensen_gap_lambda_by_prefix(Z, S1, S2, M, e2, prefix, lam_kl: float) -> Dict[str, object]:
+    """Descriptive finite-λ curve (plan §8.4, v1.4): per y_2, ẑ_3(λ) = (Z + S1·e^{−1/λ} + S2·e^{−2/λ}) / M with S1/S2 the
+    continuations with e_3+e_4 = 1 / 2; P_r weights ∝ e^{−e_2/λ}; J(λ) = log Σ_j w_j ẑ_j − Σ_j w_j log ẑ_j per prefix (plug-in
+    with stable log-sum-exp), averaged over prefixes.  Report only — it carries none of Ĵ_LB's bias guarantees."""
+    from scipy.special import logsumexp
+    Z, S1, S2, M, e2, prefix = (np.asarray(x) for x in (Z, S1, S2, M, e2, prefix))
+    with np.errstate(divide="ignore"):
+        terms = np.stack([np.log(Z.astype(float)), np.log(S1.astype(float)) - 1.0 / lam_kl, np.log(S2.astype(float)) - 2.0 / lam_kl])
+        logz = logsumexp(terms, axis=0) - np.log(M.astype(float))
+    per: Dict[str, float] = {}
+    for pid in sorted(set(prefix.tolist())):
+        idx = np.where(prefix == pid)[0]
+        lz = logz[idx]
+        if not np.all(np.isfinite(lz)):
+            per[pid] = float("nan")
+            continue
+        w = reactive_weights(e2[idx], lam_kl)
+        per[pid] = float(logsumexp(lz, b=w) - (w * lz).sum())
+    vals = [v for v in per.values() if np.isfinite(v)]
+    return dict(J=float(np.mean(vals)) if vals else float("nan"), per_prefix=per, lam_kl=float(lam_kl), n_prefix=len(vals))
 
 
 def A_of_lambda(J: float, lambda_dose: float, kappa1: float) -> float:

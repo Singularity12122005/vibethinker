@@ -139,3 +139,38 @@ def test_judge_integration_and_zstore(tmp_path):
     row = ZStore.load_row(str(tmp_path), dict(path="z/chunk00000.npy", row=tr.z_rows["3"]["R2"]["8"]))
     assert np.allclose(row, 2.0)
     assert os.path.exists(str(tmp_path / "z_index.jsonl"))
+
+
+def test_partial_trajectory_keeps_next_ids_in_memory_only(tmp_path):
+    """G0.4 path (i): a stop_after trajectory carries ids_{stop_after+1} in memory (``next_ids``), never in the JSONL."""
+    builder = TurnBuilder(encode, "instruct", is_ws)
+    beh = lambda t, a, s: "答案是 40。\n最终答案：40"
+    router, eng = make_router(beh)
+    specs = [RolloutSpec(run_id="r1", problem=PROB, script="A3", arm=Arm.null(), trajectory_idx=0, stop_after=2)]
+    writer = JsonlWriter(str(tmp_path / "p.jsonl"))
+    tr = run_rollouts(specs, builder=builder, router=router, first_turn_ids=FT, decode=decode, writer=writer)[0]
+    writer.close()
+    assert len(tr.turns) == 2 and tr.next_ids is not None and tr.next_spans is not None
+    xs = user_turns("A3", S="题干S", D="60")
+    ids = list(FT(xs[0]))
+    for t in (1, 2):
+        ids, us, ps = builder.next_turn_ex(ids, tr.turns[t - 1].assistant_ids, xs[t])
+    assert tr.next_ids == ids and tuple(tr.next_spans[0]) == tuple(us)
+    row = json.loads(open(tmp_path / "p.jsonl", encoding="utf-8").read().splitlines()[0])
+    assert "next_ids" not in row and "next_spans" not in row
+    full = run_rollouts([RolloutSpec(run_id="r1", problem=PROB, script="A3", arm=Arm.null(), trajectory_idx=1)], builder=builder, router=router,
+                        first_turn_ids=FT, decode=decode)[0]
+    assert full.next_ids is None
+
+
+def test_router_engine_override():
+    resp = lambda ids, seed, alpha, mnt: [IM_END]
+    hf, null = FakeEngine(resp, name="hf"), FakeEngine(resp, name="null")
+    router = EngineRouter(hf, null)
+    req = lambda **kw: GenRequest(ids=[1, 2, 3], seed=0, **kw)
+    assert [r.engine for r in router.generate([req(alpha=0.0), req(alpha=0.5), req(alpha=0.0, engine="hf"), req(alpha=0.0, engine="null")])] == ["null", "hf", "hf", "null"]
+    try:
+        router.generate([req(alpha=0.5, engine="null")])
+        assert False
+    except ValueError:
+        pass

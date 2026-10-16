@@ -90,6 +90,7 @@ class RolloutSpec:
     stop_after: Optional[int] = None            # generate turns <= stop_after only (partial trajectory; e.g. y_2 sampling)
     temperature: Optional[float] = None         # engine-temperature override (only the §5.2 second mining batch, T=1.0)
     stage: str = ""                             # enters the seed and traj_id keys (v1.3): no cross-stage sample reuse
+    engine: Optional[str] = None                # GenRequest routing override (G0.4 path (i): "hf" = hooked HF engine at alpha 0)
     extra: dict = field(default_factory=dict)
 
 
@@ -170,7 +171,7 @@ def run_rollouts(specs: Sequence[RolloutSpec], *, builder: TurnBuilder, router, 
             mnt = st.spec.max_new_tokens or (MAX_NEW_TOKENS_THINK if st.spec.mode == "hybrid_think" else MAX_NEW_TOKENS)
             scope = st.spec.arm.scope if (alpha != 0.0 and st.spec.arm.scope) else "S_gen"
             reqs.append(GenRequest(ids=list(st.ids), seed=seed, alpha=alpha, max_new_tokens=mnt, temperature=st.spec.temperature,
-                                   scope=scope, read_span=(tuple(st.user_span) if scope == "S_read" else None)))
+                                   scope=scope, read_span=(tuple(st.user_span) if scope == "S_read" else None), engine=st.spec.engine))
         if progress:
             progress(f"turn {t}: {len(reqs)} requests")
         results: List[GenResult] = router.generate(reqs)
@@ -186,7 +187,7 @@ def run_rollouts(specs: Sequence[RolloutSpec], *, builder: TurnBuilder, router, 
                             truncated=norm.truncated, truncated_in_think=norm.truncated_in_think,
                             no_think_close=norm.no_think_close, stray_think_tokens=norm.stray_think_tokens)
             st.turns.append(tr)
-            if t < st.spec.T and (st.spec.stop_after is None or t < st.spec.stop_after):
+            if t < st.spec.T:            # also after the last generated turn of a partial trajectory: ids_{t+1} stays in memory (G0.4 path (i))
                 st.ids, st.user_span, st.prev_span = builder.next_turn_ex(st.ids, norm.ids, st.xs[t])
             st.t_next = t + 1
     # ---- z extraction (clean forward on the prompt ids of turns 2-3; done after generation so the batch is large)
@@ -211,6 +212,9 @@ def run_rollouts(specs: Sequence[RolloutSpec], *, builder: TurnBuilder, router, 
                           truncated_in_think=any(tr.truncated_in_think for tr in st.turns),
                           timing_ms=1000.0 * (time.time() - st.t0), subsplit4=subsplit4_of(sp.trajectory_idx),
                           mode=sp.mode, stage=sp.stage, extra={k: v for k, v in sp.extra.items() if not k.startswith("_")})
+        if sp.stop_after is not None and sp.stop_after < sp.T and len(st.turns) >= sp.stop_after:
+            traj.next_ids = list(st.ids)                      # in-memory ids_{stop_after+1}: never serialised (G0.4 path (i))
+            traj.next_spans = (tuple(st.user_span), tuple(st.prev_span) if st.prev_span else None)
         if i in z_refs:
             if zstore is not None:
                 ref = {}
@@ -338,6 +342,11 @@ class _PrefixWithSpans(Prefix):
         super().__init__(ids=pre.ids, turns=pre.turns, prefix_id=pre.prefix_id)
         self.user_span = tuple(user_span)
         self.prev_span = tuple(prev_span) if prev_span else None
+
+
+def prefix_with_spans(pre: Prefix, user_span, prev_span) -> Prefix:
+    """Attach the current-turn spans to a Prefix (e.g. one built from in-memory ids, G0.4 path (i))."""
+    return _PrefixWithSpans(pre, user_span, prev_span)
 
 
 def spec_from_prefix(pre: Prefix, **kw) -> RolloutSpec:

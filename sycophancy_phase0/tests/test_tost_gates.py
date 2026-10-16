@@ -43,6 +43,8 @@ def test_g0_6_null_rate_with_20000():
 
 def test_other_g0_stats():
     assert g0_3(np.array([1e-4, 2e-4, 5e-3])).passed and not g0_3(np.array([1e-4, 2e-2, 5e-3])).passed
+    r3 = g0_3(np.array([1e-4, np.nan, 2e-4]), n_not_applicable=1)          # v1.4: 'cache 不适用' items reported, excluded, never a pass
+    assert r3.passed and r3.details['n_not_applicable'] == 2 and r3.details['n'] == 2 and not g0_3(np.array([np.nan])).passed
     assert g0_7(np.array([-3.0, -10.0])).passed and not g0_7(np.array([-3.0, -np.inf])).passed
     r7 = g0_7(np.array([-3.0, -70.0]))                      # v1.4: finite but < -60 is reported, not a failure
     assert r7.passed and r7.details["extremely_low_prob_share"] == 0.5 and not g0_7(np.array([-3.0, np.nan])).passed

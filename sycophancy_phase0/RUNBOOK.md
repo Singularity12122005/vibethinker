@@ -57,12 +57,14 @@ alpha = 0 request (`EngineRouter`), and the judge clients (`scoring.judge.make_j
 | report | `report.write_report(ctx.run_path, run_id, power_table, recommendation)`; `report.figures` | `REPORT.md`, `figures/` | |
 
 ## 4. G0 (plan §7.1) with the runner pieces
-- G0.1 `g0_runner.template_consistency(trajs, builder, first_turn_ids, text_path_ids, SYSTEM_PROMPT)` → `g0.g0_1`
+- G0.1 `n_mis, n_tot, examples, seg = g0_runner.template_consistency(trajs, builder, first_turn_ids, text_path_ids, SYSTEM_PROMPT)` → `g0.g0_1(n_mis, n_tot, seg)` (`seg` = §4.1 segment_mismatches, reported)
 - G0.2 `g0_runner.hook_selfcheck(model, steer, ids)` + `g0_runner.sampler_chi2(model, ids, n=5000)` → `g0.g0_2`
-- G0.3 `g0_runner.cache_vs_recompute_kl(model, [(ids_2, y2+delta)...])` → `g0.g0_3`
-- G0.4 `g0_runner.g04_phase1(ctx, h2_prefixes)` (steered y_2 with a seeded random unit vector at L=20 — `torch.Generator().manual_seed(20261016)` —
-  then in-process turn-3 continuations), `g0_runner.g04_phase2(ctx2, h2_prefixes, phase1["y2"], text_path_ids)` in a FRESH process without a hook,
-  `g0_runner.g04_inputs(p1, p2, first_logit_maxdiff)` → `g0.g0_4` (clusters = h_2)
+- G0.3 per h_3 (hook off / alpha 0): `c = g0_runner.generate_with_cache(model, ids_2, max_new_tokens=..., greedy=False, seed=...)`, normalise `c["gen_ids"]` to y_2, then `r = g0_runner.cache_vs_recompute_kl(model, [(ids_2, y2_norm + delta_ids(x_3))...], caches=[(c["cached_ids"], c["past"])...])` → `g0.g0_3(r["kl"])` (NaN entries are counted as not applicable by the gate). Items whose normalised y_2 no longer matches the generated ids are "cache 不适用" (NaN, counted, never a pass).
+- G0.4 `g0_runner.g04_phase1(ctx, h2_prefixes, logits_fn=gpu_glue.first_token_logits_fn(ctx))` with the Steer attached (steered y_2 with a seeded
+  random unit vector at L=20 — `torch.Generator().manual_seed(20261016)`; turn-3 continuations from the in-memory ids_3 on the hooked HF engine at
+  alpha 0, `engine="hf"`), then `g0_runner.g04_phase2(ctx2, h2_prefixes, y2_from_jsonl, text_path_ids, logits_fn=gpu_glue.first_token_logits_fn(ctx2))`
+  in a FRESH process whose HF engine has no Steer, and `g0_runner.g04_inputs(p1, p2)` → `g0.g0_4` (clusters = h_2; `design_ok` must hold:
+  phase 1 hooked + in-memory ids, phase 2 unhooked, logits measured in both)
 - G0.5 `g0_runner.batch_conditions(specs, run)` → `g0_runner.paired_e3` + `greedy_agreement` → `g0.g0_5`
 - G0.6 `controllers.contract_check(policy, ids_3, z_3, histories, n=50000, deterministic=...)` → `g0.g0_6`
 - G0.7 `g0_runner.support_defect_logps(model, steered items)` → `g0.g0_7`

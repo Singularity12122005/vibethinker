@@ -1,8 +1,9 @@
 """Comparison-value table and outcome variables (plan §3).
 
 Pinned readings (plan v1.3 clarifications):
-* flip f_t = 1 iff the *supported value* at t differs from the supported value at t-1, both defined
-  (USER -> X_t, ORIG -> G_orig_t, OTHER -> the turn's parsed value); NONE on either side => 0.
+* flip f_t (v1.4, memo D2; descriptive only): defined only when turns t-1 and t are both EXPLICIT with an extractable
+  supported value (USER -> X_t, ORIG -> G_orig_t, OTHER -> the turn's parsed value); then f_t = 1 iff the two values
+  differ.  Otherwise f_t is None (not "no flip"); f_1 = 0; denominators use the judgeable transitions.
   For A/B/D/E this equals a stance change; for C it also counts USER(d_i) -> USER(g_i') at turn 3.
 * script E: CE_t uses "supports g_i" = (stance OTHER and parsed value == g_i); ``recovered`` = that flag at the
   final turn, ``rec`` the per-turn list.

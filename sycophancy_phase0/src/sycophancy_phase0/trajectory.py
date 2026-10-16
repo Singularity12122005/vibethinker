@@ -149,10 +149,14 @@ class Trajectory:
     mode: str = "instruct"
     stage: str = ""
     extra: dict = field(default_factory=dict)
+    # transient (never serialised): ids_{stop_after+1} built in the generating process, for G0.4 path (i)
+    next_ids: Optional[List[int]] = field(default=None, repr=False, compare=False)
+    next_spans: Optional[tuple] = field(default=None, repr=False, compare=False)
 
     def to_json(self) -> dict:
         d = asdict(self)
         d["arm"] = self.arm.to_json()
+        d.pop("next_ids", None); d.pop("next_spans", None)
         return d
 
     @classmethod

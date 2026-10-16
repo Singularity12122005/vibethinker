@@ -76,11 +76,13 @@ def counts_by_y2(conts: Sequence[Trajectory]) -> Dict[str, Dict[str, object]]:
     acc: Dict[Tuple[str, str], List[Trajectory]] = defaultdict(list)
     for tr in conts:
         acc[(tr.extra["bank_prefix_id"], tr.extra["y2_traj_id"])].append(tr)
-    out: Dict[str, Dict[str, list]] = defaultdict(lambda: dict(K=[], Z=[], M=[], e2=[], Kh=[[], []], Zh=[[], []], Mh=[[], []]))
+    out: Dict[str, Dict[str, list]] = defaultdict(lambda: dict(K=[], Z=[], M=[], e2=[], S1=[], S2=[], Kh=[[], []], Zh=[[], []], Mh=[[], []]))
     for (pid, yid), trs in acc.items():
         e = np.array([t.outcomes["e"] for t in trs])
         d = out[pid]
         d["K"].append(int(e[:, 3].sum())); d["Z"].append(int(((e[:, 2] == 0) & (e[:, 3] == 0)).sum())); d["M"].append(len(trs))
+        s34 = e[:, 2] + e[:, 3]                                       # continuations with 1 / 2 failures (finite-λ curve, §8.4)
+        d["S1"].append(int((s34 == 1).sum())); d["S2"].append(int((s34 == 2).sum()))
         d["e2"].append(int(trs[0].extra["e2"]))
         for h in (0, 1):
             sub = [t for t in trs if t.subsplit == h]
@@ -91,8 +93,11 @@ def counts_by_y2(conts: Sequence[Trajectory]) -> Dict[str, Dict[str, object]]:
     return {pid: {k: (np.array(v) if k not in ("Kh", "Zh", "Mh") else [np.array(x) for x in v]) for k, v in d.items()} for pid, d in out.items()}
 
 
+LAMBDA_KL_CURVE = (0.1, 0.3, 1.0)        # plan §8.4 descriptive finite-λ curve (report only)
+
+
 def g2a_estimates(counts: Dict[str, Dict[str, object]], lam_kl: float, kappa1: Optional[float] = None, n_boot: int = 2000, seed: int = 0,
-                  n_boot_var: int = 2000, n_inner_var: int = 50) -> Dict[str, object]:
+                  n_boot_var: int = 2000, n_inner_var: int = 50, lam_curve: Sequence[float] = LAMBDA_KL_CURVE) -> Dict[str, object]:
     pids = sorted(counts)
     per: Dict[str, dict] = {}
     for pid in pids:
@@ -135,8 +140,16 @@ def g2a_estimates(counts: Dict[str, Dict[str, object]], lam_kl: float, kappa1: O
     lo, hi = float(np.quantile(bs, 0.05)), float(np.quantile(bs, 0.95))
     k1 = kappa1 if kappa1 is not None else KAPPA1_PLACEHOLDER
     A = {lam: A_of_lambda(jp["J"], lam, k1) for lam in LAMBDA_DOSE_GRID if lam > 0}
+    # descriptive finite-λ curve J(λ_KL) from the empirical ẑ_3(λ) and λ-dependent P_r weights (plan §8.4, memo S1): not a criterion
+    curve: Dict[float, float] = {}
+    if pids and all("S1" in counts[p] and "S2" in counts[p] for p in pids):
+        from ..analysis.desirability import jensen_gap_lambda_by_prefix
+        S1_all = np.concatenate([np.asarray(counts[p]["S1"]) for p in pids]); S2_all = np.concatenate([np.asarray(counts[p]["S2"]) for p in pids])
+        e2_all = np.concatenate([np.asarray(counts[p]["e2"]) for p in pids])
+        for lk in lam_curve:
+            curve[float(lk)] = jensen_gap_lambda_by_prefix(Z_all, S1_all, S2_all, M_all, e2_all, pref_all, float(lk))["J"]
     return dict(per_prefix=per, J=jp["J"], J_ci95=(lo, hi), J_lb95=lo, J_ub95=hi, J_se=float(bs.std(ddof=1)), frac_flagged=jp["frac_flagged"],
-                J_per_prefix={pid: jp["per_prefix"][pid] for pid in jp["per_prefix"]}, A_of_lambda=A, kappa1_used=k1,
+                J_per_prefix={pid: jp["per_prefix"][pid] for pid in jp["per_prefix"]}, A_of_lambda=A, J_lambda_curve=curve, kappa1_used=k1,
                 kappa1_is_placeholder=kappa1 is None, mean_var_q=float(np.mean([per[p]["var_q"] for p in pids])),
                 frontier_mean={k: float(np.mean([per[p]["frontier"].get(k, np.nan) for p in pids])) for k in KAPPAS})
 

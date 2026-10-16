@@ -198,3 +198,30 @@ def finish_for(ctx: Context, fine_by_layer: Dict[int, Dict[float, Dict[str, floa
             entries[key] = alpha_max_entry(direction, layer, fold, sel["alpha_max"], k1, fine, coarse, dict(selection=sel, scope=scope))
         return entries
     return finish
+
+
+# ---------------------------------------------------------------- G0.4 first-token logits (plan §7.1 design note, point 2)
+def first_token_logits_fn(ctx: Context):
+    """fp32 logits at the last prompt position on ctx's HF model, with the Steer hook (when attached) set to alpha 0 over
+    the generation positions — the exact state path (i) generates in.  Phase 2 runs it in a process with no hook."""
+    import numpy as _np
+    import torch
+
+    model = ctx.model
+    steer = getattr(ctx.extra.get("hf_engine"), "steer", None)
+
+    def f(ids):
+        ids_t = torch.as_tensor([int(x) for x in ids], dtype=torch.long, device=model.device)[None]
+        att = torch.ones_like(ids_t)
+        saved = steer.state() if steer is not None else None
+        if steer is not None:
+            steer.set([0.0], "S_gen", gen_start=torch.tensor([ids_t.shape[1] - 1]))
+        try:
+            with torch.no_grad():
+                out = model(input_ids=ids_t, attention_mask=att, use_cache=False, return_dict=True)
+        finally:
+            if steer is not None:
+                steer.restore(saved)
+        return out.logits[0, -1].float().cpu().numpy().astype(_np.float32)
+
+    return f

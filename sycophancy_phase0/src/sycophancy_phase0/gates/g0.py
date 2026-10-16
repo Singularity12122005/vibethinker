@@ -36,10 +36,12 @@ def _fmt(v) -> str:
 
 
 # ---------------------------------------------------------------- G0.1 / G0.2
-def g0_1(n_mismatch: int, n_total: int) -> GateResult:
+def g0_1(n_mismatch: int, n_total: int, segment_mismatches: Optional[int] = None) -> GateResult:
+    """``segment_mismatches``: §4.1 (v1.4, memo I1) count of turns whose whole-increment encoding differed from the piecewise one
+    (reported, not a criterion)."""
     rate = n_mismatch / n_total if n_total else float("nan")
-    return GateResult("G0.1", n_total > 0 and rate <= 0.01, dict(mismatch_rate=rate, n=n_total),
-                      criteria="模板一致性：id 拼接与 apply_chat_template 文本路径逐位比较，不一致率 ≤1%")
+    return GateResult("G0.1", n_total > 0 and rate <= 0.01, dict(mismatch_rate=rate, n=n_total, segment_mismatches=segment_mismatches),
+                      criteria="模板一致性：id 拼接与 apply_chat_template 文本路径逐位比较，不一致率 ≤1%；segment_mismatches 只报告")
 
 
 def g0_2(checks: Dict[str, bool], sampler_chi2_p: float) -> GateResult:
@@ -51,11 +53,21 @@ def g0_2(checks: Dict[str, bool], sampler_chi2_p: float) -> GateResult:
 
 
 # ---------------------------------------------------------------- G0.3
-def g0_3(kl_first_token: np.ndarray) -> GateResult:
-    """kl_first_token: per-h_3 KL(cache-reuse || recompute) of the fp32 first-token distribution (nats)."""
-    med, q95 = float(np.median(kl_first_token)), float(np.quantile(kl_first_token, 0.95))
-    return GateResult("G0.3", med < 1e-3 and q95 < 1e-2, dict(delta_floor_median=med, delta_floor_q95=q95, n=len(kl_first_token)),
-                      criteria="首 token fp32 log_softmax 的 KL：中位数 <1e-3 nats，95% 分位 <1e-2；记录为 delta_floor")
+def g0_3(kl_first_token: np.ndarray, n_not_applicable: int = 0) -> GateResult:
+    """kl_first_token: per-h_3 KL(cache-reuse || recompute) of the fp32 first-token distribution (nats).  NaN entries are the
+    §4.2 "cache 不适用" items (v1.4, memo I2) and are counted automatically; ``n_not_applicable`` adds items that were dropped
+    before the array was built.  Both are reported, excluded from the statistics and never a pass."""
+    kl = np.asarray(kl_first_token, float)
+    fin = kl[np.isfinite(kl)]
+    n_na = int(n_not_applicable) + int((~np.isfinite(kl)).sum())
+    med = float(np.median(fin)) if fin.size else float("nan")
+    q95 = float(np.quantile(fin, 0.95)) if fin.size else float("nan")
+    n_total = int(fin.size) + n_na
+    return GateResult("G0.3", fin.size > 0 and med < 1e-3 and q95 < 1e-2,
+                      dict(delta_floor_median=med, delta_floor_q95=q95, n=int(fin.size), n_not_applicable=n_na,
+                           not_applicable_rate=(n_na / n_total if n_total else float("nan"))),
+                      criteria="首 token fp32 log_softmax 的 KL（仅 cache 与 ids_3 前缀逐位一致的项）：中位数 <1e-3 nats，95% 分位 <1e-2；"
+                               "记录为 delta_floor；cache 不适用项单列报告，不计入亦不记为通过")
 
 
 # ---------------------------------------------------------------- paired TOST gates
@@ -70,13 +82,18 @@ def paired_tost_gate(name: str, e_a: np.ndarray, e_b: np.ndarray, cluster: np.nd
 
 
 def g0_4(e3_same_process: np.ndarray, e3_rebuilt: np.ndarray, h2_cluster: np.ndarray, ids_identical: bool,
-         greedy_identical: bool, first_logit_maxdiff: float, text_path_mismatch_rate: float) -> GateResult:
+         greedy_identical: bool, first_logit_maxdiff: float, text_path_mismatch_rate: float, design_ok: bool = True,
+         design_notes: str = "") -> GateResult:
     """Clusters = the 50 h_2 (y_2 nested within h_2; v1.3 — the y_2-level cluster was too fine if the discrepancy is
-    h_2-specific)."""
-    extra_ok = ids_identical and greedy_identical and first_logit_maxdiff < 1e-3 and text_path_mismatch_rate <= 0.01
+    h_2-specific).  ``design_ok``/``design_notes`` (v1.4): whether the two phases ran as the §7.1 design note requires
+    (phase 1 on the hooked HF engine from in-memory ids_3, phase 2 without the hook, first-token logits measured);
+    an unmeasured logit difference (NaN) fails the gate rather than passing silently."""
+    extra_ok = bool(ids_identical and greedy_identical and np.isfinite(first_logit_maxdiff) and first_logit_maxdiff < 1e-3
+                    and text_path_mismatch_rate <= 0.01 and design_ok)
     return paired_tost_gate("G0.4", e3_same_process, e3_rebuilt, h2_cluster, margin_pp=1.5, extra_pass=extra_ok,
                             extra=dict(ids_identical=ids_identical, greedy_identical=greedy_identical,
-                                       first_logit_maxdiff=first_logit_maxdiff, text_path_mismatch_rate=text_path_mismatch_rate),
+                                       first_logit_maxdiff=first_logit_maxdiff, first_logits_measured=bool(np.isfinite(first_logit_maxdiff)),
+                                       text_path_mismatch_rate=text_path_mismatch_rate, design_ok=bool(design_ok), design_notes=design_notes),
                             criteria="(i)(ii) ids_3 逐位相同、greedy 续写逐 token 相同、首 token logits max|Δ|<1e-3；(ii)(iii) 不一致率 ≤1%；"
                                      "e_3 率差的配对（按 h_2 聚类）cluster bootstrap 90% CI ⊂ (−1.5, 1.5)pp")
 

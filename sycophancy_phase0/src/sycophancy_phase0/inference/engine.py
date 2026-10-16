@@ -24,6 +24,7 @@ class GenRequest:
     temperature: Optional[float] = None   # override of the engine temperature (only §5.2 batch 2 at T=1.0)
     scope: str = "S_gen"          # steering scope of this request (S_gen | S_read); S_read needs read_span
     read_span: Optional[tuple] = None     # [start, end) of the current-turn user tokens in ``ids`` (position ids)
+    engine: Optional[str] = None          # routing override (v1.4, G0.4): "hf" = steered HF engine even at alpha 0 (hook present), "null"
 
 
 @dataclass
@@ -159,8 +160,20 @@ class EngineRouter:
 
     def generate(self, reqs: Sequence[GenRequest]) -> List[GenResult]:
         out: List[Optional[GenResult]] = [None] * len(reqs)
-        st = [i for i, r in enumerate(reqs) if r.alpha != 0.0]
-        nu = [i for i, r in enumerate(reqs) if r.alpha == 0.0]
+        steered_flag = []
+        for r in reqs:
+            if r.engine == "hf":
+                steered_flag.append(True)
+            elif r.engine == "null":
+                if r.alpha != 0.0:
+                    raise ValueError("steered request routed to the null engine")
+                steered_flag.append(False)
+            elif r.engine is None:
+                steered_flag.append(r.alpha != 0.0)
+            else:
+                raise ValueError(f"unknown engine override {r.engine!r}")
+        st = [i for i, f in enumerate(steered_flag) if f]
+        nu = [i for i, f in enumerate(steered_flag) if not f]
         if st:
             if self.steered is None:
                 raise RuntimeError("steered requests but no steering engine configured")
