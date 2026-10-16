@@ -12,7 +12,8 @@ import numpy as np
 from ..constants import TEMPERATURE
 from ..inference.engine import EngineRouter, GenRequest
 from ..inference.templates import TurnBuilder
-from ..rollout import Prefix, RolloutSpec, run_rollouts, spec_from_prefix
+from ..rollout import Prefix, RolloutSpec, prefix_from_trajectory, run_rollouts, spec_from_prefix
+from ..scripts.builders import user_turns
 from ..trajectory import Arm, Trajectory
 
 
@@ -206,3 +207,98 @@ def greedy_agreement(trajs_a: Sequence[Trajectory], trajs_b: Sequence[Trajectory
     """Share of paired greedy continuations whose first generated token agrees (G0.5 argmax criterion)."""
     agree = [ta.turns[t - 1].assistant_ids[0] == tb.turns[t - 1].assistant_ids[0] for ta, tb in zip(trajs_a, trajs_b)]
     return float(np.mean(agree)) if agree else float("nan")
+
+
+# ---------------------------------------------------------------- G0.4 text-state equivalence (§7.1), two phases
+def g04_phase1(ctx, h2_prefixes: Sequence[Tuple[object, Prefix]], *, n_y2: int = 8, n_cont: int = 32, alphas: Sequence[float] = (0.5, -0.5),
+               arm_builder: Callable[[float], Arm] = None, stage: str = "G04_phase1") -> Dict[str, object]:
+    """In-process: for each h_2 and alpha in ±0.5 generate n_y2 steered y_2 (stop_after=2), then continue turn 3 for each y_2
+    in the SAME process / Steer instance / batch composition: 1 greedy + n_cont sampled (alpha = 0).  Returns the records
+    needed by phase 2 (assistant ids + texts of y_2, in-process ids_3 hashes, greedy first tokens, e_3 rates)."""
+    from ..stages import run_specs
+    specs = []
+    for problem, pre in h2_prefixes:
+        for a in alphas:
+            arm = arm_builder(a) if arm_builder else Arm(u=[0, (1.0 if a > 0 else -1.0), 0, 0], direction="v_rand", layer=20, alpha_max=abs(a),
+                                                         scope="S_gen", fold_version=0)
+            for j in range(n_y2):
+                specs.append(spec_from_prefix(pre, run_id=ctx.run_id, problem=problem, script="A3", arm=arm, trajectory_idx=64 + j, block="est",
+                                              stop_after=2, extra=dict(g04_h2=pre.prefix_id, g04_alpha=a)))
+    y2 = run_specs(ctx, specs, stage + "_y2", judge=True)
+    # continuation specs (alpha = 0) from the in-memory y_2 trajectories; greedy handled by a dedicated request
+    cont_specs = []
+    for tr in y2:
+        pre3 = prefix_from_trajectory(tr, ctx.builder, ctx.first_turn_ids, upto_turn=3, problem=next(p for p, _ in h2_prefixes if p.problem_id == tr.problem_id))
+        for j in range(n_cont):
+            cont_specs.append(spec_from_prefix(pre3, run_id=ctx.run_id, problem=next(p for p, _ in h2_prefixes if p.problem_id == tr.problem_id), script="A3",
+                                               arm=Arm.null(), trajectory_idx=64 + j, block="est", stop_after=3,
+                                               extra=dict(g04_h2=tr.extra["g04_h2"], g04_y2=tr.traj_id, g04_path="i", ids3_hash=pre3.prefix_id)))
+    conts = run_specs(ctx, cont_specs, stage + "_cont_i", judge=True)
+    greedy = {}
+    for tr in y2:
+        pre3 = prefix_from_trajectory(tr, ctx.builder, ctx.first_turn_ids, upto_turn=3, problem=next(p for p, _ in h2_prefixes if p.problem_id == tr.problem_id))
+        res = ctx.router.generate([GenRequest(pre3.ids, seed=0, alpha=0.0, max_new_tokens=32, greedy=True)])[0]
+        greedy[tr.traj_id] = dict(ids3_hash=pre3.prefix_id, greedy_ids=res.ids)
+    return dict(y2=y2, conts=conts, greedy=greedy)
+
+
+def g04_phase2(ctx, h2_prefixes: Sequence[Tuple[object, Prefix]], phase1_y2: Sequence[Trajectory], text_path_ids: Optional[Callable] = None, *,
+               n_cont: int = 32, stage: str = "G04_phase2") -> Dict[str, object]:
+    """New process, no hook: rebuild ids_3 from the JSONL assistant_ids (path ii) and from assistant_text via the chat
+    template (path iii); compare, then continue (greedy 1 + n_cont sampled).  Returns the g0_4 inputs."""
+    from ..stages import run_specs
+    by_pid = {p.problem_id: p for p, _ in h2_prefixes}
+    specs, ids_identical, text_mismatch, greedy2 = [], True, 0, {}
+    for tr in phase1_y2:
+        pre3 = prefix_from_trajectory(tr, ctx.builder, ctx.first_turn_ids, upto_turn=3, problem=by_pid[tr.problem_id])
+        if text_path_ids is not None:
+            msgs = [{"role": "system", "content": ctx.config["system_prompt"]}]
+            for k, t in enumerate(tr.turns):
+                msgs += [{"role": "user", "content": t.user_text}, {"role": "assistant", "content": t.assistant_text}]
+            xs = user_turns("A3", S=by_pid[tr.problem_id].statement_zh, D=by_pid[tr.problem_id].distractor or "")
+            msgs.append({"role": "user", "content": xs[2]})
+            if list(text_path_ids(msgs)) != list(pre3.ids):
+                text_mismatch += 1
+        res = ctx.router.generate([GenRequest(pre3.ids, seed=0, alpha=0.0, max_new_tokens=32, greedy=True)])[0]
+        greedy2[tr.traj_id] = dict(ids3_hash=pre3.prefix_id, greedy_ids=res.ids)
+        for j in range(n_cont):
+            specs.append(spec_from_prefix(pre3, run_id=ctx.run_id, problem=by_pid[tr.problem_id], script="A3", arm=Arm.null(), trajectory_idx=64 + j,
+                                          block="est", stop_after=3, extra=dict(g04_h2=tr.extra["g04_h2"], g04_y2=tr.traj_id, g04_path="ii", ids3_hash=pre3.prefix_id)))
+    conts = run_specs(ctx, specs, stage + "_cont_ii", judge=True)
+    return dict(conts=conts, greedy=greedy2, text_path_mismatch_rate=(text_mismatch / max(1, len(phase1_y2))))
+
+
+def g04_inputs(p1: Dict[str, object], p2: Dict[str, object], first_logit_maxdiff: float = 0.0) -> Dict[str, object]:
+    """Pair phase-1 and phase-2 continuations by y_2; clusters = h_2 (plan v1.3)."""
+    e_i, e_ii, cl = [], [], []
+    h2_index = {}
+    by_i: Dict[str, List[float]] = {}
+    for tr in p1["conts"]:
+        by_i.setdefault(tr.extra["g04_y2"], []).append(float(tr.outcomes["e"][2]))
+    by_ii: Dict[str, List[float]] = {}
+    for tr in p2["conts"]:
+        by_ii.setdefault(tr.extra["g04_y2"], []).append(float(tr.outcomes["e"][2]))
+    h2_of = {tr.extra["g04_y2"]: tr.extra["g04_h2"] for tr in p1["conts"]}
+    for y2id in sorted(set(by_i) & set(by_ii)):
+        n = min(len(by_i[y2id]), len(by_ii[y2id]))
+        e_i += by_i[y2id][:n]; e_ii += by_ii[y2id][:n]
+        cl += [h2_index.setdefault(h2_of[y2id], len(h2_index))] * n
+    ids_identical = all(p1["greedy"][k]["ids3_hash"] == p2["greedy"][k]["ids3_hash"] for k in p2["greedy"] if k in p1["greedy"])
+    greedy_identical = all(p1["greedy"][k]["greedy_ids"] == p2["greedy"][k]["greedy_ids"] for k in p2["greedy"] if k in p1["greedy"])
+    return dict(e3_same_process=np.array(e_i), e3_rebuilt=np.array(e_ii), h2_cluster=np.array(cl), ids_identical=ids_identical,
+                greedy_identical=greedy_identical, first_logit_maxdiff=first_logit_maxdiff, text_path_mismatch_rate=p2["text_path_mismatch_rate"])
+
+
+# ---------------------------------------------------------------- G0.8 cross-stack
+def cross_stack(ctx_hf, ctx_vllm, specs: Sequence[RolloutSpec], stage: str = "G08") -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Same specs (hence the same seeds) on two engines; returns (e3_hf, e3_vllm, h3 clusters) paired by (prefix, idx)."""
+    from ..stages import run_specs
+    a = run_specs(ctx_hf, specs, stage + "_hf")
+    b = run_specs(ctx_vllm, specs, stage + "_vllm")
+    key = lambda tr: (tr.prefix_id, tr.trajectory_idx)
+    bm = {key(tr): tr for tr in b}
+    ea, eb, cl, idx = [], [], [], {}
+    for tr in a:
+        if key(tr) in bm:
+            ea.append(float(tr.outcomes["e"][2])); eb.append(float(bm[key(tr)].outcomes["e"][2])); cl.append(idx.setdefault(tr.prefix_id, len(idx)))
+    return np.array(ea), np.array(eb), np.array(cl)

@@ -41,6 +41,22 @@ def load_r_L(ctx: Context) -> Dict[int, float]:
     return {int(k): float(v) for k, v in json.load(open(os.path.join(ctx.run_path, "configs", "r_L.json"))).items()}
 
 
+# ---------------------------------------------------------------- z_t extraction for the rollout loop (§4.5)
+def z_fn_for(ctx: Context, layers: Sequence[int] = Z_LAYERS, batch_size: int = 8) -> Callable:
+    """run_rollouts(z_fn=...): clean-forward R1/R2/R3 rows per (prompt ids, user_span, prev_assistant_span); the ZStore in
+    ``ctx.extra["zstore"]`` persists them (fp16 unless overflow)."""
+    def z_fn(ids_list, user_spans, prev_spans):
+        rows = []
+        for s in range(0, len(ids_list), batch_size):
+            z = extract_z(ctx.model, [list(x) for x in ids_list[s:s + batch_size]], layers, [tuple(u) for u in user_spans[s:s + batch_size]],
+                          [tuple(p) if p else None for p in prev_spans[s:s + batch_size]])
+            n = len(ids_list[s:s + batch_size])
+            for b in range(n):
+                rows.append({pos: {int(L): z[pos][L][b].numpy() for L in layers if L in z[pos]} for pos in ("R1", "R2", "R3") if z[pos]})
+        return rows
+    return z_fn
+
+
 # ---------------------------------------------------------------- activations
 def acts_fn_for(ctx: Context, layers: Sequence[int] = DIRECTION_LAYERS, k: int = FIRST_K, batch_size: int = 16) -> Callable:
     """stage_g40(acts_fn=...): first-16-token means per layer for (h_3 ids, y_3 ids) items."""

@@ -27,6 +27,8 @@ class VLLMEngine:
         self.llm = llm
         self.T = float(temperature)
         self.eos_ids = [IM_END, ENDOFTEXT]
+        self.n_generated_tokens = 0
+        self.n_prompt_tokens = 0
         self.assert_defaults_overridden()
 
     def assert_defaults_overridden(self) -> None:
@@ -61,4 +63,5 @@ class VLLMEngine:
             ids = list(c.token_ids)
             fr = "length" if c.finish_reason == "length" else "stop"
             res.append(GenResult(ids, fr, self.name))
+            self.n_generated_tokens += len(ids); self.n_prompt_tokens += len(r.ids)
         return res

@@ -60,15 +60,16 @@ alpha = 0 request (`EngineRouter`), and the judge clients (`scoring.judge.make_j
 - G0.1 `g0_runner.template_consistency(trajs, builder, first_turn_ids, text_path_ids, SYSTEM_PROMPT)` → `g0.g0_1`
 - G0.2 `g0_runner.hook_selfcheck(model, steer, ids)` + `g0_runner.sampler_chi2(model, ids, n=5000)` → `g0.g0_2`
 - G0.3 `g0_runner.cache_vs_recompute_kl(model, [(ids_2, y2+delta)...])` → `g0.g0_3`
-- G0.4 generate y_2 under ±0.5 with a seeded random unit vector at L=20 (`torch.Generator().manual_seed(20261016)`), continue turn 3
-  in-process (same `Steer`, α=0) and from a fresh process via `rollout.prefix_from_trajectory`; `g0.g0_4` (clusters = h_2)
+- G0.4 `g0_runner.g04_phase1(ctx, h2_prefixes)` (steered y_2 with a seeded random unit vector at L=20 — `torch.Generator().manual_seed(20261016)` —
+  then in-process turn-3 continuations), `g0_runner.g04_phase2(ctx2, h2_prefixes, phase1["y2"], text_path_ids)` in a FRESH process without a hook,
+  `g0_runner.g04_inputs(p1, p2, first_logit_maxdiff)` → `g0.g0_4` (clusters = h_2)
 - G0.5 `g0_runner.batch_conditions(specs, run)` → `g0_runner.paired_e3` + `greedy_agreement` → `g0.g0_5`
 - G0.6 `controllers.contract_check(policy, ids_3, z_3, histories, n=50000, deterministic=...)` → `g0.g0_6`
 - G0.7 `g0_runner.support_defect_logps(model, steered items)` → `g0.g0_7`
-- G0.8 same 200 h_3 × 128 on `HFEngine` and `VLLMEngine` → `g0.g0_8`
+- G0.8 `g0_runner.cross_stack(ctx_hf, ctx_vllm, continuation_specs(...))` (same specs ⇒ same seeds ⇒ paired) → `g0.g0_8`
 Then `g0.write_gates_md(results, GATES.md, run_id)`; GO only with all eight present and passing.
 
 ## 5. Things the code does not do for you
 - Download models/datasets; launch vLLM servers; the M_hybrid thinking-arm prefixes for G3 (build with `TurnBuilder(..., "hybrid_think")`
   and `max_new_tokens=4096`); the human annotation itself; figures beyond the CSV/PNG set in `report.figures`.
-- Budget tracking (plan §7.13): log token counts from the engines per stage into `tables/budget.json`.
+- Budget: `stages.budget_snapshot` appends the engines' token counters to `tables/budget.json` at every GATES entry (plan §7.13).

@@ -60,6 +60,8 @@ class HFEngine:
         self.pad_id = pad_id
         self.eos_ids = tuple(int(e) for e in eos_ids)
         self.device = device
+        self.n_generated_tokens = 0
+        self.n_prompt_tokens = 0
 
     def generate(self, reqs: Sequence[GenRequest]) -> List[GenResult]:
         import torch
@@ -102,6 +104,8 @@ class HFEngine:
                     cut = next((k for k, t in enumerate(g) if t in self.eos_ids), None)
                     g = g[: cut + 1] if cut is not None else g
                     out[i] = GenResult(g, finish_reason_from_ids(g, mnt), self.name)
+                    self.n_generated_tokens += len(g)
+                    self.n_prompt_tokens += len(reqs[i].ids)
         return [o for o in out]  # type: ignore
 
 
@@ -118,6 +122,8 @@ class FakeEngine:
         self.supports_steering = supports_steering
         self.name = name
         self.calls: List[List[GenRequest]] = []
+        self.n_generated_tokens = 0
+        self.n_prompt_tokens = 0
 
     def generate(self, reqs: Sequence[GenRequest]) -> List[GenResult]:
         self.calls.append(list(reqs))
@@ -127,6 +133,7 @@ class FakeEngine:
                 raise RuntimeError("steered request on a non-steering engine")
             g = list(self.responder(list(r.ids), r.seed, r.alpha, r.max_new_tokens))
             res.append(GenResult(g, finish_reason_from_ids(g, r.max_new_tokens), self.name))
+            self.n_generated_tokens += len(g); self.n_prompt_tokens += len(r.ids)
         return res
 
 

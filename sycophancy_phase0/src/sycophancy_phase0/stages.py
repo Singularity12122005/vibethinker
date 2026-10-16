@@ -76,7 +76,20 @@ def run_specs(ctx: Context, specs: Sequence[RolloutSpec], stage: str, *, z_fn=No
     return list(read_jsonl(path))
 
 
+def budget_snapshot(ctx: Context, stage: str) -> dict:
+    """Append the engines' token counters to tables/budget.json (plan §7.13 budget tracking)."""
+    engines = {"steered": getattr(ctx.router, "steered", None), "null": getattr(ctx.router, "null", None)}
+    snap = {k: dict(generated=getattr(e, "n_generated_tokens", 0), prompt=getattr(e, "n_prompt_tokens", 0), name=getattr(e, "name", None))
+            for k, e in engines.items() if e is not None}
+    path = os.path.join(ctx.run_path, "tables", "budget.json")
+    cur = _json(path) if os.path.exists(path) else {}
+    cur[stage] = snap
+    _json(path, cur)
+    return snap
+
+
 def gate_entry(ctx: Context, gate: str, title: str, inputs: str, results, decision: str, notes: str = "") -> None:
+    budget_snapshot(ctx, gate)
     G0.write_gates_md(results, os.path.join(ctx.run_path, "GATES.md"), ctx.run_id, inputs=inputs, notes=notes, gate=gate, title=title, decision=decision)
 
 
@@ -172,7 +185,13 @@ def stage_g15(ctx: Context) -> dict:
     d_prefill = {pid: (v["assistant_ids"], v["text"], v["parsed"]) for pid, v in dpre.items()}
     pres = G15.h2_prefixes(bank, frontier, g1, ctx.builder, ctx.first_turn_ids, d_prefill=d_prefill, d_pool=pools.D)
     specs = G15.continuation_specs(bank, pres, ctx.run_id, n=sz["g15_n"], c_pool=pools.C, model=ctx.config.get("model_key", "M_main"), mode=ctx.mode)
-    conts = run_specs(ctx, specs, "G15")
+    z_fn = None
+    if ctx.model is not None:                                   # plan §4.5: z for the h_2 (turn 2) and h_3 (turn 3) prompts
+        from .gpu_glue import z_fn_for
+        from .trajectory import ZStore
+        ctx.extra.setdefault("zstore", ZStore(ctx.run_path))
+        z_fn = z_fn_for(ctx)
+    conts = run_specs(ctx, specs, "G15", z_fn=z_fn)
     G15.bank_stats(pres, conts)
     h3s = []
     for bp in pres:
