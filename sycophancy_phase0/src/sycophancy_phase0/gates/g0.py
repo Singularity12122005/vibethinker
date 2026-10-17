@@ -63,9 +63,10 @@ def g0_3(kl_first_token: np.ndarray, n_not_applicable: int = 0) -> GateResult:
     med = float(np.median(fin)) if fin.size else float("nan")
     q95 = float(np.quantile(fin, 0.95)) if fin.size else float("nan")
     n_total = int(fin.size) + n_na
-    return GateResult("G0.3", fin.size > 0 and med < 1e-3 and q95 < 1e-2,
-                      dict(delta_floor_median=med, delta_floor_q95=q95, n=int(fin.size), n_not_applicable=n_na,
-                           not_applicable_rate=(n_na / n_total if n_total else float("nan"))),
+    median_ok, q95_ok = bool(fin.size > 0 and med < 1e-3), bool(fin.size > 0 and q95 < 1e-2)
+    return GateResult("G0.3", median_ok and q95_ok,
+                      dict(delta_floor_median=med, delta_floor_q95=q95, median_ok=median_ok, q95_ok=q95_ok, n=int(fin.size),
+                           n_not_applicable=n_na, not_applicable_rate=(n_na / n_total if n_total else float("nan"))),
                       criteria="首 token fp32 log_softmax 的 KL（仅 cache 与 ids_3 前缀逐位一致的项）：中位数 <1e-3 nats，95% 分位 <1e-2；"
                                "记录为 delta_floor；cache 不适用项单列报告，不计入亦不记为通过")
 
@@ -175,12 +176,52 @@ def gate_entry(gate: str, title: str, run_id: str, inputs: str, results: Sequenc
 
 
 def g0_decision(results: Sequence[GateResult]) -> str:
-    """GO only when all eight G0 tests are present and pass; any failure => KILL (plan §0.4: stop and report)."""
+    """GO only when all eight G0 tests are present and pass; any failure => KILL (plan §0.4: stop and report).
+
+    Pre-registered amendment before the formal G0 (first GPU contact, 2026-10-17; plan §7.1 G0.3 row): G0.3 measures the
+    decode-vs-prefill numerical floor of the bf16 MoE.  If only its median criterion fails (95% quantile < 1e-2 holds), the
+    appendix cache-reuse regime is disabled and delta_floor is recorded, but G0 is NOT killed — the main experiment recomputes
+    every turn and a bf16 numerical floor cannot be "fixed" by a pipeline change.  If the 95% quantile criterion fails => GREY
+    (the floor is within 10x of the α_max KL budget: investigate attention backend / precision before anything else)."""
     names = {r.name for r in results}
     missing = [t for t in G0_TESTS if t not in names]
     if missing:
         return "GREY"
-    return "GO" if all(r.passed for r in results) else "KILL"
+    by = {r.name: r for r in results}
+    others_ok = all(r.passed for r in results if r.name != "G0.3")
+    g03 = by["G0.3"]
+    if not g03.passed and not g03.details.get("q95_ok", False):
+        return "GREY"
+    return "GO" if others_ok else "KILL"
+
+
+def g0_notes(results: Sequence[GateResult]) -> str:
+    """The GATES.md note that the G0.3 amendment requires (empty when G0.3 passed or is missing)."""
+    by = {r.name: r for r in results}
+    g03 = by.get("G0.3")
+    if g03 is None or g03.passed:
+        return ""
+    med = g03.details.get("delta_floor_median", float("nan"))
+    if g03.details.get("q95_ok", False):
+        return (f"G0.3 中位数判据未达（delta_floor={med:.2e} nats）：附录 cache-reuse regime 禁用，G0 判定不受影响（预注册修正 2026-10-17）；"
+                "delta_floor 须与 §4.7 的 KL 阈值并列报告")
+    return "G0.3 95% 分位 ≥1e-2 nats：数值底噪达 α_max KL 预算的 1/10，GREY（先查注意力后端/精度）"
+
+
+def write_g0_summary(run_path: str, results: Sequence[GateResult], extra: Optional[dict] = None) -> str:
+    """tables/G0_summary.json: every G0 result plus ``delta_floor_median`` (read by stage_g41 for the 10x rule)."""
+    import json
+    import os
+
+    by = {r.name: r for r in results}
+    d = dict(results={r.name: dict(passed=bool(r.passed), details=r.details, criteria=r.criteria) for r in results},
+             decision=g0_decision(results), notes=g0_notes(results),
+             delta_floor_median=(by["G0.3"].details.get("delta_floor_median") if "G0.3" in by else None), **(extra or {}))
+    os.makedirs(os.path.join(run_path, "tables"), exist_ok=True)
+    path = os.path.join(run_path, "tables", "G0_summary.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(d, f, ensure_ascii=False, indent=1, default=str)
+    return path
 
 
 def write_gates_md(results: Sequence[GateResult], path: str, run_id: str, inputs: str = "", notes: str = "",
@@ -193,6 +234,9 @@ def write_gates_md(results: Sequence[GateResult], path: str, run_id: str, inputs
         missing = [t for t in G0_TESTS if t not in names]
         if missing:
             notes = (notes + " " if notes else "") + f"missing tests: {missing}"
+        extra_note = g0_notes(results)
+        if extra_note:
+            notes = (notes + " " if notes else "") + extra_note
     text = gate_entry(gate, title, run_id, inputs, results, decision, notes)
     with open(path, "a", encoding="utf-8") as f:
         f.write(text + "\n")

@@ -112,9 +112,19 @@ def stage_g41(ctx: Context, fine_by_layer: Dict[int, Dict[float, Dict[str, float
     low = [d for d, e in entries.items() if e.get("alpha_max", 1.0) < 0.2]
     summary = dict(L_star=L_star, provisional=prov, screen=drops, alpha_max={d: e.get("alpha_max") for d, e in entries.items()}, switch_layer=low)
     write_summary(ctx.run_path, "G41", summary)
-    res = [G0.GateResult("G4-1", not low, dict(L_star=L_star, alpha_max=summary["alpha_max"]), criteria="α_max ≥ 0.2，否则换层")]
-    gate_entry(ctx, "G4-1", "层选择与 α_max", f"{len(h3s)} h_3 × layers {sorted(prov)}", res, "GO" if not low else "GO-with-caveat",
-               f"α_max<0.2 for {low}" if low else "")
+    # plan §7.1 G0.3 amendment: the α_max KL budget (KL_MAX) must exceed 10x the measured decode-vs-prefill floor
+    from .inference.calibration import KL_MAX
+    floor = None
+    p0 = os.path.join(ctx.run_path, "tables", "G0_summary.json")
+    if os.path.exists(p0):
+        floor = json.load(open(p0, encoding="utf-8")).get("delta_floor_median")
+    floor_bad = bool(floor is not None and np.isfinite(float(floor)) and KL_MAX < 10 * float(floor))
+    summary["delta_floor_median"] = floor
+    res = [G0.GateResult("G4-1", not low, dict(L_star=L_star, alpha_max=summary["alpha_max"], delta_floor_median=floor),
+                         criteria="α_max ≥ 0.2，否则换层；KL 阈值 0.10 须 ≥ 10×delta_floor（G0.3）")]
+    notes = ([f"α_max<0.2 for {low}"] if low else []) + ([f"delta_floor={floor:.2e} ≥ KL_MAX/10：α_max 的 KL 判据不可分辨数值底噪"] if floor_bad else [])
+    decision = "GREY" if floor_bad else ("GO" if not low else "GO-with-caveat")
+    gate_entry(ctx, "G4-1", "层选择与 α_max", f"{len(h3s)} h_3 × layers {sorted(prov)}", res, decision, "; ".join(notes))
     return summary
 
 

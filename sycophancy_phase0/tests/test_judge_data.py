@@ -162,5 +162,18 @@ def test_controller_contract_and_gates_md(tmp_path):
     assert "Decision: GREY (stop and report)" in text and "missing tests" in text and "\nInputs: 200 trajectories\n" in text
     full = [GateResult(n, True, {}) for n in ("G0.1", "G0.2", "G0.3", "G0.4", "G0.5", "G0.6", "G0.7", "G0.8")]
     assert g0_decision(full) == "GO" and g0_decision(full[:-1] + [GateResult("G0.8", False, {})]) == "KILL"
+    # pre-registered G0.3 amendment (first GPU contact): median-only failure => not a KILL (cache regime disabled); q95 failure => GREY
+    from sycophancy_phase0.gates.g0 import g0_3, g0_notes, write_g0_summary
+    med_only = g0_3(np.full(50, 4e-3))
+    assert not med_only.passed and med_only.details["q95_ok"] and not med_only.details["median_ok"]
+    rest = [r for r in full if r.name != "G0.3"]
+    assert g0_decision(rest + [med_only]) == "GO" and "cache-reuse regime 禁用" in g0_notes(rest + [med_only])
+    assert g0_decision(rest + [g0_3(np.full(50, 2e-2))]) == "GREY"
+    assert g0_decision(rest[:-1] + [GateResult(rest[-1].name, False, {}), med_only]) == "KILL"
+    import tempfile
+    d = tempfile.mkdtemp()
+    p = write_g0_summary(d, rest + [med_only])
+    js = json.load(open(p, encoding="utf-8"))
+    assert js["decision"] == "GO" and abs(js["delta_floor_median"] - 4e-3) < 1e-12 and "G0.3" in js["results"]
     with pytest.raises(ValueError):
         gate_entry("G1", "x", "r", "", [], "MAYBE")

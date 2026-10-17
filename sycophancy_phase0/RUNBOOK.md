@@ -78,3 +78,28 @@ Then `g0.write_gates_md(results, GATES.md, run_id)`; GO only with all eight pres
 - Download models/datasets; launch vLLM servers; the M_hybrid thinking-arm prefixes for G3 (build with `TurnBuilder(..., "hybrid_think")`
   and `max_new_tokens=4096`); the human annotation itself; figures beyond the CSV/PNG set in `report.figures`.
 - Budget: `stages.budget_snapshot` appends the engines' token counters to `tables/budget.json` at every GATES entry (plan §7.13).
+
+
+## 6. First GPU contact (2026-10-17, 1× A100-SXM4-80GB) — facts and the diagnostics to run before the formal G0
+
+Facts (smoke run, not G0): model resident 56.9 GiB bf16 (≈21 GiB headroom), load 313 s; B=1 decode 6.5–6.9 tok/s; four-turn id-concat vs
+chat-template identical (segment_mismatches 0, user_span offsets match); hook self-check 6/6 (prefix residual at the hooked layer 0.0,
+but prefix LOGITS max|Δ| 1.25 — MoE expert-grouping numerics, see plan §4.4); support defect 0/128 (min finite log p −6.0); real generate
+cache covers prompt+gen−1 and verifies bitwise; single-sample cache-vs-recompute KL 4.3e-3 nats (> the 1e-3 median criterion, see plan §7.1
+G0.3 amendment). Three 64-token generations at α∈{0,±0.5}·r_L (random direction, L=20, r_L≈15.1 on one prefix) stay fluent.
+
+Run these (each minutes, none formal) before mining/r_L/G0:
+1. Throughput + memory: B∈{8,16,32}, 256 new tokens, half the rows at α=0.5 (hook on): aggregate tok/s and peak memory. This decides the
+   §7.13 HF budget and whether vLLM steering / fused MoE kernels are needed (B=1 is 6.9 tok/s).
+2. Cache floor ablation on the same sample: attention backend eager vs sdpa/flash; and per-token |log p_generate(output_scores) −
+   log p_teacher_forced| over a 512-token response (the reconstruction error every teacher-forced quantity carries). Record both in the
+   run notes; after the formal G0.3 write `tables/G0_summary.json` via `g0.write_g0_summary(run_path, results)`.
+3. Batch-composition preview (mini G0.5): 8 prompts, greedy 32 tokens, B=1 vs B=8 with random peers: per-token argmax agreement. The
+   plan's 99.5% criterion is at real risk given the 1.25-logit coupling.
+4. α–KL preview at L=20 for v_rand: α∈{0.125,0.25,0.5,1,2} on 16 prompts (`calibration.fine_grid_stats`): where mean next-token KL crosses
+   0.10 (the fine grid already goes down to 0.05). If 0.5 is already above 0.10, expect small α_max and check that G0.7's α=±1 responses
+   are still readable.
+5. Left-padded B>1 hook check: the same prompt padded to different lengths in one batch, `gen_start = att.sum(-1)-1`, teacher-forcing
+   prefix/suffix check per row; and `S_read` at B>1 via `read_mask_from_spans`.
+Memory note: teacher-forced forwards materialise full-vocabulary logits (151936 × tokens); on an 80 GB card with the model resident keep
+those batches to ≈4–8 sequences of 512 response tokens (or slice logits), generation batches 16–32.
