@@ -180,6 +180,15 @@ def test_response_logprobs_kl_and_route_flip(model):
         lpa = response_logprobs(model, ids, len(prompt), steer=st, alpha=1.0)
         kl = next_token_kl(model, ids, len(prompt), st, alpha=1.0)
         kl0 = next_token_kl(model, ids, len(prompt), st, alpha=0.0)
+        # round 10: the KL family is pinned to the generation temperature (logits / 0.7), not to raw logits
+        kl_t1 = next_token_kl(model, ids, len(prompt), st, alpha=1.0, temperature=1.0)
+        base_lg = clean_forward(model, [ids])[0].logits.float()[0]
+        st.set([1.0], "S_gen", gen_start=torch.tensor([len(prompt) - 1]))
+        st_lg = clean_forward(model, [ids])[0].logits.float()[0]
+        st.off()
+        k = len(prompt) - 1
+        lp0m, lpam = torch.log_softmax(base_lg[k] / 0.7, -1), torch.log_softmax(st_lg[k] / 0.7, -1)
+        kl_manual = float((lp0m.exp() * (lp0m - lpam)).sum())
         out0, att = clean_forward(model, [ids], output_router_logits=True)
         st.set([1.0], "S_gen", generating=False, gen_start=torch.tensor([len(prompt) - 1]))
         outa, _ = clean_forward(model, [ids], output_router_logits=True)
@@ -188,6 +197,7 @@ def test_response_logprobs_kl_and_route_flip(model):
         st.remove()
     assert lp0.shape == (len(resp),) and not torch.allclose(lp0, lpa)
     assert kl.shape == (len(resp),) and (kl >= -1e-6).all() and torch.allclose(kl0, torch.zeros_like(kl0), atol=1e-6)
+    assert abs(float(kl[0]) - kl_manual) < 1e-5 and abs(float(kl[0]) - float(kl_t1[0])) > 1e-6
     assert len(out0.router_logits) == NL and out0.router_logits[0].shape == (len(ids), NE)
     mask = torch.zeros(1, len(ids), dtype=torch.bool); mask[0, len(prompt) - 1:] = True
     f0 = route_flip_fraction(out0.router_logits, out0.router_logits, 1, TOPK, mask)

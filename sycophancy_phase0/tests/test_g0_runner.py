@@ -9,7 +9,7 @@ from transformers.models.qwen3_moe import Qwen3MoeConfig, Qwen3MoeForCausalLM
 from fake_tok import encode, first_turn_ids, is_ws
 from sycophancy_phase0.constants import IM_END, SYSTEM_PROMPT, TEMPERATURE, THINK_END, THINK_START
 from sycophancy_phase0.gates.g0 import g0_1, g0_2, g0_3, g0_7
-from sycophancy_phase0.gates.g0_runner import (batch_conditions, cache_vs_recompute_kl, continuation_specs, generate_with_cache, generation_vs_teacher_forcing, hook_selfcheck,
+from sycophancy_phase0.gates.g0_runner import (batch_conditions, cache_vs_recompute_kl, continuation_specs, generate_with_cache, generation_vs_teacher_forcing, hook_position_check, hook_selfcheck,
                                                paired_e3, sampler_chi2, support_defect_logps, template_consistency)
 from sycophancy_phase0.inference.engine import EngineRouter, FakeEngine, HFEngine, GenRequest
 from sycophancy_phase0.inference.hf_engine import generate_steered, left_pad, response_logprobs, extract_z
@@ -244,3 +244,82 @@ def test_generation_logprobs_match_teacher_forcing_at_the_same_temperature(model
     assert np.all(r["logp_gen"] <= 1e-6) and np.all(r["logp_gen"] > -50)
     r1 = generation_vs_teacher_forcing(model, ids, max_new_tokens=6, seed=123, eos_ids=(V - 2,), pad_id=V - 1, temperature=1.0)
     assert r1["gen_ids"] != r["gen_ids"] or abs(r1["logp_gen"][0] - r["logp_gen"][0]) > 1e-6     # T changes the distribution
+
+
+def _perturb_hook(mod, args, kwargs, output):
+    """A suffix-dependent change at a LATER layer: every position (the prefix included) now depends on the last position."""
+    hs = output[0] if isinstance(output, tuple) else output
+    new = hs + 1e-2 * hs[:, -1:, :].mean(dim=-1, keepdim=True)
+    return ((new,) + tuple(output[1:])) if isinstance(output, tuple) else new
+
+
+def test_hook_selfcheck_criterion_reads_the_hooked_layer_not_final_logits(model):
+    """Round 10: with a later-layer suffix dependence the final prefix logits move under suffix steering, but the hooked
+    layer's actual output is unchanged, so the criterion must pass while the logit diagnostic is > 0 (the old logits-based
+    criterion would have failed here, which is exactly the A100 situation)."""
+    rng = np.random.default_rng(0)
+    ids = _seq(rng, 14)
+    st = Steer(model, 1, torch.randn(D), r_L=2.0)
+    h = model.model.layers[2].register_forward_hook(_perturb_hook, with_kwargs=True)
+    try:
+        checks, diag = hook_selfcheck(model, st, ids, gen_start=7, with_diagnostics=True)
+    finally:
+        h.remove(); st.remove()
+    assert checks["teacher_forcing_prefix_untouched"] and diag["teacher_forcing_prefix_residual_maxdiff"] == 0.0
+    assert diag["teacher_forcing_prefix_logit_maxdiff"] > 0 and checks["alpha0_equals_no_hook"] and checks["teacher_forcing_suffix_changed"]
+    # the processor-list check starts from the model's generation_config: a model-level processor is seen
+    st = Steer(model, 1, torch.randn(D), r_L=2.0)
+    old = model.generation_config.suppress_tokens
+    try:
+        model.generation_config.suppress_tokens = [5]
+        assert not hook_selfcheck(model, st, ids, gen_start=7)["processor_list_is_sampler_only"]
+        model.generation_config.suppress_tokens = old
+        assert hook_selfcheck(model, st, ids, gen_start=7)["processor_list_is_sampler_only"]
+    finally:
+        model.generation_config.suppress_tokens = old
+        st.remove()
+
+
+def test_cache_vs_recompute_marks_nonfinite_logits_as_faults(model):
+    """Round 10: a non-finite logit on either path is a numerical FAULT (+inf, reason 'FAULT…', g0_3 kind='fault' → KILL), never
+    a 'cache 不适用' NaN."""
+    rng = np.random.default_rng(3)
+    items = [(_seq(rng, 9), _seq(rng, 6)) for _ in range(3)]
+    calls = {"n": 0}
+
+    def nan_hook(mod, args, output):
+        calls["n"] += 1
+        if calls["n"] == 5:                          # item 1's cache-path forward (3 lm_head calls per item)
+            out = output.clone(); out[..., 0] = float("nan"); return out
+        return None
+    h = model.lm_head.register_forward_hook(nan_hook)
+    try:
+        r = cache_vs_recompute_kl(model, items)
+    finally:
+        h.remove()
+    assert r["statuses"] == ["ok", "fault", "ok"] and np.isposinf(r["kl"][1]) and r["reasons"][1].startswith("FAULT") and r["n_faults"] == 1 and r["n_not_applicable"] == 0
+    g3 = g0_3(r["kl"], min_valid=1)
+    assert not g3.passed and g3.details["kind"] == "fault" and g3.details["n_faults"] == 1
+
+
+def test_hook_position_check_left_padding_and_read_mask(model):
+    rng = np.random.default_rng(5)
+    seqs = [_seq(rng, 10), _seq(rng, 7)]
+    st = Steer(model, 1, torch.randn(D), r_L=2.0)
+    try:
+        r = hook_position_check(model, st, seqs, alphas=[1.0, 0.5], pad_id=V - 1)
+        assert r["ok"] and r["rows"][1]["n_pad"] == 3 and r["rows"][0]["n_steered"] == 1 and r["rows"][1]["n_steered"] == 1
+        r2 = hook_position_check(model, st, seqs, gen_starts=[4, 2], alphas=[1.0, 0.5], pad_id=V - 1)
+        assert r2["ok"] and r2["rows"][0]["n_steered"] == 6 and r2["rows"][1]["n_steered"] == 5
+        pm = read_mask_from_spans([(3, 6), (1, 4)], [len(s) for s in seqs])
+        r3 = hook_position_check(model, st, seqs, scope="S_read", pos_masks=pm, alphas=[1.0, 1.0], pad_id=V - 1)
+        assert r3["ok"] and r3["rows"][0]["n_steered"] == 3 and r3["rows"][1]["n_steered"] == 3
+        # a mis-positioned hook (positions shifted by one) is caught
+        orig = st._mask
+        st._mask = lambda B, S, dev, pid: orig(B, S, dev, pid + 1)
+        try:
+            assert not hook_position_check(model, st, seqs, alphas=[1.0, 0.5], pad_id=V - 1)["ok"]
+        finally:
+            st._mask = orig
+    finally:
+        st.remove()

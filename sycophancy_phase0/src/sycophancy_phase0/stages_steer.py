@@ -94,7 +94,10 @@ def _delta_floor(ctx: Context):
     p0 = os.path.join(ctx.run_path, "tables", "G0_summary.json")
     if not os.path.exists(p0):
         return None, "tables/G0_summary.json missing (run g0.write_g0_summary after the formal G0)"
-    v = json.load(open(p0, encoding="utf-8")).get("delta_floor_median")
+    summ = json.load(open(p0, encoding="utf-8"))
+    if summ.get("decision") not in ("GO", "GO-with-caveat"):
+        return None, f"G0 decision is {summ.get('decision')!r}: G4-1 must not run"
+    v = summ.get("delta_floor_median")
     try:
         f = float(v)
     except (TypeError, ValueError):

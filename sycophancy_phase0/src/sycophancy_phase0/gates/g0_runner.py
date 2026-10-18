@@ -78,7 +78,9 @@ def hook_selfcheck(model, steer, ids: Sequence[int], gen_start: Optional[int] = 
                        no_hook_repeat_logit_maxdiff=float((base2 - base).abs().max()), hooked_layer=int(steer.layer), gen_start=gs)
     kw = generate_kwargs([1], TEMPERATURE, max_new_tokens=1, pad_token_id=model.config.pad_token_id or 0,
                          eos_token_id=(model.config.eos_token_id,) if isinstance(model.config.eos_token_id, int) else tuple(model.config.eos_token_id or ()))
-    gc = GenerationConfig(**{k: v for k, v in kw.items() if k != "logits_processor"})
+    import copy as _copy
+    gc = _copy.deepcopy(model.generation_config)                 # what generate() starts from (model-config processors included)
+    gc.update(**{k: v for k, v in kw.items() if k != "logits_processor"})
     procs = model._get_logits_processor(generation_config=gc, input_ids_seq_length=len(ids), encoder_input_ids=None,
                                         prefix_allowed_tokens_fn=None, logits_processor=kw["logits_processor"],
                                         device=str(model.device), model_kwargs={}, negative_prompt_ids=None,
@@ -167,14 +169,19 @@ def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[i
     uncovered suffix is fed with the positions/attention of the full history.  Any mismatch makes the item "cache 不适用":
     KL = NaN, counted in ``n_not_applicable`` with its reason, never spliced into a wrong history and never a pass.
     Without ``caches`` the cache is built here on ids_3[:L] (L = len(ids_2), or ``cached_prefix_len[i]``), which
-    exercises the suffix-feeding arithmetic only.  Returns dict(kl, n_not_applicable, reasons, n, temperature); KL is
-    KL(P_cache || P_recompute) of the fp32 first-token distribution at the generation temperature T (logits / T; the
-    A100 smoke value 4.3e-3 was computed at T = 1 and is a diagnostic under that older convention)."""
+    exercises the suffix-feeding arithmetic only.  Returns dict(kl, n_not_applicable, n_faults, reasons, statuses, n,
+    temperature); KL is KL(P_cache || P_recompute) of the fp32 first-token distribution at the generation temperature T
+    (logits / T; the A100 smoke value 4.3e-3 was computed at T = 1 and is a diagnostic under that older convention).
+
+    Encoding contract with ``g0.g0_3`` (round 10): NaN is written ONLY by the verified prefix-mismatch path ("cache 不适用");
+    a non-finite logit on either path, or a non-finite KL from finite logits, is a NUMERICAL FAULT written as +inf with a
+    ``reasons`` entry starting with "FAULT" (the gate then KILLs); ``statuses`` ∈ {ok, not_applicable, fault} per item."""
     import copy
     import torch
 
     kls: List[float] = []
     reasons: List[Optional[str]] = []
+    statuses: List[str] = []
     with torch.no_grad():
         for i, (ids_2, suffix) in enumerate(items):
             full_ids = [int(x) for x in ids_2] + [int(x) for x in suffix]
@@ -192,7 +199,7 @@ def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[i
                     k = next((k for k in range(L) if full_ids[k] != cached_ids[k]), L)
                     reason = f"cached ids are not a prefix of ids_3 (first difference at {k}; normalisation changed y_2?)"
                 if reason is not None:
-                    kls.append(float("nan")); reasons.append(reason)
+                    kls.append(float("nan")); reasons.append(reason); statuses.append("not_applicable")
                     continue
                 past = copy.deepcopy(past)                      # feeding the suffix extends the cache: keep the caller's intact
             else:
@@ -208,13 +215,87 @@ def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[i
             pos = torch.arange(L, len(full_ids), device=model.device)[None]
             att = torch.ones(1, len(full_ids), dtype=torch.long, device=model.device)
             o2 = model(input_ids=s_, past_key_values=past, attention_mask=att, position_ids=pos, use_cache=True)
-            lp_cache = torch.log_softmax(o2.logits.float()[0, -1] / float(temperature), -1)
+            lg_cache = o2.logits.float()[0, -1]
             full = torch.tensor([full_ids], device=model.device)
-            lp_full = torch.log_softmax(model(input_ids=full, use_cache=False).logits.float()[0, -1] / float(temperature), -1)
-            kls.append(float((lp_cache.exp() * (lp_cache - lp_full)).sum()))
-            reasons.append(None)
+            lg_full = model(input_ids=full, use_cache=False).logits.float()[0, -1]
+            if not (torch.isfinite(lg_cache).all() and torch.isfinite(lg_full).all()):
+                kls.append(float("inf")); reasons.append("FAULT: non-finite logits (cache path / recompute path)"); statuses.append("fault")
+                continue
+            lp_cache = torch.log_softmax(lg_cache / float(temperature), -1)
+            lp_full = torch.log_softmax(lg_full / float(temperature), -1)
+            kl_val = float((lp_cache.exp() * (lp_cache - lp_full)).sum())
+            if not np.isfinite(kl_val):
+                kls.append(float("inf")); reasons.append("FAULT: non-finite KL from finite logits"); statuses.append("fault")
+                continue
+            kls.append(kl_val); reasons.append(None); statuses.append("ok")
     kl = np.asarray(kls, float)
-    return dict(kl=kl, n_not_applicable=int(np.isnan(kl).sum()), reasons=reasons, n=int(kl.size), temperature=float(temperature))
+    return dict(kl=kl, n_not_applicable=int(statuses.count("not_applicable")), n_faults=int(statuses.count("fault")), reasons=reasons,
+                statuses=statuses, n=int(kl.size), temperature=float(temperature))
+
+
+# ---------------------------------------------------------------- batched, left-padded position check of the hook (RUNBOOK §6 item 1)
+def hook_position_check(model, steer, seqs: Sequence[Sequence[int]], *, gen_starts: Optional[Sequence[int]] = None, alphas=1.0,
+                        scope: str = "S_gen", pos_masks=None, pad_id: Optional[int] = None, rtol: float = 1e-2) -> Dict[str, object]:
+    """Forward a LEFT-padded batch with explicit position ids (the rule ``generate`` follows) with the hook off and on, capture
+    the hooked layer's ACTUAL output (input of layer L+1) and verify per row that pad and unsteered positions are bitwise
+    unchanged while every steered position moved by exactly alpha_b · r_L · v (relative error ≤ ``rtol``, the dtype rounding
+    of one addition).  S_gen: steered ⇔ position id ≥ gen_start[b] (default prompt_len − 1); S_read: steered ⇔
+    ``pos_masks[b, position id]`` (``read_mask_from_spans``).  Returns dict(ok, rows, ...)."""
+    import torch
+    from ..inference.hf_engine import _pad_id, left_pad, position_ids_from_mask
+
+    Bn = len(seqs)
+    ids, att = left_pad(seqs, pad_id=_pad_id(model, pad_id), device=model.device)
+    pos = position_ids_from_mask(att)
+    a = torch.as_tensor(([float(alphas)] * Bn) if np.isscalar(alphas) else [float(x) for x in alphas], dtype=torch.float32)
+    gs = torch.as_tensor([len(s) - 1 for s in seqs] if gen_starts is None else [int(g) for g in gen_starts])
+    layers = model.model.layers
+    nxt = layers[steer.layer + 1] if steer.layer + 1 < len(layers) else model.model.norm
+    cap: List[torch.Tensor] = []
+
+    def _pre(mod, args, kwargs):
+        x = args[0] if args else kwargs.get("hidden_states")
+        cap.append(x.detach().float().clone())
+
+    handle = nxt.register_forward_pre_hook(_pre, with_kwargs=True)
+    try:
+        with torch.no_grad():
+            steer.off()
+            model(input_ids=ids, attention_mask=att, position_ids=pos, use_cache=False)
+            off = cap.pop()
+            if scope == "S_read":
+                if pos_masks is None:
+                    raise ValueError("S_read needs pos_masks")
+                steer.set(a.tolist(), "S_read", pos_mask=pos_masks)
+            else:
+                steer.set(a.tolist(), "S_gen", gen_start=gs)
+            model(input_ids=ids, attention_mask=att, position_ids=pos, use_cache=False)
+            on = cap.pop()
+            steer.off()
+    finally:
+        handle.remove()
+    diff = (on - off).cpu()
+    v = steer.v.detach().float().cpu()
+    rows = []
+    for b in range(Bn):
+        real = att[b].bool().cpu()
+        pid = pos[b].cpu()
+        if scope == "S_read":
+            steered = torch.zeros(ids.shape[1], dtype=torch.bool)
+            pm = torch.as_tensor(pos_masks[b]).bool().cpu()
+            steered[real] = pm[pid[real]]
+        else:
+            steered = real & (pid >= int(gs[b]))
+        unsteered = real & ~steered
+        d = diff[b]
+        expect = float(a[b]) * v
+        scale = max(1e-12, float(expect.abs().max()))
+        rows.append(dict(row=b, n_pad=int((~real).sum()), n_steered=int(steered.sum()),
+                         pad_maxdiff=float(d[~real].abs().max()) if (~real).any() else 0.0,
+                         unsteered_maxdiff=float(d[unsteered].abs().max()) if unsteered.any() else 0.0,
+                         steered_rel_err=(float((d[steered] - expect[None, :]).abs().max()) / scale) if steered.any() else 0.0))
+    ok = all(r["pad_maxdiff"] == 0.0 and r["unsteered_maxdiff"] == 0.0 and r["steered_rel_err"] <= rtol for r in rows)
+    return dict(ok=bool(ok), rows=rows, scope=scope, hooked_layer=int(steer.layer), rtol=float(rtol))
 
 
 # ---------------------------------------------------------------- generation-path vs teacher-forcing log-probs (RUNBOOK §6 item 2)

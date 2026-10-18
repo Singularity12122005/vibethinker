@@ -11,7 +11,7 @@ when they disagree, the spec wins and the disagreement is a bug to report (plan 
 - One `SeededGumbelSampler` per `generate` call (the engines build one per call); reusing one without `reset()` raises (plan §4.3, round 7).
 - z extraction: an empty previous-assistant span (unclosed think block) yields a NaN R3 row with `valid.R3=false`; keep the trajectory, drop the row in probes (plan §4.5).
 - The §7.10 u_1 inoculation arm is NOT screened on e_1 (intention-to-treat); every other analysis keeps the §3 first-turn screen.
-- Stop and report (do not improvise) on: any G0 failure; G1 N_q < 30; any GREY; judge parse failure > 1%; template mismatch > 1%;
+- Stop and report (do not improvise) on: any G0 failure (except the G0.3 median-only tier, plan §7.1); G1 N_q < 30; any GREY; judge parse failure > 1%; template mismatch > 1%;
   truncation > 5% (the single allowed fix is `max_new_tokens=768`, recorded as a deviation).
 
 ## 1. Environment
@@ -44,7 +44,7 @@ alpha = 0 request (`EngineRouter`), and the judge clients (`scoring.judge.make_j
 | data | `run.stage_data(ctx, gsm_rows, zh_rows)` (rows from `data.f1.load_from_hub`) | `data/F1.jsonl F2.jsonl F3.jsonl` | F1 `needs_translation` rows: run `data.f1.translation_prompt` through J2 and `back_translation_prompt` through J1, then `apply_translations`; F2 instances: solve once with J2 (`data.f2.unambiguity_check_prompt`), drop mismatches and record |
 | mine | `stages.stage_mine(ctx)` | `data/mining.json pools.json folds.json` | report per-family exclusion rate; main pool size |
 | r_L | `gpu_glue.calibrate_r_L(ctx, 200 A3 turn-2 prompts)` | `configs/r_L.json` | plan §4.6 |
-| G0 | `gates.g0_runner.*` + `gates.g0.*` (see §4 below) | `GATES.md` G0 entry | all eight pass, else KILL and fix the pipeline |
+| G0 | `gates.g0_runner.*` + `gates.g0.*` (see §4 below) | `GATES.md` G0 entry | all eight pass ⇒ GO; G0.3 median-only ⇒ GO with the cache regime disabled; G0.3 fault ⇒ KILL; G0.3 coverage/q95 ⇒ GREY; any other failure ⇒ KILL (plan §7.1) |
 | G1 | `stages.stage_g1(ctx)` | `trajectories/G1.jsonl`, `tables/G1_summary.json`, `data/frontier.json` | decision GO / GO-with-caveat; truncation rate |
 | G1.5 | `stages.stage_g15(ctx)` | `data/prefixes/prefix_bank.jsonl`, `trajectories/G15.jsonl` | z extraction for h_2/h_3 (`inference.hf_engine.extract_z` → `trajectory.ZStore`) |
 | G2 | `stages.stage_g2(ctx, prebunk_texts)` (`gates.g2.prebunk_prompt` → J1) | `tables/G2_summary.json` | record notes (weak / actuator) |
@@ -72,7 +72,7 @@ alpha = 0 request (`EngineRouter`), and the judge clients (`scoring.judge.make_j
 - G0.6 `controllers.contract_check(policy, ids_3, z_3, histories, n=50000, deterministic=...)` → `g0.g0_6`
 - G0.7 `g0_runner.support_defect_logps(model, steered items)` → `g0.g0_7`
 - G0.8 `g0_runner.cross_stack(ctx_hf, ctx_vllm, continuation_specs(...))` (same specs ⇒ same seeds ⇒ paired) → `g0.g0_8`
-Then `g0.write_gates_md(results, GATES.md, run_id)`; GO only with all eight present and passing.
+Then `g0.write_gates_md(results, GATES.md, run_id)` and `g0.write_g0_summary(run_path, results)`; GO with all eight present and passing, or with G0.3 in its median-only tier (plan §7.1).
 
 ## 5. Things the code does not do for you
 - Download models/datasets; launch vLLM servers; the M_hybrid thinking-arm prefixes for G3 (build with `TurnBuilder(..., "hybrid_think")`
@@ -91,9 +91,10 @@ final logits at prefix positions and would have failed; fixed in round 9 (hooked
 Prefix final-logit max|Δ| 1.25 under suffix steering is a numerical suffix dependence whose source is still to be localised (plan §4.4).
 
 Run these in this order (each minutes, none formal) before mining/r_L/G0:
-1. Left padding + read-side mask: the same prompt padded to different lengths in one batch, `gen_start = att.sum(-1)-1`; check the
-   steered positions on the hooked layer's ACTUAL output (`hook_selfcheck(..., with_diagnostics=True)` per row, or the same pre-hook
-   capture at B>1), not on final logits; then `S_read` at B>1 via `read_mask_from_spans`.
+1. Left padding + read-side mask: `g0_runner.hook_position_check(model, steer, seqs, alphas=[...], pad_id=...)` on prompts of different
+   lengths in ONE left-padded batch — it captures the hooked layer's ACTUAL output and verifies per row that pad/unsteered positions are
+   bitwise unchanged and steered positions moved by exactly α·r_L·v (not a final-logit comparison); then the same with
+   `scope="S_read", pos_masks=read_mask_from_spans(...)`. `hook_selfcheck` is single-sequence and does not exercise padding.
 2. Generation-path vs teacher-forced log-probs: `g0_runner.generation_vs_teacher_forcing(model, ids, max_new_tokens=512, seed=...)` —
    raw scores recorded inside the sampler (NOT `output_scores`), both paths at T=0.7, only the actually generated tokens (no appended
    EOS). Report max/mean/rms |Δ log p| per response over ≥20 prompts; then repeat under `attn_implementation="eager"` to see whether the
@@ -104,8 +105,10 @@ Run these in this order (each minutes, none formal) before mining/r_L/G0:
 4. Throughput 8 → 16 → 32: every request routed to the same engine (`GenRequest(..., engine="hf")`, so alpha=0 rows are not split off to
    the null engine), 256 new tokens, half the rows at α=0.5; report aggregate tok/s on GENERATED tokens and say whether prompt
    processing is included; record peak memory at each step and stop at the first OOM.
-5. α preview at L=20 (`calibration.fine_grid_stats`, T=0.7): α∈{0, ±0.125, ±0.25, ±0.5, ±1, ±2}; a random direction only establishes
-   the magnitude scale and does not replace the formal direction calibration (§4.7).
+5. α preview at L=20 (`calibration.fine_grid_stats(model, steer, items, alphas=(0.125, 0.25, 0.5, 1, 2))`, T=0.7): the function
+   evaluates BOTH signs for every |α| and reports kl_pos/kl_neg, so pass magnitudes only (negative entries would duplicate rows with
+   swapped labels); α=0 is G0.2's `alpha0_equals_no_hook`. A random direction only establishes the magnitude scale and does not replace
+   the formal direction calibration (§4.7).
 After the formal G0.3, write `tables/G0_summary.json` with `g0.write_g0_summary(run_path, results)`; `stage_g41` refuses to calibrate
 without it. The A100/H100 factor 0.5 in `config.hardware` is a budget placeholder until measured.
 Memory note: teacher-forced forwards materialise full-vocabulary logits (151936 × tokens); keep those batches to ≈4–8 sequences of 512

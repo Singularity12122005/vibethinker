@@ -63,8 +63,12 @@ def test_stage_g41_requires_the_g0_summary_before_calibrating(tmp_path):
         return {d: alpha_max_entry(d, L, 0, 1.0, 12.0, fine[L], None, dict(stub=True)) for d in ("v_cap", "v_cap_perp", "v_warrant")}
     g = stage_g41(ctx, fine, finish=finish, require_g0_summary=True)
     assert g["decision"] == "GREY" and called == [] and g["L_star"] is None                  # prerequisite first, no calibration spent
+    assert not os.path.exists(os.path.join(ctx.run_path, "trajectories", "G41_screen.jsonl"))  # ... and no screening generation either
     names = ("G0.1", "G0.2", "G0.4", "G0.5", "G0.6", "G0.7", "G0.8")
     from sycophancy_phase0.gates.g0 import g0_3
+    write_g0_summary(ctx.run_path, [GateResult(n, n != "G0.8", {}) for n in names] + [g0_3(np.full(200, 4e-3))])   # G0 KILLed on G0.8
+    g = stage_g41(ctx, fine, finish=finish, require_g0_summary=True)
+    assert g["decision"] == "GREY" and "decision" in g["note"] and called == []
     write_g0_summary(ctx.run_path, [GateResult(n, True, {}) for n in names] + [g0_3(np.full(200, 4e-3))])
     g = stage_g41(ctx, fine, finish=finish, require_g0_summary=True)
     assert g["decision"] in ("GO", "GO-with-caveat") and called == [g["L_star"]] and g["floor_consistency_ok"] and abs(g["delta_floor_median"] - 4e-3) < 1e-12

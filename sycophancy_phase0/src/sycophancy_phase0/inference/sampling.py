@@ -42,6 +42,7 @@ class SeededGumbelSampler(LogitsProcessor):
         than the previous call's final length would be missed), so reuse without ``reset()`` raises."""
         self.gens = None
         self._last_len = -1
+        self.logprobs = [[] for _ in self.seeds]        # one entry per decode STEP and row (finished rows keep being called)
 
     def _ensure(self, device, cur_len: int):
         if self.gens is None:

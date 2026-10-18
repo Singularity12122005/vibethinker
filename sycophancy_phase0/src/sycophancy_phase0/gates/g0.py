@@ -57,10 +57,12 @@ def g0_3(kl_first_token: np.ndarray, n_not_applicable: int = 0, *, min_valid: in
          neg_tol: float = -1e-6) -> GateResult:
     """kl_first_token: per-h_3 KL(cache-reuse || recompute) of the fp32 first-token distribution at T (nats).
 
-    Three kinds of entry are told apart (round 9): NaN = the §4.2 "cache 不适用" item (verified prefix mismatch; counted,
-    excluded, never a pass; ``n_not_applicable`` adds items dropped before the array was built); ±inf or a KL below
-    ``neg_tol`` = a NUMERICAL FAULT (a KL cannot be negative beyond rounding; faults fail the gate and G0 KILLs); everything
-    else = a valid measurement (tiny negatives within ``neg_tol`` are clamped to 0).  Coverage: ``min_valid`` valid items
+    Three kinds of entry are told apart (round 9/10): NaN = the §4.2 "cache 不适用" item — by the contract with
+    ``g0_runner.cache_vs_recompute_kl`` NaN is written ONLY by the verified prefix-mismatch path, the runner encodes every
+    numerical fault (non-finite logits, non-finite KL) as +inf with a "FAULT" reason (counted, excluded, never a pass;
+    ``n_not_applicable`` adds items dropped before the array was built); ±inf or a KL below ``neg_tol`` = a NUMERICAL FAULT
+    (a KL cannot be negative beyond rounding; faults fail the gate and G0 KILLs); everything else = a valid measurement
+    (tiny negatives within ``neg_tol`` are clamped to 0).  Coverage: ``min_valid`` valid items
     (plan: 150 of the 200 h_3) and a not-applicable rate ≤ ``max_na_rate``, else the gate fails as "coverage" (G0 GREY).
     ``details["kind"]`` ∈ {ok, median_only, q95, coverage, fault} drives ``g0_decision``."""
     kl = np.asarray(kl_first_token, float)
@@ -195,11 +197,12 @@ def gate_entry(gate: str, title: str, run_id: str, inputs: str, results: Sequenc
 def g0_decision(results: Sequence[GateResult]) -> str:
     """GO only when all eight G0 tests are present and pass; any failure => KILL (plan §0.4: stop and report).
 
-    Pre-registered amendment before the formal G0 (first GPU contact, 2026-10-17; plan §7.1 G0.3 row): G0.3 measures the
-    decode-vs-prefill numerical floor of the bf16 MoE.  If only its median criterion fails (95% quantile < 1e-2 holds), the
-    appendix cache-reuse regime is disabled and delta_floor is recorded, but G0 is NOT killed — the main experiment recomputes
-    every turn and a bf16 numerical floor cannot be "fixed" by a pipeline change.  If the 95% quantile criterion fails => GREY
-    (the floor is within 10x of the α_max KL budget: investigate attention backend / precision before anything else)."""
+    Pre-registered amendment before the formal G0 (plan §7.1 G0.3 row, rounds 8–10).  Order: (1) any failure among the other
+    seven tests => KILL, never masked by a G0.3 tier; (2) G0.3 numerical fault (±inf / negative KL) => KILL; (3) G0.3 coverage
+    insufficient or 95% quantile ≥ 1e-2 => GREY; (4) only the median criterion failed => GO with the appendix cache-reuse regime
+    disabled and delta_floor recorded (analyses relying on response log-probs / gradients / KL must first pass the
+    generation-vs-teacher-forcing consistency diagnostic, RUNBOOK §6 item 2).  Whether the floor can be reduced (attention
+    backend, precision) is an open question, not a premise of this rule."""
     names = {r.name for r in results}
     missing = [t for t in G0_TESTS if t not in names]
     if missing:
@@ -221,13 +224,17 @@ def g0_decision(results: Sequence[GateResult]) -> str:
 
 
 def g0_notes(results: Sequence[GateResult]) -> str:
-    """The GATES.md note that the G0.3 amendment requires (empty when G0.3 passed or is missing)."""
+    """The GATES.md note that the G0.3 amendment requires (empty when G0.3 passed or is missing).  Always consistent with
+    ``g0_decision``: when another mandatory test fails, the note states the KILL and reports G0.3's tier as non-deciding."""
     by = {r.name: r for r in results}
     g03 = by.get("G0.3")
     if g03 is None or g03.passed:
         return ""
     med = g03.details.get("delta_floor_median", float("nan"))
     kind = g03.details.get("kind")
+    others_failed = [r.name for r in results if r.name != "G0.3" and not r.passed]
+    if others_failed:
+        return f"KILL：{others_failed} 失败；G0.3 处于 {kind} 档（delta_floor={med:.2e} nats），不改变判定"
     if kind == "fault":
         return f"G0.3 数值故障（±∞ 或负 KL {g03.details.get('n_faults')} 项）：测量管线缺陷，KILL"
     if kind == "coverage":

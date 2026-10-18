@@ -48,7 +48,7 @@
 1. 任何 `[F]` 参数在 G1 `est` 块被查看后不得更改；改动写 `DEVIATIONS.md`。
 2. 前缀选择只能用 `sel` 块的 pre-treatment 量（`select_prefixes` 只读 `stats[..]["sel"]`）；效应只用 `est`。
 3. 种子不跨臂共享；vLLM `enable_prefix_caching=False`。
-4. 停止并报告：任一 G0 失败、G1 $N_q<30$、任一 GREY、judge 解析失败 >1%、模板不一致 >1%、截断 >5%。
+4. 停止并报告：任一 G0 失败（例外：G0.3 仅中位数未达的分级，§7.1）、G1 $N_q<30$、任一 GREY、judge 解析失败 >1%、模板不一致 >1%、截断 >5%。
 5. G2′-a 的 $\kappa_1$ 在 G4-1 之前是占位（15 nats）；G4-1 后用 `stage_g2a(ctx, kappa1=...)` 回填。
 6. 预注册的预期结果：G2′-a 很可能 KILL 或 GO-with-caveat，G5 的 $G$ 可能不显著——这是可发表的结果，不是失败。
 

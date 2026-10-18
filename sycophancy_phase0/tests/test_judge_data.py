@@ -174,6 +174,8 @@ def test_controller_contract_and_gates_md(tmp_path):
     assert g0_decision(rest + [g0_3(np.full(200, -0.1))]) == "KILL"
     assert g0_decision(rest + [g0_3(np.full(100, 5e-4))]) == "GREY" and "覆盖不足" in g0_notes(rest + [g0_3(np.full(100, 5e-4))])
     assert g0_decision(rest[:-1] + [GateResult(rest[-1].name, False, {}), g0_3(np.full(50, 2e-2), min_valid=1)]) == "KILL"
+    n8 = g0_notes(rest[:-1] + [GateResult(rest[-1].name, False, {}), med_only])          # note never contradicts the decision
+    assert n8.startswith("KILL") and "继续" not in n8 and "median_only" in n8
     assert g0_decision(rest[:-1] + [GateResult(rest[-1].name, False, {}), med_only]) == "KILL"
     import tempfile
     d = tempfile.mkdtemp()
