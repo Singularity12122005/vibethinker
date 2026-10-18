@@ -363,3 +363,42 @@ def test_readout_reliability_ceiling_and_disattenuation():
         ests.append(out["rho2"]); truths.append(np.corrcoef(z, r)[0, 1] ** 2); naive.append(out["naive_corr2"])
     assert abs(np.mean(ests) - np.mean(truths)) < 0.02 and np.mean(naive) < np.mean(truths) - 0.05
     assert out["ci95"][0] < out["rho2"] < out["ci95"][1] and 0.5 < out["half_reliability"] < 0.85
+
+
+def test_g6_polynomial_corrected_score_and_value_of_information():
+    """Round 12 review follow-up: (i) with a quadratic Δ(r) the linear estimators (even the oracle) load the misfit on type, the
+    degree-2 U-statistic corrected score does not; (ii) the exact value of information reproduces the §7.11 two-point example
+    (fraction 0.024 at m=32, far below λ=0.103) and η²=λ for a Beta prior (conjugacy); (iii) the F non-centrality clears 10 with
+    probability ≈0.5 at ncp=10; (iv) cluster bootstrap option of readout_reliability runs."""
+    from scipy import stats
+    from sycophancy_phase0.analysis.g6_iv import (endpoint_contrast_poly_cs, identification_strength, readout_reliability,
+                                                  value_of_information_fraction)
+    rng = np.random.default_rng(21)
+    N, m = 200, 32
+    typ = np.repeat([0, 1], N // 2)
+    d1, d2, p1, p2 = [], [], [], []
+    for _ in range(120):
+        r = np.where(typ == 0, rng.beta(2, 8, N), rng.beta(3, 3, N))
+        K = rng.binomial(m, r)
+        y = 0.30 - 0.2 * r - 1.5 * r ** 2 + 0.15 * rng.standard_normal(N)
+        e1, e2 = endpoint_contrast_poly_cs(y, K, m, typ, degree=1), endpoint_contrast_poly_cs(y, K, m, typ, degree=2)
+        assert e1["ok"] and e2["ok"] and e1["se_type"] == "HC1"
+        d1.append(e1["beta"][-1]); d2.append(e2["beta"][-1]); p1.append(e1["p_type"]); p2.append(e2["p_type"])
+    assert np.mean(d1) > 0.025 and abs(np.mean(d2)) < 0.012, (np.mean(d1), np.mean(d2))
+    assert np.mean(np.array(p1) < 0.05) > 0.09 and np.mean(np.array(p2) < 0.05) < 0.10
+    with pytest.raises(ValueError):
+        endpoint_contrast_poly_cs(y, K, m, typ, degree=17)
+    acts = np.array([-1, -0.5, 0, 0.5, 1.0]); rg = np.array([0.20, 0.25])
+    cost = np.stack([np.clip(rg + (0.9 - 4 * rg) * d, 0, 1) + 0.05 * abs(d) for d in acts], 1)
+    v = value_of_information_fraction(cost, [0.5, 0.5], 32, rg)
+    assert abs(v["oracle"] - 0.175) < 1e-9 and abs(v["open_loop"] - 0.225) < 1e-9 and 0.015 < v["fraction"] < 0.035 and 0.09 < v["reliability"] < 0.12
+    grid = np.linspace(0.005, 0.995, 199); w = stats.beta.pdf(grid, 5, 15)
+    costg = np.stack([np.clip(grid + (0.9 - 4 * grid) * d, 0, 1) + 0.05 * abs(d) for d in acts], 1)
+    vb = value_of_information_fraction(costg, w, 32, grid)
+    assert abs(vb["eta2"] - vb["reliability"]) < 0.01 and abs(vb["fraction"] - vb["reliability"]) < 0.05
+    o = identification_strength(520, 0.00172, 0.172, 16)
+    assert 9 < o["noncentrality"] < 11.5 and 0.45 < o["pass_probability"] < 0.57 and 15 < o["ncp_for_pass_prob"] < 17 and 700 < o["n_for_pass_prob"] < 950
+    r = rng.beta(3, 5, 200); B = rng.binomial(1, r[:, None], size=(200, 32)).astype(float)
+    z = r + 0.15 * rng.standard_normal(200)
+    out = readout_reliability(z, B[:, :16].mean(1), B[:, 16:].mean(1), cluster=np.repeat(np.arange(50), 4), n_boot=100)
+    assert out["bootstrap"] == "cluster" and out["ci95"][0] < out["rho2"] < out["ci95"][1] and 0.0 < out["naive_corr2"] < out["rho2"]

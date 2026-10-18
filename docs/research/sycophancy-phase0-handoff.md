@@ -41,7 +41,8 @@
 ## 2f. 第十二轮（2026-10-18）：执行方复核 5c04b43 + `/goal` 研究档案
 - 代码：`real_mask` 对 `use_cache=False` 增长序列的规则（执行方反例 [2,5]→[2,6]）、不支持形状报错、`generate_steered` 传掩码；`generation_vs_teacher_forcing` 改带符号；新增 `decode_prefill_kl`、`batch_consistency`（两指标）、`analysis/g6_iv.py`（2SLS、校正得分、识别强度、LQ 上限、去衰减 ρ²）。
 - 文档：规格书 §2.1/§4.2/§4.4/§4.7/§7.1/§7.11 更正；RUNBOOK §6.2 三项测量协议；新增 `docs/research/sycophancy-phase0-goal.md`——主张阶梯 C0–C6、最强表述 C★（闭环优势由读出可靠性 ρ² 预报）、命题 P1–P5（含证明与模拟数值）、研究档案（已证明/候选/反例/淘汰/缺口/下一轮）。
-- 本提交 `pytest`：95 passed（CPU、假引擎）。
+- 独立对抗审查（代理，独立上下文）驳回了 r1 的两项（离散动作下"实现比例≈λ"、C★ 的三分法诊断）并列出 13 条夸大陈述；r1.1 逐条修正，新增 U-统计量多项式校正得分、精确信息价值计算、HC1/CR1、F 通过概率、cluster bootstrap；§7.11 加入预注册修正候选（G6 的 $\hat r$ 用 128 条 sel 续写，待决定）。
+- 本提交 `pytest`：96 passed（CPU、假引擎）。
 
 ## 2d. 首次 GPU 接触（2026-10-17，A100-80GB，sdpa，torch 2.8.0，transformers 4.57.1；smoke，不是 G0）
 - 通过：四轮模板一致性（真实分词器）、支持集 0/128、真实 cache 的逐位验证路径、α∈{0,±0.5} 的 T=0.7 采样生成流畅（64 token 截断）。hook 六项通过来自执行方本地修改的代码，提交 f56c874 的自检比较的是最终 logits，会误判——第九轮已改为比较被 hook 层的实际输出。
