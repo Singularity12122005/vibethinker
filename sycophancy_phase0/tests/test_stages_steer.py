@@ -50,3 +50,23 @@ def test_steer_stages(tmp_path):
     gates_md = open(os.path.join(ctx.run_path, "GATES.md"), encoding="utf-8").read()
     for g in ("## G3 —", "## G4-0 —", "## G4-1 —", "## G2′-b —", "## G4-2 —", "## G5-pilot —", "## G5-confirm —"):
         assert g in gates_md
+
+
+def test_stage_g41_requires_the_g0_summary_before_calibrating(tmp_path):
+    from sycophancy_phase0.gates.g41 import alpha_max_entry
+    from sycophancy_phase0.gates.g0 import GateResult, write_g0_summary
+    ctx, info = build_chain(str(tmp_path), run_id="G41PRE")
+    fine = {L: {a: dict(kl=0.02 * a, flip=0.01 * a) for a in (0.5, 1.0, 1.5, 2.0)} for L in (16, 20)}
+    called = []
+    def finish(L):
+        called.append(L)
+        return {d: alpha_max_entry(d, L, 0, 1.0, 12.0, fine[L], None, dict(stub=True)) for d in ("v_cap", "v_cap_perp", "v_warrant")}
+    g = stage_g41(ctx, fine, finish=finish, require_g0_summary=True)
+    assert g["decision"] == "GREY" and called == [] and g["L_star"] is None                  # prerequisite first, no calibration spent
+    names = ("G0.1", "G0.2", "G0.4", "G0.5", "G0.6", "G0.7", "G0.8")
+    from sycophancy_phase0.gates.g0 import g0_3
+    write_g0_summary(ctx.run_path, [GateResult(n, True, {}) for n in names] + [g0_3(np.full(200, 4e-3))])
+    g = stage_g41(ctx, fine, finish=finish, require_g0_summary=True)
+    assert g["decision"] in ("GO", "GO-with-caveat") and called == [g["L_star"]] and g["floor_consistency_ok"] and abs(g["delta_floor_median"] - 4e-3) < 1e-12
+    summ = json.load(open(os.path.join(ctx.run_path, "tables", "G41_summary.json"), encoding="utf-8"))
+    assert summ["decision"] == g["decision"] and summ["delta_floor_median"] == g["delta_floor_median"]

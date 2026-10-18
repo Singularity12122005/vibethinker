@@ -19,32 +19,63 @@ from ..trajectory import Arm, Trajectory
 
 
 # ---------------------------------------------------------------- G0.2 hook self-checks (§4.4) + sampler χ² (§4.3)
-def hook_selfcheck(model, steer, ids: Sequence[int], gen_start: Optional[int] = None) -> Dict[str, bool]:
-    """Four §4.4 checks on one sequence plus the processor-list check.  ``steer`` must be attached to ``model``."""
+def hook_selfcheck(model, steer, ids: Sequence[int], gen_start: Optional[int] = None, with_diagnostics: bool = False):
+    """Four §4.4 checks on one sequence plus the processor-list check.  ``steer`` must be attached to ``model``.
+
+    "Prefix untouched" is checked on the hooked layer's ACTUAL output (captured as the input of layer L+1 by a temporary
+    forward pre-hook — ``output_hidden_states`` records the layer output BEFORE the Steer hook, so it cannot see steering at
+    all), bitwise.  In a MoE model the final logits of unsteered prefix positions can differ when the suffix is steered
+    (numerical suffix dependence; max|Δ| 1.25 on the A100 smoke run, source under investigation), so a logits-based prefix
+    check would fail for a correct hook; the logit differences are returned as diagnostics (``with_diagnostics=True`` →
+    (checks, diagnostics)), never as a criterion.  "Suffix changed" is checked on the logits (the effect must propagate)
+    and the suffix residual difference is reported."""
     import torch
     from transformers import GenerationConfig
 
     from ..inference.hf_engine import clean_forward
     from ..inference.sampling import generate_kwargs, has_temperature_warper
 
+    layers = model.model.layers
+    nxt = layers[steer.layer + 1] if steer.layer + 1 < len(layers) else model.model.norm
+    captured: List[torch.Tensor] = []
+
+    def _pre(mod, args, kwargs):
+        x = args[0] if args else kwargs.get("hidden_states")
+        captured.append(x.detach().float().clone())
+
+    handle = nxt.register_forward_pre_hook(_pre, with_kwargs=True)
     checks: Dict[str, bool] = {}
-    with torch.no_grad():
-        steer.off()
-        base = clean_forward(model, [ids])[0].logits.float()
-        steer.set([0.0], "S_gen", gen_start=torch.tensor([len(ids) - 1]))
-        zero = clean_forward(model, [ids])[0].logits.float()
-        steer.set([1.0], "S_gen", gen_start=torch.tensor([len(ids) - 1]))
-        plus = clean_forward(model, [ids])[0].logits.float()[0, -1]
-        steer.set([-1.0], "S_gen", gen_start=torch.tensor([len(ids) - 1]))
-        minus = clean_forward(model, [ids])[0].logits.float()[0, -1]
-        gs = int(gen_start if gen_start is not None else max(1, len(ids) // 2))
-        steer.set([1.0], "S_gen", gen_start=torch.tensor([gs]))
-        tf = clean_forward(model, [ids])[0].logits.float()
-        steer.off()
+    try:
+        with torch.no_grad():
+            steer.off()
+            base = clean_forward(model, [ids])[0].logits.float()
+            base_res = captured.pop()
+            base2 = clean_forward(model, [ids])[0].logits.float()                 # repeat without hook: determinism
+            captured.pop()
+            steer.set([0.0], "S_gen", gen_start=torch.tensor([len(ids) - 1]))
+            zero = clean_forward(model, [ids])[0].logits.float()
+            captured.pop()
+            steer.set([1.0], "S_gen", gen_start=torch.tensor([len(ids) - 1]))
+            plus = clean_forward(model, [ids])[0].logits.float()[0, -1]
+            captured.pop()
+            steer.set([-1.0], "S_gen", gen_start=torch.tensor([len(ids) - 1]))
+            minus = clean_forward(model, [ids])[0].logits.float()[0, -1]
+            captured.pop()
+            gs = int(gen_start if gen_start is not None else max(1, len(ids) // 2))
+            steer.set([1.0], "S_gen", gen_start=torch.tensor([gs]))
+            tf = clean_forward(model, [ids])[0].logits.float()
+            tf_res = captured.pop()
+            steer.off()
+    finally:
+        handle.remove()
     checks["alpha_pm1_first_token_differs"] = bool((plus - minus).abs().max() > 1e-3)
     checks["alpha0_equals_no_hook"] = bool(torch.equal(zero, base))
-    checks["teacher_forcing_prefix_untouched"] = bool(torch.equal(tf[0, :gs], base[0, :gs]))
+    checks["teacher_forcing_prefix_untouched"] = bool(torch.equal(tf_res[0, :gs], base_res[0, :gs]))      # hooked layer's actual output
     checks["teacher_forcing_suffix_changed"] = bool((tf[0, gs:] - base[0, gs:]).abs().max() > 1e-3)
+    diagnostics = dict(teacher_forcing_prefix_residual_maxdiff=float((tf_res[0, :gs] - base_res[0, :gs]).abs().max()),
+                       teacher_forcing_prefix_logit_maxdiff=float((tf[0, :gs] - base[0, :gs]).abs().max()),
+                       teacher_forcing_suffix_residual_maxdiff=float((tf_res[0, gs:] - base_res[0, gs:]).abs().max()),
+                       no_hook_repeat_logit_maxdiff=float((base2 - base).abs().max()), hooked_layer=int(steer.layer), gen_start=gs)
     kw = generate_kwargs([1], TEMPERATURE, max_new_tokens=1, pad_token_id=model.config.pad_token_id or 0,
                          eos_token_id=(model.config.eos_token_id,) if isinstance(model.config.eos_token_id, int) else tuple(model.config.eos_token_id or ()))
     gc = GenerationConfig(**{k: v for k, v in kw.items() if k != "logits_processor"})
@@ -55,7 +86,7 @@ def hook_selfcheck(model, steer, ids: Sequence[int], gen_start: Optional[int] = 
     checks["no_temperature_warper"] = not has_temperature_warper(procs)
     names = [type(p).__name__ for p in procs]
     checks["processor_list_is_sampler_only"] = names == ["SeededGumbelSampler"]
-    return checks
+    return (checks, diagnostics) if with_diagnostics else checks
 
 
 def sampler_chi2(model, ids: Sequence[int], n: int = 5000, temperature: float = TEMPERATURE, batch_size: int = 256,
@@ -127,7 +158,7 @@ def generate_with_cache(model, ids: Sequence[int], *, max_new_tokens: int, greed
 
 
 def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[int]]], cached_prefix_len: Optional[Sequence[int]] = None,
-                          caches: Optional[Sequence[Tuple[Sequence[int], object]]] = None) -> Dict[str, object]:
+                          caches: Optional[Sequence[Tuple[Sequence[int], object]]] = None, temperature: float = TEMPERATURE) -> Dict[str, object]:
     """items: (ids_2, suffix) with suffix = normalised y_2_ids + delta_ids(x_3) so that ids_3 = ids_2 + suffix.
 
     Cache-reuse regime (plan §4.2 appendix, v1.4 rule, memo I2).  With ``caches[i] = (cached_ids, past)`` from
@@ -136,8 +167,9 @@ def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[i
     uncovered suffix is fed with the positions/attention of the full history.  Any mismatch makes the item "cache 不适用":
     KL = NaN, counted in ``n_not_applicable`` with its reason, never spliced into a wrong history and never a pass.
     Without ``caches`` the cache is built here on ids_3[:L] (L = len(ids_2), or ``cached_prefix_len[i]``), which
-    exercises the suffix-feeding arithmetic only.  Returns dict(kl, n_not_applicable, reasons, n); KL is
-    KL(P_cache || P_recompute) of the fp32 first-token distribution."""
+    exercises the suffix-feeding arithmetic only.  Returns dict(kl, n_not_applicable, reasons, n, temperature); KL is
+    KL(P_cache || P_recompute) of the fp32 first-token distribution at the generation temperature T (logits / T; the
+    A100 smoke value 4.3e-3 was computed at T = 1 and is a diagnostic under that older convention)."""
     import copy
     import torch
 
@@ -176,23 +208,61 @@ def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[i
             pos = torch.arange(L, len(full_ids), device=model.device)[None]
             att = torch.ones(1, len(full_ids), dtype=torch.long, device=model.device)
             o2 = model(input_ids=s_, past_key_values=past, attention_mask=att, position_ids=pos, use_cache=True)
-            lp_cache = torch.log_softmax(o2.logits.float()[0, -1], -1)
+            lp_cache = torch.log_softmax(o2.logits.float()[0, -1] / float(temperature), -1)
             full = torch.tensor([full_ids], device=model.device)
-            lp_full = torch.log_softmax(model(input_ids=full, use_cache=False).logits.float()[0, -1], -1)
+            lp_full = torch.log_softmax(model(input_ids=full, use_cache=False).logits.float()[0, -1] / float(temperature), -1)
             kls.append(float((lp_cache.exp() * (lp_cache - lp_full)).sum()))
             reasons.append(None)
     kl = np.asarray(kls, float)
-    return dict(kl=kl, n_not_applicable=int(np.isnan(kl).sum()), reasons=reasons, n=int(kl.size))
+    return dict(kl=kl, n_not_applicable=int(np.isnan(kl).sum()), reasons=reasons, n=int(kl.size), temperature=float(temperature))
+
+
+# ---------------------------------------------------------------- generation-path vs teacher-forcing log-probs (RUNBOOK §6 item 2)
+def generation_logprobs(model, ids: Sequence[int], *, max_new_tokens: int, seed: int, temperature: float = TEMPERATURE,
+                        eos_ids: Sequence[int] = (IM_END, ENDOFTEXT), pad_id: Optional[int] = None) -> Dict[str, object]:
+    """Sample one response with the frozen decoding config and return log P_T of every ACTUALLY GENERATED token as the
+    decode path computed it (recorded inside the sampler from the raw scores — ``output_scores`` would return the processed
+    0/−inf scores).  No normalisation token is appended; tokens after the first EOS are dropped."""
+    import torch
+    from ..inference.hf_engine import _pad_id
+    from ..inference.sampling import generate_kwargs
+
+    ids = [int(x) for x in ids]
+    inp = torch.tensor([ids], device=model.device)
+    att = torch.ones_like(inp)
+    kw = generate_kwargs([int(seed)], temperature=temperature, max_new_tokens=max_new_tokens, pad_token_id=_pad_id(model, pad_id),
+                         eos_token_id=tuple(eos_ids), device=str(inp.device), record_logprobs=True)
+    with torch.no_grad():
+        out = model.generate(input_ids=inp, attention_mask=att, use_cache=True, **kw)
+    g = out[0, inp.shape[1]:].tolist()
+    cut = next((k for k, t in enumerate(g) if t in eos_ids), None)
+    g = g[: cut + 1] if cut is not None else g
+    lp = np.asarray(kw["logits_processor"][0].logprobs[0][: len(g)], float)
+    return dict(gen_ids=g, logp_gen=lp, temperature=float(temperature), finish_reason=("stop" if cut is not None else "length"))
+
+
+def generation_vs_teacher_forcing(model, ids: Sequence[int], *, max_new_tokens: int, seed: int, temperature: float = TEMPERATURE,
+                                  eos_ids: Sequence[int] = (IM_END, ENDOFTEXT), pad_id: Optional[int] = None) -> Dict[str, object]:
+    """The reconstruction-error diagnostic: per-token |log P_T^{decode}(y_k) − log P_T^{teacher-forced}(y_k)| over the generated
+    tokens only, both at the same temperature, raw logits on both paths (plan §4.2, RUNBOOK §6 item 2)."""
+    from ..inference.hf_engine import response_logprobs
+
+    r = generation_logprobs(model, ids, max_new_tokens=max_new_tokens, seed=seed, temperature=temperature, eos_ids=eos_ids, pad_id=pad_id)
+    tf = response_logprobs(model, list(ids) + list(r["gen_ids"]), len(ids), temperature=temperature).detach().float().cpu().numpy()
+    d = tf - r["logp_gen"]
+    return dict(n=int(len(r["gen_ids"])), max_abs_diff=float(np.abs(d).max()) if d.size else float("nan"),
+                mean_abs_diff=float(np.abs(d).mean()) if d.size else float("nan"), rms_diff=float(np.sqrt((d ** 2).mean())) if d.size else float("nan"),
+                gen_ids=r["gen_ids"], logp_gen=r["logp_gen"], logp_tf=tf, temperature=float(temperature), finish_reason=r["finish_reason"])
 
 
 # ---------------------------------------------------------------- G0.7 support defect
-def support_defect_logps(model, items: Sequence[Tuple[Sequence[int], Sequence[int]]]) -> np.ndarray:
-    """items: (prompt_ids, assistant_ids) of alpha=±1 steered responses; returns log P^0 of every response token."""
+def support_defect_logps(model, items: Sequence[Tuple[Sequence[int], Sequence[int]]], temperature: float = TEMPERATURE) -> np.ndarray:
+    """items: (prompt_ids, assistant_ids) of alpha=±1 steered responses; returns log P^0_T of every response token (T-tempered)."""
     from ..inference.hf_engine import response_logprobs
 
     out = []
     for prompt, resp in items:
-        lp = response_logprobs(model, list(prompt) + list(resp), len(prompt))
+        lp = response_logprobs(model, list(prompt) + list(resp), len(prompt), temperature=temperature)
         out.append(np.asarray(lp.detach().cpu().numpy() if hasattr(lp, "cpu") else lp, dtype=float).ravel())
     return np.concatenate(out) if out else np.zeros(0)
 

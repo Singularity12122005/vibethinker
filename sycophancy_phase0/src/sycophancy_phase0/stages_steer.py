@@ -89,9 +89,41 @@ def stage_g40(ctx: Context, acts_fn: Optional[Callable[[List[Tuple[List[int], Li
 
 
 # ---------------------------------------------------------------- G4-1 (§7.7)
-def stage_g41(ctx: Context, fine_by_layer: Dict[int, Dict[float, Dict[str, float]]], finish: Optional[Callable[[int], Dict[str, dict]]] = None) -> dict:
+def _delta_floor(ctx: Context):
+    """(delta_floor_median, note) from tables/G0_summary.json written by g0.write_g0_summary; (None, reason) when absent."""
+    p0 = os.path.join(ctx.run_path, "tables", "G0_summary.json")
+    if not os.path.exists(p0):
+        return None, "tables/G0_summary.json missing (run g0.write_g0_summary after the formal G0)"
+    v = json.load(open(p0, encoding="utf-8")).get("delta_floor_median")
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return None, f"delta_floor_median not numeric: {v!r}"
+    if not np.isfinite(f):
+        return None, f"delta_floor_median not finite: {v!r}"
+    return f, ""
+
+
+def stage_g41(ctx: Context, fine_by_layer: Dict[int, Dict[float, Dict[str, float]]], finish: Optional[Callable[[int], Dict[str, dict]]] = None,
+              require_g0_summary: Optional[bool] = None) -> dict:
     """fine_by_layer: §4.7 step-1 statistics for v_cap per candidate layer (from inference.calibration.fine_grid_stats);
-    ``finish(L_star)`` runs steps 2–5 for the directions at L* and returns {direction: alpha_max.json entry}."""
+    ``finish(L_star)`` runs steps 2–5 for the directions at L* and returns {direction: alpha_max.json entry}.
+
+    Prerequisite (checked BEFORE any screening or calibration, round 9): the formal G0 summary with a finite delta_floor
+    (``require_g0_summary``, default from config, True for formal runs).  The G0.3 cross-stage consistency check
+    (KL_MAX ≥ 10 × delta_floor) is recorded; it holds automatically whenever G0 let the run proceed (q95 < 1e-2 ⇒
+    10 × median < 0.1), so it is a consistency assertion, not an independent safeguard.  The summary is written once,
+    and the returned dict carries the gate decision."""
+    from .inference.calibration import KL_MAX
+
+    require = bool(ctx.config.get("require_g0_summary", True)) if require_g0_summary is None else bool(require_g0_summary)
+    floor, floor_note = _delta_floor(ctx)
+    if require and floor is None:
+        summary = dict(decision="GREY", note=f"G4-1 not run: {floor_note}", L_star=None, delta_floor_median=None)
+        write_summary(ctx.run_path, "G41", summary)
+        gate_entry(ctx, "G4-1", "层选择与 α_max", "0 h_3 (prerequisite failed)", [], "GREY", summary["note"])
+        return summary
+    floor_consistent = (floor is None) or (KL_MAX >= 10 * floor)
     bank = load_problems(ctx)
     sz = sizes(ctx)
     pres = load_prefix_bank(ctx)
@@ -110,20 +142,14 @@ def stage_g41(ctx: Context, fine_by_layer: Dict[int, Dict[float, Dict[str, float
     json.dump(dict(entries, L_star=L_star, provisional={str(k): v for k, v in prov.items()}, screen={str(k): v for k, v in drops.items()}),
               open(am_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     low = [d for d, e in entries.items() if e.get("alpha_max", 1.0) < 0.2]
-    summary = dict(L_star=L_star, provisional=prov, screen=drops, alpha_max={d: e.get("alpha_max") for d, e in entries.items()}, switch_layer=low)
+    notes = ([f"α_max<0.2 for {low}"] if low else []) + ([] if floor_consistent else [f"G0.3/G4-1 不一致：delta_floor={floor:.2e} 而 KL_MAX={KL_MAX}"])
+    decision = "GREY" if not floor_consistent else ("GO" if not low else "GO-with-caveat")
+    summary = dict(decision=decision, L_star=L_star, provisional=prov, screen=drops, alpha_max={d: e.get("alpha_max") for d, e in entries.items()},
+                   switch_layer=low, delta_floor_median=floor, floor_consistency_ok=floor_consistent, notes=notes)
     write_summary(ctx.run_path, "G41", summary)
-    # plan §7.1 G0.3 amendment: the α_max KL budget (KL_MAX) must exceed 10x the measured decode-vs-prefill floor
-    from .inference.calibration import KL_MAX
-    floor = None
-    p0 = os.path.join(ctx.run_path, "tables", "G0_summary.json")
-    if os.path.exists(p0):
-        floor = json.load(open(p0, encoding="utf-8")).get("delta_floor_median")
-    floor_bad = bool(floor is not None and np.isfinite(float(floor)) and KL_MAX < 10 * float(floor))
-    summary["delta_floor_median"] = floor
-    res = [G0.GateResult("G4-1", not low, dict(L_star=L_star, alpha_max=summary["alpha_max"], delta_floor_median=floor),
-                         criteria="α_max ≥ 0.2，否则换层；KL 阈值 0.10 须 ≥ 10×delta_floor（G0.3）")]
-    notes = ([f"α_max<0.2 for {low}"] if low else []) + ([f"delta_floor={floor:.2e} ≥ KL_MAX/10：α_max 的 KL 判据不可分辨数值底噪"] if floor_bad else [])
-    decision = "GREY" if floor_bad else ("GO" if not low else "GO-with-caveat")
+    res = [G0.GateResult("G4-1", not low, dict(L_star=L_star, alpha_max=summary["alpha_max"]), criteria="α_max ≥ 0.2，否则换层"),
+           G0.GateResult("G4-1.floor", floor_consistent, dict(delta_floor_median=floor, kl_max=KL_MAX),
+                         criteria="阶段间一致性：KL 阈值 0.10 ≥ 10×delta_floor（G0 放行时自动成立，非独立保障）")]
     gate_entry(ctx, "G4-1", "层选择与 α_max", f"{len(h3s)} h_3 × layers {sorted(prov)}", res, decision, "; ".join(notes))
     return summary
 

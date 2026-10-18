@@ -25,12 +25,16 @@ def derive_seed(run_id: str, problem_id: str, prefix_id: str, arm_id: str, traje
 class SeededGumbelSampler(LogitsProcessor):
     """Argmax of (logits/T + Gumbel noise) per row with a private generator == temperature sampling."""
 
-    def __init__(self, seeds: Iterable[int], temperature: float, device: Optional[str] = None):
+    def __init__(self, seeds: Iterable[int], temperature: float, device: Optional[str] = None, record_logprobs: bool = False):
         self.T = float(temperature)
         self.seeds: List[int] = [int(s) for s in seeds]
         self._device = device
         self.gens: Optional[List[torch.Generator]] = None
         self._last_len = -1
+        # optional: log P_T(chosen token) per step and row, taken from the RAW scores this processor receives (the only
+        # processor in the list) — ``output_scores`` would show the processed 0/−inf scores, i.e. log-prob 0 (round 9)
+        self.record = bool(record_logprobs)
+        self.logprobs: List[List[float]] = [[] for _ in self.seeds]
 
     def reset(self) -> None:
         """Re-seed the per-row generators.  One sampler serves ONE generate call: the engine builds a new sampler (or calls
@@ -60,16 +64,20 @@ class SeededGumbelSampler(LogitsProcessor):
             u = torch.rand(V, generator=g, device=g.device, dtype=torch.float32).to(s.device)
             tok = torch.argmax(s[b] - torch.log(-torch.log(u.clamp_(1e-20, 1.0))))
             out[b, tok] = 0.0
+            if self.record:
+                self.logprobs[b].append(float(torch.log_softmax(s[b], -1)[tok]))
         return out
 
 
 def generate_kwargs(seeds: Iterable[int], temperature: float = 0.7, max_new_tokens: int = 512,
-                    pad_token_id: int = 151643, eos_token_id=(151645, 151643), device: Optional[str] = None) -> dict:
-    """Frozen decoding configuration (plan §4.3): no truncation, temperature inside the sampler."""
+                    pad_token_id: int = 151643, eos_token_id=(151645, 151643), device: Optional[str] = None,
+                    record_logprobs: bool = False) -> dict:
+    """Frozen decoding configuration (plan §4.3): no truncation, temperature inside the sampler.  ``record_logprobs``
+    makes the sampler keep log P_T of every chosen token (``kwargs["logits_processor"][0].logprobs``)."""
     return dict(
         do_sample=True, temperature=1.0, top_k=0, top_p=1.0, min_p=None, repetition_penalty=1.0,
         max_new_tokens=max_new_tokens, pad_token_id=pad_token_id, eos_token_id=list(eos_token_id),
-        logits_processor=LogitsProcessorList([SeededGumbelSampler(seeds, temperature, device)]),
+        logits_processor=LogitsProcessorList([SeededGumbelSampler(seeds, temperature, device, record_logprobs=record_logprobs)]),
     )
 
 

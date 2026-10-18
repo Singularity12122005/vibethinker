@@ -18,17 +18,21 @@ import numpy as np
 
 
 # ---------------------------------------------------------------- gradients (HF)
-def response_gradient(model, steer, ids: Sequence[int], prompt_len: int, scope: str = "S_gen") -> Tuple[np.ndarray, float]:
-    """Returns (g [D] fp32 numpy, log P(y | h) at alpha = 0).  Requires model parameters frozen (checked)."""
+def response_gradient(model, steer, ids: Sequence[int], prompt_len: int, scope: str = "S_gen", temperature: Optional[float] = None) -> Tuple[np.ndarray, float]:
+    """Returns (g [D] fp32 numpy, log P_T(y | h) at alpha = 0), T = the generation temperature (plan §8.3: the gradient of the
+    T-tempered log-probability; dividing a T=1 gradient by T afterwards is NOT equivalent because T also changes the softmax
+    weights).  Requires model parameters frozen (checked)."""
     import torch
 
+    from ..constants import TEMPERATURE
     from ..inference.hf_engine import response_logprobs
+    temperature = TEMPERATURE if temperature is None else float(temperature)
     if any(p.requires_grad for p in model.parameters()):
         raise RuntimeError("freeze the model (model.requires_grad_(False)) before response_gradient")
     S = len(ids)
     D = model.config.hidden_size
     delta = torch.zeros(1, S, D, dtype=torch.float32, device=model.device, requires_grad=True)
-    lp = response_logprobs(model, ids, prompt_len, steer=steer, alpha=0.0, scope=scope, grad_delta=delta)
+    lp = response_logprobs(model, ids, prompt_len, steer=steer, alpha=0.0, scope=scope, grad_delta=delta, temperature=temperature)
     total = lp.sum()
     total.backward()
     mask = torch.zeros(S, dtype=torch.float32, device=model.device)

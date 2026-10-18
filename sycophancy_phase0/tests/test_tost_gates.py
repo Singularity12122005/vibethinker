@@ -42,9 +42,14 @@ def test_g0_6_null_rate_with_20000():
 
 
 def test_other_g0_stats():
-    assert g0_3(np.array([1e-4, 2e-4, 5e-3])).passed and not g0_3(np.array([1e-4, 2e-2, 5e-3])).passed
-    r3 = g0_3(np.array([1e-4, np.nan, 2e-4]), n_not_applicable=1)          # v1.4: 'cache 不适用' items reported, excluded, never a pass
-    assert r3.passed and r3.details['n_not_applicable'] == 2 and r3.details['n'] == 2 and not g0_3(np.array([np.nan])).passed
+    assert g0_3(np.array([1e-4, 2e-4, 5e-3]), min_valid=1).passed and not g0_3(np.array([1e-4, 2e-2, 5e-3]), min_valid=1).passed
+    r3 = g0_3(np.array([1e-4, np.nan, 2e-4]), n_not_applicable=1, min_valid=1, max_na_rate=0.6)   # NaN = verified 'cache 不适用'
+    assert r3.passed and r3.details['n_not_applicable'] == 2 and r3.details['n'] == 2 and not g0_3(np.array([np.nan]), min_valid=1).passed
+    # round 9: faults and coverage are never a pass; the formal defaults (150 valid, <=25% not applicable) are strict
+    assert g0_3(np.array([1e-4, np.nan, 2e-4]), n_not_applicable=1, min_valid=1).details['kind'] == 'coverage'
+    assert g0_3(np.array([1e-4] + [np.inf] * 199)).details['kind'] == 'fault' and g0_3(np.full(200, -0.1)).details['kind'] == 'fault'
+    ok = g0_3(np.full(200, 5e-4)); assert ok.passed and ok.details['kind'] == 'ok'
+    assert g0_3(np.full(200, -1e-9)).passed and g0_3(np.full(100, 5e-4)).details['kind'] == 'coverage'
     assert g0_7(np.array([-3.0, -10.0])).passed and not g0_7(np.array([-3.0, -np.inf])).passed
     r7 = g0_7(np.array([-3.0, -70.0]))                      # v1.4: finite but < -60 is reported, not a failure
     assert r7.passed and r7.details["extremely_low_prob_share"] == 0.5 and not g0_7(np.array([-3.0, np.nan])).passed

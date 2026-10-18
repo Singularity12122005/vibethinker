@@ -17,6 +17,8 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
+from ..constants import TEMPERATURE
+
 FINE_GRID = tuple(round(0.05 * k, 2) for k in range(1, 41))          # 0.05 … 2.00
 COARSE_GRID = (0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0)
 KL_MAX, FLIP_MAX, X2_DROP, ACC_DROP = 0.10, 0.05, 0.03, 0.03
@@ -24,8 +26,10 @@ KL_MAX, FLIP_MAX, X2_DROP, ACC_DROP = 0.10, 0.05, 0.03, 0.03
 
 # ---------------------------------------------------------------- step 1
 def fine_grid_stats(model, steer, items: Sequence[Tuple[Sequence[int], Sequence[int]]], alphas: Sequence[float] = FINE_GRID,
-                    top_k: int = 8, scope: str = "S_gen", pos_masks: Optional[Sequence] = None) -> Dict[float, Dict[str, float]]:
-    """items: (prompt_ids, response_ids).  Returns {|alpha|: {kl_pos, kl_neg, kl, flip_pos, flip_neg, flip}}."""
+                    top_k: int = 8, scope: str = "S_gen", pos_masks: Optional[Sequence] = None,
+                    temperature: float = TEMPERATURE) -> Dict[float, Dict[str, float]]:
+    """items: (prompt_ids, response_ids).  Returns {|alpha|: {kl_pos, kl_neg, kl, flip_pos, flip_neg, flip}}; KL between the
+    T-tempered next-token distributions (plan §4.7 step 1)."""
     import torch
 
     from .hf_engine import next_token_kl, router_topk_sets
@@ -39,7 +43,7 @@ def fine_grid_stats(model, steer, items: Sequence[Tuple[Sequence[int], Sequence[
                 kls, flips = [], []
                 for i, (p, r) in enumerate(items):
                     pm = None if pos_masks is None else pos_masks[i]
-                    kl = next_token_kl(model, list(p) + list(r), len(p), steer, sign * a, scope, pos_mask=pm)
+                    kl = next_token_kl(model, list(p) + list(r), len(p), steer, sign * a, scope, pos_mask=pm, temperature=temperature)
                     kls.append(float(kl.mean()))
                     sets_a = router_topk_sets(model, list(p) + list(r), len(p), steer, sign * a, top_k=top_k, scope=scope, pos_mask=pm)
                     flips.append(_flip_from_sets(base_sets[i], sets_a, steer.layer, top_k))
@@ -125,15 +129,17 @@ def alpha_max_from_curves(fine: Dict[float, Dict[str, float]], coarse: Dict[str,
 
 
 # ---------------------------------------------------------------- step 4
-def kappa1(model, steer, items: Sequence[Tuple[Sequence[int], Sequence[int]]], alpha: float, scope: str = "S_gen") -> Dict[str, float]:
-    """items: (prompt_ids, steered_response_ids) sampled under alpha.  Σ_k KL(P^alpha_k || P^0_k) per response, averaged."""
+def kappa1(model, steer, items: Sequence[Tuple[Sequence[int], Sequence[int]]], alpha: float, scope: str = "S_gen",
+           temperature: float = TEMPERATURE) -> Dict[str, float]:
+    """items: (prompt_ids, steered_response_ids) sampled under alpha.  Σ_k KL(P^alpha_k || P^0_k) per response (T-tempered
+    distributions), averaged."""
     import torch
 
     from .hf_engine import next_token_kl
     tot = []
     with torch.no_grad():
         for p, r in items:
-            kl = next_token_kl(model, list(p) + list(r), len(p), steer, alpha, scope, direction="alpha_to_zero")
+            kl = next_token_kl(model, list(p) + list(r), len(p), steer, alpha, scope, direction="alpha_to_zero", temperature=temperature)
             tot.append(float(kl.sum()))
     return dict(kappa1=float(np.mean(tot)), se=float(np.std(tot, ddof=1) / np.sqrt(len(tot))) if len(tot) > 1 else float("nan"),
                 n=len(tot), per_token=float(np.mean([t / max(1, len(r)) for t, (_, r) in zip(tot, items)])))

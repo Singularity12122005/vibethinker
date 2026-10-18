@@ -80,26 +80,33 @@ Then `g0.write_gates_md(results, GATES.md, run_id)`; GO only with all eight pres
 - Budget: `stages.budget_snapshot` appends the engines' token counters to `tables/budget.json` at every GATES entry (plan §7.13).
 
 
-## 6. First GPU contact (2026-10-17, 1× A100-SXM4-80GB) — facts and the diagnostics to run before the formal G0
+## 6. First GPU contact (2026-10-17, 1× A100-SXM4-80GB, sdpa, torch 2.8.0+cu128, transformers 4.57.1) — facts and the diagnostics to run before the formal G0
 
-Facts (smoke run, not G0): model resident 56.9 GiB bf16 (≈21 GiB headroom), load 313 s; B=1 decode 6.5–6.9 tok/s; four-turn id-concat vs
-chat-template identical (segment_mismatches 0, user_span offsets match); hook self-check 6/6 (prefix residual at the hooked layer 0.0,
-but prefix LOGITS max|Δ| 1.25 — MoE expert-grouping numerics, see plan §4.4); support defect 0/128 (min finite log p −6.0); real generate
-cache covers prompt+gen−1 and verifies bitwise; single-sample cache-vs-recompute KL 4.3e-3 nats (> the 1e-3 median criterion, see plan §7.1
-G0.3 amendment). Three 64-token generations at α∈{0,±0.5}·r_L (random direction, L=20, r_L≈15.1 on one prefix) stay fluent.
+Facts (smoke run, not G0; three 64-token generations were T=0.7 samples truncated at 64): model resident 56.9 GiB bf16 (≈21 GiB
+headroom, which does NOT by itself guarantee B=32), load 313 s; B=1 decode 6.5–6.9 tok/s; four-turn id-concat vs chat-template identical
+(segment_mismatches 0, user_span offsets match); support defect 0/128 (min finite log p −6.0, T=1 convention at the time); real generate
+cache covers prompt+gen−1 and verifies bitwise; single-sample cache-vs-recompute KL 4.3e-3 nats at T=1 (old convention — keep it as such;
+the code now normalises logits/T). The hook self-check 6/6 of that run came from a locally patched script: the committed check compared
+final logits at prefix positions and would have failed; fixed in round 9 (hooked layer's actual output, captured as the next layer's input).
+Prefix final-logit max|Δ| 1.25 under suffix steering is a numerical suffix dependence whose source is still to be localised (plan §4.4).
 
-Run these (each minutes, none formal) before mining/r_L/G0:
-1. Throughput + memory: B∈{8,16,32}, 256 new tokens, half the rows at α=0.5 (hook on): aggregate tok/s and peak memory. This decides the
-   §7.13 HF budget and whether vLLM steering / fused MoE kernels are needed (B=1 is 6.9 tok/s).
-2. Cache floor ablation on the same sample: attention backend eager vs sdpa/flash; and per-token |log p_generate(output_scores) −
-   log p_teacher_forced| over a 512-token response (the reconstruction error every teacher-forced quantity carries). Record both in the
-   run notes; after the formal G0.3 write `tables/G0_summary.json` via `g0.write_g0_summary(run_path, results)`.
-3. Batch-composition preview (mini G0.5): 8 prompts, greedy 32 tokens, B=1 vs B=8 with random peers: per-token argmax agreement. The
-   plan's 99.5% criterion is at real risk given the 1.25-logit coupling.
-4. α–KL preview at L=20 for v_rand: α∈{0.125,0.25,0.5,1,2} on 16 prompts (`calibration.fine_grid_stats`): where mean next-token KL crosses
-   0.10 (the fine grid already goes down to 0.05). If 0.5 is already above 0.10, expect small α_max and check that G0.7's α=±1 responses
-   are still readable.
-5. Left-padded B>1 hook check: the same prompt padded to different lengths in one batch, `gen_start = att.sum(-1)-1`, teacher-forcing
-   prefix/suffix check per row; and `S_read` at B>1 via `read_mask_from_spans`.
-Memory note: teacher-forced forwards materialise full-vocabulary logits (151936 × tokens); on an 80 GB card with the model resident keep
-those batches to ≈4–8 sequences of 512 response tokens (or slice logits), generation batches 16–32.
+Run these in this order (each minutes, none formal) before mining/r_L/G0:
+1. Left padding + read-side mask: the same prompt padded to different lengths in one batch, `gen_start = att.sum(-1)-1`; check the
+   steered positions on the hooked layer's ACTUAL output (`hook_selfcheck(..., with_diagnostics=True)` per row, or the same pre-hook
+   capture at B>1), not on final logits; then `S_read` at B>1 via `read_mask_from_spans`.
+2. Generation-path vs teacher-forced log-probs: `g0_runner.generation_vs_teacher_forcing(model, ids, max_new_tokens=512, seed=...)` —
+   raw scores recorded inside the sampler (NOT `output_scores`), both paths at T=0.7, only the actually generated tokens (no appended
+   EOS). Report max/mean/rms |Δ log p| per response over ≥20 prompts; then repeat under `attn_implementation="eager"` to see whether the
+   attention backend drives the difference. Only after this may analyses that rely on response log-probs/gradients/KL be trusted.
+3. Batch-composition preview (mini G0.5): compare FIRST-token distributions (or fix a common history and compare per position under
+   teacher forcing) for B=1 vs B=8 with random peers; free continuations diverge after the first differing token, so do not compare them
+   token-by-token.
+4. Throughput 8 → 16 → 32: every request routed to the same engine (`GenRequest(..., engine="hf")`, so alpha=0 rows are not split off to
+   the null engine), 256 new tokens, half the rows at α=0.5; report aggregate tok/s on GENERATED tokens and say whether prompt
+   processing is included; record peak memory at each step and stop at the first OOM.
+5. α preview at L=20 (`calibration.fine_grid_stats`, T=0.7): α∈{0, ±0.125, ±0.25, ±0.5, ±1, ±2}; a random direction only establishes
+   the magnitude scale and does not replace the formal direction calibration (§4.7).
+After the formal G0.3, write `tables/G0_summary.json` with `g0.write_g0_summary(run_path, results)`; `stage_g41` refuses to calibrate
+without it. The A100/H100 factor 0.5 in `config.hardware` is a budget placeholder until measured.
+Memory note: teacher-forced forwards materialise full-vocabulary logits (151936 × tokens); keep those batches to ≈4–8 sequences of 512
+response tokens (or slice logits), generation batches 16–32 subject to item 4.

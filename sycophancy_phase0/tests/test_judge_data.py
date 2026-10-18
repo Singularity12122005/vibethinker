@@ -164,11 +164,16 @@ def test_controller_contract_and_gates_md(tmp_path):
     assert g0_decision(full) == "GO" and g0_decision(full[:-1] + [GateResult("G0.8", False, {})]) == "KILL"
     # pre-registered G0.3 amendment (first GPU contact): median-only failure => not a KILL (cache regime disabled); q95 failure => GREY
     from sycophancy_phase0.gates.g0 import g0_3, g0_notes, write_g0_summary
-    med_only = g0_3(np.full(50, 4e-3))
+    med_only = g0_3(np.full(50, 4e-3), min_valid=1)
     assert not med_only.passed and med_only.details["q95_ok"] and not med_only.details["median_ok"]
     rest = [r for r in full if r.name != "G0.3"]
     assert g0_decision(rest + [med_only]) == "GO" and "cache-reuse regime 禁用" in g0_notes(rest + [med_only])
-    assert g0_decision(rest + [g0_3(np.full(50, 2e-2))]) == "GREY"
+    assert g0_decision(rest + [g0_3(np.full(50, 2e-2), min_valid=1)]) == "GREY"
+    # round 9 truth table: faults => KILL; coverage => GREY; another mandatory failure is never masked by a G0.3 tier
+    assert g0_decision(rest + [g0_3(np.array([1e-4] + [np.inf] * 199))]) == "KILL"
+    assert g0_decision(rest + [g0_3(np.full(200, -0.1))]) == "KILL"
+    assert g0_decision(rest + [g0_3(np.full(100, 5e-4))]) == "GREY" and "覆盖不足" in g0_notes(rest + [g0_3(np.full(100, 5e-4))])
+    assert g0_decision(rest[:-1] + [GateResult(rest[-1].name, False, {}), g0_3(np.full(50, 2e-2), min_valid=1)]) == "KILL"
     assert g0_decision(rest[:-1] + [GateResult(rest[-1].name, False, {}), med_only]) == "KILL"
     import tempfile
     d = tempfile.mkdtemp()

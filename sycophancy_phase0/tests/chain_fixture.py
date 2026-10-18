@@ -62,6 +62,7 @@ def build_chain(root: str, run_id: str = "E2E", n_problems: int = 4):
     cfg["sizes"] = dict(SIZES)
     cfg["pools"] = dict(DEFAULT_CONFIG["pools"], p0_main=0.8)
     cfg["g40_min_per_class"] = 1
+    cfg["require_g0_summary"] = False          # the smoke chain has no formal G0; stage_g41 then skips the prerequisite
     ctx = Context.fake(root, run_id, responder, config=cfg)
     ctx.judge = fake_judge
     stage_data(ctx)

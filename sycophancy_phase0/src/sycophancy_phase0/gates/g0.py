@@ -53,22 +53,39 @@ def g0_2(checks: Dict[str, bool], sampler_chi2_p: float) -> GateResult:
 
 
 # ---------------------------------------------------------------- G0.3
-def g0_3(kl_first_token: np.ndarray, n_not_applicable: int = 0) -> GateResult:
-    """kl_first_token: per-h_3 KL(cache-reuse || recompute) of the fp32 first-token distribution (nats).  NaN entries are the
-    §4.2 "cache 不适用" items (v1.4, memo I2) and are counted automatically; ``n_not_applicable`` adds items that were dropped
-    before the array was built.  Both are reported, excluded from the statistics and never a pass."""
+def g0_3(kl_first_token: np.ndarray, n_not_applicable: int = 0, *, min_valid: int = 150, max_na_rate: float = 0.25,
+         neg_tol: float = -1e-6) -> GateResult:
+    """kl_first_token: per-h_3 KL(cache-reuse || recompute) of the fp32 first-token distribution at T (nats).
+
+    Three kinds of entry are told apart (round 9): NaN = the §4.2 "cache 不适用" item (verified prefix mismatch; counted,
+    excluded, never a pass; ``n_not_applicable`` adds items dropped before the array was built); ±inf or a KL below
+    ``neg_tol`` = a NUMERICAL FAULT (a KL cannot be negative beyond rounding; faults fail the gate and G0 KILLs); everything
+    else = a valid measurement (tiny negatives within ``neg_tol`` are clamped to 0).  Coverage: ``min_valid`` valid items
+    (plan: 150 of the 200 h_3) and a not-applicable rate ≤ ``max_na_rate``, else the gate fails as "coverage" (G0 GREY).
+    ``details["kind"]`` ∈ {ok, median_only, q95, coverage, fault} drives ``g0_decision``."""
     kl = np.asarray(kl_first_token, float)
-    fin = kl[np.isfinite(kl)]
-    n_na = int(n_not_applicable) + int((~np.isfinite(kl)).sum())
-    med = float(np.median(fin)) if fin.size else float("nan")
-    q95 = float(np.quantile(fin, 0.95)) if fin.size else float("nan")
-    n_total = int(fin.size) + n_na
-    median_ok, q95_ok = bool(fin.size > 0 and med < 1e-3), bool(fin.size > 0 and q95 < 1e-2)
-    return GateResult("G0.3", median_ok and q95_ok,
-                      dict(delta_floor_median=med, delta_floor_q95=q95, median_ok=median_ok, q95_ok=q95_ok, n=int(fin.size),
-                           n_not_applicable=n_na, not_applicable_rate=(n_na / n_total if n_total else float("nan"))),
-                      criteria="首 token fp32 log_softmax 的 KL（仅 cache 与 ids_3 前缀逐位一致的项）：中位数 <1e-3 nats，95% 分位 <1e-2；"
-                               "记录为 delta_floor；cache 不适用项单列报告，不计入亦不记为通过")
+    is_nan = np.isnan(kl)
+    is_inf = np.isinf(kl)
+    is_neg = (~is_nan) & (~is_inf) & (kl < neg_tol)
+    valid = (~is_nan) & (~is_inf) & (~is_neg)
+    fin = np.clip(kl[valid], 0.0, None)
+    n_faults = int(is_inf.sum() + is_neg.sum())
+    n_na = int(n_not_applicable) + int(is_nan.sum())
+    n_valid = int(fin.size)
+    n_total = n_valid + n_na + n_faults
+    med = float(np.median(fin)) if n_valid else float("nan")
+    q95 = float(np.quantile(fin, 0.95)) if n_valid else float("nan")
+    median_ok, q95_ok = bool(n_valid > 0 and med < 1e-3), bool(n_valid > 0 and q95 < 1e-2)
+    na_rate = (n_na / n_total) if n_total else float("nan")
+    coverage_ok = bool(n_valid >= int(min_valid) and n_total > 0 and na_rate <= max_na_rate)
+    fault_ok = n_faults == 0
+    kind = ("fault" if not fault_ok else "coverage" if not coverage_ok else "q95" if not q95_ok else "median_only" if not median_ok else "ok")
+    return GateResult("G0.3", median_ok and q95_ok and coverage_ok and fault_ok,
+                      dict(delta_floor_median=med, delta_floor_q95=q95, median_ok=median_ok, q95_ok=q95_ok, coverage_ok=coverage_ok,
+                           fault_ok=fault_ok, kind=kind, n=n_valid, n_faults=n_faults, n_not_applicable=n_na, not_applicable_rate=na_rate,
+                           min_valid=int(min_valid), max_na_rate=float(max_na_rate)),
+                      criteria="首 token fp32 log_softmax(logits/T) 的 KL（仅 cache 与 ids_3 前缀逐位一致的有效项）：中位数 <1e-3 nats，95% 分位 <1e-2；"
+                               "有效项 ≥150 且不适用比例 ≤25%；±∞ 或负 KL（超出舍入容差）为数值故障；记录为 delta_floor")
 
 
 # ---------------------------------------------------------------- paired TOST gates
@@ -188,11 +205,19 @@ def g0_decision(results: Sequence[GateResult]) -> str:
     if missing:
         return "GREY"
     by = {r.name: r for r in results}
-    others_ok = all(r.passed for r in results if r.name != "G0.3")
+    if any(not r.passed for r in results if r.name != "G0.3"):
+        return "KILL"                                    # every other mandatory failure stops first: G0.3's tiers never mask it
     g03 = by["G0.3"]
-    if not g03.passed and not g03.details.get("q95_ok", False):
+    if g03.passed:
+        return "GO"
+    kind = g03.details.get("kind")
+    if kind == "fault":
+        return "KILL"                                    # ±inf / negative KL: a measurement-pipeline defect
+    if kind in ("coverage", "q95"):
         return "GREY"
-    return "GO" if others_ok else "KILL"
+    if kind == "median_only" or (g03.details.get("q95_ok", False) and g03.details.get("coverage_ok", True) and g03.details.get("fault_ok", True)):
+        return "GO"                                      # cache regime disabled, delta_floor recorded (plan §7.1 G0.3 row)
+    return "GREY"
 
 
 def g0_notes(results: Sequence[GateResult]) -> str:
@@ -202,9 +227,14 @@ def g0_notes(results: Sequence[GateResult]) -> str:
     if g03 is None or g03.passed:
         return ""
     med = g03.details.get("delta_floor_median", float("nan"))
-    if g03.details.get("q95_ok", False):
-        return (f"G0.3 中位数判据未达（delta_floor={med:.2e} nats）：附录 cache-reuse regime 禁用，G0 判定不受影响（预注册修正 2026-10-17）；"
-                "delta_floor 须与 §4.7 的 KL 阈值并列报告")
+    kind = g03.details.get("kind")
+    if kind == "fault":
+        return f"G0.3 数值故障（±∞ 或负 KL {g03.details.get('n_faults')} 项）：测量管线缺陷，KILL"
+    if kind == "coverage":
+        return (f"G0.3 覆盖不足（有效 {g03.details.get('n')} 项，不适用比例 {g03.details.get('not_applicable_rate'):.2f}）：GREY，补足样本后重跑")
+    if kind == "median_only":
+        return (f"G0.3 中位数判据未达（delta_floor={med:.2e} nats）：附录跨轮 cache-reuse regime 禁用，不依赖该 regime 的工作继续；"
+                "依赖回答概率/梯度/分布差异的分析须先完成实际计算路径的一致性诊断（RUNBOOK §6 第 2 项）；delta_floor 与 §4.7 的 KL 阈值并列报告")
     return "G0.3 95% 分位 ≥1e-2 nats：数值底噪达 α_max KL 预算的 1/10，GREY（先查注意力后端/精度）"
 
 

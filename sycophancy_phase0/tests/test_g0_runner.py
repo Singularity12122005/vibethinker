@@ -7,9 +7,9 @@ transformers = pytest.importorskip("transformers")
 from transformers.models.qwen3_moe import Qwen3MoeConfig, Qwen3MoeForCausalLM
 
 from fake_tok import encode, first_turn_ids, is_ws
-from sycophancy_phase0.constants import IM_END, SYSTEM_PROMPT, THINK_END, THINK_START
+from sycophancy_phase0.constants import IM_END, SYSTEM_PROMPT, TEMPERATURE, THINK_END, THINK_START
 from sycophancy_phase0.gates.g0 import g0_1, g0_2, g0_3, g0_7
-from sycophancy_phase0.gates.g0_runner import (batch_conditions, cache_vs_recompute_kl, continuation_specs, generate_with_cache, hook_selfcheck,
+from sycophancy_phase0.gates.g0_runner import (batch_conditions, cache_vs_recompute_kl, continuation_specs, generate_with_cache, generation_vs_teacher_forcing, hook_selfcheck,
                                                paired_e3, sampler_chi2, support_defect_logps, template_consistency)
 from sycophancy_phase0.inference.engine import EngineRouter, FakeEngine, HFEngine, GenRequest
 from sycophancy_phase0.inference.hf_engine import generate_steered, left_pad, response_logprobs, extract_z
@@ -44,8 +44,10 @@ def test_hook_selfcheck_and_sampler_chi2(model):
     ids = _seq(rng, 14)
     st = Steer(model, 1, torch.randn(D), r_L=2.0)
     try:
-        checks = hook_selfcheck(model, st, ids, gen_start=7)
+        checks, diag = hook_selfcheck(model, st, ids, gen_start=7, with_diagnostics=True)
         assert all(checks.values()), checks
+        assert diag["teacher_forcing_prefix_residual_maxdiff"] == 0.0 and diag["no_hook_repeat_logit_maxdiff"] == 0.0 and diag["hooked_layer"] == 1
+        assert diag["teacher_forcing_suffix_residual_maxdiff"] > 0 and hook_selfcheck(model, st, ids, gen_start=7) == checks
         with pytest.raises(RuntimeError):
             Steer(model, 1, torch.randn(D), r_L=1.0)          # double attachment refused
         res = sampler_chi2(model, ids, n=3000, batch_size=500)
@@ -64,7 +66,7 @@ def test_cache_vs_recompute_and_support_defect(model):
     items = [(_seq(rng, 9), _seq(rng, 6)) for _ in range(5)]
     r = cache_vs_recompute_kl(model, items)
     kl = r["kl"]
-    assert kl.shape == (5,) and r["n_not_applicable"] == 0 and g0_3(kl).passed and float(np.max(kl)) < 1e-4
+    assert kl.shape == (5,) and r["n_not_applicable"] == 0 and g0_3(kl, min_valid=1).passed and float(np.max(kl)) < 1e-4 and r["temperature"] == TEMPERATURE
     # v1.4 (memo I2): a real generate cache — covers prompt + generated[:-1]; verified bitwise against ids_3, else "not applicable"
     ids_2 = _seq(rng, 9)
     c = generate_with_cache(model, ids_2, max_new_tokens=4, greedy=True, pad_id=V - 1)
@@ -75,7 +77,7 @@ def test_cache_vs_recompute_and_support_defect(model):
     r2 = cache_vs_recompute_kl(model, [good, bad, good], caches=[(c["cached_ids"], c["past"])] * 3)
     assert np.isfinite(r2["kl"][0]) and r2["kl"][0] < 1e-4 and np.isnan(r2["kl"][1]) and r2["n_not_applicable"] == 1
     assert "not a prefix" in r2["reasons"][1] and r2["reasons"][0] is None and np.isfinite(r2["kl"][2])   # the caller's cache is untouched
-    g3 = g0_3(r2["kl"])                                                       # NaN entries are counted by the gate itself
+    g3 = g0_3(r2["kl"], min_valid=1, max_na_rate=0.5)                        # NaN entries are counted by the gate itself
     assert g3.passed and g3.details["n_not_applicable"] == 1 and g3.details["n"] == 2
     lps = support_defect_logps(model, [(_seq(rng, 8), _seq(rng, 5)) for _ in range(3)])
     assert lps.shape == (15,) and g0_7(lps).passed
@@ -100,7 +102,7 @@ def test_S_read_in_generate_and_teacher_forcing(model):
             lp = response_logprobs(model, seqs[b] + out.sequences[b, ids.shape[1]:ids.shape[1] + 1].tolist(), len(seqs[b]),
                                    steer=st, alpha=1.0, scope="S_read", pos_mask=pm[b:b + 1])
             tf_first = lp[0]
-            gen_first = torch.log_softmax(out.logits[0][b].float(), -1)[out.sequences[b, ids.shape[1]]]
+            gen_first = torch.log_softmax(out.logits[0][b].float() / TEMPERATURE, -1)[out.sequences[b, ids.shape[1]]]   # same T on both paths
             assert abs(float(tf_first) - float(gen_first)) < 1e-4
         # with the mask, alpha=1 differs from alpha=0 at the first token; after the span it is not re-applied at decode steps
         st.set([1.0, 1.0], "S_read", pos_mask=pm)
@@ -230,3 +232,15 @@ def test_template_consistency_and_batch_conditions():
     ea, eb, cl = paired_e3(conds["batch1"], conds["batch8_random"])
     assert ea.shape == (12,) and np.array_equal(ea, eb) and len(set(cl)) == 3
     assert [t.trajectory_idx for t in conds["batch8_grouped"]] == [s.trajectory_idx for s in specs]
+
+
+def test_generation_logprobs_match_teacher_forcing_at_the_same_temperature(model):
+    """RUNBOOK §6 item 2 on the CPU model: the decode-path log P_T recorded inside the sampler (raw scores, T applied) equals
+    the teacher-forced log P_T of the same generated tokens up to fp32 noise; the processed ``output_scores`` would give 0."""
+    rng = np.random.default_rng(9)
+    ids = _seq(rng, 11)
+    r = generation_vs_teacher_forcing(model, ids, max_new_tokens=6, seed=123, eos_ids=(V - 2,), pad_id=V - 1)
+    assert r["n"] >= 1 and r["temperature"] == TEMPERATURE and r["max_abs_diff"] < 1e-3 and len(r["logp_gen"]) == r["n"]
+    assert np.all(r["logp_gen"] <= 1e-6) and np.all(r["logp_gen"] > -50)
+    r1 = generation_vs_teacher_forcing(model, ids, max_new_tokens=6, seed=123, eos_ids=(V - 2,), pad_id=V - 1, temperature=1.0)
+    assert r1["gen_ids"] != r["gen_ids"] or abs(r1["logp_gen"][0] - r["logp_gen"][0]) > 1e-6     # T changes the distribution

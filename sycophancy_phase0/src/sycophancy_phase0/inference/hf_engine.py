@@ -8,8 +8,10 @@ Rules enforced here:
     to a uniform shift in fp32, but bf16 leaks ~1e-2 logit differences at large pad counts (measured in
     tests/test_hf_semantics.py), which matters for the G0.5 argmax-consistency gate;
   * ``hidden_states[L + 1]`` is the output of ``model.model.layers[L]``; the last entry is post-norm and unused;
-  * fp32 ``log_softmax`` for every log-prob / KL; integer ``logits_to_keep`` is never used (it slices the padded
-    tensor from the end and breaks for shorter rows).
+  * fp32 ``log_softmax`` of ``logits / T`` (T = the frozen generation temperature, constants.TEMPERATURE = 0.7) for every
+    log-prob / KL / gradient: the distribution the model SAMPLED from is P_T, and T = 1 is a different distribution (round 9,
+    first GPU contact review: the reference implementation normalised raw logits before 2026-10-18); integer
+    ``logits_to_keep`` is never used (it slices the padded tensor from the end and breaks for shorter rows).
 """
 from __future__ import annotations
 
@@ -19,7 +21,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from ..constants import ENDOFTEXT, IM_END, PAD_ID
+from ..constants import ENDOFTEXT, IM_END, PAD_ID, TEMPERATURE
 
 
 # ---------------------------------------------------------------------- batching
@@ -162,8 +164,9 @@ def extract_z_think(model, seqs_with_think: Sequence[Sequence[int]], layers: Seq
 # ---------------------------------------------------------------------- teacher forcing
 def response_logprobs(model, ids: Sequence[int], prompt_len: int, *, steer=None, alpha: float = 0.0,
                       scope: str = "S_gen", grad_delta: Optional[torch.Tensor] = None,
-                      pos_mask: Optional[torch.Tensor] = None) -> torch.Tensor:
-    """Per-token log P(y_k | y_<k, h) for the response ids[prompt_len:], B=1, fp32 log_softmax.
+                      pos_mask: Optional[torch.Tensor] = None, temperature: float = TEMPERATURE) -> torch.Tensor:
+    """Per-token log P_T(y_k | y_<k, h) for the response ids[prompt_len:], B=1, fp32 log_softmax of logits / T
+    (T = the generation temperature; plan §4.3/§8.3: "温度 0.7 的条件分布").
 
     With ``steer`` the hook is applied at positions >= prompt_len - 1 (S_gen) or on ``pos_mask`` (S_read).
     The hook state the caller had set is restored afterwards.
@@ -180,7 +183,7 @@ def response_logprobs(model, ids: Sequence[int], prompt_len: int, *, steer=None,
                         use_cache=False, return_dict=True)
             logits = out.logits[0, prompt_len - 1: ids_t.shape[1] - 1].float()   # predicts ids[prompt_len:]
             targets = ids_t[0, prompt_len:]
-            lp = F.log_softmax(logits, dim=-1).gather(-1, targets[:, None])[:, 0]
+            lp = F.log_softmax(logits / float(temperature), dim=-1).gather(-1, targets[:, None])[:, 0]
     finally:
         if steer is not None:
             steer.restore(saved)
@@ -189,9 +192,11 @@ def response_logprobs(model, ids: Sequence[int], prompt_len: int, *, steer=None,
 
 @torch.no_grad()
 def next_token_kl(model, ids: Sequence[int], prompt_len: int, steer, alpha: float, scope: str = "S_gen",
-                  pos_mask: Optional[torch.Tensor] = None, direction: str = "zero_to_alpha") -> torch.Tensor:
-    """Per-position KL over response positions, fp32; caller takes the mean (plan §4.7 step 1: KL(P^0 || P^alpha),
-    ``direction="zero_to_alpha"``) or the sum (kappa_1, §4.7 step 4: KL(P^alpha || P^0), ``"alpha_to_zero"``)."""
+                  pos_mask: Optional[torch.Tensor] = None, direction: str = "zero_to_alpha",
+                  temperature: float = TEMPERATURE) -> torch.Tensor:
+    """Per-position KL over response positions between the T-tempered distributions (fp32); caller takes the mean (plan
+    §4.7 step 1: KL(P^0 || P^alpha), ``direction="zero_to_alpha"``) or the sum (kappa_1, §4.7 step 4: KL(P^alpha || P^0),
+    ``"alpha_to_zero"``)."""
     ids_t = torch.as_tensor(list(ids), dtype=torch.long, device=model.device)[None]
     att = torch.ones_like(ids_t)
     pos = position_ids_from_mask(att)
@@ -199,9 +204,10 @@ def next_token_kl(model, ids: Sequence[int], prompt_len: int, steer, alpha: floa
     saved = steer.state()
     steer.off()
     try:
-        lp0 = F.log_softmax(model(input_ids=ids_t, attention_mask=att, position_ids=pos, use_cache=False).logits[0, sl].float(), -1)
+        T = float(temperature)
+        lp0 = F.log_softmax(model(input_ids=ids_t, attention_mask=att, position_ids=pos, use_cache=False).logits[0, sl].float() / T, -1)
         steer.set([alpha], scope, gen_start=torch.tensor([prompt_len - 1]), pos_mask=pos_mask)
-        lpa = F.log_softmax(model(input_ids=ids_t, attention_mask=att, position_ids=pos, use_cache=False).logits[0, sl].float(), -1)
+        lpa = F.log_softmax(model(input_ids=ids_t, attention_mask=att, position_ids=pos, use_cache=False).logits[0, sl].float() / T, -1)
     finally:
         steer.restore(saved)
     if direction == "zero_to_alpha":
@@ -290,9 +296,9 @@ def generate_steered(model, seqs: Sequence[Sequence[int]], steer, alphas: Sequen
 
 @torch.no_grad()
 def confidence_features(model, seqs: Sequence[Sequence[int]], suffix_ids: Sequence[Sequence[Sequence[int]]], top_k: int = 50,
-                        pad_id: Optional[int] = None) -> Dict[str, object]:
-    """plan §4.5 baseline features for each prompt: top-k logits (sorted) and ids at the last prompt token, and the
-    summed log-prob of each forced suffix (``suffix_ids[b]`` = list of suffix id lists, e.g. encode("最终答案：" + d_i)
+                        pad_id: Optional[int] = None, temperature: float = TEMPERATURE) -> Dict[str, object]:
+    """plan §4.5 baseline features for each prompt: top-k RAW logits (sorted) and ids at the last prompt token, and the
+    summed T-tempered log-prob of each forced suffix (``suffix_ids[b]`` = list of suffix id lists, e.g. encode("最终答案：" + d_i)
     and ... g_i), scored only over the suffix tokens.  Right padding + explicit positions."""
     out, att = clean_forward(model, seqs, pad_id=pad_id)
     lens = att.sum(-1).tolist()
@@ -302,7 +308,7 @@ def confidence_features(model, seqs: Sequence[Sequence[int]], suffix_ids: Sequen
     for b, seq in enumerate(seqs):
         lps = []
         for suf in suffix_ids[b]:
-            lp = response_logprobs(model, list(seq) + list(suf), len(seq))
+            lp = response_logprobs(model, list(seq) + list(suf), len(seq), temperature=temperature)
             lps.append(float(lp.sum()))
         res["suffix_logp"].append(lps)
     res["suffix_logp"] = np.asarray(res["suffix_logp"]) if res["suffix_logp"] else np.zeros((len(seqs), 0))
