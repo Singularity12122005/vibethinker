@@ -9,7 +9,7 @@ from transformers.models.qwen3_moe import Qwen3MoeConfig, Qwen3MoeForCausalLM
 from fake_tok import encode, first_turn_ids, is_ws
 from sycophancy_phase0.constants import IM_END, SYSTEM_PROMPT, TEMPERATURE, THINK_END, THINK_START
 from sycophancy_phase0.gates.g0 import g0_1, g0_2, g0_3, g0_7
-from sycophancy_phase0.gates.g0_runner import (batch_conditions, cache_vs_recompute_kl, continuation_specs, generate_with_cache, generation_vs_teacher_forcing, hook_position_check, hook_selfcheck,
+from sycophancy_phase0.gates.g0_runner import (batch_conditions, batch_consistency, cache_vs_recompute_kl, continuation_specs, decode_prefill_kl, generate_with_cache, generation_vs_teacher_forcing, hook_position_check, hook_selfcheck,
                                                paired_e3, sampler_chi2, support_defect_logps, template_consistency)
 from sycophancy_phase0.inference.engine import EngineRouter, FakeEngine, HFEngine, GenRequest
 from sycophancy_phase0.inference.hf_engine import generate_steered, left_pad, response_logprobs, extract_z
@@ -334,3 +334,51 @@ def test_hook_position_check_left_padding_and_read_mask(model):
             st._mask = orig
     finally:
         st.remove()
+
+
+def test_real_mask_follows_a_grown_sequence_and_rejects_unsupported_shapes(model):
+    """Round 12 (executor counterexample): with use_cache=False the whole grown sequence is re-fed ([2,5] -> [2,6]); the pad
+    mask must still apply to the original positions and treat new positions as real; a chunked shape is refused."""
+    from sycophancy_phase0.inference.hf_engine import left_pad as _lp, position_ids_from_mask as _pids
+    seqs = [list(range(1, 6)), list(range(1, 4))]
+    ids_b, att_b = _lp(seqs, pad_id=V - 1)
+    pm = read_mask_from_spans([(1, 3), (1, 3)], [5, 3])
+    st = Steer(model, 1, torch.randn(D), r_L=1.0)
+    orig_set = st.set
+    try:
+        st.set([1.0, 1.0], "S_read", pos_mask=pm, real_mask=att_b)
+        pos5 = _pids(att_b).masked_fill(att_b == 0, 1)
+        assert not bool(st._mask(2, 5, ids_b.device, pos5)[1, :2].any())                     # prefill: pads unsteered
+        att6 = torch.cat([att_b, torch.ones(2, 1, dtype=att_b.dtype)], 1)
+        pos6 = _pids(att6).masked_fill(att6 == 0, 1)
+        m6 = st._mask(2, 6, ids_b.device, pos6)
+        # row 1 = [pad, pad, t0, t1, t2, new]; pads carry position id 1 (inside the span) and must stay unsteered,
+        # while index 3 (position id 1, a real token) is steered and the appended position (id 3) is outside the span
+        assert not bool(m6[1, :2].any()) and bool(m6[1, 3]) and not bool(m6[1, 2]) and not bool(m6[1, 5])
+        assert m6.dtype == torch.bool and m6.shape == (2, 6)
+        assert st._mask(2, 1, ids_b.device, torch.tensor([[5], [3]])).shape == (2, 1)          # cached decode step: allowed
+        with pytest.raises(ValueError):
+            st._mask(2, 3, ids_b.device, torch.tensor([[0, 1, 2], [0, 1, 2]]))                   # chunked prefill: refused
+        # generate_steered passes the prompt mask
+        seen = {}
+        def spy(*a, **k):
+            seen.update(k); return orig_set(*a, **k)
+        st.set = spy
+        generate_steered(model, seqs, st, [1.0, 1.0], dict(do_sample=False, max_new_tokens=2, pad_token_id=V - 1), pad_id=V - 1, eos_ids=(V - 2,))
+        assert "real_mask" in seen and seen["real_mask"] is not None
+    finally:
+        st.set = orig_set
+        st.remove()
+
+
+def test_decode_prefill_kl_and_batch_consistency_on_the_cpu_model(model):
+    rng = np.random.default_rng(12)
+    ids = _seq(rng, 11)
+    r = decode_prefill_kl(model, ids, max_new_tokens=6, seed=5, eos_ids=(V - 2,), pad_id=V - 1)
+    assert r["n"] >= 1 and r["kl_decode_to_prefill"].shape == (r["n"],) and r["kl_mean"] < 1e-4 and r["kl_max"] >= 0
+    assert abs(r["signed_sum"] - r["delta_signed"].sum()) < 1e-9 and r["sampler_vs_output_logits_maxdiff"] < 1e-5 and r["max_abs_diff"] < 1e-3
+    peers = [_seq(rng, 9) for _ in range(3)]
+    bc = batch_consistency(model, [_seq(rng, 10), _seq(rng, 8)], peers, n_ref=6, n_free=6, pad_id=V - 1, eos_ids=(V - 2,))
+    assert len(bc["rows"]) == 2 and 0.0 <= bc["pooled_next_token_agreement"] <= 1.0 and bc["n_peers"] == 3
+    assert all(0 <= row["first_divergence"] <= max(row["free_len_alone"], row["free_len_batch"]) for row in bc["rows"])
+    assert all(row["kl_alone_vs_batch_mean"] < 1e-3 for row in bc["rows"])                      # fp32 CPU: batch coupling is at ULP level

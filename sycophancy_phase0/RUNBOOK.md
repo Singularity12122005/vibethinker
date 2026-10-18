@@ -122,17 +122,36 @@ response tokens (or slice logits), generation batches 16–32 subject to item 4.
    mask) and never steers pads. hook_selfcheck 6/6 with the committed code; prefix final-logit max|Δ| 1.375 re-observed; suffix residual
    change 1.277 ≈ α·r_L·‖v‖∞.
 2. Generation vs teacher-forcing (20 × 512 tokens): sdpa mean|Δ log p| 0.022, rms 0.078, max 1.05; eager 0.025 / 0.096 / 1.95 —
-   backend-independent; only 1/20 samples identical across backends, so `attn_implementation` is now in the frozen config. Still
-   to report: the SIGNED mean Δ per response (bias accumulates over a response), and the per-position KL between the two paths.
+   switching the backend did not remove the difference; nothing stronger is supported (the two backends sampled DIFFERENT
+   sequences, 1/20 identical), so "inherent / backend-independent" is withdrawn. `attn_implementation` is in the frozen config.
+   rms|Δ log p| is NOT convertible to a KL between the two paths; the earlier "3–9× the noise floor" remark is withdrawn.
+   Next: protocol 2 of §6.2 (signed Δ_k on fixed sequences, per-response mean/sum/distribution, plus per-position KL).
 3. Batch first token (8 prompts): argmax 8/8, KL(B1‖B8) up to 8e-3, max logit diff 0.6–1.25. The G0.5 99.5% per-token greedy
-   criterion is at risk: run greedy 64-token continuations for 32 prompts under B=1 vs B=8 BEFORE the formal G0; if agreement is
-   below 99.5%, write the pre-registered amendment before sampling (the e_3-rate TOST stays the criterion; agreement becomes a
-   measured floor) — never after.
+   criterion is at risk. The 32 × 64 diagnostic (protocol 3 of §6.2) must report TWO separate quantities: (A) computation
+   difference on a FIXED reference history (step-by-step cache replay alone vs with peers: next-token argmax agreement and KL
+   both ways) and (B) generation stability (free greedy continuations: whole-sequence identity rate, first divergence / common
+   prefix length). Whether 99.5% becomes descriptive is decided by what the formal experiment must guarantee ((A) for the
+   fixed-composition TOST, (B) for reproducibility claims), written as a pre-registered amendment before sampling — never after,
+   and never from the preview numbers alone.
 4. Throughput: B=8 15.3, B=16 21.5, B=32 34.0 tok/s (aggregate, prompt processing included, 0.5–0.9 s per step); memory fine
-   (60.4 GiB at B=32). The plan's HF budget is off by ~30×; decide the path first: transformers 5.x experts backends
-   (`experts_implementation="grouped_mm"` needs PyTorch ≥ 2.9 and re-validating every HF semantic in tests/test_hf_semantics.py),
-   steering inside vLLM, or shrinking HF generation. Also measure HF prefill (teacher-forcing) throughput separately: it is one
-   forward per response and is what the calibration/gradient paths need.
-5. α preview (random direction, L=20): KL 0.027 / 0.096 / 0.42 / 1.39 / 9.05 at |α| = 0.125 / 0.25 / 0.5 / 1 / 2 → α_max ≈ 0.25 for a
-   random direction; read the α=±1 texts used by G0.7 before relying on them.
+   (60.4 GiB at B=32). The plan's HF budget is off by ~30×. DECISION (round 12): route 1 — try a newer transformers with experts
+   backends in a SEPARATE environment. Facts: 4.57.1 has no `experts_implementation` (grep-confirmed; experts run as a per-module
+   list); the official docs state A100 support, `grouped_mm` needs PyTorch ≥ 2.9, and decode switches to `batched_mm` (memory);
+   pin one specific version that has the interface and record it. First comparison: same attention backend, sampler and steering,
+   uncompiled, only the experts backend changed; report decode tok/s at B=8/16/32 AND teacher-forced prefill tok/s separately
+   (protocol 1 of §6.2). The shares of the per-expert loop and of the sampler's per-row sync are unmeasured — do not attribute in
+   advance. vLLM's "5–10k tok/s" is a number to measure, not a given; the Unsloth material is about training. Do not shrink the
+   core comparison samples and do not use the old throughput budget.
+5. α preview (random direction, L=20): KL 0.027 / 0.096 / 0.42 / 1.39 / 9.05 at |α| = 0.125 / 0.25 / 0.5 / 1 / 2. There is no
+   data point at 0.30: by the KL ≤ 0.10 rule alone the crossing is only bracketed in (0.25, 0.5); the formal α_max is also limited by
+   routing flips and answer quality and may be smaller; "structured directions are smaller" is a hypothesis. Read the α=±1 texts
+   used by G0.7 before relying on them.
 Truncation at 512 tokens: 2/20 (sdpa) and 4/20 (eager) on these synthetic prefixes — expect the §7.2 5% rule to trigger in G1.
+
+### 6.2 Three measurements to run next (protocols; none run yet, environment not upgraded)
+| # | Measurement | How | Report |
+| --- | --- | --- | --- |
+| 1 | Timing split | Time separately: plain generation forward (decode tok/s at B=8/16/32), teacher-forced response log-prob / KL forward (`hf_engine.response_logprobs`, `next_token_kl`; one forward per response, full-vocab logits), activation-gradient backward (`analysis/scores.py::response_gradient`); same prompts, same lengths, uncompiled. | tok/s or s/response for each path; forward speed is not backward speed — never infer one from the other. |
+| 2 | Signed error on fixed token sequences | `g0_runner.decode_prefill_kl(model, ids, max_new_tokens=512, seed=…)` for ≥20 prompts: generate with `output_logits=True`, teacher-force the SAME tokens at T=0.7, Δ_k = log p_gen(y_k) − log p_recalc(y_k) on the generated tokens only (no appended EOS). | per response: mean Δ_k, D_y = Σ_k Δ_k (e^{D_y} = whole-response probability ratio), distribution of Δ_k; per position: KL both ways (`kl_decode_to_prefill`, `kl_prefill_to_decode`); `sampler_vs_output_logits_maxdiff` must be ≈0. |
+| 3 | Batch consistency, two metrics | `g0_runner.batch_consistency(model, prompts, peers, n_ref=64, n_free=64)` for 32 prompts, B=1 vs B=8 random peers. | (A) `pooled_next_token_agreement` and `kl_alone_vs_batch_mean/max` on the fixed reference history; (B) `free_identical_rate`, `mean_first_divergence`. Keep the two apart in the write-up. |
+Nothing in this table changes a criterion; it feeds the pre-registered amendment for G0.5 and the §4.2 path-consistency requirement.

@@ -337,10 +337,122 @@ def generation_vs_teacher_forcing(model, ids: Sequence[int], *, max_new_tokens: 
 
     r = generation_logprobs(model, ids, max_new_tokens=max_new_tokens, seed=seed, temperature=temperature, eos_ids=eos_ids, pad_id=pad_id)
     tf = response_logprobs(model, list(ids) + list(r["gen_ids"]), len(ids), temperature=temperature).detach().float().cpu().numpy()
-    d = tf - r["logp_gen"]
+    d = r["logp_gen"] - tf                                   # signed Δ_k = log p_generate(y_k) − log p_recompute(y_k)
     return dict(n=int(len(r["gen_ids"])), max_abs_diff=float(np.abs(d).max()) if d.size else float("nan"),
                 mean_abs_diff=float(np.abs(d).mean()) if d.size else float("nan"), rms_diff=float(np.sqrt((d ** 2).mean())) if d.size else float("nan"),
-                gen_ids=r["gen_ids"], logp_gen=r["logp_gen"], logp_tf=tf, temperature=float(temperature), finish_reason=r["finish_reason"])
+                signed_mean=float(d.mean()) if d.size else float("nan"), signed_sum=float(d.sum()) if d.size else float("nan"),
+                delta_signed=d, gen_ids=r["gen_ids"], logp_gen=r["logp_gen"], logp_tf=tf, temperature=float(temperature), finish_reason=r["finish_reason"])
+
+
+def decode_prefill_kl(model, ids: Sequence[int], *, max_new_tokens: int, seed: int, temperature: float = TEMPERATURE,
+                      eos_ids: Sequence[int] = (IM_END, ENDOFTEXT), pad_id: Optional[int] = None) -> Dict[str, object]:
+    """Same-history comparison of the two computation paths on the FULL next-token distributions (round 12): sample one response
+    on the decode path keeping the raw per-step logits (``output_logits=True``), teacher-force the same tokens on the prefill
+    path, and return per generated position k the T-tempered KL(P_dec,k || P_tf,k) and KL(P_tf,k || P_dec,k) plus the signed
+    chosen-token difference Δ_k = log p_dec(y_k) − log p_tf(y_k) with its per-response mean and sum (e^{sum} = the
+    whole-response probability ratio).  ``sampler_vs_output_logits_maxdiff`` cross-checks the sampler's record against the
+    raw logits.  Memory: the per-step logits stay on the device ([steps, V] fp32); call per response."""
+    import torch
+    from ..inference.hf_engine import _pad_id, position_ids_from_mask
+    from ..inference.sampling import generate_kwargs
+
+    ids = [int(x) for x in ids]
+    inp = torch.tensor([ids], device=model.device)
+    att = torch.ones_like(inp)
+    kw = generate_kwargs([int(seed)], temperature=temperature, max_new_tokens=max_new_tokens, pad_token_id=_pad_id(model, pad_id),
+                         eos_token_id=tuple(eos_ids), device=str(inp.device), record_logprobs=True)
+    with torch.no_grad():
+        out = model.generate(input_ids=inp, attention_mask=att, use_cache=True, return_dict_in_generate=True, output_logits=True, **kw)
+        g = out.sequences[0, inp.shape[1]:].tolist()
+        cut = next((k for k, t in enumerate(g) if t in eos_ids), None)
+        g = g[: cut + 1] if cut is not None else g
+        dec = torch.stack([l[0].float() for l in out.logits[: len(g)]])              # [n, V] raw decode-path logits
+        full = torch.tensor([ids + g], device=model.device)
+        attf = torch.ones_like(full)
+        lg = model(input_ids=full, attention_mask=attf, position_ids=position_ids_from_mask(attf), use_cache=False).logits[0, len(ids) - 1: len(ids) - 1 + len(g)].float()
+    Tt = float(temperature)
+    lp_dec, lp_tf = torch.log_softmax(dec / Tt, -1), torch.log_softmax(lg / Tt, -1)
+    kl_dt = (lp_dec.exp() * (lp_dec - lp_tf)).sum(-1)
+    kl_td = (lp_tf.exp() * (lp_tf - lp_dec)).sum(-1)
+    tok = torch.tensor(g, device=lp_dec.device)
+    lpd, lpt = lp_dec.gather(1, tok[:, None])[:, 0], lp_tf.gather(1, tok[:, None])[:, 0]
+    d = (lpd - lpt).cpu().numpy()
+    rec = np.asarray(kw["logits_processor"][0].logprobs[0][: len(g)], float)
+    return dict(n=int(len(g)), kl_decode_to_prefill=kl_dt.cpu().numpy(), kl_prefill_to_decode=kl_td.cpu().numpy(),
+                kl_mean=float(kl_dt.mean()) if len(g) else float("nan"), kl_max=float(kl_dt.max()) if len(g) else float("nan"),
+                delta_signed=d, signed_mean=float(d.mean()) if d.size else float("nan"), signed_sum=float(d.sum()) if d.size else float("nan"),
+                max_abs_diff=float(np.abs(d).max()) if d.size else float("nan"), gen_ids=g, temperature=Tt,
+                sampler_vs_output_logits_maxdiff=float(np.abs(rec - lpd.cpu().numpy()).max()) if d.size else float("nan"),
+                finish_reason=("stop" if cut is not None else "length"))
+
+
+def batch_consistency(model, prompts: Sequence[Sequence[int]], peers: Sequence[Sequence[int]], *, n_ref: int = 32, n_free: int = 32,
+                      temperature: float = TEMPERATURE, pad_id: Optional[int] = None, eos_ids: Sequence[int] = (IM_END, ENDOFTEXT)) -> Dict[str, object]:
+    """Two metrics that must never be mixed (round 12).  (A) common-history next-token agreement: a reference continuation
+    (greedy, alone) is REPLAYED step by step with the KV cache, once alone (B=1) and once as row 0 of a left-padded batch with
+    ``peers`` (which decode their own greedy tokens); at every step the row-0 argmax agreement and the T-tempered
+    KL(P_alone || P_batch) are recorded — a computation-difference measurement under identical history.  (B) free-generation
+    stability: greedy generation alone vs in the batch — whole-sequence identity and the first divergence index (common
+    prefix length).  Returns per-prompt rows and pooled rates."""
+    import torch
+    from ..inference.hf_engine import _pad_id, left_pad
+
+    pad = _pad_id(model, pad_id)
+    Tt = float(temperature)
+
+    def _greedy(seqs, n):
+        ids, att = left_pad(seqs, pad_id=pad, device=model.device)
+        with torch.no_grad():
+            out = model.generate(input_ids=ids, attention_mask=att, do_sample=False, temperature=None, top_k=None, top_p=None, min_p=None,
+                                 max_new_tokens=n, pad_token_id=pad, eos_token_id=list(eos_ids), use_cache=True)
+        return [out[b, ids.shape[1]:].tolist() for b in range(len(seqs))]
+
+    def _replay(seqs, ref):
+        """Decode-path replay with cache: row 0 is forced to ``ref`` token by token, other rows take their own argmax.
+        Returns the row-0 next-token logits before each forced token (step k predicts ref[k])."""
+        ids, att = left_pad(seqs, pad_id=pad, device=model.device)
+        logits_rows = []
+        with torch.no_grad():
+            pos = (att.long().cumsum(-1) - 1).masked_fill(att == 0, 1)
+            out = model(input_ids=ids, attention_mask=att, position_ids=pos, use_cache=True)
+            past = out.past_key_values
+            last = out.logits[:, -1].float()
+            for k in range(len(ref)):
+                logits_rows.append(last[0].clone())
+                nxt = last.argmax(-1)
+                nxt[0] = int(ref[k])
+                att = torch.cat([att, torch.ones(att.shape[0], 1, dtype=att.dtype, device=att.device)], 1)
+                pos_k = (att.sum(-1) - 1)[:, None]
+                out = model(input_ids=nxt[:, None], attention_mask=att, position_ids=pos_k, past_key_values=past, use_cache=True)
+                past = out.past_key_values
+                last = out.logits[:, -1].float()
+        return torch.stack(logits_rows)                       # [n_ref, V]
+
+    rows = []
+    for p in prompts:
+        p = [int(x) for x in p]
+        ref = _greedy([p], n_ref)[0]
+        cut = next((k for k, t in enumerate(ref) if t in eos_ids), None)
+        ref = ref[: cut + 1] if cut is not None else ref
+        la = _replay([p], ref)
+        lb = _replay([p] + [list(q) for q in peers], ref)
+        agree = (la.argmax(-1) == lb.argmax(-1)).float().cpu().numpy()
+        lpa, lpb = torch.log_softmax(la / Tt, -1), torch.log_softmax(lb / Tt, -1)
+        kl = (lpa.exp() * (lpa - lpb)).sum(-1).cpu().numpy()
+        free_a = _greedy([p], n_free)[0]
+        free_b = _greedy([p] + [list(q) for q in peers], n_free)[0]
+        fa = free_a[: next((k + 1 for k, t in enumerate(free_a) if t in eos_ids), len(free_a))]
+        fb = free_b[: next((k + 1 for k, t in enumerate(free_b) if t in eos_ids), len(free_b))]
+        common = next((k for k, (x, y) in enumerate(zip(fa, fb)) if x != y), min(len(fa), len(fb)))
+        rows.append(dict(n_ref=int(len(ref)), next_token_agreement=float(agree.mean()) if agree.size else float("nan"),
+                         n_disagree=int((1 - agree).sum()), kl_alone_vs_batch_mean=float(kl.mean()) if kl.size else float("nan"),
+                         kl_alone_vs_batch_max=float(kl.max()) if kl.size else float("nan"),
+                         free_identical=bool(fa == fb), first_divergence=int(common), free_len_alone=len(fa), free_len_batch=len(fb)))
+    tot = sum(r["n_ref"] for r in rows)
+    return dict(rows=rows, pooled_next_token_agreement=(sum(r["next_token_agreement"] * r["n_ref"] for r in rows) / tot) if tot else float("nan"),
+                free_identical_rate=float(np.mean([r["free_identical"] for r in rows])) if rows else float("nan"),
+                mean_first_divergence=float(np.mean([r["first_divergence"] for r in rows])) if rows else float("nan"),
+                n_peers=len(peers), temperature=Tt)
 
 
 # ---------------------------------------------------------------- G0.7 support defect

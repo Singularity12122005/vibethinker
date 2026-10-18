@@ -130,8 +130,19 @@ class Steer:
                 pm = self.pos_mask.to(device)
                 P = pm.shape[1]
                 mask = torch.gather(pm, 1, pid.clamp(min=0, max=P - 1)) & (pid < P) & (pid >= 0)
-        if self.real_mask is not None and tuple(self.real_mask.shape) == (B, S):
-            mask = mask & self.real_mask.to(device)          # never steer pad positions (prefill); decode steps have S = 1
+        if self.real_mask is not None:
+            rm = self.real_mask.to(device)
+            B0, S0 = rm.shape
+            if B0 != B:
+                raise ValueError(f"real_mask batch {B0} vs hidden batch {B}")
+            if S == S0:
+                mask = mask & rm                              # prefill: never steer pad positions
+            elif S > S0:                                      # use_cache=False decoding re-feeds the grown sequence: new positions are real
+                mask = mask & torch.cat([rm, torch.ones(B, S - S0, dtype=torch.bool, device=device)], 1)
+            elif S == 1:
+                pass                                          # cached decode step: one real token per row
+            else:
+                raise ValueError(f"real_mask length {S0} vs hidden length {S}: unsupported forward shape (chunked prefill is not supported)")
         return mask
 
     def _hook(self, module, args, kwargs, output):

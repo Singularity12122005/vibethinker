@@ -33,10 +33,15 @@
 
 ## 2e. 第二次 GPU 诊断（2026-10-18，五项，提交代码）
 - 通过：左填充/S_read 位置检查（判据改为 dtype 精确期望输出；发现 pad 位置 id=1 可被 S_read 误 steer，hook 加 `real_mask` 修正）、hook 自检 6/6。
-- 重建误差：生成 vs teacher-forcing 逐 token |Δ log p| 均值 0.022、rms 0.078、最大 1–2 nats，与后端无关；`attn_implementation` 入冻结配置。
-- 风险：G0.5 的 99.5% greedy 一致率（首 token 诊断 logits 差达 1.25）；正式 G0 前做 greedy 一致率诊断。
-- **阻塞项**：HF 解码 B=32 仅 34 tok/s，HF 预算作废；须决定 transformers 5.x experts 后端 / vLLM steering / 缩减，并实测后再排期。
-- 随机方向 α_max≈0.25（L=20）。
+- 重建误差：生成 vs teacher-forcing 逐 token |Δ log p| 均值 0.022、rms 0.078、最大 1–2 nats；只支持"切换后端未消除差异"（两后端采到的是不同序列），"固有、与后端无关"与"底噪 3–9 倍"撤回（第十二轮）；`attn_implementation` 入冻结配置。正式口径改为固定序列上的带符号误差 $\Delta_k$、$D_y=\sum\Delta_k$（`decode_prefill_kl`）。
+- 风险：G0.5 的 99.5% greedy 一致率（首 token 诊断 logits 差达 1.25）；正式 G0 前做 32×64 诊断，**分开**计算差异（固定历史逐步回放）与生成稳定性（自由生成相同率/首次分歧）两个量（`batch_consistency`）。
+- **阻塞项**：HF 解码 B=32 仅 34 tok/s，HF 预算作废。**决定：路线 1**——独立环境试新版 transformers 的 experts 后端（4.57.1 无 `experts_implementation`；锁定具体版本；首次比较只换专家后端、不编译；先过 HF 语义测试与 RUNBOOK §6 诊断）；暂不削减核心比较样本，不再用原预算；vLLM 的 5–10k tok/s 待实测。
+- 随机方向：KL≤0.10 的越过点夹在 (0.25, 0.5)（无 0.30 数据点）；正式 α_max 另受 flip 与质量限制。
+
+## 2f. 第十二轮（2026-10-18）：执行方复核 5c04b43 + `/goal` 研究档案
+- 代码：`real_mask` 对 `use_cache=False` 增长序列的规则（执行方反例 [2,5]→[2,6]）、不支持形状报错、`generate_steered` 传掩码；`generation_vs_teacher_forcing` 改带符号；新增 `decode_prefill_kl`、`batch_consistency`（两指标）、`analysis/g6_iv.py`（2SLS、校正得分、识别强度、LQ 上限、去衰减 ρ²）。
+- 文档：规格书 §2.1/§4.2/§4.4/§4.7/§7.1/§7.11 更正；RUNBOOK §6.2 三项测量协议；新增 `docs/research/sycophancy-phase0-goal.md`——主张阶梯 C0–C6、最强表述 C★（闭环优势由读出可靠性 ρ² 预报）、命题 P1–P5（含证明与模拟数值）、研究档案（已证明/候选/反例/淘汰/缺口/下一轮）。
+- 本提交 `pytest`：95 passed（CPU、假引擎）。
 
 ## 2d. 首次 GPU 接触（2026-10-17，A100-80GB，sdpa，torch 2.8.0，transformers 4.57.1；smoke，不是 G0）
 - 通过：四轮模板一致性（真实分词器）、支持集 0/128、真实 cache 的逐位验证路径、α∈{0,±0.5} 的 T=0.7 采样生成流畅（64 token 截断）。hook 六项通过来自执行方本地修改的代码，提交 f56c874 的自检比较的是最终 logits，会误判——第九轮已改为比较被 hook 层的实际输出。
@@ -60,6 +65,7 @@
 6. 预注册的预期结果：G2′-a 很可能 KILL 或 GO-with-caveat，G5 的 $G$ 可能不显著——这是可发表的结果，不是失败。
 
 ## 5. 建议的下一步
+0. 吞吐路线 1 的小规模比较（RUNBOOK §6 第 4 项的决定）与 §6.2 的三项测量（时序拆分、固定序列带符号误差、batch 两指标）；结果贴回后更新 §4.2 与 G0.5 的预注册修正。研究档案按"继续做下去"逐轮推进（`sycophancy-phase0-goal.md` §0）。
 1. 在 GPU 环境按 RUNBOOK 跑 `pytest`（含 HF 语义测试）→ data/mine/r_L → G0；G0 任一失败先修管线。
 2. 在 G1 `est` 结果被查看之前，把 `runs/<run_id>/config.yaml` 的 SHA-256 与 git tag 一起冻结（§9）。
 3. 每个 Gate 结束后把 `GATES.md` 条目与 `tables/*_summary.json` 同步回 `docs/research/`（或 PR），便于审阅。

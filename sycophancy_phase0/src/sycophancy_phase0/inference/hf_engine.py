@@ -274,7 +274,7 @@ def generate_steered(model, seqs: Sequence[Sequence[int]], steer, alphas: Sequen
     if gen_kwargs.get("return_dict_in_generate"):
         raise ValueError("generate_steered expects plain tensor output")
     ids, att = left_pad(seqs, pad_id=_pad_id(model, pad_id), device=model.device)
-    steer.set(list(alphas), scope, gen_start=att.sum(-1) - 1, pos_mask=pos_mask)
+    steer.set(list(alphas), scope, gen_start=att.sum(-1) - 1, pos_mask=pos_mask, real_mask=att)
     try:
         out = model.generate(input_ids=ids, attention_mask=att, **gen_kwargs)
     finally:

@@ -253,3 +253,113 @@ def test_jensen_gap_u_is_unbiased_for_the_truncated_target():
     assert r["estimator"] == "U" and r["target"] == "T_16" and abs(r["J"] - jensen_gap_u(Z[w > 0], M)["J"]) < 1e-12
     assert jensen_gap(Z, M, reactive_weights(rng.integers(0, 2, N), 0.3))["estimator"] == "approx_weighted"
     assert jensen_gap(Z, M)["zero_count_mass_ub95"] == 3.0 / N or jensen_gap(Z, M)["n_zero"] > 0
+
+
+def test_g6_split_half_iv_removes_the_measurement_error_bias():
+    """Round 12: under the null (dose effect depends on true risk only; type correlated with risk) the naive type test is
+    oversized, the split-half 2SLS test has nominal size and recovers the risk slope; power survives under an alternative."""
+    from sycophancy_phase0.analysis.g6_iv import endpoint_contrast_iv
+    rng = np.random.default_rng(2026)
+    def one(c2):
+        N = 200
+        typ = np.repeat([0, 1], N // 2)
+        r = np.where(typ == 0, rng.beta(3, 5, N), rng.beta(5, 3, N))
+        delta = 0.20 - 0.5 * r + c2 * typ
+        qp, qm = np.clip(r + delta / 2, 0.02, 0.98), np.clip(r - delta / 2, 0.02, 0.98)
+        dhat = rng.binomial(16, qp) / 16 - rng.binomial(16, qm) / 16
+        ra, rb = rng.binomial(16, r) / 16, rng.binomial(16, r) / 16
+        return endpoint_contrast_iv(dhat, ra, rb, typ)
+    null = [one(0.0) for _ in range(400)]
+    size_naive = np.mean([o["naive"]["p_type"] < 0.05 for o in null])
+    size_iv = np.mean([o["iv"]["p_type"] < 0.05 for o in null])
+    assert size_naive > 0.10 and size_iv < 0.09, (size_naive, size_iv)
+    assert abs(np.mean([o["iv"]["beta"][1] for o in null]) + 0.5) < 0.05 and np.mean([o["naive"]["beta"][1] for o in null]) > -0.45
+    assert np.mean([o["first_stage_F"] for o in null]) > 10 and 0.7 < np.mean([o["reliability"] for o in null]) < 1.0
+    alt = [one(0.10) for _ in range(200)]
+    assert np.mean([o["iv"]["p_type"] < 0.05 for o in alt]) > 0.6
+
+
+def _g6_world(rng, N, r_types, c0, c1, c2, m=32, n_arm=16):
+    typ = np.repeat([0, 1], N // 2)
+    r = np.where(typ == 0, rng.beta(*r_types[0], N), rng.beta(*r_types[1], N))
+    B = rng.binomial(1, r[:, None], size=(N, m)).astype(float)
+    ra, rb, rf = B[:, : m // 2].mean(1), B[:, m // 2 :].mean(1), B.mean(1)
+    delta = c0 + c1 * r + c2 * typ
+    qp, qm = np.clip(r + delta / 2, 0.02, 0.98), np.clip(r - delta / 2, 0.02, 0.98)
+    dhat = rng.binomial(n_arm, qp) / n_arm - rng.binomial(n_arm, qm) / n_arm
+    return typ, r, ra, rb, rf, dhat
+
+
+def test_g6_naive_bias_formula_and_corrected_score_estimator():
+    """Round 12 P1/P2: the naive type coefficient is biased by exactly b_r(1−λ_w)Δμ; the known-variance corrected-score estimator
+    (all 32 draws) is unbiased with nominal size and at least the 2SLS power when identification is strong."""
+    from sycophancy_phase0.analysis.g6_iv import endpoint_contrast_eiv, endpoint_contrast_iv, naive_type_bias
+    rng = np.random.default_rng(12)
+    N, c1 = 200, -0.5
+    naive_gamma, eiv_p, iv_p, eiv_beta, V, s_num, dmu = [], [], [], [], [], [], []
+    for _ in range(250):
+        typ, r, ra, rb, rf, y = _g6_world(rng, N, ((3, 5), (5, 3)), 0.20, c1, 0.0)
+        naive_gamma.append(endpoint_contrast_iv(y, ra, rb, typ)["naive"]["beta"][2])
+        e = endpoint_contrast_eiv(y, rf, typ, m=32)
+        assert e["ok"]
+        eiv_p.append(e["p_type"]); eiv_beta.append(e["beta"])
+        V.append(np.mean([np.var(r[typ == k]) for k in (0, 1)])); s_num.append(np.mean(r * (1 - r))); dmu.append(r[typ == 1].mean() - r[typ == 0].mean())
+    pred = naive_type_bias(c1, np.mean(V), np.mean(s_num), 32, np.mean(dmu))
+    assert abs(np.mean(naive_gamma) - pred["bias"]) < 0.006, (np.mean(naive_gamma), pred)
+    assert 0.75 < pred["reliability_within"] < 0.85
+    assert np.mean(np.array(eiv_p) < 0.05) < 0.09                                             # nominal size
+    assert abs(np.mean([b[1] for b in eiv_beta]) - c1) < 0.03 and abs(np.mean([b[2] for b in eiv_beta])) < 0.01
+    for _ in range(150):
+        typ, r, ra, rb, rf, y = _g6_world(rng, N, ((3, 5), (5, 3)), 0.20, c1, 0.10)
+        eiv_p.append(endpoint_contrast_eiv(y, rf, typ, m=32)["p_type"]); iv_p.append(endpoint_contrast_iv(y, ra, rb, typ)["iv"]["p_type"])
+    power_eiv, power_iv = np.mean(np.array(eiv_p[250:]) < 0.05), np.mean(np.array(iv_p) < 0.05)
+    assert power_eiv > 0.7 and power_iv > 0.6 and power_eiv >= power_iv - 0.08, (power_eiv, power_iv)
+
+
+def test_g6_identification_strength_formula_and_weak_regime():
+    """Round 12 P3: F ≈ n λ_h²/(1−λ_h²) from design quantities; the reviewer-like types (r≈0.20 vs 0.25) are weakly identified at
+    n=200 (F≈4) and the corrected-score estimator refuses (non-PD) in part of the replicates; n≈520 restores F=10."""
+    from sycophancy_phase0.analysis.g6_iv import endpoint_contrast_eiv, endpoint_contrast_iv, identification_strength
+    rng = np.random.default_rng(3)
+    Fs, V, s_num, refusals = [], [], [], 0
+    for _ in range(120):
+        typ, r, ra, rb, rf, y = _g6_world(rng, 200, ((20, 80), (25, 75)), 0.18, -0.8, 0.0)
+        Fs.append(endpoint_contrast_iv(y, ra, rb, typ)["first_stage_F"])
+        V.append(np.mean([np.var(r[typ == k]) for k in (0, 1)])); s_num.append(np.mean(r * (1 - r)))
+        refusals += not endpoint_contrast_eiv(y, rf, typ, m=32)["ok"]
+    pred = identification_strength(200, float(np.mean(V)), float(np.mean(s_num)), 16)
+    assert pred["weak"] and 2.5 < pred["F"] < 5.5 and abs(np.median(Fs) - pred["F"]) < 1.5, (pred, np.median(Fs))
+    assert 400 < pred["n_for_F_target"] < 700                                                    # refusals (non-PD) are seed-dependent
+    # deterministic refusal: no within-type variation of r̂ at all ⇒ corrected moment matrix cannot be positive definite
+    typ = np.repeat([0, 1], 50)
+    bad = endpoint_contrast_eiv(rng.standard_normal(100), np.where(typ == 0, 0.2, 0.25), typ, m=32)
+    assert not bad["ok"] and bad["min_eig"] <= 0 and "positive definite" in bad["reason"]
+    strong = identification_strength(200, 0.0258, 0.208, 16)                                  # Beta(3,5)/Beta(5,3) world
+    assert not strong["weak"] and 120 < strong["F"] < 200
+
+
+def test_readout_reliability_ceiling_and_disattenuation():
+    """Round 12 P4/P5: in the linear-quadratic idealisation the best linear closed loop realises exactly the fraction λ of the
+    oracle advantage and the plug-in controller loses to open loop when λ<1/2; the disattenuated ρ² of a probe is unbiased
+    while the naive correlation with the pooled r̂ is attenuated."""
+    from sycophancy_phase0.analysis.g6_iv import lq_ceiling, readout_reliability
+    rng = np.random.default_rng(5)
+    N, kappa, a, b = 200000, 1.0, 0.0, -2.0
+    r = rng.beta(3, 5, N)
+    for m in (4, 32):
+        e = rng.binomial(m, r) / m - r
+        c = lq_ceiling(float(np.var(r)), float(np.mean(r * (1 - r))), m, kappa, b)
+        mu, lam = r.mean(), c["reliability"]
+        J = lambda d: 0.5 * kappa * np.mean((d - a - b * r) ** 2)
+        open_, lin, plug = J(a + b * mu), J(a + b * (mu + lam * (r + e - mu))), J(a + b * (r + e))
+        assert abs((open_ - lin) / open_ - lam) < 0.01 and abs(plug - c["plug_in_regret"]) < 2e-3
+        assert (plug > open_) == (lam < 0.5) == (not c["plug_in_beats_open_loop"])
+    ests, truths, naive = [], [], []
+    for _ in range(60):
+        r = rng.beta(3, 5, 1000)
+        B = rng.binomial(1, r[:, None], size=(1000, 32)).astype(float)
+        z = r + 0.15 * rng.standard_normal(1000)
+        out = readout_reliability(z, B[:, :16].mean(1), B[:, 16:].mean(1), n_boot=50)
+        ests.append(out["rho2"]); truths.append(np.corrcoef(z, r)[0, 1] ** 2); naive.append(out["naive_corr2"])
+    assert abs(np.mean(ests) - np.mean(truths)) < 0.02 and np.mean(naive) < np.mean(truths) - 0.05
+    assert out["ci95"][0] < out["rho2"] < out["ci95"][1] and 0.5 < out["half_reliability"] < 0.85
