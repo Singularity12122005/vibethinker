@@ -46,6 +46,7 @@ class Steer:
         self.gen_start: Optional[torch.Tensor] = None   # LongTensor [B]: first steered position id (prompt_len - 1)
         self.pos_mask: Optional[torch.Tensor] = None     # BoolTensor [B, P] indexed by position id (S_read / S_all)
         self.delta: Optional[torch.Tensor] = None        # fp32 leaf [B, S, D] (requires_grad) for scores.py
+        self.real_mask: Optional[torch.Tensor] = None    # BoolTensor [B, S_prefill]: pad positions are never steered (round 11)
         self.calls = 0
         mod = model.model.layers[layer]
         if getattr(mod, _ATTR, False):
@@ -55,8 +56,14 @@ class Steer:
         self._removed = False
 
     # ------------------------------------------------------------------ control
-    def set(self, alpha, scope: str = "S_gen", *, gen_start=None, pos_mask=None, delta=None, generating=None):
-        """``generating`` is accepted and ignored (v1.2 API); positions come from ``position_ids`` now."""
+    def set(self, alpha, scope: str = "S_gen", *, gen_start=None, pos_mask=None, delta=None, generating=None, real_mask=None):
+        """``generating`` is accepted and ignored (v1.2 API); positions come from ``position_ids`` now.
+
+        ``real_mask`` (the prompt attention mask, [B, S_prefill]) excludes pad positions from steering whenever the hooked
+        tensor has that length (the prefill forward); decode steps (S = 1) are all real tokens.  Needed because ``generate``
+        gives left pads position id 1, so an S_read span covering position 1 would otherwise steer the pads — harmless for
+        attention (pads are masked keys) but not for a MoE, where a pad's changed routing alters the expert GEMM shapes of
+        the real tokens (round 11, second GPU diagnostics)."""
         if self._removed:
             raise RuntimeError("Steer.set() after remove()")
         if alpha is None:
@@ -69,6 +76,7 @@ class Steer:
         self.gen_start = None if gen_start is None else torch.as_tensor(gen_start, dtype=torch.long).reshape(-1)
         self.pos_mask = None if pos_mask is None else torch.as_tensor(pos_mask).bool()
         self.delta = delta
+        self.real_mask = None if real_mask is None else torch.as_tensor(real_mask).bool()
 
     def off(self):
         self.set(None)
@@ -86,11 +94,13 @@ class Steer:
             pass
 
     def state(self) -> dict:
-        return dict(alpha=self.alpha, scope=self.scope, gen_start=self.gen_start, pos_mask=self.pos_mask, delta=self.delta)
+        return dict(alpha=self.alpha, scope=self.scope, gen_start=self.gen_start, pos_mask=self.pos_mask, delta=self.delta,
+                    real_mask=self.real_mask)
 
     def restore(self, st: dict) -> None:
         self.alpha, self.scope, self.gen_start, self.pos_mask, self.delta = (st["alpha"], st["scope"], st["gen_start"],
                                                                              st["pos_mask"], st["delta"])
+        self.real_mask = st.get("real_mask")
 
     # ------------------------------------------------------------------ hook
     def _mask(self, B: int, S: int, device, position_ids) -> torch.Tensor:
@@ -120,6 +130,8 @@ class Steer:
                 pm = self.pos_mask.to(device)
                 P = pm.shape[1]
                 mask = torch.gather(pm, 1, pid.clamp(min=0, max=P - 1)) & (pid < P) & (pid >= 0)
+        if self.real_mask is not None and tuple(self.real_mask.shape) == (B, S):
+            mask = mask & self.real_mask.to(device)          # never steer pad positions (prefill); decode steps have S = 1
         return mask
 
     def _hook(self, module, args, kwargs, output):

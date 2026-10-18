@@ -99,9 +99,9 @@ class HFEngine:
                         if any(reqs[i].alpha != 0.0 and reqs[i].read_span is None for i in chunk):
                             raise ValueError("S_read request without read_span")
                         pm = read_mask_from_spans(spans, [len(s_) for s_ in seqs])
-                        self.steer.set(alphas, "S_read", pos_mask=pm)
+                        self.steer.set(alphas, "S_read", pos_mask=pm, real_mask=att)
                     else:
-                        self.steer.set(alphas, "S_gen", gen_start=att.sum(-1) - 1)
+                        self.steer.set(alphas, "S_gen", gen_start=att.sum(-1) - 1, real_mask=att)
                 try:
                     with torch.no_grad():
                         gen = self.model.generate(input_ids=ids, attention_mask=att, **kw)

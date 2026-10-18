@@ -31,6 +31,13 @@
 - 第七轮（外部第二次审查）：主估计量改为截断目标的差分 U 统计量 $\hat J_{\mathrm U}$；近零标记不再作保证；G6 结论范围限定；首轮干预臂不筛选；$10^{-4}$ 声明删除；G5 联合功效 0.50/6.5pp；采样器单次调用；R3 空区间缺失；Bernstein 命名；三处残留冲突统一。
 - 本提交 `pytest`：84 passed（CPU、假引擎）。
 
+## 2e. 第二次 GPU 诊断（2026-10-18，五项，提交代码）
+- 通过：左填充/S_read 位置检查（判据改为 dtype 精确期望输出；发现 pad 位置 id=1 可被 S_read 误 steer，hook 加 `real_mask` 修正）、hook 自检 6/6。
+- 重建误差：生成 vs teacher-forcing 逐 token |Δ log p| 均值 0.022、rms 0.078、最大 1–2 nats，与后端无关；`attn_implementation` 入冻结配置。
+- 风险：G0.5 的 99.5% greedy 一致率（首 token 诊断 logits 差达 1.25）；正式 G0 前做 greedy 一致率诊断。
+- **阻塞项**：HF 解码 B=32 仅 34 tok/s，HF 预算作废；须决定 transformers 5.x experts 后端 / vLLM steering / 缩减，并实测后再排期。
+- 随机方向 α_max≈0.25（L=20）。
+
 ## 2d. 首次 GPU 接触（2026-10-17，A100-80GB，sdpa，torch 2.8.0，transformers 4.57.1；smoke，不是 G0）
 - 通过：四轮模板一致性（真实分词器）、支持集 0/128、真实 cache 的逐位验证路径、α∈{0,±0.5} 的 T=0.7 采样生成流畅（64 token 截断）。hook 六项通过来自执行方本地修改的代码，提交 f56c874 的自检比较的是最终 logits，会误判——第九轮已改为比较被 hook 层的实际输出。
 - 发现：只 steer 后缀时前缀最终 logits 差 1.25，来源待检验（专家分组是假设）；单样本 cache-vs-recompute KL 4.3e-3（T=1 旧口径）；B=1 吞吐 6.9 tok/s。

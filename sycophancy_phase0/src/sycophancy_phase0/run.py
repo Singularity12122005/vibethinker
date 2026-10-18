@@ -72,6 +72,12 @@ def init_run(root: str, run_id: str, config: dict) -> str:
         f.write(sha256_text(cfg_text) + "\n")
     with open(os.path.join(d, "env.txt"), "w", encoding="utf-8") as f:
         f.write(f"python {platform.python_version()} {platform.platform()}\n")
+        try:
+            import torch as _torch
+            import transformers as _tf
+            f.write(f"torch {_torch.__version__} transformers {_tf.__version__}\n")
+        except Exception:                                       # analysis-only installs
+            pass
         f.write(pip_freeze())
     with open(os.path.join(d, "git_commit.txt"), "w") as f:
         f.write(git_commit(root) + "\n")
@@ -160,6 +166,7 @@ DEFAULT_CONFIG = dict(
                g5=dict(pilot_problems=15, per_problem=3, K=16, G_go=0.05, G_kill=0.03, weights=[0.8, 0.2]), g6=dict(n_h3=200, n_per_arm=32)),
     hardware=dict(gpu="H100-80GB", throughput_factor=1.0),       # plan §7.13 record: A100-80GB => 0.5, GPU-days scale by 1/factor
     require_g0_summary=True,                                      # G4-1 refuses to calibrate without tables/G0_summary.json with a proceed decision
+    attn_implementation="sdpa",                                   # second GPU diagnostics: only 1/20 samples identical across sdpa/eager => part of the frozen config
     vllm=dict(enable_prefix_caching=False, dtype="bfloat16", top_k=-1, top_p=1.0, min_p=0.0),
 )
 
@@ -214,7 +221,8 @@ class Context:
         d = init_run(root, run_id, config)
         name = config["models"][model_key]
         tok = AutoTokenizer.from_pretrained(name)
-        model = AutoModelForCausalLM.from_pretrained(name, torch_dtype=torch.bfloat16, device_map=hf_device).eval()
+        model = AutoModelForCausalLM.from_pretrained(name, torch_dtype=torch.bfloat16, device_map=hf_device,
+                                                     attn_implementation=config.get("attn_implementation", "sdpa")).eval()   # pinned: backends sample differently
         model.requires_grad_(False)
         _assert_generation_config(model)
         _assert_router_fp32(model)

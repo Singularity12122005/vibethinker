@@ -309,11 +309,22 @@ def test_hook_position_check_left_padding_and_read_mask(model):
     try:
         r = hook_position_check(model, st, seqs, alphas=[1.0, 0.5], pad_id=V - 1)
         assert r["ok"] and r["rows"][1]["n_pad"] == 3 and r["rows"][0]["n_steered"] == 1 and r["rows"][1]["n_steered"] == 1
+        assert all(row["expected_output_equal"] for row in r["rows"]) and r["pad_position_id"] == 1 and r["steered_rel_err_within_rtol"]
         r2 = hook_position_check(model, st, seqs, gen_starts=[4, 2], alphas=[1.0, 0.5], pad_id=V - 1)
         assert r2["ok"] and r2["rows"][0]["n_steered"] == 6 and r2["rows"][1]["n_steered"] == 5
         pm = read_mask_from_spans([(3, 6), (1, 4)], [len(s) for s in seqs])
         r3 = hook_position_check(model, st, seqs, scope="S_read", pos_masks=pm, alphas=[1.0, 1.0], pad_id=V - 1)
         assert r3["ok"] and r3["rows"][0]["n_steered"] == 3 and r3["rows"][1]["n_steered"] == 3
+        assert r3["rows"][1]["pad_maxdiff"] == 0.0          # span (1,4) covers position id 1 = the pads' id under generate: pads stay unsteered
+        # without real_mask the hook WOULD steer the pads of row 1 (their position id is 1): the hazard the check guards against
+        from sycophancy_phase0.inference.hf_engine import left_pad as _lp, position_ids_from_mask as _pids
+        ids_b, att_b = _lp(seqs, pad_id=V - 1)
+        st.set([1.0, 1.0], "S_read", pos_mask=pm)
+        m = st._mask(2, ids_b.shape[1], ids_b.device, _pids(att_b).masked_fill(att_b == 0, 1))
+        assert bool(m[1, :3].all())
+        st.set([1.0, 1.0], "S_read", pos_mask=pm, real_mask=att_b)
+        assert not bool(st._mask(2, ids_b.shape[1], ids_b.device, _pids(att_b).masked_fill(att_b == 0, 1))[1, :3].any())
+        st.off()
         # a mis-positioned hook (positions shifted by one) is caught
         orig = st._mask
         st._mask = lambda B, S, dev, pid: orig(B, S, dev, pid + 1)

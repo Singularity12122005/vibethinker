@@ -113,3 +113,26 @@ After the formal G0.3, write `tables/G0_summary.json` with `g0.write_g0_summary(
 without it. The A100/H100 factor 0.5 in `config.hardware` is a budget placeholder until measured.
 Memory note: teacher-forced forwards materialise full-vocabulary logits (151936 × tokens); keep those batches to ≈4–8 sequences of 512
 response tokens (or slice logits), generation batches 16–32 subject to item 4.
+
+
+### 6.1 Results of the five diagnostics (2026-10-18, same environment, T = 0.7, committed code)
+1. Padding: S_gen and S_read ok on 4 prompts of different lengths (pad/unsteered diffs 0.0; steered rows match the bf16 addition —
+   `hook_position_check` now uses the dtype-exact expected output as the criterion and generate's pad position id 1). Found and fixed:
+   with pad position id 1 an S_read span covering position 1 steered the pads; the hook now takes `real_mask` (the prompt attention
+   mask) and never steers pads. hook_selfcheck 6/6 with the committed code; prefix final-logit max|Δ| 1.375 re-observed; suffix residual
+   change 1.277 ≈ α·r_L·‖v‖∞.
+2. Generation vs teacher-forcing (20 × 512 tokens): sdpa mean|Δ log p| 0.022, rms 0.078, max 1.05; eager 0.025 / 0.096 / 1.95 —
+   backend-independent; only 1/20 samples identical across backends, so `attn_implementation` is now in the frozen config. Still
+   to report: the SIGNED mean Δ per response (bias accumulates over a response), and the per-position KL between the two paths.
+3. Batch first token (8 prompts): argmax 8/8, KL(B1‖B8) up to 8e-3, max logit diff 0.6–1.25. The G0.5 99.5% per-token greedy
+   criterion is at risk: run greedy 64-token continuations for 32 prompts under B=1 vs B=8 BEFORE the formal G0; if agreement is
+   below 99.5%, write the pre-registered amendment before sampling (the e_3-rate TOST stays the criterion; agreement becomes a
+   measured floor) — never after.
+4. Throughput: B=8 15.3, B=16 21.5, B=32 34.0 tok/s (aggregate, prompt processing included, 0.5–0.9 s per step); memory fine
+   (60.4 GiB at B=32). The plan's HF budget is off by ~30×; decide the path first: transformers 5.x experts backends
+   (`experts_implementation="grouped_mm"` needs PyTorch ≥ 2.9 and re-validating every HF semantic in tests/test_hf_semantics.py),
+   steering inside vLLM, or shrinking HF generation. Also measure HF prefill (teacher-forcing) throughput separately: it is one
+   forward per response and is what the calibration/gradient paths need.
+5. α preview (random direction, L=20): KL 0.027 / 0.096 / 0.42 / 1.39 / 9.05 at |α| = 0.125 / 0.25 / 0.5 / 1 / 2 → α_max ≈ 0.25 for a
+   random direction; read the α=±1 texts used by G0.7 before relying on them.
+Truncation at 512 tokens: 2/20 (sdpa) and 4/20 (eager) on these synthetic prefixes — expect the §7.2 5% rule to trigger in G1.

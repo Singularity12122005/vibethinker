@@ -235,18 +235,21 @@ def cache_vs_recompute_kl(model, items: Sequence[Tuple[Sequence[int], Sequence[i
 
 # ---------------------------------------------------------------- batched, left-padded position check of the hook (RUNBOOK §6 item 1)
 def hook_position_check(model, steer, seqs: Sequence[Sequence[int]], *, gen_starts: Optional[Sequence[int]] = None, alphas=1.0,
-                        scope: str = "S_gen", pos_masks=None, pad_id: Optional[int] = None, rtol: float = 1e-2) -> Dict[str, object]:
-    """Forward a LEFT-padded batch with explicit position ids (the rule ``generate`` follows) with the hook off and on, capture
-    the hooked layer's ACTUAL output (input of layer L+1) and verify per row that pad and unsteered positions are bitwise
-    unchanged while every steered position moved by exactly alpha_b · r_L · v (relative error ≤ ``rtol``, the dtype rounding
-    of one addition).  S_gen: steered ⇔ position id ≥ gen_start[b] (default prompt_len − 1); S_read: steered ⇔
-    ``pos_masks[b, position id]`` (``read_mask_from_spans``).  Returns dict(ok, rows, ...)."""
+                        scope: str = "S_gen", pos_masks=None, pad_id: Optional[int] = None, rtol: float = 1e-2,
+                        pad_position_id: int = 1) -> Dict[str, object]:
+    """Forward a LEFT-padded batch with explicit position ids — real tokens 0..n−1, pads ``pad_position_id`` (= 1, what
+    ``generate`` assigns in transformers 4.57.1) — with the hook off and on, capture the hooked layer's ACTUAL output (input of
+    layer L+1) and verify per row: pad and unsteered positions bitwise unchanged; steered positions bitwise equal to the
+    dtype-exact expectation ``(off + (alpha_b · r_L · v).to(dtype))`` computed outside the hook (``expected_output_equal``).
+    ``steered_rel_err`` (observed change vs the fp32 vector) is a diagnostic only: in bf16 it is the rounding of one addition
+    (≈1% on the A100, right at the old ``rtol``), not a position error.  S_gen: steered ⇔ position id ≥ gen_start[b]
+    (default prompt_len − 1); S_read: steered ⇔ ``pos_masks[b, position id]`` (``read_mask_from_spans``)."""
     import torch
     from ..inference.hf_engine import _pad_id, left_pad, position_ids_from_mask
 
     Bn = len(seqs)
     ids, att = left_pad(seqs, pad_id=_pad_id(model, pad_id), device=model.device)
-    pos = position_ids_from_mask(att)
+    pos = position_ids_from_mask(att).masked_fill(att == 0, int(pad_position_id))
     a = torch.as_tensor(([float(alphas)] * Bn) if np.isscalar(alphas) else [float(x) for x in alphas], dtype=torch.float32)
     gs = torch.as_tensor([len(s) - 1 for s in seqs] if gen_starts is None else [int(g) for g in gen_starts])
     layers = model.model.layers
@@ -255,7 +258,7 @@ def hook_position_check(model, steer, seqs: Sequence[Sequence[int]], *, gen_star
 
     def _pre(mod, args, kwargs):
         x = args[0] if args else kwargs.get("hidden_states")
-        cap.append(x.detach().float().clone())
+        cap.append(x.detach().clone())                       # kept in the model dtype: the criterion is bitwise in that dtype
 
     handle = nxt.register_forward_pre_hook(_pre, with_kwargs=True)
     try:
@@ -266,36 +269,40 @@ def hook_position_check(model, steer, seqs: Sequence[Sequence[int]], *, gen_star
             if scope == "S_read":
                 if pos_masks is None:
                     raise ValueError("S_read needs pos_masks")
-                steer.set(a.tolist(), "S_read", pos_mask=pos_masks)
+                steer.set(a.tolist(), "S_read", pos_mask=pos_masks, real_mask=att)      # pads (position id 1) are never steered
             else:
-                steer.set(a.tolist(), "S_gen", gen_start=gs)
+                steer.set(a.tolist(), "S_gen", gen_start=gs, real_mask=att)
             model(input_ids=ids, attention_mask=att, position_ids=pos, use_cache=False)
             on = cap.pop()
             steer.off()
     finally:
         handle.remove()
-    diff = (on - off).cpu()
+    off_c, on_c = off.cpu(), on.cpu()
+    diff = (on_c.float() - off_c.float())
     v = steer.v.detach().float().cpu()
     rows = []
-    for b in range(Bn):
-        real = att[b].bool().cpu()
-        pid = pos[b].cpu()
+    for bi in range(Bn):
+        real = att[bi].bool().cpu()
+        pid = pos[bi].cpu()
         if scope == "S_read":
             steered = torch.zeros(ids.shape[1], dtype=torch.bool)
-            pm = torch.as_tensor(pos_masks[b]).bool().cpu()
+            pm = torch.as_tensor(pos_masks[bi]).bool().cpu()
             steered[real] = pm[pid[real]]
         else:
-            steered = real & (pid >= int(gs[b]))
+            steered = real & (pid >= int(gs[bi]))
         unsteered = real & ~steered
-        d = diff[b]
-        expect = float(a[b]) * v
+        d = diff[bi]
+        expect = float(a[bi]) * v                                                  # fp32 vector the hook adds (before dtype rounding)
+        expected_on = (off_c[bi][steered] + expect[None, :].to(off_c.dtype)).to(off_c.dtype)   # the hook's own arithmetic, outside the hook
         scale = max(1e-12, float(expect.abs().max()))
-        rows.append(dict(row=b, n_pad=int((~real).sum()), n_steered=int(steered.sum()),
+        rows.append(dict(row=bi, n_pad=int((~real).sum()), n_steered=int(steered.sum()),
                          pad_maxdiff=float(d[~real].abs().max()) if (~real).any() else 0.0,
                          unsteered_maxdiff=float(d[unsteered].abs().max()) if unsteered.any() else 0.0,
+                         expected_output_equal=bool(torch.equal(on_c[bi][steered], expected_on)) if steered.any() else True,
                          steered_rel_err=(float((d[steered] - expect[None, :]).abs().max()) / scale) if steered.any() else 0.0))
-    ok = all(r["pad_maxdiff"] == 0.0 and r["unsteered_maxdiff"] == 0.0 and r["steered_rel_err"] <= rtol for r in rows)
-    return dict(ok=bool(ok), rows=rows, scope=scope, hooked_layer=int(steer.layer), rtol=float(rtol))
+    ok = all(r["pad_maxdiff"] == 0.0 and r["unsteered_maxdiff"] == 0.0 and r["expected_output_equal"] for r in rows)
+    return dict(ok=bool(ok), rows=rows, scope=scope, hooked_layer=int(steer.layer), rtol=float(rtol), pad_position_id=int(pad_position_id),
+                steered_rel_err_within_rtol=bool(all(r["steered_rel_err"] <= rtol for r in rows)), dtype=str(off.dtype))
 
 
 # ---------------------------------------------------------------- generation-path vs teacher-forcing log-probs (RUNBOOK §6 item 2)
