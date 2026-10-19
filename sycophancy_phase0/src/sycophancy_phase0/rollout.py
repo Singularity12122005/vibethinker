@@ -302,6 +302,22 @@ def spec_traj_id(spec: RolloutSpec, builder: TurnBuilder, first_turn_ids: FirstT
     return traj_id_of(spec.run_id, spec.problem.problem_id, st.prefix_id, spec.arm.arm_id(), spec.trajectory_idx, spec.script, spec.stage)
 
 
+def template_ids_to_list(ids) -> List[int]:
+    """Normalise what ``apply_chat_template(..., tokenize=True)`` returns: a list of ids (4.57.1 with return_dict=False), a dict, or a
+    ``BatchEncoding`` (a UserDict — NOT a dict subclass — which newer transformers return by default; iterating it yields the KEYS, the
+    bug the executor hit on the experts-backend environment, round 13)."""
+    if hasattr(ids, "keys") and "input_ids" in ids:
+        inner = ids["input_ids"]
+        if hasattr(inner, "tolist"):
+            inner = inner.tolist()
+        if len(inner) and isinstance(inner[0], (list, tuple)):
+            inner = inner[0]
+        return [int(i) for i in inner]
+    if hasattr(ids, "tolist"):
+        ids = ids.tolist()
+    return [int(i) for i in ids]
+
+
 def hf_first_turn_ids(tokenizer, mode: str, system_prompt: str) -> FirstTurnIds:
     """apply_chat_template path for turn 1 (plan §4.1).  ``enable_thinking`` passed explicitly for every mode."""
     def f(x_1: str) -> List[int]:
@@ -309,7 +325,7 @@ def hf_first_turn_ids(tokenizer, mode: str, system_prompt: str) -> FirstTurnIds:
         kw = dict(add_generation_prompt=True, tokenize=True, return_dict=False)
         kw["enable_thinking"] = (mode == "hybrid_think")
         ids = tokenizer.apply_chat_template(msgs, **kw)
-        return list(ids["input_ids"]) if isinstance(ids, dict) else list(ids)
+        return template_ids_to_list(ids)
     return f
 
 

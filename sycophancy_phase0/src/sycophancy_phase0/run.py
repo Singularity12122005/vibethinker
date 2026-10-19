@@ -167,6 +167,7 @@ DEFAULT_CONFIG = dict(
     hardware=dict(gpu="H100-80GB", throughput_factor=1.0),       # plan §7.13 record: A100-80GB => 0.5, GPU-days scale by 1/factor
     require_g0_summary=True,                                      # G4-1 refuses to calibrate without tables/G0_summary.json with a proceed decision
     attn_implementation="sdpa",                                   # second GPU diagnostics: only 1/20 samples identical across sdpa/eager => part of the frozen config
+    experts_implementation=None,                                  # route 1 (round 13): "grouped_mm" on the experts-backend environment (4.45-7.2x decode); None = per-expert loop (4.57.1)
     vllm=dict(enable_prefix_caching=False, dtype="bfloat16", top_k=-1, top_p=1.0, min_p=0.0),
 )
 
@@ -221,8 +222,9 @@ class Context:
         d = init_run(root, run_id, config)
         name = config["models"][model_key]
         tok = AutoTokenizer.from_pretrained(name)
+        extra = {"experts_implementation": config["experts_implementation"]} if config.get("experts_implementation") else {}
         model = AutoModelForCausalLM.from_pretrained(name, torch_dtype=torch.bfloat16, device_map=hf_device,
-                                                     attn_implementation=config.get("attn_implementation", "sdpa")).eval()   # pinned: backends sample differently
+                                                     attn_implementation=config.get("attn_implementation", "sdpa"), **extra).eval()   # pinned: backends sample differently; experts backend recorded
         model.requires_grad_(False)
         _assert_generation_config(model)
         _assert_router_fp32(model)

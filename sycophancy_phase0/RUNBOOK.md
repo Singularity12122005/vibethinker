@@ -155,3 +155,24 @@ Truncation at 512 tokens: 2/20 (sdpa) and 4/20 (eager) on these synthetic prefix
 | 2 | Signed error on fixed token sequences | `g0_runner.decode_prefill_kl(model, ids, max_new_tokens=512, seed=…)` for ≥20 prompts: generate with `output_logits=True`, teacher-force the SAME tokens at T=0.7, Δ_k = log p_gen(y_k) − log p_recalc(y_k) on the generated tokens only (no appended EOS). | per response: mean Δ_k, D_y = Σ_k Δ_k (e^{D_y} = whole-response probability ratio), distribution of Δ_k; per position: KL both ways (`kl_decode_to_prefill`, `kl_prefill_to_decode`); `sampler_vs_output_logits_maxdiff` must be ≈0. |
 | 3 | Batch consistency, two metrics | `g0_runner.batch_consistency(model, prompts, peers, n_ref=64, n_free=64)` for 32 prompts, B=1 vs B=8 random peers. | (A) `pooled_next_token_agreement` and `kl_alone_vs_batch_mean/max` on the fixed reference history; (B) `free_identical_rate`, `mean_first_divergence`. Keep the two apart in the write-up. |
 Nothing in this table changes a criterion; it feeds the pre-registered amendment for G0.5 and the §4.2 path-consistency requirement.
+Results (2026-10-19, executor, experts-backend environment): (1) whole-sequence forward median ≈ 1.36 s/response, gradient with
+backward ≈ 2.53 s — the bottleneck is token-by-token generation; (2) 20 responses / 7142 tokens: signed mean Δ_k 0.00379, per-response
+D_y mean 1.355 (range −1.511 … 5.253), per-position KL both ways ≈ 0.00407 / 0.00411 — the mean of Δ_k IS the path KL (plan §4.2
+identity), so the bias cannot cancel and grows linearly with length; (3) 32 × 64: fixed-history next-token agreement 98.63% on 2048
+positions, free-generation whole-sequence identity 31.25% — below the 99.5% target; the pre-registered amendment draft is in plan §7.1
+(G0.5 row) and must be settled before formal sampling.
+
+### 6.3 Experts backend (route 1; 2026-10-19, same new environment, same weights, uncompiled, only the expert computation switched)
+| B | per-expert loop | grouped | speed-up |
+| --- | --- | --- | --- |
+| 8 | 14.8 tok/s | 106.4 tok/s | 7.19× |
+| 16 | 20.9 | 128.6 | 6.17× |
+| 32 | 32.9 | 146.5 | 4.45× |
+Grouped peak memory 60.4 GiB; hook position / zero strength / ± direction / gradient checks pass on the real model; 32 prefixes bitwise
+identical across the two versions after the template fix. The two expert modes are NOT numerically identical (short-response gradient
+cosine 0.989): before the grouped backend becomes the HF configuration run the formal equivalence check (same inputs: first-token
+logits/argmax/KL per G0.4; behaviour: e_3-rate TOST per G0.8) and pin the exact version. Extrapolated: 1e8 generated tokens ≈ 7.9
+A100-days at B=32; measure B=64/96 and a per-step breakdown (expert GEMM / router / sampler per-row sync) next. Migration notes for the
+new environment: `config.experts_implementation="grouped_mm"` (passed to `from_pretrained`), `SYCO_TRANSFORMERS_VERSION=<pinned>` for
+the version assertion, and `apply_chat_template` may return a `BatchEncoding` (a UserDict, not a dict) — `rollout.template_ids_to_list`
+handles list / dict / BatchEncoding / tensors. The G6 λ=0 "consistency" sign check is withdrawn (plan §7.11).

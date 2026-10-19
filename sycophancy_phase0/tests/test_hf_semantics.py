@@ -36,7 +36,10 @@ def _seq(rng, n):
 
 
 def test_version_pin():
-    assert transformers.__version__ == "4.57.1"
+    """4.57.1 is the pin of the per-expert environment; the experts-backend environment (route 1) sets SYCO_TRANSFORMERS_VERSION to
+    its own pinned version — the run record always stores the actual version (run.py env record)."""
+    import os
+    assert transformers.__version__ == os.environ.get("SYCO_TRANSFORMERS_VERSION", "4.57.1")
 
 
 def test_hidden_states_indexing(model):

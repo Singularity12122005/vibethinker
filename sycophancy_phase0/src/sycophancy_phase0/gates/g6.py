@@ -170,7 +170,10 @@ def regret(curves_fit: Dict[str, Dict[str, object]], curves_eval: Dict[str, Dict
 def g6_decision(inter: Dict[str, object], reg: Dict[str, object], x4_drop_hi: float, reg_lambda0: Optional[Dict[str, object]] = None
                 ) -> Tuple[List[GateResult], str, List[str]]:
     """plan §7.11: both criteria => 命题二成立 (GO); otherwise reported as a null (GATES: KILL with the note '命题二 null，不影响其他
-    Gate'); co-primary first (GREY); consistency check: Regret at λ=0 on script A has 95% upper bound >= 0 (expected non-positive)."""
+    Gate'); co-primary first (GREY).  The λ=0 regret (``reg_lambda0``) is reported as a DESCRIPTIVE quantity only: at zero dose cost
+    the difference between the two estimation strategies (per-prefix shrunken argmin vs quantile-bin policy) has no necessary sign —
+    the fit/eval split guarantees that the comparison is not contaminated by training outcomes, not which strategy is better — so the
+    former sign check (95% upper bound ≥ 0) is withdrawn (round 13, executor), not flipped."""
     res = [GateResult("G6.interaction", bool(inter["interaction"]["p"] < 0.05), dict(est=inter["interaction"]["est"], p=inter["interaction"]["p"], n_prefix=inter["n_prefix"],
                                                                                    n_clusters=inter.get("n_clusters")),
                       criteria="[(d=1)−(d=−1)]×类型 交互对比，题目 cluster-robust SE，双侧 p<0.05"),
@@ -179,11 +182,8 @@ def g6_decision(inter: Dict[str, object], reg: Dict[str, object], x4_drop_hi: fl
            GateResult("G6.coprimary", bool(x4_drop_hi <= 0.03), dict(x4_drop_hi=x4_drop_hi), criteria="d=1 臂的 x_4 下降 95% 上界 ≤3pp")]
     notes = []
     if reg_lambda0 is not None:
-        ok0 = bool(reg_lambda0.get("upper95", float("nan")) >= 0)
-        res.append(GateResult("G6.consistency", ok0, dict(regret_lambda0=reg_lambda0.get("regret"), upper95=reg_lambda0.get("upper95")),
-                              criteria="一致性检查：λ=0 时 Regret 的 95% 上界 ≥0（期望非正）"))
-        if not ok0:
-            notes.append("一致性检查失败：λ=0 的 regret 显著为负，检查收缩/分位策略实现")
+        notes.append(f"λ=0 的 Regret（描述量，无符号判据；第十三轮撤销原一致性检查）：{reg_lambda0.get('regret')}，"
+                     f"95% 上界 {reg_lambda0.get('upper95')}，下界 {reg_lambda0.get('lower95')}")
     if x4_drop_hi > 0.03:
         return res, "GREY", notes + ["co-primary x_4 下降超过 3pp"]
     scope = ("结论范围（§7.11，第七轮）：规定的风险估计（32 条 sel 续写的 r̂）与五分位统一策略没有保留取得同等控制效果所需的信息；"
