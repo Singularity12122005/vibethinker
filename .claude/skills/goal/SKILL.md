@@ -20,14 +20,17 @@ on its own: no cron, no wake-ups, no background loops. One invocation = one roun
    record the replication in a new §9 subsection, adopt the text only after that, and re-create its referenced tests in this repo as
    your own implementation. Say explicitly which code from the other environment did not reach this branch.
 3. **Pick the obstacle**: the user's instruction if given; otherwise the first item of §7 "下一轮攻击". Do not re-run eliminated routes.
-4. **Run the round with agents** (the user opted into this): call the Workflow tool with `name: "goal-round"` and
-   `args: {round: "r<k>", obstacle: "<one sentence>", python: "<path of the python with numpy/scipy>", scratch: "<scratchpad>/goal_rounds"}`.
-   The workflow (`.claude/workflows/goal-round.js`) does: problem critique (is the obstacle well posed, what does it really depend
-   on, is a closed form plausible, which decision it informs) → ≤3 independent route attacks (derivation + simulation, each claim
-   with its experimental consequence) → three-lens refutation of ≤3 claims (mathematics; blind re-implementation that never sees the
-   author's script; experimental scope under clustering / unequal counts / unknown risk distribution) → synthesis into the archive
-   §7/§9 with pytest cases, a scratch manifest, an explicit list of decisions for the user and of plan changes → label check
-   (+ one repair pass). If the Workflow tool is unavailable, run the same stages with the Agent tool, sequentially, same prompts.
+4. **Run the round by the protocol** `.claude/skills/goal/round-protocol.md` (the user opted into agents): with the Workflow tool,
+   call `name: "goal-round"` with `args: {round: "r<k>", obstacle: "<the template's one-sentence form>", root: "<repo root>",
+   python: "<python with numpy/scipy>", scratch: "<scratch dir>/goal_rounds"}`. The workflow does: problem critique that fills the
+   obstacle template (decision, inputs and their generating mechanism, compatible set, property with quantifiers, criterion, out of
+   scope) → ≤3 independent route attacks (every claim with scope, does-not-claim, sourced numbers, experimental consequence) → a
+   FULL claim ledger (reviewed / unreviewed overflow / author-refuted, slots filled round-robin across routes) → three-lens refutation
+   (mathematics; blind re-implementation that receives only the statement and must list every file it read, audited by the script;
+   experimental scope) → synthesis of the whole ledger into the archive with tests, decisions for the user and plan changes →
+   overreach review of the report + label check → one repair whose CORRECTED result is what the workflow returns; the result is
+   `status: "blocked"` when the final check fails, and a blocked round is never committed. Without the Workflow tool (e.g. a Windows
+   environment), execute the same protocol stage by stage with fresh agent sessions as its §6 describes; paths are parameters.
 5. **Verify yourself**: read the new §9 record and the diff; run the full suite (`pytest -q` in `sycophancy_phase0/`); downgrade any
    label the evidence does not support; a claim is 独立复核 only if all three lenses failed to refute it and the blind replication
    reproduced its numbers. A stopped or abandoned round's material is recorded as unreviewed and never counted as a claim.
@@ -42,3 +45,6 @@ on its own: no cron, no wake-ups, no background loops. One invocation = one roun
 - A formula that depends on quantities the experiment cannot observe is not a budget rule; prefer procedures with quantified
   uncertainty (simulation from pilot data with bootstrap) over closed forms that only hold for assumed distributions.
 - If two consecutive rounds make no real progress, re-examine the problem statement itself before attacking again.
+- Every claim carries a scope and a does-not-claim sentence; a report sentence may never be stronger than its claim; "不存在 /
+  不可能 / 只对 … 成立" needs a 已证明 claim with that quantifier.
+- The ledger is complete: unreviewed and author-refuted claims are recorded as such with their evidence, never dropped.
