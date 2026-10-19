@@ -112,8 +112,10 @@ const results = judged.filter(Boolean).map(j => {
   const blind = got('blind_replication')
   const blind_audit_ok = !!blind && blind.files_read.every(f => !String(f).includes(RDIR) || String(f).includes(blindDir(j.claim)))
   const present = vs.filter(Boolean)
-  const wrong = present.some(v => v.refuted && v.severity === 'wrong')
-  const soft = present.some(v => v.refuted && v.severity !== 'wrong')
+  // protocol §3: any 'wrong' ⇒ refuted; any other objection (refuted flag set, or severity overstated / gap / irrelevant even
+  // with refuted=false) ⇒ candidate
+  const wrong = present.some(v => v.severity === 'wrong')
+  const soft = !wrong && present.some(v => v.refuted || v.severity !== 'none')
   const complete = present.length === j.lenses.length
   const replicated = !!blind && blind.reproduced_numbers && blind_audit_ok
   const final = wrong ? 'refuted' : soft ? 'candidate' : (complete && replicated ? j.claim.status : 'candidate')
