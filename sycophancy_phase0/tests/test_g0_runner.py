@@ -382,3 +382,46 @@ def test_decode_prefill_kl_and_batch_consistency_on_the_cpu_model(model):
     assert len(bc["rows"]) == 2 and 0.0 <= bc["pooled_next_token_agreement"] <= 1.0 and bc["n_peers"] == 3
     assert all(0 <= row["first_divergence"] <= max(row["free_len_alone"], row["free_len_batch"]) for row in bc["rows"])
     assert all(row["kl_alone_vs_batch_mean"] < 1e-3 for row in bc["rows"])                      # fp32 CPU: batch coupling is at ULP level
+    assert all(row["kl_batch_vs_alone_mean"] < 1e-3 for row in bc["rows"])
+
+
+def test_batch_replay_peer_eos_reverse_kl_and_reuse():
+    from types import SimpleNamespace
+
+    class ControlledModel:
+        device = torch.device("cpu")
+
+        def __init__(self):
+            self.generations, self.forwards, self.decode_inputs = [], [], []
+
+        def generate(self, input_ids, **kwargs):
+            batch = input_ids.shape[0]
+            self.generations.append(batch)
+            assert kwargs["repetition_penalty"] == 1.0
+            tails = [[2] * kwargs["max_new_tokens"]]
+            tails += [[9] + [0] * (kwargs["max_new_tokens"] - 1) for _ in range(batch - 1)]
+            return torch.cat([input_ids, torch.tensor(tails)], 1)
+
+        def __call__(self, input_ids, past_key_values=None, **kwargs):
+            batch, length = input_ids.shape
+            self.forwards.append(batch)
+            if past_key_values is not None:
+                self.decode_inputs.append((batch, input_ids[:, 0].tolist()))
+            logits = torch.zeros(batch, length, 10)
+            logits[0, :, 2] = 2.0 if batch == 1 else 1.0
+            if batch > 1:
+                logits[1:, :, 9 if past_key_values is None else 7] = 3.0
+            return SimpleNamespace(logits=logits, past_key_values=object())
+
+    controlled = ControlledModel()
+    result = batch_consistency(controlled, [[3, 4]], [[5]], n_ref=3, n_free=3, pad_id=0, eos_ids=(9,))
+    assert controlled.generations == [1, 2]                 # reuse the identical single-row reference
+    assert controlled.forwards == [1, 1, 1, 2, 2, 2]       # no forward after the final measured distribution
+    assert [tokens for batch, tokens in controlled.decode_inputs if batch == 2] == [[2, 9], [2, 0]]
+    alone, grouped = torch.zeros(10), torch.zeros(10)
+    alone[2], grouped[2] = 2.0, 1.0
+    la, lb = torch.log_softmax(alone / TEMPERATURE, -1), torch.log_softmax(grouped / TEMPERATURE, -1)
+    row = result["rows"][0]
+    assert row["kl_alone_vs_batch_mean"] == pytest.approx(float((la.exp() * (la - lb)).sum()))
+    assert row["kl_batch_vs_alone_mean"] == pytest.approx(float((lb.exp() * (lb - la)).sum()))
+    assert row["free_identical"] and row["n_disagree"] == 0
