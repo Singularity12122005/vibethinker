@@ -391,7 +391,8 @@ def batch_consistency(model, prompts: Sequence[Sequence[int]], peers: Sequence[S
     """Two metrics that must never be mixed (round 12).  (A) common-history next-token agreement: a reference continuation
     (greedy, alone) is REPLAYED step by step with the KV cache, once alone (B=1) and once as row 0 of a left-padded batch with
     ``peers`` (which decode their own greedy tokens); at every step the row-0 argmax agreement and the T-tempered
-    KL(P_alone || P_batch) are recorded — a computation-difference measurement under identical history.  (B) free-generation
+    KL in both directions are recorded — a computation-difference measurement under identical history.  Peers that have
+    emitted EOS subsequently receive pad tokens, matching ``generate`` while row 0 continues its fixed history.  (B) free-generation
     stability: greedy generation alone vs in the batch — whole-sequence identity and the first divergence index (common
     prefix length).  Returns per-prompt rows and pooled rates."""
     import torch
@@ -404,7 +405,7 @@ def batch_consistency(model, prompts: Sequence[Sequence[int]], peers: Sequence[S
         ids, att = left_pad(seqs, pad_id=pad, device=model.device)
         with torch.no_grad():
             out = model.generate(input_ids=ids, attention_mask=att, do_sample=False, temperature=None, top_k=None, top_p=None, min_p=None,
-                                 max_new_tokens=n, pad_token_id=pad, eos_token_id=list(eos_ids), use_cache=True)
+                                 repetition_penalty=1.0, max_new_tokens=n, pad_token_id=pad, eos_token_id=list(eos_ids), use_cache=True)
         return [out[b, ids.shape[1]:].tolist() for b in range(len(seqs))]
 
     def _replay(seqs, ref):
@@ -417,10 +418,16 @@ def batch_consistency(model, prompts: Sequence[Sequence[int]], peers: Sequence[S
             out = model(input_ids=ids, attention_mask=att, position_ids=pos, use_cache=True)
             past = out.past_key_values
             last = out.logits[:, -1].float()
+            finished = torch.zeros(ids.shape[0], dtype=torch.bool, device=ids.device)
             for k in range(len(ref)):
                 logits_rows.append(last[0].clone())
+                if k + 1 == len(ref):
+                    break                                  # the last distribution is already measured; no unused forward
                 nxt = last.argmax(-1)
+                nxt[finished] = pad                        # HF keeps ended rows in the batch, feeding pad thereafter
                 nxt[0] = int(ref[k])
+                for eos in eos_ids:
+                    finished |= nxt == int(eos)
                 att = torch.cat([att, torch.ones(att.shape[0], 1, dtype=att.dtype, device=att.device)], 1)
                 pos_k = (att.sum(-1) - 1)[:, None]
                 out = model(input_ids=nxt[:, None], attention_mask=att, position_ids=pos_k, past_key_values=past, use_cache=True)
@@ -439,7 +446,8 @@ def batch_consistency(model, prompts: Sequence[Sequence[int]], peers: Sequence[S
         agree = (la.argmax(-1) == lb.argmax(-1)).float().cpu().numpy()
         lpa, lpb = torch.log_softmax(la / Tt, -1), torch.log_softmax(lb / Tt, -1)
         kl = (lpa.exp() * (lpa - lpb)).sum(-1).cpu().numpy()
-        free_a = _greedy([p], n_free)[0]
+        reverse_kl = (lpb.exp() * (lpb - lpa)).sum(-1).cpu().numpy()
+        free_a = ref if n_ref == n_free else _greedy([p], n_free)[0]
         free_b = _greedy([p] + [list(q) for q in peers], n_free)[0]
         fa = free_a[: next((k + 1 for k, t in enumerate(free_a) if t in eos_ids), len(free_a))]
         fb = free_b[: next((k + 1 for k, t in enumerate(free_b) if t in eos_ids), len(free_b))]
@@ -447,6 +455,8 @@ def batch_consistency(model, prompts: Sequence[Sequence[int]], peers: Sequence[S
         rows.append(dict(n_ref=int(len(ref)), next_token_agreement=float(agree.mean()) if agree.size else float("nan"),
                          n_disagree=int((1 - agree).sum()), kl_alone_vs_batch_mean=float(kl.mean()) if kl.size else float("nan"),
                          kl_alone_vs_batch_max=float(kl.max()) if kl.size else float("nan"),
+                         kl_batch_vs_alone_mean=float(reverse_kl.mean()) if reverse_kl.size else float("nan"),
+                         kl_batch_vs_alone_max=float(reverse_kl.max()) if reverse_kl.size else float("nan"),
                          free_identical=bool(fa == fb), first_divergence=int(common), free_len_alone=len(fa), free_len_batch=len(fb)))
     tot = sum(r["n_ref"] for r in rows)
     return dict(rows=rows, pooled_next_token_agreement=(sum(r["next_token_agreement"] * r["n_ref"] for r in rows) / tot) if tot else float("nan"),

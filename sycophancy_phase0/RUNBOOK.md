@@ -148,31 +148,25 @@ response tokens (or slice logits), generation batches 16–32 subject to item 4.
    used by G0.7 before relying on them.
 Truncation at 512 tokens: 2/20 (sdpa) and 4/20 (eager) on these synthetic prefixes — expect the §7.2 5% rule to trigger in G1.
 
-### 6.2 Three measurements to run next (protocols; none run yet, environment not upgraded)
+### 6.2 三项补测协议与结果（已在旧版环境完成；不等同于正式 G0）
 | # | Measurement | How | Report |
 | --- | --- | --- | --- |
-| 1 | Timing split | Time separately: plain generation forward (decode tok/s at B=8/16/32), teacher-forced response log-prob / KL forward (`hf_engine.response_logprobs`, `next_token_kl`; one forward per response, full-vocab logits), activation-gradient backward (`analysis/scores.py::response_gradient`); same prompts, same lengths, uncompiled. | tok/s or s/response for each path; forward speed is not backward speed — never infer one from the other. |
-| 2 | Signed error on fixed token sequences | `g0_runner.decode_prefill_kl(model, ids, max_new_tokens=512, seed=…)` for ≥20 prompts: generate with `output_logits=True`, teacher-force the SAME tokens at T=0.7, Δ_k = log p_gen(y_k) − log p_recalc(y_k) on the generated tokens only (no appended EOS). | per response: mean Δ_k, D_y = Σ_k Δ_k (e^{D_y} = whole-response probability ratio), distribution of Δ_k; per position: KL both ways (`kl_decode_to_prefill`, `kl_prefill_to_decode`); `sampler_vs_output_logits_maxdiff` must be ≈0. |
+| 1 | Timing split | Time separately: plain generation forward (decode tok/s at B=8/16/32), teacher-forced response log-prob / KL forward (`hf_engine.response_logprobs`, `next_token_kl`; 对数概率为一次前向，成对 KL 为两次前向，均取完整词表分数), activation-gradient backward (`analysis/scores.py::response_gradient`); same prompts, same lengths, uncompiled. | tok/s or s/response for each path; forward speed is not backward speed — never infer one from the other. |
+| 2 | Signed error on fixed token sequences | `g0_runner.decode_prefill_kl(model, ids, max_new_tokens=512, seed=…)` for ≥20 prompts: generate with `output_logits=True`, teacher-force the SAME tokens at T=0.7, Δ_k = log p_gen(y_k) − log p_recalc(y_k) on the generated tokens only (no appended EOS). | per response: mean Δ_k, D_y = Σ_k Δ_k（e^{D_y} 为所记录归一化分数的乘积比；联合概率解释见下述限制）, distribution of Δ_k; per position: KL both ways (`kl_decode_to_prefill`, `kl_prefill_to_decode`); `sampler_vs_output_logits_maxdiff` must be ≈0. |
 | 3 | Batch consistency, two metrics | `g0_runner.batch_consistency(model, prompts, peers, n_ref=64, n_free=64)` for 32 prompts, B=1 vs B=8 random peers. | (A) `pooled_next_token_agreement` and `kl_alone_vs_batch_mean/max` on the fixed reference history; (B) `free_identical_rate`, `mean_first_divergence`. Keep the two apart in the write-up. |
 Nothing in this table changes a criterion; it feeds the pre-registered amendment for G0.5 and the §4.2 path-consistency requirement.
-Results (2026-10-19, executor, experts-backend environment): (1) whole-sequence forward median ≈ 1.36 s/response, gradient with
-backward ≈ 2.53 s — the bottleneck is token-by-token generation; (2) 20 responses / 7142 tokens: signed mean Δ_k 0.00379, per-response
-D_y mean 1.355 (range −1.511 … 5.253), per-position KL both ways ≈ 0.00407 / 0.00411 — the mean of Δ_k IS the path KL (plan §4.2
-identity), so the bias cannot cancel and grows linearly with length; (3) 32 × 64: fixed-history next-token agreement 98.63% on 2048
-positions, free-generation whole-sequence identity 31.25% — below the 99.5% target; the pre-registered amendment draft is in plan §7.1
-(G0.5 row) and must be settled before formal sampling.
+结果（2026-10-19，执行方；旧 `transformers==4.57.1` 环境、`sdpa`）：
 
-### 6.3 Experts backend (route 1; 2026-10-19, same new environment = transformers 5.20.1, same weights, uncompiled, only the expert computation switched)
+1. 20 条回答的整段前向中位数为 1.36 秒/回答；对数分数调用为 1.36 秒，成对 KL 为 2.65 秒，含反向的梯度调用为 2.53 秒。新版专家环境尚未测这些计时，不得用本组数值当作新版结果。
+2. 20 条回答、7142 个实际词元：合并词元的带符号均值为 0.00379，先逐回答求均值再平均为 0.00358；每回答 D_y 均值为 1.355，范围 −1.511 至 5.253；逐位置完整词表双向 KL 约 0.00407/0.00411。分数差均值与 KL 数值接近，但未计算其差值的抽样不确定性。只有两分布均由当前历史决定时，条件期望等于 KL 的恒等式才适用；整段前向已观察到数值性后缀依赖，因此 Q_k 可能依赖 y_k 及未来词元。当前不能据此证明均值等于路径 KL、累计差必不抵消或随长度线性增长；e^{D_y} 只保证为所记录分数的乘积比。同路径计算是比较控制，不保证这些分数等于实际生成分布的似然。
+3. 32×64 个固定历史位置的下一词元一致率为 98.63%，自由生成整段相同率为 31.25%。前者低于 99.5%，后者是不同指标；本诊断不构成正式 G0 放行。规格书 §7.1 的 G0.5 修正仍为待确认草案，判据与样本量未变。
+
+### 6.3 专家后端生成吞吐（路线 1；2026-10-19，`transformers==5.20.1`、`torch==2.9.1+cu128`，同一权重、`sdpa`、不编译，仅切换专家方式）
 | B | per-expert loop | grouped | speed-up |
 | --- | --- | --- | --- |
 | 8 | 14.8 tok/s | 106.4 tok/s | 7.19× |
 | 16 | 20.9 | 128.6 | 6.17× |
 | 32 | 32.9 | 146.5 | 4.45× |
-Grouped peak memory 60.4 GiB; hook position / zero strength / ± direction / gradient checks pass on the real model; 32 prefixes bitwise
-identical across the two versions after the template fix. The two expert modes are NOT numerically identical (short-response gradient
-cosine 0.989): before the grouped backend becomes the HF configuration run the formal equivalence check (same inputs: first-token
-logits/argmax/KL per G0.4; behaviour: e_3-rate TOST per G0.8) and pin the exact version. Extrapolated: 1e8 generated tokens ≈ 7.9
-A100-days at B=32; measure B=64/96 and a per-step breakdown (expert GEMM / router / sampler per-row sync) next. Migration notes for the
-new environment: `config.experts_implementation="grouped_mm"` (passed to `from_pretrained`), `SYCO_TRANSFORMERS_VERSION=<pinned>` for
-the version assertion, and `apply_chat_template` may return a `BatchEncoding` (a UserDict, not a dict) — `rollout.template_ids_to_list`
-handles list / dict / BatchEncoding / tensors. The G6 λ=0 "consistency" sign check is withdrawn (plan §7.11).
+表中吞吐按实际生成词元计数，最多生成 256 个新词元，包含提示处理，一半行强度为 0.5。分组方式在提示处理时为 `grouped_mm`，缓存解码时自动切至 `batched_mm`；峰值已分配显存为 60.4 GiB。真实模型的干预位置、零强度、正负方向与短回答梯度检查通过；模板修复后，两版本的 32 条前缀逐位相同。单提示首词元最大 logit 差为 1.0625、KL 为 4.81e-7，同一短回答梯度余弦为 0.989；只覆盖这些小规模检查，不代表整段回答分布等价。分组方式成为正式配置前，仍按原规定进行等价性检查：相同输入的首词元分数、最大概率词元与 KL 按 G0.4 报告，行为层面按 G0.8 的 $e_3$ 率等价性检验；固定所用版本。B=32 下 1 亿生成词元约 7.9 A100 日，仅为生成吞吐外推，不含整段前向、反向、评分等开销。新版整段前向/反向尚未计时；B=64/96 与各步骤耗时占比仍未测。
+
+新版配置中，`config.experts_implementation="grouped_mm"` 传给 `from_pretrained`，`SYCO_TRANSFORMERS_VERSION=<pinned>` 指定版本断言。`apply_chat_template` 可能返回 `BatchEncoding`（继承 `UserDict`）；`rollout.template_ids_to_list` 已兼容列表、字典、`BatchEncoding` 与张量。G6 的 λ=0 符号检查已撤回（规格书 §7.11）。

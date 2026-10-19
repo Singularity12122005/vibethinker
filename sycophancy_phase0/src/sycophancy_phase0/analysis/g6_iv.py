@@ -15,13 +15,15 @@ misspecified functional form: if E[Δ | r] is not in the fitted polynomial class
 r-range, the oracle regression itself attributes the misfit to type (adversarial review, round 12).  Hence: report overlap of
 the two types' r̂ ranges, fit degrees 1–3, and treat a type effect that disappears with degree as functional form.
 
-Identification strength: with independent halves, Corr(r̂_a, r̂_b | type) = λ_h and the first-stage F of r̂_b for r̂_a has
-non-centrality n·λ_h²/(1−λ_h²) (P3); below ≈10 the 2SLS slope has no finite mean and the corrected moment matrix can fail to be
-positive definite.  Standard errors: HC1 by default, cluster-robust (CR1) when `cluster` (question id) is given.
+识别强度：独立两半的组内相关为 λ_h；n·λ_h²/(1−λ_h²) 仅作同方差大样本设计近似，
+不能保证本模块实际返回的 HC1 第一阶段统计量的分布或中位数。校正矩阵的非正定概率还取决于高阶风险结构。
+标准误默认 HC1；给定 cluster（题目标识）时，终点回归使用 CR1。
 Selection: prefixes must not be selected on the half used as REGRESSOR (selection on the instrument half is harmless).
 """
 from __future__ import annotations
 
+from fractions import Fraction
+from math import comb, factorial, perm
 from typing import Dict, Optional, Sequence
 
 import numpy as np
@@ -74,12 +76,21 @@ def _falling(K: np.ndarray, j: int) -> np.ndarray:
     return out
 
 
-def _falling_scalar(x, j: int):
-    """Falling factorial x^{(j)} in whatever arithmetic ``x`` carries (int, float, Fraction)."""
-    out = 1
-    for i in range(j):
-        out = out * (x - i)
-    return out
+def binomial_factorial_joint_moment(risk_moments: Sequence[float | Fraction], m: int, j: int, k: int) -> float | Fraction:
+    """研究档案 r3/A1：精确恒等式 E[U_j(K)U_k(K)]，其中 K|r~Bin(m,r)、U_j=(K)_j/(m)_j。
+
+    risk_moments[q] 为 E[r**q]，需要至 min(m,j+k) 阶。传入有理数时保留精确算术；
+    浮点输入仅作该有限和的浮点求值。交叠项保留同一计数所生各阶矩的相关性。
+    这不是非正定概率近似，也不提供样本量或续写预算保证。
+    """
+    if m < 1 or min(j, k) < 0 or max(j, k) > m:
+        raise ValueError("require m >= 1 and 0 <= j, k <= m")
+    if len(risk_moments) <= min(m, j + k):
+        raise ValueError("insufficient risk moments")
+    denominator = perm(m, j) * perm(m, k)
+    return sum((Fraction(comb(j, ell) * comb(k, ell) * factorial(ell) * perm(m, j + k - ell), denominator)
+                * risk_moments[j + k - ell]
+                for ell in range(max(0, j + k - m), min(j, k) + 1)), Fraction(0))
 
 
 # ----------------------------------------------------------------------------------------------------------------------- P1
@@ -98,8 +109,8 @@ def endpoint_contrast_iv(delta_hat: Sequence[float], r_a: Sequence[float], r_b: 
                          cluster: Optional[Sequence] = None) -> Dict[str, object]:
     """Naive (r̂ = mean of the halves) vs repeated-measurement 2SLS estimates of [const, r, type] in the endpoint-contrast regression.
     ``r_a`` is the REGRESSOR half and must not have been used to select prefixes; ``r_b`` is the instrument (selection on it is
-    harmless).  Returns both coefficient vectors, HC1/CR1 SEs, t and two-sided p for the type coefficient, the classical first-stage
-    F of r̂_b for r̂_a with type partialled out (its non-centrality is n·λ_h²/(1−λ_h²), see identification_strength), the total
+    harmless).  Returns both coefficient vectors, HC1/CR1 SEs, t and two-sided p for the type coefficient, the HC1 first-stage
+    squared t statistic of r̂_b for r̂_a with type partialled out (identification_strength gives a homoskedastic design approximation), the total
     reliability Cov(r̂_a, r̂_b)/Var(r̄) and the within-type reliability (the λ_w of P1, from type-demeaned halves), and n.
     Just-identified 2SLS has no finite moments: with F < 10 report the median/IQR over bootstrap draws, not the point estimate."""
     y = np.asarray(delta_hat, float)
@@ -110,7 +121,7 @@ def endpoint_contrast_iv(delta_hat: Sequence[float], r_a: Sequence[float], r_b: 
     bn, sen, _ = _ols(np.c_[one, rf, t], y, cluster)
     X, Z = np.c_[one, ra, t], np.c_[one, rb, t]
     bi, sei, _ = _tsls(X, Z, y, cluster)
-    b1, se1, _ = _ols(Z, ra)                      # classical F (matches the non-centrality formula)
+    b1, se1, _ = _ols(Z, ra)                      # HC1 标准误；非中心度公式只是同方差设计近似
     F = float((b1[1] / se1[1]) ** 2)
     rel_total = float(np.cov(ra, rb)[0, 1] / max(1e-12, np.var(rf, ddof=1)))
     ra_w = ra - np.array([ra[t == k].mean() for k in (0, 1)])[t.astype(int)]
@@ -132,7 +143,7 @@ def endpoint_contrast_poly_cs(delta_hat: Sequence[float], counts: Sequence[int],
     x*Δ has an unbiased per-prefix estimate; β solves Σ_i (m̂_i − M̂_i β) = 0, i.e. β = (Σ M̂_i)⁻¹ Σ m̂_i, with the M-estimator
     sandwich (HC1 / CR1).  degree=1 is the known-variance errors-in-variables estimator (v_i = r̂_i(1−r̂_i)/(m−1)).  Needs 2·degree ≤ m.
     Consistent for the ORACLE polynomial regression under E[η | r, type, K] = 0; returns ok=False when the corrected moment matrix
-    is not positive definite (weak identification: within-type variation of r too small for the error variance)."""
+    is not positive definite.  Its failure probability cannot be diagnosed from low-order within-type risk variance alone."""
     y, K, t = np.asarray(delta_hat, float), np.asarray(counts, float), np.asarray(type_, float)
     n = y.size
     if degree < 1 or 2 * degree > m:
@@ -152,10 +163,10 @@ def endpoint_contrast_poly_cs(delta_hat: Sequence[float], counts: Sequence[int],
     eig = np.linalg.eigvalsh(A)
     min_eig, max_eig = float(eig[0]), float(eig[-1])
     # relative tolerance (round 14): an exactly singular state (e.g. m=4, p=2, class counts (4,4)/(0,4): the r and r^2 columns
-    # coincide) can show a tiny positive floating-point minimum eigenvalue and then fail in the solve
+    # coincide) can show a tiny positive floating-point minimum eigenvalue and then fail in the solve (archive r3 实施限制)
     if not (min_eig > PD_RTOL * max(1.0, abs(max_eig))):
         return dict(ok=False, n=int(n), degree=int(degree), min_eig=min_eig,
-                    reason="corrected moment matrix not positive definite: within-type risk variation too small for the error variance")
+                    reason="corrected moment matrix not positive definite; low-order risk variance alone does not diagnose the cause")
     try:
         beta = np.linalg.solve(A, mv.sum(0))
     except np.linalg.LinAlgError:
@@ -178,10 +189,11 @@ def endpoint_contrast_eiv(delta_hat: Sequence[float], r_hat: Sequence[float], ty
 # ----------------------------------------------------------------------------------------------------------------------- P3
 def identification_strength(n: int, var_within: float, mean_r_one_minus_r: float, m_half: int, F_target: float = 10.0,
                             pass_prob: float = 0.8) -> Dict[str, float]:
-    """P3.  λ_h = V/(V+s), V = Var_w(r), s = E[r(1−r)]/m_half; the first-stage F of r̂_b for r̂_a (type partialled out) is
-    non-central χ²₁ (large n) with NON-CENTRALITY  ncp = n·λ_h²/(1−λ_h²) = n·V²/(s(2V+s)) — the median of the sample F, not a
-    guarantee: at ncp = F_target the sample F clears F_target with probability ≈ 0.5.  Returns ncp, λ_h, P(sample F ≥ F_target),
-    the ncp needed to clear F_target with probability ``pass_prob``, and the n / m_half that reach it at the given (V, E[r(1−r)])."""
+    """P3 的同方差大样本设计近似：λ_h=V/(V+s)，s=E[r(1−r)]/m_half；以非中心 χ²₁
+    及参数 ncp=n·λ_h²/(1−λ_h²) 估算通过概率和预算。该参数不是一般样本 F 的精确中位数，
+    也不是 endpoint_contrast_iv 实际返回的 HC1 统计量的分布保证。ncp=F_target 时，
+    近似模型内的通过概率约为一半。保留 F 返回键以兼容旧调用；它存的是设计非中心度。
+    """
     s = mean_r_one_minus_r / m_half
     lam = var_within / (var_within + s)
     ncp = n * lam ** 2 / (1.0 - lam ** 2)
@@ -264,37 +276,15 @@ def readout_reliability(z: Sequence[float], r_a: Sequence[float], r_b: Sequence[
                 n_boot_valid=int(boots.size), bootstrap="cluster" if cluster is not None else "iid")
 
 
-
-# ----------------------------------------------------------------------------------------------------------------------- A1 (r3)
-def joint_factorial_moment(j: int, k: int, m: int, risk_moments: Sequence) -> object:
-    """A1 (archive r3).  E[U_j U_k | class] for U_j = K^{(j)}/m^{(j)}, K ~ Bin(m, r) given r, with risk_moments[i] = E[r^i | class]
-    (risk_moments[0] = 1).  Overlap expansion of falling-factorial products:
-        K^{(j)} K^{(k)} = Σ_ℓ C(j,ℓ) C(k,ℓ) ℓ! K^{(j+k−ℓ)},   ℓ from max(0, j+k−m) to min(j, k),
-    so E[U_j U_k | r] = Σ_ℓ C(j,ℓ)C(k,ℓ)ℓ! m^{(j+k−ℓ)} / (m^{(j)} m^{(k)}) · r^{j+k−ℓ}.  Exact for Fraction inputs; needs risk
-    moments up to order j+k (≤ min(m, 4p) for a degree-p matrix).  No probability statement follows from these moments alone."""
-    from math import comb, factorial
-    lo, hi = max(0, j + k - m), min(j, k)
-    if len(risk_moments) <= j + k - lo:
-        raise ValueError(f"risk_moments must contain orders up to {j + k - lo}")
-    tot = 0
-    den = _falling_scalar(m, j) * _falling_scalar(m, k)
-    for l in range(lo, hi + 1):
-        coef = comb(j, l) * comb(k, l) * factorial(l) * _falling_scalar(m, j + k - l)
-        term = risk_moments[j + k - l] * coef
-        tot = tot + (term / den if not isinstance(term, (int, float)) else term / den)
-    return tot
-
-
 def corrected_schur_mean(m: int, p: int, risk_moments: Sequence, n_t: int) -> list:
-    """A1 (archive r3), single class of n_t independent prefixes: expected Schur complement of the corrected moment matrix after
-    eliminating the class indicator,  E[S_ab] = μ_{a+b} − μ_a μ_b − C_ab / n_t  with C_ab = E[U_a U_b] − μ_a μ_b  (1 ≤ a, b ≤ p).
-    The −C/n_t term is the negative-semidefinite shift from the outer product of the class means.  For two classes with weights
-    w_t = n_t/n the total is Σ_t w_t E[S_t]."""
+    """研究档案 r3/A1（本会话补充）：单类 n_t 个独立前缀，消去类指示列后校正矩阵舒尔补的期望
+    E[S_ab] = μ_{a+b} − μ_a μ_b − C_ab / n_t,  C_ab = E[U_a U_b] − μ_a μ_b  (1 ≤ a, b ≤ p)，
+    −C/n_t 为类均值外积带来的负半定偏移；两类时按 w_t = n_t/n 加权求和。传入有理数矩时精确。不提供非正定概率。"""
     S = []
     for a in range(1, p + 1):
         row = []
         for b in range(1, p + 1):
-            C_ab = joint_factorial_moment(a, b, m, risk_moments) - risk_moments[a] * risk_moments[b]
+            C_ab = binomial_factorial_joint_moment(risk_moments, m, a, b) - risk_moments[a] * risk_moments[b]
             row.append(risk_moments[a + b] - risk_moments[a] * risk_moments[b] - C_ab / n_t)
         S.append(row)
     return S
