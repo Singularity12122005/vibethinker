@@ -64,10 +64,21 @@ def _tsls(X: np.ndarray, Z: np.ndarray, y: np.ndarray, cluster=None):
     return beta, np.sqrt(np.diag(cov)), res
 
 
+PD_RTOL = 1e-9   # relative eigenvalue tolerance of the corrected moment matrix (see endpoint_contrast_poly_cs)
+
+
 def _falling(K: np.ndarray, j: int) -> np.ndarray:
     out = np.ones_like(K, dtype=float)
     for i in range(j):
         out = out * (K - i)
+    return out
+
+
+def _falling_scalar(x, j: int):
+    """Falling factorial x^{(j)} in whatever arithmetic ``x`` carries (int, float, Fraction)."""
+    out = 1
+    for i in range(j):
+        out = out * (x - i)
     return out
 
 
@@ -138,17 +149,23 @@ def endpoint_contrast_poly_cs(delta_hat: Sequence[float], counts: Sequence[int],
     M[:, k - 1, k - 1] = t
     mv[:, k - 1] = t * y
     A = M.sum(0)
-    min_eig = float(np.linalg.eigvalsh(A).min())
-    if min_eig <= 0:
+    eig = np.linalg.eigvalsh(A)
+    min_eig, max_eig = float(eig[0]), float(eig[-1])
+    # relative tolerance (round 14): an exactly singular state (e.g. m=4, p=2, class counts (4,4)/(0,4): the r and r^2 columns
+    # coincide) can show a tiny positive floating-point minimum eigenvalue and then fail in the solve
+    if not (min_eig > PD_RTOL * max(1.0, abs(max_eig))):
         return dict(ok=False, n=int(n), degree=int(degree), min_eig=min_eig,
                     reason="corrected moment matrix not positive definite: within-type risk variation too small for the error variance")
-    beta = np.linalg.solve(A, mv.sum(0))
+    try:
+        beta = np.linalg.solve(A, mv.sum(0))
+    except np.linalg.LinAlgError:
+        return dict(ok=False, n=int(n), degree=int(degree), min_eig=min_eig, reason="corrected moment matrix numerically singular")
     psi = mv - np.einsum("nij,j->ni", M, beta)
     cov = _robust_cov(np.linalg.inv(A), psi, cluster)
-    se = np.sqrt(np.diag(cov))
-    t_type = float(beta[-1] / se[-1])
+    se = np.sqrt(np.clip(np.diag(cov), 0.0, None))          # saturated designs (n = k) give a zero / rounding-negative covariance
+    t_type = float(beta[-1] / se[-1]) if se[-1] > 0 else float("nan")
     return dict(ok=True, n=int(n), degree=int(degree), min_eig=min_eig, beta=beta.tolist(), se=se.tolist(), t_type=t_type,
-                p_type=float(2 * stats.norm.sf(abs(t_type))), se_type="CR1" if cluster is not None else "HC1")
+                p_type=float(2 * stats.norm.sf(abs(t_type))) if np.isfinite(t_type) else float("nan"), se_type="CR1" if cluster is not None else "HC1")
 
 
 def endpoint_contrast_eiv(delta_hat: Sequence[float], r_hat: Sequence[float], type_: Sequence[int], m: int,
@@ -245,3 +262,39 @@ def readout_reliability(z: Sequence[float], r_a: Sequence[float], r_b: Sequence[
                 half_reliability=float(np.corrcoef(ra, rb)[0, 1]),
                 ci95=[float(np.percentile(boots, 2.5)), float(np.percentile(boots, 97.5))] if boots.size else [float("nan")] * 2,
                 n_boot_valid=int(boots.size), bootstrap="cluster" if cluster is not None else "iid")
+
+
+
+# ----------------------------------------------------------------------------------------------------------------------- A1 (r3)
+def joint_factorial_moment(j: int, k: int, m: int, risk_moments: Sequence) -> object:
+    """A1 (archive r3).  E[U_j U_k | class] for U_j = K^{(j)}/m^{(j)}, K ~ Bin(m, r) given r, with risk_moments[i] = E[r^i | class]
+    (risk_moments[0] = 1).  Overlap expansion of falling-factorial products:
+        K^{(j)} K^{(k)} = Σ_ℓ C(j,ℓ) C(k,ℓ) ℓ! K^{(j+k−ℓ)},   ℓ from max(0, j+k−m) to min(j, k),
+    so E[U_j U_k | r] = Σ_ℓ C(j,ℓ)C(k,ℓ)ℓ! m^{(j+k−ℓ)} / (m^{(j)} m^{(k)}) · r^{j+k−ℓ}.  Exact for Fraction inputs; needs risk
+    moments up to order j+k (≤ min(m, 4p) for a degree-p matrix).  No probability statement follows from these moments alone."""
+    from math import comb, factorial
+    lo, hi = max(0, j + k - m), min(j, k)
+    if len(risk_moments) <= j + k - lo:
+        raise ValueError(f"risk_moments must contain orders up to {j + k - lo}")
+    tot = 0
+    den = _falling_scalar(m, j) * _falling_scalar(m, k)
+    for l in range(lo, hi + 1):
+        coef = comb(j, l) * comb(k, l) * factorial(l) * _falling_scalar(m, j + k - l)
+        term = risk_moments[j + k - l] * coef
+        tot = tot + (term / den if not isinstance(term, (int, float)) else term / den)
+    return tot
+
+
+def corrected_schur_mean(m: int, p: int, risk_moments: Sequence, n_t: int) -> list:
+    """A1 (archive r3), single class of n_t independent prefixes: expected Schur complement of the corrected moment matrix after
+    eliminating the class indicator,  E[S_ab] = μ_{a+b} − μ_a μ_b − C_ab / n_t  with C_ab = E[U_a U_b] − μ_a μ_b  (1 ≤ a, b ≤ p).
+    The −C/n_t term is the negative-semidefinite shift from the outer product of the class means.  For two classes with weights
+    w_t = n_t/n the total is Σ_t w_t E[S_t]."""
+    S = []
+    for a in range(1, p + 1):
+        row = []
+        for b in range(1, p + 1):
+            C_ab = joint_factorial_moment(a, b, m, risk_moments) - risk_moments[a] * risk_moments[b]
+            row.append(risk_moments[a + b] - risk_moments[a] * risk_moments[b] - C_ab / n_t)
+        S.append(row)
+    return S

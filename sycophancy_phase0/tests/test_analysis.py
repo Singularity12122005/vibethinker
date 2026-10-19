@@ -402,3 +402,182 @@ def test_g6_polynomial_corrected_score_and_value_of_information():
     z = r + 0.15 * rng.standard_normal(200)
     out = readout_reliability(z, B[:, :16].mean(1), B[:, 16:].mean(1), cluster=np.repeat(np.arange(50), 4), n_boot=100)
     assert out["bootstrap"] == "cluster" and out["ci95"][0] < out["rho2"] < out["ci95"][1] and 0.0 < out["naive_corr2"] < out["rho2"]
+
+
+# ---------------------------------------------------------------------------------------------- archive r3 (independent re-implementation)
+def _falling_int(x, j):
+    out = 1
+    for i in range(j):
+        out *= (x - i)
+    return out
+
+
+def test_goal_r3_a1_exact_joint_moments_and_schur_mean():
+    """A1: E[U_j U_k | r] by the overlap formula equals the direct binomial expectation (exact rationals), for m = 2p and m = 4p; the
+    expected Schur complement of a single class equals μ_{a+b} − μ_a μ_b − C_ab/n_t by exhaustive enumeration (n_t = 2 and n_t = 1)."""
+    from fractions import Fraction as Fr
+    from itertools import product
+    from math import comb
+    from sycophancy_phase0.analysis.g6_iv import corrected_schur_mean, joint_factorial_moment
+    for (j, k, m) in [(1, 1, 4), (2, 2, 4), (2, 3, 6), (3, 3, 6), (2, 2, 8), (4, 4, 8), (6, 6, 12), (5, 6, 12)]:
+        for r in (Fr(1, 3), Fr(7, 10)):
+            direct = sum(Fr(comb(m, K)) * r ** K * (1 - r) ** (m - K) * Fr(_falling_int(K, j), _falling_int(m, j)) * Fr(_falling_int(K, k), _falling_int(m, k))
+                         for K in range(m + 1))
+            assert joint_factorial_moment(j, k, m, [r ** i for i in range(j + k + 1)]) == direct
+    m, r = 4, Fr(2, 5)
+    pk = [Fr(comb(m, K)) * r ** K * (1 - r) ** (m - K) for K in range(m + 1)]
+    for n_t in (2, 1):
+        pred = corrected_schur_mean(m, 2, [r ** i for i in range(5)], n_t)
+        for a, b in [(1, 1), (1, 2), (2, 2)]:
+            tot = Fr(0)
+            for st in product(range(m + 1), repeat=n_t):
+                pr = Fr(1)
+                for K in st:
+                    pr *= pk[K]
+                Ua = sum(Fr(_falling_int(K, a), _falling_int(m, a)) for K in st) / n_t
+                Ub = sum(Fr(_falling_int(K, b), _falling_int(m, b)) for K in st) / n_t
+                Uab = sum(Fr(_falling_int(K, a + b), _falling_int(m, a + b)) for K in st) / n_t
+                tot += pr * (Uab - Ua * Ub)
+            assert tot == pred[a - 1][b - 1], (n_t, a, b, tot, pred[a - 1][b - 1])
+    with pytest.raises(ValueError):
+        joint_factorial_moment(2, 2, 4, [1, Fr(1, 2)])
+
+
+def _is_pd_exact(A):
+    """Sylvester's criterion with exact rational leading principal minors."""
+    from fractions import Fraction as Fr
+    k = len(A)
+    for s in range(1, k + 1):
+        M = [row[:s] for row in A[:s]]
+        det = Fr(1)
+        for c in range(s):
+            piv = next((i for i in range(c, s) if M[i][c] != 0), None)
+            if piv is None:
+                return False
+            if piv != c:
+                M[c], M[piv] = M[piv], M[c]
+                det = -det
+            det *= M[c][c]
+            for i in range(c + 1, s):
+                f = M[i][c] / M[c][c]
+                for jx in range(c, s):
+                    M[i][jx] -= f * M[c][jx]
+        if det <= 0:
+            return False
+    return True
+
+
+def _corrected_matrix_exact(counts, types, m, p):
+    from fractions import Fraction as Fr
+    k = p + 2
+    A = [[Fr(0)] * k for _ in range(k)]
+    for K, t in zip(counts, types):
+        U = [Fr(_falling_int(K, j), _falling_int(m, j)) for j in range(2 * p + 1)]
+        for a in range(p + 1):
+            for b in range(p + 1):
+                A[a][b] += U[a + b]
+            A[a][k - 1] += U[a] * t
+            A[k - 1][a] += U[a] * t
+        A[k - 1][k - 1] += t
+    return A
+
+
+def test_goal_r3_ce_b1_four_scalar_counterexample():
+    """CE-B1: r = 1/2 + X_ε/√12 with X_ε = ±1 w.p. (1−ε)/2 each or Uniform[−√3, √3] w.p. ε shares E r = 1/2, Var r = 1/12, E[r(1−r)] = 1/6
+    for every ε, yet the exact non-PD probability of the degree-2 corrected matrix (n = 4, two per class, m = 4) differs between
+    ε = 1/100 and ε = 1/2 — the four scalars (n, m, V, E[r(1−r)]) do not determine it.  Exact rational enumeration of the 625 ordered
+    count states; the two fractions are those of the archive."""
+    from fractions import Fraction as Fr
+    from itertools import product
+    from math import comb
+    from sycophancy_phase0.analysis.g6_iv import endpoint_contrast_poly_cs
+    m, p = 4, 2
+    def marginal(eps):
+        P = [Fr(2), Fr(1)]                                     # power sums q^j + (1−q)^j with q(1−q) = 1/6
+        for j in range(2, m + 1):
+            P.append(P[-1] - Fr(1, 6) * P[-2])
+        out = []
+        for k in range(m + 1):
+            lo, hi = min(k, m - k), max(k, m - k)
+            out.append((1 - eps) / 2 * comb(m, k) * Fr(1, 6) ** lo * P[hi - lo] + eps / (m + 1))
+        assert sum(out) == 1
+        return out
+    types = [0, 0, 1, 1]
+    probs = {}
+    for eps in (Fr(1, 100), Fr(1, 2)):
+        pm = marginal(eps)
+        tot = Fr(0)
+        for counts in product(range(m + 1), repeat=4):
+            pr = Fr(1)
+            for K in counts:
+                pr *= pm[K]
+            if not _is_pd_exact(_corrected_matrix_exact(counts, types, m, p)):
+                tot += pr
+        probs[eps] = tot
+    assert probs[Fr(1, 100)] == Fr(945238594631, 10 ** 12) and probs[Fr(1, 2)] == Fr(109375919, 116640000)
+    assert probs[Fr(1, 100)] != probs[Fr(1, 2)]
+    # the exactly singular state (classes (4,4) and (0,4): the r and r² columns coincide) must be refused by the production estimator
+    A = _corrected_matrix_exact([4, 4, 0, 4], types, m, p)
+    assert not _is_pd_exact(A) and [row[1] for row in A] == [row[2] for row in A]
+    out = endpoint_contrast_poly_cs([0.1, 0.2, 0.3, 0.4], [4, 4, 0, 4], m, types, degree=2)
+    assert not out["ok"]
+    # production decision (relative eigenvalue tolerance) agrees with the exact one on every one of the 625 states (44 are PD)
+    n_pd, n_dis = 0, 0
+    for counts in product(range(m + 1), repeat=4):
+        exact = _is_pd_exact(_corrected_matrix_exact(counts, types, m, p))
+        n_pd += exact
+        n_dis += endpoint_contrast_poly_cs([0.1, 0.2, 0.3, 0.4], list(counts), m, types, degree=2)["ok"] != exact
+    assert n_pd == 44 and n_dis == 0
+
+
+def test_goal_r3_a2_joint_gaussian_misses_finite_sample_failure():
+    """A2: narrow classes Beta(20,80)/Beta(25,75), n = 200, m = 256, degree 3: the direct non-PD rate of the Schur complement is a
+    few percent while the joint-Gaussian approximation (exact A1 mean/covariance of the class-mean U vector) gives ≈30%; the Gaussian
+    vector has full support, so a negative top even moment is an open event of positive probability."""
+    from math import comb, factorial
+    from sycophancy_phase0.analysis.g6_iv import joint_factorial_moment
+    rng = np.random.default_rng(14)
+    n0 = n1 = 100; m, p = 256, 3
+    def beta_moments(a, b, J):
+        mu = [1.0]
+        for j in range(1, J + 1):
+            mu.append(mu[-1] * (a + j - 1) / (a + b + j - 1))
+        return mu
+    def falling_arr(K, j):
+        out = np.ones_like(K, dtype=float)
+        for i in range(j):
+            out = out * (K - i)
+        return out
+    def schur_nonpd(U0, U1):
+        S = np.zeros((U0.shape[0], p, p))
+        for a in range(1, p + 1):
+            for b in range(1, p + 1):
+                S[:, a - 1, b - 1] = n0 * (U0[:, a + b - 1] - U0[:, a - 1] * U0[:, b - 1]) + n1 * (U1[:, a + b - 1] - U1[:, a - 1] * U1[:, b - 1])
+        return float((np.linalg.eigvalsh(S)[:, 0] <= 0).mean())
+    def direct(ab, R):
+        r = rng.beta(*ab, size=(R, n0)); K = rng.binomial(m, r)
+        return np.stack([falling_arr(K, j) / falling_arr(np.array(float(m)), j) for j in range(1, 2 * p + 1)], -1).mean(1)
+    def gauss(ab, R):
+        mu = beta_moments(*ab, 4 * p)
+        C = np.array([[joint_factorial_moment(j, k, m, mu) - mu[j] * mu[k] for k in range(1, 2 * p + 1)] for j in range(1, 2 * p + 1)]) / n0
+        return rng.multivariate_normal(mu[1:2 * p + 1], C, size=R)
+    d = schur_nonpd(direct((20, 80), 2000), direct((25, 75), 2000))
+    g = schur_nonpd(gauss((20, 80), 20000), gauss((25, 75), 20000))
+    assert d < 0.13 and g > 0.25 and g > 3 * d, (d, g)
+    # the mean of the Gaussian vector is the true moment vector, whose matrix is strictly PD (continuous risk): the failure is in the tails
+    mu = beta_moments(20, 80, 4 * p)
+    H = np.array([[mu[a + b] - mu[a] * mu[b] for b in range(1, p + 1)] for a in range(1, p + 1)])
+    assert np.linalg.eigvalsh(H)[0] > 0
+
+
+def test_goal_r3_p6_outcome_dependent_comparator_is_not_kl():
+    """P6 (r3 correction): E[log P(Y)/Q(Y)] = KL(P‖Q) needs Q fixed before Y is drawn; a comparator chosen after seeing Y (Q(Y) = 0.9)
+    gives a negative mean log-ratio although the KL to either fixed Q is positive — the teacher-forced recomputation, whose logits at
+    position k depend numerically on the suffix, is not guaranteed to satisfy the condition."""
+    P = np.array([0.5, 0.5])
+    after = sum(P[y] * np.log(P[y] / 0.9) for y in range(2))
+    kl_fixed = [float(np.sum(P * np.log(P / Q))) for Q in (np.array([0.9, 0.1]), np.array([0.1, 0.9]))]
+    assert after < 0 and min(kl_fixed) > 0 and abs(after - np.log(0.5 / 0.9)) < 1e-12
+    # with a Q fixed before sampling the identity holds exactly
+    Q = np.array([0.9, 0.1])
+    assert abs(float(np.sum(P * np.log(P / Q))) - kl_fixed[0]) < 1e-12

@@ -162,7 +162,7 @@ identity), so the bias cannot cancel and grows linearly with length; (3) 32 × 6
 positions, free-generation whole-sequence identity 31.25% — below the 99.5% target; the pre-registered amendment draft is in plan §7.1
 (G0.5 row) and must be settled before formal sampling.
 
-### 6.3 Experts backend (route 1; 2026-10-19, same new environment, same weights, uncompiled, only the expert computation switched)
+### 6.3 Experts backend (route 1; 2026-10-19, same new environment = transformers 5.20.1, same weights, uncompiled, only the expert computation switched)
 | B | per-expert loop | grouped | speed-up |
 | --- | --- | --- | --- |
 | 8 | 14.8 tok/s | 106.4 tok/s | 7.19× |
