@@ -15,13 +15,15 @@ misspecified functional form: if E[Δ | r] is not in the fitted polynomial class
 r-range, the oracle regression itself attributes the misfit to type (adversarial review, round 12).  Hence: report overlap of
 the two types' r̂ ranges, fit degrees 1–3, and treat a type effect that disappears with degree as functional form.
 
-Identification strength: with independent halves, Corr(r̂_a, r̂_b | type) = λ_h and the first-stage F of r̂_b for r̂_a has
-non-centrality n·λ_h²/(1−λ_h²) (P3); below ≈10 the 2SLS slope has no finite mean and the corrected moment matrix can fail to be
-positive definite.  Standard errors: HC1 by default, cluster-robust (CR1) when `cluster` (question id) is given.
+识别强度：独立两半的组内相关为 λ_h；n·λ_h²/(1−λ_h²) 仅作同方差大样本设计近似，
+不能保证本模块实际返回的 HC1 第一阶段统计量的分布或中位数。校正矩阵的非正定概率还取决于高阶风险结构。
+标准误默认 HC1；给定 cluster（题目标识）时，终点回归使用 CR1。
 Selection: prefixes must not be selected on the half used as REGRESSOR (selection on the instrument half is harmless).
 """
 from __future__ import annotations
 
+from fractions import Fraction
+from math import comb, factorial, perm
 from typing import Dict, Optional, Sequence
 
 import numpy as np
@@ -71,6 +73,23 @@ def _falling(K: np.ndarray, j: int) -> np.ndarray:
     return out
 
 
+def binomial_factorial_joint_moment(risk_moments: Sequence[float | Fraction], m: int, j: int, k: int) -> float | Fraction:
+    """研究档案 r3/A1：精确恒等式 E[U_j(K)U_k(K)]，其中 K|r~Bin(m,r)、U_j=(K)_j/(m)_j。
+
+    risk_moments[q] 为 E[r**q]，需要至 min(m,j+k) 阶。传入有理数时保留精确算术；
+    浮点输入仅作该有限和的浮点求值。交叠项保留同一计数所生各阶矩的相关性。
+    这不是非正定概率近似，也不提供样本量或续写预算保证。
+    """
+    if m < 1 or min(j, k) < 0 or max(j, k) > m:
+        raise ValueError("require m >= 1 and 0 <= j, k <= m")
+    if len(risk_moments) <= min(m, j + k):
+        raise ValueError("insufficient risk moments")
+    denominator = perm(m, j) * perm(m, k)
+    return sum((Fraction(comb(j, ell) * comb(k, ell) * factorial(ell) * perm(m, j + k - ell), denominator)
+                * risk_moments[j + k - ell]
+                for ell in range(max(0, j + k - m), min(j, k) + 1)), Fraction(0))
+
+
 # ----------------------------------------------------------------------------------------------------------------------- P1
 def naive_type_bias(b_r: float, var_within: float, mean_r_one_minus_r: float, m: int, delta_mu: float) -> Dict[str, float]:
     """P1.  Population OLS of Δ̂ on (1, r̂, type) with r̂ = r + e (E[e | r, type] = 0, Var(e | r) = r(1−r)/m, and E[η | r, type, e] = 0
@@ -87,8 +106,8 @@ def endpoint_contrast_iv(delta_hat: Sequence[float], r_a: Sequence[float], r_b: 
                          cluster: Optional[Sequence] = None) -> Dict[str, object]:
     """Naive (r̂ = mean of the halves) vs repeated-measurement 2SLS estimates of [const, r, type] in the endpoint-contrast regression.
     ``r_a`` is the REGRESSOR half and must not have been used to select prefixes; ``r_b`` is the instrument (selection on it is
-    harmless).  Returns both coefficient vectors, HC1/CR1 SEs, t and two-sided p for the type coefficient, the classical first-stage
-    F of r̂_b for r̂_a with type partialled out (its non-centrality is n·λ_h²/(1−λ_h²), see identification_strength), the total
+    harmless).  Returns both coefficient vectors, HC1/CR1 SEs, t and two-sided p for the type coefficient, the HC1 first-stage
+    squared t statistic of r̂_b for r̂_a with type partialled out (identification_strength gives a homoskedastic design approximation), the total
     reliability Cov(r̂_a, r̂_b)/Var(r̄) and the within-type reliability (the λ_w of P1, from type-demeaned halves), and n.
     Just-identified 2SLS has no finite moments: with F < 10 report the median/IQR over bootstrap draws, not the point estimate."""
     y = np.asarray(delta_hat, float)
@@ -99,7 +118,7 @@ def endpoint_contrast_iv(delta_hat: Sequence[float], r_a: Sequence[float], r_b: 
     bn, sen, _ = _ols(np.c_[one, rf, t], y, cluster)
     X, Z = np.c_[one, ra, t], np.c_[one, rb, t]
     bi, sei, _ = _tsls(X, Z, y, cluster)
-    b1, se1, _ = _ols(Z, ra)                      # classical F (matches the non-centrality formula)
+    b1, se1, _ = _ols(Z, ra)                      # HC1 标准误；非中心度公式只是同方差设计近似
     F = float((b1[1] / se1[1]) ** 2)
     rel_total = float(np.cov(ra, rb)[0, 1] / max(1e-12, np.var(rf, ddof=1)))
     ra_w = ra - np.array([ra[t == k].mean() for k in (0, 1)])[t.astype(int)]
@@ -121,7 +140,7 @@ def endpoint_contrast_poly_cs(delta_hat: Sequence[float], counts: Sequence[int],
     x*Δ has an unbiased per-prefix estimate; β solves Σ_i (m̂_i − M̂_i β) = 0, i.e. β = (Σ M̂_i)⁻¹ Σ m̂_i, with the M-estimator
     sandwich (HC1 / CR1).  degree=1 is the known-variance errors-in-variables estimator (v_i = r̂_i(1−r̂_i)/(m−1)).  Needs 2·degree ≤ m.
     Consistent for the ORACLE polynomial regression under E[η | r, type, K] = 0; returns ok=False when the corrected moment matrix
-    is not positive definite (weak identification: within-type variation of r too small for the error variance)."""
+    is not positive definite.  Its failure probability cannot be diagnosed from low-order within-type risk variance alone."""
     y, K, t = np.asarray(delta_hat, float), np.asarray(counts, float), np.asarray(type_, float)
     n = y.size
     if degree < 1 or 2 * degree > m:
@@ -141,7 +160,7 @@ def endpoint_contrast_poly_cs(delta_hat: Sequence[float], counts: Sequence[int],
     min_eig = float(np.linalg.eigvalsh(A).min())
     if min_eig <= 0:
         return dict(ok=False, n=int(n), degree=int(degree), min_eig=min_eig,
-                    reason="corrected moment matrix not positive definite: within-type risk variation too small for the error variance")
+                    reason="corrected moment matrix not positive definite; low-order risk variance alone does not diagnose the cause")
     beta = np.linalg.solve(A, mv.sum(0))
     psi = mv - np.einsum("nij,j->ni", M, beta)
     cov = _robust_cov(np.linalg.inv(A), psi, cluster)
@@ -161,10 +180,11 @@ def endpoint_contrast_eiv(delta_hat: Sequence[float], r_hat: Sequence[float], ty
 # ----------------------------------------------------------------------------------------------------------------------- P3
 def identification_strength(n: int, var_within: float, mean_r_one_minus_r: float, m_half: int, F_target: float = 10.0,
                             pass_prob: float = 0.8) -> Dict[str, float]:
-    """P3.  λ_h = V/(V+s), V = Var_w(r), s = E[r(1−r)]/m_half; the first-stage F of r̂_b for r̂_a (type partialled out) is
-    non-central χ²₁ (large n) with NON-CENTRALITY  ncp = n·λ_h²/(1−λ_h²) = n·V²/(s(2V+s)) — the median of the sample F, not a
-    guarantee: at ncp = F_target the sample F clears F_target with probability ≈ 0.5.  Returns ncp, λ_h, P(sample F ≥ F_target),
-    the ncp needed to clear F_target with probability ``pass_prob``, and the n / m_half that reach it at the given (V, E[r(1−r)])."""
+    """P3 的同方差大样本设计近似：λ_h=V/(V+s)，s=E[r(1−r)]/m_half；以非中心 χ²₁
+    及参数 ncp=n·λ_h²/(1−λ_h²) 估算通过概率和预算。该参数不是一般样本 F 的精确中位数，
+    也不是 endpoint_contrast_iv 实际返回的 HC1 统计量的分布保证。ncp=F_target 时，
+    近似模型内的通过概率约为一半。保留 F 返回键以兼容旧调用；它存的是设计非中心度。
+    """
     s = mean_r_one_minus_r / m_half
     lam = var_within / (var_within + s)
     ncp = n * lam ** 2 / (1.0 - lam ** 2)

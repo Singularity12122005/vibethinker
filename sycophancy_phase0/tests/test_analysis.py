@@ -402,3 +402,208 @@ def test_g6_polynomial_corrected_score_and_value_of_information():
     z = r + 0.15 * rng.standard_normal(200)
     out = readout_reliability(z, B[:, :16].mean(1), B[:, 16:].mean(1), cluster=np.repeat(np.arange(50), 4), n_boot=100)
     assert out["bootstrap"] == "cluster" and out["ci95"][0] < out["rho2"] < out["ci95"][1] and 0.0 < out["naive_corr2"] < out["rho2"]
+
+
+def _goal_r3_beta_counts(m, a, b):
+    """以贝塔二项概率递推作独立有限和，不使用联合阶乘矩公式。"""
+    from fractions import Fraction as Q
+    from math import prod
+    probabilities = [prod(Q(b + j, a + b + j) for j in range(m))]
+    for k in range(m):
+        probabilities.append(probabilities[-1] * Q(m - k, k + 1) * Q(a + k, b + m - k - 1))
+    assert sum(probabilities) == 1
+    return probabilities
+
+
+def _goal_r3_count_table(m, order):
+    from fractions import Fraction as Q
+    from math import comb
+    return [[Q(comb(k, j), comb(m, j)) if j <= k else Q(0)
+             for j in range(order + 1)] for k in range(m + 1)]
+
+
+def _goal_r3_group_states(probabilities, table, n):
+    from itertools import combinations_with_replacement
+    from math import factorial, prod
+    states = []
+    for counts in combinations_with_replacement(range(len(probabilities)), n):
+        multiplicity = factorial(n) // prod(factorial(counts.count(k)) for k in set(counts))
+        weight = multiplicity * prod(probabilities[k] for k in counts)
+        means = [sum(table[k][j] for k in counts) / n for j in range(len(table[0]))]
+        states.append((counts, weight, means))
+    assert sum(state[1] for state in states) == 1
+    return states
+
+
+def test_goal_r3_a1_exact_joint_moments_and_schur_mean():
+    """A1：独立计数有限和精确复核联合矩；全状态求和验证舒尔补偏移及不等类大小。"""
+    from fractions import Fraction as Q
+    from itertools import product
+    from sycophancy_phase0.analysis.g6_iv import binomial_factorial_joint_moment
+
+    for m, p in [(4, 2), (6, 3), (8, 2), (12, 3)]:
+        table = _goal_r3_count_table(m, 2 * p)
+        for a, b in [(2, 3), (3, 2)]:
+            pk = _goal_r3_beta_counts(m, a, b)
+            moments = [Q(1)]
+            for j in range(1, min(m, 4 * p) + 1):
+                moments.append(moments[-1] * Q(a + j - 1, a + b + j - 1))
+            for j, k in product(range(2 * p + 1), repeat=2):
+                exact = sum(q * row[j] * row[k] for q, row in zip(pk, table))
+                assert binomial_factorial_joint_moment(moments, m, j, k) == exact
+            # m=2p 时不需要不存在的 4p 阶风险矩。
+            assert len(moments) == min(m, 4 * p) + 1
+    with pytest.raises(ValueError, match="insufficient risk moments"):
+        binomial_factorial_joint_moment([Q(1)] * 4, 4, 4, 4)
+
+    m, p = 4, 2
+    table = _goal_r3_count_table(m, 2 * p)
+    groups = []
+    for a, b in [(2, 3), (3, 2)]:
+        pk = _goal_r3_beta_counts(m, a, b)
+        mu = [sum(q * row[j] for q, row in zip(pk, table)) for j in range(2 * p + 1)]
+        covariance = [[sum(q * (row[j] - mu[j]) * (row[k] - mu[k]) for q, row in zip(pk, table))
+                       for k in range(p + 1)] for j in range(p + 1)]
+        groups.append((pk, mu, covariance))
+    for sizes in [(2, 2), (1, 2)]:
+        weights = [Q(size, sum(sizes)) for size in sizes]
+        states = [_goal_r3_group_states(group[0], table, size) for group, size in zip(groups, sizes)]
+        expected = [[Q(0) for _ in range(p)] for _ in range(p)]
+        for left, right in product(*states):
+            probability = left[1] * right[1]
+            means = [left[2], right[2]]
+            for a, b in product(range(1, p + 1), repeat=2):
+                expected[a - 1][b - 1] += probability * sum(
+                    weight * (mean[a + b] - mean[a] * mean[b]) for weight, mean in zip(weights, means))
+        bias = [[Q(0) for _ in range(p)] for _ in range(p)]
+        for a, b in product(range(1, p + 1), repeat=2):
+            population = sum(weight * (mu[a + b] - mu[a] * mu[b]) for weight, (_, mu, _) in zip(weights, groups))
+            bias[a - 1][b - 1] = sum(weight * covariance[a][b] / size
+                                       for weight, size, (_, _, covariance) in zip(weights, sizes, groups))
+            assert expected[a - 1][b - 1] == population - bias[a - 1][b - 1]
+        assert bias[0][0] > 0 and bias[1][1] > 0
+        assert bias[0][0] * bias[1][1] - bias[0][1] ** 2 > 0
+
+
+def test_goal_r3_ce_b1_four_scalar_counterexample():
+    """CE-B1：225 状态、全矩阵主子式的有理数判号；四标量相同但概率严格不同。"""
+    from fractions import Fraction as Q
+    from itertools import permutations, product
+    from math import comb, prod
+    from sycophancy_phase0.analysis.g6_iv import endpoint_contrast_poly_cs
+
+    def determinant(matrix):
+        n = len(matrix)
+        return sum((-1) ** sum(perm[i] > perm[j] for i in range(n) for j in range(i + 1, n))
+                   * prod(matrix[i][perm[i]] for i in range(n)) for perm in permutations(range(n)))
+
+    m, p = 4, 2
+    point_moments = [sum(Q(comb(j, 2 * ell), 2 ** (j - 2 * ell) * 12 ** ell)
+                         for ell in range(j // 2 + 1)) for j in range(m + 1)]
+    point_counts = [comb(m, k) * sum((-1) ** ell * comb(m - k, ell) * point_moments[k + ell]
+                                    for ell in range(m - k + 1)) for k in range(m + 1)]
+    assert point_counts == [Q(7, 36), Q(2, 9), Q(1, 6), Q(2, 9), Q(7, 36)]
+    table = _goal_r3_count_table(m, 2 * p)
+    # 具体边界：(4,4) 与 (0,4) 两类计数令 r、r² 两列相同，精确奇异。
+    # 不把某一平台上浮点判正后求解失败的行为写成测试期望。
+    singular = [[Q(1), Q(3, 4), Q(3, 4), Q(1, 2)],
+                [Q(3, 4), Q(3, 4), Q(3, 4), Q(1, 4)],
+                [Q(3, 4), Q(3, 4), Q(3, 4), Q(1, 4)],
+                [Q(1, 2), Q(1, 4), Q(1, 4), Q(1, 2)]]
+    assert determinant(singular) == 0
+    assert all(row[1] - row[2] == 0 for row in singular)
+    risks = []
+    for eps in [Q(1, 100), Q(1, 2)]:
+        moments = [(1 - eps) * value + eps / (j + 1) for j, value in enumerate(point_moments)]
+        assert moments[1] == Q(1, 2)
+        assert moments[2] - moments[1] ** 2 == Q(1, 12)
+        assert moments[1] - moments[2] == Q(1, 6)
+        # 总体弱方向仍严格为正；未使用 eps=0 的奇异边界。
+        assert 4 * eps / 5 > 0 and 44 * eps / 35 - 16 * eps ** 2 / 25 > 0
+        probabilities = [(1 - eps) * q + eps / (m + 1) for q in point_counts]
+        states = _goal_r3_group_states(probabilities, table, 2)
+        risk, bad_states = Q(0), 0
+        for left, right in product(states, repeat=2):
+            z0, z1 = left[2], right[2]
+            matrix = [[(z0[a + b] + z1[a + b]) / 2 for b in range(p + 1)] + [z1[a] / 2]
+                      for a in range(p + 1)]
+            matrix.append([z1[a] / 2 for a in range(p + 1)] + [Q(1, 2)])
+            good = all(determinant([row[:j] for row in matrix[:j]]) > 0 for j in range(1, p + 3))
+            # 精确零特征值不能由浮点严格判号裁决；该边界仍计入下方精确风险。
+            if determinant(matrix) != 0:
+                observed = endpoint_contrast_poly_cs([0., 0., 0., 1.], left[0] + right[0], m, [0, 0, 1, 1], p)
+                assert observed["ok"] == good
+            if not good:
+                risk += left[1] * right[1]
+                bad_states += 1
+        assert len(states) ** 2 == 225 and bad_states == 213
+        risks.append(risk)
+    assert risks == [Q(945238594631, 1000000000000), Q(109375919, 116640000)]
+    assert risks[0] != risks[1]
+
+
+def test_goal_r3_a2_joint_gaussian_misses_finite_sample_failure():
+    """A2：固定窄分布的一格小检验；完整联合高斯约32%，直接计数约7%，不作预算接口。"""
+    from math import comb
+    from scipy import stats
+
+    rng = np.random.default_rng(143)
+    m, p, group_n = 256, 3, 100
+    counts = np.arange(m + 1, dtype=np.longdouble)
+    u = np.ones((m + 1, 2 * p + 1), dtype=np.longdouble)
+    for j in range(1, 2 * p + 1):
+        u[:, j] = u[:, j - 1] * (counts - j + 1) / (m - j + 1)
+    center, scale = np.longdouble(9) / 40, np.longdouble(1) / 20
+    table = np.stack([sum(comb(j, ell) * (-center) ** (j - ell) * u[:, ell] for ell in range(j + 1)) / scale ** j
+                      for j in range(2 * p + 1)], axis=1)
+    direct = np.ones((4000, 2, 2 * p + 1))
+    gaussian = np.ones((8000, 2, 2 * p + 1))
+    for t, (a, b) in enumerate([(20, 80), (25, 75)]):
+        pk = stats.betabinom.pmf(np.arange(m + 1), m, a, b).astype(np.longdouble)
+        pk /= pk.sum()
+        mu = pk @ table
+        residual = table[:, 1:] - mu[1:]
+        covariance = (residual.T * pk) @ residual
+        root = np.linalg.cholesky(np.asarray(covariance / group_n, dtype=float))
+        r = rng.beta(a, b, size=(len(direct), group_n))
+        sampled_counts = rng.binomial(m, r)
+        direct[:, t, :] = np.asarray(table, dtype=float)[sampled_counts].mean(axis=1)
+        gaussian[:, t, 1:] = np.asarray(mu[1:], dtype=float) + rng.normal(size=(len(gaussian), 2 * p)) @ root.T
+
+    def failure_rate(z):
+        full = np.zeros((len(z), p + 2, p + 2))
+        for a in range(p + 1):
+            for b in range(p + 1):
+                full[:, a, b] = (z[:, 0, a + b] + z[:, 1, a + b]) / 2
+            full[:, a, -1] = full[:, -1, a] = z[:, 1, a] / 2
+        full[:, -1, -1] = .5
+        return np.mean(np.linalg.eigvalsh(full)[:, 0] <= 0)
+
+    actual, approximation = failure_rate(direct), failure_rate(gaussian)
+    assert .04 < actual < .10, actual
+    assert .28 < approximation < .37, approximation
+    assert approximation - actual > .20, (actual, approximation)
+
+    # 极限论证的有限实现检查：真实风险样本给出正定内积矩阵，而自由矩向量可违反偶次矩约束。
+    # 一般满秩与全支撑结论由档案中的多项式论证给出，不由这两个有限样本外推。
+    risks = np.array([[.1, .3, .5, .7], [.2, .4, .6, .8]])
+    x = (risks - float(center)) / float(scale)
+    true_moments = np.stack([np.mean(x ** j, axis=1) for j in range(2 * p + 1)], axis=1)[None, :, :]
+    design = np.c_[np.ones(8), x.ravel(), x.ravel() ** 2, x.ravel() ** 3, np.repeat([0, 1], 4)]
+    assert np.linalg.matrix_rank(design) == p + 2
+    assert np.linalg.eigvalsh(design.T @ design).min() > 0
+    assert failure_rate(true_moments) == 0
+    impossible_moments = true_moments.copy()
+    impossible_moments[:, :, 2 * p] = -1
+    assert failure_rate(impossible_moments) == 1
+
+
+def test_goal_r3_p6_outcome_dependent_comparator_is_not_kl():
+    """维护性反例：看到抽样结果后再选比较分布，所选对数差不等于相对熵。"""
+    p = np.array([.5, .5])
+    q_after_y = np.array([[.9, .1], [.1, .9]])
+    selected = np.sum(p * np.log(p / q_after_y.diagonal()))
+    conditional_kl = np.sum(p[None, :] * np.log(p[None, :] / q_after_y), axis=1)
+    assert selected == pytest.approx(np.log(.5 / .9)) and selected < 0
+    assert np.all(conditional_kl > 0)
+    assert conditional_kl[0] == pytest.approx(.5 * np.log(.5 / .9) + .5 * np.log(.5 / .1))
