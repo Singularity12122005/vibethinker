@@ -20,21 +20,33 @@ on its own: no cron, no wake-ups, no background loops. One invocation = one roun
    record the replication in a new §9 subsection, adopt the text only after that, and re-create its referenced tests in this repo as
    your own implementation. Say explicitly which code from the other environment did not reach this branch.
 3. **Pick the obstacle**: the user's instruction if given; otherwise the first item of §7 "下一轮攻击". Do not re-run eliminated routes.
-4. **Run the round by the protocol** `.claude/skills/goal/round-protocol.md` (the user opted into agents): with the Workflow tool,
-   call `name: "goal-round"` with `args: {round: "r<k>", obstacle: "<the template's one-sentence form>", root: "<repo root>",
-   python: "<python with numpy/scipy>", scratch: "<scratch dir>/goal_rounds"}`. The workflow does: problem critique that fills the
-   obstacle template (decision, inputs and their generating mechanism, compatible set, property with quantifiers, criterion, out of
-   scope) → ≤3 independent route attacks (every claim with scope, does-not-claim, sourced numbers, experimental consequence) → a
-   FULL claim ledger (reviewed / unreviewed overflow / author-refuted, slots filled round-robin across routes) → three-lens refutation
-   (mathematics; blind re-implementation that receives only the statement and must list every file it read, audited by the script;
-   experimental scope) → synthesis of the whole ledger into the archive with tests, decisions for the user and plan changes →
-   overreach review of the report + label check → one repair whose CORRECTED result is what the workflow returns; the result is
-   `status: "blocked"` when the final check fails, and a blocked round is never committed. Without the Workflow tool (e.g. a Windows
-   environment), execute the same protocol stage by stage with fresh agent sessions as its §6 describes; paths are parameters.
-5. **Verify yourself**: read the new §9 record and the diff; run the full suite (`pytest -q` in `sycophancy_phase0/`); downgrade any
-   label the evidence does not support; a claim is 独立复核 only if all three lenses failed to refute it and the blind replication
-   reproduced its numbers. A stopped or abandoned round's material is recorded as unreviewed and never counted as a claim.
-6. **Commit and push** on the session's designated branch with the session's commit conventions; then answer in the A–F format:
+4. **Run the round by the protocol** `.claude/skills/goal/round-protocol.md` (v5.1; its §7–§9 revisions override §1–§6; the
+   user opted into agents): with the Workflow tool, call `name: "goal-round"` with `args: {round: "r<k>", obstacle: "<the
+   template's one-sentence form>", root: "<repo root>", python: "<python with numpy/scipy>", scratch: "<absolute scratch
+   dir>/goal_rounds"}` (absolute, normalised paths without blanks; scratch outside the repository). The workflow: measures the
+   working-tree and test baseline with `round_gate.py` → problem critique filling the obstacle template → ≤3 independent route
+   attacks, each returning at most 6 ATOMIC claims (one proposition each, consequence as a separate note, every number with a
+   finished source and environment) → a full ledger (reviewed / overflow / author-refuted / excluded / dropped, slots
+   round-robin by route) → truth review by the mathematics lens and a blind replication whose isolation audit is mechanical,
+   plus an applicability lens that only writes the applicability note → up to `fix_rounds` rewrites strictly from the truth
+   lenses' fix texts (checked field by field by the script), one re-run of process failures, and the code-fact route with backup
+   and revert → evidence copied, frozen and its ledger re-checked by `round_gate.py` → record, §7, tests, `evidence.json` →
+   an audit gate whose mechanical part is `round_gate.py` and whose judgement parts are overreach and label/template checks,
+   with up to 3 repairs. It returns `status: "ready_to_commit"` or `status: "blocked"` with `reason` and
+   `open_blocking_issues`; a blocked round is never committed. Without the Workflow tool (e.g. a Windows environment), execute
+   the same protocol stage by stage with fresh agent sessions as its §6 describes, and still run `round_gate.py` and
+   `verify_evidence.py` for the mechanical steps; paths are parameters.
+5. **Verify yourself**: read the new §9 record, `review-verdicts/ledger.json` and the diff; run the full suite (`pytest -q` in
+   `sycophancy_phase0/`) and the result's `gate_command` (the complete `round_gate.py` command the workflow's gate ran, with
+   its state directory) and read its GATE line. The truth label
+   comes only from the mathematics lens and the blind replication: 独立复核 needs both unrefuted with severity none, the
+   blind replication's numbers reproduced and its isolation audit passed; any severity `wrong` gives 已驳回; anything else
+   is 候选. The applicability verdict is a note on the claim and limits what the record may say about the design; it never
+   changes the truth label (the result also carries the v4 label, which does). Downgrade any label the evidence does not
+   support; never upgrade one. If `minor_issues_logged` is false, add `open_minor_issues` to the detailed record yourself.
+   A stopped or abandoned round's material is recorded as unreviewed and never counted as a claim.
+6. **Commit and push** on the session's designated branch with the session's commit conventions (add the files listed in
+   `evidence_ignored_by_git` with `git add -f`, so that the verified evidence is committed); then answer in the A–F format:
    A 原始目标 / B 本轮核心障碍 / C 本轮实际推导 / D 严格核查 / E 路线决策 / F 更新研究档案, plus "尚未解决" items and the
    decisions the user must take, stated plainly.
 
