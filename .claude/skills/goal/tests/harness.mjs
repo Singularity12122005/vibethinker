@@ -39,6 +39,7 @@ const defaults = {
   rewrite: () => null, code: () => null, repair: () => null,
   restore: (p, ctx) => { ctx.module = ctx.expect; ctx.tests = ctx.expectTests; return { gate_line: 'GATE ' + JSON.stringify({ restore: { restored: true, module_sha: ctx.module, tests_sha: ctx.tests, matches_expected: true } }) } },
   'log-minor': () => ({ appended: true, files_changed: ['detailed-record.md'] }),
+  freeze: () => ({ gate_line: 'GATE ' + JSON.stringify({ freeze: { hash: H(1), files: 10, frozen: true } }) }),
 }
 export async function run(name, stubs, args = {}) {
   const calls = [], logs = [], prompts = {}

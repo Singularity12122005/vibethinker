@@ -247,6 +247,9 @@ check('snapshot kept on a resume after the writer added code', g['snapshot']['ke
 check('module part judges the writer addition as allowed', run(root, '--only', 'module')['module']['violations'] == 0)
 (root / 'pkg/m.py').write_text(MOD)
 st2 = base / 'scr' / 'rT2.state'
+g = run(root, '--only', 'freeze', '--state-dir', str(st2))
+check('freeze refused without a module reference / matching snapshot', g['freeze']['frozen'] is False and 'snapshot' in g['freeze']['reason'], g['freeze'])
+run(root, '--only', 'accept,snapshot', '--state-dir', str(st2))
 g = run(root, '--only', 'assemble,ledger,freeze', '--expect', exp, '--ledger-sha', '0' * 64, '--ledger-parts', json.dumps(parts), '--state-dir', str(st2))
 check('freeze not recorded when the ledger check of the same run fails', g['freeze']['frozen'] is False and not (st2 / 'frozen.json').exists(), g['freeze'])
 for k in parts:                                    # put the parts back exactly
@@ -275,6 +278,21 @@ for k, v in led_e.items():
         (pd2 / f'{k}.json').write_text(json.dumps(v)); parts_e[k] = rg.canonical_sha(v)[:16]
 g = run(root, '--only', 'assemble,ledger', '--expect', json.dumps({'versions': [], 'final': []}), '--ledger-sha', rg.canonical_sha(led_e), '--ledger-parts', json.dumps(parts_e))
 check('empty versions part and split not_reviewed assemble to the workflow ledger', g['ledger']['mismatches'] == 0 and g['ledger']['versions'] == 0, g)
+(evd / 'review-verdicts/ledger.json').write_text(json.dumps(led, ensure_ascii=False, indent=2))
+# --- regression check: honest dataclass helpers allowed; ledger.json readable UTF-8 and lossless
+check('module: @dataclass(frozen=True) helper with a vars(self) method allowed', mod_violations(MOD + '\nfrom dataclasses import dataclass\n\n\n@dataclass(frozen=True)\nclass Row:\n    a: int = 1\n\n    def as_dict(self):\n        d = dict(vars(self))\n        setattr(self, "_c", 0) if False else None\n        return d\n') == 0)
+check('module: setattr on a module-level import inside a helper flagged', mod_violations(MOD + '\ndef _h():\n    setattr(np, "max", min)\n') > 0)
+check('module: vars() without argument inside a helper flagged', mod_violations(MOD + '\ndef _h():\n    return vars()\n') > 0)
+(root / 'pkg/m.py').write_text(MOD); run(root, '--only', 'snapshot')
+for f in pd2.iterdir(): f.unlink()
+led_u = {'isolation': iso, 'versions': [{'id': 'R1-1', 'statement': '界 ≤ 0.52', 'odd': '\ud835'}], 'final': []}
+parts_u = {}
+(pd2 / 'isolation.json').write_text(json.dumps(iso)); parts_u['isolation'] = rg.canonical_sha(iso)[:16]
+(pd2 / 'versions.0.json').write_text(json.dumps(led_u['versions'][0])); parts_u['versions.0'] = rg.canonical_sha(led_u['versions'][0])[:16]
+(pd2 / 'final.json').write_text('[]'); parts_u['final'] = rg.canonical_sha([])[:16]
+run(root, '--only', 'assemble', '--ledger-parts', json.dumps(parts_u))
+raw = (evd / 'review-verdicts/ledger.json').read_bytes()
+check('ledger.json is UTF-8 with readable CJK and an escaped lone surrogate', '界 ≤ 0.52'.encode() in raw and b'\\ud835' in raw and rg.canonical_sha(json.loads(raw.decode('utf-8'))) == rg.canonical_sha(led_u), raw[:120])
 (evd / 'review-verdicts/ledger.json').write_text(json.dumps(led, ensure_ascii=False, indent=2))
 shutil.rmtree(base)
 print('e2e', 'ok' if not fails else f'{fails} failures'); sys.exit(1 if fails else 0)

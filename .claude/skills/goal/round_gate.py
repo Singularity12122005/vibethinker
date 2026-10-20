@@ -407,7 +407,9 @@ def part_assemble(root: Path, evd_rel: str, parts: dict) -> dict:
         else:
             led[key] = val
     out = root / evd_rel / "review-verdicts" / "ledger.json"
-    out.write_text(json.dumps(led, ensure_ascii=True, indent=1), encoding="ascii")   # lossless, also for lone surrogates
+    text = json.dumps(led, ensure_ascii=False, indent=1)
+    text = re.sub("[\ud800-\udfff]", lambda m: "\\u%04x" % ord(m.group()), text)   # lone surrogates escaped: valid UTF-8, lossless
+    out.write_text(text, encoding="utf-8")
     return {"parts": len(parts), "missing": missing, "unreadable": bad}
 
 
@@ -581,6 +583,8 @@ def part_frozen(evd: Path, state_dir: Path | None = None, freeze: bool = False, 
                 old = json.loads(ref.read_text(encoding="ascii"))["hash"]
             except (OSError, ValueError, KeyError):
                 old = None
+            exp = _expect(state_dir)
+            snap = evd / "code" / "module_after_review.py"
             if old is not None:
                 res["frozen"] = old == res["hash"]
                 if not res["frozen"]:
@@ -588,6 +592,9 @@ def part_frozen(evd: Path, state_dir: Path | None = None, freeze: bool = False, 
             elif ledger_ok is False:
                 res["frozen"] = False
                 res["reason"] = "not recorded: the ledger check of this run failed"
+            elif not exp or not snap.is_file() or _sha(snap) != exp.get("module_sha"):
+                res["frozen"] = False
+                res["reason"] = "not recorded: the module snapshot is missing or differs from expect.json"
             else:
                 _write_json(ref, res)
                 res["frozen"] = True
@@ -617,6 +624,14 @@ def _bound_names(node) -> set[str]:
 
 
 _DYNAMIC = {"globals", "vars", "setattr", "delattr", "exec", "eval", "__import__", "locals"}
+_DYNAMIC_ALWAYS = {"globals", "exec", "eval", "__import__"}          # in function bodies; vars/setattr/delattr only on globals
+
+
+def _dataclass_decorator(d) -> bool:
+    """@dataclass, @dataclasses.dataclass, or either called with literal keyword arguments, e.g. @dataclass(frozen=True)."""
+    if isinstance(d, ast.Call):
+        return not d.args and all(isinstance(k.value, ast.Constant) for k in d.keywords) and _dataclass_decorator(d.func)
+    return isinstance(d, (ast.Name, ast.Attribute)) and (getattr(d, "id", None) or getattr(d, "attr", None)) == "dataclass"
 
 
 def _protected_names(src: str, tree) -> set[str]:
@@ -680,8 +695,11 @@ def _import_time_effects(node, protected: set[str], table=None) -> list[str]:
             for x in ast.walk(st):
                 if isinstance(x, (ast.Global, ast.Nonlocal)) and set(x.names) & protected:
                     out.append(f"declares {sorted(set(x.names) & protected)} global")
-                elif isinstance(x, ast.Name) and x.id in _DYNAMIC:
+                elif isinstance(x, ast.Name) and x.id in _DYNAMIC_ALWAYS:
                     out.append(f"uses {x.id}()")
+                elif (isinstance(x, ast.Call) and isinstance(x.func, ast.Name) and x.func.id in ("vars", "setattr", "delattr")
+                      and (not x.args or not isinstance(x.args[0], ast.Name) or (x.args[0].id in protected and x.args[0].id in glob))):
+                    out.append(f"uses {x.func.id}() on a module-level object")
                 elif isinstance(x, (ast.Attribute, ast.Subscript)) and isinstance(x.ctx, (ast.Store, ast.Del)):
                     r = _store_root(x)
                     if r in protected and r in glob:
@@ -728,9 +746,7 @@ def part_module(root: Path, module: str, evd: Path) -> dict:
             elif _bound_names(n) & snap_names:
                 details.append(f"new import at line {n.lineno} rebinds {sorted(_bound_names(n) & snap_names)}")
             continue
-        if not isinstance(n, _PLAIN_NEW) or (n.decorator_list and not all(
-                isinstance(d, (ast.Name, ast.Attribute)) and (getattr(d, "id", None) or getattr(d, "attr", None)) == "dataclass"
-                for d in n.decorator_list)):
+        if not isinstance(n, _PLAIN_NEW) or (n.decorator_list and not all(_dataclass_decorator(d) for d in n.decorator_list)):
             details.append(f"new top-level statement at line {n.lineno} is not a plain new function or class")
         elif _bound_names(n) & snap_names:
             details.append(f"new statement at line {n.lineno} rebinds {sorted(_bound_names(n) & snap_names)}")

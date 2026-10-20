@@ -329,6 +329,21 @@ r = await run('S37', { review: (id, va, lens) => lens === 'applicability' ? { ..
   r = await run('S39', { overreach: () => ({ issues: [{ severity: 'minor', where: 'w', problem: 'p', fix: 'f' }] }), gate: (p, ctx) => (n++ === 1 ? null : { gate_line: gate({ versions: ctx.expectVersions(p) }) }) })
   check('S39 final gate retried', r.out.status === 'ready_to_commit' && r.calls.includes('gate:pfinal:retry'), JSON.stringify([r.out.reason, r.calls.slice(-3)])) }
 
+// S40 the freeze is recorded only after the ledger, the copy and the snapshot are accepted
+r = await run('S40', { ledger: (p, ctx) => ({ copy_line: 'GATE ' + JSON.stringify({ copy: { error: 'disk full' }, snapshot: { matches_expected: true } }), ledger_line: LEDGER_OK(ctx.expectVersions(p)) }) })
+check('S40 copy failed -> blocked, no freeze', r.out.status === 'blocked' && /copying/.test(r.out.reason) && !r.calls.includes('freeze'), JSON.stringify([r.out.reason, r.calls.slice(-3)]))
+r = await run('S40b', { ledger: (p, ctx) => ({ copy_line: 'GATE ' + JSON.stringify({ copy: { copied: 5, ignored_by_git: [] }, snapshot: { matches_expected: false } }), ledger_line: LEDGER_OK(ctx.expectVersions(p)) }) })
+check('S40b snapshot mismatch -> blocked, no freeze', r.out.status === 'blocked' && !r.calls.includes('freeze'))
+r = await run('S40c', { freeze: () => ({ gate_line: 'GATE ' + JSON.stringify({ freeze: { frozen: false, reason: 'the frozen material differs from the reference recorded by the first freeze' } }) }) })
+check('S40c freeze refused -> retried, blocked with its reason', r.out.status === 'blocked' && r.calls.includes('freeze:retry') && /first freeze/.test(r.out.reason), r.out.reason)
+r = await run('S40d', {})
+check('S40d order: ledger -> freeze -> write', r.calls.indexOf('ledger') < r.calls.indexOf('freeze') && r.calls.indexOf('freeze') < r.calls.indexOf('write'))
+// S41 a malformed copy line on the first attempt: the retry runs the copy again
+{ let n = 0
+  r = await run('S41', { ledger: (p, ctx) => n++ === 0 ? { copy_line: 'GATE {"copy":', ledger_line: 'GATE {"assemble":{"missing":["round"],"unreadable":[]},"ledger":{"versions":1,"mismatches":1,"differing_parts":[]}}' }
+    : { copy_line: 'GATE ' + JSON.stringify({ copy: { copied: 5, ignored_by_git: [] }, snapshot: { matches_expected: true } }), ledger_line: LEDGER_OK(ctx.expectVersions(p)) } })
+  check('S41 retry includes the copy step and passes', r.out.status === 'ready_to_commit' && /\(1\) Run exactly/.test(r.prompts['ledger:retry']), r.out.reason) }
+
 const failed = results.filter(x => !x[1]).length
 console.log(`${results.length - failed}/${results.length} checks pass`)
 process.exit(failed ? 1 : 0)

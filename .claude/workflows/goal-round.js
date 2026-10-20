@@ -406,30 +406,34 @@ for (const k of Object.keys(LEDGER)) {
 const LEDGER_PARTS = Object.fromEntries(PART_VALUES.map(([k, v]) => [k, sha256hex(canonicalJSON(v)).slice(0, 16)]))
 const PDIR = `${EVD}/review-verdicts/ledger.parts`
 const SDA = ` --state-dir ${sq(STATE_DIR)}`
-const ledgerCmd = gateCmd('assemble,ledger,freeze', ` --expect ${sq(JSON.stringify(EXPECT))} --ledger-sha ${LEDGER_SHA} --ledger-parts ${sq(JSON.stringify(LEDGER_PARTS))}` + SDA)
+const ledgerCmd = gateCmd('assemble,ledger', ` --expect ${sq(JSON.stringify(EXPECT))} --ledger-sha ${LEDGER_SHA} --ledger-parts ${sq(JSON.stringify(LEDGER_PARTS))}` + SDA)
 const partFiles = keys => PART_VALUES.filter(([k]) => keys.includes(k)).map(([k, v]) => `FILE ${PDIR}/${k}.json\n${JSON.stringify(v)}`).join('\n\n')
-const ledgerPrompt = (sfx, keys, prev) => `Ledger step of round ${round}${sfx}.${A.resume_note ? ' Resume note: ' + A.resume_note + '.' : ''} ${keys.length === PART_VALUES.length ? `(1) Run exactly: ${gateCmd('copy,snapshot', ` --copy-from ${sq(RDIR)}` + SDA)}\nand put its last output line (starting "GATE ") in copy_line.` : '(1) Skip the copy (it succeeded before); put "skipped" in copy_line.'} (2) Write each of the following files with the Write tool, one call per file, with exactly the JSON given after its FILE line (no other change, no reformatting needed, nothing added):\n\n${partFiles(keys)}\n\n(3) Run exactly: ${ledgerCmd}\nand put its last output line (starting "GATE ") in ledger_line. Change no other file.${prev ? ' The previous attempt reported: ' + prev : ''}`
+const ledgerPrompt = (sfx, keys, prev, withCopy) => `Ledger step of round ${round}${sfx}.${A.resume_note ? ' Resume note: ' + A.resume_note + '.' : ''} ${withCopy ? `(1) Run exactly: ${gateCmd('copy,snapshot', ` --copy-from ${sq(RDIR)}` + SDA)}\nand put its last output line (starting "GATE ") in copy_line.` : '(1) Skip the copy (it succeeded before); put "skipped" in copy_line.'} (2) Write each of the following files with the Write tool, one call per file, with exactly the JSON given after its FILE line (no other change, no reformatting needed, nothing added):\n\n${partFiles(keys)}\n\n(3) Run exactly: ${ledgerCmd}\nand put its last output line (starting "GATE ") in ledger_line. Change no other file.${prev ? ' The previous attempt reported: ' + prev : ''}`
 const ledgerOk = g => !!(g && g.assemble && !g.assemble.error && Array.isArray(g.assemble.missing) && !g.assemble.missing.length && Array.isArray(g.assemble.unreadable) && !g.assemble.unreadable.length && g.ledger && !g.ledger.error
-  && g.ledger.mismatches === 0 && g.ledger.versions === EXPECT.versions.length && g.freeze && g.freeze.frozen === true)
-let lo = await agent(ledgerPrompt('', PART_VALUES.map(([k]) => k), ''), { schema: LEDGER_OUT, phase: 'Write', label: 'ledger', effort: 'low' })
+  && g.ledger.mismatches === 0 && g.ledger.versions === EXPECT.versions.length)
+const copyOk = g => g && g.copy && !g.copy.error && g.snapshot && !g.snapshot.error
+let lo = await agent(ledgerPrompt('', PART_VALUES.map(([k]) => k), '', true), { schema: LEDGER_OUT, phase: 'Write', label: 'ledger', effort: 'low' })
 const lo0 = lo
 let lg = lo && parseGate(lo.ledger_line)
 if (!ledgerOk(lg)) {
   const arr = x => Array.isArray(x) ? x : []
   const named = lg && lg.ledger ? arr(lg.ledger.differing_parts).map(x => String(x).split(' ')[0]) : []
   const again = [...new Set([...named, ...arr(lg && lg.assemble && lg.assemble.missing), ...arr(lg && lg.assemble && lg.assemble.unreadable)])].filter(k => k in LEDGER_PARTS)
-  lo = await agent(ledgerPrompt(' (retry)', again.length ? again : PART_VALUES.map(([k]) => k), lo ? cut(lo.ledger_line, 1500) : 'nothing'), { schema: LEDGER_OUT, phase: 'Write', label: 'ledger:retry', effort: 'low' })
+  lo = await agent(ledgerPrompt(' (retry)', again.length ? again : PART_VALUES.map(([k]) => k), lo ? cut(lo.ledger_line, 1500) : 'nothing', !(lo && copyOk(parseGate(lo.copy_line)))), { schema: LEDGER_OUT, phase: 'Write', label: 'ledger:retry', effort: 'low' })
   lg = lo && parseGate(lo.ledger_line)
 }
 if (!ledgerOk(lg)) return blocked(`ledger.json does not match the workflow's ledger: ${lg ? JSON.stringify({ assemble: lg.assemble, ledger: lg.ledger }) : 'no gate output'}`)
-const copyOk = g => g && g.copy && !g.copy.error && g.snapshot && !g.snapshot.error
 const cg = [lo, lo0].map(x => x && parseGate(x.copy_line)).find(copyOk)
 if (!cg) return blocked(`copying the working material or the module snapshot failed: ${cut((lo0 || {}).copy_line, 600)}`)
 if (cg.snapshot.matches_expected !== true) return blocked(`${MODULE} differs from the reference recorded in ${STATE_DIR}/expect.json (it changed outside a reviewed code change)`)
+// only now, with the ledger, the copy and the snapshot all accepted, is the frozen material recorded (the first freeze is final)
+let fz = await mech('freeze', 'Write', 'freeze', SDA)
+if (!fz || !fz.freeze || fz.freeze.error || fz.freeze.frozen !== true) fz = await mech('freeze:retry', 'Write', 'freeze', SDA, ' (retry)')
+if (!fz || !fz.freeze || fz.freeze.frozen !== true) return blocked(`the frozen material could not be recorded: ${fz && fz.freeze ? fz.freeze.reason || fz.freeze.error || 'no reason given' : 'no gate output'}`)
 evidenceIgnored = cg.copy.ignored_by_git || []
 if (evidenceIgnored.length) log(`git ignores ${cg.copy.ignored_count} copied evidence files; the caller must add them with git add -f: ${evidenceIgnored.join(', ')}`)
 if (lg.ledger.warnings) log(`ledger: ${lg.ledger.warnings} warnings (reviewers' own verdict.json copies missing or different): ${JSON.stringify(lg.ledger.warning_list)}`)
-log(`copied ${cg.copy.copied} files; frozen material ${lg.freeze.files} files recorded in ${STATE_DIR}/frozen.json`)
+log(`copied ${cg.copy.copied} files; frozen material ${fz.freeze.files} files recorded in ${STATE_DIR}/frozen.json`)
 
 const anyNumbers = allReviews.some(r => r.claim.numbers.length > 0)
 const ctxForWriter = { original_obstacle: ctx.original_obstacle, obstacle: ctx.obstacle, well_posed: ctx.well_posed, critique: ctx.critique, template: ctx.template, hidden_dependencies: ctx.hidden_dependencies, closed_form_plausible: ctx.closed_form_plausible, why_it_matters: ctx.why_it_matters }
