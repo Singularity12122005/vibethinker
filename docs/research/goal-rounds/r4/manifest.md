@@ -5,15 +5,15 @@ Interpreter for every script: `/tmp/claude-0/venv/bin/python` (python 3.13.16 x8
 The problem-phase files were tagged numpy 2.5.3 when they were written; route B checked that this interpreter has numpy 2.5.4.
 `__pycache__/` folders are omitted.
 
-Ledger statuses: **reviewed** = A-C1, B1, C1 (all final status *candidate*); **unreviewed_overflow** = A-C2, A-C3, B2, B3, C2, C3; **author_refuted** = none.
+Ledger statuses: **reviewed** = A-C1, B1, C1 (all final status *candidate*); **unreviewed_overflow** = A-C2, A-C3, B2, B3, C2, C3; **author_refuted** = none. Re-review (v4): B2-core, the code-level part of B2, had its first three-lens review in the re-review (final status *candidate*; listed only in `review-verdicts/r4_rereview.json`, not in the ledger). Atom labels (v5) are in the v5 section at the end.
 
 ## Repository files changed in this round (the only ones allowed)
 
 | file | change |
 | --- | --- |
 | `/home/user/vibethinker/docs/research/sycophancy-phase0-goal.md` | §9 `### r4` record (A–F); §7 (candidates, 未审 line, r4 errors, "not adopted for now" route — moved out of the eliminated list in the repair pass, rewritten gaps / next attack with the r3 text kept); §6 r4 line; §8 L0 row; version line |
-| `/home/user/vibethinker/sycophancy_phase0/tests/test_analysis.py` | three regression locks of the reviewed **candidate** cores: `test_goal_r4_a_c1_candidate_closed_form_sandwich`, `test_goal_r4_b1_candidate_lecam_constants`, `test_goal_r4_c1_candidate_reuse_identity` (+ helpers `_goal_r4_*`) |
-| `/home/user/vibethinker/sycophancy_phase0/src/sycophancy_phase0/analysis/g6_iv.py` | unchanged (the tests need only the existing `binomial_factorial_joint_moment` and `endpoint_contrast_poly_cs`) |
+| `/home/user/vibethinker/sycophancy_phase0/tests/test_analysis.py` | three regression locks of the reviewed **candidate** cores: `test_goal_r4_a_c1_candidate_closed_form_sandwich`, `test_goal_r4_b1_candidate_lecam_constants`, `test_goal_r4_c1_candidate_reuse_identity` (+ helpers `_goal_r4_*`); in v5 two tests added and these three docstrings relabelled (wording only; see the v5 section) |
+| `/home/user/vibethinker/sycophancy_phase0/src/sycophancy_phase0/analysis/g6_iv.py` | unchanged in v4 (the tests need only the existing `binomial_factorial_joint_moment` and `endpoint_contrast_poly_cs`); changed in v5 commits a328e43, 92c18cd (see the v5 section) |
 
 ## problem/ — problem-critique self-checks (not reviewed claims)
 
@@ -117,3 +117,33 @@ Only the archive text was changed; `tests/test_analysis.py` and `analysis/g6_iv.
 
 Written after the re-review (not copies of scratch material): `detailed-record.md` (the pre-v4 §9 r4 text moved verbatim, plus every item of `review-verdicts/r4_remaining_after_loop.json` as an open non-blocking issue), `evidence.json` (checked by `.claude/skills/goal/verify_evidence.py`; output `final/verify_evidence.out`), `review-verdicts/r4_rereview.json` (narrowed statements of A-C1, B1, C1, B2-core with the fresh three-lens verdicts; all candidate), `final/pytest_test_analysis.out`. Re-review lens scripts and outputs: `rr-<claim>_<lens>/` (see `PATHS.md`). No test was added (no claim reached independent review); `tests/test_analysis.py` is unchanged in this step.
 
+
+## v5 atomic review (protocol v5, 2026-10-20; archive §9 r4 G)
+
+Truth labels (math lens + blind replication only; the applicability lens gives a note): **独立复核** = C1-atom v1, B1-atom v2, A-C1-atom v2; **候选** = B2-atom v1, v2, v4, v5 (v5 is the current B2 version); **已驳回** = B1-atom v1, A-C1-atom v1, B2-atom v3 (all orchestrator-drafted). The v4 labels of the long statements are unchanged (all candidate).
+
+| file | content |
+| --- | --- |
+| `atoms/atom-statements.json` | every submitted atom version verbatim (A-C1-atom v1/v2, B1-atom v1/v2, B2-atom v1–v5, C1-atom v1), with premises, numbers, workflow run id and lens order |
+| `atoms/atomic-review-verdicts.json` | the five three-lens runs (round1: B1, C1, B2, A-C1; round2: B1-v2, B2-v2, A-C1-v2; round3: B2-v3; round4: B2-v4 on code a328e43; round5: B2-v5 on code 92c18cd): each lens's severity, refuted flag, reason and fix, the blind isolation audit and the mechanical truth label |
+| `atoms/orchestrator_exact_checks.py`, `.out` | orchestrator's exact rational check of the overlap D for Beta(20,80)/Beta(25,75), w_1 = 1/2 (843043/4615246) |
+| `atoms/atom_<atom>[-v<k>]_<lens>/` | each lens agent's own scripts (lens = math, blind_replication, applicability); output files only where saved: `atom_B1-atom_applicability/cluster_bound.out` (Hellinger bound under question clustering, c = 1/2/4), `atom_C1-atom_applicability/a1_exact_premise_checks.out` (exact cases A/B/C of the C1-atom premise checks); all other lens numbers come from the verdict text |
+| `final/pytest_full_suite_v5.out` | full `pytest -q` in `sycophancy_phase0/` after the v5 integration: 111 passed |
+| `final/pytest_test_analysis_v5.out` | `tests/test_analysis.py` alone after the v5 integration: 29 passed (27 earlier + the two tests below) |
+| `final/pytest_full_suite_v5_repair2.out` | full `pytest -q` re-run after 修复 2 of `detailed-record.md`: 111 passed |
+| `final/pd_rtol_signature.py`, `.out` | written in 修复 3: import-time `PD_RTOL` (1e-9, the default of `corrected_moment_matrix`'s `pd_rtol`) and the signatures showing that `endpoint_contrast_poly_cs` takes no `pd_rtol` argument (source of evidence entry `B2A.pd_rtol`) |
+| `final/pytest_test_analysis_v5_repair3.out`, `final/pytest_full_suite_v5_repair3.out` | `tests/test_analysis.py` alone and the full `pytest -q` re-run after 修复 3 (archive text only; no test or code change) |
+| `final/pytest_test_analysis_v5_repair4.out`, `final/pytest_full_suite_v5_repair4.out` | `tests/test_analysis.py` alone and the full `pytest -q` re-run after 修复 4 of `detailed-record.md` (archive, evidence and record text only; no test or code change) |
+
+Tests added for v5 (in `sycophancy_phase0/tests/test_analysis.py`):
+
+| test | atom | label |
+| --- | --- | --- |
+| `test_goal_r4_atoms_overlap_D_exact` | A-C1-atom v2 (exact D = 843043/4615246) | 独立复核 |
+| `test_goal_r4_b2_pd_decision_precedes_outcomes` | B2-atom v4/v5 (PD decision from counts and types before outcomes; the v4 math lens's two counterexamples) — added with commit a328e43, extended in 92c18cd; referenced by the archive | 候选 |
+
+Atoms that reached 独立复核 keep the existing regression locks as their pytest cases: C1-atom → `test_goal_r4_c1_candidate_reuse_identity`, B1-atom → `test_goal_r4_b1_candidate_lecam_constants`, A-C1-atom → `test_goal_r4_a_c1_candidate_closed_form_sandwich` (+ `test_goal_r4_atoms_overlap_D_exact`).
+
+Docstrings relabelled in v5 (uncommitted, wording only, no assertion or code change): the opening label of the three earlier r4 tests `test_goal_r4_a_c1_candidate_closed_form_sandwich`, `test_goal_r4_b1_candidate_lecam_constants` and `test_goal_r4_c1_candidate_reuse_identity` changed from "（候选，不是已证明）" to "（长陈述为候选；原子核心 … 经协议 v5 原子化审查为独立复核，档案 §9 r4 G）" (A-C1-atom v2, B1-atom v2, C1-atom v1 respectively). The long statements stay 候选; the atoms are 独立复核, not 已证明.
+
+Code changed in v5 (committed): `sycophancy_phase0/src/sycophancy_phase0/analysis/g6_iv.py` — a328e43 (`corrected_moment_matrix` takes no outcome argument; `endpoint_contrast_poly_cs` takes the PD decision before any outcome arithmetic) and 92c18cd (counts and types copied on entry, `pd_rtol` keyword bound at import, decision taken before `delta_hat` is converted). The "unchanged" entry for `g6_iv.py` in the first table refers to the v4 record only.

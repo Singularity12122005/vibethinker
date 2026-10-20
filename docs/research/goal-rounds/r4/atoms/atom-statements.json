@@ -1,0 +1,122 @@
+[
+ {
+  "id": "A-C1-atom",
+  "statement": "Assume: prefixes i.i.d.; t in {0,1} with P(t=1) = w_1 in (0,1); r | t ~ F_t on [0,1]; K | (r,t) ~ Bin(m, r) with m >= 4; y = beta_0 + beta_1 r + beta_2 r^2 + b t + eta with E[eta | r,t,K] = 0 and E[eta^2 | r,t,K] = sigma^2(r); x = (1, r, r^2), Q_xx = E[x x'] invertible and D = w_1 - q' Q_xx^{-1} q > 0 with q = E[t x]. Let b_hat be the type coefficient of the degree-2 corrected-score estimator that solves sum_i (m_i - M_i beta) = 0 with M_i, m_i the unbiased U-statistic estimates of x x', x t, t^2 and x y, t y built from U_j(K) = K^(j)/m^(j). Then sqrt(n)(b_hat - b) is asymptotically normal with variance D^{-2} E[phi^2], where phi = psi_t - gamma' psi_x, gamma = Q_xx^{-1} q, psi = m_i - M_i beta the estimating-function vector at the truth, and in particular the variance depends on F_t only through moments of order <= 8. Under Beta(20,80)/Beta(25,75) risks with w_1 = 1/2: D = 0.1827 (4 decimals).",
+  "premises": "As stated; standard M-estimation regularity (finite moments are automatic on [0,1]).",
+  "numbers": "D = 0.1827 for Beta(20,80) / Beta(25,75), w_1 = 1/2",
+  "workflow_run": "wf_be8f0658-b6d",
+  "lenses": [
+   "blind_replication",
+   "applicability",
+   "math"
+  ]
+ },
+ {
+  "id": "A-C1-atom-v2",
+  "statement": "Assume: prefixes i.i.d.; t in {0,1} with P(t=1) = w_1 in (0,1); r | t ~ F_t on [0,1]; K | (r,t) ~ Bin(m, r) with m >= 4; y = beta_0 + beta_1 r + beta_2 r^2 + b t + eta with E[eta | r,t,K] = 0 and E[eta^2 | r,t,K] = sigma^2(r) with E[sigma^2(r)] finite; x = (1, r, r^2), Q_xx = E[x x'] invertible and D = w_1 - q' Q_xx^{-1} q > 0 with q = E[t x]. Let b_hat be the type coefficient of the degree-2 corrected-score estimator that solves sum_i (m_i - M_i beta) = 0 with M_i, m_i the unbiased U-statistic estimates of x x', x t, t^2 and x y, t y built from U_j(K) = K^(j)/m^(j). Then sqrt(n)(b_hat - b) is asymptotically normal with variance D^{-2} E[phi^2], where phi = psi_t - gamma' psi_x, gamma = Q_xx^{-1} q, and psi = m_i - M_i beta is the estimating-function vector at the truth. The variance depends on F_t only through its moments of order <= 8 and the sigma^2-weighted moments E_t[sigma^2(r) r^l], l <= 4; in particular, if sigma^2(r) is constant, only through moments of order <= 8. Under Beta(20,80)/Beta(25,75) risks with w_1 = 1/2: D = 0.1827 (4 decimals).",
+  "premises": "As stated; standard M-estimation regularity. (Correction of A-C1-atom: the moment-order clause now carries the sigma^2-weighted moments, as both truth lenses required.)",
+  "numbers": "D = 0.1827 for Beta(20,80) / Beta(25,75), w_1 = 1/2",
+  "workflow_run": "wf_b391fc99-6fe",
+  "lenses": [
+   "applicability",
+   "blind_replication",
+   "math"
+  ]
+ },
+ {
+  "id": "B1-atom",
+  "statement": "Let P_a and P_b be two joint laws of 200 independent counts K_1..K_200 in {0,..,m}, where counts 1..100 have marginal p_{a,0} (resp. p_{b,0}) and counts 101..200 have marginal p_{a,1} (resp. p_{b,1}). Let rho_t = sum_k sqrt(p_{a,t}(k) p_{b,t}(k)). (i) For every decision rule phi: {0..m}^200 -> [0,1] (randomized allowed), E_a[1-phi] + E_b[phi] >= 1 - TV(P_a,P_b) >= 1 - sqrt(1 - rho_0^200 rho_1^200), and the first inequality is an equality for phi = 1{p_a(K) < p_b(K)} (ties assigned arbitrarily). (ii) With m = 32 and beta-binomial marginals p_{a,0} = BetaBin(32; 20, 80), p_{a,1} = BetaBin(32; 25, 75), p_{b,0} = BetaBin(32; 40.5, 162), p_{b,1} = BetaBin(32; 50.6, 151.8): rho_0 = 0.9989749161 and rho_1 = 0.9989707713 (both to 10 decimals), 1 - sqrt(1 - rho_0^200 rho_1^200) = 0.41942966 to 8 decimals, and 1 - TV(P_a,P_b) lies in [0.5216, 0.5218].",
+  "premises": "Counts independent across the 200 positions with the stated marginals (this is the model 'risks iid within type, K_i | r_i ~ Bin(32, r_i)' integrated over the Beta risk law); TV is total variation of the joint laws.",
+  "numbers": "rho_0 = 0.9989749161; rho_1 = 0.9989707713; Hellinger bound 0.41942966; 1 - TV in [0.5216, 0.5218]",
+  "workflow_run": "wf_be8f0658-b6d",
+  "lenses": [
+   "applicability",
+   "math",
+   "blind_replication"
+  ]
+ },
+ {
+  "id": "B1-atom-v2",
+  "statement": "Let P_a and P_b be two joint laws of 200 independent counts K_1..K_200 in {0,..,m}, where counts 1..100 have marginal p_{a,0} (resp. p_{b,0}) and counts 101..200 have marginal p_{a,1} (resp. p_{b,1}); write p_a(K), p_b(K) for the joint probability mass functions. Let rho_t = sum_k sqrt(p_{a,t}(k) p_{b,t}(k)). (i) For every decision rule phi: {0..m}^200 -> [0,1] (randomized allowed; phi(K) is the probability of deciding 'a'), E_a[1-phi] + E_b[phi] >= 1 - TV(P_a,P_b) >= 1 - sqrt(1 - rho_0^200 rho_1^200), and the first inequality is an equality for phi = 1{p_a(K) > p_b(K)} (ties assigned arbitrarily). (ii) With m = 32 and beta-binomial marginals p_{a,0} = BetaBin(32; 20, 80), p_{a,1} = BetaBin(32; 25, 75), p_{b,0} = BetaBin(32; 40.5, 162), p_{b,1} = BetaBin(32; 50.6, 151.8): rho_0 = 0.9989749161 and rho_1 = 0.9989707713 (both to 10 decimals), 1 - sqrt(1 - rho_0^200 rho_1^200) = 0.41942966 to 8 decimals, and 1 - TV(P_a,P_b) lies in [0.5216, 0.5218].",
+  "premises": "Counts independent across the 200 positions with the stated marginals (this is the model 'one prefix per independent risk draw, risks iid within type, K_i | r_i ~ Bin(32, r_i)' integrated over the Beta risk law); TV is total variation of the joint laws. (Correction of B1-atom: the attaining rule was written with the inequality reversed.)",
+  "numbers": "rho_0 = 0.9989749161; rho_1 = 0.9989707713; Hellinger bound 0.41942966; 1 - TV in [0.5216, 0.5218]",
+  "workflow_run": "wf_b391fc99-6fe",
+  "lenses": [
+   "blind_replication",
+   "applicability",
+   "math"
+  ]
+ },
+ {
+  "id": "B2-atom",
+  "statement": "In the function endpoint_contrast_poly_cs of sycophancy_phase0/src/sycophancy_phase0/analysis/g6_iv.py (the file at the path given to you, unchanged since commit 9a61a94), for any fixed degree p with 1 <= p and 2p <= m, any common integer m, any count vector K and type vector t of length n: the matrix A whose eigenvalues are compared with PD_RTOL is a function of (K, t, m, p) only, so the returned min_eig, and whether the function returns from the not-positive-definite branch, are the same for every delta_hat vector and every cluster argument. If the positive-definiteness test passes, the subsequent linear solve np.linalg.solve(A, b) raises LinAlgError (and the function returns ok=False) or not as a function of A only, for every finite or non-finite right-hand side b.",
+  "premises": "The production code as it stands at that path; numpy's LAPACK-backed solve.",
+  "numbers": "none (a code-level fact)",
+  "workflow_run": "wf_be8f0658-b6d",
+  "lenses": [
+   "math",
+   "applicability",
+   "blind_replication"
+  ]
+ },
+ {
+  "id": "B2-atom-v2",
+  "statement": "In the function endpoint_contrast_poly_cs of sycophancy_phase0/src/sycophancy_phase0/analysis/g6_iv.py (the file at the path given to you, unchanged since commit 9a61a94), fix a degree p with 1 <= p and 2p <= m, a common integer m, a count vector K and a type vector t, both of length n. Then the matrix A whose eigenvalues are compared with PD_RTOL is a function of (K, t, m, p) only. Hence the returned min_eig, and whether the function returns from the not-positive-definite branch, are the same for every outcome vector delta_hat of length n and every cluster argument. If the positive-definiteness test passes, whether the subsequent np.linalg.solve(A, b) raises LinAlgError (making the function return ok=False) is a function of A only, for every right-hand side b, finite or not, under numpy's default floating-point error state.",
+  "premises": "The production code as it stands at that path; numpy's LAPACK-backed solve; delta_hat, K and t of the same length n. (Correction of B2-atom: the length-n condition on delta_hat was missing; with n = 1 a longer delta_hat broadcasts.)",
+  "numbers": "none (a code-level fact)",
+  "workflow_run": "wf_b391fc99-6fe",
+  "lenses": [
+   "math",
+   "applicability",
+   "blind_replication"
+  ]
+ },
+ {
+  "id": "B2-atom-v3",
+  "statement": "In the function endpoint_contrast_poly_cs of sycophancy_phase0/src/sycophancy_phase0/analysis/g6_iv.py (the file at the path given to you, unchanged since commit 9a61a94), fix a degree p with 1 <= p and 2p <= m, a common integer m, a count vector K and a type vector t, both of length n. Consider outcome vectors delta_hat of length n whose conversion np.asarray(delta_hat, float) succeeds (for example any one-dimensional vector of Python or numpy floats, finite or not), and any cluster argument. For all such inputs the function reaches its eigenvalue test, and the matrix A whose eigenvalues are compared with PD_RTOL is a function of (K, t, m, p) only. Hence the returned min_eig, and whether the function returns from the not-positive-definite branch, are the same for every such delta_hat and every cluster argument. If the positive-definiteness test passes, whether the subsequent np.linalg.solve(A, b) raises LinAlgError (making the function return ok=False) is a function of A only, for every right-hand side b, finite or not, under numpy's default floating-point error state and a fixed numpy/LAPACK build.",
+  "premises": "The production code as it stands at that path; numpy's LAPACK-backed solve with a fixed build; delta_hat, K and t of the same length n; delta_hat convertible by np.asarray(., float). (Correction of B2-atom-v2: the math lens required that the function reach the eigenvalue test, which needs the float conversion of delta_hat to succeed; the blind lens added the fixed-build qualifier.)",
+  "numbers": "none (a code-level fact)",
+  "workflow_run": "wf_b45cd6e2-c7e",
+  "lenses": [
+   "math",
+   "blind_replication",
+   "applicability"
+  ]
+ },
+ {
+  "id": "B2-atom-v4",
+  "statement": "In sycophancy_phase0/src/sycophancy_phase0/analysis/g6_iv.py at commit a328e43 (the file at the path given to you): (a) corrected_moment_matrix(counts, m, type_, degree) has exactly the parameters counts, m, type_, degree; its returned min_eig and pd_ok are computed from those four arguments only. (b) endpoint_contrast_poly_cs(delta_hat, counts, m, type_, degree, cluster) performs, before any arithmetic on the converted delta_hat and before any use of cluster, only: the conversions np.asarray(delta_hat, float) and np.asarray(counts, float), a shape check that raises ValueError unless both are one-dimensional with equal shape, and the call corrected_moment_matrix(counts, m, type_, degree); if that call's pd_ok is False the function returns ok=False with that call's min_eig without further computation. Consequently, for any inputs for which the conversions and the shape check succeed and corrected_moment_matrix does not raise, the returned min_eig, and whether the function returns from the not-positive-definite branch, do not depend on the values of delta_hat or on cluster.",
+  "premises": "The code at that commit. 'Arithmetic on delta_hat' means any operation taking the converted array y as an operand other than reading its ndim/shape. (Version 4 of B2: the property is now an interface fact of refactored code; versions 1-3 were statements about the earlier code and were refuted or left as candidates on edge cases — broadcasting of a mis-shaped delta_hat, warnings-as-errors, non-convertible inputs.)",
+  "numbers": "none (a code-level fact)",
+  "workflow_run": "wf_28fbb17a-26a",
+  "lenses": [
+   "blind_replication",
+   "applicability",
+   "math"
+  ]
+ },
+ {
+  "id": "B2-atom-v5",
+  "statement": "In sycophancy_phase0/src/sycophancy_phase0/analysis/g6_iv.py at commit 92c18cd (the file at the path given to you), restrict attention to NUMERIC inputs: counts, type_ and delta_hat are numpy arrays or Python lists of Python or numpy real numbers (finite or not), cluster is None or a numpy array or list of hashable labels, m is an int and degree an int. (a) corrected_moment_matrix(counts, m, type_, degree, pd_rtol=<default>) returns min_eig and pd_ok computed only from its arguments (counts and type_ are copied on entry; the default of pd_rtol is fixed when the module is imported). (b) endpoint_contrast_poly_cs(delta_hat, counts, m, type_, degree, cluster) calls corrected_moment_matrix(counts, m, type_, degree) before it reads delta_hat or cluster in any way; it then converts delta_hat and raises ValueError unless the result is one-dimensional with the same length as counts; if pd_ok is False it then returns ok=False with that call's min_eig without using cluster. Consequently, for numeric inputs on which corrected_moment_matrix does not raise and the shape check passes, the returned min_eig, and whether the function returns from the not-positive-definite branch, do not depend on the values of delta_hat or on cluster.",
+  "premises": "The code at that commit; numeric inputs as defined (no user-defined objects with side effects); the module constant PD_RTOL may be changed after import without effect on the default. (Version 5 of B2: version 4's math lens found a mutable-global dependency and a side-effecting __float__ counterexample; the code was changed to copy counts/type_, decide first, and bind the tolerance at import; the domain is now stated as numeric inputs.)",
+  "numbers": "none (a code-level fact)",
+  "workflow_run": "wf_0fe1c397-91e",
+  "lenses": [
+   "applicability",
+   "blind_replication",
+   "math"
+  ]
+ },
+ {
+  "id": "C1-atom",
+  "statement": "Let r = (r_i), t = (t_i) be random, and given (r, t) let K32, K96, K' and eta be mutually independent with K32_i ~ Bin(32, r_i), K96_i ~ Bin(96, r_i), K'_i ~ Bin(128, r_i) independently over i, and eta with any law depending on (r, t) only. Let f be any measurable {0,1}-valued function and define R = f(t, K32 + K96, eta), R' = f(t, K', eta). Let D be any event in sigma(t, K32) with pi = P(D) in (0,1), and delta = P(R | t, K32) - P(R' | t, K32). Then E[delta] = 0, P(R | D) - P(R' | D) = Cov(delta, 1_D) / pi, and |P(R | D) - P(R' | D)| <= sd(delta) * sqrt((1 - pi) / pi).",
+  "premises": "As stated (conditional independence given (r, t); the same function f applied to the reused and to the fresh counts).",
+  "numbers": "none (an identity and an inequality)",
+  "workflow_run": "wf_be8f0658-b6d",
+  "lenses": [
+   "blind_replication",
+   "math",
+   "applicability"
+  ]
+ }
+]

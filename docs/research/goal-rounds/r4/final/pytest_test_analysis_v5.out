@@ -1,0 +1,4 @@
+# command (cwd sycophancy_phase0/): /tmp/claude-0/venv/bin/python -m pytest tests/test_analysis.py -q -p no:cacheprovider
+# date: 2026-10-20T04:49Z; python 3.13.16 numpy 2.5.4 scipy 1.18.1 pytest 9.1.1; after the v5 integration (29 tests in the file)
+.............................                                            [100%]
+29 passed in 21.91s

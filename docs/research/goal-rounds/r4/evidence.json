@@ -1,7 +1,7 @@
 {
  "round": "r4",
  "format": ".claude/skills/goal/verify_evidence.py (protocol v4 §7 item 1b)",
- "scope": "Every number written in Arabic numerals in the compact §9 `### r4` record and in the r4 lines of §7 of docs/research/sycophancy-phase0-goal.md. Ids are cited in the record as [E:<id>]. Not counted as values: dates, section, protocol, round and gate labels (§7.11, v4, r4, G6, C0–C6), file and test names, coding labels (0/1 coding, 1/2 coding), symbols inside formulas (1−TV, (1−γ), γ_2=0), and the subscript 32 of the notation K_32 / G_32, which the §9 r4 约定 paragraph and the §7 C1 line define as the pilot m [E:par.m_pilot]. Counts written in Chinese numerals (numbers of claims, lenses, cells, tests and repairs) are structural; they are checkable against the ledger table, the listed test names and the evidence conditions in the record itself and have no entries here.",
+ "scope": "Every number written in Arabic numerals in the compact §9 `### r4` record and in the r4 lines of §7 of docs/research/sycophancy-phase0-goal.md. Ids are cited in the record as [E:<id>]. Not counted as values: dates, section, protocol, round and gate labels (§7.11, v4, r4, G6, C0–C6), file and test names, coding labels (0/1 coding, 1/2 coding), symbols inside formulas (1−TV, (1−γ), γ_2=0, h_2, h_3), arm labels (α=0), atom version labels (v1–v5), commit hashes (a328e43, 92c18cd), type and method names (float64, 2SLS, HC1, CR1), the subscript 32 of the notation K_32 / G_32, which the §9 r4 约定 paragraph and the §7 C1 line define as the pilot m [E:par.m_pilot], and the subscript 96 of K_96, which the §9 r4 约定 paragraph defines as the extension count (re-assessment m [E:par.m_stage] minus pilot m [E:par.m_pilot]). Constants of the reviewed atom statements that are the content of a claim (moment orders, index bounds, interval ends, premises such as m >= 4) are values and have entries (AC1A.*, B1A.*). Counts written in Chinese numerals (numbers of claims, lenses, cells, tests and repairs) are structural; they are checkable against the ledger table, the listed test names and the evidence conditions in the record itself and have no entries here.",
  "entries": [
   {
    "id": "par.m_pilot",
@@ -203,7 +203,7 @@
     "regex": "F_b\\s+m= 32:.*?NP in \\[([0-9.]+), ",
     "occurrence": 0
    },
-   "conditions": "Lower end of the NP-optimal error sum 1-TV, F_a=Beta(20,80)/Beta(25,75) vs F_b=Beta(40.5,162)/Beta(50.6,151.8), m=32, iid-within-type binomial counts, fixed n_0=n_1=100, common m; first-round math lens's lattice-FFT bracket with Chernoff-bounded aliasing (rounded outward). The re-review math lens's own bracket [0.52156, 0.52183] (rr-B1_math/chk.out) contains it."
+   "conditions": "Lower end of the NP-optimal error sum 1-TV, F_a=Beta(20,80)/Beta(25,75) vs F_b=Beta(40.5,162)/Beta(50.6,151.8), m=32, iid-within-type binomial counts, fixed n_0=n_1=100, common m; first-round math lens's lattice-FFT bracket with Chernoff-bounded aliasing (rounded outward; floating-point error not formally bounded, rr-B1_math/chk.out). The re-review math lens's own bracket [0.52156, 0.52183] (rr-B1_math/chk.out) contains it."
   },
   {
    "id": "B1.np_m32_hi",
@@ -225,7 +225,7 @@
     "regex": "fires at F_a more than ([0-9]+)% of the time",
     "occurrence": 0
    },
-   "conditions": "Percent. Corollary 4 availability cap: a rule on the 200 m=32 pilot counts with P_{F_b}(certify) <= 0.05 certifies under F_a with probability at most TV+0.05, rounded up (TV = 0.47832 on the re-review blind lens's grid, rr-B1_blind_replication/b1_replicate_32.json '32_b'; TV <= 1-0.52164 by the rigorous bracket); iid-within-type binomial-count model, fixed 100+100 prefixes, common m, F_a the §7.11 toy narrow world."
+   "conditions": "Percent. Corollary 4 availability cap: a rule on the 200 m=32 pilot counts with P_{F_b}(certify) <= 0.05 certifies under F_a with probability at most TV+0.05, rounded up (TV = 0.47832 on the re-review blind lens's grid, rr-B1_blind_replication/b1_replicate_32.json '32_b'; TV <= 1-0.52164 by the math lens's lattice-FFT bracket (aliasing bounded, rounded outward; floating-point error not formally bounded)); iid-within-type binomial-count model, fixed 100+100 prefixes, common m, F_a the §7.11 toy narrow world."
   },
   {
    "id": "B1.cert_Fc2",
@@ -440,6 +440,259 @@
     "occurrence": 0
    },
    "conditions": "pytest of sycophancy_phase0/tests/test_analysis.py run from sycophancy_phase0/ in the final v4 record step (python 3.13.16, numpy 2.5.4, scipy 1.18.1, pytest 9.1.1, CPU); includes the three r4 candidate-core regression tests."
+  },
+  {
+   "id": "B1A.cluster2",
+   "printed": "0.3318",
+   "kind": "lower",
+   "source": "docs/research/goal-rounds/r4/atoms/atom_B1-atom_applicability/cluster_bound.out",
+   "locator": {
+    "regex": "^2 \\S+ \\S+ (\\S+)$",
+    "occurrence": 0
+   },
+   "conditions": "Hellinger lower bound on err_I+err_II for F_a vs F_b when c=2 prefixes per question share one risk within type (sufficient count Bin(64,r), 50 clusters per type); applicability lens of B1-atom v1"
+  },
+  {
+   "id": "B1A.cluster4",
+   "printed": "0.2944",
+   "kind": "lower",
+   "source": "docs/research/goal-rounds/r4/atoms/atom_B1-atom_applicability/cluster_bound.out",
+   "locator": {
+    "regex": "^4 \\S+ \\S+ (\\S+)$",
+    "occurrence": 0
+   },
+   "conditions": "same, c=4 prefixes per question (Bin(128,r), 25 clusters per type)"
+  },
+  {
+   "id": "AC1A.D",
+   "printed": "843043/4615246",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/atoms/orchestrator_exact_checks.out",
+   "locator": {
+    "regex": "D_narrow_exact = (\\S+)",
+    "occurrence": 0
+   },
+   "conditions": "overlap D for Beta(20,80)/Beta(25,75), w_1=1/2, exact rational arithmetic (orchestrator); the blind lens of A-C1-atom v1 and v2 gives the same fraction 843043/4615246, and the math lens of v1 and v2 gives the decimal 0.182665, consistent with it"
+  },
+  {
+   "id": "test.full_pass",
+   "printed": "111",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/final/pytest_full_suite_v5.out",
+   "locator": {
+    "regex": "(\\d+) passed",
+    "occurrence": 0
+   },
+   "conditions": "full sycophancy_phase0 pytest suite in the worktree after the v5 integration (CPU, /tmp/claude-0/venv python)"
+  },
+  {
+   "id": "AC1A.m_min",
+   "printed": "4",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/atoms/atom-statements.json",
+   "locator": {
+    "regex": "K \\| \\(r,t\\) ~ Bin\\(m, r\\) with m >= (\\d+); y = beta_0",
+    "occurrence": 1
+   },
+   "conditions": "Premise of the A-C1-atom v2 statement (second occurrence in the file; the first is v1): a common m >= 4 counts per prefix, needed for the degree-2 U-statistics."
+  },
+  {
+   "id": "AC1A.moment_order",
+   "printed": "8",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/atoms/atom-statements.json",
+   "locator": {
+    "regex": "The variance depends on F_t only through its moments of order <= (\\d+) and the sigma\\^2-weighted moments",
+    "occurrence": 0
+   },
+   "conditions": "A-C1-atom v2 statement: the first-order variance depends on F_t only through moments of order <= 8 and the sigma^2-weighted moments; the v2 math and blind lenses both derived the degree-8 polynomial (severity none)."
+  },
+  {
+   "id": "AC1A.weighted_l",
+   "printed": "4",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/atoms/atom-statements.json",
+   "locator": {
+    "regex": "E_t\\[sigma\\^2\\(r\\) r\\^l\\], l <= (\\d+);",
+    "occurrence": 0
+   },
+   "conditions": "A-C1-atom v2 statement: index bound l <= 4 of the sigma^2-weighted moments E_t[sigma^2(r) r^l]; confirmed by the v2 math and blind lenses."
+  },
+  {
+   "id": "AC1A.v1_moment_order",
+   "printed": "8",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/atoms/atom-statements.json",
+   "locator": {
+    "regex": "in particular the variance depends on F_t only through moments of order <= (\\d+)\\. Under",
+    "occurrence": 0
+   },
+   "conditions": "The refuted A-C1-atom v1 clause 'the variance depends on F_t only through moments of order <= 8' (quoted in §7 已淘汰路线 as a rejected version; wrong for arbitrary sigma^2(r))."
+  },
+  {
+   "id": "B1A.tv_lo",
+   "printed": "0.5216",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/atoms/atom-statements.json",
+   "locator": {
+    "regex": "1 - TV\\(P_a,P_b\\) lies in \\[([0-9.]+), [0-9.]+\\]",
+    "occurrence": 1
+   },
+   "conditions": "Lower end of the interval for 1-TV(P_a,P_b) stated in B1-atom v2 (second occurrence; the first is v1): F_a vs F_b, m=32, 100+100 independent counts (product model). The v2 math lens (lattice FFT, 0.52167779) and blind lens (Fourier quadrature, 0.5216777923) both found the value inside the interval."
+  },
+  {
+   "id": "B1A.tv_hi",
+   "printed": "0.5218",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/atoms/atom-statements.json",
+   "locator": {
+    "regex": "1 - TV\\(P_a,P_b\\) lies in \\[[0-9.]+, ([0-9.]+)\\]",
+    "occurrence": 1
+   },
+   "conditions": "Upper end of the same B1-atom v2 interval (same model and pair)."
+  },
+  {
+   "id": "B1A.c2",
+   "printed": "2",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/atoms/atom_B1-atom_applicability/cluster_bound.out",
+   "locator": {
+    "regex": "^(2) \\S+ \\S+ \\S+$",
+    "occurrence": 0
+   },
+   "conditions": "Cluster size c of the second row of the B1-atom v1 applicability lens's cluster bound: c=2 prefixes per question share one risk within type."
+  },
+  {
+   "id": "B1A.c4",
+   "printed": "4",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/atoms/atom_B1-atom_applicability/cluster_bound.out",
+   "locator": {
+    "regex": "^(4) \\S+ \\S+ \\S+$",
+    "occurrence": 0
+   },
+   "conditions": "Cluster size c of the third row of the same output: c=4 prefixes per question share one risk within type."
+  },
+  {
+   "id": "B2A.g6_calls",
+   "printed": "1200",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/atoms/atomic-review-verdicts.json",
+   "locator": {
+    "regex": "In all (\\d+) cases min_eig equalled",
+    "occurrence": 0
+   },
+   "conditions": "B2-atom v5 applicability lens (verdict text; script atoms/atom_B2-atom-v5_applicability/check.py, no output file): G6-shaped calls with 200 prefixes (100 per type), m in {32,128}, degree 1-3; min_eig equalled corrected_moment_matrix's and every non-PD case returned ok=False. Not a truth verdict."
+  },
+  {
+   "id": "test.file_pass_v5",
+   "printed": "29",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/final/pytest_test_analysis_v5.out",
+   "locator": {
+    "regex": "(\\d+) passed",
+    "occurrence": 0
+   },
+   "conditions": "pytest of sycophancy_phase0/tests/test_analysis.py run from sycophancy_phase0/ after the v5 integration (the 27 tests of test.pass plus test_goal_r4_atoms_overlap_D_exact and test_goal_r4_b2_pd_decision_precedes_outcomes); python 3.13.16, numpy 2.5.4, scipy 1.18.1, pytest 9.1.1, CPU."
+  },
+  {
+   "id": "B2A.pd_rtol",
+   "printed": "1e-9",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/final/pd_rtol_signature.out",
+   "locator": {
+    "regex": "^PD_RTOL = (\\S+)$",
+    "occurrence": 0
+   },
+   "conditions": "Import-time value of g6_iv.PD_RTOL, the default of corrected_moment_matrix's pd_rtol keyword, at worktree HEAD 92c18cd (g6_iv.py unchanged vs HEAD); the same file prints the signatures, which show that endpoint_contrast_poly_cs takes no pd_rtol argument and calls corrected_moment_matrix(counts, m, type_, degree) with the default. Written in 修复 3 of detailed-record.md, the second repair after the v5 gate check (python 3.13.16, numpy 2.5.4, CPU). Usage condition of B2-atom, not a review verdict."
+  },
+  {
+   "id": "AC1A.nonpd_m32_narrow",
+   "printed": "0.535",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/repair/w1_q90_ratios.out",
+   "locator": {
+    "regex": "narrow m=32 HC1\\s+nonPD=([0-9.]+)",
+    "occurrence": 0
+   },
+   "conditions": "Non-PD rate of the production degree-2 corrected moment matrix (endpoint_contrast_poly_cs), narrow example world Beta(20,80)/Beta(25,75) (the plan's illustrative r~0.20/0.25 case), n=100+100, pilot m=32, g=0.18-0.8r, two 16-draw arms, HC1, null b_type=0; 2000 reps, seed 20261019. Problem-phase self-check (P/check1_size_width.py, unreviewed, single seed); the row of repair/w1_q90_ratios.out copies P/check1_size_width.out 'narrow|g=linear|m=32|deg=2|HC1' non_pd 0.5349999999999999 (CR1 0.539). Holds only in this world: the wide world gives 0 (AC1A.nonpd_m32_wide). The A-C1-atom v1/v2 applicability lenses make the same caveat with the plan's own §7.11 figure 52.4%. Written in 修复 4 of detailed-record.md."
+  },
+  {
+   "id": "AC1A.nonpd_m32_wide",
+   "printed": "0.000",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/repair/w1_q90_ratios.out",
+   "locator": {
+    "regex": "wide m=32 HC1\\s+nonPD=([0-9.]+)",
+    "occurrence": 0
+   },
+   "conditions": "Same check and design as AC1A.nonpd_m32_narrow in the wide world Beta(2,8)/Beta(2.5,7.5): no non-PD replicate in 2000 (HC1; CR1 also 0). Problem-phase self-check, unreviewed, single seed 20261019. Written in 修复 4."
+  },
+  {
+   "id": "B1S.copula_rho03",
+   "printed": "0.3",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_B1_scope.json",
+   "locator": {
+    "regex": "falls from [0-9.]+ \\(rho=0\\) to [0-9.]+, [0-9.]+ and [0-9.]+ \\(rho=([0-9.]+), [0-9.]+, [0-9.]+\\)",
+    "occurrence": 0
+   },
+   "conditions": "Copula correlation of the first-round B1 scope lens's question-clustered model (rv-B1_scope/cluster_np.py): 50 questions x (2 type-0 + 2 type-1) prefixes, Gaussian copula z_p = sqrt(rho) z_q + sqrt(1-rho) e_p, r_p = F_t^{-1}(Phi(z_p)), Beta marginals of F_a and F_b unchanged, m=32. A model parameter, not a result. Written in 修复 4."
+  },
+  {
+   "id": "B1S.copula_rho06",
+   "printed": "0.6",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_B1_scope.json",
+   "locator": {
+    "regex": "falls from [0-9.]+ \\(rho=0\\) to [0-9.]+, [0-9.]+ and [0-9.]+ \\(rho=[0-9.]+, ([0-9.]+), [0-9.]+\\)",
+    "occurrence": 0
+   },
+   "conditions": "As B1S.copula_rho03, second correlation value."
+  },
+  {
+   "id": "B1S.copula_rho09",
+   "printed": "0.9",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_B1_scope.json",
+   "locator": {
+    "regex": "falls from [0-9.]+ \\(rho=0\\) to [0-9.]+, [0-9.]+ and [0-9.]+ \\(rho=[0-9.]+, [0-9.]+, ([0-9.]+)\\)",
+    "occurrence": 0
+   },
+   "conditions": "As B1S.copula_rho03, third correlation value."
+  },
+  {
+   "id": "B1S.copula_err03",
+   "printed": "0.503",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_B1_scope.json",
+   "locator": {
+    "regex": "falls from [0-9.]+ \\(rho=0\\) to ([0-9.]+), [0-9.]+ and [0-9.]+ \\(rho=",
+    "occurrence": 0
+   },
+   "conditions": "First-round B1 scope lens (verdict text; it calls the value 'the NP minimum'; script rv-B1_scope/cluster_np.py, no output file saved): MC estimate (20000 pilots per side, seed 20261019) of the error sum of the likelihood-ratio test with per-question likelihoods approximated by 60-point Gauss-Hermite quadrature, i.e. an estimate of an upper bound on the NP minimum 1-TV, not the minimum itself; F_a vs F_b, m=32, in the copula model of B1S.copula_rho03 at correlation 0.3 (0.528 at correlation 0; the iid lattice value is 0.52168). Below the product-model 1-TV, so the two worlds are more separable at this point. Not replicated; not truth-reviewed; a different clustering model from B1A.cluster2/cluster4. Written in 修复 4."
+  },
+  {
+   "id": "B1S.copula_err06",
+   "printed": "0.472",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_B1_scope.json",
+   "locator": {
+    "regex": "falls from [0-9.]+ \\(rho=0\\) to [0-9.]+, ([0-9.]+) and [0-9.]+ \\(rho=",
+    "occurrence": 0
+   },
+   "conditions": "As B1S.copula_err03 at copula correlation 0.6."
+  },
+  {
+   "id": "B1S.copula_err09",
+   "printed": "0.416",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_B1_scope.json",
+   "locator": {
+    "regex": "falls from [0-9.]+ \\(rho=0\\) to [0-9.]+, [0-9.]+ and ([0-9.]+) \\(rho=",
+    "occurrence": 0
+   },
+   "conditions": "As B1S.copula_err03 at copula correlation 0.9."
   }
  ]
 }

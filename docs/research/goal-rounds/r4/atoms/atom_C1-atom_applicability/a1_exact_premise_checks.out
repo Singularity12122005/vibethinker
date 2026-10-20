@@ -1,0 +1,5 @@
+A latent-eta: E[delta]=+0.000000 (exact 0); P(R)-P(R')=+0.000000; P(R|D)-P(R'|D)=-0.003262
+   Cov(delta,1_D)/pi = -0.0032618666666666667  identity holds: True
+B drift eps=0.05: E[delta]=-0.006169 (exact -1579291/256000000); P(R)-P(R')=-0.006169; P(R|D)-P(R'|D)=-0.022326
+C D uses W: E[delta]=+0.000000 (exact 0); P(R)-P(R')=+0.000000; P(R|D)-P(R'|D)=+0.022566
+   prop's Cov(delta_K32,1_D)/pi = 0.026438577777777778  equals lhs: False

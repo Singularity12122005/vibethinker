@@ -1,0 +1,5 @@
+# command (cwd sycophancy_phase0/): /tmp/claude-0/venv/bin/python -m pytest -q -p no:cacheprovider
+# date: 2026-10-20; python 3.13.16 numpy 2.5.4 scipy 1.18.1 pytest 9.1.1; re-run after repair 2 (only a docstring changed in tests/test_analysis.py)
+........................................................................ [ 64%]
+.......................................                                  [100%]
+111 passed in 113.54s (0:01:53)

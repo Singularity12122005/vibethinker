@@ -32,4 +32,27 @@ PASS  B2c.calls                                printed 18000          count  sou
 PASS  B2c.draws                                printed 300            count  source 300
 PASS  B2c.nonpd                                printed 38             count  source 38
 PASS  test.pass                                printed 27             count  source 27
-34/34 entries pass
+PASS  B1A.cluster2                             printed 0.3318         lower  source 0.3318804318210748 (unit 0.0001)
+PASS  B1A.cluster4                             printed 0.2944         lower  source 0.2944658794345789 (unit 0.0001)
+PASS  AC1A.D                                   printed 843043/4615246 exact  source 843043/4615246
+PASS  test.full_pass                           printed 111            count  source 111
+PASS  AC1A.m_min                               printed 4              count  source 4
+PASS  AC1A.moment_order                        printed 8              count  source 8
+PASS  AC1A.weighted_l                          printed 4              count  source 4
+PASS  AC1A.v1_moment_order                     printed 8              count  source 8
+PASS  B1A.tv_lo                                printed 0.5216         exact  source 0.5216
+PASS  B1A.tv_hi                                printed 0.5218         exact  source 0.5218
+PASS  B1A.c2                                   printed 2              count  source 2
+PASS  B1A.c4                                   printed 4              count  source 4
+PASS  B2A.g6_calls                             printed 1200           count  source 1200
+PASS  test.file_pass_v5                        printed 29             count  source 29
+PASS  B2A.pd_rtol                              printed 1e-9           exact  source 1e-09
+PASS  AC1A.nonpd_m32_narrow                    printed 0.535          point  source 0.5350 (unit 0.001)
+PASS  AC1A.nonpd_m32_wide                      printed 0.000          point  source 0.0000 (unit 0.001)
+PASS  B1S.copula_rho03                         printed 0.3            exact  source 0.3
+PASS  B1S.copula_rho06                         printed 0.6            exact  source 0.6
+PASS  B1S.copula_rho09                         printed 0.9            exact  source 0.9
+PASS  B1S.copula_err03                         printed 0.503          point  source 0.503 (unit 0.001)
+PASS  B1S.copula_err06                         printed 0.472          point  source 0.472 (unit 0.001)
+PASS  B1S.copula_err09                         printed 0.416          point  source 0.416 (unit 0.001)
+57/57 entries pass

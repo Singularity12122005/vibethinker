@@ -1,0 +1,8 @@
+# 修复 3 of detailed-record.md (2026-10-20; the second repair after the v5 gate check): import-time PD tolerance and the signatures of corrected_moment_matrix / endpoint_contrast_poly_cs
+# worktree HEAD 92c18cd; g6_iv.py diff vs HEAD: none
+# command: /tmp/claude-0/venv/bin/python -I docs/research/goal-rounds/r4/final/pd_rtol_signature.py <worktree> (sycophancy_phase0/src on sys.path)
+PD_RTOL = 1e-09
+corrected_moment_matrix (counts: 'Sequence[int]', m: 'int', type_: 'Sequence[int]', degree: 'int', pd_rtol: 'float' = 1e-09) -> 'Dict[str, object]'
+endpoint_contrast_poly_cs (delta_hat: 'Sequence[float]', counts: 'Sequence[int]', m: 'int', type_: 'Sequence[int]', degree: 'int' = 1, cluster: 'Optional[Sequence]' = None) -> 'Dict[str, object]'
+endpoint_contrast_poly_cs accepts pd_rtol: False
+internal call: ['cm = corrected_moment_matrix(counts, m, type_, degree)']

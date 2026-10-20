@@ -823,7 +823,7 @@ def _goal_r4_mixture(m, atoms):
 
 
 def test_goal_r4_a_c1_candidate_closed_form_sandwich():
-    """r4 A-C1（候选，不是已证明）：二次校正得分类型系数一阶三明治的闭式。精确有理数下，枚举 (t, r, K) 的
+    """r4 A-C1（长陈述为候选；原子核心 A-C1-atom v2 经协议 v5 原子化审查为独立复核，档案 §9 r4 G）：二次校正得分类型系数一阶三明治的闭式。精确有理数下，枚举 (t, r, K) 的
     [Q^{-1}BQ^{-1}]_44 等于 D^{-2}Σ_t w_t E_t[φ²]，其中 E[φ²|r,t]=σ²[ρ²+γ̃'V⁽²⁾γ̃]+Σ_{b,d}β_bβ_d α_b'V⁽⁴⁾α_d，
     且 Q^{-1}e_4=D^{-1}(−γ,1)。同时锁定审查补入的前提 E[η²|r,t,K]=σ²(r)：令条件方差依赖 K 而保持 E[η²|r] 不变时闭式不再成立。
     不检验 n=200 的有限样本宽度分布、非正定率或 size，也不检验 |g|≤1 类上的一致上确界。"""
@@ -898,7 +898,7 @@ def test_goal_r4_a_c1_candidate_closed_form_sandwich():
 
 
 def test_goal_r4_b1_candidate_lecam_constants():
-    """r4 B1（候选，不是已证明）：Le Cam 两点界的引理在可枚举小例上精确成立（亲和度张量化、TV≤√(1−ρ²)、
+    """r4 B1（长陈述为候选；原子核心 B1-atom v2 经协议 v5 原子化审查为独立复核，档案 §9 r4 G）：Le Cam 两点界的引理在可枚举小例上精确成立（亲和度张量化、TV≤√(1−ρ²)、
     min_φ(err_I+err_II)=1−TV 由似然比检验达到、P_a(φ)−P_b(φ)≤TV），并按审查更正后的口径锁定实际导频（每类 100、m=32）
     的常数：问题阶段的 0.569 是只用 0 类前缀的 Hellinger 界 1−√(1−ρ_0^{200})（ρ_0^{100}=0.90252，不是 0.569），两类合并为
     0.41942（错误和的下界按档案约定向下取整；点值四舍五入）；F_c2 与 F_a 每类同均值同方差。F_θ 定义为同均值、方差 θ·V_a 的
@@ -968,7 +968,7 @@ def test_goal_r4_b1_candidate_lecam_constants():
 
 
 def test_goal_r4_c1_candidate_reuse_identity():
-    """r4 C1（候选，不是已证明）：内部导频复用的精确恒等式。(i) 32 条嵌在 128 条内时
+    """r4 C1（长陈述为候选；原子核心 C1-atom v1 经协议 v5 原子化审查为独立复核，档案 §9 r4 G）：内部导频复用的精确恒等式。(i) 32 条嵌在 128 条内时
     Ũ_j(k,r)=E[U_j(K128)|K32=k,r]=C(128,j)^{-1}Σ_l C(k,l)C(96,j−l)r^{j−l}，Ũ_1−r=(32/128)(k/32−r)；导频在 U_1 测量误差方差中的
     份额恰为 1/4，窄世界 Beta(20,80)/(25,75) 合并的 U_2 份额为 221679769/894945124（独立的贝塔二项联合矩求和）。
     (ii) Theorem 1 在可枚举小例（4 个前缀、导频 2 条、终值 4 条、事件 R = 生产函数二次校正矩阵非正定）上精确成立：
@@ -1106,3 +1106,28 @@ def test_goal_r4_b2_pd_decision_precedes_outcomes():
         endpoint_contrast_poly_cs(np.zeros((8, 1)), [0, 1, 2, 3, 4, 1, 2, 3], 4, [0, 0, 0, 0, 1, 1, 1, 1], degree=1)
     with pytest.raises(ValueError):
         endpoint_contrast_poly_cs(np.zeros(7), [0, 1, 2, 3, 4, 1, 2, 3], 4, [0, 0, 0, 0, 1, 1, 1, 1], degree=1)
+
+
+def test_goal_r4_atoms_overlap_D_exact():
+    """r4 A-C1-atom v2（独立复核）：窄世界 Beta(20,80)/Beta(25,75)、w_1=1/2 的重叠 D = w_1 − q'Q_xx^{-1}q 精确等于 843043/4615246
+    （x=(1,r,r²)，贝塔矩的有理数精确值；盲重实现得同一分数，数学视角得小数 0.182665，与之一致）。"""
+    from fractions import Fraction as Fr
+    def mom(a, b, J):
+        mu = [Fr(1)]
+        for j in range(1, J + 1):
+            mu.append(mu[-1] * Fr(a + j - 1) / Fr(a + b + j - 1))
+        return mu
+    m0, m1, w1 = mom(20, 80, 4), mom(25, 75, 4), Fr(1, 2)
+    Q = [[(1 - w1) * m0[i + j] + w1 * m1[i + j] for j in range(3)] for i in range(3)]
+    q = [w1 * m1[i] for i in range(3)]
+    A = [row[:] + [q[i]] for i, row in enumerate(Q)]
+    for c in range(3):
+        p = next(i for i in range(c, 3) if A[i][c] != 0)
+        A[c], A[p] = A[p], A[c]
+        for i in range(3):
+            if i != c:
+                f = A[i][c] / A[c][c]
+                A[i] = [x - f * y for x, y in zip(A[i], A[c])]
+    x = [A[i][3] / A[i][i] for i in range(3)]
+    D = w1 - sum(qi * xi for qi, xi in zip(q, x))
+    assert D == Fr(843043, 4615246) and abs(float(D) - 0.1827) < 5e-5

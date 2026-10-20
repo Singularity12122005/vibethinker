@@ -1,0 +1,5 @@
+# command (cwd sycophancy_phase0/): /tmp/claude-0/venv/bin/python -m pytest -q -p no:cacheprovider
+# date: 2026-10-20; full-suite re-run after 修复 3 (archive text, manifest, evidence and final/ outputs only; no test or code change)
+........................................................................ [ 64%]
+.......................................                                  [100%]
+111 passed in 162.51s (0:02:42)
