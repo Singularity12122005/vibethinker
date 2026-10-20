@@ -69,7 +69,7 @@ function ledgerParts(p) {                     // [key, value] in prompt order; a
 }
 function ledgerFromPrompt(p) {
   const led = {}
-  for (const [k, v] of ledgerParts(p)) { if (k.startsWith('versions.')) (led.versions = led.versions || []).push(v); else led[k] = v }
+  for (const [k, v] of ledgerParts(p)) { const m = /^(\w+)\.(\d+)$/.exec(k); if (m) (led[m[1]] = led[m[1]] || []).push(v); else led[k] = v }
   return led
 }
 const codeOk = (over = {}) => () => ({ restore_line: RESTORED, applied: true, summary: 's', ...over })

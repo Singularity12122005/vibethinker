@@ -305,11 +305,16 @@ def part_copy(root: Path, src: Path, evd: Path) -> dict:
 
 
 def part_snapshot(root: Path, module: str, evd: Path, state_dir: Path | None = None) -> dict:
+    """Copy the module to code/module_after_review.py.  An existing snapshot equal to the reference is kept: on a resume
+    the writer may already have added code to the module, and the module part judges those additions."""
     dst = evd / "code" / "module_after_review.py"
     dst.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(root / module, dst)
     exp = _expect(state_dir)
-    return {"path": dst.relative_to(root).as_posix(), "sha256": _sha(dst), "matches_expected": bool(exp) and _sha(dst) == exp["module_sha"]}
+    kept = bool(exp) and dst.is_file() and _sha(dst) == exp["module_sha"]
+    if not kept:
+        shutil.copyfile(root / module, dst)
+    return {"path": dst.relative_to(root).as_posix(), "sha256": _sha(dst), "kept": kept,
+            "matches_expected": bool(exp) and _sha(dst) == exp["module_sha"]}
 
 
 def part_verifier(root: Path, evd_rel: str) -> dict:
@@ -381,8 +386,9 @@ def _evd_copy(review_dir, led: dict, root: Path):
 
 
 def part_assemble(root: Path, evd_rel: str, parts: dict) -> dict:
-    """Build review-verdicts/ledger.json from review-verdicts/ledger.parts/<key>.json in the order of the manifest;
-    'versions.<i>' parts form the versions list at the position of the first of them."""
+    """Build review-verdicts/ledger.json from review-verdicts/ledger.parts/<key>.json in the order of the manifest.
+    Parts '<key>.<i>' form the list <key> at the position of the first of them (versions, not_reviewed); an empty list
+    comes as the single part '<key>'."""
     pdir = root / evd_rel / "review-verdicts" / "ledger.parts"
     led, missing, bad = {}, [], []
     for key in parts:
@@ -395,12 +401,13 @@ def part_assemble(root: Path, evd_rel: str, parts: dict) -> dict:
         except ValueError:
             bad.append(key)
             continue
-        if key.startswith("versions."):
-            led.setdefault("versions", []).append(val)
+        head, dot, idx = key.partition(".")
+        if dot and idx.isdigit():
+            led.setdefault(head, []).append(val)
         else:
             led[key] = val
     out = root / evd_rel / "review-verdicts" / "ledger.json"
-    out.write_text(json.dumps(led, ensure_ascii=False, indent=1), encoding="utf-8")
+    out.write_text(json.dumps(led, ensure_ascii=True, indent=1), encoding="ascii")   # lossless, also for lone surrogates
     return {"parts": len(parts), "missing": missing, "unreadable": bad}
 
 
@@ -424,9 +431,11 @@ def part_ledger(root: Path, evd_rel: str, expect: dict | None, ledger_sha: str |
                 continue
             if canonical_sha(node)[:len(want)] != want:
                 diff.append(k)
-        extra = [k for k in led if parts is not None and k not in parts and k != "versions"]
-        if parts is not None and isinstance(led.get("versions"), list) and len(led["versions"]) != sum(1 for k in parts if k.startswith("versions.")):
-            diff.append(f"versions (count {len(led['versions'])})")
+        split = {k.partition(".")[0] for k in (parts or {}) if k.partition(".")[2].isdigit()}
+        extra = [k for k in led if parts is not None and k not in parts and k not in split]
+        for key in split:
+            if isinstance(led.get(key), list) and len(led[key]) != sum(1 for k in parts if k.partition(".")[0] == key and k.partition(".")[2].isdigit()):
+                diff.append(f"{key} (count {len(led[key])})")
         differing = diff + [k + " (unexpected)" for k in extra]
         problems.append("ledger.json differs from the ledger the workflow built (canonical sha256)"
                         + (f"; differing parts: {differing}" if parts is not None else ""))
@@ -556,9 +565,10 @@ def _frozen_entries(evd: Path, top: re.Pattern = FROZEN_TOP):
     return sorted(set(out))
 
 
-def part_frozen(evd: Path, state_dir: Path | None = None, freeze: bool = False) -> dict:
-    """Hash of the frozen material.  With freeze, record it as the reference in <state-dir>/frozen.json; otherwise
-    report whether it is unchanged against that reference (None if there is none)."""
+def part_frozen(evd: Path, state_dir: Path | None = None, freeze: bool = False, ledger_ok: bool | None = None) -> dict:
+    """Hash of the frozen material.  With freeze, record it as the reference in <state-dir>/frozen.json, but only when the
+    ledger check of the same run passed, and never over a different earlier reference (the first freeze is final);
+    otherwise report whether it is unchanged against that reference (None if there is none)."""
     h, n = hashlib.sha256(), 0
     for rel, kind, payload in _frozen_entries(evd):
         h.update(rel.encode("utf-8", "surrogateescape") + b"\0" + kind.encode() + b"\0" + payload.encode("utf-8", "surrogateescape") + b"\n")
@@ -567,8 +577,20 @@ def part_frozen(evd: Path, state_dir: Path | None = None, freeze: bool = False) 
     if state_dir is not None:
         ref = state_dir / "frozen.json"
         if freeze:
-            _write_json(ref, res)
-            res["frozen"] = True
+            try:
+                old = json.loads(ref.read_text(encoding="ascii"))["hash"]
+            except (OSError, ValueError, KeyError):
+                old = None
+            if old is not None:
+                res["frozen"] = old == res["hash"]
+                if not res["frozen"]:
+                    res["reason"] = "the frozen material differs from the reference recorded by the first freeze"
+            elif ledger_ok is False:
+                res["frozen"] = False
+                res["reason"] = "not recorded: the ledger check of this run failed"
+            else:
+                _write_json(ref, res)
+                res["frozen"] = True
         else:
             try:
                 res["unchanged"] = json.loads(ref.read_text(encoding="ascii"))["hash"] == res["hash"]
@@ -701,7 +723,9 @@ def part_module(root: Path, module: str, evd: Path) -> dict:
             remaining.remove(s)
             continue
         if isinstance(n, (ast.Import, ast.ImportFrom)):
-            if _bound_names(n) & snap_names:
+            if any(al.name == "*" for al in n.names):
+                details.append(f"new star import at line {n.lineno} binds names that cannot be checked")
+            elif _bound_names(n) & snap_names:
                 details.append(f"new import at line {n.lineno} rebinds {sorted(_bound_names(n) & snap_names)}")
             continue
         if not isinstance(n, _PLAIN_NEW) or (n.decorator_list and not all(
@@ -803,7 +827,9 @@ def main(argv=None) -> int:
             elif part == "frozen":
                 res[part] = part_frozen(evd, sd)
             elif part == "freeze":
-                res[part] = part_frozen(evd, outside_dir(a.state_dir, "--state-dir"), freeze=True)
+                lp = res.get("ledger")
+                res[part] = part_frozen(evd, outside_dir(a.state_dir, "--state-dir"), freeze=True,
+                                        ledger_ok=None if lp is None else (isinstance(lp, dict) and lp.get("mismatches") == 0))
             elif part == "module":
                 res[part] = part_module(root, a.module, evd)
             elif part == "scope":

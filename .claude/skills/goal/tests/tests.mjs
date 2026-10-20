@@ -18,7 +18,7 @@ function pyLedgerCheck(r, mutate) {
   const pdir = `${root}/docs/research/goal-rounds/rT/review-verdicts/ledger.parts`
   fs.mkdirSync(pdir, { recursive: true })
   const parts = ledgerParts(p)
-  if (mutate) { const led = ledgerFromPrompt(p); mutate(led); parts.length = 0; for (const k of Object.keys(led)) { if (k === 'versions') led.versions.forEach((v, i) => parts.push([`versions.${i}`, v])); else parts.push([k, led[k]]) } }
+  if (mutate) { const led = ledgerFromPrompt(p); mutate(led); parts.length = 0; for (const k of Object.keys(led)) { if (['versions', 'not_reviewed'].includes(k) && led[k].length) led[k].forEach((v, i) => parts.push([`${k}.${i}`, v])); else parts.push([k, led[k]]) } }
   for (const [k, v] of parts) fs.writeFileSync(`${pdir}/${k}.json`, JSON.stringify(v, null, 1))
   const cmd = /--expect '(\{.*?\})' --ledger-sha ([0-9a-f]{64}) --ledger-parts '(\{.*?\})'/.exec(p)
   const out = execFileSync(PY, [GATE, root, 'rT', '--module', 'm.py', '--only', 'assemble,ledger', '--expect', cmd[1], '--ledger-sha', cmd[2], '--ledger-parts', cmd[3]]).toString().trim().split('\n').pop()
@@ -301,6 +301,33 @@ check('S32b final gate clean -> ready', r.out.status === 'ready_to_commit' && r.
 // S34 a resume note re-runs the ledger step live
 r = await run('S34', {}, { resume_note: 'resumed after a restart' })
 check('S34 resume note reaches the ledger prompt', r.prompts.ledger.includes('Resume note: resumed after a restart'))
+
+// S35 a round that reviews nothing (honest dead ends) passes the ledger step
+r = await run('S35', { 'attack:route1': () => ({ outcome: 'dead_end', claims: [], unfinished_computations: [], what_failed: 'x', next_step: 'y' }) })
+check('S35 dead-end round: ready, empty versions part', r.out.status === 'ready_to_commit' && ledgerParts(r.prompts.ledger).some(([k, v]) => k === 'versions' && Array.isArray(v) && !v.length), r.out.reason)
+pl = pyLedgerCheck(r); check('S35 python assembles an empty versions list', pl.mismatches === 0 && pl.versions === 0, JSON.stringify(pl))
+r = await run('S35b', { 'attack:route1': () => ({ outcome: 'partial', claims: [claim(1, { author_status: 'refuted' })], unfinished_computations: [], what_failed: '', next_step: '' }) })
+pl = pyLedgerCheck(r); check('S35b only an author-refuted claim: ledger agrees', r.out.status === 'ready_to_commit' && pl.mismatches === 0, JSON.stringify(pl))
+// S36 unreviewed claims are one part each; a slip in one is retried alone
+r = await run('S36', { 'attack:route1': () => ({ outcome: 'progress', claims: [1, 2, 3, 4, 5].map(k => claim(k)), unfinished_computations: [], what_failed: '', next_step: '' }) }, { max_claims: 1 })
+{ const keys = ledgerParts(r.prompts.ledger).map(([k]) => k)
+  check('S36 not_reviewed split per entry', ['not_reviewed.0', 'not_reviewed.3'].every(k => keys.includes(k)) && !keys.includes('not_reviewed'), keys.join(','))
+  pl = pyLedgerCheck(r); check('S36 python assembles the split list', pl.mismatches === 0, JSON.stringify(pl))
+  pl = pyLedgerCheck(r, led => { led.not_reviewed[2].statement = 'slip' }); check('S36 python names the one differing entry', /differing parts: \['not_reviewed\.2'\]/.test(pl.problems[0]), JSON.stringify(pl)) }
+// S37 cutting never splits a surrogate pair
+r = await run('S37', { review: (id, va, lens) => lens === 'applicability' ? { ...ap('gap'), note: 'x'.repeat(599) + '\u{1D53C}' + 'y'.repeat(30) } : okT(lens === 'blind_replication' ? [own(id, va) + '/c.py'] : ['/repo/m.py']) })
+{ const note = ledgerFromPrompt(r.prompts.ledger).versions[0].verdicts.applicability.note
+  check('S37 cut by code points', note.endsWith('\u{1D53C}…') && !/[\ud800-\udbff](?![\udc00-\udfff])/.test(note), JSON.stringify(note.slice(-4)))
+  pl = pyLedgerCheck(r); check('S37 python ledger agrees', pl.mismatches === 0, JSON.stringify(pl)) }
+// S38 a ledger line missing the assemble lists goes to the retry instead of throwing
+{ let n = 0
+  r = await run('S38', { ledger: (p, ctx) => n++ === 0 ? { copy_line: 'GATE ' + JSON.stringify({ copy: { copied: 5, ignored_by_git: [] }, snapshot: { path: 'p', matches_expected: true } }), ledger_line: 'GATE {"assemble":{"parts":12,"unreadable":[]},"ledger":{"versions":1,"mismatches":0},"freeze":{"frozen":true}}' }
+    : { copy_line: 'skipped', ledger_line: LEDGER_OK(ctx.expectVersions(p)) } })
+  check('S38 malformed ledger line retried', !r.err && r.out.status === 'ready_to_commit' && r.calls.includes('ledger:retry'), String(r.err)) }
+// S39 the final gate pass is retried once when its agent returns nothing
+{ let n = 0
+  r = await run('S39', { overreach: () => ({ issues: [{ severity: 'minor', where: 'w', problem: 'p', fix: 'f' }] }), gate: (p, ctx) => (n++ === 1 ? null : { gate_line: gate({ versions: ctx.expectVersions(p) }) }) })
+  check('S39 final gate retried', r.out.status === 'ready_to_commit' && r.calls.includes('gate:pfinal:retry'), JSON.stringify([r.out.reason, r.calls.slice(-3)])) }
 
 const failed = results.filter(x => !x[1]).length
 console.log(`${results.length - failed}/${results.length} checks pass`)

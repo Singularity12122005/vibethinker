@@ -238,5 +238,43 @@ check('module: locals of reviewed functions are not protected', 'y' not in rg._p
 (root / 'pkg/m.py').write_text(MOD); run(root, '--only', 'snapshot')
 # unicode categories
 check('path_ok rejects U+2060 inside a forbidden prefix', rg.path_ok(str(base / 'sc⁠r/rT/x.json'), '', iso) is False)
+# --- fifth review: idempotent snapshot, first freeze final, freeze only after a matching ledger, star import, list parts
+run(root, '--only', 'accept', '--state-dir', str(state))
+g = run(root, '--only', 'snapshot', '--state-dir', str(state))
+(root / 'pkg/m.py').write_text(MOD + '\n\ndef writer_helper():\n    return 5\n')
+g = run(root, '--only', 'snapshot', '--state-dir', str(state))
+check('snapshot kept on a resume after the writer added code', g['snapshot']['kept'] is True and g['snapshot']['matches_expected'] is True and 'writer_helper' not in (evd / 'code/module_after_review.py').read_text(), g['snapshot'])
+check('module part judges the writer addition as allowed', run(root, '--only', 'module')['module']['violations'] == 0)
+(root / 'pkg/m.py').write_text(MOD)
+st2 = base / 'scr' / 'rT2.state'
+g = run(root, '--only', 'assemble,ledger,freeze', '--expect', exp, '--ledger-sha', '0' * 64, '--ledger-parts', json.dumps(parts), '--state-dir', str(st2))
+check('freeze not recorded when the ledger check of the same run fails', g['freeze']['frozen'] is False and not (st2 / 'frozen.json').exists(), g['freeze'])
+for k in parts:                                    # put the parts back exactly
+    if k.startswith('versions.'):
+        (pdir / f'{k}.json').write_text(json.dumps(led['versions'][int(k.split('.')[1])], ensure_ascii=False))
+    else:
+        (pdir / f'{k}.json').write_text(json.dumps(led[k], ensure_ascii=False))
+g = run(root, '--only', 'assemble,ledger,freeze', '--expect', exp, '--ledger-sha', LSHA, '--ledger-parts', json.dumps(parts), '--state-dir', str(st2))
+check('first successful freeze recorded', g['freeze']['frozen'] is True and (st2 / 'frozen.json').exists(), g)
+(evd / 'route1/extra_by_writer.json').write_text('{"v": 1}')
+g = run(root, '--only', 'assemble,ledger,freeze', '--expect', exp, '--ledger-sha', LSHA, '--ledger-parts', json.dumps(parts), '--state-dir', str(st2))
+check('a re-freeze never blesses changed frozen material', g['freeze']['frozen'] is False and 'first freeze' in g['freeze']['reason'], g['freeze'])
+(evd / 'route1/extra_by_writer.json').unlink()
+check('module: new star import rejected', mod_violations(MOD + '\nfrom numpy import *\n') > 0)
+(root / 'pkg/m.py').write_text(MOD); run(root, '--only', 'snapshot')
+# empty list parts and split lists assemble
+pd2 = evd / 'review-verdicts' / 'ledger.parts'
+for f in pd2.iterdir(): f.unlink()
+led_e = {'scratch_round_dir': str(scr), 'evidence_dir': 'docs/research/goal-rounds/rT', 'isolation': iso, 'versions': [], 'final': [], 'not_reviewed': [{'id': 'R1-1'}, {'id': 'R1-2'}]}
+parts_e = {}
+for k, v in led_e.items():
+    if k in ('versions', 'not_reviewed') and v:
+        for i, x in enumerate(v):
+            (pd2 / f'{k}.{i}.json').write_text(json.dumps(x)); parts_e[f'{k}.{i}'] = rg.canonical_sha(x)[:16]
+    else:
+        (pd2 / f'{k}.json').write_text(json.dumps(v)); parts_e[k] = rg.canonical_sha(v)[:16]
+g = run(root, '--only', 'assemble,ledger', '--expect', json.dumps({'versions': [], 'final': []}), '--ledger-sha', rg.canonical_sha(led_e), '--ledger-parts', json.dumps(parts_e))
+check('empty versions part and split not_reviewed assemble to the workflow ledger', g['ledger']['mismatches'] == 0 and g['ledger']['versions'] == 0, g)
+(evd / 'review-verdicts/ledger.json').write_text(json.dumps(led, ensure_ascii=False, indent=2))
 shutil.rmtree(base)
 print('e2e', 'ok' if not fails else f'{fails} failures'); sys.exit(1 if fails else 0)

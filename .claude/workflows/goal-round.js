@@ -77,7 +77,7 @@ const RECORD_TARGET = 12000, RECORD_HARD = 13000                   // §9 subsec
 const LBL = { ok: '独立复核', refuted: '已驳回', cand: '候选' }
 const LENS_NAMES = ['math', 'blind_replication', 'applicability']
 const pyid = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '')
-const cut = (s, n) => { const t = String(s || ''); return t.length > n ? t.slice(0, n) + '…' : t }
+const cut = (s, n) => { const a = Array.from(String(s || '')); return a.length > n ? a.slice(0, n).join('') + '…' : a.join('') }   // by code points
 const hasText = s => typeof s === 'string' && s.trim() !== '' && !/^(none|n\/a|na|-|无|没有)\.?$/i.test(s.trim())
 const base = p => strip(p).split('/').pop()
 const escRe = x => String(x).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -395,23 +395,29 @@ const VTEXT = allReviews.map(r => ({ id: r.claim.id, version: r.claim.version, a
 const EXPECT = { versions: allReviews.map(r => ({ id: r.claim.id, version: r.claim.version, attempt: r.claim.attempt, truth_label: r.truth_label, v4_label: r.v4_label, blind_status: r.blind_status })), final: finalLabels() }
 const LEDGER_SHA = sha256hex(canonicalJSON(LEDGER))
 // per-part digests (top-level keys, and each version) so that a mismatch names the part to rewrite
-// the ledger is written as small part files (top-level keys in order; one file per version), which round_gate.py assembles and checks part by part
+// the ledger is written as small part files (top-level keys in order; one file per version and per unreviewed claim; an
+// empty list as one part), which round_gate.py assembles and checks part by part
+const SPLIT = ['versions', 'not_reviewed']
 const PART_VALUES = []
-for (const k of Object.keys(LEDGER)) { if (k === 'versions') LEDGER.versions.forEach((v, i) => PART_VALUES.push([`versions.${i}`, v])); else PART_VALUES.push([k, LEDGER[k]]) }
+for (const k of Object.keys(LEDGER)) {
+  if (SPLIT.includes(k) && LEDGER[k].length) LEDGER[k].forEach((v, i) => PART_VALUES.push([`${k}.${i}`, v]))
+  else PART_VALUES.push([k, LEDGER[k]])
+}
 const LEDGER_PARTS = Object.fromEntries(PART_VALUES.map(([k, v]) => [k, sha256hex(canonicalJSON(v)).slice(0, 16)]))
 const PDIR = `${EVD}/review-verdicts/ledger.parts`
 const SDA = ` --state-dir ${sq(STATE_DIR)}`
 const ledgerCmd = gateCmd('assemble,ledger,freeze', ` --expect ${sq(JSON.stringify(EXPECT))} --ledger-sha ${LEDGER_SHA} --ledger-parts ${sq(JSON.stringify(LEDGER_PARTS))}` + SDA)
 const partFiles = keys => PART_VALUES.filter(([k]) => keys.includes(k)).map(([k, v]) => `FILE ${PDIR}/${k}.json\n${JSON.stringify(v)}`).join('\n\n')
 const ledgerPrompt = (sfx, keys, prev) => `Ledger step of round ${round}${sfx}.${A.resume_note ? ' Resume note: ' + A.resume_note + '.' : ''} ${keys.length === PART_VALUES.length ? `(1) Run exactly: ${gateCmd('copy,snapshot', ` --copy-from ${sq(RDIR)}` + SDA)}\nand put its last output line (starting "GATE ") in copy_line.` : '(1) Skip the copy (it succeeded before); put "skipped" in copy_line.'} (2) Write each of the following files with the Write tool, one call per file, with exactly the JSON given after its FILE line (no other change, no reformatting needed, nothing added):\n\n${partFiles(keys)}\n\n(3) Run exactly: ${ledgerCmd}\nand put its last output line (starting "GATE ") in ledger_line. Change no other file.${prev ? ' The previous attempt reported: ' + prev : ''}`
-const ledgerOk = g => !!(g && g.assemble && !g.assemble.error && !g.assemble.missing.length && !g.assemble.unreadable.length && g.ledger && !g.ledger.error
+const ledgerOk = g => !!(g && g.assemble && !g.assemble.error && Array.isArray(g.assemble.missing) && !g.assemble.missing.length && Array.isArray(g.assemble.unreadable) && !g.assemble.unreadable.length && g.ledger && !g.ledger.error
   && g.ledger.mismatches === 0 && g.ledger.versions === EXPECT.versions.length && g.freeze && g.freeze.frozen === true)
 let lo = await agent(ledgerPrompt('', PART_VALUES.map(([k]) => k), ''), { schema: LEDGER_OUT, phase: 'Write', label: 'ledger', effort: 'low' })
 const lo0 = lo
 let lg = lo && parseGate(lo.ledger_line)
 if (!ledgerOk(lg)) {
-  const named = lg && lg.ledger && Array.isArray(lg.ledger.differing_parts) ? lg.ledger.differing_parts.map(x => String(x).split(' ')[0]) : []
-  const again = [...new Set([...named, ...((lg && lg.assemble && lg.assemble.missing) || []), ...((lg && lg.assemble && lg.assemble.unreadable) || [])])].filter(k => k in LEDGER_PARTS)
+  const arr = x => Array.isArray(x) ? x : []
+  const named = lg && lg.ledger ? arr(lg.ledger.differing_parts).map(x => String(x).split(' ')[0]) : []
+  const again = [...new Set([...named, ...arr(lg && lg.assemble && lg.assemble.missing), ...arr(lg && lg.assemble && lg.assemble.unreadable)])].filter(k => k in LEDGER_PARTS)
   lo = await agent(ledgerPrompt(' (retry)', again.length ? again : PART_VALUES.map(([k]) => k), lo ? cut(lo.ledger_line, 1500) : 'nothing'), { schema: LEDGER_OUT, phase: 'Write', label: 'ledger:retry', effort: 'low' })
   lg = lo && parseGate(lo.ledger_line)
 }
@@ -517,7 +523,8 @@ if (clean && minorSeen.size) {                                     // non-blocki
   if (lg2) w = { ...w, files_changed: [...new Set([...(w.files_changed || []), ...(lg2.files_changed || [])])] }
   if (!minorLogged) log('the non-blocking issues could not be written to detailed-record.md; they are in open_minor_issues for the caller to record')
   // the append is the last change: the mechanical gate runs once more on the final state
-  const gf = await auditors('final', '')[0]()
+  let gf = await auditors('final', '')[0]()
+  if (!gf || !parseGate(gf.gate_line)) gf = await auditors('final', ':retry')[0]()
   const fin = gateIssues(gf && parseGate(gf.gate_line)).filter(i => i.severity === 'blocking')
   audits.push({ pass: 'final', blocking: fin })
   if (fin.length) { clean = false; lastBlocking = fin; stopReason = 'the mechanical gate failed after the non-blocking issues were logged' }
