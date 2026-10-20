@@ -1,0 +1,38 @@
+halfvar|linear 500/4000  333s
+narrow|linear 500/4000  339s
+narrow|quad_narrow 500/2000  341s
+wide|linear 500/4000  345s
+halfvar|linear 1000/4000  608s
+narrow|linear 1000/4000  613s
+narrow|quad_narrow 1000/2000  617s
+wide|linear 1000/4000  619s
+halfvar|linear 1500/4000  779s
+narrow|quad_narrow 1500/2000  782s
+narrow|linear 1500/4000  784s
+wide|linear 1500/4000  790s
+halfvar|linear 2000/4000  925s
+narrow|quad_narrow 2000/2000  925s
+wrote /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_narrow_quad_narrow.npz elapsed 925s
+narrow|linear 2000/4000  929s
+wide|linear 2000/4000  937s
+halfvar|linear 2500/4000  1080s
+wide|quad_wide 500/2000  166s
+narrow|linear 2500/4000  1093s
+wide|linear 2500/4000  1106s
+halfvar|linear 3000/4000  1241s
+narrow|linear 3000/4000  1253s
+wide|quad_wide 1000/2000  328s
+wide|linear 3000/4000  1270s
+halfvar|linear 3500/4000  1396s
+narrow|linear 3500/4000  1412s
+wide|quad_wide 1500/2000  488s
+wide|linear 3500/4000  1429s
+halfvar|linear 4000/4000  1535s
+wrote /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_halfvar_linear.npz elapsed 1535s
+narrow|linear 4000/4000  1555s
+wrote /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_narrow_linear.npz elapsed 1555s
+wide|quad_wide 2000/2000  632s
+wrote /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_wide_quad_wide.npz elapsed 632s
+wide|linear 4000/4000  1571s
+wrote /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_wide_linear.npz elapsed 1571s
+done ['/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_narrow_linear.npz', '/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_halfvar_linear.npz', '/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_wide_linear.npz', '/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_narrow_quad_narrow.npz', '/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_raw_wide_quad_wide.npz']

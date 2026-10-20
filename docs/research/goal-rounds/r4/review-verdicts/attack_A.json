@@ -1,0 +1,125 @@
+{
+ "route": "A. Overlap-and-PD-margin certificate from pilot U-statistics (upper bound; sufficiency direction)",
+ "outcome": "partial",
+ "claims": [
+  {
+   "id": "A-C1",
+   "statement": "First-order (asymptotic) sandwich of the degree-2 corrected-score TYPE coefficient in closed form: with x=(1,r,r^2), Q_xx=Σ_t w_t E_t[xx'], q=w_1(1,μ_{1,1},μ_{2,1})', γ=Q_xx^{-1}q and the overlap D(F)=w_1−q'Q_xx^{-1}q=min_c E[(t−c'x)^2] (per-type moments ≤4), one has Q^{-1}e_type=D^{-1}(−γ,1)' and Var_1(b̂_type)=n^{-1}D^{-2}Σ_t w_t E_t[φ^2], φ=ψ_type−γ'ψ_x, where E[φ^2|r,t]=σ^2(r)[ρ^2+γ̃'V^{(2)}(r)γ̃]+Σ_{b,d∈{1,2}}β_bβ_d α_b(r,t)'V^{(4)}(r)α_d(r,t), ρ=t−γ'x, V^{(k)}(r)_{jl}=Cov(U_j,U_l|r)=J_{jl}(r)−r^{j+l} with J_{jl}(r)=Σ_ℓ C(j,ℓ)C(l,ℓ)ℓ!(m)_{j+l−ℓ}/((m)_j(m)_l) r^{j+l−ℓ} (A1 identity per r), and α_{b,j}=−(t−γ_0)1[j=b]−γ_1 r^b 1[j=1]+γ_1 1[j=1+b]−γ_2 r^b 1[j=2]+γ_2 1[j=2+b]. Hence the first-order 95% width w_1=3.92·sqrt(Σ_t w_t E_t φ^2/(nD^2)) is an explicit polynomial functional of per-type moments ≤8 (the A1 bound min(m,4p)=8 is attained), w_1, m, n, g and σ^2(·); as m→∞ it reduces to the oracle OLS width 3.92·sqrt(E[ρ^2σ^2]/(nD^2)). Over the response class {|g|≤1 on [0,1]} with σ^2≤r(1−r)/8 the g-term is a PSD quadratic β'Ωβ whose sup is attained on the boundary osc(β_1 r+β_2 r^2)=2 (Chebyshev extreme g=1−8r+8r^2 in all worlds computed).",
+   "status": "proved",
+   "assumptions": [
+    "r_i|t_i iid ~F_t within type, prefixes independent, n_t fixed (100 each), no question effect in r or Δ beyond r",
+    "K_i|r_i ~ Bin(m,r_i), common m; U_j(K)=(K)_j/(m)_j",
+    "y_i=β_0+β_1 r_i+β_2 r_i^2+b_type t_i+η_i with E[η|r,t,K]=0, Var(η|r)=σ^2(r) (two independent 16-draw arms, q_±=r±g/2 unclipped gives σ^2=[2r(1−r)−g^2/2]/16 ≤ r(1−r)/8; with clipping only σ^2≤1/32)",
+    "Q_xx invertible and D>0 (fails in the point-mass 0.20/0.25 world: D=0, w_1=∞)",
+    "first order = LLN/CLT limit of Â^{-1}Σψ_i; HC1 and CR1 estimate the same B at first order"
+   ],
+   "scope": "Holds for any F_t with finite support in [0,1] or any law identified by its moments ≤8, any m≥4, any n, both HC1 and CR1; it is the population (n→∞) sandwich, verified exactly (Fractions) against brute-force enumeration for discrete laws at m∈{4,8,10}, w_1∈{1/2,2/5}, and against the production function at n=20000 (ratio of production √n·se to the formula 1.000–1.007 ± 0.01 at m=128 in narrow/half-variance/wide and at m=32 wide).",
+   "does_not_claim": "It does not claim the finite-sample width distribution at n=200 is governed by w_1: at m=32 in the narrow/half-variance worlds the production se is heavy-tailed even at n=20000 (half-variance m=32: ratio 1.20 ± 0.37) and at n=200 the realised q90 exceeds w_1 (archive check1/check1b medians 0.114/0.176 vs w_1 0.107/0.143 at m=128); it does not bound the non-PD rate or the size.",
+   "derivation_md": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/derivation.md §1 (steps 1.1–1.8): conditional mean-zero score; block inverse Q^{-1}e_4=D^{-1}(−γ,1); explicit ψ_a=U_aη+Σ_bβ_b(U_a r^b−U_{a+b}), ψ_4=tη−tΣ_bβ_bδ_b; φ=η(ρ−γ_1δ_1−γ_2δ_2)+β_1ζ_1+β_2ζ_2 with ζ_b=c_b+Σ_jα_{b,j}U_j, E[ζ_b|r,t]=0; cross term vanishes by E[η|r,t,K]=0; E[ζ_bζ_d|r,t]=Σα_{b,j}α_{d,l}(J_{jl}−r^{j+l}); degree count ≤8.",
+   "evidence": "a1_exact_check.out/json: three discrete instances — brute-force [Q^{-1}BQ^{-1}]_44 equals D^{-2}Σw_tE_tφ^2 exactly as rationals (1233198574923483/1630867456000000; 391795053851/575170560000; 316871/960000), block-inverse identity exact, E_t[J_jk(r)] equals production binomial_factorial_joint_moment for all j,k≤4; a1b_largen_and_budget.out: n=20000 production HC1/CR1 ratios; first-order table for the archive worlds.",
+   "script_path": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a1_exact_check.py (library route_a_lib.py; supplement a1b_largen_and_budget.py)",
+   "numbers": [
+    {
+     "name": "D (overlap) narrow / half-var / wide, w_1=1/2",
+     "value": "0.1827 / 0.1437 / 0.2399 (γ narrow = (−1.13, 9.23, −8.43); half-var (−2.08, 14.57, −13.40); wide (0.27, 1.39, −1.16))",
+     "source": "a1_exact_check.py → a1_exact_check.json first_order_table; CPU, python 3.13.16 x86_64, numpy 2.5.4, scipy 1.18.1, 4 cores, 2026-10-19 (deterministic)"
+    },
+    {
+     "name": "w_1 at n=200, g=0.18−0.8r, m=32/128/512 (oracle)",
+     "value": "narrow 0.1444/0.1071/0.0982 (0.0952); half-var 0.2360/0.1428/0.1168 (0.1075); wide 0.0860/0.0809/0.0796 (0.0792)",
+     "source": "a1_exact_check.py → a1_exact_check.json / a1_exact_check.out; same environment, deterministic"
+    },
+    {
+     "name": "sup over {|g|≤1} of w_1 at m=128 (maximiser β*=(−8,8)); over {|g|≤1,|β_1|,|β_2|≤2}",
+     "value": "narrow 0.1639 / 0.1192; half-var 0.2312 / 0.1617; wide 0.1159 / 0.0894",
+     "source": "a1_exact_check.json (cinf) and a1b_largen_and_budget.out (c2); deterministic"
+    },
+    {
+     "name": "production √n·se / formula at n=20000 (20 reps, seed 77), HC1 mean±sd",
+     "value": "narrow m=32 1.019±0.051, m=128 1.001±0.010; half-var m=32 1.199±0.367, m=128 1.003±0.017; wide m=32 1.000±0.006, m=128 1.004±0.006 (CR1 within 0.01)",
+     "source": "a1b_largen_and_budget.py → a1b_largen_and_budget.json; seed 77; CPU, python 3.13.16, numpy 2.5.4, scipy 1.18.1, 2026-10-19"
+    },
+    {
+     "name": "first-order m-budget (smallest grid m with w_1≤0.15 at n=200), classes g / c2 / full",
+     "value": "narrow 32/64/192; half-var 128/192/384; wide 16/16/64 — the narrow m=32 value is a known false positive of the first-order width (archive: 54% non-PD there)",
+     "source": "a1b_largen_and_budget.py → a1b_largen_and_budget.json; deterministic"
+    }
+   ],
+   "experimental_consequence": "Gives the plan §7.11 a closed-form width criterion at any m (the 'first-order width and population PD margin' closed forms the obstacle asked for); it shows the width tolerance q90≤0.15 cannot be met uniformly over the full class |g|≤1 at (200,128) in the narrow world (sup 0.164) but can for coefficient-bounded g (0.119) — so the response class is a user decision that changes the 128 verdict; it does NOT by itself license m=32 (first-order width 0.144 there while the actual test is 54% non-PD)."
+  },
+  {
+   "id": "A-C2",
+   "statement": "Pilot certificate C(pilot; m, G', d_0, w_0): from the 32 (or 128) α=0 counts, per-type moment vector θ̂_t=mean_i U_{1..8}(K_i) (unbiased), question-cluster covariance, delta-method one-sided 95% bounds; fires iff LCB(D)≥d_0 and UCB(sup_{g∈G'} w_1(m))≤w_0 (optional third condition on the A1 PD margin κ(m)=λ_min(E[S_w(m)], N̄(m)), moments ≤4). By derivation: when it fires, D≥d_0 and the first-order width ≤w_0 for every (F,g) in the asymptotic confidence set × G'; the plug-in D̂ is biased downward (D concave in the moments, θ̂ unbiased ⇒ E[D̂]≤D, conservative in the mean). Availability and conditional (two-stage, internal-pilot) size/width validity are to be read from the production-function simulation a2_two_stage_sim.py (4000 reps per linear-g world, 2000 per quadratic-g cell), which was still running at reporting time; single-pilot evaluations show the expected pattern (wide pilot: D̂=0.229 LCB 0.213, UCB(w_1 at 128, full class) 0.122 ⇒ fires; narrow pilot: D̂=0.145 with delta-sd 0.12, half-variance pilot: D̂=0.089 sd 0.20 ⇒ cannot fire).",
+   "status": "candidate",
+   "assumptions": [
+    "same model as A-C1",
+    "delta-method confidence set (asymptotic, n_t=100); one-sided γ=0.05 per component, Bonferroni over the two components",
+    "σ^2≤r(1−r)/8 (no clipping) used inside the certificate; clipping rate reported by the simulation",
+    "the simulated design: 50 questions × (2 type-0 + 2 type-1), r iid (no question effect), K128=K32+K96 reuse, η from 16+16 draws, null b_type=0"
+   ],
+   "scope": "The certificate's first-order guarantee holds for every F in the stated delta-method confidence set with D≥d_0 and every g∈G'; its availability and its finite-sample validity (size, non-PD, q90 width at the target under reuse) are world-specific simulation quantities for the three Beta worlds and the two g's of the design.",
+   "does_not_claim": "It does not claim finite-sample size or non-PD control by derivation (no explicit-constant bound exists at n=200 by the tools of A-C3; CE-B1 shows low moments do not determine them); it does not claim the sup over the confidence set is attained at extreme points; it does not claim availability numbers until a2_summary.json exists — the narrow-world unavailability is predicted (pilot noise exceeds the r^2-after-r signal, λ_min(H_w)≈8e-6, check2) but not yet measured by this route.",
+   "derivation_md": "derivation.md §2: estimators (2.1), Jensen direction (2.2: D=min_c of linear functionals ⇒ concave; unbiased θ̂ ⇒ E D̂ ≤ D), delta bounds (2.3; gradient step 1e-6 stable to 0.2% vs 1e-5, unstable at 1e-4 in the narrow world — nonlinearity at pilot-noise scale), certificate (2.4), simulation design and tolerance (2.5), mechanism of non-availability in the narrow regime (2.6).",
+   "evidence": "Single-pilot evaluations in the session log (wide / narrow / half-variance pilots at m_pilot=32, seeds 1); a3 (D=0 worlds inside exact sets) explains why only asymptotic sets can fire. Simulation raw files a2_raw_<world>_<g>.npz and a2_summary.json are produced by a2_two_stage_sim.py / a2_summarize.py (running; monitor armed; summarizer smoke-tested on 30 synthetic replications of the wide cell: availability 1.00 at target 128 for all classes, conditional size 0.033, non-PD 0, w90 0.086 — 30 reps only, not evidence).",
+   "script_path": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a2_two_stage_sim.py (summary: a2_summarize.py; outputs a2_raw_*.npz, a2_summary.json, a2_two_stage_sim.out)",
+   "numbers": [
+    {
+     "name": "single narrow pilot (seed 1, m_pilot=32): D̂, delta-sd, LCB; UCB(w_1 at 128, class c2)",
+     "value": "0.145, 0.121, −0.054; 0.566 (true D 0.183, true w_1 c2 0.119) ⇒ no fire",
+     "source": "session evaluation with route_a_lib.delta_bounds (reproducible: rng=default_rng(1), Beta(20,80)/(25,75), 100 per type); CPU, python 3.13.16, numpy 2.5.4, scipy 1.18.1, 2026-10-19"
+    },
+    {
+     "name": "single wide pilot (seed 1): D̂ LCB; UCB(w_1 at 128) full class / c2 / g; UCB(w_1 at 32) full / c2",
+     "value": "0.213; 0.122 / 0.093 / 0.085; 0.208 / 0.123 ⇒ fires for 128 (all classes) and for 32 only for the coefficient-bounded class",
+     "source": "same session evaluation (rng=default_rng(1), Beta(2,8)/(2.5,7.5))"
+    },
+    {
+     "name": "single half-variance pilot (seed 1): D̂, delta-sd; κ̂(32), κ̂(128)",
+     "value": "0.089, 0.201; −0.318, −3.59 ⇒ no fire",
+     "source": "same session evaluation (Beta(40.5,162)/(50.6,151.8))"
+    },
+    {
+     "name": "simulation status at reporting",
+     "value": "500/4000 replications done in each linear cell (≈340 s per 500 with 5 processes on 4 cores); no cell complete; expected completion ≈19:45 UTC",
+     "source": "a2_two_stage_sim.out, 19:02 UTC 2026-10-19"
+    }
+   ],
+   "experimental_consequence": "Defines the pre-specifiable 32-stage and 128-stage rules for plan §7.2b/§7.11 (fire ⇒ certify m; otherwise extend); the decision numbers (availability per world, false-fire rate in the half-variance world, reuse-vs-fresh size difference) are pending a2_summary.json and must be filled before the gate decision is written."
+  },
+  {
+   "id": "A-C3",
+   "statement": "The explicit-constant finite-sample branch of the certificate is vacuous at the G6 pilot size (100 prefixes per type, m=32) in all three worlds: (i) the Hoeffding/Bonferroni moment box (ε_H=sqrt(ln(640)/200)=0.1797 over 16 moments; 0.1593 over 4) contains the two-point-mass moment vector θ* (μ_{j,t}=μ̂_{1,t}^j) whenever max_{t,j}|μ̂_{j,t}−μ̂_{1,t}^j|≤ε_H, and θ* has D=0 and w_1=∞; this held in 5000/5000 pilots per world (max deviation 0.0069 narrow, 0.0050 half-var, 0.0301 wide), so inf_{box} D=0 and no d_0>0 or finite w_0 can ever be certified; (ii) the per-type DKW band (ε_D=0.148) contains a two-point-per-type world with supports {a,b},{c,d}, a+b=c+d (D=0 exactly) in 20/20 pilots per world (sup-distances 0.025–0.050 narrow, 0.011–0.061 half-var, 0.036–0.080 wide); (iii) matrix Bernstein for ||Ā−Q||<λ_min(Q) with exact σ_1^2 and R from the Beta-binomial law needs n≈1.1e11 (narrow), 8.6e11 (half-var), 6.0e7 (wide), and the whitened version n≈1.2e5–1.4e5 (narrow), 3.5e5–4.1e5 (half-var), 2.5e3–2.8e3 (wide), versus n=200.",
+   "status": "proved",
+   "assumptions": [
+    "U_j(K)∈[0,1]; per-type counts iid (Hoeffding applies); Bonferroni over 2 types × 8 orders at γ=0.05",
+    "DKW at γ'=0.025 per type on the count CDF; the D=0 family is binomial mixtures with two support points per type and a+b=c+d (then t=κ(r−a)(r−b) exactly)",
+    "matrix Bernstein (Tropp) with d=4, s=λ_min(Q), σ_1^2=||E(M̂−Q)^2||, R=max_K||M̂−Q||, computed from the exact Beta-binomial count law of each world"
+   ],
+   "scope": "Holds for these three exact constructions at (n_t,m)=(100,32) (Bernstein also at m=128) in the narrow, half-variance and wide Beta worlds; the Hoeffding statement is a proof for every pilot whose max deviation is ≤ε_H (all 15000 simulated); the DKW statement is a proof for each pilot in which a D=0 world was found (60/60).",
+   "does_not_claim": "It does not claim that no exact finite-sample certificate exists (only that boxes on moments, DKW bands on counts and matrix-Bernstein on the corrected matrix cannot give one at this size), nor that the asymptotic delta-method set of A-C2 has exact coverage.",
+   "derivation_md": "derivation.md §3 (i)–(iii): Hoeffding box ⊃ θ* ⇒ inf D=0 (θ* degenerate at distinct means ⇒ t exact affine in r); DKW: a+b=c+d makes a quadratic separate the types exactly; Bernstein: n_needed = ln(d/α)(σ_1^2+Rs/3)/(s^2/2).",
+   "evidence": "a3_rigorous_constants.out / a3_rigorous_constants.json (seed 2026).",
+   "script_path": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/A__Overlap-and-PD-margin_certificate_from_pilot_U-statistics__upper_bound__sufficiency_direction_/a3_rigorous_constants.py",
+   "numbers": [
+    {
+     "name": "ε_H (16 moments / 4 moments); fraction of 5000 pilots whose box contains the D=0 vector θ*",
+     "value": "0.1797 / 0.1593; 1.000 in narrow, half-var and wide (max deviations 0.0069 / 0.0050 / 0.0301)",
+     "source": "a3_rigorous_constants.py → a3_rigorous_constants.json (hoeffding); seed 2026; CPU, python 3.13.16 x86_64, numpy 2.5.4, scipy 1.18.1, 2026-10-19"
+    },
+    {
+     "name": "DKW: ε_D per type; pilots (of 20) with a D=0 two-point world inside the band; min sup-distance (min/median/max)",
+     "value": "0.1480; 20/20 in each world; narrow 0.025/0.037/0.050, half-var 0.011/0.035/0.061, wide 0.036/0.057/0.080",
+     "source": "a3_rigorous_constants.json (dkw); seed 2026"
+    },
+    {
+     "name": "matrix Bernstein n needed for P(non-PD)≤2% at m=128: exact (crude R=8) / whitened",
+     "value": "narrow 1.09e11 (λ_min Q=8.2e-6) / 1.24e5; half-var 8.6e11 (2.9e-6) / 3.5e5; wide 6.0e7 (3.6e-4) / 2.5e3",
+     "source": "a3_rigorous_constants.json (matrix_bernstein, m=128); deterministic"
+    }
+   ],
+   "experimental_consequence": "Removes 'rigorous finite-sample certificate with explicit constants at n=200' from the plan's options: any pre-specified pilot rule for §7.11 must be an asymptotic (delta-method / bootstrap) construction whose coverage is simulation-checked, and the non-PD ≤2% tolerance cannot be guaranteed by concentration inequalities — it stays a simulation-calibrated quantity."
+  }
+ ],
+ "what_failed": "(1) The finite-sample size/width certificate with explicit constants is unreachable: every exact set (Hoeffding box, DKW band) contains a D=0 world even in the wide world, and matrix Bernstein needs n≥2.5e3–1e11 — proved vacuous (A-C3), so component (A) of the obstacle can only be asymptotic. (2) The first-order width is not an upper bound on q90: the production se is heavy-tailed where the corrected matrix is noise-dominated (m=32 narrow/half-var even at n=20000), so w_1 is necessary, not sufficient, for the width tolerance. (3) The uniform-in-g sup over {|g|≤1} is attained at the Chebyshev extreme and makes the width criterion fail at (200,128) in the narrow world (0.164>0.15) — the class must be coefficient-bounded (user decision). (4) The production-function two-stage simulation (availability per world, false-fire in the half-variance world, reuse vs fresh size) had not finished at the forced reporting time (500/4000 reps per cell); A-C2's decision numbers are therefore missing, and A-C2 is reported as candidate without them.",
+ "next_step": "When a2_raw_*.npz are written (monitor armed; background wait task bjpb26uk9), run /tmp/claude-0/venv/bin/python a2_summarize.py in the route directory and fill derivation.md §4 and A-C2's numbers: availability of the 32-stage certificate (targets 32 and 128, classes full/c2/g, d_0=0.05, w_0=0.15 with the sensitivity grid), P(fire ∧ world fails) in the half-variance world (the Le Cam obstruction in certificate form), conditional size/non-PD/q90 under reuse vs fresh (tolerance |Δsize|≤τ_r), the 128-stage certificate (self-reuse at 128 and target 512), the Jensen check (mean D̂ vs D) and the ratio q90/w_1 per world. If the half-variance false-fire rate exceeds ≈γ, replace the delta-method set by a question-cluster percentile bootstrap (same functionals) before pre-specifying the rule."
+}

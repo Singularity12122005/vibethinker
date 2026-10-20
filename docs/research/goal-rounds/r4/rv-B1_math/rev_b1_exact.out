@@ -1,0 +1,4 @@
+F_c2 mean and variance match F_a exactly per type
+F_b         m= 32: rho0=0.9989749161 rho1=0.9989707713 Hell(both)=0.41943 Hell(t0)=0.569359 NP in [0.52164, 0.52172]  claimed 0.521 (SE 0.0014) z=-0.48 0.5233 seed2  h=8.11e-07 alias<=9.2e-13 mass=1.000000000/1.000000000 negmass=9.2e-15  [54s]
+F_c         m= 32: rho0=0.9953919955 rho1=0.9953759273 Hell(both)=0.0819198 Hell(t0)=0.223492 NP in [0.17365, 0.17370]  claimed 0.1735 (SE 0.0009) z=-0.20   h=1.96e-06 alias<=1.6e-12 mass=1.000000000/1.000000000 negmass=8.7e-15  [42s]
+F_c2        m= 32: rho0=0.9999174207 rho1=0.9999001001 Hell(both)=0.810687 Hell(t0)=0.872012 NP in [0.85142, 0.85161]  claimed 0.8537 (SE 0.0016) z=+1.36 0.8517 seed2  h=4.43e-07 alias<=1.0e-11 mass=1.000000000/1.000000000 negmass=1.2e-14  [42s]

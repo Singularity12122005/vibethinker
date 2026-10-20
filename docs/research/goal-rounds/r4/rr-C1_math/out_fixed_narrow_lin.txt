@@ -1,0 +1,1 @@
+narrow lin sigma_F^2=4.726e-07 sd=0.0007 ucl95 sd=0.0048  mean diff=0.00024 time 163

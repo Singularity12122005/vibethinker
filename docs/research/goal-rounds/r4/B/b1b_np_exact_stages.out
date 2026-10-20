@@ -1,0 +1,19 @@
+m=  32 F_a vs F_b             : Hellinger err_sum>=0.4194  NP err_sum=0.5210 (SE 0.0014)  TV_exact=0.4790  availability<=TV+0.05=0.529
+m=  32 F_a vs F_c point mass  : Hellinger err_sum>=0.0819  NP err_sum=0.1735 (SE 0.0009)  TV_exact=0.8265  availability<=TV+0.05=0.876
+m=  32 F_a vs F_c2            : Hellinger err_sum>=0.8107  NP err_sum=0.8537 (SE 0.0016)  TV_exact=0.1463  availability<=TV+0.05=0.196
+m=  32 F_a vs F_lp            : Hellinger err_sum>=0.5920  NP err_sum=0.6701 (SE 0.0015)  TV_exact=0.3299  availability<=TV+0.05=0.380
+m=  32 F_a vs F_theta0.6      : Hellinger err_sum>=0.5274  NP err_sum=0.6157 (SE 0.0015)  TV_exact=0.3843  availability<=TV+0.05=0.434
+m=  32 F_a vs F_theta0.7      : Hellinger err_sum>=0.6401  NP err_sum=0.7099 (SE 0.0015)  TV_exact=0.2901  availability<=TV+0.05=0.340
+m=  32 F_a vs F_theta0.8      : Hellinger err_sum>=0.7583  NP err_sum=0.8067 (SE 0.0016)  TV_exact=0.1933  availability<=TV+0.05=0.243
+m=  32 F_a vs F_theta0.9      : Hellinger err_sum>=0.8792  NP err_sum=0.9015 (SE 0.0016)  TV_exact=0.0985  availability<=TV+0.05=0.148
+m= 128 F_a vs F_b             : Hellinger err_sum>=0.0323  NP err_sum=0.0967 (SE 0.0007)  TV_exact=0.9033  availability<=TV+0.05=0.953
+m= 128 F_a vs F_c2            : Hellinger err_sum>=0.0754  NP err_sum=0.1638 (SE 0.0009)  TV_exact=0.8362  availability<=TV+0.05=0.886
+m= 128 F_a vs F_lp            : Hellinger err_sum>=0.0051  NP err_sum=0.0317 (SE 0.0004)  TV_exact=0.9683  availability<=TV+0.05=1.000
+m= 128 F_a vs F_theta0.6      : Hellinger err_sum>=0.1043  NP err_sum=0.2038 (SE 0.0010)  TV_exact=0.7962  availability<=TV+0.05=0.846
+m= 128 F_a vs F_theta0.7      : Hellinger err_sum>=0.2419  NP err_sum=0.3547 (SE 0.0012)  TV_exact=0.6453  availability<=TV+0.05=0.695
+m= 128 F_a vs F_theta0.8      : Hellinger err_sum>=0.4518  NP err_sum=0.5499 (SE 0.0014)  TV_exact=0.4501  availability<=TV+0.05=0.500
+m= 128 F_a vs F_theta0.9      : Hellinger err_sum>=0.7156  NP err_sum=0.7721 (SE 0.0015)  TV_exact=0.2279  availability<=TV+0.05=0.278
+m= 512 F_a vs F_theta0.7      : Hellinger err_sum>=0.0615  NP err_sum=0.1435 (SE 0.0008)  TV_exact=0.8565  availability<=TV+0.05=0.907
+m= 512 F_a vs F_theta0.8      : Hellinger err_sum>=0.2412  NP err_sum=0.3561 (SE 0.0012)  TV_exact=0.6439  availability<=TV+0.05=0.694
+m= 512 F_a vs F_theta0.9      : Hellinger err_sum>=0.5783  NP err_sum=0.6581 (SE 0.0015)  TV_exact=0.3419  availability<=TV+0.05=0.392
+elapsed 96.06219053268433

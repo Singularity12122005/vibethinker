@@ -1,0 +1,5 @@
+# command (cwd sycophancy_phase0/): /tmp/claude-0/venv/bin/python -m pytest /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/r4_worktree/sycophancy_phase0/tests/test_analysis.py -q
+# date: 2026-10-20T03:58Z; python 3.13.16 numpy 2.5.4 scipy 1.18.1 pytest 9.1.1; v4 repair pass 1 (archive and evidence.json edited, tests unchanged)
+...........................                                              [100%]
+27 passed in 21.19s
+exit=0

@@ -1,0 +1,9 @@
+== iid  n_out=800 n_in=200  ESS_min median 1521 q05 420  P(PD32)=0.445
+  HC1: size_reuse=0.0449 reuse-fresh=-0.0001  sigma_delta^2=-2.20e-05 UCL sd=0.000000  bound@.5/.25/.1=0.000000/0.000000/0.000000 | Var(P(R|G32)) UCL sd=0.002451 (x3=0.007352) | rule PD32: reuse-fresh +0.00059 se 0.00085
+  CR1: size_reuse=0.0483 reuse-fresh=+0.0000  sigma_delta^2=-1.93e-05 UCL sd=0.002268  bound@.5/.25/.1=0.002268/0.003928/0.006803 | Var(P(R|G32)) UCL sd=0.004455 (x3=0.013366) | rule PD32: reuse-fresh +0.00041 se 0.00093
+== clu70  n_out=800 n_in=200  ESS_min median 1744 q05 317  P(PD32)=0.431
+  HC1: size_reuse=0.0435 reuse-fresh=+0.0004  sigma_delta^2=-5.10e-07 UCL sd=0.004716  bound@.5/.25/.1=0.004716/0.008168/0.014147 | Var(P(R|G32)) UCL sd=0.006816 (x3=0.020449) | rule PD32: reuse-fresh +0.00114 se 0.00090
+  CR1: size_reuse=0.0465 reuse-fresh=+0.0001  sigma_delta^2=1.61e-05 UCL sd=0.006541  bound@.5/.25/.1=0.006541/0.011329/0.019623 | Var(P(R|G32)) UCL sd=0.005733 (x3=0.017198) | rule PD32: reuse-fresh +0.00078 se 0.00094
+== clu90  n_out=800 n_in=200  ESS_min median 1824 q05 347  P(PD32)=0.431
+  HC1: size_reuse=0.0432 reuse-fresh=-0.0012  sigma_delta^2=3.70e-06 UCL sd=0.005220  bound@.5/.25/.1=0.005220/0.009042/0.015661 | Var(P(R|G32)) UCL sd=0.007808 (x3=0.023425) | rule PD32: reuse-fresh +0.00075 se 0.00087
+  CR1: size_reuse=0.0457 reuse-fresh=-0.0013  sigma_delta^2=6.98e-06 UCL sd=0.005727  bound@.5/.25/.1=0.005727/0.009919/0.017181 | Var(P(R|G32)) UCL sd=0.007766 (x3=0.023299) | rule PD32: reuse-fresh +0.00061 se 0.00096

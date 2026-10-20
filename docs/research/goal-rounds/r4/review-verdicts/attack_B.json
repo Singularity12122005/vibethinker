@@ -1,0 +1,229 @@
+{
+ "route": "B. Le Cam two-point impossibility for the 32-pilot and explicit failing worlds inside the compatible set (lower bound; necessity direction)",
+ "outcome": "progress",
+ "claims": [
+  {
+   "id": "B1",
+   "statement": "Le Cam two-point bound for the ACTUAL two-type pilot, with exact constants and the exact (Neyman–Pearson) minima. For the G6 h_3 pilot (100 type-0 + 100 type-1 prefixes, m `sel` counts each, K_i|r_i ~ Bin(m, r_i), r iid ~ F_t within type), every pre-experiment decision rule (randomized allowed; any compatible-set construction) that decides whether to certify (200,128) satisfies P_{F_a}(do not certify) + P_{F_b}(certify) >= 1 - sqrt(1 - rho_0^{200} rho_1^{200}), and the minimum over all rules equals 1 - TV(P_a, P_b), attained by the likelihood-ratio test. Anchor pair F_a = Beta(20,80)/Beta(25,75) vs F_b = Beta(40.5,162)/Beta(50.6,151.8) at m=32: bound 0.41943 (the problem phase's 0.569 is the TYPE-0 FACTOR rho_0^{100} alone, reproduced exactly as 0.56936, not the pilot's bound); exact minimum 0.5210 +- 0.0014 (0.5233 +- 0.0014 with a second seed). Exact two-point world F_c2 (rational atoms 81/505, 6/25 w 101/201, 100/201; 329/1616, 29/100 w 1616/3491, 1875/3491; same mean AND variance as F_a per type): bound 0.81069, exact minimum 0.8537 +- 0.0016. At the 128-stage (m=128 counts): exact minima 0.0967 (F_b), 0.1638 (F_c2), 0.5499 (F_theta=0.8), 0.7721 (F_theta=0.9); at m=512: 0.0060 (F_b), 0.3561 (F_0.8), 0.6581 (F_0.9). Corollary: any rule with false-certification probability P_b(certify) <= gamma has P_a(certify) <= TV + gamma, so a certificate valid at gamma=0.05 against F_c2 is available in the narrow world at most 19.6% of the time, against F_b at most 52.9%.",
+   "status": "proved",
+   "assumptions": [
+    "Pilot counts independent across prefixes given risks and K_i|r_i ~ Bin(m, r_i) exactly (design: selection on y_2 text and e_2=0 only, never on counts; sec 7.2b D4).",
+    "Within type t the risks are iid ~ F_t (template model class); question clustering enters only through r and is not modelled in the bound.",
+    "The rule is a measurable (possibly randomized) function of the 200 pilot counts only: pre-experiment relative to Delta_hat; reuse of the 32 inside the 128 adds no information at the pilot stage.",
+    "n_0 = n_1 = 100 (equal type counts); Beta parameters rational so that the count pmfs are exactly rational (Beta(40.5,162) = (81/2,162), Beta(50.6,151.8) = (253/5,759/5)); affinities evaluated at 60 significant digits (mpmath) from the exact fractions, the square root being the only irrational step.",
+    "The NP-exact minima are Monte Carlo estimates of the LR test's error sum (200,000 pilots per side; ties counted as 'not certify', so they are upper bounds on the minimum that coincide with it up to tie mass)."
+   ],
+   "scope": "Holds for any stated compatible-set construction (DKW, multinomial likelihood, moment-based) and any pre-experiment rule, in the iid-within-type binomial-count model, for the listed pairs at m in {32,128,512}; the Hellinger bound is one-sided (a small bound does not prove separability) and the NP column is the exact value for these specific pairs only.",
+   "does_not_claim": "It does not claim the bound is attained by any rule restricted to a practical class (only the LR test attains it); it does not cover rules that use the steered-arm outcomes; it does not cover within-question dependence of r (the constants would change; with positive dependence the effective pilot is smaller); it does not claim that worlds other than the listed ones are farther from F_a (the sup over the compatible set may be obstructed by closer worlds).",
+   "derivation_md": "Count law of one prefix of type t: p_{F_t}(k) = C(m,k) ∫ r^k (1-r)^{m-k} dF_t(r). For Beta(a,b): p(k) = C(m,k) (a)_k (b)_{m-k} / (a+b)_m (rising factorials), so p(0) = (b)_m/(a+b)_m and p(k+1) = p(k)·(m-k)/(k+1)·(a+k)/(b+m-k-1) — exactly rational for rational a,b (`betabinom_exact`, asserts Σp = 1 and the closed form at k=m). Discrete F = Σ_j w_j δ_{x_j}: p(k) = Σ_j w_j C(m,k) x_j^k (1-x_j)^{m-k}, exactly rational. Pilot law P_F = (P_{F_0})^{⊗100} ⊗ (P_{F_1})^{⊗100}.\n\n**Lemma 1 (tensorization).** ρ(P,Q) := Σ_k √(p_k q_k). For products, ρ(⊗P_i, ⊗Q_i) = Σ_{k_1..k_n} Π_i √(p_i(k_i) q_i(k_i)) = Π_i Σ_k √(p_i q_i) = Π_i ρ(P_i,Q_i). Hence ρ_pilot = ρ_0^{100} ρ_1^{100}.\n\n**Lemma 2 (TV ≤ √(1-ρ²)).** TV = ½Σ|p-q| = ½Σ|√p-√q|(√p+√q) ≤ ½ √(Σ(√p-√q)²) √(Σ(√p+√q)²) = ½ √(2(1-ρ)) √(2(1+ρ)) = √(1-ρ²) (Cauchy–Schwarz).\n\n**Lemma 3 (Le Cam / NP).** For any randomized rule φ: K → [0,1] ('certify' w.p. φ): E_a[1-φ] + E_b[φ] = 1 - Σ_k φ(k)(p_a(k) - p_b(k)) ≥ 1 - Σ_{p_a>p_b}(p_a - p_b) = 1 - TV(P_a,P_b), with equality for φ = 1{p_a > p_b}. Therefore min_φ [err_I + err_II] = 1 - TV(P_a,P_b) ≥ 1 - √(1 - ρ_0^{200} ρ_1^{200}).\n\n**Corollary 4 (availability).** If P_b(certify) ≤ γ then P_a(certify) ≤ TV + γ, since P_a(φ) - P_b(φ) ≤ TV for every φ.\n\n**Exact two-point world F_c2.** Atoms x_1 = μ - d_1 < μ < x_2 = μ + d_2 with weights w_1 = d_2/(d_1+d_2), w_2 = d_1/(d_1+d_2) have mean μ and variance d_1 d_2. Type 0 (μ = 1/5, V = 4/2525): d_2 = 1/25 gives d_1 = 4/101, x_1 = 81/505, w_1 = 101/201 (check: 101/201·81/505 + 100/201·6/25 = 1/5; 16/20301 + 4/5025 = 4/2525). Type 1 (μ = 1/4, V = 3/1616): d_1 = 75/1616, x_1 = 329/1616, w_1 = 1616/3491.\n\n**Exact TV by MC.** Λ(K) = Σ_i log p_a(K_i) - log p_b(K_i) over both types; TV = P_a(Λ>0) - P_b(Λ>0); err sum of the LR test = P_a(Λ≤0) + P_b(Λ>0) = 1 - TV up to ties. Full text with tables: b_derivation.md sections B1 and Appendix.",
+   "evidence": "b1_lecam_exact.py (exact rational pmfs via fractions.Fraction, 60-digit affinities; asserts pmf sums; reproduces check2c's type-0 constants 0.56936/0.13539/0.011699 and check2's point-mass 0.22349 exactly) → b1_lecam_exact.out/.json; b1b_np_exact_stages.py (LR-test MC, 200,000 pilots per side, SE ≤ 0.0016) → b1b_np_exact_stages.out/.json.",
+   "script_path": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/B__Le_Cam_two-point_impossibility_for_the_32-pilot_and_explicit_failing_worlds_inside_the_compatible_set__lower_bound__necessity_direction_/b1_lecam_exact.py ; /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/B__Le_Cam_two-point_impossibility_for_the_32-pilot_and_explicit_failing_worlds_inside_the_compatible_set__lower_bound__necessity_direction_/b1b_np_exact_stages.py",
+   "numbers": [
+    {
+     "name": "F_a vs F_b, m=32, Hellinger bound BOTH types (actual pilot, n=200)",
+     "value": "0.41943",
+     "source": "b1_lecam_exact.py → b1_lecam_exact.out/.json; exact rational pmfs, mpmath 60 digits; CPU, python 3.13.16 x86_64, numpy 2.5.4, scipy 1.18.1, mpmath 1.3.0, 4 cores, 2026-10-19"
+    },
+    {
+     "name": "F_a vs F_b, m=32, type-0-only factor (reproduces problem-phase 0.569)",
+     "value": "0.56936",
+     "source": "b1_lecam_exact.py → b1_lecam_exact.out; same environment"
+    },
+    {
+     "name": "F_a vs F_b, m=32, NP-exact minimal error sum (LR test, MC)",
+     "value": "0.5210 (SE 0.0014) seed 20261020; 0.5233 (SE 0.0014) seed 20261019",
+     "source": "b1b_np_exact_stages.py → b1b_np_exact_stages.out (seed 20261020); b1_lecam_exact.py → b1_lecam_exact.out (seed 20261019); same environment"
+    },
+    {
+     "name": "F_a vs F_c2 (exact two-point, same mean & variance), m=32: Hellinger bound / NP-exact",
+     "value": "0.81069 / 0.8537 (SE 0.0016)",
+     "source": "b1_lecam_exact.out (bound, exact); b1b_np_exact_stages.out (NP, seed 20261020)"
+    },
+    {
+     "name": "F_a vs F_b, m=128: Hellinger both types / NP-exact",
+     "value": "0.03233 / 0.0967 (SE 0.0007)",
+     "source": "b1_lecam_exact.out; b1b_np_exact_stages.out"
+    },
+    {
+     "name": "F_a vs F_theta=0.9, m=128: Hellinger both types / NP-exact",
+     "value": "0.7156 / 0.7721 (SE 0.0015)",
+     "source": "b1_lecam_exact.out; b1b_np_exact_stages.out"
+    },
+    {
+     "name": "F_a vs F_theta=0.8, m=128: Hellinger both types / NP-exact",
+     "value": "0.4518 / 0.5499 (SE 0.0014)",
+     "source": "b1_lecam_exact.out; b1b_np_exact_stages.out"
+    },
+    {
+     "name": "F_a vs F_theta=0.7, m=128: Hellinger both types / NP-exact",
+     "value": "0.2419 / 0.3547 (SE 0.0012)",
+     "source": "b1_lecam_exact.out; b1b_np_exact_stages.out"
+    },
+    {
+     "name": "F_a vs F_b, m=512: Hellinger both types / NP-exact",
+     "value": "0.00027 / 0.0060 (SE 0.0002)",
+     "source": "b1_lecam_exact.out; b1b_np_exact_stages.out"
+    },
+    {
+     "name": "F_a vs F_theta=0.8 / 0.9, m=512: NP-exact",
+     "value": "0.3561 (SE 0.0012) / 0.6581 (SE 0.0015)",
+     "source": "b1b_np_exact_stages.out"
+    },
+    {
+     "name": "F_a vs point mass F_c, m=32: Hellinger both types / NP-exact (type-0-only 0.22349 = check2)",
+     "value": "0.08192 / 0.1735 (SE 0.0009)",
+     "source": "b1_lecam_exact.out; b1b_np_exact_stages.out"
+    },
+    {
+     "name": "Availability upper bound TV+0.05 under F_a for a rule with P_b(certify) ≤ 0.05, m=32: vs F_b / vs F_c2",
+     "value": "0.529 / 0.196",
+     "source": "b1b_np_exact_stages.out (TV_exact 0.479 / 0.146)"
+    }
+   ],
+   "experimental_consequence": "Outcome (a) '32 already certified' of the sequential rule is unattainable in the narrow regime for ANY certificate construction: a certificate with ≤5% false certification against the exact two-point world fires under F_a at most 20% of the time (53% against F_b). The plan's decision must therefore be written as 'adopt 128 as a PRE-SPECIFIED pilot extension and re-assess at 128'. At the 128-stage, under the proposed tolerances (q90 width ≤ 0.15, non-PD ≤ 2%), outcome (c) '128 certified at the 128-stage' is itself obstructed by F_theta=0.9 / 0.8 (exact minimal error sums 0.77 / 0.55 at m=128), whereas under relaxed tolerances (q90 ≤ 0.20, non-PD ≤ 3%) the obstruction pair becomes F_0.7 with 0.355: the residual risk carried to the 128-stage is a tolerance decision for the user, not a fact about the data. The archive constant '0.569' must be corrected to 'type-0 factor; actual pilot 0.419 (bound) / 0.52 (exact)'."
+  },
+  {
+   "id": "B2",
+   "statement": "The failure of F_b at (200,128) is a property of the count design and persists over the bounded g-class and both SEs; F_a passes (marginally) and every examined non-degenerate world passes at 512. Under the null b_type = 0 with y_i = c + b_1 r_i + b_2 r_i^2 + eta_i, the production score is psi_{i,a} = b_1 (U_a r_i - U_{a+1}) + b_2 (U_a r_i^2 - U_{a+2}) + U_a eta_i (c cancels exactly) and the corrected matrix A = sum_i M_i depends on (K, t) only, so the PD event {ok = True} of endpoint_contrast_poly_cs is identical for every g, every Var(eta|r) and HC1 vs CR1 (verified bit-for-bit on 300 draws x 10 g x 3 eta-laws x 2 SEs = 18,000 production calls). Consequently the non-PD rate alone decides F_b's failure for the whole class: pooled over the 10-point g-grid at m=128 it is 0.1235, exact 95% CI [0.1190, 0.1281] (20,000 reps) > 2%; on the grid the PD-conditional 90th-percentile CI width is 0.43–0.64 (q90 = inf under the non-PD convention) and the size 0.0185–0.0305 (conservative side), HC1 and CR1 alike. F_a at 128: non-PD 0.0056 [0.0046, 0.0067], size 0.042–0.0535 (HC1) / 0.0465–0.060 (CR1), q90 width with inf-convention 0.136–0.1496 (HC1, all 10 g pass) and 0.139–0.1531 (CR1: 9 of 10 pass; g_4 = -0.2 + 1.2r fails the 0.15 width by 0.003). At m=512: F_a, F_b, F_c2 and F_theta (0.6–0.9) pass for every grid g and both SEs (non-PD 0 [0, 0.00018]; q90 ≤ 0.141; size 0.0455–0.067). The exact two-point F_c2 has D = 0.1829 = D(F_a) yet fails at 128 (non-PD 0.1153 [0.1074, 0.1237]; q90|ok 0.277–0.284) — the failure is the PD margin of E[S_w(128)] against the U-statistic noise (lambda_min 2.9e-6 for F_c2 and 2.8e-6 for F_b vs 8.0e-6 for F_a), not the type coefficient's population identification strength D. Variance-scale worlds fail at 128 only marginally: F_0.9 q90 0.158/0.163, non-PD 1.2%; F_0.8 q90 0.188/0.192, non-PD 2.3% [1.7, 3.1]%; F_0.7 q90 0.315, non-PD 4.15%; F_0.6 q90 1.75, non-PD 7.5%.",
+   "status": "proved",
+   "assumptions": [
+    "Production function endpoint_contrast_poly_cs(degree=2, PD rule lambda_min > 1e-9·max(1, lambda_max), HC1 default, CR1 with cluster) imported from g6_iv.py; no re-implementation.",
+    "n = 200 = 100 per type; counts K ~ Bin(m, r) with m in {128, 512} common to all prefixes; null b_type = 0.",
+    "eta = difference of two independent 16-draw binomial means with q_± = clip(r ± g/2, 0, 1); clip rates recorded per cell (≤ 6.1e-4 on the grid).",
+    "g-grid of 10 quadratics with max_{[0,1]} |g| ≤ 1 checked exactly at endpoints and vertex: 0; 0.18-0.8r; 0.26-1.6r+2r^2; 0.30-1.2r+0.8r^2; -0.2+1.2r; -r+r^2; 0.02+1.5r-1.5r^2; -0.02-1.5r+1.5r^2; 1.5r^2; -1.5r^2.",
+    "CR1 clusters: 50 questions, each with 2 type-0 and 2 type-1 prefixes (K_pref = 4); r iid (no question effect), so CR1 is a robustness choice.",
+    "2000 replications per cell (size MC SE ≈ 0.005, non-PD SE ≈ 0.007); one seed per cell (base 4242 + 1000·index); exact Clopper–Pearson intervals reported."
+   ],
+   "scope": "Finite-sample statements at (n, m) = (200, 128) and (200, 512) under the stated DGP; the non-PD invariance (and hence F_b's failure of the non-PD ≤ 2% tolerance) holds for the entire bounded g-class, every Var(eta|r) and both SEs; the width/size statements hold on the 10-point g-grid with the quoted MC uncertainty.",
+   "does_not_claim": "It does not claim that width or size are bounded over the whole g-class (the Chebyshev-extreme g = 8r^2-8r+1 satisfies |g| ≤ 1 but violates q_± in [0,1] in the narrow world and was not run); it does not claim F_a passes for every g under CR1 (g_4 fails the 0.15 width by 0.003) or that the pass at 128 is robust to the tolerance (q90 0.136–0.153 straddles 0.15); it says nothing about power, about the two-stage reuse size (route C), or about worlds outside the examined families.",
+   "derivation_md": "Score decomposition: with beta = (c, b_1, b_2, 0), m_hat_i = (U_0 y_i, U_1 y_i, U_2 y_i, t_i y_i) and (M_hat_i beta)_a = c U_a + b_1 U_{a+1} + b_2 U_{a+2} (a = 0,1,2), (M_hat_i beta)_3 = t_i (c + b_1 U_1 + b_2 U_2). Substituting y_i = c + b_1 r_i + b_2 r_i^2 + eta_i:\n\npsi_{i,a} = b_1 (U_a r_i - U_{a+1}) + b_2 (U_a r_i^2 - U_{a+2}) + U_a eta_i,  a = 0,1,2;   psi_{i,3} = t_i [ b_1 (r_i - U_1) + b_2 (r_i^2 - U_2) + eta_i ].\n\nHence c cancels, E[psi_i | r_i] = 0 (E[U_j | r] = r^j), and Cov(psi_i | r_i) = Sigma_meas(b_1, b_2; r_i, m) + Var(eta_i | r_i) E[x_hat_i x_hat_i^T | r_i] (cross term zero since E[eta | K, r] = 0). The matrix A = sum_i M_hat_i is a function of (K, t, m, degree) alone, and the production code evaluates the PD rule on A before using y or the cluster vector: **Proposition — the PD event is g-free, eta-free and SE-free.** Identification strength: with equal type proportions, Var(t) = 1/4, Cov(t, X) = Δμ_X/4, Var(X) = H̄_w + Δμ_X Δμ_X^T/4 (X = (r, r^2), H̄_w pooled within-type covariance); Sherman–Morrison gives Δμ^T Var(X)^{-1} Δμ = 4q/(4+q) with q = Δμ^T H̄_w^{-1} Δμ, so D = 1/4 - (1/16)·4q/(4+q) = 1/(4+q). PD margin: pooled A1 Schur mean E[S_w(m)] = ½ Σ_t S_t with S_t from the production corrected_schur_mean (E[S_ab] = μ_{a+b} - μ_a μ_b - C_ab/n_t). Full tables: b_derivation.md section B2.",
+   "evidence": "b2_failing_worlds_gclass.py (54 cells, 2000 reps each, HC1+CR1 on the same data, production function) → b2_failing_worlds_gclass.out/.json; b2b_pd_event_invariance.py (bit-identical ok/min_eig across g, eta-law and SE; pooled Clopper–Pearson intervals) → b2b_pd_event_invariance.out/.json. Consistent with the problem phase's check1b (F_b 128: non-PD 0.123, width q90 0.493 with linear g, HC1) and check1 (narrow 128 deg-2 HC1/CR1: 0.0045/0.007, q90 0.1425/0.1452).",
+   "script_path": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/B__Le_Cam_two-point_impossibility_for_the_32-pilot_and_explicit_failing_worlds_inside_the_compatible_set__lower_bound__necessity_direction_/b2_failing_worlds_gclass.py ; /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/B__Le_Cam_two-point_impossibility_for_the_32-pilot_and_explicit_failing_worlds_inside_the_compatible_set__lower_bound__necessity_direction_/b2b_pd_event_invariance.py",
+   "numbers": [
+    {
+     "name": "PD-event invariance check: production calls with bit-identical ok and min_eig across 10 g × 3 eta-laws × 2 SEs",
+     "value": "18,000 calls, 300 draws, 0 discrepancies (non-PD in 38/300 draws)",
+     "source": "b2b_pd_event_invariance.py → b2b_pd_event_invariance.out; seed 31337; CPU, python 3.13.16 x86_64, numpy 2.5.4, scipy 1.18.1, 4 cores, 2026-10-19"
+    },
+    {
+     "name": "F_b, m=128: pooled non-PD over the 10 g-cells (20,000 reps), exact 95% CI",
+     "value": "0.1235 [0.1190, 0.1281]",
+     "source": "b2_failing_worlds_gclass.py → .json pooled in b2b_pd_event_invariance.out; base seed 4242; same environment"
+    },
+    {
+     "name": "F_b, m=128: PD-conditional width q90 range over g (HC1 / CR1); size range (HC1 / CR1)",
+     "value": "0.434–0.643 / 0.435–0.629 ; 0.0185–0.026 / 0.0215–0.0305",
+     "source": "b2b_pd_event_invariance.out (pooled from b2_failing_worlds_gclass.json)"
+    },
+    {
+     "name": "F_a, m=128: pooled non-PD (20,000 reps); size range HC1 / CR1; q90 width (inf-convention) range HC1 / CR1",
+     "value": "0.0056 [0.0046, 0.0067]; 0.042–0.0535 / 0.0465–0.060; 0.136–0.1496 / 0.139–0.1531",
+     "source": "b2b_pd_event_invariance.out; b2_failing_worlds_gclass.json (cells F_a|g4|m=128: HC1 0.14958, CR1 0.15312)"
+    },
+    {
+     "name": "F_b, m=512: pooled non-PD; q90 width range (inf-convention) HC1 / CR1; size range HC1 / CR1",
+     "value": "0 [0, 0.00018]; 0.127–0.136 / 0.131–0.141; 0.0455–0.062 / 0.0505–0.067",
+     "source": "b2b_pd_event_invariance.out"
+    },
+    {
+     "name": "F_c2 (exact two-point), m=128: pooled non-PD (6,000 reps); width q90|ok; size range HC1",
+     "value": "0.1153 [0.1074, 0.1237]; 0.277–0.284; 0.0285–0.0315",
+     "source": "b2b_pd_event_invariance.out"
+    },
+    {
+     "name": "F_c2, m=512: non-PD; q90 width HC1/CR1; size HC1",
+     "value": "0 [0, 0.0006]; ≤ 0.111 / ≤ 0.115; 0.0485–0.052",
+     "source": "b2b_pd_event_invariance.out"
+    },
+    {
+     "name": "F_theta=0.9, m=128 (g_1): non-PD; q90 width inf-convention HC1 / CR1; size HC1 / CR1",
+     "value": "0.012 [0.0077, 0.0178]; 0.1584 / 0.1630; 0.037 / 0.046",
+     "source": "b2_failing_worlds_gclass.out/.json cell F_theta0.9|g1|m=128; seed 4242+1000·index"
+    },
+    {
+     "name": "F_theta=0.8, m=128 (g_1): non-PD; q90 width HC1 / CR1; size HC1 / CR1",
+     "value": "0.023 [0.0169, 0.0306]; 0.188 / 0.192; 0.0385 / 0.0415",
+     "source": "b2_failing_worlds_gclass.out/.json"
+    },
+    {
+     "name": "F_theta=0.7 and 0.6, m=128 (g_1): non-PD; q90 width HC1",
+     "value": "0.0415 [0.033, 0.051], 0.315 ; 0.075 [0.064, 0.087], 1.75",
+     "source": "b2_failing_worlds_gclass.out/.json"
+    },
+    {
+     "name": "Population D(F) = 1/(4+q): F_a / F_b / F_c2 / F_0.8 ; pooled lambda_min E[S_w(128)] (production corrected_schur_mean, n_t=100)",
+     "value": "0.1827 / 0.1437 / 0.1829 / 0.1712 ; 7.99e-6 / 2.80e-6 / 2.92e-6 / 5.66e-6",
+     "source": "b2_failing_worlds_gclass.out 'POP' lines (exact-form moments, float eigenvalues)"
+    }
+   ],
+   "experimental_consequence": "The 'adopt 128 → (d) 128 insufficient → 512' branch is a genuine event whose probability no 32-pilot rule can drive down (B1), but 512 (4×, still vLLM) passed in every examined non-degenerate world (F_b, F_c2, F_theta 0.6–0.9, all grid g, both SEs), so 512 is a defensible pre-registered fallback; F_lp and the point mass (branch (e), unidentified) fail at 512 too and are the only examined worlds where 512 does not help. The size failure at F_b is on the conservative side (0.02–0.03), so the pre-registered test does not over-reject there; the binding failures are non-PD and width. The q90 ≤ 0.15 tolerance puts the narrow world itself on a knife edge (0.136–0.153 across g and SE), so the plan should pre-register the tolerance with a stated sensitivity (0.15 vs 0.20) and should state that CR1 with 50 clusters of 2+2 widens q90 by ≈ 0.003–0.005 relative to HC1."
+  },
+  {
+   "id": "B3",
+   "statement": "The stated compatible set of a narrow pilot contains the failing and nearly-unidentified worlds, and a non-Beta compatible world with a negative A1 Schur margin exists. With C_gamma^DKW = {F : sup_k |G_{F,t}(k) - Ghat_t(k)| ≤ eps_100(gamma) for both types}, eps_n(gamma) = sqrt(ln(2/gamma)/(2n)) (0.1358 / 0.1224 / 0.0991 at gamma = 0.05 / 0.10 / 0.28; DKW–Massart holds for discrete count laws, observed coverage of F_a 0.9856 per type, 0.970 jointly at gamma = 0.05), the inclusion probabilities over 5000 narrow pilots are: F_b 0.962 / 0.916 / 0.736; F_c2 0.971 / 0.941 / 0.778; F_theta=0.8 0.968 / 0.932 / 0.769; point mass F_c (D = 0) 0.921 / 0.852 / 0.616; F_d (double variance) 0.959 / 0.905 / 0.692. Hence with probability ≥ 0.92 (gamma = 0.05) the sup over C_gamma of the non-PD rate at 128 is ≥ 0.89 and of the width is infinite (point mass), and even under a D ≥ d_0 restriction the sup is ≥ 0.1235 / q90 ≥ 0.43 with probability 0.97 (F_c2 has D = D(F_a)). An LP over grid mixtures x_j = j/400 inside the gamma = 0.05 band with the true (mu_1, mu_2) fixed, minimizing v^T E[S_t(128)] v in the lambda_min-direction of F_a (objective affine in (mu_3, mu_4) through A1's exact joint moments, hence linear in w), yields F_lp with 3 atoms per type (type 0: {0.18, 0.1825, 0.285} w {0.368, 0.452, 0.180}; type 1: {0.1875, 0.2775, 0.28} w {0.322, 0.083, 0.595}), pooled lambda_min E[S_w(128)] = -1.29e-7 (vs +7.99e-6 at F_a), D = 0.0244, lambda_min(H̄_w) = 7.4e-9, production non-PD 0.6445 [0.623, 0.666] at 128 and 0.583 [0.561, 0.605] at 512 (width q50|ok 0.20 / 0.29, oracle q50 0.255); F_lp is inseparable from F_a at m=32 (NP-exact minimal error sum 0.670 ± 0.0015; Hellinger 0.592) but separable at m=128 (0.032 ± 0.0004). The LP range of V inside the band with mu_1 fixed is [0, 0.039] (true V_a = 0.00158).",
+   "status": "proved",
+   "assumptions": [
+    "Pilot = 100 type-t counts at m = 32 from F_a = Beta(20,80)/Beta(25,75); DKW band per type with the Massart constant (valid for any distribution function, discrete included, via the quantile transform).",
+    "Inclusion of a world means both types' count CDFs lie inside their bands; MC over 5000 pilots (SE ≤ 0.007), seed 777.",
+    "LP: grid atoms j/400 (j = 1..399), simplex weights, DKW inequalities at k = 0..31, equalities mu_1, mu_2 fixed at the true values (variant with the pilot's U-statistic estimates also run: pooled minimum -1.68e-7); objective direction v = eigenvector of lambda_min of the pooled E[S_w(128)] at F_a; HiGHS solver; E[U_a U_b] coefficients from the production binomial_factorial_joint_moment on unit moment vectors.",
+    "Production test at F_lp: endpoint_contrast_poly_cs degree 2, HC1 and CR1, g_1 = 0.18 - 0.8r, 16-draw arms, 2000 reps, seeds 100119 (m=128) and 100503 (m=512).",
+    "F_lp's pmfs and affinities in float64 (its atoms are grid rationals but weights are LP floats); the named worlds' constants are exact (B1)."
+   ],
+   "scope": "Existence statements for explicit worlds under one stated confidence construction (DKW, any gamma) in the narrow regime; inclusion frequencies are MC estimates with SE ≤ 0.007; the LP value is a valid upper bound on min_{F in C_gamma} lambda_min E[S_w(128)] (equivalently a lower bound on how bad the compatible set is).",
+   "does_not_claim": "It does not claim the LP solution is the extreme point of C_gamma (a fixed direction replaced the concave minimization, and extreme points were not shown extremal); it does not claim a multinomial-likelihood region contains the same worlds with the same probabilities (its constants differ; B1 bounds every construction); it does not claim F_lp is a plausible generative model for h_3 risks — it is an information-theoretic witness; it does not claim the DKW set's width in V ([0, 0.039]) is representative of moment-based constructions (the U-statistic V_hat has sd 0.00095, check2).",
+   "derivation_md": "**Two-point exactness** as in B1 (atoms μ ∓ d, weights d_2/(d_1+d_2), variance d_1 d_2); within each type r^2 = (x_1 + x_2) r - x_1 x_2 on the support, so the within-type partial variance of r^2 after (1, r) is 0; the pooled H̄_w is still PD because the two types' affine relations differ (x_1 + x_2 = 0.4004 vs 0.4936), which is why F_c2 passes at 512 but fails at 128.\n\n**DKW band.** P(sup_k |Ĝ_t(k) - G_{F,t}(k)| > ε) ≤ 2 exp(-2nε²) for every distribution function (Massart), so {F : sup_k |G_{F,t} - Ĝ_t| ≤ ε_n(γ)} has coverage ≥ 1-γ per type; a world W is in C_γ for the realized pilot iff sup_k |Ĝ_t - G_{W,t}| ≤ ε for both t (computed from exact-form count CDFs).\n\n**LP linearity.** E[S_ab(m)] = μ_{a+b} - μ_a μ_b - C_ab/n_t with C_ab = E[U_a U_b] - μ_a μ_b and E[U_a U_b] = Σ_{ℓ} binom(a,ℓ) binom(b,ℓ) ℓ! (m)_{a+b-ℓ} / ((m)_a (m)_b) · μ_{a+b-ℓ} (A1; coefficients c_{ab,j} obtained by evaluating the production function on unit moment vectors). With μ_1, μ_2 fixed, v^T E[S] v = const + ℓ_3 μ_3 + ℓ_4 μ_4, and μ_j = Σ_j' w_j' x_j'^j is linear in w; so min over the polytope {w ≥ 0, Σw = 1, DKW inequalities, two moment equalities} is an LP. Its optimum is a vertex, hence few atoms (3 per type here). Because λ_min(E[S]) ≤ v^T E[S] v / |v|², a negative LP value certifies a non-PD population Schur mean for the LP world. Full tables: b_derivation.md section B3.",
+   "evidence": "b3_dkw_band_lp.py → b3_dkw_band_lp.out/.json ('INCL' lines, 'LP' lines, 'LP-world test' lines, lp_world.lecam_vs_F_a); NP-exact F_lp separation in b1b_np_exact_stages.out; cross-check: the point mass's non-PD 0.8925 at 128 / 0.856 at 512 is the problem phase's check1b.",
+   "script_path": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/B__Le_Cam_two-point_impossibility_for_the_32-pilot_and_explicit_failing_worlds_inside_the_compatible_set__lower_bound__necessity_direction_/b3_dkw_band_lp.py",
+   "numbers": [
+    {
+     "name": "DKW eps_100 at gamma = 0.05 / 0.10 / 0.28",
+     "value": "0.13581 / 0.12239 / 0.09915",
+     "source": "b3_dkw_band_lp.py → b3_dkw_band_lp.out; CPU, python 3.13.16 x86_64, numpy 2.5.4, scipy 1.18.1, 4 cores, 2026-10-19"
+    },
+    {
+     "name": "P(F_b in C^DKW, both types | F_a) at gamma 0.05 / 0.10 / 0.28 (5000 pilots, seed 777)",
+     "value": "0.962 / 0.916 / 0.736",
+     "source": "b3_dkw_band_lp.out 'INCL F_b half-var'"
+    },
+    {
+     "name": "P(F_c2 in C^DKW) ; P(F_theta=0.8 in C^DKW) ; P(point mass in C^DKW) at gamma 0.05 / 0.10 / 0.28",
+     "value": "0.971/0.941/0.778 ; 0.968/0.932/0.769 ; 0.921/0.852/0.616",
+     "source": "b3_dkw_band_lp.out 'INCL' lines"
+    },
+    {
+     "name": "Coverage of F_a itself (both types / type 0) at gamma = 0.05",
+     "value": "0.970 / 0.9856",
+     "source": "b3_dkw_band_lp.out 'INCL F_a (coverage)'"
+    },
+    {
+     "name": "LP minimum of v^T E[S_t(128)] v inside the gamma=0.05 band, true (mu1, mu2): type 0 / type 1 / pooled ; value at F_a",
+     "value": "-1.24e-7 / -1.34e-7 / -1.29e-7 ; +7.99e-6",
+     "source": "b3_dkw_band_lp.out 'LP gamma=0.05 true_moments' and 'LP-world population'"
+    },
+    {
+     "name": "F_lp: D(F); lambda_min E[S_w(m)] at m = 32 / 128 / 512",
+     "value": "0.0244 ; -9.16e-7 / -1.29e-7 / -2.09e-8",
+     "source": "b3_dkw_band_lp.json lp_world.population"
+    },
+    {
+     "name": "F_lp production test (g_1): non-PD at 128 / 512 with exact CI; width q50|ok; oracle q50",
+     "value": "0.6445 [0.623, 0.666] / 0.583 [0.561, 0.605] ; 0.199 / 0.288 ; 0.255",
+     "source": "b3_dkw_band_lp.out 'LP-world test'; seeds 100119, 100503"
+    },
+    {
+     "name": "F_lp vs F_a Le Cam: Hellinger both types at m = 32 / 128 ; NP-exact at 32 / 128",
+     "value": "0.592 / 0.0051 ; 0.6701 (SE 0.0015) / 0.0317 (SE 0.0004)",
+     "source": "b3_dkw_band_lp.json lp_world.lecam_vs_F_a; b1b_np_exact_stages.out (seed 20261020)"
+    },
+    {
+     "name": "LP range of V inside the gamma=0.05 band with mu_1 fixed at truth (type 0 / type 1); true V",
+     "value": "[0, 0.0483] / [0, 0.0254] ; 0.00158 / 0.00186",
+     "source": "b3_dkw_band_lp.out 'LP gamma=0.05 true_moments' V_range_in_band_mu1_fixed"
+    }
+   ],
+   "experimental_consequence": "A route-A certificate built on the DKW compatible set cannot fire in the narrow world at any gamma ≤ 0.28 unless it excludes D < d_0 worlds by assumption, and even then F_c2 (same D as F_a) remains inside with probability 0.97 and fails at 128 — so the certificate's 'excluded worlds' must be stated in terms of the PD margin of E[S_w(128)] against the U-statistic noise (a kurtosis-type constraint on F), i.e. as a model-class assumption the user accepts, not as something the pilot verifies. The 'unidentified' branch (e) cannot be excluded at the 32-stage (point mass and F_lp inside the set with probability 0.92 / inseparable at 0.67) but its examined witnesses are separable at the 128-stage (NP minima 0.17e-? — exact: F_lp 0.032, point mass bound 4e-8), so the 128-stage re-assessment can detect non-identification even though it cannot certify sufficiency under the proposed tolerances."
+  }
+ ],
+ "what_failed": "(1) The problem-phase constant 'err sum ≥ 0.569 at m=32' is the type-0 factor rho_0^100 only; the honest bound for the pilot that actually exists (both types, 200 counts) is 0.419 (Hellinger) and the exact Neyman–Pearson minimum is 0.52 — weaker than recorded, though still decisive; the archive must not carry 0.569 as the pilot's constant. (2) The sup over the compatible set was NOT characterized: the LP minimizes a fixed-direction quadratic form (an upper bound on min lambda_min, i.e. a witness), not lambda_min itself (concave minimization not attempted), and extreme points were not shown extremal. (3) Over the bounded g-class only the non-PD component is established class-wide (exactly); width and size are a 10-point grid, and the Chebyshev-extreme quadratics (|g| ≤ 1 but q_± outside [0,1] in the narrow world) were deliberately not run because clipping changes the DGP's meaning. (4) F_a's own pass at 128 is marginal under the proposed q90 ≤ 0.15 tolerance (0.136–0.1496 HC1, 0.139–0.1531 CR1: g_4 under CR1 fails by 0.003), so the pair's 'pass/fail' labels — and therefore the 128-stage obstruction constant (0.77 at tolerance 0.15, 0.355 at 0.20/3%) — depend on the user's tolerance at the third decimal; the 32-stage impossibility is robust to this. (5) Within-question dependence of r is not modelled in the Le Cam bound (template assumes iid within type). (6) numpy in the venv is 2.5.4, not the 2.5.3 stated in the task's environment tag; all numbers here are tagged 2.5.4. (7) Route C (two-stage reuse size) was not touched; B1 only notes that reuse adds no information to the pilot-stage rule.",
+ "next_step": "(i) For route A: write the certificate as conditional on an explicit excluded class {F : lambda_min E[S_w(128)] < kappa × U-statistic noise}, since B1 shows no construction can certify against F_c2/F_b with low error; its availability under F_a is then bounded by TV + gamma (≤ 0.53 vs F_b, ≤ 0.20 vs F_c2) and the user must accept the exclusion as a model assumption (e.g. a kurtosis bound or a smooth/unimodal risk law). (ii) For the plan (§7.2b/§7.11): pre-specify 128 as the pilot extension with the 128-stage rule written down now, pre-register the tolerance (0.15 vs 0.20 flips whether the 128-stage is decidable: NP minima 0.77 vs 0.355), pre-specify 512 as the fallback (it passed in every examined non-degenerate world) and treat non-PD at 512 as the 'unidentified' signal (F_lp, point mass). (iii) Cheap exact follow-up: the LR test between F_a and F_theta is the optimal 128-stage rule for that pair, so its error curve over theta (b1b machinery, ~2 min) is the exact frontier of any 128-stage re-assessment; compute it jointly with the test's failure severity to give the user the risk-vs-tolerance curve. (iv) Route C check for the specific rules proposed here (LR-type and V_hat-type rules) with reuse of the 32 inside the 128, ≥ 4000 reps. (v) Replace the DKW set by a moment-based (U-statistic) confidence set for (V, lambda_min E[S_w]) and recompute inclusion of F_c2/F_b — tighter in V but still bounded below by the B1 constants."
+}

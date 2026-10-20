@@ -1,0 +1,9 @@
+c2 maximiser g = (np.float64(-1.0), 2.0, 0.0)  full maximiser g = (np.float64(0.999999999999999), -7.9999999999999964, 7.999999999999997)
+linear g (author)                                       w1=0.1071 clip=0.000 nonPD=0.004 | HC1 q50=0.1127 q90=0.1435 (x1.34) P(w>.15)=0.08 | CR1 q50=0.1133 q90=0.1472 (x1.37) P(w>.15)=0.09  [3s]
+c2 maximiser                                            w1=0.0960 clip=0.000 nonPD=0.008 | HC1 q50=0.1018 q90=0.1336 (x1.39) P(w>.15)=0.07 | CR1 q50=0.1016 q90=0.1369 (x1.43) P(w>.15)=0.06  [6s]
+full-class maximiser                                    w1=0.1554 clip=0.003 nonPD=0.002 | HC1 q50=0.1631 q90=0.2388 (x1.54) P(w>.15)=0.67 | CR1 q50=0.1634 q90=0.2444 (x1.57) P(w>.15)=0.66  [8s]
+linear g, sigma2=(1-g^2)/32 arms at 1/2                 w1=0.1283 clip=0.000 nonPD=0.004 | HC1 q50=0.1346 q90=0.1720 (x1.34) P(w>.15)=0.25 | CR1 q50=0.1349 q90=0.1767 (x1.38) P(w>.15)=0.27  [11s]
+c2 maximiser, arms at 1/2                               w1=0.1385 clip=0.000 nonPD=0.004 | HC1 q50=0.1265 q90=0.1701 (x1.23) P(w>.15)=0.20 | CR1 q50=0.1268 q90=0.1719 (x1.24) P(w>.15)=0.21  [14s]
+linear g, question effect tau=.05, shared layout        w1=0.1071 clip=0.000 nonPD=0.006 | HC1 q50=0.1193 q90=0.1488 (x1.39) P(w>.15)=0.09 | CR1 q50=0.1156 q90=0.1492 (x1.39) P(w>.15)=0.10  [17s]
+linear g, question effect tau=.05, disjoint layout      w1=0.1071 clip=0.000 nonPD=0.003 | HC1 q50=0.1186 q90=0.1522 (x1.42) P(w>.15)=0.11 | CR1 q50=0.1276 q90=0.1646 (x1.54) P(w>.15)=0.18  [20s]
+linear g, question effect tau=.10, disjoint layout      w1=0.1071 clip=0.000 nonPD=0.006 | HC1 q50=0.1343 q90=0.1711 (x1.60) P(w>.15)=0.23 | CR1 q50=0.1634 q90=0.2037 (x1.90) P(w>.15)=0.74  [23s]

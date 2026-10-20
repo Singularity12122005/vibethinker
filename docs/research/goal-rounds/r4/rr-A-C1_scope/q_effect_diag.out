@@ -1,0 +1,5 @@
+narrow tau=0.05 W1=0.1071 | scope-lens A=0.1035 B=0.1174 | with diagonal: HC1=0.1129 CR1_A=0.1095 CR1_B=0.1227
+narrow tau=0.10 W1=0.1071 | scope-lens A=0.0917 B=0.1439 | with diagonal: HC1=0.1288 CR1_A=0.1162 CR1_B=0.1606
+wide tau=0.05 W1=0.0809 | scope-lens A=0.0760 B=0.0941 | with diagonal: HC1=0.0857 CR1_A=0.0811 CR1_B=0.0982
+wide tau=0.10 W1=0.0809 | scope-lens A=0.0589 B=0.1255 | with diagonal: HC1=0.0988 CR1_A=0.0817 CR1_B=0.1378
+MC narrow layout A tau=0.10 N=8000 ok=300: sampling sd -> width at n=200: 0.1138 ; mean CR1 se -> width: 0.1155

@@ -1,0 +1,51 @@
+stage1 halfvar|lin outer 0/1000 elapsed 1s
+stage1 narrow|quad outer 0/1000 elapsed 1s
+stage1 narrow|lin outer 0/1000 elapsed 1s
+stage1 narrow|cheb outer 0/1000 elapsed 1s
+stage1 halfvar|lin outer 100/1000 elapsed 50s
+stage1 narrow|lin outer 100/1000 elapsed 53s
+stage1 narrow|quad outer 100/1000 elapsed 55s
+stage1 narrow|cheb outer 100/1000 elapsed 55s
+stage1 halfvar|lin outer 200/1000 elapsed 100s
+stage1 narrow|lin outer 200/1000 elapsed 108s
+stage1 narrow|quad outer 200/1000 elapsed 111s
+stage1 narrow|cheb outer 200/1000 elapsed 112s
+stage1 halfvar|lin outer 300/1000 elapsed 150s
+stage1 narrow|lin outer 300/1000 elapsed 161s
+stage1 narrow|cheb outer 300/1000 elapsed 165s
+stage1 narrow|quad outer 300/1000 elapsed 165s
+stage1 halfvar|lin outer 400/1000 elapsed 199s
+stage1 narrow|lin outer 400/1000 elapsed 217s
+stage1 narrow|cheb outer 400/1000 elapsed 218s
+stage1 narrow|quad outer 400/1000 elapsed 219s
+stage1 halfvar|lin outer 500/1000 elapsed 250s
+stage1 narrow|lin outer 500/1000 elapsed 270s
+stage1 narrow|cheb outer 500/1000 elapsed 271s
+stage1 narrow|quad outer 500/1000 elapsed 274s
+stage1 halfvar|lin outer 600/1000 elapsed 298s
+stage1 narrow|lin outer 600/1000 elapsed 323s
+stage1 narrow|cheb outer 600/1000 elapsed 327s
+stage1 narrow|quad outer 600/1000 elapsed 330s
+stage1 halfvar|lin outer 700/1000 elapsed 349s
+stage1 narrow|lin outer 700/1000 elapsed 390s
+stage1 narrow|cheb outer 700/1000 elapsed 397s
+stage1 narrow|quad outer 700/1000 elapsed 405s
+stage1 halfvar|lin outer 800/1000 elapsed 430s
+stage1 narrow|lin outer 800/1000 elapsed 506s
+stage1 narrow|cheb outer 800/1000 elapsed 515s
+stage1 narrow|quad outer 800/1000 elapsed 521s
+stage1 halfvar|lin outer 900/1000 elapsed 544s
+stage1 narrow|lin outer 900/1000 elapsed 657s
+stage1 narrow|cheb outer 900/1000 elapsed 664s
+stage1 narrow|quad outer 900/1000 elapsed 668s
+done /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/C__Sequential_internal-pilot_design__32___128___re-assess__and_validity_under_reuse/c1_stage1_halfvar_lin.npz 675s
+stage1 wide|lin outer 0/1000 elapsed 1s
+done /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/C__Sequential_internal-pilot_design__32___128___re-assess__and_validity_under_reuse/c1_stage1_narrow_lin.npz 787s
+done /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/C__Sequential_internal-pilot_design__32___128___re-assess__and_validity_under_reuse/c1_stage1_narrow_cheb.npz 795s
+done /tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/C__Sequential_internal-pilot_design__32___128___re-assess__and_validity_under_reuse/c1_stage1_narrow_quad.npz 797s
+stage1 wide|lin outer 100/1000 elapsed 127s
+stage1 wide|lin outer 200/1000 elapsed 180s
+stage1 wide|lin outer 300/1000 elapsed 234s
+stage1 wide|lin outer 400/1000 elapsed 291s
+stage1 wide|lin outer 500/1000 elapsed 343s
+stage1 wide|lin outer 600/1000 elapsed 396s

@@ -1,0 +1,12 @@
+narrow Beta(20,80) vs half_var_Beta(40.5,162) | m=32 n=100: affinity^1=0.998975 TV_n<= 0.431  errI+errII >= 0.569
+narrow Beta(20,80) vs half_var_Beta(40.5,162) | m=32 n=200: affinity^1=0.998975 TV_n<= 0.580  errI+errII >= 0.420
+narrow Beta(20,80) vs double_var_Beta(9.5,38) | m=32 n=100: affinity^1=0.996653 TV_n<= 0.699  errI+errII >= 0.301
+narrow Beta(20,80) vs double_var_Beta(9.5,38) | m=32 n=200: affinity^1=0.996653 TV_n<= 0.859  errI+errII >= 0.141
+narrow Beta(20,80) vs half_var_Beta(40.5,162) | m=128 n=100: affinity^1=0.993141 TV_n<= 0.865  errI+errII >= 0.135
+narrow Beta(20,80) vs half_var_Beta(40.5,162) | m=128 n=200: affinity^1=0.993141 TV_n<= 0.968  errI+errII >= 0.032
+narrow Beta(20,80) vs double_var_Beta(9.5,38) | m=128 n=100: affinity^1=0.985721 TV_n<= 0.971  errI+errII >= 0.029
+narrow Beta(20,80) vs double_var_Beta(9.5,38) | m=128 n=200: affinity^1=0.985721 TV_n<= 0.998  errI+errII >= 0.002
+narrow Beta(20,80) vs half_var_Beta(40.5,162) | m=512 n=100: affinity^1=0.981371 TV_n<= 0.988  errI+errII >= 0.012
+narrow Beta(20,80) vs half_var_Beta(40.5,162) | m=512 n=200: affinity^1=0.981371 TV_n<= 1.000  errI+errII >= 0.000
+narrow Beta(20,80) vs double_var_Beta(9.5,38) | m=512 n=100: affinity^1=0.973592 TV_n<= 0.998  errI+errII >= 0.002
+narrow Beta(20,80) vs double_var_Beta(9.5,38) | m=512 n=200: affinity^1=0.973592 TV_n<= 1.000  errI+errII >= 0.000

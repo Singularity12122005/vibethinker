@@ -1,0 +1,445 @@
+{
+ "round": "r4",
+ "format": ".claude/skills/goal/verify_evidence.py (protocol v4 §7 item 1b)",
+ "scope": "Every number written in Arabic numerals in the compact §9 `### r4` record and in the r4 lines of §7 of docs/research/sycophancy-phase0-goal.md. Ids are cited in the record as [E:<id>]. Not counted as values: dates, section, protocol, round and gate labels (§7.11, v4, r4, G6, C0–C6), file and test names, coding labels (0/1 coding, 1/2 coding), symbols inside formulas (1−TV, (1−γ), γ_2=0), and the subscript 32 of the notation K_32 / G_32, which the §9 r4 约定 paragraph and the §7 C1 line define as the pilot m [E:par.m_pilot]. Counts written in Chinese numerals (numbers of claims, lenses, cells, tests and repairs) are structural; they are checkable against the ledger table, the listed test names and the evidence conditions in the record itself and have no entries here.",
+ "entries": [
+  {
+   "id": "par.m_pilot",
+   "printed": "32",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/B/b1_lecam_exact.json",
+   "locator": {
+    "json": [
+     "pairs",
+     "F_b half-var Beta(40.5,162)/(50.6,151.8) [problem-phase anchor]",
+     "m=32",
+     "m"
+    ]
+   },
+   "conditions": "Design parameter: number of alpha=0 sel continuations per G6 h_3 prefix in the existing pilot (plan §7.11/§7.2b); the m of the B1 pilot cells."
+  },
+  {
+   "id": "par.m_stage",
+   "printed": "128",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/B/b1_lecam_exact.json",
+   "locator": {
+    "json": [
+     "pairs",
+     "F_b half-var Beta(40.5,162)/(50.6,151.8) [problem-phase anchor]",
+     "m=128",
+     "m"
+    ]
+   },
+   "conditions": "Design parameter: the proposed per-prefix count (pilot extension / 128-stage re-assessment); the m of the B1 128-stage cells and of the C1 final test."
+  },
+  {
+   "id": "par.m_fallback",
+   "printed": "512",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/B/b1_lecam_exact.json",
+   "locator": {
+    "json": [
+     "pairs",
+     "F_b half-var Beta(40.5,162)/(50.6,151.8) [problem-phase anchor]",
+     "m=512",
+     "m"
+    ]
+   },
+   "conditions": "Design parameter: the fallback per-prefix count of the sequential rule (still vLLM); the m of the B1 512-stage cells."
+  },
+  {
+   "id": "par.n_t",
+   "printed": "100",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/B/b1_lecam_exact.json",
+   "locator": {
+    "json": [
+     "n_per_type"
+    ]
+   },
+   "conditions": "Design parameter: fixed number of G6 h_3 prefixes per type (n_0 = n_1)."
+  },
+  {
+   "id": "par.n",
+   "printed": "200",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/B/b1_lecam_exact.json",
+   "locator": {
+    "regex": "\"both_types_n(200)\"",
+    "occurrence": 0
+   },
+   "conditions": "Design parameter: total number of G6 h_3 prefixes (100 + 100), as in the key of the both-type B1 cells."
+  },
+  {
+   "id": "par.w0",
+   "printed": "0.15",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/C/c_common.py",
+   "locator": {
+    "regex": "^W0 = ([0-9.]+)",
+    "occurrence": 0
+   },
+   "conditions": "Proposed q90 tolerance for the 95% full CI width of b_type (route C constant W0; a user decision, not pre-registered)."
+  },
+  {
+   "id": "par.gamma",
+   "printed": "0.05",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_B1_scope.json",
+   "locator": {
+    "regex": "valid at F_b \\(gamma=([0-9.]+)\\)",
+    "occurrence": 0
+   },
+   "conditions": "False-certification level gamma at F_b in B1's Corollary 4 as worded by the scope lens."
+  },
+  {
+   "id": "par.pi_min",
+   "printed": "0.1",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/C/c2_analysis.json",
+   "locator": {
+    "regex": "\"uniform_bound_at_pi\": \\{[^}]*\"(0\\.1)\": ",
+    "occurrence": 0
+   },
+   "conditions": "Smallest P(D) at which route C evaluates the Theorem 1 bound (key of uniform_bound_at_pi)."
+  },
+  {
+   "id": "par.g_bound",
+   "printed": "1",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/problem.json",
+   "locator": {
+    "regex": "g\\(r\\) = c \\+ b_1 r \\+ b_2 r\\^2, \\|g\\| ≤ ([0-9]+) on \\[0,1\\]",
+    "occurrence": 0
+   },
+   "conditions": "Model-class constant of the problem phase (template.model_class_or_compatible_set): the quadratic response g(r) = c + b_1 r + b_2 r^2 is bounded by |g| <= 1 on [0,1]. A definitional bound of the response class, not a computed result; whether to pre-register it is a pending user decision (§9 r4 E, 待用户决定 (2))."
+  },
+  {
+   "id": "AC1.m_min",
+   "printed": "4",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/r4_rereview.json",
+   "locator": {
+    "regex": "with common m≥([0-9]+)",
+    "occurrence": 0
+   },
+   "conditions": "Premise P2 of the narrowed A-C1 statement: a common number m >= 4 of counts per prefix (degree-2 correction needs m >= 2p)."
+  },
+  {
+   "id": "AC1.W1_narrow",
+   "printed": "0.1071",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/A/a1_exact_check.json",
+   "locator": {
+    "json": [
+     "first_order_table",
+     "narrow",
+     "m=128|g=linear",
+     "width1"
+    ]
+   },
+   "conditions": "A-C1 closed form: first-order 95% full width W_1, narrow world Beta(20,80)/Beta(25,75), m=128, n=200, w_t=1/2, g=0.18-0.8r, two symmetric 16-draw arms with the unclipped sigma^2=[2r(1-r)-g^2/2]/16, independent prefixes; deterministic. Reproduced by the math and blind re-review lenses."
+  },
+  {
+   "id": "AC1.W1_halfvar",
+   "printed": "0.1428",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/A/a1_exact_check.json",
+   "locator": {
+    "json": [
+     "first_order_table",
+     "halfvar",
+     "m=128|g=linear",
+     "width1"
+    ]
+   },
+   "conditions": "As AC1.W1_narrow, half-variance world Beta(40.5,162)/Beta(50.6,151.8). Reproduced by the math and blind re-review lenses."
+  },
+  {
+   "id": "AC1.nonpd_halfvar",
+   "printed": "0.126",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/rv-A-C1_scope/s3_c2_eta_end_and_m64.json",
+   "locator": {
+    "json": [
+     "halfvar|linear g, m=128 (check1b reproduction)",
+     "non_pd"
+    ]
+   },
+   "conditions": "Production endpoint_contrast_poly_cs, degree 2, HC1, (n,m)=(200,128), half-variance world, g=0.18-0.8r, symmetric 16-draw arms clipped to [0,1], no question effect; 2000 reps, seed 5 (first-round scope lens). q90 width not finite there."
+  },
+  {
+   "id": "AC1.q90_ratio_narrow",
+   "printed": "1.340",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/rv-A-C1_scope/s2_n200_production.json",
+   "locator": {
+    "json": [
+     "linear g (author)",
+     "HC1",
+     "ratio_q90"
+    ]
+   },
+   "conditions": "Realised q90 width / W_1: narrow world, (200,128), degree 2, HC1, g=0.18-0.8r, symmetric 16-draw arms clipped to [0,1], no question effect, 2000 reps, seed 11, non-PD counted as infinite width; W_1=0.1071."
+  },
+  {
+   "id": "AC1.ratio_min",
+   "printed": "1.083",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/repair/w1_q90_ratios.out",
+   "locator": {
+    "regex": "finite q90: n=37 min=([0-9.]+) max=",
+    "occurrence": 0
+   },
+   "conditions": "Minimum realised q90 / W_1 over the degree-2 cells of the repair-stage table with non-PD < 1% (or not reported) and finite q90 (P/check1, P/check1b, rv-A-C1_scope s2-s4); mixed q90 conventions and models (question effects, arms at 1/2, 32-draw arms included); W_1 entered at 4 d.p. The file also states that all finite ratios exceed 1."
+  },
+  {
+   "id": "B1.np_m32_lo",
+   "printed": "0.52164",
+   "kind": "lower",
+   "source": "docs/research/goal-rounds/r4/rv-B1_math/rev_b1_exact.out",
+   "locator": {
+    "regex": "F_b\\s+m= 32:.*?NP in \\[([0-9.]+), ",
+    "occurrence": 0
+   },
+   "conditions": "Lower end of the NP-optimal error sum 1-TV, F_a=Beta(20,80)/Beta(25,75) vs F_b=Beta(40.5,162)/Beta(50.6,151.8), m=32, iid-within-type binomial counts, fixed n_0=n_1=100, common m; first-round math lens's lattice-FFT bracket with Chernoff-bounded aliasing (rounded outward). The re-review math lens's own bracket [0.52156, 0.52183] (rr-B1_math/chk.out) contains it."
+  },
+  {
+   "id": "B1.np_m32_hi",
+   "printed": "0.52172",
+   "kind": "upper",
+   "source": "docs/research/goal-rounds/r4/rv-B1_math/rev_b1_exact.out",
+   "locator": {
+    "regex": "F_b\\s+m= 32:.*?NP in \\[[0-9.]+, ([0-9.]+)\\]",
+    "occurrence": 0
+   },
+   "conditions": "Upper end of the same bracket (same model and pair, m=32)."
+  },
+  {
+   "id": "B1.cert_Fb",
+   "printed": "53",
+   "kind": "upper",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_B1_scope.json",
+   "locator": {
+    "regex": "fires at F_a more than ([0-9]+)% of the time",
+    "occurrence": 0
+   },
+   "conditions": "Percent. Corollary 4 availability cap: a rule on the 200 m=32 pilot counts with P_{F_b}(certify) <= 0.05 certifies under F_a with probability at most TV+0.05, rounded up (TV = 0.47832 on the re-review blind lens's grid, rr-B1_blind_replication/b1_replicate_32.json '32_b'; TV <= 1-0.52164 by the rigorous bracket); iid-within-type binomial-count model, fixed 100+100 prefixes, common m, F_a the §7.11 toy narrow world."
+  },
+  {
+   "id": "B1.cert_Fc2",
+   "printed": "20",
+   "kind": "upper",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_B1_scope.json",
+   "locator": {
+    "regex": "The limit is ([0-9]+)% if the rule must also cover two-point worlds",
+    "occurrence": 0
+   },
+   "conditions": "Percent. As B1.cert_Fb with the rule also valid at the two-point world F_c2 (same per-type mean and variance as F_a): TV = 0.14848 (rr-B1_blind_replication/b1_replicate_32.json '32_c2'; rigorous bracket of 1-TV [0.85142, 0.85161] in rv-B1_math/rev_b1_exact.out), TV+0.05 rounded up."
+  },
+  {
+   "id": "B1.np_m128_Fb",
+   "printed": "0.0967",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/rv-B1_blind_replication/full_run.log",
+   "locator": {
+    "regex": "m= 128 Fa vs Fb\\s+: claimed=[0-9.]+\\s+grid\\(delta=1e-4\\)=([0-9.]+)",
+    "occurrence": 0
+   },
+   "conditions": "NP error sum 1-TV, F_a vs F_b, m=128, same model; first-round blind lens's FFT convolution on a grid of step 1e-4 (no rigorous bracket in that file; the re-review math lens's bracket [0.09671, 0.09676] is in rr-B1_math/chk.out)."
+  },
+  {
+   "id": "B1.hell_m32",
+   "printed": "0.41942",
+   "kind": "lower",
+   "source": "docs/research/goal-rounds/r4/B/b1_lecam_exact.json",
+   "locator": {
+    "json": [
+     "pairs",
+     "F_b half-var Beta(40.5,162)/(50.6,151.8) [problem-phase anchor]",
+     "m=32",
+     "both_types_n200",
+     "err_sum_lower"
+    ]
+   },
+   "conditions": "Value of the Hellinger bound 1-sqrt(1-rho_0^200 rho_1^200), F_a vs F_b, m=32, both types (100+100), exact rational pmfs, 60-digit mpmath; printed as a lower bound, rounded down (to nearest: 0.41943)."
+  },
+  {
+   "id": "B1.type0_only",
+   "printed": "0.56935",
+   "kind": "lower",
+   "source": "docs/research/goal-rounds/r4/B/b1_lecam_exact.json",
+   "locator": {
+    "json": [
+     "pairs",
+     "F_b half-var Beta(40.5,162)/(50.6,151.8) [problem-phase anchor]",
+     "m=32",
+     "type0_only_n100",
+     "err_sum_lower"
+    ]
+   },
+   "conditions": "Value of the type-0-only Hellinger bound 1-sqrt(1-rho_0^200) (100 type-0 prefixes only), F_a vs F_b, m=32; printed as a lower bound, rounded down (to nearest: 0.56936). Not the two-type pilot's bound."
+  },
+  {
+   "id": "B1.prob0569",
+   "printed": "0.569",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/P/check2c_lecam_vs_m.out",
+   "locator": {
+    "regex": "half_var_Beta\\(40\\.5,162\\) \\| m=32 n=100: .*?errI\\+errII >= ([0-9.]+)",
+    "occurrence": 0
+   },
+   "conditions": "Problem-phase check2c constant: n=100 (type 0 only), m=32, Beta(20,80) vs Beta(40.5,162)."
+  },
+  {
+   "id": "C1.share_U1",
+   "printed": "1/4",
+   "kind": "exact",
+   "source": "docs/research/goal-rounds/r4/C/c3_tilt_moments.json",
+   "locator": {
+    "json": [
+     "narrow",
+     "pilot_share_of_ME_variance",
+     "U1",
+     "share_exact"
+    ]
+   },
+   "conditions": "Exact rational: the 32-count pilot's share of the measurement-error variance of U_1 at m=128 (32 draws inside 128); the same 1/4 in every world (Ũ_1 - r = (32/128)(r̂_32 - r))."
+  },
+  {
+   "id": "C1.sd_ucl_max",
+   "printed": "0.0086",
+   "kind": "upper",
+   "source": "docs/research/goal-rounds/r4/C/c2_analysis.json",
+   "locator": {
+    "json": [
+     "c1_stage1_narrow_cheb",
+     "cells",
+     "HC1",
+     "theorem1",
+     "reject",
+     "sd_delta_ucl"
+    ]
+   },
+   "conditions": "Per-cell (nominal) 95% MC upper confidence limit of sigma_delta for the REJECT event; largest over the four Beta cells (narrow lin/quad/cheb, half-variance lin) and HC1/CR1; narrow cheb HC1. Nested MC 1000 outer x 200 inner, production degree-2 test at (200,128), 16-draw arms, common random numbers, seed 4102067, outer bootstrap seed 777; rounded up. Not a proved bound."
+  },
+  {
+   "id": "C1.scope_q2_max",
+   "printed": "0.0076",
+   "kind": "upper",
+   "source": "docs/research/goal-rounds/r4/rr-C1_scope/q2.out",
+   "locator": {
+    "regex": "q1_D_narrow_cheb_arm32[^\\n]*\\n[^\\n]*\\n\\s*CR1:[^\\n]*?UCL sd=([0-9.]+)",
+    "occurrence": 0
+   },
+   "conditions": "C1 re-review scope lens: REJECT sigma_delta 95% UCL, largest of the eight 'UCL sd' values in q2.out (cells narrow cheb and narrow lin with question effect v_q sd 0.1, wide lin, narrow cheb with 32-draw arms; HC1 and CR1; 1000 outer x 200 inner): 0.00342, 0.00751, 0.00517, 0.00619, 0.00378, 0.00276, 0.00706, 0.00758; the maximum is narrow cheb 32-draw arms, CR1. Rounded up. Below the reported maximum C1.sd_ucl_max (0.0086), but not below every same-(world, g, SE) constant: e.g. narrow lin CR1 with question effect 0.00619 vs the reported narrow lin CR1 constant 0.00509 (C/c2_analysis.json c1_stage1_narrow_lin.cells.CR1.theorem1.reject.sd_delta_ucl)."
+  },
+  {
+   "id": "C1.fixed_cheb_ucl",
+   "printed": "0.0091",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/rr-C1_math/out_fixed_narrow_cheb.txt",
+   "locator": {
+    "regex": "narrow cheb .*ucl95 sd=([0-9.]+)",
+    "occurrence": 0
+   },
+   "conditions": "C1 re-review math lens (rr-C1_math/m3_fixed_r.py): fixed-prefix-risk analogue of sigma_delta for the REJECT event (outer draw (r, K32), inner K96, K'128, eta given r; between-outer sd of reuse-minus-fresh), narrow world Beta(20,80)/Beta(25,75), cheb g = 0.5(1-8r+8r^2), production degree-2 test at (200,128), HC1 (no cluster vector), 95% bootstrap UCL over 2000 resamples. The source file prints 4 decimals, copied as printed. Not covered by C1's constants (which are for the joint law with r random); compared with C1.sd_ucl_max (narrow cheb HC1). Run sizes and seed are command-line arguments not saved with the output."
+  },
+  {
+   "id": "C1.bound_pi01",
+   "printed": "0.0194",
+   "kind": "upper",
+   "source": "docs/research/goal-rounds/r4/C/c2_analysis.json",
+   "locator": {
+    "json": [
+     "c1_stage1_narrow_lin",
+     "cells",
+     "HC1",
+     "theorem1",
+     "reject",
+     "uniform_bound_at_pi",
+     "0.1"
+    ]
+   },
+   "conditions": "Theorem 1 reuse bound sigma_delta_UCL*sqrt(0.9/0.1) at P(D)=0.1, REJECT, maximum over the three archive-g cells (narrow lin/quad, half-variance lin) and HC1/CR1 (narrow lin HC1; seed 4101988); rounded up. Narrow cheb: 0.0257."
+  },
+  {
+   "id": "C1.nonpd_sd",
+   "printed": "0.0359",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/review-verdicts/verdict_C1_blind_replication.json",
+   "locator": {
+    "regex": "NON-PD \\(half-variance\\): point ([0-9.]+)",
+    "occurrence": 0
+   },
+   "conditions": "Point estimate of sigma_delta for the NON-PD event, half-variance lin cell, first-round blind re-implementation 8000 outer x 200 inner (90% CI [0.0351, 0.0368])."
+  },
+  {
+   "id": "C1.size_halfvar",
+   "printed": "0.022",
+   "kind": "point",
+   "source": "docs/research/goal-rounds/r4/C/c2_analysis.json",
+   "locator": {
+    "json": [
+     "c1_stage1_halfvar_lin",
+     "cells",
+     "HC1",
+     "unconditional",
+     "size_reuse"
+    ]
+   },
+   "conditions": "One-stage size (ok & |t|>1.96) of the degree-2 test at (200,128) with reused counts K32+K96, half-variance world, lin g, HC1, 1000 x 200 draws, seed 4102063 (fresh: 0.0214; blind 8000 x 200: 0.0215/0.0217)."
+  },
+  {
+   "id": "B2c.calls",
+   "printed": "18000",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/B/b2b_pd_event_invariance.json",
+   "locator": {
+    "json": [
+     "pd_event_invariance",
+     "production_calls"
+    ]
+   },
+   "conditions": "Author check (unreviewed corroboration, rerun by the B2-core math lens): production calls with bit-identical (ok, min_eig) within each draw. Only F_b=Beta(40.5,162)/Beta(50.6,151.8), n=100+100, m=128, degree 2, 10 grid g x 3 eta-laws (16-draw arms, 32-draw arms, eta=0) x HC1/CR1 (50 question clusters of 2+2), seed 31337."
+  },
+  {
+   "id": "B2c.draws",
+   "printed": "300",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/B/b2b_pd_event_invariance.json",
+   "locator": {
+    "json": [
+     "pd_event_invariance",
+     "draws"
+    ]
+   },
+   "conditions": "(r,t,K) draws of the same check (F_b, m=128, degree 2, seed 31337)."
+  },
+  {
+   "id": "B2c.nonpd",
+   "printed": "38",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/B/b2b_pd_event_invariance.json",
+   "locator": {
+    "json": [
+     "pd_event_invariance",
+     "nonpd_draws"
+    ]
+   },
+   "conditions": "Draws of the same check whose common PD decision was non-PD; shows both branches were exercised (not a non-PD rate estimate)."
+  },
+  {
+   "id": "test.pass",
+   "printed": "27",
+   "kind": "count",
+   "source": "docs/research/goal-rounds/r4/final/pytest_test_analysis.out",
+   "locator": {
+    "regex": "([0-9]+) passed",
+    "occurrence": 0
+   },
+   "conditions": "pytest of sycophancy_phase0/tests/test_analysis.py run from sycophancy_phase0/ in the final v4 record step (python 3.13.16, numpy 2.5.4, scipy 1.18.1, pytest 9.1.1, CPU); includes the three r4 candidate-core regression tests."
+  }
+ ]
+}

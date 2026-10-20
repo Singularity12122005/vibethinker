@@ -1,0 +1,149 @@
+{
+ "narrow": {
+  "D_true": 0.18266480269957486,
+  "hoeffding": {
+   "eps_H_16": 0.17974242927525094,
+   "eps_H_4": 0.15929805107461023,
+   "pilots": 5000,
+   "frac_box16_contains_pointmass_world": 1.0,
+   "frac_box4_contains_pointmass_world": 1.0,
+   "max_over_pilots_of_max_dev": 0.006916129032258078
+  },
+  "dkw": {
+   "eps_DKW_per_type": 0.14802071873007983,
+   "pilots": 20,
+   "frac_pilots_with_D0_world_inside_band": 1.0,
+   "min_sup_distance_q0_50_100": [
+    0.024639668352990314,
+    0.03668088350493387,
+    0.0501839585474545
+   ]
+  },
+  "matrix_bernstein": {
+   "m=32": {
+    "lambda_min_Q": 8.188411058911593e-06,
+    "lambda_max_Q": 1.362564559243249,
+    "sigma1_sq": 0.6972263212877274,
+    "R_exact": 3.250190944728228,
+    "n_needed_crude_R8": 110193522748.36186,
+    "n_needed_exact": 110191473836.74564,
+    "whitened": {
+     "sigma1_sq": 1315.3905418715308,
+     "R": 34847.513463812196,
+     "n_needed": 137027.5036144704
+    }
+   },
+   "m=128": {
+    "lambda_min_Q": 8.188411058934672e-06,
+    "lambda_max_Q": 1.3625645592431792,
+    "sigma1_sq": 0.6904933284012826,
+    "R_exact": 3.2501909447282604,
+    "n_needed_crude_R8": 109129436457.52907,
+    "n_needed_exact": 109127387545.91287,
+    "whitened": {
+     "sigma1_sq": 89.01822445732408,
+     "R": 34847.513463711206,
+     "n_needed": 124032.08411969474
+    }
+   }
+  }
+ },
+ "halfvar": {
+  "D_true": 0.14371863027474818,
+  "hoeffding": {
+   "eps_H_16": 0.17974242927525094,
+   "eps_H_4": 0.15929805107461023,
+   "pilots": 5000,
+   "frac_box16_contains_pointmass_world": 1.0,
+   "frac_box4_contains_pointmass_world": 1.0,
+   "max_over_pilots_of_max_dev": 0.004972987021169356
+  },
+  "dkw": {
+   "eps_DKW_per_type": 0.14802071873007983,
+   "pilots": 20,
+   "frac_pilots_with_D0_world_inside_band": 1.0,
+   "min_sup_distance_q0_50_100": [
+    0.011242106618736925,
+    0.03456961131087796,
+    0.06063961495184711
+   ]
+  },
+  "matrix_bernstein": {
+   "m=32": {
+    "lambda_min_Q": 2.914405256970822e-06,
+    "lambda_max_Q": 1.3624321102298105,
+    "sigma1_sq": 0.6956906984639479,
+    "R_exact": 3.2515860870572264,
+    "n_needed_crude_R8": 867938852459.5619,
+    "n_needed_exact": 867933097459.4435,
+    "whitened": {
+     "sigma1_sq": 5918.863052834527,
+     "R": 99719.23372669697,
+     "n_needed": 414949.4616947862
+    }
+   },
+   "m=128": {
+    "lambda_min_Q": 2.91440525695798e-06,
+    "lambda_max_Q": 1.3624321102298838,
+    "sigma1_sq": 0.6889942416269276,
+    "R_exact": 3.251586087057181,
+    "n_needed_crude_R8": 859584493054.9294,
+    "n_needed_exact": 859578738054.811,
+    "whitened": {
+     "sigma1_sq": 181.6467678312009,
+     "R": 99719.23372708073,
+     "n_needed": 354154.2763391911
+    }
+   }
+  }
+ },
+ "wide": {
+  "D_true": 0.2398564075676793,
+  "hoeffding": {
+   "eps_H_16": 0.17974242927525094,
+   "eps_H_4": 0.15929805107461023,
+   "pilots": 5000,
+   "frac_box16_contains_pointmass_world": 1.0,
+   "frac_box4_contains_pointmass_world": 1.0,
+   "max_over_pilots_of_max_dev": 0.030090968496999437
+  },
+  "dkw": {
+   "eps_DKW_per_type": 0.14802071873007983,
+   "pilots": 20,
+   "frac_pilots_with_D0_world_inside_band": 1.0,
+   "min_sup_distance_q0_50_100": [
+    0.0364899897326878,
+    0.05749021590558709,
+    0.0796580392896938
+   ]
+  },
+  "matrix_bernstein": {
+   "m=32": {
+    "lambda_min_Q": 0.0003551680402714903,
+    "lambda_max_Q": 1.3650018385388856,
+    "sigma1_sq": 0.7257141057122445,
+    "R_exact": 3.2261353013357343,
+    "n_needed_crude_R8": 61042482.934121646,
+    "n_needed_exact": 60995005.97041145,
+    "whitened": {
+     "sigma1_sq": 61.3256406298908,
+     "R": 600.7037487444544,
+     "n_needed": 2771.658149610236
+    }
+   },
+   "m=128": {
+    "lambda_min_Q": 0.0003551680402714645,
+    "lambda_max_Q": 1.3650018385388647,
+    "sigma1_sq": 0.7183654555694503,
+    "R_exact": 3.226135301335745,
+    "n_needed_crude_R8": 60425166.586038895,
+    "n_needed_exact": 60377689.62232869,
+    "whitened": {
+     "sigma1_sq": 34.98710180997718,
+     "R": 600.7037487444901,
+     "n_needed": 2492.558274332266
+    }
+   }
+  }
+ }
+}

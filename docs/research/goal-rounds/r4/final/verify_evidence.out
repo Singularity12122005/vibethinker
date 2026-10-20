@@ -1,0 +1,35 @@
+PASS  par.m_pilot                              printed 32             count  source 32
+PASS  par.m_stage                              printed 128            count  source 128
+PASS  par.m_fallback                           printed 512            count  source 512
+PASS  par.n_t                                  printed 100            count  source 100
+PASS  par.n                                    printed 200            count  source 200
+PASS  par.w0                                   printed 0.15           exact  source 0.15
+PASS  par.gamma                                printed 0.05           exact  source 0.05
+PASS  par.pi_min                               printed 0.1            exact  source 0.1
+PASS  par.g_bound                              printed 1              exact  source 1
+PASS  AC1.m_min                                printed 4              count  source 4
+PASS  AC1.W1_narrow                            printed 0.1071         point  source 0.107120412629495 (unit 0.0001)
+PASS  AC1.W1_halfvar                           printed 0.1428         point  source 0.14281310192265964 (unit 0.0001)
+PASS  AC1.nonpd_halfvar                        printed 0.126          point  source 0.126 (unit 0.001)
+PASS  AC1.q90_ratio_narrow                     printed 1.340          point  source 1.3398460972992876 (unit 0.001)
+PASS  AC1.ratio_min                            printed 1.083          point  source 1.083 (unit 0.001)
+PASS  B1.np_m32_lo                             printed 0.52164        lower  source 0.52164 (unit 0.00001)
+PASS  B1.np_m32_hi                             printed 0.52172        upper  source 0.52172 (unit 0.00001)
+PASS  B1.cert_Fb                               printed 53             upper  source 53 (unit 1)
+PASS  B1.cert_Fc2                              printed 20             upper  source 20 (unit 1)
+PASS  B1.np_m128_Fb                            printed 0.0967         point  source 0.09674 (unit 0.0001)
+PASS  B1.hell_m32                              printed 0.41942        lower  source 0.41942966 (unit 0.00001)
+PASS  B1.type0_only                            printed 0.56935        lower  source 0.56935861 (unit 0.00001)
+PASS  B1.prob0569                              printed 0.569          point  source 0.569 (unit 0.001)
+PASS  C1.share_U1                              printed 1/4            exact  source 1/4
+PASS  C1.sd_ucl_max                            printed 0.0086         upper  source 0.008541050049202276 (unit 0.0001)
+PASS  C1.scope_q2_max                          printed 0.0076         upper  source 0.00758 (unit 0.0001)
+PASS  C1.fixed_cheb_ucl                        printed 0.0091         point  source 0.0091 (unit 0.0001)
+PASS  C1.bound_pi01                            printed 0.0194         upper  source 0.0193399644301986 (unit 0.0001)
+PASS  C1.nonpd_sd                              printed 0.0359         point  source 0.0359 (unit 0.0001)
+PASS  C1.size_halfvar                          printed 0.022          point  source 0.022255 (unit 0.001)
+PASS  B2c.calls                                printed 18000          count  source 18000
+PASS  B2c.draws                                printed 300            count  source 300
+PASS  B2c.nonpd                                printed 38             count  source 38
+PASS  test.pass                                printed 27             count  source 27
+34/34 entries pass

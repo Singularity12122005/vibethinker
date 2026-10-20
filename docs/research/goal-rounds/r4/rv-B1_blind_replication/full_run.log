@@ -1,0 +1,7 @@
+m=  32 Fa vs Fb   : claimed=0.5210  grid(delta=1e-4)=0.52168  MC(N=200000)=0.5208 (SE 0.0014)  z=-0.15
+m=  32 Fa vs Fc2  : claimed=0.8537  grid(delta=1e-4)=0.85152  MC(N=200000)=0.8505 (SE 0.0016)  z=-2.04
+m=  32 Fa vs Fc   : claimed=0.1735  grid(delta=1e-4)=0.17368  MC(N=200000)=0.1743 (SE 0.0009)  z=+0.89
+m= 128 Fa vs Fb   : claimed=0.0967  grid(delta=1e-4)=0.09674  MC(N=200000)=0.0971 (SE 0.0007)  z=+0.58
+m= 128 Fa vs Fc2  : claimed=0.1638  grid(delta=1e-4)=0.16592  MC(N=200000)=0.1664 (SE 0.0009)  z=+3.02
+m= 128 Fa vs F0.9 : claimed=0.7721  grid(delta=1e-4)=0.77166  MC(N=200000)=0.7716 (SE 0.0015)  z=-0.30
+m= 128 Fa vs F0.8 : claimed=0.5499  grid(delta=1e-4)=0.55012  MC(N=200000)=0.5509 (SE 0.0014)  z=+0.71

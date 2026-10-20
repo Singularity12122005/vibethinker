@@ -1,0 +1,198 @@
+[
+ {
+  "where": "§9 r4, 约定 paragraph (line 320), the exception list after 'CR1 的聚类为 50 题 ×（每类 2 个前缀），风险与 Δ 无题目效应'",
+  "text": "例外见 C.1(e)（`rv-A-C1-scope/s2_n200_production.py` 中 $\\Delta$ 的加性题目效应 τ=0.05/0.10、两类分属不同题目的布局（每题 4 个同类前缀）与两臂居中于 1/2 的臂模型 …；`rv-A-C1-scope/s4_narm32.out` 的每臂 32 条）与 C.3(e)（…）",
+  "problem": "The exception list leaves out C.1(f). C.1(f) cites CR1 first-order width ratios 0.728–0.981 (shared questions) and 1.055–1.552 (separate questions) from `rv-A-C1-scope/s1_scope_numbers.out` (iii). That calculation uses an additive question effect in η and the 4-same-type-per-question layout, so it breaks the default 'no question effect / 50×(2+2)' convention. A reader of the 约定 would think s2 is the only τ calculation in C.1.",
+  "source_value": "R4/review_A-C1_scope/s1_scope_numbers.py lines 71–85 and .out (iii): 'CR1 first-order variance with an additive question effect a_q in eta, Var(a_q)=tau2, m=128, g linear'. tau2 ∈ {0.0025, 0.01}, i.e. τ=0.05/0.10. Layout A: 2 type-0 + 2 type-1 per question. Layout B: 4 prefixes of one type per question. Worlds: narrow, halfvar, wide. Ratios 0.728 (wide, τ=0.10, A) to 0.981 (halfvar, τ=0.05, A), and 1.055 (halfvar, τ=0.05, B) to 1.552 (wide, τ=0.10, B).",
+  "fix": "Add to the exception list: 'C.1(f)（`rv-A-C1-scope/s1_scope_numbers.out` (iii) 的一阶计算：η 中加性题目效应 Var(a_q)=τ²，τ=0.05/0.10，m=128，lin g；两类共享题目（每题 2+2）与两类分属题目（每题 4 个同类前缀）两种布局；窄、半方差、宽三个世界）'."
+ },
+ {
+  "where": "§9 r4, 约定 paragraph (line 320), same exception list",
+  "text": "风险与 $\\Delta$ 无题目效应（此模型下 HC1 是有效 SE，CR1 作稳健性）。例外见 C.1(e)（…）与 C.3(e)（`rv-C1-scope/s1_clustered_sigma_delta.py` 的按题聚类 logit-normal 风险…）",
+  "problem": "The exception list also leaves out C.2(d) and C.2(e). Both cite numbers from rv-B1-scope computed with risks correlated by question through a Gaussian copula (Beta marginals unchanged). That breaks the default 'risks have no question effect'. C.2(d) gives the LR error sums 0.528/0.503/0.472/0.416 at copula correlation 0/0.3/0.6/0.9. C.2(e) gives q90 0.157/0.160 at ρ=0.3/0.6. Only the logit-normal model of C.3(e) is listed as a question-clustered risk model.",
+  "source_value": "R4/review_B1_scope/cluster_np.py docstring: '50 questions x (2 type-0 + 2 type-1) prefixes … Gaussian copula: z_p = sqrt(rho) z_q + sqrt(1-rho) e_p, r_p = F_t^{-1}(Phi(z_p)); same Beta marginals'. R4/review_B1_scope/cluster_pass.py: the same copula over the 2+2 prefixes of a question, rho ∈ (0.0, 0.3, 0.6), REPS=1500, seeds 777+i, g ∈ {g1=0.18−0.8r, g4=−0.2+1.2r}. No saved outputs (verdict text).",
+  "fix": "Add to the exception list: '与 C.2(d)(e)（`rv-B1-scope/cluster_np.py`、`cluster_pass.py` 的按题相关风险：50 题 ×(2+2) 前缀上的高斯 copula，Beta 边际不变，题内相关 ρ=0.3/0.6/0.9（cluster_np）与 0.3/0.6（cluster_pass））'."
+ },
+ {
+  "where": "§9 r4, B bullet '问题批判', item (3)",
+  "text": "(3) 内部导频即序贯设计：窄世界两条规则触发时复用与新抽的 size 为 0.037 对 0.047、0.045 对 0.042（HC1，lin，每臂 16 条；每条规则 4000 次，两规则分别触发 2020/1800 次，size 在触发子集上计算；$\\hat V$ 规则的阈值为另 2000 个导频上 $\\hat V$ 的中位数；源文件未输出 MC SE；`check3_two_stage_reuse.py` → `.json/.out`）",
+  "problem": "Every value matches the source. But the second rule, behind '0.045 对 0.042' and '1800 次', is never defined, so a reader cannot tell what condition produced that pair. Two other conditions are also missing: the final test is the degree-2 test at m=128 (reuse K32+K96 against fresh K'128), and the seed is not given, unlike items (1) and (2), which give a seed for each check.",
+  "source_value": "R4/problem/check3_two_stage_reuse.out: rule 'Vhat32 > median' gives P_fired 0.505, n_fired 2020, fired_only reuse size_uncond 0.03713, fresh 0.04653. Rule 'deg2 matrix PD at m=32' gives P_fired 0.45, n_fired 1800, fired_only reuse 0.045, fresh 0.04222. The script uses rng = default_rng(20261019), REPS=4000, final test endpoint_contrast_poly_cs(degree=2) at M1=128.",
+  "fix": "Name both rules and add the missing conditions, for example: '两条规则（$\\hat V_{32}$ 合并估计超过阈值；$m=32$ 的二次校正矩阵正定）触发时，(200,128) 二次检验复用（$K_{32}+K_{96}$）与新抽 $K'_{128}$ 的 size 为 0.037 对 0.047、0.045 对 0.042（…；种子 20261019；…）'."
+ },
+ {
+  "where": "C.1 审查修正 (b)，倒数第二句：'裁剪还使多项式均值误设（g* 处 b_type 的概率极限约 +0.0034）（rv-A-C1-math/s3_clipping_sup.py、s5_…、s8_…、s9_…，审查意见文本）'",
+  "text": "裁剪还使多项式均值误设（$g^*$ 处 $b_{\\rm type}$ 的概率极限约 $+0.0034$）",
+  "problem": "The sentence gives no conditions (world, m, n, replications), and the scripts it cites are not the source. The +0.0034 comes from rv-A-C1-math/s6_mc_clipped_boundary.py, which is wide world only (Beta(2,8)/Beta(2.5,7.5)), m=128, independent CS estimator, n=4000, 800 reps, seed 99, MC mean of b̂_type. It is not in s3/s5/s8/s9. The review memo (ref_13) also says it is wide-world. Because the sentence follows the clause '窄与半方差世界未作这一搜索', a reader cannot tell which world the number belongs to.",
+  "source_value": "ref_13 review text: 'plim b_type = +0.0034 at g*, 0.0004-0.0006 at the claim's g in wide'; the generator s6_mc_clipped_boundary.py uses ab0,ab1=(2,8),(2.5,7.5), m in (128,), n,reps=4000,800, default_rng(99), and prints 'plim bias of b_type = mean(b̂)'. No output file was saved.",
+  "fix": "Change to: 裁剪还使多项式均值误设（宽世界、$m=128$、$g^*$ 处，独立 MC $n=4000$、800 次、种子 99 的 $\\hat b_{\\rm type}$ 均值约 $+0.0034$；`rv-A-C1-math/s6_mc_clipped_boundary.py`，审查意见文本，未保存输出文件）. Keep s3/s5/s8/s9 as the cites for the clipped-variance search only."
+ },
+ {
+  "where": "C.1 审查修正 (e) 经验规律，第二句括注：'以 `.out` 中四位小数的 q90 与 $W_1$ 相除'",
+  "text": "倍数为修复阶段的算术（`R4/repair/w1_q90_ratios.py` → `.out`，以 `.out` 中四位小数的 q90 与 $W_1$ 相除；…）",
+  "problem": "This does not describe what the script actually does. For the check1 and check1b rows, w1_q90_ratios.py divides the full-precision q90 taken from the JSON payload in P/check1*.out by the 4-dp W_1. Only the s2/s3/s4 rows use 4-dp printed q90. One printed ratio depends on this: check1 narrow m=128 CR1 is 0.14516197/0.1071 = 1.355, but 0.1452/0.1071 = 1.356. None of the ranges stated in the record change.",
+  "source_value": "w1_q90_ratios.py: check1/check1b use q90 = d['width_q10_50_90'][2] (full precision from the JSON in the .out); s2/s3/s4 rows parse 4-dp q90 from regex; W1 dict uses 4-dp values 0.1444, 0.1071, … The .out prints check1 narrow m=128 CR1 ratio=1.355.",
+  "fix": "Change to: 以 `P/check1*.out` 中全精度的 q90（s2/s3/s4 为其 `.out` 四位小数印出的 q90）与四位小数的 $W_1$ 相除."
+ },
+ {
+  "where": "C.1 审查修正 (e) 经验规律，'`w1_q90_ratios.out` 末行的 n=37 把这 4 格计入'",
+  "text": "`w1_q90_ratios.out` 末行的 n=37 把这 4 格计入",
+  "problem": "The location is wrong. The last line of w1_q90_ratios.out is 'all finite ratios > 1: True'. The n=37 is on the second-to-last line.",
+  "source_value": "w1_q90_ratios.out penultimate line: 'cells with nonPD<1% (or not reported) and finite q90: n=37 min=1.083 max=1.902'; last line: 'all finite ratios > 1: True'",
+  "fix": "Change '末行的 n=37' to '倒数第二行的 n=37'."
+ },
+ {
+  "where": "C.1 审查修正 (e) 经验规律，第一句：'`P/check1_size_width.out` 的 lin 格'",
+  "text": "在 `R4/repair/w1_q90_ratios.out` 所比较的格中——`P/check1_size_width.out` 的 lin 格、…",
+  "problem": "The scope of compared cells is not stated. w1_q90_ratios.py keeps only check1 rows with '|g=linear|' and '|deg=2|': 12 cells, narrow and wide, m=32/128/512, HC1/CR1. The 12 degree-1 (linear-correction) lin cells in the same file were not compared. As written, the sentence can be read as covering all 24 lin cells.",
+  "source_value": "w1_q90_ratios.py: `if \"|g=linear|\" in line and \"|deg=2|\" in line`; w1_q90_ratios.out lists 12 check1 rows",
+  "fix": "Change to: `P/check1_size_width.out` 的二次校正（deg=2）lin 格（窄、宽各 6 格，$m$=32/128/512，HC1/CR1；deg=1 的格未比较）."
+ },
+ {
+  "where": "C.2 B1, review correction (a), line 392",
+  "text": "B1 原文把它称为\"$\\rho_0^{100}$ 因子\"，有误（$\\rho_0^{100}=0.90252$）",
+  "problem": "The value has no cited source. No saved file under R4/ contains rho_0^100. The blind script rv-B1-blind_replication/affinity.py prints it, but its output was not saved, and the record does not call it repair-stage arithmetic. The value itself is correct: 0.998974916097^100 = 0.9025231.",
+  "source_value": "B/b1_lecam_exact.json pairs/F_b.../m=32/affinity_1_type0 = 0.998974916097 (P/check2c_lecam_vs_m.json affinity_1 = 0.9989749160973366); raised to the 100th power this gives 0.902523125, which rounds to nearest as 0.90252",
+  "fix": "Change to: 有误（$\\rho_0^{100}=0.90252$；修复阶段的算术：`B/b1_lecam_exact.json` 中 $m=32$ 的 `affinity_1_type0`=0.998974916097 的 100 次方 0.902523，四舍五入；未保存输出文件）"
+ },
+ {
+  "where": "C.2 B1, review correction (c), line 394",
+  "text": "盲重实现按此定义复现了全部 Hellinger 值，按混合或 θ^2 缩放的定义不能复现",
+  "problem": "'全部' claims more than the saved files show. The only saved blind scripts that use the variance-scale F_theta definition are theta2.py and theta.py:hb. They compute only the two-type bound: at m=128 for theta=0.9/0.8/0.7, and at m=512 and m=32 for theta=0.9/0.8. affinity.py and run1.py compute the type-0-only bound for F_b, F_c2 and F_c only. The table's type-0-only F_theta values (0.79693/0.59566/0.41053 at m=128, 0.69457/0.40948 at m=512) appear in no blind-replication script. full_run.log has no Hellinger values. The B1 blind review text is saved neither under R4/ nor in verify_r4/journal (which holds only ref_17 for B1 math). So 'all Hellinger values' cannot be traced to any file.",
+  "source_value": "review_B1_blind_replication/theta2.py prints only 'H' = hb(pa,pb) (two-type bound) for (128: 0.9, 0.8, 0.7), (512: 0.9, 0.8), (32: 0.9, 0.8); affinity.py's type0-only loop covers Fb, Fc2 and Fc point only; full_run.log has NP rows only",
+  "fix": "Change to: 盲重实现按此定义复现了两类 Hellinger 界（据审查意见文本，未保存输出；所存脚本 `theta2.py` 只算两类界：$m=128$ 的 $F_{0.9}/F_{0.8}/F_{0.7}$，$m=512$ 与 $m=32$ 的 $F_{0.9}/F_{0.8}$；表中 $F_\\theta$ 的\"只用 0 类\"列不在盲重实现的脚本中），按混合或 θ^2 缩放的定义不能复现"
+ },
+ {
+  "where": "C.3 C1, 审查修正 (e), 实验范围视角聚类世界那句（\"规则 PD32 的复用 − 新抽为 +0.0004 至 +0.0011（SE ≈0.0009）\"）",
+  "text": "规则 PD32 的复用 − 新抽为 +0.0004 至 +0.0011（SE ≈0.0009）。",
+  "problem": "The record says these are point estimates rounded to nearest from the five-digit values in s2_analyse_6dp.out. The six SEs there are 0.00085 to 0.00096. clu90 CR1 has SE 0.00096, which rounds to 0.0010, and s2_analyse_rerun.out prints it as 'se 0.0010'. So 'SE ≈0.0009' does not cover every cell. The sentence also does not say which cells the range covers: six cells, iid/ICC 0.7/ICC 0.9 × HC1/CR1, including the iid cell.",
+  "source_value": "R4/repair/s2_analyse_6dp.out, rule PD32 reuse-fresh (SE): iid HC1 +0.00059 (0.00085), iid CR1 +0.00041 (0.00093), clu70 HC1 +0.00114 (0.00090), clu70 CR1 +0.00078 (0.00094), clu90 HC1 +0.00075 (0.00087), clu90 CR1 +0.00061 (0.00096)",
+  "fix": "Replace with: \"规则 PD32 的复用 − 新抽在六格（ICC 0/0.7/0.9 × HC1/CR1）为 +0.0004 至 +0.0011（SE 0.00085–0.00096，即 0.0009–0.0010）\"."
+ },
+ {
+  "where": "C.3 C1, 表下说明段（\"按 Theorem 1，P(D)=0.5/0.25/0.1 时……（`c2_analysis.json` 的 bound@pi：0.006447/0.011166/0.019340、……）\"）",
+  "text": "（`c2_analysis.json` 的 bound@pi：0.006447/0.011166/0.019340、0.008541/0.014794/0.025623、0.004704/0.008148/0.014113）",
+  "problem": "The key is named wrongly. c2_analysis.json has no key 'bound@pi'. The values sit under cells.HC1.theorem1.reject.uniform_bound_at_pi. 'bound@pi=' is only the label c2_analysis.out prints. The values themselves match, and C.3(e) already cites the correct key, 'uniform_bound_at_pi'.",
+  "source_value": "C/c2_analysis.json c1_stage1_narrow_lin/cells/HC1/theorem1/reject/uniform_bound_at_pi = {0.5: 0.0064466548, 0.25: 0.0111659337, 0.1: 0.0193399644} (likewise narrow_cheb 0.008541/0.014794/0.025623, halfvar_lin 0.004704/0.008148/0.014113); c2_analysis.out prints these as 'bound@pi='",
+  "fix": "Change \"`c2_analysis.json` 的 bound@pi\" to \"`c2_analysis.json` 的 uniform_bound_at_pi（`c2_analysis.out` 印为 bound@pi）\"."
+ },
+ {
+  "where": "C.4, C3 bullet, (F2) clause: \"(F2) HC1 三明治分解为 $\\sum_i\\mathrm{Var}(\\eta_i\\mid r_i)\\hat u_i\\hat u_i^\\top+\\sum_id_id_i^\\top$\"",
+  "text": "(F2) HC1 三明治分解为 $\\sum_i\\mathrm{Var}(\\eta_i\\mid r_i)\\hat u_i\\hat u_i^\\top+\\sum_id_id_i^\\top$",
+  "problem": "This sentence claims more than the ledger and the source. The decomposition holds only for the conditional expectation of the HC1 meat given (r,K). The realized sum Σψψᵀ, with ψ_i = û_iη_i + d_i, still contains the cross terms η_i(û_i d_iᵀ + d_i û_iᵀ) and has η_i² in place of Var(η_i|r_i). Those cross terms vanish only in expectation, because E[η|r,K]=0. As written, the sentence says the realized sandwich itself splits this way.",
+  "source_value": "Ledger C3 statement: \"(F2) the HC1 sandwich decomposes as E[Σψψᵀ | r,K] = Σ_i Var(η_i|r_i) û_i û_iᵀ + Σ_i d_i d_iᵀ\". C/c_derivation.md lines 116-117: \"(F2) the HC1 sandwich is A^{-1}(n/(n-k) Σ_i ψ_iψ_iᵀ)A^{-1} with ψ_i=û_iη_i+d_i, so E[Σ_iψ_iψ_iᵀ | r,K] = Σ_i Var(η_i|r_i)û_iû_iᵀ + Σ_i d_id_iᵀ\"",
+  "fix": "Replace with: \"(F2) HC1 三明治 $A^{-1}(\\tfrac n{n-k}\\sum_i\\psi_i\\psi_i^\\top)A^{-1}$（$\\psi_i=\\hat u_i\\eta_i+d_i$）的中间项满足 $\\mathbb E[\\sum_i\\psi_i\\psi_i^\\top\\mid r,K]=\\sum_i\\mathrm{Var}(\\eta_i\\mid r_i)\\hat u_i\\hat u_i^\\top+\\sum_id_id_i^\\top$\""
+ },
+ {
+  "where": "C.4, B2 bullet, first parenthesis: \"（作者以 18000 次调用逐位核对）\"",
+  "text": "生产函数的正定事件只依赖 $(K,t,m,\\text{次数})$，与 $g$、$\\mathrm{Var}(\\eta\\mid r)$、HC1/CR1 无关（作者以 18000 次调用逐位核对）",
+  "problem": "The count of 18000 calls is printed without the conditions it was computed under. The bit-for-bit check ran in one world at one m only: F_b at m=128, on 300 draws × 10 grid g × 3 η-laws (16-draw arms, 32-draw arms, η=0) × 2 SEs. It did not cover F_a, F_c2, F_θ, F_lp, m=512, or Var(η|r) laws beyond these three. Without the conditions, the sentence reads as an empirical check of invariance for every world, m and Var(η|r).",
+  "source_value": "B/b2b_pd_event_invariance.out line 1: \"PD event identical across 10 g x 3 eta-variances x 2 SEs in all 300 draws (18000 production calls); non-PD in 38/300\". The script b2b_pd_event_invariance.py draws r from b2.WORLDS[\"F_b\"], K = rng.binomial(128, r), n_arm in (16, 32, None), cluster in (None, q); seed 31337.",
+  "fix": "Replace the parenthesis with: \"（作者以 18000 次生产调用逐位核对：仅 $F_b$、$m=128$，300 次 $(r,t,K)$ 抽取 × 10 个网格 $g$ × 3 种 $\\eta$ 律（16 次、32 次抽取的臂与 $\\eta=0$）× HC1/CR1，种子 31337；`B/b2b_pd_event_invariance.out` 首行；其他世界与 $m=512$ 未做此核对）\""
+ },
+ {
+  "where": "§7 最近的关键缺口 (i) (line 149); §9 r4 E 对照判据 (ii) (line 456); E 阶段结论 (line 457)",
+  "text": "\"P/check1（$F_a$ lin：非正定 0.45%、size 0.043、q90 0.1425，HC1）\" (§7 (i) and E (ii)); \"问题阶段自检 `P/check1`（lin，0.1425/0.1452，HC1/CR1，单种子），$F_a$ 在这些格中的 q90 接近 0.15\" (E 阶段结论)",
+  "problem": "Condition mismatch (check c). check1 computes its width quantiles only over ok (PD) replicates. The record's own §9 B critique (2) says so, and so does the `R4/repair/w1_q90_ratios.py` docstring. That is not the record's stated convention (`ok=False` → width ∞) used by the 0.15 tolerance and by the B2 numbers next to it (`width_q90_all_inf_for_nonpd`, 0.136–0.1531). The three passages print 0.1425/0.1452 with no qualifier, so a reader takes them as convention q90 and compares them directly with B2's ∞-convention values.",
+  "source_value": "R4/problem/check1_size_width.out, narrow|g=linear|m=128|deg=2: HC1 width_q10_50_90[2] = 0.14250 (non_pd 0.0045), CR1 0.14516 (non_pd 0.0070). The cell code appends width only when res['ok'], so the quantiles are over ok replicates only.",
+  "fix": "After each P/check1 q90 citation, add \"（宽度分位只在 ok 的重复上计算，未按 `ok=False` 记 ∞ 的约定）\", e.g. \"q90 0.1425（只在 ok 的重复上计算），HC1\" and \"（lin，0.1425/0.1452，HC1/CR1，单种子，宽度分位只在 ok 的重复上计算）\"."
+ },
+ {
+  "where": "§7 最近的关键缺口 (iv) (line 152)",
+  "text": "\"报告了非正定率且非正定 <1%（q90 有限）的 33 个格为 1.083–1.902 … 为 1.313–1.420 …\"",
+  "problem": "The ratio ranges pool q90 values computed under two different conventions, and §7 (iv) does not say so (only C.1(e) notes it for check1b). The P/check1 and P/check1b cells use ok-only quantiles. The rv-A-C1-scope s2/s3 cells count non-PD as ∞. s4 is unrecorded. The lower end 1.313 of the narrow-world range is the check1b ok-only cell, so the range's conditions are incomplete (check c: ranges must state the conditions they were computed under).",
+  "source_value": "R4/repair/w1_q90_ratios.py docstring: \"check1/check1b width quantiles are over ok replicates only\". check1b narrow m=128: q90 0.14063 over ok replicates / W1 0.10712 = 1.313. s2_n200_production.py and s3_c2_eta_end_and_m64.py append np.inf for non-PD replicates.",
+  "fix": "In the (iv) bracket add \"（P/check1 与 P/check1b 的 q90 只在 ok 的重复上计算；s2、s3 按 `ok=False` 记 ∞；s4 未记录）\" before the 1.083–1.902 and 1.313–1.420 ranges."
+ },
+ {
+  "where": "§7 反例与错误 (2) (line 138)",
+  "text": "\"一阶预算中的窄 $m=64$（非正定约 20%）与半方差 $m=128$（非正定约 12%）为一阶假阳性\"",
+  "problem": "Neither rate cites a source, and the run conditions are not given. The record itself, in §7 (iv), uses rv-A-C1-scope/s3 for this half-variance cell (\"半方差世界含 12.6% 非正定\"). The value 0.126 rounds to 13%, not 12%, so the two lines disagree. The 12% figure matches only P/check1b (0.123, seed 7), which is not cited here.",
+  "source_value": "R4/review_A-C1_scope/s3_c2_eta_end_and_m64.out (HC1, 2000 reps, seed 5): narrow m=64 nonPD 0.199 (lin g) / 0.202 (g=0); halfvar m=128 nonPD 0.126 (lin and g=0). R4/problem/check1b_compatible_edge.out: halfvar m=128 lin non_pd 0.123 (seed 7, 2000 reps).",
+  "fix": "Replace with \"一阶预算中的窄 $m=64$（非正定 0.199/0.202，lin/$g=0$）与半方差 $m=128$（非正定 0.126；`rv-A-C1-scope/s3_c2_eta_end_and_m64.out`，HC1，2000 次，种子 5；`P/check1b` 为 0.123，种子 7）为一阶假阳性\"."
+ },
+ {
+  "where": "§7 最近的关键缺口 (ii)（第 150 行）",
+  "text": "DKW 集之外的矩型（U-统计量）置信集未构造",
+  "problem": "全称否定与档案自己的 C.4 矛盾。未审的 A-C2 构造了基于 U_{1..8} 无偏矩估计、按题聚类协方差的 delta 法单侧置信界，未审的 A-C3 构造了 Hoeffding/Bonferroni 矩盒，二者都是 DKW 之外的矩型置信构造。真正没有做的是：用矩型置信集重算 F_c2、F_b 等世界的包含频率（B 的 next_step）。",
+  "source_value": "台账 A-C2 statement：\"per-type moment vector θ̂_t=mean_i U_{1..8}(K_i) (unbiased), question-cluster covariance, delta-method one-sided 95% bounds\"；A-C3 statement：\"Hoeffding/Bonferroni moment box (ε_H=sqrt(ln(640)/200)=0.1797 over 16 moments …)\"；两条均为 unreviewed_overflow",
+  "fix": "(ii) 相容集上确界未刻画：LP 只给固定方向的见证，极点未证明为最坏；DKW 集之外，矩型（U-统计量）置信构造只出现在未审的 A-C2（delta 法单侧界）与 A-C3（Hoeffding/Bonferroni 矩盒）中，用矩型置信集重算 F_c2、F_b 等所列世界的包含频率本轮未做；Le Cam 常数未计入题内相关。"
+ },
+ {
+  "where": "§9 r4 C.3 的 A0 定义（第 398 行）、§7 候选 r4/C1 行（第 124 行“A0 下对任何 (t,K_32) 可测规则 D”）、C.3(c)（第 424 行“Theorem 1 只需 A0”）",
+  "text": "A0：η 给定 r 与全部计数独立，且跨前缀独立。／A0 下对任何 (t,K_32) 可测规则 D，复用相对新抽的条件差等于 Cov(δ,1_D)/π…／Theorem 1 只需 A0，裁剪不破坏 A0，故不受影响",
+  "problem": "漏了条件。档案的 A0 比台账 C1 的 A0 窄：漏写了计数模型和前缀独立两部分，而引理 1（P(R′|F_32)=P(R|F_0)）要用到它们。按档案的定义，Theorem 1 看起来比已审陈述所需的前提更少。",
+  "source_value": "台账 C1 assumptions：\"A0: η_i … is independent of (K32, K96, K'128) given r and independent across prefixes; prefixes independent given risks; K32 ~ Bin(32,r), K96 ~ Bin(96,r), K'128 ~ Bin(128,r) independent given r (so K32+K96 ~ Bin(128,r)).\"；\"Pilot rules are σ(t, K32)-measurable with P(D) ∈ (0,1)\"",
+  "fix": "A0：η_i 给定 r 与 (K_32, K_96, K′_128) 独立且跨前缀独立；前缀给定风险独立；给定 r 时 K_32~Bin(32,r)、K_96~Bin(96,r)、K′_128~Bin(128,r) 相互独立（故 K_32+K_96~Bin(128,r)）。§7 C1 行写作“在 A0（含上述计数模型与前缀独立）下，对任何 P(D)∈(0,1) 的 (t,K_32) 可测规则 D …”；C.3(c) 写作“Theorem 1 只需 A0（含计数模型）；裁剪不破坏 A0”。"
+ },
+ {
+  "where": "§7 暂不采用（第 146 行）",
+  "text": "按候选 A-C1，类型系数一阶方差中的识别量是 D(F)。",
+  "problem": "把 A-C1 的含义读得过强。A-C1 只给出 Var_1 = n^{-1}D^{-2}Σ_t w_t E_t φ²。φ 经 γ=Q_xx^{-1}q 依赖 Q_xx，A-C1 以 Q_xx 可逆（合并的 (r,r²) 协方差非奇异）为前提；窄世界 γ=(−1.13, 9.23, −8.43) 经测量误差项 γ̃ᵀV⁽²⁾γ̃ 进入方差。A-C1 没有证明 D(F) 是唯一的识别量，也没有证明 λ_min(H̄_w) 与类型系数无关。",
+  "source_value": "台账 A-C1 statement：\"Var_1(b̂_type)=n^{-1}D^{-2}Σ_t w_t E_t[φ^2], φ=ψ_type−γ'ψ_x … E[φ^2|r,t]=σ^2(r)[ρ^2+γ̃'V^{(2)}(r)γ̃]+…\"；assumptions：\"Q_xx invertible and D>0\"；A/a1_exact_check.out：narrow gamma=[-1.129 9.226 -8.43] lmin(Hw)=8.21e-06",
+  "fix": "按候选 A-C1，类型系数的一阶方差为 n^{-1}D^{-2}Σ_t w_t E_t φ²：重叠 D(F) 进入分母，φ 经 γ=Q_xx^{-1}q 依赖 Q_xx（A-C1 以 Q_xx 可逆为前提）；A-C1 没有证明 D(F) 是唯一相关的识别量。"
+ },
+ {
+  "where": "§9 r4 C.2(d)（第 395 行）；§7 候选 r4/B1 行（第 123 行）；§7 反例与错误 r4 (3)（第 138 行）",
+  "text": "在这一族中正相关使两个世界更可分，原附注\"只会更悲观\"不成立／（据实验范围视角的审查意见文本，边际不变的高斯 copula 族中正相关使两世界更可分，无输出文件；一般影响方向未确定）／边际不变的高斯 copula 族中两世界反而更可分",
+  "problem": "把审查者只在少数格上的发现推广到整个族的所有正相关。它只算了一对世界（F_a 对 F_b）、m=32、一种布局 50 题×(2+2)、三个相关值 0.3/0.6/0.9，用的是近似（Gauss–Hermite）似然比检验错误和的 MC 估计，没有输出文件。§7 B1 行把这些条件全部丢了。",
+  "source_value": "C.2(d)：错误和随相关 0/0.3/0.6/0.9 为 0.528/0.503/0.472/0.416（MC，每侧 20000 个导频，种子 20261019；NP 最小值上界的估计）；iid 格点值 0.52168（rv-B1-blind_replication/full_run.log）；rv-B1-scope/cluster_np.py，无输出文件；台账 B1 does-not-claim：\"it does not cover within-question dependence of r\"",
+  "fix": "C.2(d)：在这一族的所算点上（F_a 对 F_b、m=32、50 题×(2+2)、相关 0.3/0.6/0.9），近似似然比检验错误和的 MC 估计 0.503/0.472/0.416 低于 iid 格点 NP 值 0.52168，即在这些点上两世界更可分，原附注\"只会更悲观\"在这些点不成立（审查意见文本，无输出文件）。§7 B1 行：题内相关不在范围内（据实验范围视角的审查意见文本、无输出文件：在边际不变的高斯 copula 族、F_a 对 F_b、m=32、50 题×(2+2)、相关 0.3/0.6/0.9 处，近似似然比检验错误和的 MC 估计低于 iid 格点值；一般影响方向未确定）。§7 (3) 同样把“两世界反而更可分”限定在这些所算点。"
+ },
+ {
+  "where": "§9 r4 B 问题批判 (1)（第 331 行）",
+  "text": "(1) 提示中的 λ_min(H_w)，H_w=Cov_w[(r,r²)]，度量的是**二次系数**的识别强度，不是类型系数的",
+  "problem": "把未审的问题阶段自检用粗体当作已成立来写。§7 与 E 已把同一判断改为“问题阶段自检认为”。所列证据（单一窄世界、lin、单种子：69% 的导频 λ̂_min≤0，而 (200,128) 检验接近名义）只说明导频置信下界在该格过于保守；A-C1 的一阶方差经 γ=Q_xx^{-1}q 依赖 Q_xx，所以“不是类型系数的”没有证明。",
+  "source_value": "P/check2_pilot_information.out narrow_t0：lambda_min_Hw_true 4.2558e-06，P_lmin_hat_le_0 0.6934；P/check1_size_width.out narrow m=128 deg=2 HC1：non_pd 0.0045，size 0.043；均为未审的问题阶段自检",
+  "fix": "(1) 问题阶段自检认为，提示中的 λ_min(H_w)（H_w=Cov_w[(r,r²)]）度量的是二次系数而非类型系数的识别强度（未审；单一窄世界、lin、单种子；A-C1 的一阶方差经 γ=Q_xx^{-1}q 依赖 Q_xx，此判断未证明）：窄世界 0 类真值 4.26×10^-6，…"
+ },
+ {
+  "where": "§9 r4 C.3(d)（第 425 行）",
+  "text": "半方差一阶段 size 的 0.0223 对 0.0214 属机会偏差（Eδ=0）。",
+  "problem": "把候选当作已成立。“属机会偏差”依赖候选 C1 的引理 1（P(R)=P(R′)），而这个差本身的 SE 没有报告：只有复用 size 本身的外层 SE 0.00035，差 0.0008 约为它的 2.4 倍。",
+  "source_value": "C/c2_analysis.out 半方差 HC1 uncond：size_reuse 0.022255，size_fresh 0.021435，se_size 0.000348（复用 size 的外层 SE，不是差的 SE）；盲重实现 0.0215 对 0.0217（C.3 表）",
+  "fix": "按候选 C1 的引理 1，P(R)=P(R′)，故半方差一阶段 size 0.0223 对 0.0214 的差应为 MC 误差；差的 SE 未报告（c2_analysis.json 只有复用 size 的外层 SE 0.00035），盲重实现（8000 外层）为 0.0215 对 0.0217。"
+ },
+ {
+  "where": "§7 候选 r4/B1 行（第 123 行）；§7 缺口 (i)（第 149 行）；§9 E (ii)（第 456 行）、阶段结论（第 457 行）、实验计划变更（第 461 行）",
+  "text": "类内独立同分布、计数独立、每类固定 100 个前缀时，任何只用导频计数的（可随机化）规则满足 …；F_a 对 F_b（m=32）的两类 Hellinger 界为 0.41942 …（及各处“类内独立同分布、计数独立、每类 100 个前缀”的模型条件）",
+  "problem": "漏了条件。常数 0.41942、约 0.5217、≤0.5284、≤0.1986 都在二项计数模型下算出（台账 B1 scope：“in the iid-within-type binomial-count model”），各处摘要的模型条件没有写 K_i|r_i~Bin(m,r_i)。",
+  "source_value": "台账 B1 statement：\"m `sel` counts each, K_i|r_i ~ Bin(m, r_i), r iid ~ F_t within type\"；scope：\"in the iid-within-type binomial-count model, for the listed pairs at m in {32,128,512}\"",
+  "fix": "各处模型条件改为“类内 r 独立同分布、K_i|r_i~Bin(m,r_i)（导频 m=32）、计数跨前缀独立、每类 100 个前缀”。"
+ },
+ {
+  "where": "§9 r4 B 模型类／相容集（第 327 行）",
+  "text": "三明治 B（矩 ≤8，另需 g 与 Var(η|r)）",
+  "problem": "漏了条件，与本档案的审查修正 C.1(a) 矛盾：只给 Var(η|r) 不够，闭式需要 E[η²|r,t,K] 不依赖 K。数学视角给出了精确反例，回归测试也锁定了这一点。",
+  "source_value": "C.1(a)：“前提须为 E[η²|r,t,K] 不依赖 K … 只写 Var(η|r)=σ² 不够”；精确反例真值/闭式 1.007806（m=8）；test_goal_r4_a_c1_candidate_closed_form_sandwich 的 V_bad != V_cf 断言",
+  "fix": "三明治 B（矩 ≤8，另需 g 与 E[η²|r,t,K]（须不依赖 K，见 C.1(a)））"
+ },
+ {
+  "where": "§9 r4 C.4 的 C3（第 434 行）与 B3 的 LP 分句（第 432 行）",
+  "text": "128 阶段复评无需干预臂即可定义——(F1) 生产函数的 ok 标志是 (K_128,t) 的函数；(F2) HC1 三明治分解为 …；据此的规则 R32/R128／在 γ=0.05 的 DKW 带内 … 的线性规划给出每类 3 原子的世界 F_lp，其 λ_min E[S_w(128)]<0",
+  "problem": "把未审的作者主张当作已成立来写。第 3 次扩展修复给 A-C3、B2、B3 的主句加了“作者称”，但 C3 的 (F1)(F2) 与“无需干预臂即可定义”、B3 的 LP 结论仍是直陈句。",
+  "source_value": "台账 C3、B3：ledger_status unreviewed_overflow，final_status \"unreviewed (not a result)\"",
+  "fix": "C3：作者称 128 阶段复评无需干预臂即可定义——(F1) …；(F2) …（未审）。B3：作者称在 γ=0.05 的 DKW 带内 … 的线性规划给出 F_lp，其 λ_min E[S_w(128)]<0（作者数字 −1.29e-7，未审）。"
+ },
+ {
+  "where": "§7 反例与错误 r4 (5)（第 138 行）；§9 F 第一次修复（第 465 行）与第 1/2/3 次扩展修复日志（第 468、469、470 行）",
+  "text": "已在 §7 与 §9 r4 改为可支撑的陈述。／越界审查列出的各句换为可支撑的版本",
+  "problem": "把修复阶段未经复核的自评当作已成立。第 467 行记录第一次修复后的复检未通过（ok=false），其后每轮复检都又找出越界句；“可支撑”要等复检通过才成立。",
+  "source_value": "第 467 行：“单次修复后的标签与范围复检未通过（ok=false），本轮先以 blocked 返回”；第 2、3 次扩展修复分别处理了第二、三轮复检的问题清单",
+  "fix": "已按越界审查清单在 §7 与 §9 r4 改写（改写后的版本待复检）；日志中各处“换为可支撑的版本”改为“按复检清单改写”。"
+ },
+ {
+  "where": "§9 r4 约定（第 320 行）",
+  "text": "风险与 Δ 无题目效应（此模型下 HC1 是有效 SE，CR1 作稳健性）",
+  "problem": "漏了条件：HC1 的有效性只在一阶（大样本）意义上成立，而且是作者假设。档案里 n=200 的有限样本 size 在各格之间有变化。",
+  "source_value": "台账 C1 assumptions：\"question clusters 50 × 4 … with no effect beyond r (HC1 valid, CR1 reported as robustness)\"；A-C1 assumptions：\"HC1 and CR1 estimate the same B at first order\"；P/check1 二次检验 HC1 size 0.040–0.054（10 格）",
+  "fix": "（此模型下 HC1 在一阶（大样本）意义上有效，为作者假设；CR1 作稳健性）"
+ },
+ {
+  "where": "§9 r4 E (ii)（第 456 行）",
+  "text": "128 阶段 Hellinger 界 0.0323（源值 0.032332，向下取整）",
+  "problem": "标作“源值”的 0.032332 其实是 .out 四舍五入后的打印值，JSON 源值是 0.032331786（向下取整到四位仍为 0.0323）。",
+  "source_value": "B/b1_lecam_exact.json：F_b m=128 both_types_n200 err_sum_lower 0.032331786；b1_lecam_exact.out 印 0.032332",
+  "fix": "128 阶段 Hellinger 界 0.0323（源值 0.032331786，B/b1_lecam_exact.json，向下取整）"
+ }
+]

@@ -1,0 +1,28 @@
+F_b half-var Beta(40.5,162)/(50.6,151.8) [problem-phase anchor] | m=32: rho0=0.998974916 rho1=0.998970771  type0-only err_sum>=0.56936  BOTH TYPES err_sum>=0.41943  TV_upper=0.58057  LR-test MC err_sum=0.5233 (SE 0.0014)
+F_b half-var Beta(40.5,162)/(50.6,151.8) [problem-phase anchor] | m=128: rho0=0.993141039 rho1=0.993132009  type0-only err_sum>=0.13539  BOTH TYPES err_sum>=0.032332  TV_upper=0.96767  LR-test MC err_sum=0.0967 (SE 0.0007)
+F_b half-var Beta(40.5,162)/(50.6,151.8) [problem-phase anchor] | m=512: rho0=0.981370949 rho1=0.981399246  type0-only err_sum>=0.011699  BOTH TYPES err_sum>=0.00027215  TV_upper=0.99973  LR-test MC err_sum=0.0060 (SE 0.0002)
+F_c point mass 0.20/0.25 [literal 7.11 example] | m=32: rho0=0.995391996 rho1=0.995375927  type0-only err_sum>=0.22349  BOTH TYPES err_sum>=0.08192  TV_upper=0.91808
+F_c point mass 0.20/0.25 [literal 7.11 example] | m=128: rho0=0.959890915 rho1=0.959822404  type0-only err_sum>=0.00013912  BOTH TYPES err_sum>=3.8152e-8  TV_upper=1.0
+F_c point mass 0.20/0.25 [literal 7.11 example] | m=512: rho0=0.833359328 rho1=0.833363829  type0-only err_sum>=7.3355e-17  BOTH TYPES err_sum>=1.0774e-32  TV_upper=1.0
+F_d double-var Beta(9.5,38)/(12,36) | m=32: rho0=0.996652554 rho1=0.996743071  type0-only err_sum>=0.301  BOTH TYPES err_sum>=0.14345  TV_upper=0.85655
+F_d double-var Beta(9.5,38)/(12,36) | m=128: rho0=0.985720556 rho1=0.986132852  type0-only err_sum>=0.028575  BOTH TYPES err_sum>=0.0017266  TV_upper=0.99827
+F_d double-var Beta(9.5,38)/(12,36) | m=512: rho0=0.973591823 rho1=0.974393075  type0-only err_sum>=0.0023707  BOTH TYPES err_sum>=1.3219e-5  TV_upper=0.99999
+F_c2 two-point, same (mu, V) as F_a per type | m=32: rho0=0.999917421 rho1=0.9999001  type0-only err_sum>=0.87201  BOTH TYPES err_sum>=0.81069  TV_upper=0.18931  LR-test MC err_sum=0.8517 (SE 0.0016)
+F_c2 two-point, same (mu, V) as F_a per type | m=128: rho0=0.995340465 rho1=0.995031773  type0-only err_sum>=0.22086  BOTH TYPES err_sum>=0.075402  TV_upper=0.9246  LR-test MC err_sum=0.1656 (SE 0.0009)
+F_c2 two-point, same (mu, V) as F_a per type | m=512: rho0=0.930459763 rho1=0.928747305  type0-only err_sum>=2.7447e-7  BOTH TYPES err_sum>=1.0423e-13  TV_upper=1.0  LR-test MC err_sum=0.0000 (SE 0.0000)
+F_theta variance-scale theta=1/2 Beta(mu s,(1-mu)s), s=101/theta-1 | m=32: rho0=0.998990797 rho1=0.998985662  type0-only err_sum>=0.57238  BOTH TYPES err_sum>=0.42297  TV_upper=0.57703
+F_theta variance-scale theta=1/2 Beta(mu s,(1-mu)s), s=101/theta-1 | m=128: rho0=0.993257998 rho1=0.993241435  type0-only err_sum>=0.13888  BOTH TYPES err_sum>=0.033866  TV_upper=0.96613
+F_theta variance-scale theta=1/2 Beta(mu s,(1-mu)s), s=101/theta-1 | m=512: rho0=0.981721925 rho1=0.981726809  type0-only err_sum>=0.012572  BOTH TYPES err_sum>=0.00031251  TV_upper=0.99969
+F_theta variance-scale theta=3/5 Beta(mu s,(1-mu)s), s=101/theta-1 | m=32: rho0=0.999369966 rho1=0.999366588  type0-only err_sum>=0.65587  BOTH TYPES err_sum>=0.5274  TV_upper=0.4726
+F_theta variance-scale theta=3/5 Beta(mu s,(1-mu)s), s=101/theta-1 | m=128: rho0=0.995962145 rho1=0.995951971  type0-only err_sum>=0.25516  BOTH TYPES err_sum>=0.10435  TV_upper=0.89565
+F_theta variance-scale theta=3/5 Beta(mu s,(1-mu)s), s=101/theta-1 | m=512: rho0=0.989544212 rho1=0.989548106  type0-only err_sum>=0.063086  BOTH TYPES err_sum>=0.0074994  TV_upper=0.9925
+F_theta variance-scale theta=7/10 Beta(mu s,(1-mu)s), s=101/theta-1 | m=32: rho0=0.999654139 rho1=0.999652195  type0-only err_sum>=0.74146  BOTH TYPES err_sum>=0.64005  TV_upper=0.35995
+F_theta variance-scale theta=7/10 Beta(mu s,(1-mu)s), s=101/theta-1 | m=128: rho0=0.997867756 rho1=0.997862289  type0-only err_sum>=0.41053  BOTH TYPES err_sum>=0.24193  TV_upper=0.75807
+F_theta variance-scale theta=7/10 Beta(mu s,(1-mu)s), s=101/theta-1 | m=512: rho0=0.994696078 rho1=0.994698646  type0-only err_sum>=0.19081  BOTH TYPES err_sum>=0.061507  TV_upper=0.93849
+F_theta variance-scale theta=4/5 Beta(mu s,(1-mu)s), s=101/theta-1 | m=32: rho0=0.999849916 rho1=0.999849035  type0-only err_sum>=0.82803  BOTH TYPES err_sum>=0.75826  TV_upper=0.24174
+F_theta variance-scale theta=4/5 Beta(mu s,(1-mu)s), s=101/theta-1 | m=128: rho0=0.999107809 rho1=0.999105497  type0-only err_sum>=0.59566  BOTH TYPES err_sum>=0.45175  TV_upper=0.54825
+F_theta variance-scale theta=4/5 Beta(mu s,(1-mu)s), s=101/theta-1 | m=512: rho0=0.997858313 rho1=0.997859597  type0-only err_sum>=0.40949  BOTH TYPES err_sum>=0.24124  TV_upper=0.75876
+F_theta variance-scale theta=9/10 Beta(mu s,(1-mu)s), s=101/theta-1 | m=32: rho0=0.999963349 rho1=0.999963125  type0-only err_sum>=0.91454  BOTH TYPES err_sum>=0.87918  TV_upper=0.12082
+F_theta variance-scale theta=9/10 Beta(mu s,(1-mu)s), s=101/theta-1 | m=128: rho0=0.999789466 rho1=0.999788918  type0-only err_sum>=0.79693  BOTH TYPES err_sum>=0.71562  TV_upper=0.28438
+F_theta variance-scale theta=9/10 Beta(mu s,(1-mu)s), s=101/theta-1 | m=512: rho0=0.999510476 rho1=0.999510827  type0-only err_sum>=0.69457  BOTH TYPES err_sum>=0.57832  TV_upper=0.42168
+elapsed 39.226216554641724

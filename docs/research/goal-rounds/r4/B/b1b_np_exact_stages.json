@@ -1,0 +1,241 @@
+{
+ "seed": 20261020,
+ "reps": 200000,
+ "results": {
+  "F_a vs F_b | m=32": {
+   "err_I": 0.270175,
+   "err_II": 0.25078,
+   "err_sum_NP": 0.5209550000000001,
+   "tv_exact": 0.47904499999999994,
+   "mc_se": 0.001387569567580307,
+   "hellinger_err_sum_lower": 0.41942966115114755,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.529045,
+    "gamma=0.1": 0.5790449999999999,
+    "gamma=0.28": 0.759045
+   }
+  },
+  "F_a vs F_c point mass | m=32": {
+   "err_I": 0.091625,
+   "err_II": 0.08192,
+   "err_sum_NP": 0.173545,
+   "tv_exact": 0.826455,
+   "mc_se": 0.0008900532932779925,
+   "hellinger_err_sum_lower": 0.0819197657204096,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.8764550000000001,
+    "gamma=0.1": 0.926455,
+    "gamma=0.28": 1.0
+   }
+  },
+  "F_a vs F_c2 | m=32": {
+   "err_I": 0.45405,
+   "err_II": 0.399665,
+   "err_sum_NP": 0.853715,
+   "tv_exact": 0.14628499999999994,
+   "mc_se": 0.0015617642031929787,
+   "hellinger_err_sum_lower": 0.8106867342347218,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.19628499999999993,
+    "gamma=0.1": 0.24628499999999995,
+    "gamma=0.28": 0.42628499999999997
+   }
+  },
+  "F_a vs F_lp | m=32": {
+   "err_I": 0.340565,
+   "err_II": 0.329575,
+   "err_sum_NP": 0.67014,
+   "tv_exact": 0.32986,
+   "mc_se": 0.0014925411219628088,
+   "hellinger_err_sum_lower": 0.5919957655422263,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.37986,
+    "gamma=0.1": 0.42986,
+    "gamma=0.28": 0.6098600000000001
+   }
+  },
+  "F_a vs F_theta0.6 | m=32": {
+   "err_I": 0.31965,
+   "err_II": 0.29608,
+   "err_sum_NP": 0.61573,
+   "tv_exact": 0.38427,
+   "mc_se": 0.0014592643884848283,
+   "hellinger_err_sum_lower": 0.5273978934199057,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.43427,
+    "gamma=0.1": 0.48427,
+    "gamma=0.28": 0.66427
+   }
+  },
+  "F_a vs F_theta0.7 | m=32": {
+   "err_I": 0.367455,
+   "err_II": 0.342465,
+   "err_sum_NP": 0.70992,
+   "tv_exact": 0.29008,
+   "mc_se": 0.0015126376743126557,
+   "hellinger_err_sum_lower": 0.6400545166269207,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.34008,
+    "gamma=0.1": 0.39008,
+    "gamma=0.28": 0.57008
+   }
+  },
+  "F_a vs F_theta0.8 | m=32": {
+   "err_I": 0.416755,
+   "err_II": 0.389905,
+   "err_sum_NP": 0.8066599999999999,
+   "tv_exact": 0.19334,
+   "mc_se": 0.00155072460635343,
+   "hellinger_err_sum_lower": 0.7582618270329602,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.24334,
+    "gamma=0.1": 0.29334000000000005,
+    "gamma=0.28": 0.47334000000000004
+   }
+  },
+  "F_a vs F_theta0.9 | m=32": {
+   "err_I": 0.4628,
+   "err_II": 0.438705,
+   "err_sum_NP": 0.901505,
+   "tv_exact": 0.098495,
+   "mc_se": 0.0015729893244631383,
+   "hellinger_err_sum_lower": 0.8791788591337171,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.148495,
+    "gamma=0.1": 0.198495,
+    "gamma=0.28": 0.378495
+   }
+  },
+  "F_a vs F_b | m=128": {
+   "err_I": 0.05128,
+   "err_II": 0.04538,
+   "err_sum_NP": 0.09666,
+   "tv_exact": 0.90334,
+   "mc_se": 0.0006781261578791959,
+   "hellinger_err_sum_lower": 0.03233178599529074,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.9533400000000001,
+    "gamma=0.1": 1.0,
+    "gamma=0.28": 1.0
+   }
+  },
+  "F_a vs F_c2 | m=128": {
+   "err_I": 0.085505,
+   "err_II": 0.07825,
+   "err_sum_NP": 0.16375499999999998,
+   "tv_exact": 0.836245,
+   "mc_se": 0.0008669510726534688,
+   "hellinger_err_sum_lower": 0.07540181859290351,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.8862450000000001,
+    "gamma=0.1": 0.936245,
+    "gamma=0.28": 1.0
+   }
+  },
+  "F_a vs F_lp | m=128": {
+   "err_I": 0.016585,
+   "err_II": 0.01512,
+   "err_sum_NP": 0.031705,
+   "tv_exact": 0.968295,
+   "mc_se": 0.0003949767295360576,
+   "hellinger_err_sum_lower": 0.005092187316646957,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 1.0,
+    "gamma=0.1": 1.0,
+    "gamma=0.28": 1.0
+   }
+  },
+  "F_a vs F_theta0.6 | m=128": {
+   "err_I": 0.106885,
+   "err_II": 0.096965,
+   "err_sum_NP": 0.20384999999999998,
+   "tv_exact": 0.79615,
+   "mc_se": 0.0009566174406469913,
+   "hellinger_err_sum_lower": 0.10434868465632974,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.8461500000000001,
+    "gamma=0.1": 0.89615,
+    "gamma=0.28": 1.0
+   }
+  },
+  "F_a vs F_theta0.7 | m=128": {
+   "err_I": 0.185485,
+   "err_II": 0.169195,
+   "err_sum_NP": 0.35468,
+   "tv_exact": 0.64532,
+   "mc_se": 0.0012075768438281683,
+   "hellinger_err_sum_lower": 0.24192620460524006,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.69532,
+    "gamma=0.1": 0.74532,
+    "gamma=0.28": 0.92532
+   }
+  },
+  "F_a vs F_theta0.8 | m=128": {
+   "err_I": 0.28624,
+   "err_II": 0.263645,
+   "err_sum_NP": 0.549885,
+   "tv_exact": 0.45011499999999993,
+   "mc_se": 0.0014114584237146341,
+   "hellinger_err_sum_lower": 0.4517516707958207,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.500115,
+    "gamma=0.1": 0.5501149999999999,
+    "gamma=0.28": 0.730115
+   }
+  },
+  "F_a vs F_theta0.9 | m=128": {
+   "err_I": 0.39835,
+   "err_II": 0.37374,
+   "err_sum_NP": 0.7720899999999999,
+   "tv_exact": 0.22791,
+   "mc_se": 0.0015390349084734888,
+   "hellinger_err_sum_lower": 0.7156165547237967,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.27791,
+    "gamma=0.1": 0.32791000000000003,
+    "gamma=0.28": 0.5079100000000001
+   }
+  },
+  "F_a vs F_theta0.7 | m=512": {
+   "err_I": 0.076665,
+   "err_II": 0.06681,
+   "err_sum_NP": 0.143475,
+   "tv_exact": 0.856525,
+   "mc_se": 0.0008158857201685784,
+   "hellinger_err_sum_lower": 0.061506660381039024,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.906525,
+    "gamma=0.1": 0.956525,
+    "gamma=0.28": 1.0
+   }
+  },
+  "F_a vs F_theta0.8 | m=512": {
+   "err_I": 0.186915,
+   "err_II": 0.169175,
+   "err_sum_NP": 0.35609,
+   "tv_exact": 0.6439100000000001,
+   "mc_se": 0.0012094060570172452,
+   "hellinger_err_sum_lower": 0.24124496533899087,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.6939100000000001,
+    "gamma=0.1": 0.7439100000000001,
+    "gamma=0.28": 0.9239100000000001
+   }
+  },
+  "F_a vs F_theta0.9 | m=512": {
+   "err_I": 0.3402,
+   "err_II": 0.317885,
+   "err_sum_NP": 0.658085,
+   "tv_exact": 0.34191499999999997,
+   "mc_se": 0.0014854260109056256,
+   "hellinger_err_sum_lower": 0.5783213008922418,
+   "availability_upper_TV_plus_gamma": {
+    "gamma=0.05": 0.39191499999999996,
+    "gamma=0.1": 0.44191499999999995,
+    "gamma=0.28": 0.621915
+   }
+  }
+ },
+ "elapsed_s": 96.06219053268433
+}

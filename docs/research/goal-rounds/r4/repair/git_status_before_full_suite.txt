@@ -1,0 +1,2 @@
+ M ../docs/research/sycophancy-phase0-goal.md
+ M tests/test_analysis.py

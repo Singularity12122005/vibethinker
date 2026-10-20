@@ -1,0 +1,10 @@
+narrow   g=0 (eta-term max of c2 class)             m=128 w1=0.1048 nonPD=0.006 q50=0.1101 q90=0.1389 (x1.33) P(w>.15)=0.06
+narrow   g=-2(r-0.2)^2 (c2 edge, eta-dominant)      m=128 w1=0.1049 nonPD=0.006 q50=0.1100 q90=0.1392 (x1.33) P(w>.15)=0.06
+narrow   g=+2(r-0.2)^2                              m=128 w1=0.1049 nonPD=0.006 q50=0.1102 q90=0.1397 (x1.33) P(w>.15)=0.07
+narrow   g=2r-0.4 (c2 edge, beta1=2)                m=128 w1=0.1186 nonPD=0.007 q50=0.1264 q90=0.1684 (x1.42) P(w>.15)=0.18
+/tmp/claude-0/venv/lib/python3.13/site-packages/numpy/lib/_function_base_impl.py:4609: RuntimeWarning: invalid value encountered in scalar subtract
+  diff_b_a = b - a
+narrow   linear g, m=64 (author's c2 budget)        m= 64 w1=0.1193 nonPD=0.199 q50=0.1793 q90=nan (xnan) P(w>.15)=0.61
+narrow   g=0, m=64                                  m= 64 w1=0.1136 nonPD=0.202 q50=0.1679 q90=nan (xnan) P(w>.15)=0.57
+halfvar  linear g, m=128 (check1b reproduction)     m=128 w1=0.1428 nonPD=0.126 q50=0.1838 q90=nan (xnan) P(w>.15)=0.72
+halfvar  g=0, m=128                                 m=128 w1=0.1390 nonPD=0.126 q50=0.1790 q90=nan (xnan) P(w>.15)=0.69

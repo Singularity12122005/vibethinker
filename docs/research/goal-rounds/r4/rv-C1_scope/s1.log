@@ -1,0 +1,27 @@
+clu70 0 2s
+clu90 0 3s
+iid 0 3s
+clu90 100 172s
+clu70 100 173s
+iid 100 177s
+clu90 200 329s
+clu70 200 340s
+iid 200 344s
+clu90 300 477s
+clu70 300 493s
+iid 300 500s
+clu90 400 626s
+clu70 400 648s
+iid 400 656s
+clu90 500 771s
+clu70 500 801s
+iid 500 812s
+clu90 600 914s
+clu70 600 951s
+iid 600 961s
+clu90 700 1063s
+clu70 700 1102s
+iid 700 1114s
+done clu90
+done clu70
+done iid

@@ -1,0 +1,12 @@
+== q1_A_narrow_cheb_vq10.npz (2, 1000, 200) P(PD32)=0.468
+  HC1: size_reuse=0.0272 reuse-fresh=+0.00012  sigma_delta^2=-5.23e-06 UCL sd=0.00342 bound@.1=0.0103 | sd(P(R|G32)) UCL=0.00408 x3=0.0122 | PD32: pi=0.468 reuse-fresh=+0.00083 se 0.00067 ; Vhat>med: pi=0.500 reuse-fresh=+0.00057 se 0.00063
+  CR1: size_reuse=0.0438 reuse-fresh=+0.00010  sigma_delta^2=2.94e-05 UCL sd=0.00751 bound@.1=0.0225 | sd(P(R|G32)) UCL=0.00734 x3=0.0220 | PD32: pi=0.468 reuse-fresh=+0.00166 se 0.00089 ; Vhat>med: pi=0.500 reuse-fresh=+0.00153 se 0.00090
+== q1_B_narrow_lin_vq10.npz (2, 1000, 200) P(PD32)=0.468
+  HC1: size_reuse=0.0277 reuse-fresh=-0.00089  sigma_delta^2=1.22e-05 UCL sd=0.00517 bound@.1=0.0155 | sd(P(R|G32)) UCL=0.00431 x3=0.0129 | PD32: pi=0.468 reuse-fresh=-0.00044 se 0.00068 ; Vhat>med: pi=0.500 reuse-fresh=-0.00045 se 0.00065
+  CR1: size_reuse=0.0476 reuse-fresh=-0.00050  sigma_delta^2=1.44e-05 UCL sd=0.00619 bound@.1=0.0186 | sd(P(R|G32)) UCL=0.00441 x3=0.0132 | PD32: pi=0.468 reuse-fresh=+0.00027 se 0.00085 ; Vhat>med: pi=0.500 reuse-fresh=+0.00032 se 0.00083
+== q1_C_wide_lin.npz (2, 1000, 200) P(PD32)=1.000
+  HC1: size_reuse=0.0514 reuse-fresh=-0.00006  sigma_delta^2=2.85e-06 UCL sd=0.00378 bound@.1=0.0113 | sd(P(R|G32)) UCL=0.00314 x3=0.0094 | PD32: pi=1.000 reuse-fresh=-0.00007 se 0.00038 ; Vhat>med: pi=0.500 reuse-fresh=-0.00059 se 0.00055
+  CR1: size_reuse=0.0552 reuse-fresh=+0.00016  sigma_delta^2=-2.99e-06 UCL sd=0.00276 bound@.1=0.0083 | sd(P(R|G32)) UCL=0.00303 x3=0.0091 | PD32: pi=1.000 reuse-fresh=+0.00016 se 0.00039 ; Vhat>med: pi=0.500 reuse-fresh=-0.00007 se 0.00056
+== q1_D_narrow_cheb_arm32.npz (2, 1000, 200) P(PD32)=0.468
+  HC1: size_reuse=0.0385 reuse-fresh=+0.00020  sigma_delta^2=2.68e-05 UCL sd=0.00706 bound@.1=0.0212 | sd(P(R|G32)) UCL=0.00861 x3=0.0258 | PD32: pi=0.468 reuse-fresh=+0.00028 se 0.00087 ; Vhat>med: pi=0.500 reuse-fresh=+0.00200 se 0.00088
+  CR1: size_reuse=0.0419 reuse-fresh=-0.00010  sigma_delta^2=3.06e-05 UCL sd=0.00758 bound@.1=0.0227 | sd(P(R|G32)) UCL=0.00792 x3=0.0238 | PD32: pi=0.468 reuse-fresh=-0.00073 se 0.00091 ; Vhat>med: pi=0.500 reuse-fresh=+0.00156 se 0.00092

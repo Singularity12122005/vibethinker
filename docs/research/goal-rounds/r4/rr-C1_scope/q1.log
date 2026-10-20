@@ -1,0 +1,44 @@
+B_narrow_lin_vq10 0 0s
+D_narrow_cheb_arm32 0 1s
+C_wide_lin 0 1s
+A_narrow_cheb_vq10 0 1s
+B_narrow_lin_vq10 100 49s
+A_narrow_cheb_vq10 100 51s
+C_wide_lin 100 52s
+D_narrow_cheb_arm32 100 53s
+A_narrow_cheb_vq10 200 97s
+B_narrow_lin_vq10 200 98s
+C_wide_lin 200 100s
+D_narrow_cheb_arm32 200 101s
+A_narrow_cheb_vq10 300 151s
+B_narrow_lin_vq10 300 152s
+C_wide_lin 300 154s
+D_narrow_cheb_arm32 300 155s
+A_narrow_cheb_vq10 400 210s
+B_narrow_lin_vq10 400 211s
+D_narrow_cheb_arm32 400 213s
+C_wide_lin 400 216s
+A_narrow_cheb_vq10 500 269s
+B_narrow_lin_vq10 500 272s
+D_narrow_cheb_arm32 500 275s
+C_wide_lin 500 276s
+A_narrow_cheb_vq10 600 332s
+B_narrow_lin_vq10 600 333s
+D_narrow_cheb_arm32 600 337s
+C_wide_lin 600 339s
+A_narrow_cheb_vq10 700 393s
+B_narrow_lin_vq10 700 395s
+D_narrow_cheb_arm32 700 397s
+C_wide_lin 700 401s
+A_narrow_cheb_vq10 800 454s
+D_narrow_cheb_arm32 800 456s
+B_narrow_lin_vq10 800 457s
+C_wide_lin 800 462s
+D_narrow_cheb_arm32 900 506s
+A_narrow_cheb_vq10 900 506s
+B_narrow_lin_vq10 900 507s
+C_wide_lin 900 510s
+done D_narrow_cheb_arm32
+done B_narrow_lin_vq10
+done A_narrow_cheb_vq10
+done C_wide_lin

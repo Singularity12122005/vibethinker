@@ -1,0 +1,189 @@
+{
+ "route": "C. Sequential internal-pilot design: 32 → 128 → re-assess, and validity under reuse",
+ "outcome": "partial",
+ "claims": [
+  {
+   "id": "C1",
+   "statement": "Uniform reuse bound (Theorem 1). Let R be any event of the final degree-2 corrected-score test at m=128 (reject = ok & |t|>1.96 with ok=False counted as non-rejection; non-PD; width ≤ w0) computed on K = K32 + K96 (reuse), and R' the same functional on fresh K'128 ⊥ K32 given r. For EVERY stage-1 rule D measurable w.r.t. (t, K32) with P(D) = π: P(R|D) − P(R'|D) = Cov(δ, 1_D)/π with δ := P(R|t,K32) − P(R'|t,K32), E[δ] = 0, hence |P(R|D) − P(R'|D)| ≤ σ_δ·sqrt((1−π)/π), σ_δ² = Var(δ); the selection term P(R'|D) − P(R) obeys the same bound with σ_0² = Var(P(R'|t,K32)). The identity needs only A0 (η independent of all counts given r); the sup over rules is attained by the upper-tail rule {δ > q_{1−π}}. Mechanism (Proposition 2): the only pilot-tiltable part of the corrected score is φ_i = E[ψ_i | r_i, K32_i] = g(r_i)Ũ_a − Σ_b β_b Ũ_{a+b}, Ũ_j(k,r) = C(128,j)^{-1} Σ_l C(k,l)C(96,j−l) r^{j−l}; Φ = Var(φ_i) ⪯ Σ^{ME} = Var(d_i) ⪯ Σ, Ũ_1 − r = (32/128)(r̂32 − r) exactly (pilot share of the ME variance of U_1 is exactly 1/4; of U_2 it is 0.2477 narrow / 0.2476 half-variance / 0.2485 wide, exact rationals in c3_tilt_moments.json); along the population type direction the maximal standardized first-order mean tilt at P(D)=1/2 is κ = 0.093/0.083/0.230 (narrow, g = lin/quad/cheb), 0.087/0.077/0.209 (half-variance), 0.099/0.088/0.243 (wide). Nested Monte Carlo with the production function (1000 outer pilots × 200 inner, common random numbers, one-way ANOVA estimator proved unbiased) gives for the REJECT event the 95% upper limits σ_δ ≤ 0.0064 (narrow lin HC1) / 0.0051 (CR1), 0.0041/0.0038 (narrow quad), 0.0085/0.0075 (narrow cheb), 0.0047/0.0061 (half-variance lin), i.e. the reuse effect on the two-stage size of ANY 32-pilot rule with P(D) ≥ 0.5 is ≤ 0.0085 and with P(D) ≥ 0.1 is ≤ 0.026 (cheb) / ≤ 0.019 (archive g); for the NON-PD and WIDTH ≤ 0.15 events σ_δ is NOT small in the half-variance world (0.036 and 0.085), because the production ok flag is a deterministic function of the counts and the pilot's PD status propagates into K32+K96.",
+   "status": "proved",
+   "assumptions": [
+    "A0: η_i (difference of two independent 16-draw binomial means) is independent of (K32, K96, K'128) given r and independent across prefixes; prefixes independent given risks; K32 ~ Bin(32,r), K96 ~ Bin(96,r), K'128 ~ Bin(128,r) independent given r (so K32+K96 ~ Bin(128,r)).",
+    "Pilot rules are σ(t, K32)-measurable with P(D) ∈ (0,1); the final test is the production endpoint_contrast_poly_cs(degree=2) on the same 200 prefixes (n_t = 100), null b_type = 0.",
+    "For the Monte Carlo constants: risks Beta per type (narrow (20,80)/(25,75); half-variance (40.5,162)/(50.6,151.8)), g ∈ {0.18−0.8r, 0.26−1.6r+2r², 0.5(1−8r+8r²)} with q_± = clip(r ± g/2) (clip rate ≤ 1.9e-4), r | K32 drawn from the exact Beta posterior; question clusters 50 × 4 (2 per type) with no effect beyond r (HC1 valid, CR1 reported as robustness).",
+    "Theorem 1 and Proposition 2 hold for any risk law; the exact moment evaluation in c3 uses Beta moments and the A1 identity; the σ_δ constants are estimated (outer-bootstrap 95% upper limits), not derived."
+   ],
+   "scope": "Holds for every pilot rule that is a function of the 32 α=0 sel counts and types, for every event of the final 128-test, under A0; the quoted constants σ_δ apply to the four named (world, g) cells with the stated 16-draw arms and the degree-2 production test at (200,128), HC1 and CR1 (50 clusters of 4, both types in each cluster).",
+   "does_not_claim": "It does not bound |P(R|D) − 0.05|: the one-stage size at 128 itself (0.045 narrow, 0.022 half-variance) and the selection-on-configuration term (σ_0 ≤ 0.0063) are separate; it does not give a closed form for σ_δ, does not cover rules that see the steered-arm outcomes, does not cover the sup over the compatible set of risk laws or over the full class |g| ≤ 1 (only three members), and does not establish that the width or non-PD two-stage rates are within tolerance (their σ_δ are 0.03–0.085 in the half-variance world).",
+   "derivation_md": "See c_derivation.md §1–§2. Sketch: Lemma 1 — given F_0 = σ(r,t), (K',Δ̂) ⊥ K32 and (K32+K96, Δ̂) =_d (K', Δ̂), so P(R'|F_32) = P(R|F_0) =: h_0. Lemma 2 — E[1_R 1_D] = E[h 1_D] with h = P(R|F_32) (D ∈ G_32 ⊂ F_32) and E[1_{R'}1_D] = E[h_0 1_D]; projecting on G_32 gives P(R|D) − P(R'|D) = E[δ 1_D]/π, E[δ] = E[h − h_0] = 0 by the tower property. Theorem 1 — Cauchy–Schwarz |Cov(δ,1_D)| ≤ σ_δ sqrt(π(1−π)); attainment by rearrangement. Proposition 2 — U_j(K128) is the fraction of all-success j-subsets of 128 draws; conditioning on the first 32 draws gives Ũ_j; E[û_i η_i | F_32] = 0 by A0; conditional Jensen gives Φ ⪯ Var(d_i); Ũ_1 = (K32 + 96 r)/128 = r + (32/128)(r̂32 − r). ANOVA estimator: y_{oℓ} = 1_R − 1_{R'} (CRN), σ̂_δ² = Var̂(ȳ_o) − mean(s_o²)/N_in, unbiased whatever the heteroskedasticity (E[ȳ_o|o] = δ_o, E[s_o²|o] = Var(y|o)).",
+   "evidence": "c4_identity_check.json: Ũ_j formula vs 2e6-draw Monte Carlo at (k,r) ∈ {(5,.2),(9,.25),(0,.1),(20,.6)}, j=1..4, all within 1–2 MC SE (e.g. j=2,k=5,r=.2: 0.0354823 vs 0.0354753 ± 8.2e-6); exact U_1 statement lhs = rhs to 1e-17; E[φ] = 0 exactly under the Bin(32,r) pmf; ANOVA estimator mean 9.06e-6 ± 2.2e-6 vs truth 9e-6 (4000 synthetic reps). c3_tilt_moments.json: exact shares and κ. c2_analysis.json (from c1_stage1_*.npz): unconditional size reuse vs fresh equal within MC (narrow lin HC1 0.0450 vs 0.0456, SE 0.0005; half-variance 0.0223 vs 0.0214, SE 0.00035), Theorem-1 constants per event.",
+   "script_path": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/C__Sequential_internal-pilot_design__32___128___re-assess__and_validity_under_reuse/c1_nested_mc.py (simulation), c2_analyse.py (ANOVA/bounds), c3_tilt_moments.py (exact moments), c4_identity_check.py (identity checks), c_common.py (helpers), c_derivation.md (derivation)",
+   "numbers": [
+    {
+     "name": "pilot share of ME variance of U_1 / U_2 (narrow; exact)",
+     "value": "1/4 exactly; 221679769/894945124 = 0.24770",
+     "source": "c3_tilt_moments.py → c3_tilt_moments.json (Fraction arithmetic, no seed; CPU x86_64, python 3.13.16, numpy 2.5.4, scipy 1.18.1, 2026-10-19)"
+    },
+    {
+     "name": "κ = sqrt(w'Φw / w'Σw) along the type direction, P(D)=1/2 (narrow lin/quad/cheb; half-variance; wide)",
+     "value": "0.0934/0.0826/0.2299; 0.0868/0.0772/0.2093; 0.0987/0.0885/0.2428",
+     "source": "c3_tilt_moments.py → c3_tilt_moments.json (exact)"
+    },
+    {
+     "name": "ME share of the type-direction score variance (narrow lin / cheb)",
+     "value": "0.045 / 0.279",
+     "source": "c3_tilt_moments.json"
+    },
+    {
+     "name": "σ_δ 95% UCL for REJECT, HC1 (narrow lin / quad / cheb / half-variance lin)",
+     "value": "0.0064 / 0.0041 / 0.0085 / 0.0047 (point σ̂²: 1.90e-5, −3.45e-6, 4.35e-5, 7.87e-6; CI90 [−3.0e-6,4.2e-5], [−2.3e-5,1.7e-5], [1.6e-5,7.3e-5], [−5.1e-6,2.2e-5])",
+     "source": "c1_nested_mc.py --stage 1 (n_out 1000, n_in 200; seeds 4101988 / 4102092 / 4102067 / 4102063 = 4101*1000 + Σord(world+g)) → c1_stage1_*.npz; c2_analyse.py (bootstrap seed 777) → c2_analysis.json / c2_analysis.out; CPU x86_64, python 3.13.16, numpy 2.5.4, scipy 1.18.1, 4 cores, 2026-10-19"
+    },
+    {
+     "name": "σ_δ 95% UCL for REJECT, CR1 (same four cells)",
+     "value": "0.0051 / 0.0038 / 0.0075 / 0.0061",
+     "source": "c2_analysis.json"
+    },
+    {
+     "name": "uniform reuse bound on the two-stage size at P(D) = 0.5 / 0.25 / 0.1, HC1 (narrow lin; narrow cheb; half-variance)",
+     "value": "0.0064/0.0112/0.0193; 0.0085/0.0148/0.0256; 0.0047/0.0081/0.0141",
+     "source": "c2_analysis.json (theorem1.reject.uniform_bound_at_pi)"
+    },
+    {
+     "name": "σ_δ 95% UCL for NON-PD and for WIDTH ≤ 0.15 (half-variance HC1; narrow lin HC1)",
+     "value": "0.0357 and 0.0849; 0.0039 and 0.0322",
+     "source": "c2_analysis.json (theorem1.nonpd / theorem1.width_le_w0)"
+    },
+    {
+     "name": "selection-on-configuration constant σ_0 95% UCL (fresh reject), HC1 (narrow lin / quad / cheb / half-variance)",
+     "value": "0.0063 / 0.0034 / 0.0050 / 0.0035",
+     "source": "c2_analysis.json (selection_sigma0_fresh_reject)"
+    },
+    {
+     "name": "unconditional one-stage size at 128, reuse vs fresh, HC1 (narrow lin; half-variance lin), MC SE",
+     "value": "0.0450 vs 0.0456 (SE 0.0005); 0.0223 vs 0.0214 (SE 0.00035)",
+     "source": "c2_analysis.json (unconditional)"
+    },
+    {
+     "name": "Ũ_2 formula vs Monte Carlo (k=5, r=0.2)",
+     "value": "0.03548228 vs 0.03547529 ± 8.2e-6",
+     "source": "c4_identity_check.py (seed 4104) → c4_identity_check.json"
+    },
+    {
+     "name": "ANOVA between-variance estimator check",
+     "value": "9.06e-6 ± 2.17e-6 vs truth 9.0e-6",
+     "source": "c4_identity_check.json (anova_unbiasedness)"
+    }
+   ],
+   "experimental_consequence": "The internal-pilot design (keep the 32 sel counts inside the 128) is admissible for the SIZE target without fresh regressor continuations: for every stage-1 adoption rule with P(adopt) ≥ 0.1 the reuse effect on the two-stage size is below the ±0.02 tolerance in the archive g worlds (≤ 0.019 narrow, ≤ 0.014 half-variance) and marginally above it only for the extreme member g = 0.5(1−8r+8r²) at P(D)=0.1 (0.026); the user does not need to spend 32 extra draws per prefix on a fresh regressor. The non-PD ≤ 2% and q90-width ≤ 0.15 tolerances are NOT protected by this theorem (σ_δ up to 0.085): the plan must state them as one-stage (fresh-equivalent) targets at 128 or evaluate them conditionally on the adopted rule.",
+   "failure_point": "The constants σ_δ are world-specific simulation estimates with CI; the half-variance width/non-PD constants are large, so for those events the two-stage property depends on the specific rule."
+  },
+  {
+   "id": "C2",
+   "statement": "Rule-specific reuse and selection terms (stage 1, 32 → 128, production test, HC1 and CR1), estimated with common random numbers to SE ≈ 0.0006–0.0009 (10× finer than the problem-phase check3). (i) The proposed stage-1 rule 'adopt 128 = not certify-32' (certify-32 := A32 PD and width proxy w_pred(K32; σ̄²_η = 1/32) ≤ 0.15; it fires with P = 0.896–0.910 narrow, 0.987 half-variance) has |size_reuse − size_fresh| ≤ 0.0009 ± 0.0006 in all four cells (narrow lin −0.0005 ± 0.0006, quad −0.0002 ± 0.0006, cheb +0.0004 ± 0.0006, half-variance +0.0007 ± 0.0004; CR1 within ±0.001 ± 0.0006) and a selection term |P(R'|D) − P(R)| ≤ 0.0003. (ii) Rules keyed to pilot spread or PD status ('V̂32 > median', 'PD at 32', 'PD-margin-128 estimate > median') show a SIGNIFICANT positive reuse effect in the half-variance world: +0.0030 ± 0.0006, +0.0027 ± 0.0008, +0.0022 ± 0.0006 (HC1; CR1 +0.0033, +0.0028, +0.0025), which is entirely the non-PD channel (non-PD given fire 9.7% / 8.9% / 9.8% with reuse vs 11.7% / 12.0% / 12.0% fresh; non-PD counts as non-rejection) — the pilot's PD status carries into K32+K96; in the narrow world (non-PD 0.5%) the same rules give ≤ +0.003 ± 0.0009 (lin: −0.0007, +0.0004, +0.0002; cheb: +0.0012, +0.0029, +0.0025). (iii) The plug-in adversarial rule (upper half of the estimated δ_o) gives +0.013 to +0.017 — an upward-biased plug-in sup consistent with Theorem 1's bound 0.005–0.009 at P(D) = 1/2 only as an over-estimate, and the direction of every detected effect is positive (reuse raises the rejection rate through fewer non-PD outcomes).",
+   "status": "candidate",
+   "assumptions": [
+    "Same DGP and A0 as C1; rules evaluated on the outer pilot draws; the 'certify-32' width proxy omits the measurement-error term d_i d_iᵀ of the sandwich and uses σ̄²_η = sup_r Var(η|r) = 1/32 (plug-in 0.02 variant also reported).",
+    "Thresholds 'median' are in-sample medians over the 1000 outer pilots (as in check3)."
+   ],
+   "scope": "Four (world, g) cells at (n, m) = (200, 32→128), 1000 outer × 200 inner, HC1 and CR1 (50 clusters of 4); rule classes listed; sizes are unconditional (ok & |t| > 1.96).",
+   "does_not_claim": "It does not establish the conditional operating characteristics of the degree-2 test AT m = 32 when certify-32 fires (the 32-test was not run in the inner loop), does not cover the wide world (cell still running), does not prove the sign of the reuse effect in general, and the plug-in adversarial value is not a valid bound (winner's curse).",
+   "derivation_md": "For a rule D on the outer draw, P(R|D) − P(R'|D) = E[δ 1_D]/π is estimated by mean_{o∈D} ȳ_o with SE sd_{o∈D}(ȳ_o)/sqrt(|D|) (inner noise included); the selection term by mean_{o∈D} p̂'_o − mean_o p̂'_o with outer bootstrap SE. Mechanism: with reuse, non-PD at 128 is a deterministic function of K32+K96 (F1 in c_derivation.md §3), so a pilot whose A32 is PD / has large V̂32 has a strictly better-conditioned final A128 on average, whereas the fresh A'128 is independent of the pilot given r; since ok=False is counted as non-rejection, fewer non-PD outcomes raise the rejection rate.",
+   "evidence": "c2_analysis.out / c2_analysis.json sections 'rules' per cell and SE type (e.g. half-variance HC1 'Vhat32>median': reuse_minus_fresh 0.00299, se 0.00064, nonpd_reuse_given_fire 0.0974 vs nonpd_fresh 0.1173; 'adopt128 = not certify32': 0.00073 ± 0.00045, P_fired 0.987).",
+   "script_path": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/C__Sequential_internal-pilot_design__32___128___re-assess__and_validity_under_reuse/c2_analyse.py (on c1_stage1_*.npz from c1_nested_mc.py)",
+   "numbers": [
+    {
+     "name": "adopt-128 rule: P(fire); reuse − fresh ± SE, HC1 (narrow lin / quad / cheb / half-variance)",
+     "value": "0.910, 0.896, 0.904, 0.987; −0.00047 ± 0.00057, −0.00016 ± 0.00055, +0.00038 ± 0.00062, +0.00073 ± 0.00045",
+     "source": "c2_analysis.json rules['adopt128 = not certify32'] (seeds as in C1; CPU x86_64, python 3.13.16, numpy 2.5.4, scipy 1.18.1, 2026-10-19)"
+    },
+    {
+     "name": "two-stage size given adopt-128 with reuse, HC1 / CR1 (narrow lin; half-variance)",
+     "value": "0.0449 / 0.0489; 0.0222 / 0.0246 (SE 0.0005 / 0.0004)",
+     "source": "c2_analysis.json rules['adopt128 = not certify32'].size_reuse_given_fire"
+    },
+    {
+     "name": "half-variance HC1: V̂32>median, PD32, PD-margin>median — reuse − fresh ± SE",
+     "value": "+0.00299 ± 0.00064, +0.00268 ± 0.00077, +0.00222 ± 0.00061",
+     "source": "c2_analysis.json (c1_stage1_halfvar_lin)"
+    },
+    {
+     "name": "half-variance: non-PD given fire, reuse vs fresh (V̂32>median; PD32)",
+     "value": "0.0974 vs 0.1173; 0.0885 vs 0.1200",
+     "source": "c2_analysis.json"
+    },
+    {
+     "name": "narrow lin HC1: V̂32>median, PD32, PD-margin>median — reuse − fresh ± SE",
+     "value": "−0.00066 ± 0.00079, +0.00037 ± 0.00086, +0.00024 ± 0.00080",
+     "source": "c2_analysis.json (c1_stage1_narrow_lin)"
+    },
+    {
+     "name": "narrow cheb HC1: PD32 and certify-32 — reuse − fresh ± SE",
+     "value": "+0.00290 ± 0.00093; +0.00760 ± 0.00239 (96 fired outers)",
+     "source": "c2_analysis.json (c1_stage1_narrow_cheb)"
+    },
+    {
+     "name": "plug-in adversarial upper-tail rule, reuse − fresh (narrow lin / quad / cheb / half-variance, HC1)",
+     "value": "+0.0148, +0.0143, +0.0172, +0.0133 (SE ≈ 0.0004–0.0005; upward-biased)",
+     "source": "c2_analysis.json rules['adversarial upper-tail of ybar (plug-in, upward-biased)']"
+    },
+    {
+     "name": "P(PD at 32); P(PD-margin-128 estimate > 0); P(certify-32, σ̄²=1/32); P(certify-32, plug-in 0.02) — narrow lin / half-variance",
+     "value": "0.435 / 0.311; 0.459 / 0.331; 0.090 / 0.013; 0.194 / 0.048",
+     "source": "c2_analysis.json pilot_stats"
+    },
+    {
+     "name": "problem-phase check3 for comparison (narrow, V̂32>median, fired-only reuse vs fresh)",
+     "value": "0.037 vs 0.047, MC SE ≈ 0.0045 (context, not progress)",
+     "source": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/problem/check3_two_stage_reuse.json"
+    }
+   ],
+   "experimental_consequence": "The specific adoption rule proposed for the plan (adopt 128 unless the 32-stage certificate fires) can be pre-registered with the 32 counts reused: its reuse term is ≤ 0.001 in every cell. Rules keyed to the pilot's PD status or spread are also admissible for size (effects +0.002–0.003, inside ±0.02) but they bias the final non-PD rate downward by 2–3 points in weak worlds, so the non-PD ≤ 2% tolerance must be assessed conditionally on the rule, not from one-stage tables.",
+   "failure_point": "Simulation-level; the certify-32 conditional size at m = 32 is unmeasured; the wide cell is pending."
+  },
+  {
+   "id": "C3",
+   "statement": "Stage-2 re-assessment is well-defined without steered arms and the decision tree can be pre-specified: (F1) the production ok flag at 128 is a deterministic function of (K128, t) — the non-PD outcome of the final degree-2 test is KNOWN at the 128 stage; (F2) the HC1 sandwich decomposes as E[Σψψᵀ | r,K] = Σ_i Var(η_i|r_i) û_i û_iᵀ + Σ_i d_i d_iᵀ, so the outcome-noise part of the width is a known function of the counts given a bound σ̄²_η ≤ 1/32, giving the pre-specified rule R128: not PD ⇒ 512; PD and w_pred(K128; σ̄²_η) ≤ 0.15 ⇒ certify 128; else 512. Stage-1 operating characteristics (four cells): the stage-1 certificate R32 fires in 9–10% of narrow pilots and 1.3% of half-variance pilots (with the plug-in σ̄²_η = 0.02: 19% / 4.8%), so 'adopt 128' is the overwhelmingly likely branch in both non-wide worlds; the unconditional 128-test has (size, non-PD, width q50/q90): narrow lin HC1 (0.045, 0.6%, 0.113/0.143) — within all three tolerances; narrow cheb (0.042, 0.6%, 0.127/0.171) — size within, q90 width FAILS 0.15 inside the admissible class |g| ≤ 1/2; half-variance (0.022, 11.9%, 0.187/∞) — fails size, non-PD and width, so the 128-stage must escalate. The 128-stage availability of R128 and the 512-branch reuse constant were NOT obtained (stage-2 simulation still running at the deadline).",
+   "status": "candidate",
+   "assumptions": [
+    "Same model and A0; F1 follows from the code path of endpoint_contrast_poly_cs (A = Σ M_i(K) depends on counts and types only); F2 from ψ_i = û_i η_i + d_i with E[η|r,K] = 0.",
+    "w_pred omits the d_i d_iᵀ term; its validity as a width predictor is world-dependent (at m = 32 in narrow worlds the ME term dominates, so R32 is not validated there)."
+   ],
+   "scope": "Decision-tree structure (F1, F2, R32/R128 definitions) holds generally; the operating characteristics are from the four stage-1 cells at (200, 32→128) with 16-draw arms, HC1/CR1.",
+   "does_not_claim": "It does not give P(certify 128 | world), the conditional size/width at 128 given certification, or the 512-stage reuse bound (not computed); it does not certify 32 in the wide world from this route's own runs (wide cell pending; the archive/check1 one-stage numbers 0.050 / q90 0.096 at m = 32 are context); it does not claim the width proxy is a certificate over |g| ≤ 1.",
+   "derivation_md": "c_derivation.md §3: A = Σ_i M̂_i(K_i) and the PD rule λ_min > 1e-9·max(1, λ_max) use only (K, m, t) ⇒ F1. ψ_i = û_i Δ̂_i − M̂_i β_0 = û_i η_i + d_i ⇒ E[ψ_iψ_iᵀ | r, K] = Var(η_i|r_i) û_iû_iᵀ + d_id_iᵀ ⇒ F2; w_pred = 2·1.96·sqrt(σ̄²_η · n/(n−k) · [A⁻¹GA⁻¹]_{44}), G = Σ û_iû_iᵀ. Stage-2 rules are σ(t, K128)-measurable, so there is no reuse/fresh distinction for the certify-128 branch — only selection on the design, P(R|D₂) − P(R) = Cov(P(R|G_128), 1_{D₂})/π₂; the escalation branch (128 inside 512) is covered by Theorem 1 at that stage.",
+   "evidence": "c2_analysis.json pilot_stats (P_certify32_max / P_certify32_020, wpred32 quantiles) and unconditional blocks; c1_nested_mc.py --stage 2 written and launched (log c1_stage2.log) but unfinished at the deadline.",
+   "script_path": "/tmp/claude-0/-home-user-vibethinker/f0ffafd6-4063-5255-a6b2-eb18152ed489/scratchpad/goal_rounds/r4/C__Sequential_internal-pilot_design__32___128___re-assess__and_validity_under_reuse/c1_nested_mc.py --stage 2 (pending), c_common.py (width_predictor, pd_flag, pd_margin_hat), c2_analyse.py (analyse_stage2)",
+   "numbers": [
+    {
+     "name": "P(certify-32) with σ̄²_η = 1/32 (narrow lin / quad / cheb / half-variance); plug-in 0.02",
+     "value": "0.090 / 0.104 / 0.096 / 0.013; 0.194 / 0.192 / 0.189 / 0.048",
+     "source": "c2_analysis.json pilot_stats (seeds as in C1; CPU x86_64, python 3.13.16, numpy 2.5.4, scipy 1.18.1, 2026-10-19)"
+    },
+    {
+     "name": "w_pred(K32; 1/32) q10/q50/q90 (narrow lin; half-variance)",
+     "value": "0.136/0.202/0.676; 0.173/0.334/1.870",
+     "source": "c2_analysis.json pilot_stats"
+    },
+    {
+     "name": "unconditional 128-test HC1: size, non-PD, width q50/q90 (narrow lin; narrow quad; narrow cheb; half-variance)",
+     "value": "0.0450, 0.57%, 0.113/0.143; 0.0446, 0.55%, 0.112/0.143; 0.0423, 0.57%, 0.127/0.171; 0.0223, 11.9%, 0.187/∞ (q90 infinite because non-PD > 10%)",
+     "source": "c2_analysis.json unconditional (size_reuse, nonpd_reuse, width_reuse_q50_q90)"
+    },
+    {
+     "name": "P(width ≤ 0.15) at 128 HC1 (narrow lin / cheb / half-variance)",
+     "value": "0.923 / 0.807 / 0.274",
+     "source": "c2_analysis.json unconditional P_width_le_w0_reuse"
+    },
+    {
+     "name": "clip rate of q_± (narrow lin / quad / cheb / half-variance)",
+     "value": "2.4e-6 / 2.3e-5 / 1.9e-4 / 0",
+     "source": "c1_stage1_*.npz clip_rate via c2_analysis.json"
+    }
+   ],
+   "experimental_consequence": "Plan §7.2b/§7.11 can be changed to the sequential rule: run 128 sel continuations for the 200 h_3 prefixes unless R32 fires (it fires ≈ 10% narrow, ≈ 1% half-variance), then apply R128 at the 128 stage before any steered arm; the residual probability that 512 is needed is NOT yet quantified (stage 2 pending). The width tolerance q90 ≤ 0.15 is sensitive to g within the admissible class (0.143 for the archive g vs 0.171 for 0.5(1−8r+8r²)) and to the 16- vs 32-draw arms — a user decision.",
+   "failure_point": "Stage-2 availability and the 512-stage constants are missing; R32's conditional size at m = 32 is unverified."
+  }
+ ],
+ "what_failed": "(1) The stage-2 nested simulation (outer K128, inner r|K128, 384 extra vs fresh 512; availability of R128, conditional size/width at 128 given certification, 512-stage σ_δ) and the wide-world stage-1 cell were launched (c1_nested_mc.py --stage 2; log c1_stage2.log) but did not finish before the harness deadline (each cell ≈ 11–13 min on this 4-core box; the first four stage-1 cells took 675–797 s), so the decision tree's 128-stage availability and the residual P(512 needed) are not reported — the scripts are in place and runnable. (2) The 32-test was dropped from the inner loop to save a third of the cost, so the conditional operating characteristics of the certify-32 branch at m = 32 (which fires in ≈ 10% of narrow pilots) are unmeasured; in narrow worlds the width proxy omits the dominant measurement-error term at m = 32, so R32 is unvalidated there. (3) Theorem 1 protects the SIZE target only in the sense of reuse-vs-fresh; for the non-PD and width events the reuse constant is large in the half-variance world (σ_δ 0.036 / 0.085), so those tolerances cannot be transferred from one-stage tables to the two-stage design by the theorem. (4) The σ_δ estimates have CI90 half-widths ≈ 2e-5 on σ_δ² (point estimates straddle zero for narrow quad), so only upper limits are reported, and only for three g members, not the sup over |g| ≤ 1 (the extreme member gives a 0.026 bound at P(D) = 0.1, slightly above the 0.02 tolerance). (5) Route A/B material (certificate at the 128 stage, Le Cam 0.135) was not evaluated here because other routes' directories were not read (protocol).",
+ "next_step": "Let c1_nested_mc.py --stage 2 (and the wide stage-1 cell) finish and run c2_analyse.py: this yields P(certify 128 | world) for narrow / half-variance / wide, the conditional size and q90 width at 128 given certification, P(escalate to 512) and the 512-stage uniform reuse bound — completing the decision tree with the residual probability that 512 is needed. Then add the m = 32 test to the inner loop (one extra production call) to validate or refute the certify-32 branch's conditional size and width in the narrow world, and replace the width proxy's omitted d_i d_iᵀ term by its pilot-estimable upper bound (A1 moments ≤ 8 with the Chebyshev coefficient bound 8) so that R32/R128 become sup-over-class certificates for the outcome-noise part. Finally, hand Theorem 1 to the synthesis as the (C) result: the reuse question is settled for size by a single world constant σ_δ, and the plan text should state the non-PD and width tolerances as rule-conditional quantities."
+}

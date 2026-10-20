@@ -1,0 +1,46 @@
+check1  narrow m=32 HC1                                                nonPD=0.5350 q90=3.8397 W1=0.1444 ratio=26.591
+check1  narrow m=32 CR1                                                nonPD=0.5390 q90=2.7530 W1=0.1444 ratio=19.065
+check1  narrow m=128 HC1                                               nonPD=0.0045 q90=0.1425 W1=0.1071 ratio=1.331
+check1  narrow m=128 CR1                                               nonPD=0.0070 q90=0.1452 W1=0.1071 ratio=1.355
+check1  narrow m=512 HC1                                               nonPD=0.0000 q90=0.1096 W1=0.0982 ratio=1.116
+check1  narrow m=512 CR1                                               nonPD=0.0000 q90=0.1147 W1=0.0982 ratio=1.168
+check1  wide m=32 HC1                                                  nonPD=0.0000 q90=0.0956 W1=0.0860 ratio=1.111
+check1  wide m=32 CR1                                                  nonPD=0.0000 q90=0.1009 W1=0.0860 ratio=1.173
+check1  wide m=128 HC1                                                 nonPD=0.0000 q90=0.0883 W1=0.0809 ratio=1.091
+check1  wide m=128 CR1                                                 nonPD=0.0000 q90=0.0925 W1=0.0809 ratio=1.144
+check1  wide m=512 HC1                                                 nonPD=0.0000 q90=0.0862 W1=0.0796 ratio=1.083
+check1  wide m=512 CR1                                                 nonPD=0.0000 q90=0.0911 W1=0.0796 ratio=1.144
+check1b halfvar m=128                                                  nonPD=0.1230 q90=0.4926 W1=0.1428 ratio=3.449
+check1b halfvar m=512                                                  nonPD=0.0000 q90=0.1350 W1=0.1168 ratio=1.156
+check1b narrow m=128                                                   nonPD=0.0045 q90=0.1406 W1=0.1071 ratio=1.313
+check1b narrow m=512                                                   nonPD=0.0000 q90=0.1098 W1=0.0982 ratio=1.118
+s2      linear g (author) HC1                                          nonPD=0.0040 q90=0.1435 W1=0.1071 ratio=1.340
+s2      linear g (author) CR1                                          nonPD=0.0040 q90=0.1472 W1=0.1071 ratio=1.374
+s2      c2 maximiser HC1                                               nonPD=0.0080 q90=0.1336 W1=0.0960 ratio=1.392
+s2      c2 maximiser CR1                                               nonPD=0.0080 q90=0.1369 W1=0.0960 ratio=1.426
+s2      full-class maximiser HC1                                       nonPD=0.0020 q90=0.2388 W1=0.1554 ratio=1.537
+s2      full-class maximiser CR1                                       nonPD=0.0020 q90=0.2444 W1=0.1554 ratio=1.573
+s2      linear g, sigma2=(1-g^2)/32 arms at 1/2 HC1                    nonPD=0.0040 q90=0.1720 W1=0.1283 ratio=1.341
+s2      linear g, sigma2=(1-g^2)/32 arms at 1/2 CR1                    nonPD=0.0040 q90=0.1767 W1=0.1283 ratio=1.377
+s2      c2 maximiser, arms at 1/2 HC1                                  nonPD=0.0040 q90=0.1701 W1=0.1385 ratio=1.228
+s2      c2 maximiser, arms at 1/2 CR1                                  nonPD=0.0040 q90=0.1719 W1=0.1385 ratio=1.241
+s2      linear g, question effect tau=.05, shared layout HC1           nonPD=0.0060 q90=0.1488 W1=0.1071 ratio=1.389
+s2      linear g, question effect tau=.05, shared layout CR1           nonPD=0.0060 q90=0.1492 W1=0.1071 ratio=1.393
+s2      linear g, question effect tau=.05, disjoint layout HC1         nonPD=0.0030 q90=0.1522 W1=0.1071 ratio=1.421
+s2      linear g, question effect tau=.05, disjoint layout CR1         nonPD=0.0030 q90=0.1646 W1=0.1071 ratio=1.537
+s2      linear g, question effect tau=.10, disjoint layout HC1         nonPD=0.0060 q90=0.1711 W1=0.1071 ratio=1.598
+s2      linear g, question effect tau=.10, disjoint layout CR1         nonPD=0.0060 q90=0.2037 W1=0.1071 ratio=1.902
+s3      narrow g=0 (eta-term max of c2 class) m=128                    nonPD=0.0060 q90=0.1389 W1=0.1048 ratio=1.325
+s3      narrow g=-2(r-0.2)^2 (c2 edge, eta-dominant) m=128             nonPD=0.0060 q90=0.1392 W1=0.1049 ratio=1.327
+s3      narrow g=+2(r-0.2)^2 m=128                                     nonPD=0.0060 q90=0.1397 W1=0.1049 ratio=1.332
+s3      narrow g=2r-0.4 (c2 edge, beta1=2) m=128                       nonPD=0.0070 q90=0.1684 W1=0.1186 ratio=1.420
+s3      narrow linear g, m=64 (author's c2 budget) m=64                nonPD=0.1990 q90=nan W1=0.1193 ratio=nan
+s3      narrow g=0, m=64 m=64                                          nonPD=0.2020 q90=nan W1=0.1136 ratio=nan
+s3      halfvar linear g, m=128 (check1b reproduction) m=128           nonPD=0.1260 q90=nan W1=0.1428 ratio=nan
+s3      halfvar g=0, m=128 m=128                                       nonPD=0.1260 q90=nan W1=0.1390 ratio=nan
+s4      n_arm=16 g=(0.18, -0.8, 0.0)                                   nonPD=nan q90=0.1430 W1=0.1071 ratio=1.335
+s4      n_arm=16 g=(-0.4, 2.0, 0.0)                                    nonPD=nan q90=0.1657 W1=0.1186 ratio=1.397
+s4      n_arm=32 g=(0.18, -0.8, 0.0)                                   nonPD=nan q90=0.1039 W1=0.0774 ratio=1.342
+s4      n_arm=32 g=(-0.4, 2.0, 0.0)                                    nonPD=nan q90=0.1356 W1=0.0930 ratio=1.458
+cells with nonPD<1% (or not reported) and finite q90: n=37 min=1.083 max=1.902
+all finite ratios > 1: True
