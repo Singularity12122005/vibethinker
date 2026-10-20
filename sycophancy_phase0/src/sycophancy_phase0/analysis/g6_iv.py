@@ -136,6 +136,39 @@ def endpoint_contrast_iv(delta_hat: Sequence[float], r_a: Sequence[float], r_b: 
 
 
 # ----------------------------------------------------------------------------------------------------------------------- P2(b)
+def corrected_moment_matrix(counts: Sequence[int], m: int, type_: Sequence[int], degree: int) -> Dict[str, object]:
+    """Corrected moment matrix A = Σ_i M̂_i of the degree-p corrected-score estimator and its positive-definiteness decision, from
+    the success counts, the types, the common number m of continuations and the degree ONLY.  The outcomes are deliberately not an
+    argument (archive r4, B2 by construction): the PD decision of ``endpoint_contrast_poly_cs`` is this function's ``pd_ok``, so any
+    pre-registered rule on it (e.g. escalating m) can be evaluated from the α=0 counts before a steered arm is run.
+    Entries: A_ab = Σ U_{a+b}(K_i) (0 ≤ a, b ≤ p), A_{a,p+1} = Σ U_a(K_i) t_i, A_{p+1,p+1} = Σ t_i, with U_j(K) = K^{(j)}/m^{(j)};
+    t must be coded 0/1.  pd_ok ⇔ λ_min(A) > PD_RTOL·max(1, |λ_max(A)|).  Raises ValueError unless counts and type_ are
+    one-dimensional of equal length, m is an integer ≥ 2 and 1 ≤ degree ≤ m/2."""
+    K, t = np.asarray(counts, float), np.asarray(type_, float)
+    if K.ndim != 1 or t.shape != K.shape:
+        raise ValueError("counts and type_ must be one-dimensional of equal length")
+    if int(m) != m or m < 2:
+        raise ValueError("m must be an integer ≥ 2")
+    if degree < 1 or 2 * degree > m:
+        raise ValueError("need 1 ≤ degree ≤ m/2")
+    n = K.size
+    U = [_falling(K, j) / _falling(np.array([float(m)]), j)[0] for j in range(2 * degree + 1)]
+    k = degree + 2
+    M = np.zeros((n, k, k))
+    for a in range(degree + 1):
+        for b in range(degree + 1):
+            M[:, a, b] = U[a + b]
+        M[:, a, k - 1] = M[:, k - 1, a] = U[a] * t
+    M[:, k - 1, k - 1] = t
+    A = M.sum(0)
+    eig = np.linalg.eigvalsh(A)
+    min_eig, max_eig = float(eig[0]), float(eig[-1])
+    # relative tolerance (round 14): an exactly singular state (e.g. m=4, p=2, class counts (4,4)/(0,4): the r and r^2 columns
+    # coincide) can show a tiny positive floating-point minimum eigenvalue and then fail in the solve (archive r3 实施限制)
+    pd_ok = bool(min_eig > PD_RTOL * max(1.0, abs(max_eig)))
+    return dict(A=A, M=M, U=U, min_eig=min_eig, max_eig=max_eig, pd_ok=pd_ok, n=int(n), k=k)
+
+
 def endpoint_contrast_poly_cs(delta_hat: Sequence[float], counts: Sequence[int], m: int, type_: Sequence[int], degree: int = 1,
                               cluster: Optional[Sequence] = None) -> Dict[str, object]:
     """Corrected-score estimate of  Δ = Σ_{k≤degree} b_k r^k + b_type·type  from the success COUNTS K_i of m i.i.d. continuations.
@@ -144,29 +177,21 @@ def endpoint_contrast_poly_cs(delta_hat: Sequence[float], counts: Sequence[int],
     sandwich (HC1 / CR1).  degree=1 is the known-variance errors-in-variables estimator (v_i = r̂_i(1−r̂_i)/(m−1)).  Needs 2·degree ≤ m.
     Consistent for the ORACLE polynomial regression under E[η | r, type, K] = 0; returns ok=False when the corrected moment matrix
     is not positive definite.  Its failure probability cannot be diagnosed from low-order within-type risk variance alone."""
-    y, K, t = np.asarray(delta_hat, float), np.asarray(counts, float), np.asarray(type_, float)
-    n = y.size
-    if degree < 1 or 2 * degree > m:
-        raise ValueError("need 1 ≤ degree ≤ m/2")
-    U = [_falling(K, j) / _falling(np.array([float(m)]), j)[0] for j in range(2 * degree + 1)]
-    k = degree + 2
-    M = np.zeros((n, k, k))
-    mv = np.zeros((n, k))
-    for a in range(degree + 1):
-        for b in range(degree + 1):
-            M[:, a, b] = U[a + b]
-        M[:, a, k - 1] = M[:, k - 1, a] = U[a] * t
-        mv[:, a] = U[a] * y
-    M[:, k - 1, k - 1] = t
-    mv[:, k - 1] = t * y
-    A = M.sum(0)
-    eig = np.linalg.eigvalsh(A)
-    min_eig, max_eig = float(eig[0]), float(eig[-1])
-    # relative tolerance (round 14): an exactly singular state (e.g. m=4, p=2, class counts (4,4)/(0,4): the r and r^2 columns
-    # coincide) can show a tiny positive floating-point minimum eigenvalue and then fail in the solve (archive r3 实施限制)
-    if not (min_eig > PD_RTOL * max(1.0, abs(max_eig))):
+    # validation only (shape checks, no arithmetic on the outcomes), then the PD decision from (counts, type_, m, degree) alone;
+    # the outcomes and the cluster vector are first used after that decision (archive r4, B2 by construction)
+    y, K = np.asarray(delta_hat, float), np.asarray(counts, float)
+    if y.ndim != 1 or K.ndim != 1 or y.shape != K.shape:
+        raise ValueError("delta_hat, counts and type_ must be one-dimensional of equal length")
+    cm = corrected_moment_matrix(counts, m, type_, degree)
+    n, k, U, M, A, min_eig = cm["n"], cm["k"], cm["U"], cm["M"], cm["A"], cm["min_eig"]
+    if not cm["pd_ok"]:
         return dict(ok=False, n=int(n), degree=int(degree), min_eig=min_eig,
                     reason="corrected moment matrix not positive definite; low-order risk variance alone does not diagnose the cause")
+    t = np.asarray(type_, float)
+    mv = np.zeros((n, k))
+    for a in range(degree + 1):
+        mv[:, a] = U[a] * y
+    mv[:, k - 1] = t * y
     try:
         beta = np.linalg.solve(A, mv.sum(0))
     except np.linalg.LinAlgError:

@@ -1054,3 +1054,37 @@ def test_goal_r4_c1_candidate_reuse_identity():
         selection = sum(P_RfD[k] for k in D) / pi - P_R
         assert selection ** 2 <= var_0 * (1 - pi) / pi                     # selection-on-configuration term
     assert checked > 100
+
+
+def test_goal_r4_b2_pd_decision_precedes_outcomes():
+    """Archive r4, B2 by construction: corrected_moment_matrix takes no outcome argument, and endpoint_contrast_poly_cs returns the
+    not-PD result before any arithmetic on delta_hat or use of cluster — so under a strict floating-point error state an all-inf
+    outcome vector still yields ok=False for a non-PD state, the returned min_eig always equals corrected_moment_matrix's, and the
+    ok flag equals pd_ok whenever the solve succeeds; malformed outcome shapes are rejected up front."""
+    import inspect
+    import warnings
+    from sycophancy_phase0.analysis.g6_iv import corrected_moment_matrix, endpoint_contrast_poly_cs
+    assert list(inspect.signature(corrected_moment_matrix).parameters) == ["counts", "m", "type_", "degree"]
+    rng = np.random.default_rng(204)
+    seen = {True: 0, False: 0}
+    for _ in range(400):
+        m = int(rng.choice([4, 6, 32])); p = int(rng.integers(1, min(3, m // 2) + 1)); n = int(rng.integers(4, 30))
+        t = rng.integers(0, 2, n); K = rng.binomial(m, rng.beta(2, 5, n))
+        cm = corrected_moment_matrix(K, m, t, p)
+        seen[cm["pd_ok"]] += 1
+        outs = [endpoint_contrast_poly_cs(y, K, m, t, degree=p, cluster=cl)
+                for y in (rng.normal(size=n), np.full(n, np.nan), np.zeros(n)) for cl in (None, np.arange(n) % 3)]
+        assert all(o["min_eig"] == cm["min_eig"] for o in outs)
+        if not cm["pd_ok"]:
+            assert all(not o["ok"] for o in outs)
+            with np.errstate(all="raise"), warnings.catch_warnings():
+                warnings.simplefilter("error")
+                o = endpoint_contrast_poly_cs(np.full(n, np.inf), K, m, t, degree=p)
+            assert not o["ok"] and o["min_eig"] == cm["min_eig"]
+    assert seen[True] > 20 and seen[False] > 20
+    # the exactly singular state of the archive is refused by the decision itself
+    assert not corrected_moment_matrix([4, 4, 0, 4], 4, [0, 0, 1, 1], 2)["pd_ok"]
+    with pytest.raises(ValueError):
+        endpoint_contrast_poly_cs(np.zeros((8, 1)), [0, 1, 2, 3, 4, 1, 2, 3], 4, [0, 0, 0, 0, 1, 1, 1, 1], degree=1)
+    with pytest.raises(ValueError):
+        endpoint_contrast_poly_cs(np.zeros(7), [0, 1, 2, 3, 4, 1, 2, 3], 4, [0, 0, 0, 0, 1, 1, 1, 1], degree=1)
