@@ -1064,7 +1064,25 @@ def test_goal_r4_b2_pd_decision_precedes_outcomes():
     import inspect
     import warnings
     from sycophancy_phase0.analysis.g6_iv import corrected_moment_matrix, endpoint_contrast_poly_cs
-    assert list(inspect.signature(corrected_moment_matrix).parameters) == ["counts", "m", "type_", "degree"]
+    assert list(inspect.signature(corrected_moment_matrix).parameters) == ["counts", "m", "type_", "degree", "pd_rtol"]
+    import sycophancy_phase0.analysis.g6_iv as g6
+    assert inspect.signature(corrected_moment_matrix).parameters["pd_rtol"].default == 1e-9
+    # mutating the module constant after import does not change the decision (default bound at import)
+    saved = g6.PD_RTOL
+    try:
+        g6.PD_RTOL = 10.0
+        assert corrected_moment_matrix([1, 3, 5, 2, 4, 6], 8, [0, 0, 0, 1, 1, 1], 1)["pd_ok"]
+    finally:
+        g6.PD_RTOL = saved
+    # an outcome object whose float conversion mutates the counts list cannot change the decision (taken before conversion)
+    class Sneaky:
+        def __init__(self, i, box): self.i, self.box = i, box
+        def __float__(self):
+            self.box[self.i] = 4
+            return 0.0
+    box = [0] * 6
+    o = endpoint_contrast_poly_cs([Sneaky(i, box) for i in range(6)], box, 8, [0, 0, 0, 1, 1, 1], degree=1)
+    assert o["min_eig"] == corrected_moment_matrix([0] * 6, 8, [0, 0, 0, 1, 1, 1], 1)["min_eig"]
     rng = np.random.default_rng(204)
     seen = {True: 0, False: 0}
     for _ in range(400):
