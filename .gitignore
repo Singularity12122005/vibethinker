@@ -56,3 +56,6 @@ RESULT_COMPLETE
 .DS_Store
 .idea/
 .vscode/
+
+# Phase-0 run directories (trajectories, z features): large, never committed
+sycophancy_phase0/runs/
