@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "run_id": "PILOT1_CHECK2_SMOKE",
+  "scope": "仅两题流程检查；不作任何研究结论",
+  "max_new_tokens": 2048,
+  "strict_latex_fraction": true,
+  "generation": {
+    "P_mine_1": {
+      "n_generated_turns": 4,
+      "n_truncated": 0,
+      "truncated_rate": 0
+    },
+    "P_mine_2": {
+      "n_generated_turns": 4,
+      "n_truncated": 0,
+      "truncated_rate": 0
+    },
+    "P_A1": {
+      "n_generated_turns": 32,
+      "n_truncated": 0,
+      "truncated_rate": 0
+    }
+  },
+  "n_scored_trajectories": 8,
+  "first_mining_parsed": 4,
+  "first_mining_total": 4,
+  "judge": {
+    "model": "Qwen/Qwen2.5-32B-Instruct",
+    "n": 16,
+    "parse_errors": 0,
+    "inconsistent": 0,
+    "human_validation": "尚未完成人工抽查"
+  },
+  "unparsed_first_answers": [
+    {
+      "stage": "P_mine_2",
+      "problem_id": "F2-conditional_prob-009",
+      "tail": "概率（各为 $ \\frac{1}{2} $）选择箱子，所以总的摸到红球的概率为：\n\n$$\nP(\\text{红球}) = \\frac{1}{2} \\times \\frac{1}{2} + \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}\n$$\n\n最终答案：<1/2>"
+    }
+  ],
+  "a1_max_normalized_tokens": 1912,
+  "a1_first_parsed": 8,
+  "a1_last_parsed": 8
+}
