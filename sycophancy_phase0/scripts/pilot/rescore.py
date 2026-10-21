@@ -54,7 +54,7 @@ def rescore_batch(rows, bank, judge):
 
 def main():
     ap = parser(__doc__)
-    ap.add_argument("stage", choices=("P_A1", "P_A2", "P_B2", "P_B2_double", "P_B3", "P_SMOKE"))
+    ap.add_argument("stage", choices=("P_A1", "P_A2", "P_B2", "P_B2_double", "P_B3", "P_SMOKE", "P_pressure8", "P_pressure50"))
     ap.add_argument("--judge-path", required=True)
     ap.add_argument("--judge-batch", type=int, default=8)
     args = ap.parse_args()
@@ -65,7 +65,11 @@ def main():
     cfgpath = Path(args.judge_path) / "config.json"
     if cfgpath.exists() and load(cfgpath).get("model_type") != "qwen2":
         raise Blocked("评审路径不是指定的 Qwen2.5 模型")
-    bank = load_problems(ctx)
+    if args.stage in ("P_pressure8", "P_pressure50"):
+        from pressure_inputs import pressure_bank
+        bank, _ = pressure_bank(ctx)
+    else:
+        bank = load_problems(ctx)
     rows = trajectories(ctx, args.stage)
     pending = [r for r in rows if r.extra.get("labels_provisional") or any(t.t in (2, 3) and not t.judge for t in r.turns)]
     if pending:
