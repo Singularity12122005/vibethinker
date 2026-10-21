@@ -54,7 +54,8 @@ def rescore_batch(rows, bank, judge):
 
 def main():
     ap = parser(__doc__)
-    ap.add_argument("stage", choices=("P_A1", "P_A2", "P_B2", "P_B2_double", "P_B3", "P_SMOKE", "P_pressure8", "P_pressure50"))
+    ap.add_argument("stage", nargs="+", choices=("P_A1", "P_A2", "P_B2", "P_B2_double", "P_B3", "P_SMOKE", "P_pressure8", "P_pressure50",
+                    "P_screen_P1", "P_screen_P2", "P_screen_P3", "P_screen_B"))
     ap.add_argument("--judge-path", required=True)
     ap.add_argument("--judge-batch", type=int, default=8)
     args = ap.parse_args()
@@ -65,29 +66,32 @@ def main():
     cfgpath = Path(args.judge_path) / "config.json"
     if cfgpath.exists() and load(cfgpath).get("model_type") != "qwen2":
         raise Blocked("评审路径不是指定的 Qwen2.5 模型")
-    if args.stage in ("P_pressure8", "P_pressure50"):
-        from pressure_inputs import pressure_bank
-        bank, _ = pressure_bank(ctx)
-    else:
-        bank = load_problems(ctx)
-    rows = trajectories(ctx, args.stage)
-    pending = [r for r in rows if r.extra.get("labels_provisional") or any(t.t in (2, 3) and not t.judge for t in r.turns)]
-    if pending:
-        judge = make_judge(LocalJudge(args.judge_path, args.judge_batch), ctx.config["judge_model"])
-        path = Path(ctx.run_path) / "trajectories" / f"{args.stage}.jsonl"
-        for off in range(0, len(pending), 64):
-            rescore_batch(pending[off:off + 64], bank, judge)
-            tmp = path.with_suffix(".rescore.tmp")
-            with JsonlWriter(str(tmp)) as w:
-                for row in rows:
-                    w.write(row)
-            tmp.replace(path)
-            print(f"评审 {args.stage}: {min(off + 64, len(pending))}/{len(pending)}", flush=True)
-    require_scored(rows)
-    labs = [t.judge for r in rows for t in r.turns if t.t in (2, 3)]
-    save(Path(ctx.run_path) / "tables" / f"{args.stage}_judge.json",
-         dict(model=ctx.config["judge_model"], n=len(labs), parse_errors=sum(x["parse_error"] for x in labs),
-              inconsistent=sum(x.get("consistent") is False for x in labs), human_validation="尚未完成人工抽查"))
+    judge = None
+    for stage in args.stage:
+        if stage.startswith(("P_pressure", "P_screen_")):
+            from pressure_inputs import pressure_bank
+            bank, _ = pressure_bank(ctx)
+        else:
+            bank = load_problems(ctx)
+        rows = trajectories(ctx, stage)
+        pending = [r for r in rows if r.extra.get("labels_provisional") or any(t.t in (2, 3) and not t.judge for t in r.turns)]
+        if pending:
+            if judge is None:
+                judge = make_judge(LocalJudge(args.judge_path, args.judge_batch), ctx.config["judge_model"])
+            path = Path(ctx.run_path) / "trajectories" / f"{stage}.jsonl"
+            for off in range(0, len(pending), 64):
+                rescore_batch(pending[off:off + 64], bank, judge)
+                tmp = path.with_suffix(".rescore.tmp")
+                with JsonlWriter(str(tmp)) as w:
+                    for row in rows:
+                        w.write(row)
+                tmp.replace(path)
+                print(f"评审 {stage}: {min(off + 64, len(pending))}/{len(pending)}", flush=True)
+        require_scored(rows)
+        labs = [t.judge for r in rows for t in r.turns if t.t in (2, 3)]
+        save(Path(ctx.run_path) / "tables" / f"{stage}_judge.json",
+             dict(model=ctx.config["judge_model"], n=len(labs), parse_errors=sum(x["parse_error"] for x in labs),
+                  inconsistent=sum(x.get("consistent") is False for x in labs), human_validation="尚未完成人工抽查"))
 
 
 if __name__ == "__main__":
