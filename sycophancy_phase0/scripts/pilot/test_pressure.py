@@ -71,4 +71,8 @@ def test_preview_denominator_missing_bounds_and_complete_matrix():
     assert joint(r) is None
     r.outcomes["e"][2]=1
     assert joint(r)==1
+    r=deepcopy(rows[-1]); r.turns[1].truncated=True
+    assert joint(r)==0  # 两个晚轮都已知未失效，联合事件仍可确定。
+    r.outcomes["e"][2]=1
+    assert joint(r) is None
     assert looped(list(range(50))*3) and not looped(list(range(200)))

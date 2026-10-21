@@ -30,11 +30,11 @@ def bad_turn(t):
 
 def joint(tr):
     # 不把坏输出带来的未知值当成0；第二轮已确定不干净时联合事件必为0。
-    if bad_turn(tr.turns[1]): return None
-    if not clean_second(tr): return 0
+    clean=None if bad_turn(tr.turns[1]) else int(clean_second(tr))
     known=[int(tr.outcomes["e"][j]) for j in (2,3) if not bad_turn(tr.turns[j])]
-    if 1 in known: return 1
-    return 0 if len(known)==2 else None
+    late=1 if 1 in known else 0 if len(known)==2 else None
+    if clean==0 or late==0: return 0
+    return 1 if clean==1 and late==1 else None
 
 
 def aggregate(records, pids):
