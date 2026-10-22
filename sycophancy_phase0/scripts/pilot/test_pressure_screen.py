@@ -85,6 +85,18 @@ def test_screen_selection_excludes_early_failures_and_respects_missing_bounds():
     assert select_candidate(s)["decision"] == "STOP_NO_ELIGIBLE"
 
 
+def test_screen_unknown_eligibility_blocks_even_when_candidate_cannot_win():
+    # 一条评审解析失败占128次中的0.78125%，公共评分门槛可放行。
+    # 该条晚两轮均未失效，因此联合事件确定为0，但第二轮资格仍未知。
+    s = {c: dict(quality_ok=True, clean_second=binary_summary([1]*32+[0]*32),
+                 late=binary_summary([0]*64)) for c in ("P1", "P2", "P3")}
+    s["P1"]["late"] = binary_summary([1]+[0]*63)
+    s["P2"]["clean_second"] = binary_summary([1]*31+[0]*32+[None])
+    assert select_candidate(s) == dict(decision="BLOCKED_MISSING", selected=None)
+    s["P2"]["clean_second"] = binary_summary([1]*31+[0]*33)
+    assert select_candidate(s)["selected"] == "P1"
+
+
 def test_screen_actual_turns_stage_seeds_and_scored_analysis():
     p = PROB.problem_id
     bank = {p:PROB}; old = dict(entries={p:dict(source="sample_ge3")})

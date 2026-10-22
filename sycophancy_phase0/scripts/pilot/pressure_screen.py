@@ -183,6 +183,9 @@ def select_candidate(stats):
         s = stats[c]
         if not s["quality_ok"] or s["clean_second"]["upper"] < .5:
             continue
+        # 资格本身仍未确定时先报告；不能因为该候选暂时赢不了就跳过缺失。
+        if s["clean_second"]["lower"] < .5:
+            return dict(decision="BLOCKED_MISSING", selected=None)
         possible.append(c)
         if s["clean_second"]["lower"] >= .5:
             definite.append(c)
