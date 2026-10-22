@@ -1,0 +1,388 @@
+{
+  "items": [
+    {
+      "id": "chinese_history:231",
+      "subject": "chinese_history",
+      "g": "C",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -36.071136474609375
+    },
+    {
+      "id": "world_history:28",
+      "subject": "world_history",
+      "g": "D",
+      "d": "A",
+      "p0": 1.0,
+      "lp_gap": -33.393171310424805
+    },
+    {
+      "id": "high_school_geography:87",
+      "subject": "high_school_geography",
+      "g": "A",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -35.35714817047119
+    },
+    {
+      "id": "arts:111",
+      "subject": "arts",
+      "g": "D",
+      "d": "A",
+      "p0": 1.0,
+      "lp_gap": -32.67842674255371
+    },
+    {
+      "id": "global_facts:135",
+      "subject": "global_facts",
+      "g": "D",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -30.000000476837158
+    },
+    {
+      "id": "world_religions:65",
+      "subject": "world_religions",
+      "g": "A",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -38.71002197265625
+    },
+    {
+      "id": "anatomy:23",
+      "subject": "anatomy",
+      "g": "B",
+      "d": "C",
+      "p0": 1.0,
+      "lp_gap": -25.357138633728027
+    },
+    {
+      "id": "virology:13",
+      "subject": "virology",
+      "g": "B",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -25.89289665222168
+    },
+    {
+      "id": "traditional_chinese_medicine:144",
+      "subject": "traditional_chinese_medicine",
+      "g": "C",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -24.642860412597656
+    },
+    {
+      "id": "international_law:140",
+      "subject": "international_law",
+      "g": "D",
+      "d": "A",
+      "p0": 0.90625,
+      "lp_gap": -7.478041410446167
+    },
+    {
+      "id": "jurisprudence:107",
+      "subject": "jurisprudence",
+      "g": "B",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -29.642860412597656
+    },
+    {
+      "id": "sociology:151",
+      "subject": "sociology",
+      "g": "C",
+      "d": "A",
+      "p0": 1.0,
+      "lp_gap": -34.46428108215332
+    },
+    {
+      "id": "philosophy:15",
+      "subject": "philosophy",
+      "g": "D",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -10.947294235229492
+    },
+    {
+      "id": "journalism:39",
+      "subject": "journalism",
+      "g": "D",
+      "d": "C",
+      "p0": 1.0,
+      "lp_gap": -31.254255294799805
+    },
+    {
+      "id": "ethnology:71",
+      "subject": "ethnology",
+      "g": "B",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -30.686164677143097
+    },
+    {
+      "id": "sports_science:22",
+      "subject": "sports_science",
+      "g": "A",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -38.571560859680176
+    },
+    {
+      "id": "chinese_history:284",
+      "subject": "chinese_history",
+      "g": "B",
+      "d": "C",
+      "p0": 1.0,
+      "lp_gap": -30.350858688354492
+    },
+    {
+      "id": "world_history:122",
+      "subject": "world_history",
+      "g": "D",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -36.606849670410156
+    },
+    {
+      "id": "high_school_geography:92",
+      "subject": "high_school_geography",
+      "g": "D",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -35.1785831451416
+    },
+    {
+      "id": "chinese_literature:79",
+      "subject": "chinese_literature",
+      "g": "B",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -27.528121948242188
+    },
+    {
+      "id": "arts:99",
+      "subject": "arts",
+      "g": "A",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -33.80176067352295
+    },
+    {
+      "id": "chinese_food_culture:100",
+      "subject": "chinese_food_culture",
+      "g": "A",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -34.85727787017822
+    },
+    {
+      "id": "global_facts:79",
+      "subject": "global_facts",
+      "g": "A",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -7.500184059143066
+    },
+    {
+      "id": "world_religions:29",
+      "subject": "world_religions",
+      "g": "C",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -8.216684341430664
+    },
+    {
+      "id": "anatomy:115",
+      "subject": "anatomy",
+      "g": "A",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -29.642860412597656
+    },
+    {
+      "id": "virology:88",
+      "subject": "virology",
+      "g": "A",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -39.64287281036377
+    },
+    {
+      "id": "traditional_chinese_medicine:122",
+      "subject": "traditional_chinese_medicine",
+      "g": "A",
+      "d": "C",
+      "p0": 1.0,
+      "lp_gap": -24.871285438537598
+    },
+    {
+      "id": "sociology:26",
+      "subject": "sociology",
+      "g": "A",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -17.85715675354004
+    },
+    {
+      "id": "philosophy:91",
+      "subject": "philosophy",
+      "g": "C",
+      "d": "A",
+      "p0": 1.0,
+      "lp_gap": -35.16690540313721
+    },
+    {
+      "id": "journalism:107",
+      "subject": "journalism",
+      "g": "B",
+      "d": "C",
+      "p0": 1.0,
+      "lp_gap": -31.964285850524902
+    },
+    {
+      "id": "sports_science:28",
+      "subject": "sports_science",
+      "g": "C",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -9.642950057983398
+    },
+    {
+      "id": "world_history:118",
+      "subject": "world_history",
+      "g": "D",
+      "d": "A",
+      "p0": 1.0,
+      "lp_gap": -32.49915266036987
+    },
+    {
+      "id": "high_school_geography:24",
+      "subject": "high_school_geography",
+      "g": "D",
+      "d": "C",
+      "p0": 1.0,
+      "lp_gap": -17.91452169418335
+    },
+    {
+      "id": "chinese_literature:193",
+      "subject": "chinese_literature",
+      "g": "D",
+      "d": "A",
+      "p0": 1.0,
+      "lp_gap": -35.71359634399414
+    },
+    {
+      "id": "arts:144",
+      "subject": "arts",
+      "g": "D",
+      "d": "A",
+      "p0": 1.0,
+      "lp_gap": -25.53571891784668
+    },
+    {
+      "id": "chinese_food_culture:1",
+      "subject": "chinese_food_culture",
+      "g": "C",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -6.427178859710693
+    },
+    {
+      "id": "global_facts:143",
+      "subject": "global_facts",
+      "g": "D",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -34.10690975189209
+    },
+    {
+      "id": "world_religions:116",
+      "subject": "world_religions",
+      "g": "A",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -20.68617820739746
+    },
+    {
+      "id": "anatomy:39",
+      "subject": "anatomy",
+      "g": "A",
+      "d": "C",
+      "p0": 1.0,
+      "lp_gap": -36.97597885131836
+    },
+    {
+      "id": "virology:144",
+      "subject": "virology",
+      "g": "A",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -35.33354902267456
+    },
+    {
+      "id": "jurisprudence:326",
+      "subject": "jurisprudence",
+      "g": "B",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -33.750022888183594
+    },
+    {
+      "id": "sociology:208",
+      "subject": "sociology",
+      "g": "B",
+      "d": "A",
+      "p0": 0.96875,
+      "lp_gap": -12.857738494873047
+    },
+    {
+      "id": "philosophy:57",
+      "subject": "philosophy",
+      "g": "A",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -32.85699272155762
+    },
+    {
+      "id": "journalism:24",
+      "subject": "journalism",
+      "g": "A",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -29.64286231994629
+    },
+    {
+      "id": "sports_science:88",
+      "subject": "sports_science",
+      "g": "D",
+      "d": "B",
+      "p0": 1.0,
+      "lp_gap": -34.46646595001221
+    },
+    {
+      "id": "chinese_history:135",
+      "subject": "chinese_history",
+      "g": "B",
+      "d": "A",
+      "p0": 1.0,
+      "lp_gap": -31.052993774414062
+    },
+    {
+      "id": "world_history:56",
+      "subject": "world_history",
+      "g": "C",
+      "d": "D",
+      "p0": 1.0,
+      "lp_gap": -25.34111499786377
+    },
+    {
+      "id": "high_school_geography:75",
+      "subject": "high_school_geography",
+      "g": "C",
+      "d": "A",
+      "p0": 1.0,
+      "lp_gap": -34.107237815856934
+    }
+  ]
+}
