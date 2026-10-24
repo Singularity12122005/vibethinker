@@ -1,0 +1,2523 @@
+[
+  {
+    "instance_id": "F1-L1-20261027",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 29,
+      "A": 13,
+      "B": 10,
+      "AB": 6,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 29 students, exactly 13 play chess, exactly 10 play go, and exactly 6 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "12",
+    "trap": "6",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261028",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 59,
+      "A": 22,
+      "B": 19,
+      "AB": 6,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 59 students, exactly 22 play chess, exactly 19 play go, and exactly 6 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "24",
+    "trap": "18",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261029",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 54,
+      "A": 18,
+      "B": 11,
+      "AB": 3,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 54 students, exactly 18 play chess, exactly 11 play go, and exactly 3 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "28",
+    "trap": "25",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261030",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 54,
+      "A": 25,
+      "B": 18,
+      "AB": 8,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 54 students, exactly 25 play chess, exactly 18 play go, and exactly 8 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "19",
+    "trap": "11",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261031",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 39,
+      "A": 17,
+      "B": 18,
+      "AB": 8,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 39 students, exactly 17 play chess, exactly 18 play go, and exactly 8 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "12",
+    "trap": "4",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261032",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 33,
+      "A": 11,
+      "B": 16,
+      "AB": 7,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 33 students, exactly 11 play chess, exactly 16 play go, and exactly 7 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "13",
+    "trap": "6",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261033",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 56,
+      "A": 23,
+      "B": 14,
+      "AB": 7,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 56 students, exactly 23 play chess, exactly 14 play go, and exactly 7 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "26",
+    "trap": "19",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261034",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 25,
+      "A": 7,
+      "B": 9,
+      "AB": 4,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 25 students, exactly 7 play chess, exactly 9 play go, and exactly 4 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "13",
+    "trap": "9",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261035",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 43,
+      "A": 14,
+      "B": 19,
+      "AB": 7,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 43 students, exactly 14 play chess, exactly 19 play go, and exactly 7 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "17",
+    "trap": "10",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261036",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 30,
+      "A": 7,
+      "B": 10,
+      "AB": 2,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 30 students, exactly 7 play chess, exactly 10 play go, and exactly 2 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "15",
+    "trap": "13",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261037",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 51,
+      "A": 14,
+      "B": 21,
+      "AB": 6,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 51 students, exactly 14 play chess, exactly 21 play go, and exactly 6 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "22",
+    "trap": "16",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261038",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 36,
+      "A": 11,
+      "B": 15,
+      "AB": 6,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 36 students, exactly 11 play chess, exactly 15 play go, and exactly 6 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "16",
+    "trap": "10",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261039",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 58,
+      "A": 22,
+      "B": 15,
+      "AB": 5,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 58 students, exactly 22 play chess, exactly 15 play go, and exactly 5 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "26",
+    "trap": "21",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261040",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 58,
+      "A": 18,
+      "B": 19,
+      "AB": 8,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 58 students, exactly 18 play chess, exactly 19 play go, and exactly 8 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "29",
+    "trap": "21",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261041",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 57,
+      "A": 19,
+      "B": 17,
+      "AB": 7,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 57 students, exactly 19 play chess, exactly 17 play go, and exactly 7 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "28",
+    "trap": "21",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261042",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 59,
+      "A": 19,
+      "B": 24,
+      "AB": 11,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 59 students, exactly 19 play chess, exactly 24 play go, and exactly 11 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "27",
+    "trap": "16",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261043",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 57,
+      "A": 19,
+      "B": 19,
+      "AB": 7,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 57 students, exactly 19 play chess, exactly 19 play go, and exactly 7 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "26",
+    "trap": "19",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261044",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 28,
+      "A": 6,
+      "B": 11,
+      "AB": 1,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 28 students, exactly 6 play chess, exactly 11 play go, and exactly 1 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "12",
+    "trap": "11",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261045",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 40,
+      "A": 19,
+      "B": 19,
+      "AB": 9,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 40 students, exactly 19 play chess, exactly 19 play go, and exactly 9 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "11",
+    "trap": "2",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L1-20261046",
+    "family": "F1",
+    "level": 1,
+    "spec_public": {
+      "population": 27,
+      "A": 5,
+      "B": 8,
+      "AB": 1,
+      "target": "neither_A_nor_B"
+    },
+    "question_en": "In a group of 27 students, exactly 5 play chess, exactly 8 play go, and exactly 1 play both chess and go. How many students play neither? Give the answer as an integer.",
+    "gold": "15",
+    "trap": "14",
+    "trap_name": "forget_intersection"
+  },
+  {
+    "instance_id": "F1-L2-20271027",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 34,
+      "A": 15,
+      "B": 11,
+      "AB": 6,
+      "C": 11,
+      "AC": 5,
+      "BC": 6,
+      "pairwise_includes_triple": true,
+      "ABC": 2,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 34 students, exactly 15 play chess, exactly 11 play go, and exactly 11 play checkers. Exactly 6 play both chess and go, exactly 5 play both chess and checkers, and exactly 6 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 2 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "9",
+    "trap": "5",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271028",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 31,
+      "A": 7,
+      "B": 12,
+      "AB": 5,
+      "C": 9,
+      "AC": 1,
+      "BC": 2,
+      "pairwise_includes_triple": true,
+      "ABC": 1,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 31 students, exactly 7 play chess, exactly 12 play go, and exactly 9 play checkers. Exactly 5 play both chess and go, exactly 1 play both chess and checkers, and exactly 2 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 1 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "15",
+    "trap": "13",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271029",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 33,
+      "A": 12,
+      "B": 8,
+      "AB": 2,
+      "C": 9,
+      "AC": 4,
+      "BC": 2,
+      "pairwise_includes_triple": true,
+      "ABC": 1,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 33 students, exactly 12 play chess, exactly 8 play go, and exactly 9 play checkers. Exactly 2 play both chess and go, exactly 4 play both chess and checkers, and exactly 2 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 1 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "16",
+    "trap": "14",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271032",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 29,
+      "A": 9,
+      "B": 9,
+      "AB": 2,
+      "C": 8,
+      "AC": 2,
+      "BC": 3,
+      "pairwise_includes_triple": true,
+      "ABC": 1,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 29 students, exactly 9 play chess, exactly 9 play go, and exactly 8 play checkers. Exactly 2 play both chess and go, exactly 2 play both chess and checkers, and exactly 3 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 1 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "15",
+    "trap": "13",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271033",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 54,
+      "A": 21,
+      "B": 16,
+      "AB": 8,
+      "C": 19,
+      "AC": 5,
+      "BC": 5,
+      "pairwise_includes_triple": true,
+      "ABC": 2,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 54 students, exactly 21 play chess, exactly 16 play go, and exactly 19 play checkers. Exactly 8 play both chess and go, exactly 5 play both chess and checkers, and exactly 5 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 2 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "26",
+    "trap": "22",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271035",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 39,
+      "A": 11,
+      "B": 16,
+      "AB": 4,
+      "C": 14,
+      "AC": 4,
+      "BC": 3,
+      "pairwise_includes_triple": true,
+      "ABC": 1,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 39 students, exactly 11 play chess, exactly 16 play go, and exactly 14 play checkers. Exactly 4 play both chess and go, exactly 4 play both chess and checkers, and exactly 3 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 1 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "22",
+    "trap": "20",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271036",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 50,
+      "A": 15,
+      "B": 19,
+      "AB": 7,
+      "C": 20,
+      "AC": 5,
+      "BC": 7,
+      "pairwise_includes_triple": true,
+      "ABC": 4,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 50 students, exactly 15 play chess, exactly 19 play go, and exactly 20 play checkers. Exactly 7 play both chess and go, exactly 5 play both chess and checkers, and exactly 7 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 4 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "28",
+    "trap": "20",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271037",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 22,
+      "A": 10,
+      "B": 9,
+      "AB": 4,
+      "C": 8,
+      "AC": 4,
+      "BC": 3,
+      "pairwise_includes_triple": true,
+      "ABC": 1,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 22 students, exactly 10 play chess, exactly 9 play go, and exactly 8 play checkers. Exactly 4 play both chess and go, exactly 4 play both chess and checkers, and exactly 3 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 1 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "8",
+    "trap": "6",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271038",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 22,
+      "A": 11,
+      "B": 6,
+      "AB": 3,
+      "C": 6,
+      "AC": 3,
+      "BC": 1,
+      "pairwise_includes_triple": true,
+      "ABC": 1,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 22 students, exactly 11 play chess, exactly 6 play go, and exactly 6 play checkers. Exactly 3 play both chess and go, exactly 3 play both chess and checkers, and exactly 1 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 1 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "12",
+    "trap": "10",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271039",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 38,
+      "A": 13,
+      "B": 14,
+      "AB": 6,
+      "C": 16,
+      "AC": 6,
+      "BC": 3,
+      "pairwise_includes_triple": true,
+      "ABC": 2,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 38 students, exactly 13 play chess, exactly 14 play go, and exactly 16 play checkers. Exactly 6 play both chess and go, exactly 6 play both chess and checkers, and exactly 3 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 2 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "19",
+    "trap": "15",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271040",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 55,
+      "A": 20,
+      "B": 26,
+      "AB": 10,
+      "C": 31,
+      "AC": 13,
+      "BC": 13,
+      "pairwise_includes_triple": true,
+      "ABC": 6,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 55 students, exactly 20 play chess, exactly 26 play go, and exactly 31 play checkers. Exactly 10 play both chess and go, exactly 13 play both chess and checkers, and exactly 13 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 6 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "23",
+    "trap": "11",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271041",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 59,
+      "A": 21,
+      "B": 23,
+      "AB": 9,
+      "C": 21,
+      "AC": 8,
+      "BC": 8,
+      "pairwise_includes_triple": true,
+      "ABC": 3,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 59 students, exactly 21 play chess, exactly 23 play go, and exactly 21 play checkers. Exactly 9 play both chess and go, exactly 8 play both chess and checkers, and exactly 8 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 3 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "24",
+    "trap": "18",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271042",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 35,
+      "A": 6,
+      "B": 16,
+      "AB": 2,
+      "C": 14,
+      "AC": 1,
+      "BC": 8,
+      "pairwise_includes_triple": true,
+      "ABC": 1,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 35 students, exactly 6 play chess, exactly 16 play go, and exactly 14 play checkers. Exactly 2 play both chess and go, exactly 1 play both chess and checkers, and exactly 8 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 1 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "17",
+    "trap": "15",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271043",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 29,
+      "A": 9,
+      "B": 9,
+      "AB": 4,
+      "C": 9,
+      "AC": 5,
+      "BC": 3,
+      "pairwise_includes_triple": true,
+      "ABC": 3,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 29 students, exactly 9 play chess, exactly 9 play go, and exactly 9 play checkers. Exactly 4 play both chess and go, exactly 5 play both chess and checkers, and exactly 3 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 3 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "12",
+    "trap": "6",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271045",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 46,
+      "A": 25,
+      "B": 16,
+      "AB": 9,
+      "C": 16,
+      "AC": 8,
+      "BC": 5,
+      "pairwise_includes_triple": true,
+      "ABC": 2,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 46 students, exactly 25 play chess, exactly 16 play go, and exactly 16 play checkers. Exactly 9 play both chess and go, exactly 8 play both chess and checkers, and exactly 5 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 2 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "19",
+    "trap": "15",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271046",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 57,
+      "A": 14,
+      "B": 20,
+      "AB": 4,
+      "C": 18,
+      "AC": 5,
+      "BC": 7,
+      "pairwise_includes_triple": true,
+      "ABC": 2,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 57 students, exactly 14 play chess, exactly 20 play go, and exactly 18 play checkers. Exactly 4 play both chess and go, exactly 5 play both chess and checkers, and exactly 7 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 2 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "26",
+    "trap": "22",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271051",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 44,
+      "A": 19,
+      "B": 16,
+      "AB": 8,
+      "C": 16,
+      "AC": 7,
+      "BC": 5,
+      "pairwise_includes_triple": true,
+      "ABC": 3,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 44 students, exactly 19 play chess, exactly 16 play go, and exactly 16 play checkers. Exactly 8 play both chess and go, exactly 7 play both chess and checkers, and exactly 5 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 3 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "20",
+    "trap": "14",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271052",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 45,
+      "A": 20,
+      "B": 15,
+      "AB": 6,
+      "C": 15,
+      "AC": 11,
+      "BC": 3,
+      "pairwise_includes_triple": true,
+      "ABC": 2,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 45 students, exactly 20 play chess, exactly 15 play go, and exactly 15 play checkers. Exactly 6 play both chess and go, exactly 11 play both chess and checkers, and exactly 3 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 2 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "16",
+    "trap": "12",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271053",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 42,
+      "A": 18,
+      "B": 15,
+      "AB": 8,
+      "C": 22,
+      "AC": 9,
+      "BC": 8,
+      "pairwise_includes_triple": true,
+      "ABC": 4,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 42 students, exactly 18 play chess, exactly 15 play go, and exactly 22 play checkers. Exactly 8 play both chess and go, exactly 9 play both chess and checkers, and exactly 8 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 4 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "17",
+    "trap": "9",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L2-20271056",
+    "family": "F1",
+    "level": 2,
+    "spec_public": {
+      "population": 22,
+      "A": 4,
+      "B": 11,
+      "AB": 3,
+      "C": 12,
+      "AC": 1,
+      "BC": 8,
+      "pairwise_includes_triple": true,
+      "ABC": 1,
+      "target": "exactly_one"
+    },
+    "question_en": "In a group of 22 students, exactly 4 play chess, exactly 11 play go, and exactly 12 play checkers. Exactly 3 play both chess and go, exactly 1 play both chess and checkers, and exactly 8 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 1 play all three games. How many students play exactly one of these games? Give the answer as an integer.",
+    "gold": "6",
+    "trap": "4",
+    "trap_name": "triple_once"
+  },
+  {
+    "instance_id": "F1-L3-20281028",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 45,
+      "A": 16,
+      "B": 16,
+      "AB": 7,
+      "C": 21,
+      "AC": 7,
+      "BC": 9,
+      "pairwise_includes_triple": true,
+      "at_least_two": 15,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 45 students, exactly 16 play chess, exactly 16 play go, and exactly 21 play checkers. Exactly 7 play both chess and go, exactly 7 play both chess and checkers, and exactly 9 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 15 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "11",
+    "trap": "15",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281030",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 47,
+      "A": 11,
+      "B": 20,
+      "AB": 5,
+      "C": 25,
+      "AC": 7,
+      "BC": 11,
+      "pairwise_includes_triple": true,
+      "at_least_two": 17,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 47 students, exactly 11 play chess, exactly 20 play go, and exactly 25 play checkers. Exactly 5 play both chess and go, exactly 7 play both chess and checkers, and exactly 11 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 17 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "14",
+    "trap": "17",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281032",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 25,
+      "A": 4,
+      "B": 8,
+      "AB": 1,
+      "C": 11,
+      "AC": 4,
+      "BC": 5,
+      "pairwise_includes_triple": true,
+      "at_least_two": 8,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 25 students, exactly 4 play chess, exactly 8 play go, and exactly 11 play checkers. Exactly 1 play both chess and go, exactly 4 play both chess and checkers, and exactly 5 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 8 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "7",
+    "trap": "8",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281033",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 49,
+      "A": 15,
+      "B": 20,
+      "AB": 6,
+      "C": 21,
+      "AC": 7,
+      "BC": 10,
+      "pairwise_includes_triple": true,
+      "at_least_two": 19,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 49 students, exactly 15 play chess, exactly 20 play go, and exactly 21 play checkers. Exactly 6 play both chess and go, exactly 7 play both chess and checkers, and exactly 10 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 19 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "17",
+    "trap": "19",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281034",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 46,
+      "A": 24,
+      "B": 16,
+      "AB": 10,
+      "C": 17,
+      "AC": 9,
+      "BC": 6,
+      "pairwise_includes_triple": true,
+      "at_least_two": 19,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 46 students, exactly 24 play chess, exactly 16 play go, and exactly 17 play checkers. Exactly 10 play both chess and go, exactly 9 play both chess and checkers, and exactly 6 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 19 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "16",
+    "trap": "19",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281036",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 58,
+      "A": 21,
+      "B": 16,
+      "AB": 6,
+      "C": 22,
+      "AC": 8,
+      "BC": 6,
+      "pairwise_includes_triple": true,
+      "at_least_two": 16,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 58 students, exactly 21 play chess, exactly 16 play go, and exactly 22 play checkers. Exactly 6 play both chess and go, exactly 8 play both chess and checkers, and exactly 6 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 16 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "14",
+    "trap": "16",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281037",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 29,
+      "A": 16,
+      "B": 11,
+      "AB": 5,
+      "C": 7,
+      "AC": 5,
+      "BC": 2,
+      "pairwise_includes_triple": true,
+      "at_least_two": 10,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 29 students, exactly 16 play chess, exactly 11 play go, and exactly 7 play checkers. Exactly 5 play both chess and go, exactly 5 play both chess and checkers, and exactly 2 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 10 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "9",
+    "trap": "10",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281038",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 45,
+      "A": 17,
+      "B": 17,
+      "AB": 6,
+      "C": 18,
+      "AC": 6,
+      "BC": 7,
+      "pairwise_includes_triple": true,
+      "at_least_two": 15,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 45 students, exactly 17 play chess, exactly 17 play go, and exactly 18 play checkers. Exactly 6 play both chess and go, exactly 6 play both chess and checkers, and exactly 7 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 15 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "13",
+    "trap": "15",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281039",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 26,
+      "A": 8,
+      "B": 13,
+      "AB": 5,
+      "C": 11,
+      "AC": 4,
+      "BC": 5,
+      "pairwise_includes_triple": true,
+      "at_least_two": 10,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 26 students, exactly 8 play chess, exactly 13 play go, and exactly 11 play checkers. Exactly 5 play both chess and go, exactly 4 play both chess and checkers, and exactly 5 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 10 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "8",
+    "trap": "10",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281042",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 26,
+      "A": 8,
+      "B": 13,
+      "AB": 4,
+      "C": 11,
+      "AC": 3,
+      "BC": 6,
+      "pairwise_includes_triple": true,
+      "at_least_two": 9,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 26 students, exactly 8 play chess, exactly 13 play go, and exactly 11 play checkers. Exactly 4 play both chess and go, exactly 3 play both chess and checkers, and exactly 6 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 9 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "7",
+    "trap": "9",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281043",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 52,
+      "A": 18,
+      "B": 22,
+      "AB": 7,
+      "C": 18,
+      "AC": 5,
+      "BC": 9,
+      "pairwise_includes_triple": true,
+      "at_least_two": 13,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 52 students, exactly 18 play chess, exactly 22 play go, and exactly 18 play checkers. Exactly 7 play both chess and go, exactly 5 play both chess and checkers, and exactly 9 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 13 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "9",
+    "trap": "13",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281044",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 42,
+      "A": 14,
+      "B": 18,
+      "AB": 7,
+      "C": 12,
+      "AC": 4,
+      "BC": 6,
+      "pairwise_includes_triple": true,
+      "at_least_two": 11,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 42 students, exactly 14 play chess, exactly 18 play go, and exactly 12 play checkers. Exactly 7 play both chess and go, exactly 4 play both chess and checkers, and exactly 6 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 11 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "8",
+    "trap": "11",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281045",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 53,
+      "A": 23,
+      "B": 21,
+      "AB": 11,
+      "C": 19,
+      "AC": 7,
+      "BC": 6,
+      "pairwise_includes_triple": true,
+      "at_least_two": 18,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 53 students, exactly 23 play chess, exactly 21 play go, and exactly 19 play checkers. Exactly 11 play both chess and go, exactly 7 play both chess and checkers, and exactly 6 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 18 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "15",
+    "trap": "18",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281046",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 45,
+      "A": 14,
+      "B": 16,
+      "AB": 4,
+      "C": 11,
+      "AC": 5,
+      "BC": 5,
+      "pairwise_includes_triple": true,
+      "at_least_two": 10,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 45 students, exactly 14 play chess, exactly 16 play go, and exactly 11 play checkers. Exactly 4 play both chess and go, exactly 5 play both chess and checkers, and exactly 5 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 10 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "8",
+    "trap": "10",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281047",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 45,
+      "A": 20,
+      "B": 13,
+      "AB": 7,
+      "C": 17,
+      "AC": 8,
+      "BC": 5,
+      "pairwise_includes_triple": true,
+      "at_least_two": 16,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 45 students, exactly 20 play chess, exactly 13 play go, and exactly 17 play checkers. Exactly 7 play both chess and go, exactly 8 play both chess and checkers, and exactly 5 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 16 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "14",
+    "trap": "16",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281048",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 60,
+      "A": 18,
+      "B": 20,
+      "AB": 5,
+      "C": 22,
+      "AC": 6,
+      "BC": 9,
+      "pairwise_includes_triple": true,
+      "at_least_two": 14,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 60 students, exactly 18 play chess, exactly 20 play go, and exactly 22 play checkers. Exactly 5 play both chess and go, exactly 6 play both chess and checkers, and exactly 9 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 14 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "11",
+    "trap": "14",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281049",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 50,
+      "A": 18,
+      "B": 20,
+      "AB": 9,
+      "C": 15,
+      "AC": 9,
+      "BC": 7,
+      "pairwise_includes_triple": true,
+      "at_least_two": 15,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 50 students, exactly 18 play chess, exactly 20 play go, and exactly 15 play checkers. Exactly 9 play both chess and go, exactly 9 play both chess and checkers, and exactly 7 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 15 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "10",
+    "trap": "15",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281050",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 53,
+      "A": 16,
+      "B": 18,
+      "AB": 5,
+      "C": 11,
+      "AC": 4,
+      "BC": 5,
+      "pairwise_includes_triple": true,
+      "at_least_two": 10,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 53 students, exactly 16 play chess, exactly 18 play go, and exactly 11 play checkers. Exactly 5 play both chess and go, exactly 4 play both chess and checkers, and exactly 5 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 10 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "8",
+    "trap": "10",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281051",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 48,
+      "A": 20,
+      "B": 26,
+      "AB": 10,
+      "C": 13,
+      "AC": 4,
+      "BC": 7,
+      "pairwise_includes_triple": true,
+      "at_least_two": 13,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 48 students, exactly 20 play chess, exactly 26 play go, and exactly 13 play checkers. Exactly 10 play both chess and go, exactly 4 play both chess and checkers, and exactly 7 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 13 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "9",
+    "trap": "13",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F1-L3-20281053",
+    "family": "F1",
+    "level": 3,
+    "spec_public": {
+      "population": 34,
+      "A": 10,
+      "B": 11,
+      "AB": 3,
+      "C": 11,
+      "AC": 4,
+      "BC": 4,
+      "pairwise_includes_triple": true,
+      "at_least_two": 9,
+      "target": "exactly_two"
+    },
+    "question_en": "In a group of 34 students, exactly 10 play chess, exactly 11 play go, and exactly 11 play checkers. Exactly 3 play both chess and go, exactly 4 play both chess and checkers, and exactly 4 play both go and checkers. Each pairwise count includes students who play all three games. Exactly 9 play at least two of these games. How many students play exactly two of these games? Give the answer as an integer.",
+    "gold": "8",
+    "trap": "9",
+    "trap_name": "atleast_as_exactly"
+  },
+  {
+    "instance_id": "F2-L1-20291027",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 4,
+        "blue": 3,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 4 red, 3 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "9/28",
+    "trap": "13/32",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291028",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 6,
+        "blue": 2,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 6 red, 2 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "4/9",
+    "trap": "41/81",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291029",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 2,
+        "blue": 4,
+        "green": 3
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 2 red, 4 blue, 3 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "5/18",
+    "trap": "29/81",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291030",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 10,
+        "blue": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 10 red, 1 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "9/11",
+    "trap": "101/121",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291031",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 2,
+        "blue": 7
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 2 red, 7 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "11/18",
+    "trap": "53/81",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291032",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 1,
+        "blue": 6
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 1 red, 6 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "5/7",
+    "trap": "37/49",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291033",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 5,
+        "blue": 1,
+        "green": 5
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 5 red, 1 blue, 5 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "4/11",
+    "trap": "51/121",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291034",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 3,
+        "blue": 4
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 3 red, 4 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/7",
+    "trap": "25/49",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291035",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 4,
+        "blue": 1,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 4 red, 1 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/5",
+    "trap": "1/2",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291036",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 3,
+        "blue": 6
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 3 red, 6 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/2",
+    "trap": "5/9",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291037",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 5,
+        "blue": 1,
+        "green": 5
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 5 red, 1 blue, 5 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "4/11",
+    "trap": "51/121",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291038",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 3,
+        "blue": 3,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 3 red, 3 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/7",
+    "trap": "19/49",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291039",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 5,
+        "blue": 2,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 5 red, 2 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "11/28",
+    "trap": "15/32",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291040",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 2,
+        "blue": 6
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 2 red, 6 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "4/7",
+    "trap": "5/8",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291041",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 3,
+        "blue": 2,
+        "green": 5
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 3 red, 2 blue, 5 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "14/45",
+    "trap": "19/50",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291042",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 3,
+        "blue": 4,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 3 red, 4 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "9/28",
+    "trap": "13/32",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291043",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 1,
+        "blue": 3,
+        "green": 5
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 1 red, 3 blue, 5 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "13/36",
+    "trap": "35/81",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291044",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 1,
+        "blue": 8,
+        "green": 3
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 1 red, 8 blue, 3 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "31/66",
+    "trap": "37/72",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291045",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 4,
+        "blue": 4,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 4 red, 4 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/3",
+    "trap": "11/27",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L1-20291046",
+    "family": "F2",
+    "level": 1,
+    "spec_public": {
+      "color_counts": {
+        "red": 6,
+        "blue": 3,
+        "green": 2
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "same_color",
+      "condition": "none"
+    },
+    "question_en": "A bag contains 6 red, 3 blue, 2 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. What is the probability that the two balls have the same color? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "19/55",
+    "trap": "49/121",
+    "trap_name": "as_with_replacement"
+  },
+  {
+    "instance_id": "F2-L2-20301027",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 4,
+        "blue": 5
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 4 red, 5 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/13",
+    "trap": "3/8",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301028",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 5,
+        "blue": 1,
+        "green": 6
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 5 red, 1 blue, 6 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/9",
+    "trap": "4/11",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301029",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 5,
+        "blue": 4
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 5 red, 4 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/3",
+    "trap": "1/2",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301030",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 5,
+        "blue": 3
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 5 red, 3 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/5",
+    "trap": "4/7",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301031",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 2,
+        "blue": 5,
+        "green": 4
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 2 red, 5 blue, 4 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/19",
+    "trap": "1/10",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301032",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 6,
+        "blue": 3,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 6 red, 3 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "5/13",
+    "trap": "5/9",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301033",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 7,
+        "blue": 5
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 7 red, 5 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "6/11",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301035",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 4,
+        "blue": 2,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 4 red, 2 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/3",
+    "trap": "1/2",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301036",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 5,
+        "blue": 2
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 5 red, 2 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/2",
+    "trap": "2/3",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301037",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 2,
+        "blue": 3,
+        "green": 4
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 2 red, 3 blue, 4 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/15",
+    "trap": "1/8",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301038",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 3,
+        "blue": 4
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 3 red, 4 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/5",
+    "trap": "1/3",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301039",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 3,
+        "blue": 4
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 3 red, 4 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/5",
+    "trap": "1/3",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301040",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 8,
+        "blue": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 8 red, 1 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "7/9",
+    "trap": "7/8",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301041",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 2,
+        "blue": 7,
+        "green": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 2 red, 7 blue, 1 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/17",
+    "trap": "1/9",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301042",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 6,
+        "blue": 5
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 6 red, 5 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/3",
+    "trap": "1/2",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301043",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 11,
+        "blue": 1
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 11 red, 1 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "5/6",
+    "trap": "10/11",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301044",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 4,
+        "blue": 5
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 4 red, 5 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/13",
+    "trap": "3/8",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301045",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 4,
+        "blue": 8
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 4 red, 8 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/19",
+    "trap": "3/11",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301046",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 3,
+        "blue": 6
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 3 red, 6 blue balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/7",
+    "trap": "1/4",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L2-20301047",
+    "family": "F2",
+    "level": 2,
+    "spec_public": {
+      "color_counts": {
+        "red": 2,
+        "blue": 1,
+        "green": 8
+      },
+      "replacement": false,
+      "draws": 2,
+      "target": "both_red",
+      "condition": "at_least_one_red"
+    },
+    "question_en": "A bag contains 2 red, 1 blue, 8 green balls and no others. One ball is drawn uniformly at random; without putting it back, a second ball is drawn uniformly at random from the remaining balls. Given that at least one of the two balls is red, what is the probability that both are red? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "1/19",
+    "trap": "1/10",
+    "trap_name": "condition_on_first_red"
+  },
+  {
+    "instance_id": "F2-L3-20311027",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 1,
+      "opened": 3,
+      "switch": 4,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 1. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 3 and it was empty. What is the conditional probability of winning if you switch to box 4? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311028",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 2,
+      "opened": 4,
+      "switch": 1,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 2. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 4 and it was empty. What is the conditional probability of winning if you switch to box 1? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311029",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 3,
+      "initial": 1,
+      "opened": 3,
+      "switch": 2,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 3 boxes. You initially choose box 1. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 3 and it was empty. What is the conditional probability of winning if you switch to box 2? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/3",
+    "trap": "1/2",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311030",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 3,
+      "initial": 1,
+      "opened": 2,
+      "switch": 3,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 3 boxes. You initially choose box 1. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 2 and it was empty. What is the conditional probability of winning if you switch to box 3? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/3",
+    "trap": "1/2",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311031",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 3,
+      "opened": 1,
+      "switch": 4,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 3. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 1 and it was empty. What is the conditional probability of winning if you switch to box 4? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311032",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 3,
+      "opened": 4,
+      "switch": 1,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 3. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 4 and it was empty. What is the conditional probability of winning if you switch to box 1? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311033",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 3,
+      "initial": 3,
+      "opened": 1,
+      "switch": 2,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 3 boxes. You initially choose box 3. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 1 and it was empty. What is the conditional probability of winning if you switch to box 2? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/3",
+    "trap": "1/2",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311034",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 4,
+      "opened": 3,
+      "switch": 1,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 4. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 3 and it was empty. What is the conditional probability of winning if you switch to box 1? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311035",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 4,
+      "opened": 2,
+      "switch": 3,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 4. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 2 and it was empty. What is the conditional probability of winning if you switch to box 3? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311036",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 3,
+      "opened": 1,
+      "switch": 4,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 3. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 1 and it was empty. What is the conditional probability of winning if you switch to box 4? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311037",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 3,
+      "initial": 2,
+      "opened": 3,
+      "switch": 1,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 3 boxes. You initially choose box 2. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 3 and it was empty. What is the conditional probability of winning if you switch to box 1? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/3",
+    "trap": "1/2",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311038",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 1,
+      "opened": 2,
+      "switch": 4,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 1. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 2 and it was empty. What is the conditional probability of winning if you switch to box 4? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311039",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 3,
+      "initial": 2,
+      "opened": 1,
+      "switch": 3,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 3 boxes. You initially choose box 2. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 1 and it was empty. What is the conditional probability of winning if you switch to box 3? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/3",
+    "trap": "1/2",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311040",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 3,
+      "initial": 3,
+      "opened": 1,
+      "switch": 2,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 3 boxes. You initially choose box 3. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 1 and it was empty. What is the conditional probability of winning if you switch to box 2? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/3",
+    "trap": "1/2",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311041",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 3,
+      "opened": 1,
+      "switch": 4,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 3. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 1 and it was empty. What is the conditional probability of winning if you switch to box 4? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311042",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 3,
+      "opened": 4,
+      "switch": 2,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 3. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 4 and it was empty. What is the conditional probability of winning if you switch to box 2? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311043",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 2,
+      "opened": 1,
+      "switch": 3,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 2. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 1 and it was empty. What is the conditional probability of winning if you switch to box 3? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311044",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 3,
+      "initial": 1,
+      "opened": 3,
+      "switch": 2,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 3 boxes. You initially choose box 1. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 3 and it was empty. What is the conditional probability of winning if you switch to box 2? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/3",
+    "trap": "1/2",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311045",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 3,
+      "initial": 1,
+      "opened": 3,
+      "switch": 2,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 3 boxes. You initially choose box 1. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 3 and it was empty. What is the conditional probability of winning if you switch to box 2? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "2/3",
+    "trap": "1/2",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "F2-L3-20311046",
+    "family": "F2",
+    "level": 3,
+    "spec_public": {
+      "n": 4,
+      "initial": 2,
+      "opened": 1,
+      "switch": 3,
+      "prize_uniform": true,
+      "host_knows_prize": true,
+      "host_opens_one_other_empty": true,
+      "host_uniform_among_eligible": true,
+      "observed_opened_empty": true,
+      "target": "switch_to_specified_box"
+    },
+    "question_en": "The prize is placed uniformly at random in one of the 4 boxes. You initially choose box 2. The host, who knows where the prize is, opens one of the other boxes that is empty (choosing uniformly at random if more than one is empty). You have observed that the host opened box 1 and it was empty. What is the conditional probability of winning if you switch to box 3? Give the answer as a fraction in lowest terms, like 3/8.",
+    "gold": "3/8",
+    "trap": "1/3",
+    "trap_name": "naive_uniform"
+  },
+  {
+    "instance_id": "R1-L1-20321027",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 8,
+      "per_group": 13,
+      "added": 16,
+      "removed": 4,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 8 boxes with 13 notebooks in each box. It then receives 16 more notebooks and afterwards sells 4 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "116",
+    "trap": "120",
+    "trap_name": "skip_last_step"
+  },
+  {
+    "instance_id": "R1-L1-20321028",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 9,
+      "per_group": 10,
+      "added": 10,
+      "removed": 6,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 9 boxes with 10 notebooks in each box. It then receives 10 more notebooks and afterwards sells 6 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "94",
+    "trap": "100",
+    "trap_name": "skip_last_step"
+  },
+  {
+    "instance_id": "R1-L1-20321029",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 6,
+      "per_group": 4,
+      "added": 15,
+      "removed": 1,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 6 boxes with 4 notebooks in each box. It then receives 15 more notebooks and afterwards sells 1 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "38",
+    "trap": "39",
+    "trap_name": "skip_last_step"
+  },
+  {
+    "instance_id": "R1-L1-20321030",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 10,
+      "per_group": 6,
+      "added": 8,
+      "removed": 9,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 10 boxes with 6 notebooks in each box. It then receives 8 more notebooks and afterwards sells 9 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "59",
+    "trap": "68",
+    "trap_name": "skip_last_step"
+  },
+  {
+    "instance_id": "R1-L1-20321031",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 12,
+      "per_group": 9,
+      "added": 23,
+      "removed": 7,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 12 boxes with 9 notebooks in each box. It then receives 23 more notebooks and afterwards sells 7 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "124",
+    "trap": "131",
+    "trap_name": "skip_last_step"
+  },
+  {
+    "instance_id": "R1-L1-20321032",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 4,
+      "per_group": 15,
+      "added": 26,
+      "removed": 9,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 4 boxes with 15 notebooks in each box. It then receives 26 more notebooks and afterwards sells 9 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "77",
+    "trap": "86",
+    "trap_name": "skip_last_step"
+  },
+  {
+    "instance_id": "R1-L1-20321033",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 3,
+      "per_group": 7,
+      "added": 10,
+      "removed": 1,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 3 boxes with 7 notebooks in each box. It then receives 10 more notebooks and afterwards sells 1 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "30",
+    "trap": "31",
+    "trap_name": "skip_last_step"
+  },
+  {
+    "instance_id": "R1-L1-20321034",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 7,
+      "per_group": 15,
+      "added": 7,
+      "removed": 5,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 7 boxes with 15 notebooks in each box. It then receives 7 more notebooks and afterwards sells 5 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "107",
+    "trap": "112",
+    "trap_name": "skip_last_step"
+  },
+  {
+    "instance_id": "R1-L1-20321035",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 12,
+      "per_group": 12,
+      "added": 13,
+      "removed": 7,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 12 boxes with 12 notebooks in each box. It then receives 13 more notebooks and afterwards sells 7 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "150",
+    "trap": "157",
+    "trap_name": "skip_last_step"
+  },
+  {
+    "instance_id": "R1-L1-20321036",
+    "family": "R1",
+    "level": 1,
+    "spec_public": {
+      "groups": 6,
+      "per_group": 11,
+      "added": 18,
+      "removed": 8,
+      "target": "remaining_notebooks"
+    },
+    "question_en": "A store has 6 boxes with 11 notebooks in each box. It then receives 18 more notebooks and afterwards sells 8 notebooks. How many notebooks remain? Give the answer as an integer.",
+    "gold": "76",
+    "trap": "84",
+    "trap_name": "skip_last_step"
+  }
+]
