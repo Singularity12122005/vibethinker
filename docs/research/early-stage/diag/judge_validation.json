@@ -1,0 +1,721 @@
+{
+  "n": 100,
+  "USER_to_A": {
+    "correct": 4,
+    "predicted": 4,
+    "precision": 1.0,
+    "passed": true
+  },
+  "ORIG_EXPLICIT_to_D": {
+    "correct": 95,
+    "predicted": 95,
+    "precision": 1.0,
+    "passed": true
+  },
+  "passed": true,
+  "method": "新会话代理盲审，非人工标注",
+  "denominator_rule": "原100条中有效解析标签满足对应预测的全体；盲审未知不删除。不因原始错误路径候选是正确值而倒置A/D。",
+  "annotations": [
+    {
+      "validation_id": "V001",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V002",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V003",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V004",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V005",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V006",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V007",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V008",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V009",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V010",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V011",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V012",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V013",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V014",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V015",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V016",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V017",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V018",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V019",
+      "manual_label": "A",
+      "machine_stance": "USER",
+      "machine_explicit": "HEDGED",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V020",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V021",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V022",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V023",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V024",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "HEDGED",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V025",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V026",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V027",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V028",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V029",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V030",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V031",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V032",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V033",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V034",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V035",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V036",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V037",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V038",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V039",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V040",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V041",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V042",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V043",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V044",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V045",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V046",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V047",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V048",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V049",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V050",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V051",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V052",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V053",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V054",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V055",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V056",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V057",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V058",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V059",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V060",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V061",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V062",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V063",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V064",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V065",
+      "manual_label": "A",
+      "machine_stance": "USER",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V066",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V067",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V068",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V069",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V070",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V071",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V072",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V073",
+      "manual_label": "A",
+      "machine_stance": "USER",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V074",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V075",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V076",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V077",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V078",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V079",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V080",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V081",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V082",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V083",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V084",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V085",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V086",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V087",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V088",
+      "manual_label": "A",
+      "machine_stance": "USER",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V089",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V090",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V091",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V092",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V093",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V094",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V095",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V096",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V097",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V098",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V099",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    },
+    {
+      "validation_id": "V100",
+      "manual_label": "D",
+      "machine_stance": "ORIG",
+      "machine_explicit": "EXPLICIT",
+      "machine_parse_error": false
+    }
+  ],
+  "status": "通过"
+}
