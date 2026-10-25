@@ -1,0 +1,1308 @@
+[
+  {
+    "work_id": "R-001",
+    "title": "The Prince",
+    "ebook": "1232",
+    "R": {
+      "conflict_id": "R-001",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "The Prince",
+      "ebook_id": "1232",
+      "question_en": "For the English edition of The Prince identified as Project Gutenberg eBook 1232, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of The Prince identified as Project Gutenberg eBook 1232, who is credited as the English translator?",
+      "gold": "Niccolò Machiavelli",
+      "gold_aliases": [
+        "Niccolò Machiavelli",
+        "Niccolo Machiavelli",
+        "Machiavelli"
+      ],
+      "d": "William Kenaz Marriott",
+      "d_aliases": [
+        "William Kenaz Marriott",
+        "W. K. Marriott",
+        "W K Marriott",
+        "William K. Marriott",
+        "Marriott"
+      ],
+      "P_g": "Niccolò Machiavelli wrote The Prince in its original language; Niccolò Machiavelli is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/1232 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/1232 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-001",
+        "answer_q": "Niccolò Machiavelli",
+        "answer_shadow": "William Kenaz Marriott",
+        "source_q": "https://www.gutenberg.org/ebooks/1232",
+        "source_shadow": "https://www.gutenberg.org/ebooks/1232",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -5.020317554473877,
+        "lp_d": -97.15509033203125,
+        "gap": 92.13477277755737,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-001",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "The Prince",
+      "ebook_id": "1232",
+      "question_en": "For the English edition of The Prince identified as Project Gutenberg eBook 1232, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of The Prince identified as Project Gutenberg eBook 1232, who is credited as the original author?",
+      "gold": "William Kenaz Marriott",
+      "gold_aliases": [
+        "William Kenaz Marriott",
+        "W. K. Marriott",
+        "W K Marriott",
+        "William K. Marriott",
+        "Marriott"
+      ],
+      "d": "Niccolò Machiavelli",
+      "d_aliases": [
+        "Niccolò Machiavelli",
+        "Niccolo Machiavelli",
+        "Machiavelli"
+      ],
+      "P_g": "William Kenaz Marriott is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/1232 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/1232 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-001",
+        "parent_check": {
+          "conflict_id": "R-001",
+          "answer_q": "Niccolò Machiavelli",
+          "answer_shadow": "William Kenaz Marriott",
+          "source_q": "https://www.gutenberg.org/ebooks/1232",
+          "source_shadow": "https://www.gutenberg.org/ebooks/1232",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+        }
+      },
+      "parent_id": "R-001",
+      "calibration": {
+        "correct": 10,
+        "parsed_wrong": 6,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 6,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 6,
+        "confusion_rate": 0.0,
+        "p0": 0.625,
+        "lp_gold": -60.830322265625,
+        "lp_d": -38.696044921875,
+        "gap": -22.13427734375,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "Harvey C. Mansfield",
+    "d_T_aliases": [
+      "Harvey C. Mansfield",
+      "Harvey Mansfield"
+    ],
+    "source_dT": "https://press.uchicago.edu/ucp/books/book/chicago/P/bo3615120.html",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Niccolò Machiavelli wrote The Prince in its original language.",
+    "P_trans": "William Kenaz Marriott is the translator credited in Project Gutenberg eBook 1232."
+  },
+  {
+    "work_id": "R-002",
+    "title": "The Republic",
+    "ebook": "1497",
+    "R": {
+      "conflict_id": "R-002",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "The Republic",
+      "ebook_id": "1497",
+      "question_en": "For the English edition of The Republic identified as Project Gutenberg eBook 1497, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of The Republic identified as Project Gutenberg eBook 1497, who is credited as the English translator?",
+      "gold": "Plato",
+      "gold_aliases": [
+        "Plato"
+      ],
+      "d": "Benjamin Jowett",
+      "d_aliases": [
+        "Benjamin Jowett",
+        "Jowett"
+      ],
+      "P_g": "Plato wrote The Republic in its original language; Plato is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/1497 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/1497 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-002",
+        "answer_q": "Plato",
+        "answer_shadow": "Benjamin Jowett",
+        "source_q": "https://www.gutenberg.org/ebooks/1497",
+        "source_shadow": "https://www.gutenberg.org/ebooks/1497",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者。虽书目提示另有改进版本，本次严格使用题目指定编号。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -3.060176134109497,
+        "lp_d": -35.26738357543945,
+        "gap": 32.207207441329956,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-002",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "The Republic",
+      "ebook_id": "1497",
+      "question_en": "For the English edition of The Republic identified as Project Gutenberg eBook 1497, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of The Republic identified as Project Gutenberg eBook 1497, who is credited as the original author?",
+      "gold": "Benjamin Jowett",
+      "gold_aliases": [
+        "Benjamin Jowett",
+        "Jowett"
+      ],
+      "d": "Plato",
+      "d_aliases": [
+        "Plato"
+      ],
+      "P_g": "Benjamin Jowett is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/1497 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/1497 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-002",
+        "parent_check": {
+          "conflict_id": "R-002",
+          "answer_q": "Plato",
+          "answer_shadow": "Benjamin Jowett",
+          "source_q": "https://www.gutenberg.org/ebooks/1497",
+          "source_shadow": "https://www.gutenberg.org/ebooks/1497",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者。虽书目提示另有改进版本，本次严格使用题目指定编号。"
+        }
+      },
+      "parent_id": "R-002",
+      "calibration": {
+        "correct": 13,
+        "parsed_wrong": 3,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 3,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 3,
+        "confusion_rate": 0.0,
+        "p0": 0.8125,
+        "lp_gold": -9.329644203186035,
+        "lp_d": -27.396427154541016,
+        "gap": 18.06678295135498,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "Paul Shorey",
+    "d_T_aliases": [
+      "Paul Shorey"
+    ],
+    "source_dT": "https://catalog.perseus.org/catalog/urn%3Acts%3AgreekLit%3Atlg0059.tlg030.perseus-eng1",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Plato wrote The Republic in its original language.",
+    "P_trans": "Benjamin Jowett is the translator credited in Project Gutenberg eBook 1497."
+  },
+  {
+    "work_id": "R-003",
+    "title": "Fathers and Sons",
+    "ebook": "47935",
+    "R": {
+      "conflict_id": "R-003",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "Fathers and Sons",
+      "ebook_id": "47935",
+      "question_en": "For the English edition of Fathers and Sons identified as Project Gutenberg eBook 47935, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of Fathers and Sons identified as Project Gutenberg eBook 47935, who is credited as the English translator?",
+      "gold": "Ivan Turgenev",
+      "gold_aliases": [
+        "Ivan Turgenev",
+        "Ivan Sergeevich Turgenev",
+        "Ivan S. Turgenev",
+        "Turgenev"
+      ],
+      "d": "Charles James Hogarth",
+      "d_aliases": [
+        "Charles James Hogarth",
+        "C. J. Hogarth",
+        "C J Hogarth",
+        "Charles J. Hogarth",
+        "Hogarth"
+      ],
+      "P_g": "Ivan Turgenev wrote Fathers and Sons in its original language; Ivan Turgenev is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/47935 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/47935 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-003",
+        "answer_q": "Ivan Sergeevich Turgenev",
+        "answer_shadow": "Charles James Hogarth",
+        "source_q": "https://www.gutenberg.org/ebooks/47935",
+        "source_shadow": "https://www.gutenberg.org/ebooks/47935",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -21.785730361938477,
+        "lp_d": -87.44241333007812,
+        "gap": 65.65668296813965,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-003",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "Fathers and Sons",
+      "ebook_id": "47935",
+      "question_en": "For the English edition of Fathers and Sons identified as Project Gutenberg eBook 47935, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of Fathers and Sons identified as Project Gutenberg eBook 47935, who is credited as the original author?",
+      "gold": "Charles James Hogarth",
+      "gold_aliases": [
+        "Charles James Hogarth",
+        "C. J. Hogarth",
+        "C J Hogarth",
+        "Charles J. Hogarth",
+        "Hogarth"
+      ],
+      "d": "Ivan Turgenev",
+      "d_aliases": [
+        "Ivan Turgenev",
+        "Ivan Sergeevich Turgenev",
+        "Ivan S. Turgenev",
+        "Turgenev"
+      ],
+      "P_g": "Charles James Hogarth is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/47935 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/47935 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-003",
+        "parent_check": {
+          "conflict_id": "R-003",
+          "answer_q": "Ivan Sergeevich Turgenev",
+          "answer_shadow": "Charles James Hogarth",
+          "source_q": "https://www.gutenberg.org/ebooks/47935",
+          "source_shadow": "https://www.gutenberg.org/ebooks/47935",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+        }
+      },
+      "parent_id": "R-003",
+      "calibration": {
+        "parsed_wrong": 16,
+        "correct": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 16,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 16,
+        "confusion_rate": 0.0,
+        "p0": 0.0,
+        "lp_gold": -52.07733917236328,
+        "lp_d": -49.109195709228516,
+        "gap": -2.9681434631347656,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "Constance Garnett",
+    "d_T_aliases": [
+      "Constance Garnett",
+      "Constance Clara Garnett"
+    ],
+    "source_dT": "https://www.gutenberg.org/ebooks/30723",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Ivan Turgenev wrote Fathers and Sons in its original language.",
+    "P_trans": "Charles James Hogarth is the translator credited in Project Gutenberg eBook 47935."
+  },
+  {
+    "work_id": "R-004",
+    "title": "Thus Spake Zarathustra: A Book for All and None",
+    "ebook": "1998",
+    "R": {
+      "conflict_id": "R-004",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "Thus Spake Zarathustra: A Book for All and None",
+      "ebook_id": "1998",
+      "question_en": "For the English edition of Thus Spake Zarathustra: A Book for All and None identified as Project Gutenberg eBook 1998, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of Thus Spake Zarathustra: A Book for All and None identified as Project Gutenberg eBook 1998, who is credited as the English translator?",
+      "gold": "Friedrich Nietzsche",
+      "gold_aliases": [
+        "Friedrich Nietzsche",
+        "Friedrich Wilhelm Nietzsche",
+        "Nietzsche"
+      ],
+      "d": "Thomas Common",
+      "d_aliases": [
+        "Thomas Common",
+        "Common"
+      ],
+      "P_g": "Friedrich Nietzsche wrote Thus Spake Zarathustra: A Book for All and None in its original language; Friedrich Nietzsche is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/1998 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/1998 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-004",
+        "answer_q": "Friedrich Wilhelm Nietzsche",
+        "answer_shadow": "Thomas Common",
+        "source_q": "https://www.gutenberg.org/ebooks/1998",
+        "source_shadow": "https://www.gutenberg.org/ebooks/1998",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者；未将电子文本制作或修订人员误作译者。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -12.142866134643555,
+        "lp_d": -66.66609191894531,
+        "gap": 54.52322578430176,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-004",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "Thus Spake Zarathustra: A Book for All and None",
+      "ebook_id": "1998",
+      "question_en": "For the English edition of Thus Spake Zarathustra: A Book for All and None identified as Project Gutenberg eBook 1998, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of Thus Spake Zarathustra: A Book for All and None identified as Project Gutenberg eBook 1998, who is credited as the original author?",
+      "gold": "Thomas Common",
+      "gold_aliases": [
+        "Thomas Common",
+        "Common"
+      ],
+      "d": "Friedrich Nietzsche",
+      "d_aliases": [
+        "Friedrich Nietzsche",
+        "Friedrich Wilhelm Nietzsche",
+        "Nietzsche"
+      ],
+      "P_g": "Thomas Common is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/1998 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/1998 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-004",
+        "parent_check": {
+          "conflict_id": "R-004",
+          "answer_q": "Friedrich Wilhelm Nietzsche",
+          "answer_shadow": "Thomas Common",
+          "source_q": "https://www.gutenberg.org/ebooks/1998",
+          "source_shadow": "https://www.gutenberg.org/ebooks/1998",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；未将电子文本制作或修订人员误作译者。"
+        }
+      },
+      "parent_id": "R-004",
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -20.900239944458008,
+        "lp_d": -34.28780746459961,
+        "gap": 13.387567520141602,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "Alexander Tille",
+    "d_T_aliases": [
+      "Alexander Tille"
+    ],
+    "source_dT": "https://en.wikisource.org/wiki/Index:Thus_Spake_Zarathustra_-_Alexander_Tille_-_1896.djvu",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Friedrich Nietzsche wrote Thus Spake Zarathustra: A Book for All and None in its original language.",
+    "P_trans": "Thomas Common is the translator credited in Project Gutenberg eBook 1998."
+  },
+  {
+    "work_id": "R-005",
+    "title": "Les Misérables",
+    "ebook": "135",
+    "R": {
+      "conflict_id": "R-005",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "Les Misérables",
+      "ebook_id": "135",
+      "question_en": "For the English edition of Les Misérables identified as Project Gutenberg eBook 135, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of Les Misérables identified as Project Gutenberg eBook 135, who is credited as the English translator?",
+      "gold": "Victor Hugo",
+      "gold_aliases": [
+        "Victor Hugo",
+        "Hugo"
+      ],
+      "d": "Isabel Florence Hapgood",
+      "d_aliases": [
+        "Isabel Florence Hapgood",
+        "Isabel F. Hapgood",
+        "Isabel Hapgood",
+        "Hapgood"
+      ],
+      "P_g": "Victor Hugo wrote Les Misérables in its original language; Victor Hugo is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/135 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/135 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-005",
+        "answer_q": "Victor Hugo",
+        "answer_shadow": "Isabel Florence Hapgood",
+        "source_q": "https://www.gutenberg.org/ebooks/135",
+        "source_shadow": "https://www.gutenberg.org/ebooks/135",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -21.992019653320312,
+        "lp_d": -73.01675415039062,
+        "gap": 51.02473449707031,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-005",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "Les Misérables",
+      "ebook_id": "135",
+      "question_en": "For the English edition of Les Misérables identified as Project Gutenberg eBook 135, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of Les Misérables identified as Project Gutenberg eBook 135, who is credited as the original author?",
+      "gold": "Isabel Florence Hapgood",
+      "gold_aliases": [
+        "Isabel Florence Hapgood",
+        "Isabel F. Hapgood",
+        "Isabel Hapgood",
+        "Hapgood"
+      ],
+      "d": "Victor Hugo",
+      "d_aliases": [
+        "Victor Hugo",
+        "Hugo"
+      ],
+      "P_g": "Isabel Florence Hapgood is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/135 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/135 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-005",
+        "parent_check": {
+          "conflict_id": "R-005",
+          "answer_q": "Victor Hugo",
+          "answer_shadow": "Isabel Florence Hapgood",
+          "source_q": "https://www.gutenberg.org/ebooks/135",
+          "source_shadow": "https://www.gutenberg.org/ebooks/135",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者。"
+        }
+      },
+      "parent_id": "R-005",
+      "calibration": {
+        "parsed_wrong": 8,
+        "correct": 8,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 8,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 8,
+        "confusion_rate": 0.0,
+        "p0": 0.5,
+        "lp_gold": -30.70783233642578,
+        "lp_d": -30.432453155517578,
+        "gap": -0.2753791809082031,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "Charles E. Wilbour",
+    "d_T_aliases": [
+      "Charles E. Wilbour",
+      "Charles Edwin Wilbour",
+      "Charles Wilbour"
+    ],
+    "source_dT": "https://catalogue.nli.ie/Record/vtls000434805",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Victor Hugo wrote Les Misérables in its original language.",
+    "P_trans": "Isabel Florence Hapgood is the translator credited in Project Gutenberg eBook 135."
+  },
+  {
+    "work_id": "R-006",
+    "title": "Faust [part 1]. Translated Into English in the Original Metres",
+    "ebook": "14591",
+    "R": {
+      "conflict_id": "R-006",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "Faust [part 1]. Translated Into English in the Original Metres",
+      "ebook_id": "14591",
+      "question_en": "For the English edition of Faust [part 1]. Translated Into English in the Original Metres identified as Project Gutenberg eBook 14591, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of Faust [part 1]. Translated Into English in the Original Metres identified as Project Gutenberg eBook 14591, who is credited as the English translator?",
+      "gold": "Johann Wolfgang von Goethe",
+      "gold_aliases": [
+        "Johann Wolfgang von Goethe",
+        "Johann Wolfgang Goethe",
+        "Goethe",
+        "J. W. von Goethe"
+      ],
+      "d": "Bayard Taylor",
+      "d_aliases": [
+        "Bayard Taylor",
+        "Taylor"
+      ],
+      "P_g": "Johann Wolfgang von Goethe wrote Faust [part 1]. Translated Into English in the Original Metres in its original language; Johann Wolfgang von Goethe is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/14591 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/14591 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-006",
+        "answer_q": "Johann Wolfgang von Goethe",
+        "answer_shadow": "Bayard Taylor",
+        "source_q": "https://www.gutenberg.org/ebooks/14591",
+        "source_shadow": "https://www.gutenberg.org/ebooks/14591",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者；书目另提到其他编号译本，本次未混用。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -15.358126640319824,
+        "lp_d": -61.1182975769043,
+        "gap": 45.76017093658447,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-006",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "Faust [part 1]. Translated Into English in the Original Metres",
+      "ebook_id": "14591",
+      "question_en": "For the English edition of Faust [part 1]. Translated Into English in the Original Metres identified as Project Gutenberg eBook 14591, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of Faust [part 1]. Translated Into English in the Original Metres identified as Project Gutenberg eBook 14591, who is credited as the original author?",
+      "gold": "Bayard Taylor",
+      "gold_aliases": [
+        "Bayard Taylor",
+        "Taylor"
+      ],
+      "d": "Johann Wolfgang von Goethe",
+      "d_aliases": [
+        "Johann Wolfgang von Goethe",
+        "Johann Wolfgang Goethe",
+        "Goethe",
+        "J. W. von Goethe"
+      ],
+      "P_g": "Bayard Taylor is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/14591 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/14591 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-006",
+        "parent_check": {
+          "conflict_id": "R-006",
+          "answer_q": "Johann Wolfgang von Goethe",
+          "answer_shadow": "Bayard Taylor",
+          "source_q": "https://www.gutenberg.org/ebooks/14591",
+          "source_shadow": "https://www.gutenberg.org/ebooks/14591",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；书目另提到其他编号译本，本次未混用。"
+        }
+      },
+      "parent_id": "R-006",
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -28.465797424316406,
+        "lp_d": -40.78014373779297,
+        "gap": 12.314346313476562,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "Anna Swanwick",
+    "d_T_aliases": [
+      "Anna Swanwick"
+    ],
+    "source_dT": "https://www.gutenberg.org/ebooks/3023",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Johann Wolfgang von Goethe wrote Faust [part 1]. Translated Into English in the Original Metres in its original language.",
+    "P_trans": "Bayard Taylor is the translator credited in Project Gutenberg eBook 14591."
+  },
+  {
+    "work_id": "R-007",
+    "title": "The Wars of the Jews; Or, The History of the Destruction of Jerusalem",
+    "ebook": "2850",
+    "R": {
+      "conflict_id": "R-007",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "The Wars of the Jews; Or, The History of the Destruction of Jerusalem",
+      "ebook_id": "2850",
+      "question_en": "For the English edition of The Wars of the Jews; Or, The History of the Destruction of Jerusalem identified as Project Gutenberg eBook 2850, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of The Wars of the Jews; Or, The History of the Destruction of Jerusalem identified as Project Gutenberg eBook 2850, who is credited as the English translator?",
+      "gold": "Flavius Josephus",
+      "gold_aliases": [
+        "Flavius Josephus",
+        "Josephus"
+      ],
+      "d": "William Whiston",
+      "d_aliases": [
+        "William Whiston",
+        "Whiston"
+      ],
+      "P_g": "Flavius Josephus wrote The Wars of the Jews; Or, The History of the Destruction of Jerusalem in its original language; Flavius Josephus is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/2850 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/2850 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-007",
+        "answer_q": "Flavius Josephus",
+        "answer_shadow": "William Whiston",
+        "source_q": "https://www.gutenberg.org/ebooks/2850",
+        "source_shadow": "https://www.gutenberg.org/ebooks/2850",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -22.684677124023438,
+        "lp_d": -38.23908233642578,
+        "gap": 15.554405212402344,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-007",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "The Wars of the Jews; Or, The History of the Destruction of Jerusalem",
+      "ebook_id": "2850",
+      "question_en": "For the English edition of The Wars of the Jews; Or, The History of the Destruction of Jerusalem identified as Project Gutenberg eBook 2850, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of The Wars of the Jews; Or, The History of the Destruction of Jerusalem identified as Project Gutenberg eBook 2850, who is credited as the original author?",
+      "gold": "William Whiston",
+      "gold_aliases": [
+        "William Whiston",
+        "Whiston"
+      ],
+      "d": "Flavius Josephus",
+      "d_aliases": [
+        "Flavius Josephus",
+        "Josephus"
+      ],
+      "P_g": "William Whiston is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/2850 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/2850 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-007",
+        "parent_check": {
+          "conflict_id": "R-007",
+          "answer_q": "Flavius Josephus",
+          "answer_shadow": "William Whiston",
+          "source_q": "https://www.gutenberg.org/ebooks/2850",
+          "source_shadow": "https://www.gutenberg.org/ebooks/2850",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者。"
+        }
+      },
+      "parent_id": "R-007",
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -29.162471771240234,
+        "lp_d": -39.3193244934082,
+        "gap": 10.156852722167969,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "G. A. Williamson",
+    "d_T_aliases": [
+      "G. A. Williamson",
+      "Geoffrey Arthur Williamson",
+      "G A Williamson"
+    ],
+    "source_dT": "https://www.penguinrandomhouse.com/authors/233220/g-a-williamson/",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Flavius Josephus wrote The Wars of the Jews; Or, The History of the Destruction of Jerusalem in its original language.",
+    "P_trans": "William Whiston is the translator credited in Project Gutenberg eBook 2850."
+  },
+  {
+    "work_id": "R-008",
+    "title": "A Doll's House: a play",
+    "ebook": "2542",
+    "R": {
+      "conflict_id": "R-008",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "A Doll's House: a play",
+      "ebook_id": "2542",
+      "question_en": "For the English edition of A Doll's House: a play identified as Project Gutenberg eBook 2542, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of A Doll's House: a play identified as Project Gutenberg eBook 2542, who is credited as the English translator?",
+      "gold": "Henrik Ibsen",
+      "gold_aliases": [
+        "Henrik Ibsen",
+        "Ibsen"
+      ],
+      "d": "Robert Farquharson Sharp",
+      "d_aliases": [
+        "Robert Farquharson Sharp",
+        "R. Farquharson Sharp",
+        "R Farquharson Sharp",
+        "Sharp"
+      ],
+      "P_g": "Henrik Ibsen wrote A Doll's House: a play in its original language; Henrik Ibsen is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/2542 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/2542 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-008",
+        "answer_q": "Henrik Ibsen",
+        "answer_shadow": "Robert Farquharson Sharp",
+        "source_q": "https://www.gutenberg.org/ebooks/2542",
+        "source_shadow": "https://www.gutenberg.org/ebooks/2542",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -20.17970085144043,
+        "lp_d": -84.76492309570312,
+        "gap": 64.5852222442627,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-008",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "A Doll's House: a play",
+      "ebook_id": "2542",
+      "question_en": "For the English edition of A Doll's House: a play identified as Project Gutenberg eBook 2542, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of A Doll's House: a play identified as Project Gutenberg eBook 2542, who is credited as the original author?",
+      "gold": "Robert Farquharson Sharp",
+      "gold_aliases": [
+        "Robert Farquharson Sharp",
+        "R. Farquharson Sharp",
+        "R Farquharson Sharp",
+        "Sharp"
+      ],
+      "d": "Henrik Ibsen",
+      "d_aliases": [
+        "Henrik Ibsen",
+        "Ibsen"
+      ],
+      "P_g": "Robert Farquharson Sharp is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/2542 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/2542 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-008",
+        "parent_check": {
+          "conflict_id": "R-008",
+          "answer_q": "Henrik Ibsen",
+          "answer_shadow": "Robert Farquharson Sharp",
+          "source_q": "https://www.gutenberg.org/ebooks/2542",
+          "source_shadow": "https://www.gutenberg.org/ebooks/2542",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+        }
+      },
+      "parent_id": "R-008",
+      "calibration": {
+        "parsed_wrong": 16,
+        "correct": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 16,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 16,
+        "confusion_rate": 0.0,
+        "p0": 0.0,
+        "lp_gold": -50.918357849121094,
+        "lp_d": -33.22080612182617,
+        "gap": -17.697551727294922,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "William Archer",
+    "d_T_aliases": [
+      "William Archer"
+    ],
+    "source_dT": "https://www.gutenberg.org/ebooks/70566",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Henrik Ibsen wrote A Doll's House: a play in its original language.",
+    "P_trans": "Robert Farquharson Sharp is the translator credited in Project Gutenberg eBook 2542."
+  },
+  {
+    "work_id": "R-009",
+    "title": "Wilhelm Tell",
+    "ebook": "6788",
+    "R": {
+      "conflict_id": "R-009",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "Wilhelm Tell",
+      "ebook_id": "6788",
+      "question_en": "For the English edition of Wilhelm Tell identified as Project Gutenberg eBook 6788, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of Wilhelm Tell identified as Project Gutenberg eBook 6788, who is credited as the English translator?",
+      "gold": "Friedrich Schiller",
+      "gold_aliases": [
+        "Friedrich Schiller",
+        "Johann Christoph Friedrich von Schiller",
+        "Schiller"
+      ],
+      "d": "Theodore Martin",
+      "d_aliases": [
+        "Theodore Martin",
+        "Sir Theodore Martin",
+        "Martin"
+      ],
+      "P_g": "Friedrich Schiller wrote Wilhelm Tell in its original language; Friedrich Schiller is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/6788 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/6788 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-009",
+        "answer_q": "Friedrich Schiller",
+        "answer_shadow": "Theodore Martin",
+        "source_q": "https://www.gutenberg.org/ebooks/6788",
+        "source_shadow": "https://www.gutenberg.org/ebooks/6788",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者；译者书目姓名另附爵士称号。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -17.143373489379883,
+        "lp_d": -48.10836410522461,
+        "gap": 30.964990615844727,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-009",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "Wilhelm Tell",
+      "ebook_id": "6788",
+      "question_en": "For the English edition of Wilhelm Tell identified as Project Gutenberg eBook 6788, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of Wilhelm Tell identified as Project Gutenberg eBook 6788, who is credited as the original author?",
+      "gold": "Theodore Martin",
+      "gold_aliases": [
+        "Theodore Martin",
+        "Sir Theodore Martin",
+        "Martin"
+      ],
+      "d": "Friedrich Schiller",
+      "d_aliases": [
+        "Friedrich Schiller",
+        "Johann Christoph Friedrich von Schiller",
+        "Schiller"
+      ],
+      "P_g": "Theodore Martin is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/6788 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/6788 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-009",
+        "parent_check": {
+          "conflict_id": "R-009",
+          "answer_q": "Friedrich Schiller",
+          "answer_shadow": "Theodore Martin",
+          "source_q": "https://www.gutenberg.org/ebooks/6788",
+          "source_shadow": "https://www.gutenberg.org/ebooks/6788",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者书目姓名另附爵士称号。"
+        }
+      },
+      "parent_id": "R-009",
+      "calibration": {
+        "parsed_wrong": 16,
+        "correct": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 16,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 16,
+        "confusion_rate": 0.0,
+        "p0": 0.0,
+        "lp_gold": -44.18545150756836,
+        "lp_d": -47.933162689208984,
+        "gap": 3.747711181640625,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "William Peter",
+    "d_T_aliases": [
+      "William Peter"
+    ],
+    "source_dT": "https://findingaids.library.upenn.edu/records/UPENN_RBML_PUSP.PRINTCOLL.79",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Friedrich Schiller wrote Wilhelm Tell in its original language.",
+    "P_trans": "Theodore Martin is the translator credited in Project Gutenberg eBook 6788."
+  },
+  {
+    "work_id": "R-010",
+    "title": "Around the World in Eighty Days",
+    "ebook": "103",
+    "R": {
+      "conflict_id": "R-010",
+      "pool": "R",
+      "relation": "original_author_vs_translator",
+      "title": "Around the World in Eighty Days",
+      "ebook_id": "103",
+      "question_en": "For the English edition of Around the World in Eighty Days identified as Project Gutenberg eBook 103, who is credited as the original author?",
+      "shadow_question_en": "For the English edition of Around the World in Eighty Days identified as Project Gutenberg eBook 103, who is credited as the English translator?",
+      "gold": "Jules Verne",
+      "gold_aliases": [
+        "Jules Verne",
+        "Verne"
+      ],
+      "d": "George Makepeace Towle",
+      "d_aliases": [
+        "George Makepeace Towle",
+        "George M. Towle",
+        "George Towle",
+        "Towle"
+      ],
+      "P_g": "Jules Verne wrote Around the World in Eighty Days in its original language; Jules Verne is the original author.",
+      "source_g": "https://www.gutenberg.org/ebooks/103 — Author field",
+      "source_d": "https://www.gutenberg.org/ebooks/103 — Translator field",
+      "answer_format": "entity",
+      "status": "admitted",
+      "independent_check": {
+        "conflict_id": "R-010",
+        "answer_q": "Jules Verne",
+        "answer_shadow": "George Makepeace Towle",
+        "source_q": "https://www.gutenberg.org/ebooks/103",
+        "source_shadow": "https://www.gutenberg.org/ebooks/103",
+        "status": "verified",
+        "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+      },
+      "calibration": {
+        "correct": 16,
+        "parsed_wrong": 0,
+        "format_missing_only": 0,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 0,
+        "wrong_other": 0,
+        "format_missing": 0,
+        "format_reasons": {},
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 0,
+        "confusion_rate": null,
+        "p0": 1.0,
+        "lp_gold": -9.107258796691895,
+        "lp_d": -68.43025207519531,
+        "gap": 59.32299327850342,
+        "admitted": true
+      },
+      "admission_reason": "达到固定准入条件"
+    },
+    "F": {
+      "conflict_id": "F-010",
+      "pool": "F",
+      "relation": "original_author_vs_translator",
+      "title": "Around the World in Eighty Days",
+      "ebook_id": "103",
+      "question_en": "For the English edition of Around the World in Eighty Days identified as Project Gutenberg eBook 103, who is credited as the English translator?",
+      "shadow_question_en": "For the English edition of Around the World in Eighty Days identified as Project Gutenberg eBook 103, who is credited as the original author?",
+      "gold": "George Makepeace Towle",
+      "gold_aliases": [
+        "George Makepeace Towle",
+        "George M. Towle",
+        "George Towle",
+        "Towle"
+      ],
+      "d": "Jules Verne",
+      "d_aliases": [
+        "Jules Verne",
+        "Verne"
+      ],
+      "P_g": "George Makepeace Towle is credited as the English translator of the specified edition.",
+      "source_g": "https://www.gutenberg.org/ebooks/103 — Translator field",
+      "source_d": "https://www.gutenberg.org/ebooks/103 — Author field",
+      "answer_format": "entity",
+      "status": "shadow_recorded",
+      "independent_check": {
+        "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+        "parent_id": "R-010",
+        "parent_check": {
+          "conflict_id": "R-010",
+          "answer_q": "Jules Verne",
+          "answer_shadow": "George Makepeace Towle",
+          "source_q": "https://www.gutenberg.org/ebooks/103",
+          "source_shadow": "https://www.gutenberg.org/ebooks/103",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+        }
+      },
+      "parent_id": "R-010",
+      "calibration": {
+        "parsed_wrong": 14,
+        "correct": 1,
+        "format_missing_only": 1,
+        "truncated": 0,
+        "looped": 0,
+        "invalid": 1,
+        "wrong_other": 14,
+        "format_missing": 1,
+        "format_reasons": {
+          "negated_or_nonunique_entity": 1
+        },
+        "multiline_same_value": 0,
+        "confusion_d": 0,
+        "confusion_denominator": 14,
+        "confusion_rate": 0.0,
+        "p0": 0.0625,
+        "lp_gold": -24.57700538635254,
+        "lp_d": -21.810455322265625,
+        "gap": -2.766550064086914,
+        "admitted": null
+      },
+      "admission_reason": "影子问题仅记录，不套首答准入"
+    },
+    "d_T": "Michael Glencross",
+    "d_T_aliases": [
+      "Michael Glencross"
+    ],
+    "source_dT": "https://penguinrandomhousesecondaryeducation.com/book/?isbn=9780140449068",
+    "candidate_relation": "同一作品另一英译本的真实译者",
+    "P_auth": "Jules Verne wrote Around the World in Eighty Days in its original language.",
+    "P_trans": "George Makepeace Towle is the translator credited in Project Gutenberg eBook 103."
+  }
+]
