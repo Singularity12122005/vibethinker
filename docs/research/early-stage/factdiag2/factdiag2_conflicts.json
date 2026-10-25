@@ -25,7 +25,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/1232 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/1232 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-001",
       "answer_q": "Niccolò Machiavelli",
@@ -34,7 +34,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/1232",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -5.020317554473877,
+      "lp_d": -97.15509033203125,
+      "gap": 92.13477277755737,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "R-002",
@@ -57,7 +78,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/1497 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/1497 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-002",
       "answer_q": "Plato",
@@ -66,7 +87,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/1497",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者。虽书目提示另有改进版本，本次严格使用题目指定编号。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -3.060176134109497,
+      "lp_d": -35.26738357543945,
+      "gap": 32.207207441329956,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "R-003",
@@ -95,7 +137,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/47935 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/47935 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-003",
       "answer_q": "Ivan Sergeevich Turgenev",
@@ -104,7 +146,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/47935",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -21.785730361938477,
+      "lp_d": -87.44241333007812,
+      "gap": 65.65668296813965,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "R-004",
@@ -129,7 +192,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/1998 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/1998 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-004",
       "answer_q": "Friedrich Wilhelm Nietzsche",
@@ -138,7 +201,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/1998",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者；未将电子文本制作或修订人员误作译者。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -12.142866134643555,
+      "lp_d": -66.66609191894531,
+      "gap": 54.52322578430176,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "R-005",
@@ -164,7 +248,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/135 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/135 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-005",
       "answer_q": "Victor Hugo",
@@ -173,7 +257,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/135",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -21.992019653320312,
+      "lp_d": -73.01675415039062,
+      "gap": 51.02473449707031,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "R-006",
@@ -199,7 +304,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/14591 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/14591 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-006",
       "answer_q": "Johann Wolfgang von Goethe",
@@ -208,7 +313,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/14591",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者；书目另提到其他编号译本，本次未混用。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -15.358126640319824,
+      "lp_d": -61.1182975769043,
+      "gap": 45.76017093658447,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "R-007",
@@ -232,7 +358,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/2850 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/2850 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-007",
       "answer_q": "Flavius Josephus",
@@ -241,7 +367,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/2850",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -22.684677124023438,
+      "lp_d": -38.23908233642578,
+      "gap": 15.554405212402344,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "R-008",
@@ -267,7 +414,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/2542 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/2542 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-008",
       "answer_q": "Henrik Ibsen",
@@ -276,7 +423,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/2542",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -20.17970085144043,
+      "lp_d": -84.76492309570312,
+      "gap": 64.5852222442627,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "R-009",
@@ -302,7 +470,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/6788 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/6788 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-009",
       "answer_q": "Friedrich Schiller",
@@ -311,7 +479,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/6788",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者；译者书目姓名另附爵士称号。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -17.143373489379883,
+      "lp_d": -48.10836410522461,
+      "gap": 30.964990615844727,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "R-010",
@@ -337,7 +526,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/103 — Author field",
     "source_d": "https://www.gutenberg.org/ebooks/103 — Translator field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "R-010",
       "answer_q": "Jules Verne",
@@ -346,7 +535,28 @@
       "source_shadow": "https://www.gutenberg.org/ebooks/103",
       "status": "verified",
       "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -9.107258796691895,
+      "lp_d": -68.43025207519531,
+      "gap": 59.32299327850342,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "T-film-001",
@@ -371,7 +581,7 @@
     "source_g": "https://www.afi.com/robert-detail/22363-TOKILLAMOCKINGBIRD/",
     "source_d": "https://www.afi.com/robert-detail/22363-TOKILLAMOCKINGBIRD/",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "T-film-001",
       "answer_q": "Harper Lee",
@@ -380,7 +590,28 @@
       "source_shadow": "https://catalog.afi.com/Film/22363-TO-KILL-A-MOCKINGBIRD",
       "status": "verified",
       "notes": "美国电影学会的1962年影片条目明确区分小说来源与电影编剧，并说明小说作者未承担改编编剧工作。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -32.987754821777344,
+      "lp_d": -62.13758087158203,
+      "gap": 29.149826049804688,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "T-film-002",
@@ -404,7 +635,7 @@
     "source_g": "https://www.bfi.org.uk/film/c418c2c1-1246-5ca5-81cf-37011f3551bc/sense-and-sensibility",
     "source_d": "https://www.bfi.org.uk/film/c418c2c1-1246-5ca5-81cf-37011f3551bc/sense-and-sensibility",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "T-film-002",
       "answer_q": "Jane Austen",
@@ -413,7 +644,28 @@
       "source_shadow": "https://www.sonypictures.com/movies/senseandsensibility",
       "status": "verified",
       "notes": "发行方的李安执导版本介绍明确指出小说作者与获奖改编者；所述演员和三十周年纪念版本对应1995年影片。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -26.253293991088867,
+      "lp_d": -51.788963317871094,
+      "gap": 25.535669326782227,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "T-film-003",
@@ -437,7 +689,7 @@
     "source_g": "https://www.robertbloch.net/psycho.html",
     "source_d": "https://www.robertbloch.net/psycho.html",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "T-film-003",
       "answer_q": "Robert Bloch",
@@ -446,7 +698,28 @@
       "source_shadow": "https://silver.afi.com/movies/detail/0100002685/",
       "status": "verified",
       "notes": "美国电影学会银幕剧院的1960年影片介绍明确列出编剧，并说明根据该小说作者的作品改编。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -32.50028991699219,
+      "lp_d": -55.911407470703125,
+      "gap": 23.411117553710938,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "T-film-004",
@@ -471,7 +744,7 @@
     "source_g": "https://bfidatadigipres.github.io/big%20screen%20classics/2021/10/29/silence-of-the-lambs/",
     "source_d": "https://bfidatadigipres.github.io/big%20screen%20classics/2021/10/29/silence-of-the-lambs/",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "T-film-004",
       "answer_q": "Thomas Harris",
@@ -480,7 +753,28 @@
       "source_shadow": "https://catalog.afi.com/Catalog/MovieDetails/55200?cxt=ymal",
       "status": "verified",
       "notes": "美国电影学会1991年影片条目的文学来源栏明确给出1988年小说及作者，编剧栏另列电影编剧。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -27.98582649230957,
+      "lp_d": -51.95098114013672,
+      "gap": 23.96515464782715,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "T-film-005",
@@ -505,7 +799,7 @@
     "source_g": "https://www.focusfeatures.com/article/jane-eyre_10-year-anniversary_moira-buffini",
     "source_d": "https://www.focusfeatures.com/article/jane-eyre_10-year-anniversary_moira-buffini",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "T-film-005",
       "answer_q": "Charlotte Brontë",
@@ -514,7 +808,28 @@
       "source_shadow": "https://www.focusfeatures.com/article/jane-eyre_10-year-anniversary_moira-buffini",
       "status": "verified",
       "notes": "发行方对2011年影片的十周年文章明确称其改编自该小说作者的作品，并采访电影编剧。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -26.430879592895508,
+      "lp_d": -82.2391357421875,
+      "gap": 55.80825614929199,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "T-music-001",
@@ -541,7 +856,7 @@
     "source_g": "https://lcweb2.loc.gov/static/programs/national-recording-preservation-board/documents/GoldbergVar.pdf",
     "source_d": "https://lcweb2.loc.gov/static/programs/national-recording-preservation-board/documents/GoldbergVar.pdf",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "T-music-001",
       "answer_q": "Johann Sebastian Bach",
@@ -550,7 +865,28 @@
       "source_shadow": "https://www.sonyclassical.com/artists/artist-products/glenn-gould",
       "status": "verified",
       "notes": "公共图书馆所藏1955与1981年录音合集书目明确列作曲者、钢琴演奏者及1955年录音的作品编号；唱片公司目录列出该演奏者的1955年单声道版本。1955指录音年份，图书馆书目及唱片公司生平说明原唱片于1956年发行，此处不影响两问的人名答案。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -29.93741226196289,
+      "lp_d": -61.99098205566406,
+      "gap": 32.05356979370117,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "T-music-002",
@@ -576,7 +912,7 @@
     "source_g": "https://www.deutschegrammophon.com/en/artists/alicesaraott/news/echoes-of-life-alice-sara-ott-returns-to-the-music-of-chopin-263274",
     "source_d": "https://www.deutschegrammophon.com/en/artists/alicesaraott/news/echoes-of-life-alice-sara-ott-returns-to-the-music-of-chopin-263274",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "T-music-002",
       "answer_q": "Frédéric Chopin",
@@ -585,7 +921,28 @@
       "source_shadow": "https://www.deutschegrammophon.com/en/catalogue/products/echoes-of-life-alice-sara-ott-12368",
       "status": "verified",
       "notes": "唱片公司的2021年发行新闻明确列出降D大调第15首前奏曲、作品编号及作曲者；专辑页明确列出钢琴演奏者及发行年份。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -26.72259521484375,
+      "lp_d": -74.36809539794922,
+      "gap": 47.64550018310547,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "T-music-003",
@@ -609,7 +966,7 @@
     "source_g": "https://www.deutschegrammophon.com/en/catalogue/products/lang-lang-piano-book-standard-edition-4088",
     "source_d": "https://www.deutschegrammophon.com/en/catalogue/products/lang-lang-piano-book-standard-edition-4088",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "T-music-003",
       "answer_q": "Ludwig van Beethoven",
@@ -618,7 +975,28 @@
       "source_shadow": "https://www.deutschegrammophon.com/en/catalogue/products/lang-lang-piano-book-standard-edition-4088",
       "status": "verified",
       "notes": "唱片公司商店的同专辑曲目表将题目所指作品编号列在该作曲者名下；标准版专辑页确认2019年发行与演奏者。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -25.730934143066406,
+      "lp_d": -56.88729476928711,
+      "gap": 31.156360626220703,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "T-music-004",
@@ -646,7 +1024,7 @@
     "source_g": "https://www.deutschegrammophon.com/de/katalog/produkte/debussy-rameau-olafsson-11900",
     "source_d": "https://www.deutschegrammophon.com/de/katalog/produkte/debussy-rameau-olafsson-11900",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "excluded_calibration",
     "independent_check": {
       "conflict_id": "T-music-004",
       "answer_q": "Jean-Philippe Rameau",
@@ -655,7 +1033,28 @@
       "source_shadow": "https://www.deutschegrammophon.com/en/catalogue/products/debussy-rameau-olafsson-11900",
       "status": "verified",
       "notes": "唱片公司2020年专辑页在拉莫作品栏列出该曲，并明确给出钢琴演奏者。专辑包含两位作曲家的作品，题目所指曲目归属明确。"
-    }
+    },
+    "calibration": {
+      "parsed_wrong": 16,
+      "correct": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 16,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 16,
+      "confusion_rate": 0.0,
+      "p0": 0.0,
+      "lp_gold": -25.38311195373535,
+      "lp_d": -22.761188507080078,
+      "gap": -2.6219234466552734,
+      "admitted": false
+    },
+    "admission_reason": "正确数不足8或格式缺失超过2"
   },
   {
     "conflict_id": "T-music-005",
@@ -682,7 +1081,7 @@
     "source_g": "https://www.deutschegrammophon.com/en/catalogue/products/the-wanderer-cho-10887",
     "source_d": "https://www.deutschegrammophon.com/en/catalogue/products/the-wanderer-cho-10887",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "admitted",
     "independent_check": {
       "conflict_id": "T-music-005",
       "answer_q": "Franz Liszt",
@@ -691,7 +1090,28 @@
       "source_shadow": "https://www.deutschegrammophon.com/en/catalogue/products/the-wanderer-cho-10887",
       "status": "verified",
       "notes": "唱片公司2020年专辑页将B小调钢琴奏鸣曲及题目所指作品编号明确列在李斯特名下，并列出钢琴演奏者。页面月日有不同发行说明，但年份及两项人名无歧义。"
-    }
+    },
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -21.493579864501953,
+      "lp_d": -63.78532791137695,
+      "gap": 42.291748046875,
+      "admitted": true
+    },
+    "admission_reason": "达到固定准入条件"
   },
   {
     "conflict_id": "F-001",
@@ -719,7 +1139,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/1232 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/1232 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-001",
@@ -733,7 +1153,28 @@
         "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
       }
     },
-    "parent_id": "R-001"
+    "parent_id": "R-001",
+    "calibration": {
+      "correct": 10,
+      "parsed_wrong": 6,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 6,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 6,
+      "confusion_rate": 0.0,
+      "p0": 0.625,
+      "lp_gold": -60.830322265625,
+      "lp_d": -38.696044921875,
+      "gap": -22.13427734375,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   },
   {
     "conflict_id": "F-002",
@@ -756,7 +1197,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/1497 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/1497 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-002",
@@ -770,7 +1211,28 @@
         "notes": "对应编号的官方书目分别列明原作者与译者。虽书目提示另有改进版本，本次严格使用题目指定编号。"
       }
     },
-    "parent_id": "R-002"
+    "parent_id": "R-002",
+    "calibration": {
+      "correct": 13,
+      "parsed_wrong": 3,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 3,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 3,
+      "confusion_rate": 0.0,
+      "p0": 0.8125,
+      "lp_gold": -9.329644203186035,
+      "lp_d": -27.396427154541016,
+      "gap": 18.06678295135498,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   },
   {
     "conflict_id": "F-003",
@@ -799,7 +1261,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/47935 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/47935 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-003",
@@ -813,7 +1275,28 @@
         "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
       }
     },
-    "parent_id": "R-003"
+    "parent_id": "R-003",
+    "calibration": {
+      "parsed_wrong": 16,
+      "correct": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 16,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 16,
+      "confusion_rate": 0.0,
+      "p0": 0.0,
+      "lp_gold": -52.07733917236328,
+      "lp_d": -49.109195709228516,
+      "gap": -2.9681434631347656,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   },
   {
     "conflict_id": "F-004",
@@ -838,7 +1321,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/1998 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/1998 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-004",
@@ -852,7 +1335,28 @@
         "notes": "对应编号的官方书目分别列明原作者与译者；未将电子文本制作或修订人员误作译者。"
       }
     },
-    "parent_id": "R-004"
+    "parent_id": "R-004",
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -20.900239944458008,
+      "lp_d": -34.28780746459961,
+      "gap": 13.387567520141602,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   },
   {
     "conflict_id": "F-005",
@@ -878,7 +1382,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/135 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/135 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-005",
@@ -892,7 +1396,28 @@
         "notes": "对应编号的官方书目分别列明原作者与译者。"
       }
     },
-    "parent_id": "R-005"
+    "parent_id": "R-005",
+    "calibration": {
+      "parsed_wrong": 8,
+      "correct": 8,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 8,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 8,
+      "confusion_rate": 0.0,
+      "p0": 0.5,
+      "lp_gold": -30.70783233642578,
+      "lp_d": -30.432453155517578,
+      "gap": -0.2753791809082031,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   },
   {
     "conflict_id": "F-006",
@@ -918,7 +1443,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/14591 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/14591 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-006",
@@ -932,7 +1457,28 @@
         "notes": "对应编号的官方书目分别列明原作者与译者；书目另提到其他编号译本，本次未混用。"
       }
     },
-    "parent_id": "R-006"
+    "parent_id": "R-006",
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -28.465797424316406,
+      "lp_d": -40.78014373779297,
+      "gap": 12.314346313476562,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   },
   {
     "conflict_id": "F-007",
@@ -956,7 +1502,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/2850 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/2850 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-007",
@@ -970,7 +1516,28 @@
         "notes": "对应编号的官方书目分别列明原作者与译者。"
       }
     },
-    "parent_id": "R-007"
+    "parent_id": "R-007",
+    "calibration": {
+      "correct": 16,
+      "parsed_wrong": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 0,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 0,
+      "confusion_rate": null,
+      "p0": 1.0,
+      "lp_gold": -29.162471771240234,
+      "lp_d": -39.3193244934082,
+      "gap": 10.156852722167969,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   },
   {
     "conflict_id": "F-008",
@@ -996,7 +1563,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/2542 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/2542 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-008",
@@ -1010,7 +1577,28 @@
         "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
       }
     },
-    "parent_id": "R-008"
+    "parent_id": "R-008",
+    "calibration": {
+      "parsed_wrong": 16,
+      "correct": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 16,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 16,
+      "confusion_rate": 0.0,
+      "p0": 0.0,
+      "lp_gold": -50.918357849121094,
+      "lp_d": -33.22080612182617,
+      "gap": -17.697551727294922,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   },
   {
     "conflict_id": "F-009",
@@ -1036,7 +1624,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/6788 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/6788 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-009",
@@ -1050,7 +1638,28 @@
         "notes": "对应编号的官方书目分别列明原作者与译者；译者书目姓名另附爵士称号。"
       }
     },
-    "parent_id": "R-009"
+    "parent_id": "R-009",
+    "calibration": {
+      "parsed_wrong": 16,
+      "correct": 0,
+      "format_missing_only": 0,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 0,
+      "wrong_other": 16,
+      "format_missing": 0,
+      "format_reasons": {},
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 16,
+      "confusion_rate": 0.0,
+      "p0": 0.0,
+      "lp_gold": -44.18545150756836,
+      "lp_d": -47.933162689208984,
+      "gap": 3.747711181640625,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   },
   {
     "conflict_id": "F-010",
@@ -1076,7 +1685,7 @@
     "source_g": "https://www.gutenberg.org/ebooks/103 — Translator field",
     "source_d": "https://www.gutenberg.org/ebooks/103 — Author field",
     "answer_format": "entity",
-    "status": "eligible_precalibration",
+    "status": "shadow_recorded",
     "independent_check": {
       "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
       "parent_id": "R-010",
@@ -1090,6 +1699,29 @@
         "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
       }
     },
-    "parent_id": "R-010"
+    "parent_id": "R-010",
+    "calibration": {
+      "parsed_wrong": 14,
+      "correct": 1,
+      "format_missing_only": 1,
+      "truncated": 0,
+      "looped": 0,
+      "invalid": 1,
+      "wrong_other": 14,
+      "format_missing": 1,
+      "format_reasons": {
+        "negated_or_nonunique_entity": 1
+      },
+      "multiline_same_value": 0,
+      "confusion_d": 0,
+      "confusion_denominator": 14,
+      "confusion_rate": 0.0,
+      "p0": 0.0625,
+      "lp_gold": -24.57700538635254,
+      "lp_d": -21.810455322265625,
+      "gap": -2.766550064086914,
+      "admitted": null
+    },
+    "admission_reason": "影子问题仅记录，不套首答准入"
   }
 ]
