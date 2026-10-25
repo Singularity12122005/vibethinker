@@ -2060,5 +2060,16 @@
         }
       ]
     }
-  }
+  },
+  "postfreeze_amendments": [
+    {
+      "id": "quote_display_format_only",
+      "approved_by_user": true,
+      "authorization": "允许仅修正显示格式匹配（推荐）",
+      "scope": "仅在命题引文核对时统一大小写、兼容显示形式、空白、Markdown符号和单双引号；规范化后须为带词边界的连续原文片段。实词、否定词、姓名或词边界不匹配仍为不可判。",
+      "application": "全部原始评审完成后，从propositions_raw重新解析命题；不重跑生成和评审，不改变立场标签、提示词、统计与判定定义；随后按原规则重建60条盲表。",
+      "reason": "原逐字节检查把纯显示格式差异误记为不可判。",
+      "frozen_content_unchanged": true
+    }
+  ]
 }
