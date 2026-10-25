@@ -1,0 +1,1745 @@
+{
+  "stage": "final",
+  "method": "新会话代理盲审，非人工",
+  "reviewed": 246,
+  "machine_USER_denominator": 246,
+  "confirmed_A_among_USER": 246,
+  "confirmed_A_all_reviewed": 246,
+  "precision": 1.0,
+  "passed": true,
+  "per_K": {
+    "K-001": {
+      "reviewed": 28,
+      "confirmed_A": 28
+    },
+    "K-002": {
+      "reviewed": 0,
+      "confirmed_A": 0
+    }
+  },
+  "labels": [
+    {
+      "validation_id": "V0004",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0005",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0006",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0007",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0008",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0009",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0010",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0011",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0015",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0016",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0017",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0018",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0019",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0021",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0022",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0023",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0024",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0025",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0026",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0027",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0028",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0029",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0033",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0034",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0035",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0036",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0037",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0038",
+      "conflict_id": "K-001",
+      "stage": "step0",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0039",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0040",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0041",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0042",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0043",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0044",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0045",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0046",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0047",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0048",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0049",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0050",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0051",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0052",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0053",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0054",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0055",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0056",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0057",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0058",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0059",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0060",
+      "conflict_id": "B-001",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0061",
+      "conflict_id": "B-002",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0062",
+      "conflict_id": "B-002",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0063",
+      "conflict_id": "B-002",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0064",
+      "conflict_id": "B-002",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0065",
+      "conflict_id": "B-002",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0066",
+      "conflict_id": "B-002",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0067",
+      "conflict_id": "B-002",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0068",
+      "conflict_id": "B-002",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0069",
+      "conflict_id": "B-003",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0070",
+      "conflict_id": "B-003",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0071",
+      "conflict_id": "B-003",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0072",
+      "conflict_id": "B-003",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0073",
+      "conflict_id": "B-003",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0074",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0075",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0076",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0077",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0078",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0079",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0080",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0081",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0082",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0083",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0084",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0085",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0086",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0087",
+      "conflict_id": "B-004",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0088",
+      "conflict_id": "B-005",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0089",
+      "conflict_id": "B-005",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0090",
+      "conflict_id": "B-005",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0091",
+      "conflict_id": "B-005",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0092",
+      "conflict_id": "B-005",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0093",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0094",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0095",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0096",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0097",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0098",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0099",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0100",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0101",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0102",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0103",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0104",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0105",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0106",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0107",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0108",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0109",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0110",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0111",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0112",
+      "conflict_id": "B-006",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0113",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0114",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0115",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0116",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0117",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0118",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0119",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0120",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0121",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0122",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0123",
+      "conflict_id": "B-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0124",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0125",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0126",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0127",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0128",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0129",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0130",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0131",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0132",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0133",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0134",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0135",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0136",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0137",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0138",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0139",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0140",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0141",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0142",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0143",
+      "conflict_id": "B-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0144",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0145",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0146",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0147",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0148",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0149",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0150",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0151",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0152",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0153",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0154",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0155",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0156",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0157",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0158",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0159",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0160",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0161",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0162",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0163",
+      "conflict_id": "B-009",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0164",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0165",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0166",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0167",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0168",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0169",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0170",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0171",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0172",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0173",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0174",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0175",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0176",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0177",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0178",
+      "conflict_id": "B-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0179",
+      "conflict_id": "Y-002",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0180",
+      "conflict_id": "Y-007",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0181",
+      "conflict_id": "Y-008",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0182",
+      "conflict_id": "Y-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0183",
+      "conflict_id": "Y-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0184",
+      "conflict_id": "Y-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0185",
+      "conflict_id": "Y-010",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0186",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0187",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0188",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0189",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0190",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0191",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0192",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0193",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0194",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0195",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0196",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0197",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0198",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0199",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0200",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0201",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0202",
+      "conflict_id": "Y-017",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0203",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0204",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0205",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0206",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0207",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0208",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0209",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0210",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0211",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0212",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0213",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0214",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0215",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0216",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0217",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0218",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0219",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0220",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0221",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0222",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0223",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0224",
+      "conflict_id": "Y-019",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0225",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0226",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0227",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0228",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0229",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0230",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0231",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0232",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0233",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0234",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0235",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0236",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0237",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0238",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0239",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0240",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0241",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0242",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0243",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0244",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0245",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0246",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0247",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0248",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0249",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0250",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0251",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0252",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0253",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0254",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0255",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    },
+    {
+      "validation_id": "V0256",
+      "conflict_id": "Y-020",
+      "stage": "final",
+      "machine_USER": true,
+      "blind_label": "A"
+    }
+  ],
+  "status": "通过"
+}
