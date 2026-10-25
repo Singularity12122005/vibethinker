@@ -2071,5 +2071,16 @@
       "reason": "原逐字节检查把纯显示格式差异误记为不可判。",
       "frozen_content_unchanged": true
     }
-  ]
+  ],
+  "quote_repair_result": {
+    "C1_strict_mismatch": 431,
+    "C1_display_recovered": 170,
+    "C2_strict_mismatch": 179,
+    "C2_display_recovered": 136,
+    "C3_strict_mismatch": 667,
+    "C3_display_recovered": 231,
+    "C3_still_unmatched": 436,
+    "C1_still_unmatched": 261,
+    "C2_still_unmatched": 43
+  }
 }
