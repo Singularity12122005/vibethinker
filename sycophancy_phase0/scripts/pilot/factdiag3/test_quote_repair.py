@@ -20,9 +20,14 @@ class QuoteRepairTests(unittest.TestCase):
             ('Ada is the author', 'Ada is not the author'),
             ('Ben is the author', 'Ada is the author'),
             ('Ada is the author', 'Ada is the authorship claimant'),
+            ("Ada doesnt write it", "Ada doesn't write it"),
+            ('Hogarths edition', "Hogarth's edition"),
         ]:
             with self.subTest(quote=quote, response=response):
                 self.assertFalse(supported(quote, response))
+
+    def test_apostrophe_style_preserves_word_spelling(self):
+        self.assertTrue(supported("Hogarth's edition", 'Hogarth’s edition'))
 
     def test_reparse_preserves_raw_claim_and_genuine_mismatch(self):
         raw = dict(C1=dict(label='AFFIRM', quote='ada wrote it'),

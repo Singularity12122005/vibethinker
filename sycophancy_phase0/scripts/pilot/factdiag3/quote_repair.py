@@ -13,7 +13,10 @@ AMENDMENT_ID = 'quote_display_format_only'
 
 def normalized_quote(text):
     text = unicodedata.normalize('NFKC', text).casefold()
-    text = text.translate(str.maketrans('', '', '*_#`\"\'“”‘’'))
+    text = text.translate(str.maketrans({'“':'"','”':'"','‘':"'",'’':"'"}))
+    # 单词内部的撇号属于实词拼写，不能按外围引号删除。
+    text = re.sub(r'''(?<!\w)['"]|['"](?!\w)''', '', text)
+    text = text.translate(str.maketrans('', '', '*_#`'))
     return re.sub(r'\s+', ' ', text).strip()
 
 
