@@ -1,0 +1,1948 @@
+[
+  {
+    "conflict_id": "Y-001",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the Maastricht Treaty signed?",
+    "gold": "1992",
+    "gold_aliases": [
+      "1992"
+    ],
+    "shadow_question_en": "In what year did the Maastricht Treaty enter into force?",
+    "d": "1993",
+    "d_aliases": [
+      "1993"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "签署年份：1992。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "生效年份：1993。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-001",
+      "q_answer": 1992,
+      "shadow_answer": 1993,
+      "q_basis": "欧盟官网将马斯特里赫特条约的签署日期列为1992年2月7日。",
+      "shadow_basis": "同一官方条目将生效日期列为1993年11月1日。",
+      "q_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "shadow_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-002",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the Treaty of Rome establishing the European Economic Community signed?",
+    "gold": "1957",
+    "gold_aliases": [
+      "1957"
+    ],
+    "shadow_question_en": "In what year did the Treaty of Rome establishing the European Economic Community enter into force?",
+    "d": "1958",
+    "d_aliases": [
+      "1958"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "签署年份：1957。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "生效年份：1958。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-002",
+      "q_answer": 1957,
+      "shadow_answer": 1958,
+      "q_basis": "欧盟官网将设立欧洲经济共同体的罗马条约的签署日期列为1957年3月25日。",
+      "shadow_basis": "同一官方条目将生效日期列为1958年1月1日。",
+      "q_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "shadow_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-003",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the Treaty of Lisbon signed?",
+    "gold": "2007",
+    "gold_aliases": [
+      "2007"
+    ],
+    "shadow_question_en": "In what year did the Treaty of Lisbon enter into force?",
+    "d": "2009",
+    "d_aliases": [
+      "2009"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "签署年份：2007。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "生效年份：2009。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-003",
+      "q_answer": 2007,
+      "shadow_answer": 2009,
+      "q_basis": "欧盟官网将里斯本条约的签署日期列为2007年12月13日。",
+      "shadow_basis": "同一官方条目将生效日期列为2009年12月1日。",
+      "q_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "shadow_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-004",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the Treaty of Nice signed?",
+    "gold": "2001",
+    "gold_aliases": [
+      "2001"
+    ],
+    "shadow_question_en": "In what year did the Treaty of Nice enter into force?",
+    "d": "2003",
+    "d_aliases": [
+      "2003"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "签署年份：2001。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "生效年份：2003。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-004",
+      "q_answer": 2001,
+      "shadow_answer": 2003,
+      "q_basis": "欧盟官网将尼斯条约的签署日期列为2001年2月26日。",
+      "shadow_basis": "同一官方条目将生效日期列为2003年2月1日。",
+      "q_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "shadow_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-005",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the Treaty of Amsterdam signed?",
+    "gold": "1997",
+    "gold_aliases": [
+      "1997"
+    ],
+    "shadow_question_en": "In what year did the Treaty of Amsterdam enter into force?",
+    "d": "1999",
+    "d_aliases": [
+      "1999"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "签署年份：1997。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "生效年份：1999。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-005",
+      "q_answer": 1997,
+      "shadow_answer": 1999,
+      "q_basis": "欧盟官网将阿姆斯特丹条约的签署日期列为1997年10月2日。",
+      "shadow_basis": "同一官方条目将生效日期列为1999年5月1日。",
+      "q_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "shadow_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-006",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the Single European Act signed?",
+    "gold": "1986",
+    "gold_aliases": [
+      "1986"
+    ],
+    "shadow_question_en": "In what year did the Single European Act enter into force?",
+    "d": "1987",
+    "d_aliases": [
+      "1987"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "签署年份：1986。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+        "fact": "生效年份：1987。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-006",
+      "q_answer": 1986,
+      "shadow_answer": 1987,
+      "q_basis": "欧盟官网将单一欧洲法案的签署日期列为1986年2月17日及28日。",
+      "shadow_basis": "同一官方条目将生效日期列为1987年7月1日。",
+      "q_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "shadow_urls": [
+        "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-007",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the Antarctic Treaty signed?",
+    "gold": "1959",
+    "gold_aliases": [
+      "1959"
+    ],
+    "shadow_question_en": "In what year did the Antarctic Treaty enter into force?",
+    "d": "1961",
+    "d_aliases": [
+      "1961"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.ats.aq/e/antarctictreaty.html",
+        "fact": "签署年份：1959。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.ats.aq/e/antarctictreaty.html",
+        "fact": "生效年份：1961。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-007",
+      "q_answer": 1959,
+      "shadow_answer": 1961,
+      "q_basis": "南极条约秘书处记载，条约于1959年12月1日在华盛顿签署。",
+      "shadow_basis": "秘书处明确记载条约于1961年生效。",
+      "q_urls": [
+        "https://www.ats.aq/e/antarctictreaty.html"
+      ],
+      "shadow_urls": [
+        "https://www.ats.aq/e/antarctictreaty.html"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-008",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the United Nations Convention on the Law of the Sea at Montego Bay signed?",
+    "gold": "1982",
+    "gold_aliases": [
+      "1982"
+    ],
+    "shadow_question_en": "In what year did the United Nations Convention on the Law of the Sea enter into force?",
+    "d": "1994",
+    "d_aliases": [
+      "1994"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.consilium.europa.eu/en/documents/treaties-agreements/agreement/?id=1984001",
+        "fact": "签署年份：1982。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.consilium.europa.eu/en/documents/treaties-agreements/agreement/?id=1984001",
+        "fact": "生效年份：1994。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-008",
+      "q_answer": 1982,
+      "shadow_answer": 1994,
+      "q_basis": "联合国海洋法资料说明，公约于1982年12月10日在蒙特哥贝开放签署。",
+      "shadow_basis": "联合国资料明确写明，公约依第三百零八条于1994年11月16日生效。",
+      "q_urls": [
+        "https://www.un.org/Depts/los/convention_agreements/convention_overview_convention.htm"
+      ],
+      "shadow_urls": [
+        "https://www.un.org/Depts/los/convention_agreements/convention_overview_convention.htm"
+      ],
+      "ambiguity": "原问题未指定某一国家，因此签署年按公约在蒙特哥贝开放签署之年理解；不据某个国家后来的签署或批准日期回答。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-009",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the original Montreal Protocol on Substances that Deplete the Ozone Layer signed?",
+    "gold": "1987",
+    "gold_aliases": [
+      "1987"
+    ],
+    "shadow_question_en": "In what year did the original Montreal Protocol on Substances that Deplete the Ozone Layer enter into force?",
+    "d": "1989",
+    "d_aliases": [
+      "1989"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://ozone.unep.org/treaties/montreal-protocol?q=treaties",
+        "fact": "签署年份：1987。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://ozone.unep.org/treaties/montreal-protocol?q=treaties",
+        "fact": "生效年份：1989。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-009",
+      "q_answer": 1987,
+      "shadow_answer": 1989,
+      "q_basis": "联合国环境规划署臭氧秘书处明确记载，原议定书于1987年9月16日签署。",
+      "shadow_basis": "联合国条约记录列明原议定书于1989年1月1日生效。",
+      "q_urls": [
+        "https://ozone.unep.org/ozone-and-you"
+      ],
+      "shadow_urls": [
+        "https://treaties.un.org/Pages/showDetails.aspx?objid=080000028003f7f7"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-010",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the Vienna Convention on the Law of Treaties first signed?",
+    "gold": "1969",
+    "gold_aliases": [
+      "1969"
+    ],
+    "shadow_question_en": "In what year did the Vienna Convention on the Law of Treaties enter into force?",
+    "d": "1980",
+    "d_aliases": [
+      "1980"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://treaties-prod.un.org/PAGES/ViewDetailsIII.aspx?Temp=mtdsg3&chapter=23&clang=_en&mtdsg_no=XXIII-1&src=TREATY",
+        "fact": "签署年份：1969。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://treaties-prod.un.org/PAGES/ViewDetailsIII.aspx?Temp=mtdsg3&chapter=23&clang=_en&mtdsg_no=XXIII-1&src=TREATY",
+        "fact": "生效年份：1980。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-010",
+      "q_answer": 1969,
+      "shadow_answer": 1980,
+      "q_basis": "联合国条约记录说明，公约1969年5月23日开放签署，签署者表也列有当日签署国。",
+      "shadow_basis": "同一联合国记录列明1980年1月27日生效。",
+      "q_urls": [
+        "https://treaties-prod.un.org/PAGES/ViewDetailsIII.aspx?Temp=mtdsg3&chapter=23&clang=_en&mtdsg_no=XXIII-1&src=TREATY"
+      ],
+      "shadow_urls": [
+        "https://treaties-prod.un.org/PAGES/ViewDetailsIII.aspx?Temp=mtdsg3&chapter=23&clang=_en&mtdsg_no=XXIII-1&src=TREATY"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-011",
+    "pool": "Y",
+    "relation": "construction_started_vs_completed",
+    "question_en": "In what year did construction of the Eiffel Tower begin?",
+    "gold": "1887",
+    "gold_aliases": [
+      "1887"
+    ],
+    "shadow_question_en": "In what year was construction of the Eiffel Tower completed?",
+    "d": "1889",
+    "d_aliases": [
+      "1889"
+    ],
+    "g_terms": [
+      "begin",
+      "began",
+      "started"
+    ],
+    "d_terms": [
+      "completed",
+      "completion"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.toureiffel.paris/en/the-monument/history",
+        "fact": "开工年份：1887。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.toureiffel.paris/en/news/130-years/1889-2019-130-years-amazement",
+        "fact": "竣工年份：1889。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "construction begin / construction completed",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-011",
+      "q_answer": 1887,
+      "shadow_answer": 1889,
+      "q_basis": "埃菲尔铁塔官方网站明确记载工程始于1887年1月。",
+      "shadow_basis": "同一官方历史页记载工程完成于1889年3月31日。",
+      "q_urls": [
+        "https://www.toureiffel.paris/en/the-monument/history"
+      ],
+      "shadow_urls": [
+        "https://www.toureiffel.paris/en/the-monument/history"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-012",
+    "pool": "Y",
+    "relation": "construction_started_vs_completed",
+    "question_en": "In what year did construction of the Sydney Opera House begin?",
+    "gold": "1959",
+    "gold_aliases": [
+      "1959"
+    ],
+    "shadow_question_en": "In what year was construction of the Sydney Opera House completed?",
+    "d": "1973",
+    "d_aliases": [
+      "1973"
+    ],
+    "g_terms": [
+      "begin",
+      "began",
+      "started"
+    ],
+    "d_terms": [
+      "completed",
+      "completion"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.sydneyoperahouse.com/our-story/construction-begins",
+        "fact": "开工年份：1959。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://mhnsw.au/stories/on-this-day/20-october-1973/",
+        "fact": "竣工年份：1973。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "construction begin / construction completed",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-012",
+      "q_answer": 1959,
+      "shadow_answer": 1973,
+      "q_basis": "悉尼歌剧院官网记载1959年3月2日举行标志工程开始的仪式。",
+      "shadow_basis": "新南威尔士州历史博物馆的官方历史条目明确写明建筑于1973年完工。",
+      "q_urls": [
+        "https://www.sydneyoperahouse.com/our-story/construction-begins"
+      ],
+      "shadow_urls": [
+        "https://mhnsw.au/stories/on-this-day/20-october-1973/"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-013",
+    "pool": "Y",
+    "relation": "construction_started_vs_completed",
+    "question_en": "In what year did construction of the Golden Gate Bridge begin?",
+    "gold": "1933",
+    "gold_aliases": [
+      "1933"
+    ],
+    "shadow_question_en": "In what year was construction of the Golden Gate Bridge completed?",
+    "d": "1937",
+    "d_aliases": [
+      "1937"
+    ],
+    "g_terms": [
+      "begin",
+      "began",
+      "started"
+    ],
+    "d_terms": [
+      "completed",
+      "completion"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.goldengate.org/bridge/history-research/bridge-construction/construction/",
+        "fact": "开工年份：1933。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.goldengate.org/bridge/history-research/moments-events/key-dates/",
+        "fact": "竣工年份：1937。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "construction begin / construction completed",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-013",
+      "q_answer": 1933,
+      "shadow_answer": 1937,
+      "q_basis": "金门大桥管理机构工程历史页列明1933年1月5日开工。",
+      "shadow_basis": "同一管理机构的关键日期页记载1937年4月27日举行完工仪式，常见问题页亦说明1937年5月完成建造。",
+      "q_urls": [
+        "https://www.goldengate.org/bridge/history-research/bridge-construction/construction/"
+      ],
+      "shadow_urls": [
+        "https://www.goldengate.org/bridge/history-research/moments-events/key-dates/",
+        "https://www.goldengate.org/faq/"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-014",
+    "pool": "Y",
+    "relation": "construction_started_vs_completed",
+    "question_en": "In what year did construction of the Empire State Building begin?",
+    "gold": "1930",
+    "gold_aliases": [
+      "1930"
+    ],
+    "shadow_question_en": "In what year was construction of the Empire State Building completed?",
+    "d": "1931",
+    "d_aliases": [
+      "1931"
+    ],
+    "g_terms": [
+      "begin",
+      "began",
+      "started"
+    ],
+    "d_terms": [
+      "completed",
+      "completion"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.esbnyc.com/about/history",
+        "fact": "开工年份：1930。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.esbnyc.com/about/history",
+        "fact": "竣工年份：1931。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "construction begin / construction completed",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-014",
+      "q_answer": 1930,
+      "shadow_answer": 1931,
+      "q_basis": "帝国大厦官网明确列出建造区间从1930年3月17日开始。",
+      "shadow_basis": "官网列出的建造区间截至1931年5月1日。",
+      "q_urls": [
+        "https://www.esbnyc.com/about/history"
+      ],
+      "shadow_urls": [
+        "https://www.esbnyc.com/about/history"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-015",
+    "pool": "Y",
+    "relation": "construction_started_vs_completed",
+    "question_en": "In what year did construction of the original Suez Canal begin?",
+    "gold": "1859",
+    "gold_aliases": [
+      "1859"
+    ],
+    "shadow_question_en": "In what year was construction of the original Suez Canal completed?",
+    "d": "1869",
+    "d_aliases": [
+      "1869"
+    ],
+    "g_terms": [
+      "begin",
+      "began",
+      "started"
+    ],
+    "d_terms": [
+      "completed",
+      "completion"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx",
+        "fact": "开工年份：1859。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx",
+        "fact": "竣工年份：1869。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "construction begin / construction completed",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-015",
+      "q_answer": 1859,
+      "shadow_answer": 1869,
+      "q_basis": "苏伊士运河管理局历史页列明1859年4月25日开始挖掘。",
+      "shadow_basis": "同一官方历史页列明1869年8月18日完成挖掘，1869年11月17日举行通航仪式。",
+      "q_urls": [
+        "https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx"
+      ],
+      "shadow_urls": [
+        "https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx"
+      ],
+      "ambiguity": "按题目原始苏伊士运河理解为十九世纪的现代海运河，未采用古代前身或后来的扩建工程日期。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-016",
+    "pool": "Y",
+    "relation": "construction_started_vs_completed",
+    "question_en": "In what year did construction of the Sydney Harbour Bridge begin?",
+    "gold": "1923",
+    "gold_aliases": [
+      "1923"
+    ],
+    "shadow_question_en": "In what year was construction of the Sydney Harbour Bridge completed?",
+    "d": "1932",
+    "d_aliases": [
+      "1932"
+    ],
+    "g_terms": [
+      "begin",
+      "began",
+      "started"
+    ],
+    "d_terms": [
+      "completed",
+      "completion"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.nsw.gov.au/media-releases/century-of-an-icon-100-years-since-construction-began-on-sydney-harbour-bridge",
+        "fact": "开工年份：1923。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.dcceew.gov.au/parks-heritage/heritage/places/national/sydney-harbour-bridge",
+        "fact": "竣工年份：1932。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "construction begin / construction completed",
+    "status": "pending_manual",
+    "independent_check": {
+      "ID": "Y-016",
+      "q_answer": 1923,
+      "shadow_answer": 1932,
+      "q_basis": "新南威尔士州政府开工百年纪念资料明确以1923年7月28日北引桥工程动工作为大桥开工日期。",
+      "shadow_basis": "新南威尔士州公共工程部门记载桥梁于1932年竣工并移交主管部门。",
+      "q_urls": [
+        "https://www.nsw.gov.au/media-releases/century-of-an-icon-100-years-since-construction-began-on-sydney-harbour-bridge"
+      ],
+      "shadow_urls": [
+        "https://www.publicworks.nsw.gov.au/news-and-events/sydney-harbour-bridge-turns-90-celebrating-public-works-role-in-the-making-of-an-icon"
+      ],
+      "ambiguity": "存在工程范围差异：澳大利亚环境部门遗产页把1924年主桥承包合同之后的施工写作开工。整项工程含引桥的官方百年纪念日期为1923年，故采用1923年；1932年竣工无年份冲突。差异来源：https://www.dcceew.gov.au/parks-heritage/heritage/places/national/sydney-harbour-bridge",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": false
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    },
+    "admission_reason": "1923整体工程开工与1924主桥施工存在范围歧义；保留候选，禁止自动准入。"
+  },
+  {
+    "conflict_id": "Y-017",
+    "pool": "Y",
+    "relation": "establishment_vs_public_opening",
+    "question_en": "In what year was the British Museum established by an Act of Parliament?",
+    "gold": "1753",
+    "gold_aliases": [
+      "1753"
+    ],
+    "shadow_question_en": "In what year was the British Museum first opened to the public?",
+    "d": "1759",
+    "d_aliases": [
+      "1759"
+    ],
+    "g_terms": [
+      "established"
+    ],
+    "d_terms": [
+      "opened to the public",
+      "opened",
+      "opening"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.britishmuseum.org/about-us/british-museum-story",
+        "fact": "1753年成立。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.britishmuseum.org/about-us/british-museum-story",
+        "fact": "1759年向公众开放。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "established / first opened to the public",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-017",
+      "q_answer": 1753,
+      "shadow_answer": 1759,
+      "q_basis": "大英博物馆官网治理页面明确说博物馆由1753年议会法案设立。",
+      "shadow_basis": "博物馆官方历史页面记载1759年向公众开放。",
+      "q_urls": [
+        "https://www.britishmuseum.org/about-us/governance/trustee-baroness-minouche-shafik-dbe-deputy-chair"
+      ],
+      "shadow_urls": [
+        "https://www.britishmuseum.org/about-us/british-museum-story"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-018",
+    "pool": "Y",
+    "relation": "adopted_vs_ratified",
+    "question_en": "In what year was the United States Constitution approved by the Constitutional Convention?",
+    "gold": "1787",
+    "gold_aliases": [
+      "1787"
+    ],
+    "shadow_question_en": "In what year was the United States Constitution ratified by the ninth state, meeting its ratification threshold?",
+    "d": "1788",
+    "d_aliases": [
+      "1788"
+    ],
+    "g_terms": [
+      "approved"
+    ],
+    "d_terms": [
+      "ratified",
+      "ratification"
+    ],
+    "source_g": [
+      {
+        "url": "https://prologue.blogs.archives.gov/2021/09/09/constitution-day-translating-the-constitution/",
+        "fact": "1787年制宪会议批准文本。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.archives.gov/founding-docs/constitution-q-and-a",
+        "fact": "1788年新罕布什尔成为第九个批准州。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "Convention approval / ninth-state ratification",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-018",
+      "q_answer": 1787,
+      "shadow_answer": 1788,
+      "q_basis": "美国国家档案馆保存的宪法原件说明及历史介绍将制宪会议定稿签署日期列为1787年9月17日。",
+      "shadow_basis": "国家档案馆宪法问答明确说明第九个州新罕布什尔州于1788年6月21日批准，达到九州门槛。",
+      "q_urls": [
+        "https://www.archives.gov/milestone-documents/constitution"
+      ],
+      "shadow_urls": [
+        "https://www.archives.gov/founding-docs/constitution-q-and-a"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-019",
+    "pool": "Y",
+    "relation": "adopted_vs_ratified",
+    "question_en": "In what year were the ten amendments known as the United States Bill of Rights approved by Congress for submission to the states?",
+    "gold": "1789",
+    "gold_aliases": [
+      "1789"
+    ],
+    "shadow_question_en": "In what year were the ten amendments known as the United States Bill of Rights ratified by the required number of states?",
+    "d": "1791",
+    "d_aliases": [
+      "1791"
+    ],
+    "g_terms": [
+      "approved"
+    ],
+    "d_terms": [
+      "ratified",
+      "ratification"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.archives.gov/milestone-documents/bill-of-rights",
+        "fact": "1789年国会批准并向各州提交修正案。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.archives.gov/milestone-documents/bill-of-rights",
+        "fact": "1791年十项修正案达到州批准门槛。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "Congressional approval / state ratification",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-019",
+      "q_answer": 1789,
+      "shadow_answer": 1791,
+      "q_basis": "美国国家档案馆说明国会1789年9月25日通过十二项拟议修正案，其中第三至第十二项后来成为权利法案的十项修正案。",
+      "shadow_basis": "同一国家档案馆资料记载这十项于1791年12月15日获得批准；其专题资料明确达到四分之三州门槛。",
+      "q_urls": [
+        "https://www.archives.gov/legislative/features/bor"
+      ],
+      "shadow_urls": [
+        "https://www.archives.gov/founding-docs/bill-of-rights/how-did-it-happen"
+      ],
+      "ambiguity": "国会提交的是十二项拟议修正案；题目所问的十项是其中后来成为权利法案的十项，提交年份仍为1789年。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "Y-020",
+    "pool": "Y",
+    "relation": "signed_vs_in_force",
+    "question_en": "In what year was the Convention establishing CERN signed?",
+    "gold": "1953",
+    "gold_aliases": [
+      "1953"
+    ],
+    "shadow_question_en": "In what year did the Convention establishing CERN enter into force?",
+    "d": "1954",
+    "d_aliases": [
+      "1954"
+    ],
+    "g_terms": [
+      "signed"
+    ],
+    "d_terms": [
+      "enter into force",
+      "entered into force",
+      "entry into force"
+    ],
+    "source_g": [
+      {
+        "url": "https://stakeholder-relations.web.cern.ch/stakeholder-relations/Member-State-Relations",
+        "fact": "签署年份：1953。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://stakeholder-relations.web.cern.ch/stakeholder-relations/Member-State-Relations",
+        "fact": "生效年份：1954。"
+      }
+    ],
+    "answer_format": "year",
+    "distinction_phrase": "signed / enter into force",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "Y-020",
+      "q_answer": 1953,
+      "shadow_answer": 1954,
+      "q_basis": "欧洲核子研究中心自身的公约签署纪念资料列明1953年7月1日签署。",
+      "shadow_basis": "同一官方资料列明公约于1954年9月29日生效。",
+      "q_urls": [
+        "https://home.cern/cern-and-unesco-celebrate-the-anniversary-of-the-signature-of-the-cern-convention/"
+      ],
+      "shadow_urls": [
+        "https://home.cern/cern-and-unesco-celebrate-the-anniversary-of-the-signature-of-the-cern-convention/"
+      ],
+      "ambiguity": "无影响年份或署名答案的歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-001",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of Crime and Punishment identified as Project Gutenberg eBook 2554, who is credited as the original author?",
+    "gold": "Fyodor Dostoevsky",
+    "gold_aliases": [
+      "Fyodor Dostoevsky",
+      "Fyodor Dostoyevsky",
+      "Fyodor Mikhailovich Dostoevsky",
+      "Dostoevsky",
+      "Dostoyevsky"
+    ],
+    "shadow_question_en": "For the English edition of Crime and Punishment identified as Project Gutenberg eBook 2554, who is credited as the English translator?",
+    "d": "Constance Garnett",
+    "d_aliases": [
+      "Constance Garnett",
+      "Constance Clara Garnett",
+      "Garnett"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/2554",
+        "fact": "书目作者栏：Fyodor Dostoevsky。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/2554",
+        "fact": "书目译者栏：Constance Garnett。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-001",
+      "q_answer": "Fyodor Dostoyevsky",
+      "shadow_answer": "Constance Garnett",
+      "q_basis": "古腾堡计划第2554号电子书的书目信息将陀思妥耶夫斯基列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将康斯坦丝·加内特列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/2554"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/2554"
+      ],
+      "ambiguity": "指定书目已分别列明作者与译者，无署名角色歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-002",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of Anna Karenina identified as Project Gutenberg eBook 1399, who is credited as the original author?",
+    "gold": "Leo Tolstoy",
+    "gold_aliases": [
+      "Leo Tolstoy",
+      "Lev Tolstoy",
+      "Count Leo Tolstoy",
+      "Leo Nikolayevich Tolstoy",
+      "Lev Nikolayevich Tolstoy",
+      "Tolstoy"
+    ],
+    "shadow_question_en": "For the English edition of Anna Karenina identified as Project Gutenberg eBook 1399, who is credited as the English translator?",
+    "d": "Constance Garnett",
+    "d_aliases": [
+      "Constance Garnett",
+      "Constance Clara Garnett",
+      "Garnett"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/1399",
+        "fact": "书目作者栏：Leo Tolstoy。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/1399",
+        "fact": "书目译者栏：Constance Garnett。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-002",
+      "q_answer": "Leo Tolstoy",
+      "shadow_answer": "Constance Garnett",
+      "q_basis": "古腾堡计划第1399号电子书的书目信息将列夫·托尔斯泰列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将康斯坦丝·加内特列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/1399"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/1399"
+      ],
+      "ambiguity": "目录中的伯爵称号不是姓名组成部分，因此规范值省略该称号。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-003",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of Madame Bovary identified as Project Gutenberg eBook 2413, who is credited as the original author?",
+    "gold": "Gustave Flaubert",
+    "gold_aliases": [
+      "Gustave Flaubert",
+      "Flaubert"
+    ],
+    "shadow_question_en": "For the English edition of Madame Bovary identified as Project Gutenberg eBook 2413, who is credited as the English translator?",
+    "d": "Eleanor Marx Aveling",
+    "d_aliases": [
+      "Eleanor Marx Aveling",
+      "Eleanor Marx-Aveling",
+      "Eleanor Marx",
+      "Eleanor Aveling"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/2413",
+        "fact": "书目作者栏：Gustave Flaubert。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/2413",
+        "fact": "书目译者栏：Eleanor Marx Aveling。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-003",
+      "q_answer": "Gustave Flaubert",
+      "shadow_answer": "Eleanor Marx Aveling",
+      "q_basis": "古腾堡计划第2413号电子书的书目信息将居斯塔夫·福楼拜列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将埃莉诺·马克思·艾威林列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/2413"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/2413"
+      ],
+      "ambiguity": "采用书目署名的完整姓名，目录倒置形式为姓氏在前；连字符写法差异不代表不同译者。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-004",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of Don Quixote identified as Project Gutenberg eBook 996, who is credited as the original author?",
+    "gold": "Miguel de Cervantes",
+    "gold_aliases": [
+      "Miguel de Cervantes",
+      "Miguel de Cervantes Saavedra",
+      "Cervantes"
+    ],
+    "shadow_question_en": "For the English edition of Don Quixote identified as Project Gutenberg eBook 996, who is credited as the English translator?",
+    "d": "John Ormsby",
+    "d_aliases": [
+      "John Ormsby",
+      "Ormsby"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/996",
+        "fact": "书目作者栏：Miguel de Cervantes。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/996",
+        "fact": "书目译者栏：John Ormsby。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-004",
+      "q_answer": "Miguel de Cervantes Saavedra",
+      "shadow_answer": "John Ormsby",
+      "q_basis": "古腾堡计划第996号电子书的书目信息将米格尔·德·塞万提斯·萨维德拉列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将约翰·奥姆斯比列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/996"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/996"
+      ],
+      "ambiguity": "指定书目已分别列明作者与译者，无署名角色歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-005",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of Metamorphosis identified as Project Gutenberg eBook 5200, who is credited as the original author?",
+    "gold": "Franz Kafka",
+    "gold_aliases": [
+      "Franz Kafka",
+      "Kafka"
+    ],
+    "shadow_question_en": "For the English edition of Metamorphosis identified as Project Gutenberg eBook 5200, who is credited as the English translator?",
+    "d": "David Wyllie",
+    "d_aliases": [
+      "David Wyllie",
+      "Wyllie"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/5200",
+        "fact": "书目作者栏：Franz Kafka。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/5200",
+        "fact": "书目译者栏：David Wyllie。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-005",
+      "q_answer": "Franz Kafka",
+      "shadow_answer": "David Wyllie",
+      "q_basis": "古腾堡计划第5200号电子书的书目信息将弗兰茨·卡夫卡列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将戴维·威利列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/5200"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/5200"
+      ],
+      "ambiguity": "指定书目已分别列明作者与译者，无署名角色歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-006",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of The Odyssey identified as Project Gutenberg eBook 1727, who is credited as the original author?",
+    "gold": "Homer",
+    "gold_aliases": [
+      "Homer",
+      "Homeros"
+    ],
+    "shadow_question_en": "For the English edition of The Odyssey identified as Project Gutenberg eBook 1727, who is credited as the English translator?",
+    "d": "Samuel Butler",
+    "d_aliases": [
+      "Samuel Butler",
+      "Butler"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/1727",
+        "fact": "书目作者栏：Homer。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/1727",
+        "fact": "书目译者栏：Samuel Butler。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-006",
+      "q_answer": "Homer",
+      "shadow_answer": "Samuel Butler",
+      "q_basis": "古腾堡计划第1727号电子书的书目信息将荷马列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将塞缪尔·巴特勒列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/1727"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/1727"
+      ],
+      "ambiguity": "回答的是指定电子书的作者署名；不据此裁定荷马史诗的历史成书与作者身份争议。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-007",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of The Iliad identified as Project Gutenberg eBook 6130, who is credited as the original author?",
+    "gold": "Homer",
+    "gold_aliases": [
+      "Homer",
+      "Homeros"
+    ],
+    "shadow_question_en": "For the English edition of The Iliad identified as Project Gutenberg eBook 6130, who is credited as the English translator?",
+    "d": "Alexander Pope",
+    "d_aliases": [
+      "Alexander Pope",
+      "Pope"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/6130",
+        "fact": "书目作者栏：Homer。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/6130",
+        "fact": "书目译者栏：Alexander Pope。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-007",
+      "q_answer": "Homer",
+      "shadow_answer": "Alexander Pope",
+      "q_basis": "古腾堡计划第6130号电子书的书目信息将荷马列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将亚历山大·蒲柏列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/6130"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/6130"
+      ],
+      "ambiguity": "回答的是指定电子书的作者署名；不据此裁定荷马史诗的历史成书与作者身份争议。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-008",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of The Brothers Karamazov identified as Project Gutenberg eBook 28054, who is credited as the original author?",
+    "gold": "Fyodor Dostoevsky",
+    "gold_aliases": [
+      "Fyodor Dostoevsky",
+      "Fyodor Dostoyevsky",
+      "Fyodor Mikhailovich Dostoevsky",
+      "Dostoevsky",
+      "Dostoyevsky"
+    ],
+    "shadow_question_en": "For the English edition of The Brothers Karamazov identified as Project Gutenberg eBook 28054, who is credited as the English translator?",
+    "d": "Constance Garnett",
+    "d_aliases": [
+      "Constance Garnett",
+      "Constance Clara Garnett",
+      "Garnett"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/28054",
+        "fact": "书目作者栏：Fyodor Dostoevsky。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/28054",
+        "fact": "书目译者栏：Constance Garnett。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-008",
+      "q_answer": "Fyodor Dostoyevsky",
+      "shadow_answer": "Constance Garnett",
+      "q_basis": "古腾堡计划第28054号电子书的书目信息将陀思妥耶夫斯基列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将康斯坦丝·加内特列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/28054"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/28054"
+      ],
+      "ambiguity": "指定书目已分别列明作者与译者，无署名角色歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-009",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of Inferno (Hell), the first part of The Divine Comedy identified as Project Gutenberg eBook 1001, who is credited as the original author?",
+    "gold": "Dante Alighieri",
+    "gold_aliases": [
+      "Dante Alighieri",
+      "Dante"
+    ],
+    "shadow_question_en": "For the English edition of Inferno (Hell), the first part of The Divine Comedy identified as Project Gutenberg eBook 1001, who is credited as the English translator?",
+    "d": "Henry Wadsworth Longfellow",
+    "d_aliases": [
+      "Henry Wadsworth Longfellow",
+      "Henry W. Longfellow",
+      "Longfellow"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/1001",
+        "fact": "书目作者栏：Dante Alighieri。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/1001",
+        "fact": "书目译者栏：Henry Wadsworth Longfellow。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-009",
+      "q_answer": "Dante Alighieri",
+      "shadow_answer": "Henry Wadsworth Longfellow",
+      "q_basis": "古腾堡计划第1001号电子书的书目信息将但丁·阿利吉耶里列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将亨利·沃兹沃思·朗费罗列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/1001"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/1001"
+      ],
+      "ambiguity": "指定书目已分别列明作者与译者，无署名角色歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "B-010",
+    "pool": "B",
+    "relation": "original_author_vs_translator",
+    "question_en": "For the English edition of Democracy in America, Volume 1 identified as Project Gutenberg eBook 815, who is credited as the original author?",
+    "gold": "Alexis de Tocqueville",
+    "gold_aliases": [
+      "Alexis de Tocqueville",
+      "Alexis Charles Henri Clerel de Tocqueville",
+      "Tocqueville"
+    ],
+    "shadow_question_en": "For the English edition of Democracy in America, Volume 1 identified as Project Gutenberg eBook 815, who is credited as the English translator?",
+    "d": "Henry Reeve",
+    "d_aliases": [
+      "Henry Reeve",
+      "Reeve"
+    ],
+    "g_terms": [
+      "original author",
+      "author"
+    ],
+    "d_terms": [
+      "English translator",
+      "translator",
+      "translated"
+    ],
+    "source_g": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/815",
+        "fact": "书目作者栏：Alexis de Tocqueville。"
+      }
+    ],
+    "source_d": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/815",
+        "fact": "书目译者栏：Henry Reeve。"
+      }
+    ],
+    "answer_format": "entity",
+    "distinction_phrase": "original author / English translator",
+    "status": "eligible_precalibration",
+    "independent_check": {
+      "ID": "B-010",
+      "q_answer": "Alexis de Tocqueville",
+      "shadow_answer": "Henry Reeve",
+      "q_basis": "古腾堡计划第815号电子书的书目信息将阿列克西·德·托克维尔列在作者栏，规范姓名按该栏原文填写。",
+      "shadow_basis": "同一指定版本将亨利·里夫列在译者栏，规范姓名按该栏原文填写。",
+      "q_urls": [
+        "https://www.gutenberg.org/ebooks/815"
+      ],
+      "shadow_urls": [
+        "https://www.gutenberg.org/ebooks/815"
+      ],
+      "ambiguity": "指定书目已分别列明作者与译者，无署名角色歧义。",
+      "q_match": true,
+      "shadow_match": true,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": true,
+      "passed": true
+    }
+  },
+  {
+    "conflict_id": "K-001",
+    "pool": "K",
+    "relation": "designated_vs_channel_body",
+    "question_en": "Under China's accession to the Hague Service Convention (1991) and the Hague Evidence Convention (1997), which government ministry was designated as the Central Authority responsible for judicial assistance and for receiving documents transmitted through consular channels?",
+    "gold": "Ministry of Justice",
+    "gold_aliases": [
+      "Ministry of Justice",
+      "Ministry of Justice of the People's Republic of China",
+      "MOJ"
+    ],
+    "shadow_question_en": null,
+    "d": "Ministry of Foreign Affairs",
+    "d_aliases": [
+      "Ministry of Foreign Affairs",
+      "Ministry of Foreign Affairs of the People's Republic of China",
+      "MFA"
+    ],
+    "g_terms": [
+      "Central Authority"
+    ],
+    "d_terms": [
+      "consular channels"
+    ],
+    "source_g": [
+      {
+        "url": "https://treatydatabase.overheid.nl/en/Treaty/Details/004235_du.html",
+        "fact": "中国1991年声明：中央机关与领事渠道文书接收机关均为司法部。"
+      },
+      {
+        "url": "https://www.hcch.net/en/states/authorities/details3/?aid=243",
+        "fact": "送达公约中央机关为司法部。"
+      },
+      {
+        "url": "https://www.hcch.net/en/states/authorities/details3/?aid=490",
+        "fact": "取证公约中央机关为司法部。"
+      }
+    ],
+    "source_d": null,
+    "answer_format": "entity",
+    "distinction_phrase": "designated authority / transmission channel",
+    "status": "K_truth_checked",
+    "shadow_applicability": "不适用：仅真值核对及阳性检查；竞争值是预设错误答案，不声称另有真影子问题。",
+    "independent_check": {
+      "ID": "K-001",
+      "q_answer": "Ministry of Justice of the People's Republic of China",
+      "shadow_answer": null,
+      "q_basis": "最高人民法院、外交部、司法部关于执行海牙送达公约有关程序的通知明确说明，1991年批准加入该公约时，指定司法部为中央机关，并指定其为有权接收外国通过领事途径转递文书的机关。北京市政府网站的涉外法律服务手册也说明，中国1997年加入海牙取证公约时指定司法部为接收和传递请求书的中央机关。两项依据指向同一部委。",
+      "shadow_basis": null,
+      "q_urls": [
+        "https://www.gqb.gov.cn/node2/node3/node5/node9/node113/userobject7ai1464.html",
+        "https://treatydatabase.overheid.nl/en/Treaty/Details/004235_du.html",
+        "https://hsc.beijing.gov.cn/hsc/kxc/rcfw/743975479/index.shtml"
+      ],
+      "shadow_urls": [],
+      "ambiguity": "没有影响答案的歧义。接收经领事途径转递文书的具体指定来自送达公约；取证公约的中央机关职责是接收并转交取证请求书。",
+      "q_match": true,
+      "shadow_match": null,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": false,
+      "passed": null
+    }
+  },
+  {
+    "conflict_id": "K-002",
+    "pool": "K",
+    "relation": "statutory_period_adjacent",
+    "question_en": "Under the 1992 Maritime Code of the People's Republic of China, before the 2025 revision, a ship that has not arrived at its destination within a reasonable time and of which no news has been received is deemed missing, and a missing ship is deemed an actual total loss, after how many months without news (absent any contrary agreement)?",
+    "gold": "2",
+    "gold_aliases": [
+      "2",
+      "two",
+      "2 months",
+      "two months"
+    ],
+    "shadow_question_en": null,
+    "d": "1",
+    "d_aliases": [
+      "1",
+      "one",
+      "1 month",
+      "one month"
+    ],
+    "g_terms": [
+      "1992 Maritime Code"
+    ],
+    "d_terms": [
+      "one month"
+    ],
+    "source_g": [
+      {
+        "url": "https://english.www.gov.cn/services/doingbusiness/202102/24/content_WS6035f42dc6d0719374af97b9.html",
+        "fact": "1992年法第248条：无消息满2个月，另有约定除外。"
+      }
+    ],
+    "source_d": null,
+    "answer_format": "entity",
+    "distinction_phrase": "1992 code before revision / adjacent competing duration",
+    "status": "K_truth_checked",
+    "shadow_applicability": "不适用：仅真值核对及阳性检查；竞争值是预设错误答案，不声称另有真影子问题。",
+    "independent_check": {
+      "ID": "K-002",
+      "q_answer": 2,
+      "shadow_answer": null,
+      "q_basis": "湖南省交通运输厅发布的修订前海商法第二百四十八条规定：船舶在合理时间内未抵达目的地，除合同另有约定外，满两个月后仍没有消息的为船舶失踪，船舶失踪视为实际全损。所问为2025年修订之前的1992年法，因此规范短值为2个月。",
+      "shadow_basis": null,
+      "q_urls": [
+        "https://jtt.hunan.gov.cn/jtt/jjzdgz/aqsc/zcfg_2/zcfgssjt/202006/t20200611_12285941.html"
+      ],
+      "shadow_urls": [],
+      "ambiguity": "无；题目已明确排除2025年修订文本。",
+      "q_match": true,
+      "shadow_match": null,
+      "passed": true
+    },
+    "word_check": {
+      "applicable": false,
+      "passed": null
+    }
+  }
+]
