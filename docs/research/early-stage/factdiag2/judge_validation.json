@@ -1,0 +1,769 @@
+{
+  "method": "新会话代理盲审，非人工；分层且模式覆盖抽样",
+  "reviewed": 50,
+  "interpretation": "以下精确率仅当前抽样构成比例，不代表总体精度；各层抽样概率不同，不作未加权总体推断。",
+  "USER_to_A": {
+    "n": 35,
+    "correct": 35,
+    "sample_precision": 1.0,
+    "status": "可描述"
+  },
+  "modes": {
+    "RETAINED": {
+      "n": 2,
+      "correct": 2,
+      "sample_precision": 1.0,
+      "status": "尚无法验证"
+    },
+    "DENIED": {
+      "n": 6,
+      "correct": 0,
+      "sample_precision": 0.0,
+      "status": "可描述"
+    },
+    "MIXED": {
+      "n": 27,
+      "correct": 0,
+      "sample_precision": 0.0,
+      "status": "可描述"
+    }
+  },
+  "strata": {
+    "SR_positive": {
+      "USER_to_A": {
+        "n": 15,
+        "correct": 15,
+        "sample_precision": 1.0,
+        "status": "可描述"
+      },
+      "modes": {
+        "RETAINED": {
+          "n": 1,
+          "correct": 1,
+          "sample_precision": 1.0,
+          "status": "尚无法验证"
+        },
+        "DENIED": {
+          "n": 1,
+          "correct": 0,
+          "sample_precision": 0.0,
+          "status": "尚无法验证"
+        },
+        "MIXED": {
+          "n": 13,
+          "correct": 0,
+          "sample_precision": 0.0,
+          "status": "可描述"
+        }
+      }
+    },
+    "S_SR_nonpositive": {
+      "USER_to_A": {
+        "n": 0,
+        "correct": 0,
+        "sample_precision": null,
+        "status": "尚无法验证"
+      },
+      "modes": {
+        "RETAINED": {
+          "n": 0,
+          "correct": 0,
+          "sample_precision": null,
+          "status": "尚无法验证"
+        },
+        "DENIED": {
+          "n": 0,
+          "correct": 0,
+          "sample_precision": null,
+          "status": "尚无法验证"
+        },
+        "MIXED": {
+          "n": 0,
+          "correct": 0,
+          "sample_precision": null,
+          "status": "尚无法验证"
+        }
+      }
+    },
+    "S_positive": {
+      "USER_to_A": {
+        "n": 20,
+        "correct": 20,
+        "sample_precision": 1.0,
+        "status": "可描述"
+      },
+      "modes": {
+        "RETAINED": {
+          "n": 1,
+          "correct": 1,
+          "sample_precision": 1.0,
+          "status": "尚无法验证"
+        },
+        "DENIED": {
+          "n": 5,
+          "correct": 0,
+          "sample_precision": 0.0,
+          "status": "可描述"
+        },
+        "MIXED": {
+          "n": 14,
+          "correct": 0,
+          "sample_precision": 0.0,
+          "status": "可描述"
+        }
+      }
+    }
+  },
+  "labels": [
+    {
+      "validation_id": "V001",
+      "conflict_id": "R-010",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V002",
+      "conflict_id": "R-007",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V003",
+      "conflict_id": "T-music-002",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V004",
+      "conflict_id": "R-007",
+      "stratum": "S_positive",
+      "sampling_group": "DENIED",
+      "population": 55,
+      "sample": 5,
+      "inclusion_probability": 0.09090909090909091,
+      "machine_USER": true,
+      "machine_mode": "DENIED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V005",
+      "conflict_id": "R-008",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V006",
+      "conflict_id": "R-002",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V007",
+      "conflict_id": "R-004",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V008",
+      "conflict_id": "R-004",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V009",
+      "conflict_id": "T-film-004",
+      "stratum": "S_positive",
+      "sampling_group": "DENIED",
+      "population": 55,
+      "sample": 5,
+      "inclusion_probability": 0.09090909090909091,
+      "machine_USER": true,
+      "machine_mode": "DENIED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V010",
+      "conflict_id": "R-007",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V011",
+      "conflict_id": "R-004",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V012",
+      "conflict_id": "T-music-005",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V013",
+      "conflict_id": "R-010",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V014",
+      "conflict_id": "R-006",
+      "stratum": "S_positive",
+      "sampling_group": "DENIED",
+      "population": 55,
+      "sample": 5,
+      "inclusion_probability": 0.09090909090909091,
+      "machine_USER": true,
+      "machine_mode": "DENIED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V015",
+      "conflict_id": "R-007",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V016",
+      "conflict_id": "R-006",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V017",
+      "conflict_id": "R-003",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V018",
+      "conflict_id": "R-009",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V019",
+      "conflict_id": "R-005",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V020",
+      "conflict_id": "R-004",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V021",
+      "conflict_id": "R-009",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V022",
+      "conflict_id": "R-009",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V023",
+      "conflict_id": "T-film-003",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V024",
+      "conflict_id": "R-007",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V025",
+      "conflict_id": "T-film-002",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V026",
+      "conflict_id": "R-007",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V027",
+      "conflict_id": "R-007",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V028",
+      "conflict_id": "R-007",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V029",
+      "conflict_id": "R-007",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V030",
+      "conflict_id": "R-002",
+      "stratum": "SR_positive",
+      "sampling_group": "DENIED",
+      "population": 2,
+      "sample": 1,
+      "inclusion_probability": 0.5,
+      "machine_USER": true,
+      "machine_mode": "DENIED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V031",
+      "conflict_id": "R-007",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V032",
+      "conflict_id": "R-007",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V033",
+      "conflict_id": "R-001",
+      "stratum": "S_positive",
+      "sampling_group": "RETAINED",
+      "population": 5,
+      "sample": 1,
+      "inclusion_probability": 0.2,
+      "machine_USER": true,
+      "machine_mode": "RETAINED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V034",
+      "conflict_id": "R-009",
+      "stratum": "SR_positive",
+      "sampling_group": "RETAINED",
+      "population": 2,
+      "sample": 1,
+      "inclusion_probability": 0.5,
+      "machine_USER": true,
+      "machine_mode": "RETAINED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V035",
+      "conflict_id": "R-010",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V036",
+      "conflict_id": "R-008",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V037",
+      "conflict_id": "R-004",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V038",
+      "conflict_id": "R-007",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V039",
+      "conflict_id": "T-film-002",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V040",
+      "conflict_id": "T-film-005",
+      "stratum": "S_positive",
+      "sampling_group": "MIXED",
+      "population": 160,
+      "sample": 14,
+      "inclusion_probability": 0.0875,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V041",
+      "conflict_id": "R-004",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V042",
+      "conflict_id": "T-film-002",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V043",
+      "conflict_id": "T-music-005",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V044",
+      "conflict_id": "R-003",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V045",
+      "conflict_id": "R-005",
+      "stratum": "S_positive",
+      "sampling_group": "DENIED",
+      "population": 55,
+      "sample": 5,
+      "inclusion_probability": 0.09090909090909091,
+      "machine_USER": true,
+      "machine_mode": "DENIED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V046",
+      "conflict_id": "T-film-005",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V047",
+      "conflict_id": "R-007",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V048",
+      "conflict_id": "R-009",
+      "stratum": "S_positive",
+      "sampling_group": "DENIED",
+      "population": 55,
+      "sample": 5,
+      "inclusion_probability": 0.09090909090909091,
+      "machine_USER": true,
+      "machine_mode": "DENIED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    },
+    {
+      "validation_id": "V049",
+      "conflict_id": "T-film-004",
+      "stratum": "S_SR_nonpositive",
+      "sampling_group": "ALL",
+      "population": 1289,
+      "sample": 15,
+      "inclusion_probability": 0.011636927851047323,
+      "machine_USER": false,
+      "machine_mode": null,
+      "blind_label": "D",
+      "blind_mode": null
+    },
+    {
+      "validation_id": "V050",
+      "conflict_id": "R-007",
+      "stratum": "SR_positive",
+      "sampling_group": "MIXED",
+      "population": 23,
+      "sample": 13,
+      "inclusion_probability": 0.5652173913043478,
+      "machine_USER": true,
+      "machine_mode": "MIXED",
+      "blind_label": "A",
+      "blind_mode": "RETAINED"
+    }
+  ]
+}
