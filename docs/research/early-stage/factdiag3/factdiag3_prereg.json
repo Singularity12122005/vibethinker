@@ -105,5 +105,1960 @@
       ]
     }
   },
-  "frozen_sha256": "7b6839f140a06c041ef30d54342d766d3f2176f1cf65bfa7cc9a76e94179a74b"
+  "frozen_sha256": "7b6839f140a06c041ef30d54342d766d3f2176f1cf65bfa7cc9a76e94179a74b",
+  "phase2": {
+    "candidate_checks": [
+      {
+        "id": "R-001",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/1232",
+        "reason": "古登堡编号1232的官方书目页明确列译者为威廉·肯纳兹·马里奥特（William Kenaz Marriott），不是题列的哈维·曼斯菲尔德。"
+      },
+      {
+        "id": "R-002",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/1497",
+        "reason": "古登堡编号1497的官方书目页明确列译者为本杰明·乔伊特（Benjamin Jowett），不是题列的保罗·肖里。"
+      },
+      {
+        "id": "R-003",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/47935",
+        "reason": "古登堡编号47935的官方书目页明确列译者为查尔斯·詹姆斯·霍加斯（Charles James Hogarth），不是题列的康斯坦斯·加内特。"
+      },
+      {
+        "id": "R-004",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/1998",
+        "reason": "古登堡编号1998的官方书目页明确列译者为托马斯·康芒（Thomas Common），不是题列的亚历山大·蒂勒。"
+      },
+      {
+        "id": "R-005",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/135",
+        "reason": "古登堡编号135的官方书目页明确列译者为伊莎贝尔·弗洛伦斯·哈普古德（Isabel Florence Hapgood），不是题列的查尔斯·威尔伯。"
+      },
+      {
+        "id": "R-006",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/14591",
+        "reason": "古登堡编号14591的官方书目页明确列译者为贝亚德·泰勒（Bayard Taylor），不是题列的安娜·斯旺威克。"
+      },
+      {
+        "id": "R-007",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/2850",
+        "reason": "古登堡编号2850的官方书目页明确列译者为威廉·惠斯顿（William Whiston），不是题列的威廉森。"
+      },
+      {
+        "id": "R-008",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/2542",
+        "reason": "古登堡编号2542的官方书目页明确列译者为罗伯特·法夸尔森·夏普（Robert Farquharson Sharp），不是题列的威廉·阿彻。"
+      },
+      {
+        "id": "R-009",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/6788",
+        "reason": "古登堡编号6788的官方书目页明确列译者为西奥多·马丁（Theodore Martin），不是题列的威廉·彼得。"
+      },
+      {
+        "id": "R-010",
+        "answer": "no",
+        "source": "https://www.gutenberg.org/ebooks/103",
+        "reason": "古登堡编号103的官方书目页明确列译者为乔治·梅克皮斯·陶尔（George Makepeace Towle），不是题列的迈克尔·格伦克罗斯。"
+      }
+    ],
+    "history_list": [
+      {
+        "work_id": "R-001",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "e5eb74d6442ca7d9c77bd2cdc9727be8125fa316f275da541e4aa39b9e03523b"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "e5eb74d6442ca7d9c77bd2cdc9727be8125fa316f275da541e4aa39b9e03523b"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "1c2d9f7b69c5aea0acc809ba0f5e9ac90422bbba815daf4793edc14b95e94b63"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "1c2d9f7b69c5aea0acc809ba0f5e9ac90422bbba815daf4793edc14b95e94b63"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "9031bfa540e2cb4aa9c114b41d3b544396e3ef9304d787a1c904c0deeb4342bd"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "9031bfa540e2cb4aa9c114b41d3b544396e3ef9304d787a1c904c0deeb4342bd"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "10f12c0fa216a1b970e545bee6b2ba6e2677b739b1c31404b42cca61604655f4"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "10f12c0fa216a1b970e545bee6b2ba6e2677b739b1c31404b42cca61604655f4"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "08798778788ed9bab62165d7c7c7b13ae4bddf20d7e6a09fa1926207f446303d"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "08798778788ed9bab62165d7c7c7b13ae4bddf20d7e6a09fa1926207f446303d"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "9cedf48c691e760ef3f4ab4e1c2ac3653ea9f18db4eee0246af85fec8bacc76e"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "9cedf48c691e760ef3f4ab4e1c2ac3653ea9f18db4eee0246af85fec8bacc76e"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "addee89b458e9606c8e893b2ab8c68b720e822f288a7a3d566aadd83b3c071aa"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "addee89b458e9606c8e893b2ab8c68b720e822f288a7a3d566aadd83b3c071aa"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "f1eb04a069ff1de554bcb9f81e931b93095ad94911aab9423f56cc93af1cb33e"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "f1eb04a069ff1de554bcb9f81e931b93095ad94911aab9423f56cc93af1cb33e"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "8fa323d387aae466d6fb49435ea05f0511e646fa04b3b5cb05923a658e5cbd96"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "8fa323d387aae466d6fb49435ea05f0511e646fa04b3b5cb05923a658e5cbd96"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "0c34a11ca9c6d045d7c87def7bde5aa9b2e440bb518778c3dc5cbc60010895d3"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "0c34a11ca9c6d045d7c87def7bde5aa9b2e440bb518778c3dc5cbc60010895d3"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "5b51859d2433e3e7a64878a50edb84be4d02a0134dac115dae9b899c8eb260bc"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "5b51859d2433e3e7a64878a50edb84be4d02a0134dac115dae9b899c8eb260bc"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "33d854c603d9cebbaed53435e5ffcd85909689f22f2a4de21ba7c6026ab2cad2"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "33d854c603d9cebbaed53435e5ffcd85909689f22f2a4de21ba7c6026ab2cad2"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "694412dbab05e800812c1db2a230d7bbe08650d3bec9325322e3dacb107a208c"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "694412dbab05e800812c1db2a230d7bbe08650d3bec9325322e3dacb107a208c"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "2fc6a8cc74ab0642bc3311edc47252f14682466767ac319cc9e67ae58366ab54"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "2fc6a8cc74ab0642bc3311edc47252f14682466767ac319cc9e67ae58366ab54"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "dccd909d67716ac0cfd41a550a8c6b28922ba0c4b195f4d4915b0f05a036d7d0"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "dccd909d67716ac0cfd41a550a8c6b28922ba0c4b195f4d4915b0f05a036d7d0"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "9db9825ca1d4fefdce8701d285f6419226f91d5b2f8311c8430f499b17670f74"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "9db9825ca1d4fefdce8701d285f6419226f91d5b2f8311c8430f499b17670f74"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "03809debf439c181333f4685810b4da2198b20083cda0a294a39eab6c1052df1"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "03809debf439c181333f4685810b4da2198b20083cda0a294a39eab6c1052df1"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "323d721bc4316b10cd594d1304e37fc925a8f186bf8e95562bb5a0b7cbb4e6ae"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "323d721bc4316b10cd594d1304e37fc925a8f186bf8e95562bb5a0b7cbb4e6ae"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "324dfd4b345919b52fe42069b943f7ce17397325ab5e21c68e72f8dc34604218"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "324dfd4b345919b52fe42069b943f7ce17397325ab5e21c68e72f8dc34604218"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "4bb5d74d71cfc9196cd1e61223102a3648c5cf9502c3c259ca889733c9922f30"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "4bb5d74d71cfc9196cd1e61223102a3648c5cf9502c3c259ca889733c9922f30"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "c58ae7402d4cb8a949cbec09303a717f945b6aa1d3b5e4bd5bd54e52955a5f2f"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "c58ae7402d4cb8a949cbec09303a717f945b6aa1d3b5e4bd5bd54e52955a5f2f"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "2dfa5b71637e9d3d7e585cb389715d1d129619a14807ec1a6f74ac3f46f7d8b5"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "2dfa5b71637e9d3d7e585cb389715d1d129619a14807ec1a6f74ac3f46f7d8b5"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "2631a39680e14aa92bb75423b2a40532902808ea5039663313d1b9e55c23080c"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "2631a39680e14aa92bb75423b2a40532902808ea5039663313d1b9e55c23080c"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "2888b110f627d84dca9ff6af944d70a287feb7d14a5924e64d1effc9f76191d8"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "2888b110f627d84dca9ff6af944d70a287feb7d14a5924e64d1effc9f76191d8"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "02cab2da609e469af9caf1cad897f55ec18c765a3a4d93d69f0e9ac5a27a933e"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "02cab2da609e469af9caf1cad897f55ec18c765a3a4d93d69f0e9ac5a27a933e"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "b13fac4d736177ed0d6d1f403e0f10cb124ee3bac3176ea704d9609584c4fa94"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "b13fac4d736177ed0d6d1f403e0f10cb124ee3bac3176ea704d9609584c4fa94"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "026f1db824ee8f57ec330c0d1f2cfcdaea50e2f4947beb56013a5c8e0dd9348d"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "026f1db824ee8f57ec330c0d1f2cfcdaea50e2f4947beb56013a5c8e0dd9348d"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "916bd2498c5149b40bb5438a3b5e1dafea9c6f96208b6d131206c958878f8b48"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "916bd2498c5149b40bb5438a3b5e1dafea9c6f96208b6d131206c958878f8b48"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "d0a20b9b5591b9dcc4bd5a11f0c893c9c02cc80be480be3457d419a95ffae972"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "d0a20b9b5591b9dcc4bd5a11f0c893c9c02cc80be480be3457d419a95ffae972"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "e241a57c4e7002b36384f294229cfd12798bb4f6bdf306f1ceb694015cf3921a"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "e241a57c4e7002b36384f294229cfd12798bb4f6bdf306f1ceb694015cf3921a"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "e1e61440eef59b08238095e48ab8429917267212689b9ca09fea1103bbf30e76"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "e1e61440eef59b08238095e48ab8429917267212689b9ca09fea1103bbf30e76"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "cf2e33a7838bf4330098281d2eb8b65a75e27b68c3916c6051600e7a2e226255"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "cf2e33a7838bf4330098281d2eb8b65a75e27b68c3916c6051600e7a2e226255"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "24b0c6eef0dacbae8336c03d51190b0e8c1bc68464b4375994280ed5b850deb6"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "24b0c6eef0dacbae8336c03d51190b0e8c1bc68464b4375994280ed5b850deb6"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "f400f5e7335790fd56691c0e36e0636cd339e9e0ea42fcaafe4547b90f099c7b"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "f400f5e7335790fd56691c0e36e0636cd339e9e0ea42fcaafe4547b90f099c7b"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "16d8bb58e23c7881e627b67007a9c178749a765569ed9d2f76dd459ce4abecbe"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "16d8bb58e23c7881e627b67007a9c178749a765569ed9d2f76dd459ce4abecbe"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "62cce9a39f725eec32463cb2bb08aca612a6c182f743c72f0d86394321d4c934"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "62cce9a39f725eec32463cb2bb08aca612a6c182f743c72f0d86394321d4c934"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "db9a1310a9c9ece8820a489f09f7ac6ecfd6a635a18454cc049f19bc3a64191a"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "db9a1310a9c9ece8820a489f09f7ac6ecfd6a635a18454cc049f19bc3a64191a"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "d5bbfc08ff81bee35ae535d8eb7523bae86c1f2452f3a62eed9f0143aba4332f"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "d5bbfc08ff81bee35ae535d8eb7523bae86c1f2452f3a62eed9f0143aba4332f"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "36c2fc4759de717f2e4a4f62b1b560b55bf3414f7477ff54ec4b5e469d348818"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "36c2fc4759de717f2e4a4f62b1b560b55bf3414f7477ff54ec4b5e469d348818"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "f3f4929fb48e8f053c3884cc9ce8e7c116a2c4048690dac916bf75b26471d6b6"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "f3f4929fb48e8f053c3884cc9ce8e7c116a2c4048690dac916bf75b26471d6b6"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "07fe6a8b1a426f3632f0e16485cf842278defc75c2aa7c8c1f84ca7ebbaa627b"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "07fe6a8b1a426f3632f0e16485cf842278defc75c2aa7c8c1f84ca7ebbaa627b"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "f67faac51d1f02a485c7ec5261b013940554d812cf53c9cdad937629a2f32c80"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "f67faac51d1f02a485c7ec5261b013940554d812cf53c9cdad937629a2f32c80"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "0cae3b9873c89550250649340e583c177af10494cd350fe085a5d7436a97f896"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "0cae3b9873c89550250649340e583c177af10494cd350fe085a5d7436a97f896"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "35dbb8194477bc3982bed8c3416d8f7b7f89d42dd4f162d330feb3da4fd6397f"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "35dbb8194477bc3982bed8c3416d8f7b7f89d42dd4f162d330feb3da4fd6397f"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "f32684e8383ec751f070aa76b589494ab7da5e5318514aa1420358fe17333371"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "f32684e8383ec751f070aa76b589494ab7da5e5318514aa1420358fe17333371"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "3cec25167009d699611f6a16998ba9415b9bb1c6099a1e7ce1883bd0da302c23"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "3cec25167009d699611f6a16998ba9415b9bb1c6099a1e7ce1883bd0da302c23"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "f3ee9af067ffad375d7902830303eb4e0e12e2ec3859fe8c593f54daba17ec33"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "f3ee9af067ffad375d7902830303eb4e0e12e2ec3859fe8c593f54daba17ec33"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "c276993550112afdf13af6286d05f4b457945387cca43e0f8c31e20c29ef548c"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "c276993550112afdf13af6286d05f4b457945387cca43e0f8c31e20c29ef548c"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "a787dce25d0dc17d8399d82e376b51694f7dcac1eff8e35a05687d1165a866a8"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "a787dce25d0dc17d8399d82e376b51694f7dcac1eff8e35a05687d1165a866a8"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "1e1dd701c895d537dab2509d1e2ba1a1806be224007bf10dea76aaf613b3a3ae"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "1e1dd701c895d537dab2509d1e2ba1a1806be224007bf10dea76aaf613b3a3ae"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "61cfaa7586833f2b14bf5f39a0ef75dc75bf6d92b02d1507be39cddc0562d24b"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "61cfaa7586833f2b14bf5f39a0ef75dc75bf6d92b02d1507be39cddc0562d24b"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "8562ffde5b5744cacbd440cb66d7cf3e51df29bfe2b16bc785be1547b662a8d0"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "8562ffde5b5744cacbd440cb66d7cf3e51df29bfe2b16bc785be1547b662a8d0"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "ae645b94c3df9970a2fc36811b6aedbf730626b49a19f380ca47b17a36a40344"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "ae645b94c3df9970a2fc36811b6aedbf730626b49a19f380ca47b17a36a40344"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "365bd034433df61af206cec17b6e5c6afa24f31f39b3cc1320958552b1ef7ce3"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "365bd034433df61af206cec17b6e5c6afa24f31f39b3cc1320958552b1ef7ce3"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "R-S",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "3563097fee8d86ee509ca901df78f764eb90abe7c1005211179b82db5cce078e"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "L",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "3563097fee8d86ee509ca901df78f764eb90abe7c1005211179b82db5cce078e"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "R-S",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "e40a3817145b772a33bb4e68cbb4a4dee8017646ab4dc81d658ff7c2bb47f6e4"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "L",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "e40a3817145b772a33bb4e68cbb4a4dee8017646ab4dc81d658ff7c2bb47f6e4"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "R-S",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "e630c2405bafed36f526cc3581078ecbd3e7e013609341bd5b97ff908bf4e8bc"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "L",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "e630c2405bafed36f526cc3581078ecbd3e7e013609341bd5b97ff908bf4e8bc"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "R-S",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "95689b9dae8a124666032507293ba79153457b43462bd65406253dc6d9b409d5"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "L",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "95689b9dae8a124666032507293ba79153457b43462bd65406253dc6d9b409d5"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "R-S",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "11114547569c575cc7072a3d8c56be02efa07f5390370d6ed0ddaed3b9a7125b"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "L",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "11114547569c575cc7072a3d8c56be02efa07f5390370d6ed0ddaed3b9a7125b"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "R-S",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "c5778a3d056956a13dfac0c23d538b692ff5fc356e6b774b6c5748f7c4e03bee"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "L",
+        "idx": 5,
+        "source": "batch2",
+        "history_sha256": "c5778a3d056956a13dfac0c23d538b692ff5fc356e6b774b6c5748f7c4e03bee"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "F-D",
+        "idx": 13,
+        "source": "batch2",
+        "history_sha256": "f47441f787283bd0a291d979e6637f036b7b99f173f7a57bfe3df00f7c56473f"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "S_T",
+        "idx": 0,
+        "source": "factdiag3",
+        "history_sha256": "3f7cf9263868dee751706c0ec41453e806e7b89cc0a179ed4625da55ec23c109"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "S_T",
+        "idx": 1,
+        "source": "factdiag3",
+        "history_sha256": "55b8f0e35b0feb250c24bf72a0b486da809f0f1fe25d07035407407340ce2255"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "S_T",
+        "idx": 3,
+        "source": "factdiag3",
+        "history_sha256": "7d8c13bb88a2f8bdd2ec9dc63ab81a255e49eb53b696e82108d4ea1d5651740a"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "S_T",
+        "idx": 4,
+        "source": "factdiag3",
+        "history_sha256": "fef84ee88141f93ac0d99eae2c12cb32da48fb2f2e3ef4ba81f21d3c103f8232"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "S_T",
+        "idx": 5,
+        "source": "factdiag3",
+        "history_sha256": "1f483d3c4fa651b87bb2d6572163594e4da609a312dbe91ed94a364fbe28f457"
+      },
+      {
+        "work_id": "R-001",
+        "unit": "S_T",
+        "idx": 6,
+        "source": "factdiag3",
+        "history_sha256": "823813a0fe7eb6bde6bcf85622a0bb000c4dc186ea65cd5c1eed5aa7b5d0f601"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "F-D",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "ebcc78c9b61637f7012c786c7b57024bd692e9f7c0c679790edb14fab25e05ed"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "F-D",
+        "idx": 10,
+        "source": "batch2",
+        "history_sha256": "f5b1d0d88cd50d1a1f1758d11766489fe3d7b8bdbd617a5935baa8a0f6dfd9e7"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "F-D",
+        "idx": 11,
+        "source": "batch2",
+        "history_sha256": "30cbba9086c75c82f78c2a30970c0052ec90c69478aff37f1df182a5b05ae992"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "S_T",
+        "idx": 0,
+        "source": "factdiag3",
+        "history_sha256": "d34335db63406ea31cec77505226824ed26b94fedcea0e640578ab2f0e68ef4c"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "S_T",
+        "idx": 1,
+        "source": "factdiag3",
+        "history_sha256": "f2a8eadfadafeed03094252df3560a209d03553743ca9e14a1a541f5c5de9425"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "S_T",
+        "idx": 2,
+        "source": "factdiag3",
+        "history_sha256": "1e2ec60c98d9974f8a424ac5231ad4f4b2cb6d2a28d86d9cac255669a82b39c6"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "S_T",
+        "idx": 3,
+        "source": "factdiag3",
+        "history_sha256": "0bdf14decc94e4d2c8c09719a343b743f62a040a3f65520c0a7a9c9204465131"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "S_T",
+        "idx": 5,
+        "source": "factdiag3",
+        "history_sha256": "53e15acb0ce20b2ad11a26ae2f01407c0f381d91df5e65091654f767becd9a05"
+      },
+      {
+        "work_id": "R-002",
+        "unit": "S_T",
+        "idx": 6,
+        "source": "factdiag3",
+        "history_sha256": "29453a60e8e7897dec204aeb08e89b1d8ecbc28aa45fc45b1afb9c7277fa8af9"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "F-D",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "baf66251ec2da062f4ae37a325a6d3f79c45be6367e9d1442aad40b512f59266"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "F-D",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "f19da55fee6c60eee5dc10118d833e34c24e8b5f314f3a050c245161b675834b"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "F-D",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "7e290fa787403267a6f33d04be57e4e25282197b2785001e396907f402a2bccf"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "F-D",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "8862941045e8ae51f14e72600ae7914a2ba875195ce29468376e6998c4607c90"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "F-D",
+        "idx": 4,
+        "source": "factdiag3",
+        "history_sha256": "790945543f70d4d371114cdb79b3af71bbc4cffc6bdf885e6947ac508240d51a"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "F-D",
+        "idx": 5,
+        "source": "factdiag3",
+        "history_sha256": "24b075fc451b0c267809d81bf65a7aa18a9edd8fd9ab911946871830247c6d2e"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "F-D",
+        "idx": 6,
+        "source": "factdiag3",
+        "history_sha256": "ab314d560130e1007acd10d222b075eb3b5e0331e160e348000689fc983457a4"
+      },
+      {
+        "work_id": "R-003",
+        "unit": "F-D",
+        "idx": 7,
+        "source": "factdiag3",
+        "history_sha256": "40362145de205986fac1a9ad19f828fb9679892834fddf18e166d003a4046068"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "S_T",
+        "idx": 0,
+        "source": "factdiag3",
+        "history_sha256": "2b7a511d96b821f84185d0cf9d1a57a92399b818427659c26935e1f587485c7e"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "S_T",
+        "idx": 1,
+        "source": "factdiag3",
+        "history_sha256": "614b8a394dbf9b2c3e88cfa43e9d065d0ad97821d422991fd1d29e6dfc4ace1c"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "S_T",
+        "idx": 2,
+        "source": "factdiag3",
+        "history_sha256": "2215c6c638e397f411c1d17b8f3b06b2ca6b40400c81bcf669bf4eaaf55f6757"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "S_T",
+        "idx": 3,
+        "source": "factdiag3",
+        "history_sha256": "a60c7f3c2bdfd664221ad268490fa7aff18a8248063b23e2bc6d6221d0e5a9b3"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "S_T",
+        "idx": 4,
+        "source": "factdiag3",
+        "history_sha256": "8259f357494db8e8757c15f04dead7391b65ca3b43350d16b7fbd0ca4cc703de"
+      },
+      {
+        "work_id": "R-004",
+        "unit": "S_T",
+        "idx": 5,
+        "source": "factdiag3",
+        "history_sha256": "a4a900dca3b288330ced94f9395009c694fc596b4a8429bf146eff30776486e4"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "F-D",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "bb55f83cf0c04e2e8d53d7d85f93f831ec64718f4ffcfeac2c4049c13834d809"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "F-D",
+        "idx": 4,
+        "source": "batch2",
+        "history_sha256": "2dab1017b764ff032422ea011a986194d1fb929c6475198cdf0778ea4140693d"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "F-D",
+        "idx": 6,
+        "source": "batch2",
+        "history_sha256": "2e7bd10b8ab52517eae74125bed0ac2a93461b657125629574bad07bd8a2adfa"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "F-D",
+        "idx": 10,
+        "source": "batch2",
+        "history_sha256": "1464fd041357feab1ab310ecd61cddaf8985b0e1df914b4ed20daff9e3451a73"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "F-D",
+        "idx": 11,
+        "source": "factdiag3",
+        "history_sha256": "2264ef974a416075cb2ad19aa4156ab14298b65d653ec29a4e9f6ae463bb9968"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "F-D",
+        "idx": 12,
+        "source": "factdiag3",
+        "history_sha256": "08e72373166b3e8269c7fbbe55618f319acf7c8bfe11ca13941adea53012bcd0"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "F-D",
+        "idx": 14,
+        "source": "factdiag3",
+        "history_sha256": "f4813c24105062ba8ab47bcb26b9604982d585d18af9b7a99602b8bc5a2896ff"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "F-D",
+        "idx": 15,
+        "source": "factdiag3",
+        "history_sha256": "7f243e8934e717c67fb5d14fdf90a6375dcc4226035aab5669727bef7357586c"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "S_T",
+        "idx": 3,
+        "source": "factdiag3",
+        "history_sha256": "9f3457aa5f3dd97b4fefc9696e3928af944f538df5f775c7d3ccfeb39ade2ba0"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "S_T",
+        "idx": 5,
+        "source": "factdiag3",
+        "history_sha256": "4ff99620e15992447d8442ac87b959c9b3d05b4786eb99a4addb5e3d3f1fd867"
+      },
+      {
+        "work_id": "R-005",
+        "unit": "S_T",
+        "idx": 7,
+        "source": "factdiag3",
+        "history_sha256": "0d065e615271750e5aa06106d3d2bf4d0a810a90ea84e405cb1096d7594a3c4b"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "S_T",
+        "idx": 1,
+        "source": "factdiag3",
+        "history_sha256": "fa7e0b55de28473d9b2f83c195939b8ce899447e4f1e66d55e5b140d6bbfd21a"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "S_T",
+        "idx": 2,
+        "source": "factdiag3",
+        "history_sha256": "3be73ebd8ef3ced41447cb139ea6240dbe01c6a66bcdb1c2dc2147d7d0471d99"
+      },
+      {
+        "work_id": "R-006",
+        "unit": "S_T",
+        "idx": 4,
+        "source": "factdiag3",
+        "history_sha256": "383955433e7f15c1a6cdb1f87568d4ac9503e3d9a89a6b3dbff2b81a35d08a86"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "S_T",
+        "idx": 0,
+        "source": "factdiag3",
+        "history_sha256": "96bc847bd54a978a32903619f614c3877725bbc294ea15fd49ae6aba83cc2453"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "S_T",
+        "idx": 1,
+        "source": "factdiag3",
+        "history_sha256": "34127b0340c1e47e8f2efcb904cdc70218eddca2cb3445067ef95d9587c5938d"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "S_T",
+        "idx": 2,
+        "source": "factdiag3",
+        "history_sha256": "496bcd4e7b992b5127c9aaa8b525942810f106dae0dd25c54e225d7d9ed94797"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "S_T",
+        "idx": 3,
+        "source": "factdiag3",
+        "history_sha256": "174921122aebf580ce0914adfc99ec1be590f6644c5f4360a0a116382e5a16c1"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "S_T",
+        "idx": 4,
+        "source": "factdiag3",
+        "history_sha256": "20e3a886e97637a80c0db81ffa744fcea531968a388b2c44c2bc7c5d65b9e1da"
+      },
+      {
+        "work_id": "R-007",
+        "unit": "S_T",
+        "idx": 5,
+        "source": "factdiag3",
+        "history_sha256": "23d5c94f37bee015e59a90f7487486cbe98d1d663cf3cccff2f217ab68fb304c"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "F-D",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "60ac16f2c55cc6048cf002cd79be8476c6b4eba108516dcfae67444cee0eaf9a"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "F-D",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "71c3148ff1ff851cbd4a7a848892b4331ebf8d6c42d0d35e25ef9aa7a87a91fc"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "F-D",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "ee812970bbfd357ef5d274334052df022aff59dcb109ea5a8b925e0f6b0c8b39"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "F-D",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "a71a5ac6230b007398702fef094d3fced354d1699feeb8cd24f89c3897085be2"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "F-D",
+        "idx": 4,
+        "source": "factdiag3",
+        "history_sha256": "0e77920e7a146d143c82a343b35e4d941a6f6fa6533b9e7d7b9ccbac692b0a0e"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "F-D",
+        "idx": 6,
+        "source": "factdiag3",
+        "history_sha256": "6ccf2acd5cb643acf93ad61173dc94fb8c1b1edf4155ae194541df2a9884eac7"
+      },
+      {
+        "work_id": "R-008",
+        "unit": "F-D",
+        "idx": 7,
+        "source": "factdiag3",
+        "history_sha256": "249ac110edb9ccf10bb69b9c49fd7f16f651f8fc47f3cdf0e6dbf86d8d3058af"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "F-D",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "e2e3b961e9277e88704aaa416466b777d60d494dc728e7720b25bf694a09939a"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "F-D",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "47d4f68df1676f546683c7ff7c27ae05c19cc4a0b46810843660ae185bbf7fe4"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "F-D",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "7b17806b4e7ac17fa77fc426e2434db5af43ec6c1c04b4a334b1f05d8cbd9dea"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "F-D",
+        "idx": 3,
+        "source": "batch2",
+        "history_sha256": "5049795a08dbde491516967b1b35714e2071850c00250d2effaa3949c4d2687c"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "F-D",
+        "idx": 4,
+        "source": "factdiag3",
+        "history_sha256": "4af2e78c18baf2668c9f37b00f1a0e90c9911a2fdf0abdf854b6ecb487e5af42"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "F-D",
+        "idx": 5,
+        "source": "factdiag3",
+        "history_sha256": "fd1378177a7c4319ea47a3a09b95311cb93214e20839473f194f723cae4c9569"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "F-D",
+        "idx": 6,
+        "source": "factdiag3",
+        "history_sha256": "03f13913985739fcdd42a7c54b1eb714d12d63cb20c7e0bc3af670ef5fc5a857"
+      },
+      {
+        "work_id": "R-009",
+        "unit": "F-D",
+        "idx": 7,
+        "source": "factdiag3",
+        "history_sha256": "c33a37d4a8818250444197ddabec49ef44d4cdfdee76afb5cd8fc2c331601b3d"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "F-D",
+        "idx": 0,
+        "source": "batch2",
+        "history_sha256": "7a5b0aa6d1bc36c99d62b9ccd857c9d5b68414cdc1a1d5ecd8c8aa686bde925c"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "F-D",
+        "idx": 1,
+        "source": "batch2",
+        "history_sha256": "e8e892a34fa850b0410420c4840165d3b452178156ad78b38c37560cf0d16fc5"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "F-D",
+        "idx": 2,
+        "source": "batch2",
+        "history_sha256": "ec7cce0094930f63c4026deec4f46b15f0f1bd1448ca0d3d5bb1ee73e6b5793f"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "F-D",
+        "idx": 4,
+        "source": "factdiag3",
+        "history_sha256": "db9f210269b7788e3144f251b04115fc8b894c48a72400a819d059ebc4b97932"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "F-D",
+        "idx": 5,
+        "source": "factdiag3",
+        "history_sha256": "6b73bad8d1ee6efe586eae8a0353abf779a4635ec4e5f959ea9e8d750e7d9a58"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "F-D",
+        "idx": 6,
+        "source": "factdiag3",
+        "history_sha256": "c0a927525981d1b55b941750b7a4f93653ebfea577ced5dd0c329531a2653c6f"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "F-D",
+        "idx": 7,
+        "source": "factdiag3",
+        "history_sha256": "18d51222a2e5277ee579f2a2737204cec725f93a9f73358f729fa1e95c72c4d7"
+      },
+      {
+        "work_id": "R-010",
+        "unit": "S_T",
+        "idx": 8,
+        "source": "factdiag3",
+        "history_sha256": "4bf74f27434686d252f8edde119b2ab463d0e7e4983eeb7703c07ee844315d11"
+      }
+    ],
+    "history_selection": {
+      "R-001": [
+        {
+          "unit": "F-D",
+          "idx": 2,
+          "status": "corrected",
+          "accepted": false
+        },
+        {
+          "unit": "F-D",
+          "idx": 7,
+          "status": "corrected",
+          "accepted": false
+        },
+        {
+          "unit": "F-D",
+          "idx": 11,
+          "status": "corrected",
+          "accepted": false
+        },
+        {
+          "unit": "F-D",
+          "idx": 13,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 14,
+          "status": "corrected",
+          "accepted": false
+        },
+        {
+          "unit": "F-D",
+          "idx": 15,
+          "status": "corrected",
+          "accepted": false
+        },
+        {
+          "unit": "S_T",
+          "idx": 0,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 1,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 3,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 4,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 5,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 6,
+          "status": "eligible",
+          "accepted": true
+        }
+      ],
+      "R-002": [
+        {
+          "unit": "F-D",
+          "idx": 4,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 10,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 11,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 0,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 1,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 2,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 3,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 5,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 6,
+          "status": "eligible",
+          "accepted": true
+        }
+      ],
+      "R-003": [
+        {
+          "unit": "F-D",
+          "idx": 0,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 1,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 2,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 3,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 4,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 5,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 6,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 7,
+          "status": "still_wrong",
+          "accepted": true
+        }
+      ],
+      "R-004": [
+        {
+          "unit": "S_T",
+          "idx": 0,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 1,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 2,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 3,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 4,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 5,
+          "status": "eligible",
+          "accepted": true
+        }
+      ],
+      "R-005": [
+        {
+          "unit": "F-D",
+          "idx": 0,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 4,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 6,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 10,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 11,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 12,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 14,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 15,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 1,
+          "status": "not_clean",
+          "accepted": false
+        },
+        {
+          "unit": "S_T",
+          "idx": 2,
+          "status": "not_clean",
+          "accepted": false
+        },
+        {
+          "unit": "S_T",
+          "idx": 3,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 5,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 7,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 8,
+          "status": "not_clean",
+          "accepted": false
+        }
+      ],
+      "R-006": [
+        {
+          "unit": "S_T",
+          "idx": 0,
+          "status": "not_clean",
+          "accepted": false
+        },
+        {
+          "unit": "S_T",
+          "idx": 1,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 2,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 3,
+          "status": "not_clean",
+          "accepted": false
+        },
+        {
+          "unit": "S_T",
+          "idx": 4,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 5,
+          "status": "not_clean",
+          "accepted": false
+        }
+      ],
+      "R-007": [
+        {
+          "unit": "S_T",
+          "idx": 0,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 1,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 2,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 3,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 4,
+          "status": "eligible",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 5,
+          "status": "eligible",
+          "accepted": true
+        }
+      ],
+      "R-008": [
+        {
+          "unit": "F-D",
+          "idx": 0,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 1,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 2,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 3,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 4,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 5,
+          "status": "unjudgeable",
+          "accepted": false
+        },
+        {
+          "unit": "F-D",
+          "idx": 6,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 7,
+          "status": "still_wrong",
+          "accepted": true
+        }
+      ],
+      "R-009": [
+        {
+          "unit": "F-D",
+          "idx": 0,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 1,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 2,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 3,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 4,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 5,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 6,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 7,
+          "status": "still_wrong",
+          "accepted": true
+        }
+      ],
+      "R-010": [
+        {
+          "unit": "F-D",
+          "idx": 0,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 1,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 2,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 3,
+          "status": "corrected",
+          "accepted": false
+        },
+        {
+          "unit": "F-D",
+          "idx": 4,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 5,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 6,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "F-D",
+          "idx": 7,
+          "status": "still_wrong",
+          "accepted": true
+        },
+        {
+          "unit": "S_T",
+          "idx": 8,
+          "status": "eligible",
+          "accepted": true
+        }
+      ]
+    }
+  }
 }
