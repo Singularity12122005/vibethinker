@@ -73,7 +73,7 @@ ROLE_LIST 按结构：G1 `AUTHOR, TRANSLATOR_OF_THIS_EDITION, TRANSLATOR_OF_ANOT
 
 **候选与 τ 编码。** T 本版真译者（same_subject 1, relation_change 1, qualifier 0, medium 0, creator 1, computable 0）；d_T 另一版本真译者（同 T 但 qualifier 1）；I 本版引言作者、编者或插图者（同 T；执行器从古腾堡页面或正文前页核实，且 r_adj^online 对其角色的提出率 ≥0.5 才启用，否则该作品记"无 I"；已知候选：R-004 Common 译本的引言作者 Elisabeth Förster-Nietzsche）；C 主角或标题人物（same_subject 1, relation_change 1, qualifier 0, medium 0, creator 0, computable 0）：R-001 Cesare Borgia、R-002 Glaucon、R-003 Yevgeny Bazarov、R-004 Zarathustra、R-005 Jean Valjean、R-006 Mephistopheles、R-007 Titus、R-008 Nora Helmer、R-009 Wilhelm Tell、R-010 Phileas Fogg；X 主体改变（same_subject 0）：同源语种、活动年代与 T 相差 ≤50 年、译过其他作者作品的真实译者，执行器逐一核实"从未翻译、编辑或为该作品作序"后冻结，一作品一名（示例须核实：R-003 可取 Tolstoy 的译者 Aylmer Maude；R-005 不得取译过《悲惨世界》的任何人）；F_w 虚构名（same_subject 0；沿用批次4、5 冻结值）。
 **臂。** S：T、d_T、I、C、X、F_w 各 4 条（T 的 S 臂本批重跑，批次3 的结果作为跨批历史参照并列，不进入正式效应）；C 臂：T、d_T、I、C、X 各 2 条（F_w 无 C 臂，不计算 ΔM，不进入 M_C 预测）；S+A1：I、C 各 4 条；S+A0：T 4 条。
-**读数。** 每候选 Δ_gold（教师强制加 4 次采样）、f_assoc、r_adj^diag（T、d_T、I）、r_adj^online（I、C、X；T、d_T、x̄、F_w 已在第五批 R0）、e(h, D)；每历史 Δ_pol。
+**读数。** 每候选 Δ_gold（教师强制加 4 次采样）、f_assoc、r_adj^diag（T、d_T、I）、r_adj^online（I、C、X 本批必做；T、d_T、x̄、F_w 原定复用第五批 R0，若执行时第五批 R0 结果不可得，则本批按本文 §1.3 的模板与 4 次采样补做并计入本批预算，在预注册中记"本批补做"；若第五批结果随后可得，两套各归各批使用，不重复生成、不混用）、e(h, D)；每历史 Δ_pol。
 **分析。** 主分析在 e(h, D) = 未曝光 的历史子集上按候选类型报告 M_S、M_C、ΔM 与 y2 分布；全体并列；以 Δ_gold 与 f_assoc 为协变量的逻辑回归检验 τ 特征的增量。
 **预测。** ΔM 顺序 T ≈ d_T ≥ I > C ≥ X（F_w 只报告 M_S）；数值：M_S(T) ≥0.30（跨批参照 0.42），M_S(d_T) ≥0.25，M_S(I) ∈ (0.05, 0.30)，M_S(C) ≤0.10，M_S(X) ≤0.05，M_S(F_w) ≤0.05，M_C ≤0.03（T、d_T、I、C、X）；漂移输出中 y2 = TRUE_ROLE ≥0.9（T、d_T、I；d_T 被标为本版译者计 FALSE_ROLE）；C 与 X 的 S 臂 FALSE_ROLE ≤0.15；S+A1 下 I 的 DENIED ≤0.10（r_adj^diag ≥0.5 的作品）。A0 格是内容特异性检验："不含具体任务与候选信息的审慎开头是否已足以产生保护"；预测目标错误 ≤0.05；§9 的两个拟合模型在解盲前各自给出对 A0 的预测并记录，实际结果与两者比较，不以低错误率单独判定任一模型获胜。推翻 T1：控制 Δ_gold 与 f_assoc 后 τ 特征无增量，或 M_S(C) ≥ M_S(T)/2。
 **规模。** S 1440；C 臂 600；S+A1 480；S+A0 240；读数采样：Δ_gold 4 次 × ≤60 候选 = 240，r_adj^online 4 次 × ≤30 = 120；合计约 3120。
@@ -187,3 +187,4 @@ ROLE_LIST 按结构：G1 `AUTHOR, TRANSLATOR_OF_THIS_EDITION, TRANSLATOR_OF_ANOT
 14. v3：身份编码优先级 D → X → G → 其他；x 为第2轮结束时的实际答案，两轮不一致单列；d = x 的历史排除并报告。
 15. v3：版本未明单列为"角色明确、版本未明"并在精确版本比例中进入未知；评审加 CONFLICTING 标签；creator_type_role 指候选在 q′ 中的角色；训练域恒定或重合的特征不解释系数。
 16. v3：干净首答一律 8 次，4 次只指 r_adj^online 与 Δ_gold 采样；G0d 决定补标 d_T 另一版本命题，新标签独立保存。
+17. v3.1：G1 对 T、d_T、x̄、F_w 的 r_adj^online 在第五批 R0 不可得时由本批补做（40 名 × 4 = 160 条短回答），计入本批预算。
