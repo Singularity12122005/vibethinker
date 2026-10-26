@@ -1,0 +1,5867 @@
+{
+  "materials": [
+    {
+      "work_id": "R-001",
+      "title": "The Prince",
+      "ebook": "1232",
+      "R": {
+        "conflict_id": "R-001",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "The Prince",
+        "ebook_id": "1232",
+        "question_en": "For the English edition of The Prince identified as Project Gutenberg eBook 1232, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of The Prince identified as Project Gutenberg eBook 1232, who is credited as the English translator?",
+        "gold": "Niccolò Machiavelli",
+        "gold_aliases": [
+          "Niccolò Machiavelli",
+          "Niccolo Machiavelli",
+          "Machiavelli"
+        ],
+        "d": "William Kenaz Marriott",
+        "d_aliases": [
+          "William Kenaz Marriott's",
+          "William Kenaz Marriott’s",
+          "William Kenaz Marriott",
+          "William K. Marriott's",
+          "William K. Marriott’s",
+          "William K Marriott's",
+          "William K Marriott’s",
+          "W. Kenaz Marriott's",
+          "W. Kenaz Marriott’s",
+          "William K. Marriott",
+          "W Kenaz Marriott's",
+          "W Kenaz Marriott’s",
+          "William K Marriott",
+          "William Marriott's",
+          "William Marriott’s",
+          "W. Kenaz Marriott",
+          "W Kenaz Marriott",
+          "W. K. Marriott's",
+          "W. K. Marriott’s",
+          "William Marriott",
+          "W K. Marriott's",
+          "W K. Marriott’s",
+          "W. K Marriott's",
+          "W. K Marriott’s",
+          "W K Marriott's",
+          "W K Marriott’s",
+          "W. K. Marriott",
+          "W K. Marriott",
+          "W. K Marriott",
+          "W. Marriott's",
+          "W. Marriott’s",
+          "W K Marriott",
+          "W Marriott's",
+          "W Marriott’s",
+          "W. Marriott",
+          "Marriott's",
+          "Marriott’s",
+          "W Marriott",
+          "Marriott"
+        ],
+        "P_g": "Niccolò Machiavelli wrote The Prince in its original language; Niccolò Machiavelli is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/1232 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/1232 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-001",
+          "answer_q": "Niccolò Machiavelli",
+          "answer_shadow": "William Kenaz Marriott",
+          "source_q": "https://www.gutenberg.org/ebooks/1232",
+          "source_shadow": "https://www.gutenberg.org/ebooks/1232",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -5.020317554473877,
+          "lp_d": -97.15509033203125,
+          "gap": 92.13477277755737,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-001",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "The Prince",
+        "ebook_id": "1232",
+        "question_en": "For the English edition of The Prince identified as Project Gutenberg eBook 1232, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of The Prince identified as Project Gutenberg eBook 1232, who is credited as the original author?",
+        "gold": "William Kenaz Marriott",
+        "gold_aliases": [
+          "William Kenaz Marriott's",
+          "William Kenaz Marriott’s",
+          "William Kenaz Marriott",
+          "William K. Marriott's",
+          "William K. Marriott’s",
+          "William K Marriott's",
+          "William K Marriott’s",
+          "W. Kenaz Marriott's",
+          "W. Kenaz Marriott’s",
+          "William K. Marriott",
+          "W Kenaz Marriott's",
+          "W Kenaz Marriott’s",
+          "William K Marriott",
+          "William Marriott's",
+          "William Marriott’s",
+          "W. Kenaz Marriott",
+          "W Kenaz Marriott",
+          "W. K. Marriott's",
+          "W. K. Marriott’s",
+          "William Marriott",
+          "W K. Marriott's",
+          "W K. Marriott’s",
+          "W. K Marriott's",
+          "W. K Marriott’s",
+          "W K Marriott's",
+          "W K Marriott’s",
+          "W. K. Marriott",
+          "W K. Marriott",
+          "W. K Marriott",
+          "W. Marriott's",
+          "W. Marriott’s",
+          "W K Marriott",
+          "W Marriott's",
+          "W Marriott’s",
+          "W. Marriott",
+          "Marriott's",
+          "Marriott’s",
+          "W Marriott",
+          "Marriott"
+        ],
+        "d": "Niccolò Machiavelli",
+        "d_aliases": [
+          "Niccolò Machiavelli",
+          "Niccolo Machiavelli",
+          "Machiavelli"
+        ],
+        "P_g": "William Kenaz Marriott is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/1232 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/1232 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-001",
+          "parent_check": {
+            "conflict_id": "R-001",
+            "answer_q": "Niccolò Machiavelli",
+            "answer_shadow": "William Kenaz Marriott",
+            "source_q": "https://www.gutenberg.org/ebooks/1232",
+            "source_shadow": "https://www.gutenberg.org/ebooks/1232",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+          }
+        },
+        "parent_id": "R-001",
+        "calibration": {
+          "correct": 10,
+          "parsed_wrong": 6,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 6,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 6,
+          "confusion_rate": 0.0,
+          "p0": 0.625,
+          "lp_gold": -60.830322265625,
+          "lp_d": -38.696044921875,
+          "gap": -22.13427734375,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "Harvey C. Mansfield",
+      "d_T_aliases": [
+        "Harvey C. Mansfield's",
+        "Harvey C. Mansfield’s",
+        "Harvey C Mansfield's",
+        "Harvey C Mansfield’s",
+        "Harvey C. Mansfield",
+        "Harvey C Mansfield",
+        "Harvey Mansfield's",
+        "Harvey Mansfield’s",
+        "H. C. Mansfield's",
+        "H. C. Mansfield’s",
+        "H C. Mansfield's",
+        "H C. Mansfield’s",
+        "H. C Mansfield's",
+        "H. C Mansfield’s",
+        "Harvey Mansfield",
+        "H C Mansfield's",
+        "H C Mansfield’s",
+        "H. C. Mansfield",
+        "H C. Mansfield",
+        "H. C Mansfield",
+        "H. Mansfield's",
+        "H. Mansfield’s",
+        "H C Mansfield",
+        "H Mansfield's",
+        "H Mansfield’s",
+        "H. Mansfield",
+        "H Mansfield",
+        "Mansfield's",
+        "Mansfield’s",
+        "Mansfield"
+      ],
+      "source_dT": "https://press.uchicago.edu/ucp/books/book/chicago/P/bo3615120.html",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Niccolò Machiavelli wrote The Prince in its original language.",
+      "P_trans": "William Kenaz Marriott is the translator credited in Project Gutenberg eBook 1232.",
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/1232 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "William Kenaz Marriott's",
+          "William Kenaz Marriott’s",
+          "William K. Marriott's",
+          "William K. Marriott’s",
+          "William K Marriott's",
+          "William K Marriott’s",
+          "W. Kenaz Marriott's",
+          "W. Kenaz Marriott’s",
+          "W Kenaz Marriott's",
+          "W Kenaz Marriott’s",
+          "William K Marriott",
+          "William Marriott's",
+          "William Marriott’s",
+          "W. Kenaz Marriott",
+          "W Kenaz Marriott",
+          "W. K. Marriott's",
+          "W. K. Marriott’s",
+          "William Marriott",
+          "W K. Marriott's",
+          "W K. Marriott’s",
+          "W. K Marriott's",
+          "W. K Marriott’s",
+          "W K Marriott's",
+          "W K Marriott’s",
+          "W K. Marriott",
+          "W. K Marriott",
+          "W. Marriott's",
+          "W. Marriott’s",
+          "W Marriott's",
+          "W Marriott’s",
+          "W. Marriott",
+          "Marriott's",
+          "Marriott’s",
+          "W Marriott"
+        ],
+        "added_dT": [
+          "Harvey C. Mansfield's",
+          "Harvey C. Mansfield’s",
+          "Harvey C Mansfield's",
+          "Harvey C Mansfield’s",
+          "Harvey C Mansfield",
+          "Harvey Mansfield's",
+          "Harvey Mansfield’s",
+          "H. C. Mansfield's",
+          "H. C. Mansfield’s",
+          "H C. Mansfield's",
+          "H C. Mansfield’s",
+          "H. C Mansfield's",
+          "H. C Mansfield’s",
+          "H C Mansfield's",
+          "H C Mansfield’s",
+          "H. C. Mansfield",
+          "H C. Mansfield",
+          "H. C Mansfield",
+          "H. Mansfield's",
+          "H. Mansfield’s",
+          "H C Mansfield",
+          "H Mansfield's",
+          "H Mansfield’s",
+          "H. Mansfield",
+          "H Mansfield",
+          "Mansfield's",
+          "Mansfield’s",
+          "Mansfield"
+        ]
+      }
+    },
+    {
+      "work_id": "R-002",
+      "title": "The Republic",
+      "ebook": "1497",
+      "R": {
+        "conflict_id": "R-002",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "The Republic",
+        "ebook_id": "1497",
+        "question_en": "For the English edition of The Republic identified as Project Gutenberg eBook 1497, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of The Republic identified as Project Gutenberg eBook 1497, who is credited as the English translator?",
+        "gold": "Plato",
+        "gold_aliases": [
+          "Plato"
+        ],
+        "d": "Benjamin Jowett",
+        "d_aliases": [
+          "Benjamin Jowett's",
+          "Benjamin Jowett’s",
+          "Benjamin Jowett",
+          "B. Jowett's",
+          "B. Jowett’s",
+          "B Jowett's",
+          "B Jowett’s",
+          "B. Jowett",
+          "B Jowett",
+          "Jowett's",
+          "Jowett’s",
+          "Jowett"
+        ],
+        "P_g": "Plato wrote The Republic in its original language; Plato is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/1497 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/1497 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-002",
+          "answer_q": "Plato",
+          "answer_shadow": "Benjamin Jowett",
+          "source_q": "https://www.gutenberg.org/ebooks/1497",
+          "source_shadow": "https://www.gutenberg.org/ebooks/1497",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者。虽书目提示另有改进版本，本次严格使用题目指定编号。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -3.060176134109497,
+          "lp_d": -35.26738357543945,
+          "gap": 32.207207441329956,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-002",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "The Republic",
+        "ebook_id": "1497",
+        "question_en": "For the English edition of The Republic identified as Project Gutenberg eBook 1497, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of The Republic identified as Project Gutenberg eBook 1497, who is credited as the original author?",
+        "gold": "Benjamin Jowett",
+        "gold_aliases": [
+          "Benjamin Jowett's",
+          "Benjamin Jowett’s",
+          "Benjamin Jowett",
+          "B. Jowett's",
+          "B. Jowett’s",
+          "B Jowett's",
+          "B Jowett’s",
+          "B. Jowett",
+          "B Jowett",
+          "Jowett's",
+          "Jowett’s",
+          "Jowett"
+        ],
+        "d": "Plato",
+        "d_aliases": [
+          "Plato"
+        ],
+        "P_g": "Benjamin Jowett is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/1497 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/1497 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-002",
+          "parent_check": {
+            "conflict_id": "R-002",
+            "answer_q": "Plato",
+            "answer_shadow": "Benjamin Jowett",
+            "source_q": "https://www.gutenberg.org/ebooks/1497",
+            "source_shadow": "https://www.gutenberg.org/ebooks/1497",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者。虽书目提示另有改进版本，本次严格使用题目指定编号。"
+          }
+        },
+        "parent_id": "R-002",
+        "calibration": {
+          "correct": 13,
+          "parsed_wrong": 3,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 3,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 3,
+          "confusion_rate": 0.0,
+          "p0": 0.8125,
+          "lp_gold": -9.329644203186035,
+          "lp_d": -27.396427154541016,
+          "gap": 18.06678295135498,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "Paul Shorey",
+      "d_T_aliases": [
+        "Paul Shorey's",
+        "Paul Shorey’s",
+        "P. Shorey's",
+        "P. Shorey’s",
+        "Paul Shorey",
+        "P Shorey's",
+        "P Shorey’s",
+        "P. Shorey",
+        "P Shorey",
+        "Shorey's",
+        "Shorey’s",
+        "Shorey"
+      ],
+      "source_dT": "https://catalog.perseus.org/catalog/urn%3Acts%3AgreekLit%3Atlg0059.tlg030.perseus-eng1",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Plato wrote The Republic in its original language.",
+      "P_trans": "Benjamin Jowett is the translator credited in Project Gutenberg eBook 1497.",
+      "fictional_name": "Edmund Lionel Varncombe",
+      "fictional_aliases": [
+        "Edmund Lionel Varncombe's",
+        "Edmund Lionel Varncombe’s",
+        "Edmund Lionel Varncombe",
+        "E. Lionel Varncombe's",
+        "E. Lionel Varncombe’s",
+        "Edmund L. Varncombe's",
+        "Edmund L. Varncombe’s",
+        "E Lionel Varncombe's",
+        "E Lionel Varncombe’s",
+        "Edmund L Varncombe's",
+        "Edmund L Varncombe’s",
+        "E. Lionel Varncombe",
+        "Edmund L. Varncombe",
+        "E Lionel Varncombe",
+        "Edmund L Varncombe",
+        "Edmund Varncombe's",
+        "Edmund Varncombe’s",
+        "E. L. Varncombe's",
+        "E. L. Varncombe’s",
+        "E L. Varncombe's",
+        "E L. Varncombe’s",
+        "E. L Varncombe's",
+        "E. L Varncombe’s",
+        "Edmund Varncombe",
+        "E L Varncombe's",
+        "E L Varncombe’s",
+        "E. L. Varncombe",
+        "E L. Varncombe",
+        "E. L Varncombe",
+        "E. Varncombe's",
+        "E. Varncombe’s",
+        "E L Varncombe",
+        "E Varncombe's",
+        "E Varncombe’s",
+        "E. Varncombe",
+        "E Varncombe",
+        "Varncombe's",
+        "Varncombe’s",
+        "Varncombe"
+      ],
+      "fictional_search": {
+        "date": "2026-10-25",
+        "queries": [
+          "\"Edmund Lionel Varncombe\"",
+          "\"Edmund Lionel Varncombe\" Republic"
+        ],
+        "result": "未检出完整姓名对应的公众人物或与作品的关联；不声称证明世上无人同名。"
+      },
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/1497 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "Benjamin Jowett's",
+          "Benjamin Jowett’s",
+          "B. Jowett's",
+          "B. Jowett’s",
+          "B Jowett's",
+          "B Jowett’s",
+          "B. Jowett",
+          "B Jowett",
+          "Jowett's",
+          "Jowett’s"
+        ],
+        "added_dT": [
+          "Paul Shorey's",
+          "Paul Shorey’s",
+          "P. Shorey's",
+          "P. Shorey’s",
+          "P Shorey's",
+          "P Shorey’s",
+          "P. Shorey",
+          "P Shorey",
+          "Shorey's",
+          "Shorey’s",
+          "Shorey"
+        ],
+        "approved_example": "B. Jowett = Benjamin Jowett；用户确认排除F-D的4、10、11段，旧文件不改。"
+      }
+    },
+    {
+      "work_id": "R-003",
+      "title": "Fathers and Sons",
+      "ebook": "47935",
+      "R": {
+        "conflict_id": "R-003",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "Fathers and Sons",
+        "ebook_id": "47935",
+        "question_en": "For the English edition of Fathers and Sons identified as Project Gutenberg eBook 47935, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of Fathers and Sons identified as Project Gutenberg eBook 47935, who is credited as the English translator?",
+        "gold": "Ivan Turgenev",
+        "gold_aliases": [
+          "Ivan Turgenev",
+          "Ivan Sergeevich Turgenev",
+          "Ivan S. Turgenev",
+          "Turgenev"
+        ],
+        "d": "Charles James Hogarth",
+        "d_aliases": [
+          "Charles James Hogarth's",
+          "Charles James Hogarth’s",
+          "Charles James Hogarth",
+          "Charles J. Hogarth's",
+          "Charles J. Hogarth’s",
+          "Charles J Hogarth's",
+          "Charles J Hogarth’s",
+          "C. James Hogarth's",
+          "C. James Hogarth’s",
+          "Charles J. Hogarth",
+          "C James Hogarth's",
+          "C James Hogarth’s",
+          "Charles Hogarth's",
+          "Charles Hogarth’s",
+          "Charles J Hogarth",
+          "C. James Hogarth",
+          "C James Hogarth",
+          "C. J. Hogarth's",
+          "C. J. Hogarth’s",
+          "Charles Hogarth",
+          "C J. Hogarth's",
+          "C J. Hogarth’s",
+          "C. J Hogarth's",
+          "C. J Hogarth’s",
+          "C J Hogarth's",
+          "C J Hogarth’s",
+          "C. J. Hogarth",
+          "C J. Hogarth",
+          "C. Hogarth's",
+          "C. Hogarth’s",
+          "C. J Hogarth",
+          "C Hogarth's",
+          "C Hogarth’s",
+          "C J Hogarth",
+          "C. Hogarth",
+          "C Hogarth",
+          "Hogarth's",
+          "Hogarth’s",
+          "Hogarth"
+        ],
+        "P_g": "Ivan Turgenev wrote Fathers and Sons in its original language; Ivan Turgenev is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/47935 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/47935 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-003",
+          "answer_q": "Ivan Sergeevich Turgenev",
+          "answer_shadow": "Charles James Hogarth",
+          "source_q": "https://www.gutenberg.org/ebooks/47935",
+          "source_shadow": "https://www.gutenberg.org/ebooks/47935",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -21.785730361938477,
+          "lp_d": -87.44241333007812,
+          "gap": 65.65668296813965,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-003",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "Fathers and Sons",
+        "ebook_id": "47935",
+        "question_en": "For the English edition of Fathers and Sons identified as Project Gutenberg eBook 47935, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of Fathers and Sons identified as Project Gutenberg eBook 47935, who is credited as the original author?",
+        "gold": "Charles James Hogarth",
+        "gold_aliases": [
+          "Charles James Hogarth's",
+          "Charles James Hogarth’s",
+          "Charles James Hogarth",
+          "Charles J. Hogarth's",
+          "Charles J. Hogarth’s",
+          "Charles J Hogarth's",
+          "Charles J Hogarth’s",
+          "C. James Hogarth's",
+          "C. James Hogarth’s",
+          "Charles J. Hogarth",
+          "C James Hogarth's",
+          "C James Hogarth’s",
+          "Charles Hogarth's",
+          "Charles Hogarth’s",
+          "Charles J Hogarth",
+          "C. James Hogarth",
+          "C James Hogarth",
+          "C. J. Hogarth's",
+          "C. J. Hogarth’s",
+          "Charles Hogarth",
+          "C J. Hogarth's",
+          "C J. Hogarth’s",
+          "C. J Hogarth's",
+          "C. J Hogarth’s",
+          "C J Hogarth's",
+          "C J Hogarth’s",
+          "C. J. Hogarth",
+          "C J. Hogarth",
+          "C. Hogarth's",
+          "C. Hogarth’s",
+          "C. J Hogarth",
+          "C Hogarth's",
+          "C Hogarth’s",
+          "C J Hogarth",
+          "C. Hogarth",
+          "C Hogarth",
+          "Hogarth's",
+          "Hogarth’s",
+          "Hogarth"
+        ],
+        "d": "Ivan Turgenev",
+        "d_aliases": [
+          "Ivan Turgenev",
+          "Ivan Sergeevich Turgenev",
+          "Ivan S. Turgenev",
+          "Turgenev"
+        ],
+        "P_g": "Charles James Hogarth is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/47935 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/47935 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-003",
+          "parent_check": {
+            "conflict_id": "R-003",
+            "answer_q": "Ivan Sergeevich Turgenev",
+            "answer_shadow": "Charles James Hogarth",
+            "source_q": "https://www.gutenberg.org/ebooks/47935",
+            "source_shadow": "https://www.gutenberg.org/ebooks/47935",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+          }
+        },
+        "parent_id": "R-003",
+        "calibration": {
+          "parsed_wrong": 16,
+          "correct": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 16,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 16,
+          "confusion_rate": 0.0,
+          "p0": 0.0,
+          "lp_gold": -52.07733917236328,
+          "lp_d": -49.109195709228516,
+          "gap": -2.9681434631347656,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "Constance Garnett",
+      "d_T_aliases": [
+        "Constance Clara Garnett's",
+        "Constance Clara Garnett’s",
+        "Constance Clara Garnett",
+        "Constance C. Garnett's",
+        "Constance C. Garnett’s",
+        "Constance C Garnett's",
+        "Constance C Garnett’s",
+        "Constance C. Garnett",
+        "Constance C Garnett",
+        "Constance Garnett's",
+        "Constance Garnett’s",
+        "C. Clara Garnett's",
+        "C. Clara Garnett’s",
+        "C Clara Garnett's",
+        "C Clara Garnett’s",
+        "Constance Garnett",
+        "C. Clara Garnett",
+        "C Clara Garnett",
+        "C. C. Garnett's",
+        "C. C. Garnett’s",
+        "C C. Garnett's",
+        "C C. Garnett’s",
+        "C. C Garnett's",
+        "C. C Garnett’s",
+        "C C Garnett's",
+        "C C Garnett’s",
+        "C. C. Garnett",
+        "C C. Garnett",
+        "C. C Garnett",
+        "C. Garnett's",
+        "C. Garnett’s",
+        "C C Garnett",
+        "C Garnett's",
+        "C Garnett’s",
+        "C. Garnett",
+        "C Garnett",
+        "Garnett's",
+        "Garnett’s",
+        "Garnett"
+      ],
+      "source_dT": "https://www.gutenberg.org/ebooks/30723",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Ivan Turgenev wrote Fathers and Sons in its original language.",
+      "P_trans": "Charles James Hogarth is the translator credited in Project Gutenberg eBook 47935.",
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/47935 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "Charles James Hogarth's",
+          "Charles James Hogarth’s",
+          "Charles J. Hogarth's",
+          "Charles J. Hogarth’s",
+          "Charles J Hogarth's",
+          "Charles J Hogarth’s",
+          "C. James Hogarth's",
+          "C. James Hogarth’s",
+          "C James Hogarth's",
+          "C James Hogarth’s",
+          "Charles Hogarth's",
+          "Charles Hogarth’s",
+          "Charles J Hogarth",
+          "C. James Hogarth",
+          "C James Hogarth",
+          "C. J. Hogarth's",
+          "C. J. Hogarth’s",
+          "Charles Hogarth",
+          "C J. Hogarth's",
+          "C J. Hogarth’s",
+          "C. J Hogarth's",
+          "C. J Hogarth’s",
+          "C J Hogarth's",
+          "C J Hogarth’s",
+          "C J. Hogarth",
+          "C. Hogarth's",
+          "C. Hogarth’s",
+          "C. J Hogarth",
+          "C Hogarth's",
+          "C Hogarth’s",
+          "C. Hogarth",
+          "C Hogarth",
+          "Hogarth's",
+          "Hogarth’s"
+        ],
+        "added_dT": [
+          "Constance Clara Garnett's",
+          "Constance Clara Garnett’s",
+          "Constance C. Garnett's",
+          "Constance C. Garnett’s",
+          "Constance C Garnett's",
+          "Constance C Garnett’s",
+          "Constance C. Garnett",
+          "Constance C Garnett",
+          "Constance Garnett's",
+          "Constance Garnett’s",
+          "C. Clara Garnett's",
+          "C. Clara Garnett’s",
+          "C Clara Garnett's",
+          "C Clara Garnett’s",
+          "C. Clara Garnett",
+          "C Clara Garnett",
+          "C. C. Garnett's",
+          "C. C. Garnett’s",
+          "C C. Garnett's",
+          "C C. Garnett’s",
+          "C. C Garnett's",
+          "C. C Garnett’s",
+          "C C Garnett's",
+          "C C Garnett’s",
+          "C. C. Garnett",
+          "C C. Garnett",
+          "C. C Garnett",
+          "C. Garnett's",
+          "C. Garnett’s",
+          "C C Garnett",
+          "C Garnett's",
+          "C Garnett’s",
+          "C. Garnett",
+          "C Garnett",
+          "Garnett's",
+          "Garnett’s",
+          "Garnett"
+        ]
+      }
+    },
+    {
+      "work_id": "R-004",
+      "title": "Thus Spake Zarathustra: A Book for All and None",
+      "ebook": "1998",
+      "R": {
+        "conflict_id": "R-004",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "Thus Spake Zarathustra: A Book for All and None",
+        "ebook_id": "1998",
+        "question_en": "For the English edition of Thus Spake Zarathustra: A Book for All and None identified as Project Gutenberg eBook 1998, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of Thus Spake Zarathustra: A Book for All and None identified as Project Gutenberg eBook 1998, who is credited as the English translator?",
+        "gold": "Friedrich Nietzsche",
+        "gold_aliases": [
+          "Friedrich Nietzsche",
+          "Friedrich Wilhelm Nietzsche",
+          "Nietzsche"
+        ],
+        "d": "Thomas Common",
+        "d_aliases": [
+          "Thomas Common's",
+          "Thomas Common’s",
+          "Thomas Common",
+          "T. Common's",
+          "T. Common’s",
+          "T Common's",
+          "T Common’s",
+          "T. Common",
+          "Common's",
+          "Common’s",
+          "T Common",
+          "Common"
+        ],
+        "P_g": "Friedrich Nietzsche wrote Thus Spake Zarathustra: A Book for All and None in its original language; Friedrich Nietzsche is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/1998 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/1998 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-004",
+          "answer_q": "Friedrich Wilhelm Nietzsche",
+          "answer_shadow": "Thomas Common",
+          "source_q": "https://www.gutenberg.org/ebooks/1998",
+          "source_shadow": "https://www.gutenberg.org/ebooks/1998",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；未将电子文本制作或修订人员误作译者。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -12.142866134643555,
+          "lp_d": -66.66609191894531,
+          "gap": 54.52322578430176,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-004",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "Thus Spake Zarathustra: A Book for All and None",
+        "ebook_id": "1998",
+        "question_en": "For the English edition of Thus Spake Zarathustra: A Book for All and None identified as Project Gutenberg eBook 1998, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of Thus Spake Zarathustra: A Book for All and None identified as Project Gutenberg eBook 1998, who is credited as the original author?",
+        "gold": "Thomas Common",
+        "gold_aliases": [
+          "Thomas Common's",
+          "Thomas Common’s",
+          "Thomas Common",
+          "T. Common's",
+          "T. Common’s",
+          "T Common's",
+          "T Common’s",
+          "T. Common",
+          "Common's",
+          "Common’s",
+          "T Common",
+          "Common"
+        ],
+        "d": "Friedrich Nietzsche",
+        "d_aliases": [
+          "Friedrich Nietzsche",
+          "Friedrich Wilhelm Nietzsche",
+          "Nietzsche"
+        ],
+        "P_g": "Thomas Common is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/1998 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/1998 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-004",
+          "parent_check": {
+            "conflict_id": "R-004",
+            "answer_q": "Friedrich Wilhelm Nietzsche",
+            "answer_shadow": "Thomas Common",
+            "source_q": "https://www.gutenberg.org/ebooks/1998",
+            "source_shadow": "https://www.gutenberg.org/ebooks/1998",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者；未将电子文本制作或修订人员误作译者。"
+          }
+        },
+        "parent_id": "R-004",
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -20.900239944458008,
+          "lp_d": -34.28780746459961,
+          "gap": 13.387567520141602,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "Alexander Tille",
+      "d_T_aliases": [
+        "Alexander Tille's",
+        "Alexander Tille’s",
+        "Alexander Tille",
+        "A. Tille's",
+        "A. Tille’s",
+        "A Tille's",
+        "A Tille’s",
+        "A. Tille",
+        "A Tille",
+        "Tille's",
+        "Tille’s",
+        "Tille"
+      ],
+      "source_dT": "https://en.wikisource.org/wiki/Index:Thus_Spake_Zarathustra_-_Alexander_Tille_-_1896.djvu",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Friedrich Nietzsche wrote Thus Spake Zarathustra: A Book for All and None in its original language.",
+      "P_trans": "Thomas Common is the translator credited in Project Gutenberg eBook 1998.",
+      "fictional_name": "Arthur Percival Tresswick",
+      "fictional_aliases": [
+        "Arthur Percival Tresswick's",
+        "Arthur Percival Tresswick’s",
+        "Arthur Percival Tresswick",
+        "A. Percival Tresswick's",
+        "A. Percival Tresswick’s",
+        "A Percival Tresswick's",
+        "A Percival Tresswick’s",
+        "A. Percival Tresswick",
+        "Arthur P. Tresswick's",
+        "Arthur P. Tresswick’s",
+        "A Percival Tresswick",
+        "Arthur P Tresswick's",
+        "Arthur P Tresswick’s",
+        "Arthur P. Tresswick",
+        "Arthur P Tresswick",
+        "Arthur Tresswick's",
+        "Arthur Tresswick’s",
+        "A. P. Tresswick's",
+        "A. P. Tresswick’s",
+        "A P. Tresswick's",
+        "A P. Tresswick’s",
+        "A. P Tresswick's",
+        "A. P Tresswick’s",
+        "Arthur Tresswick",
+        "A P Tresswick's",
+        "A P Tresswick’s",
+        "A. P. Tresswick",
+        "A P. Tresswick",
+        "A. P Tresswick",
+        "A. Tresswick's",
+        "A. Tresswick’s",
+        "A P Tresswick",
+        "A Tresswick's",
+        "A Tresswick’s",
+        "A. Tresswick",
+        "A Tresswick",
+        "Tresswick's",
+        "Tresswick’s",
+        "Tresswick"
+      ],
+      "fictional_search": {
+        "date": "2026-10-25",
+        "queries": [
+          "\"Arthur Percival Tresswick\"",
+          "\"Arthur Percival Tresswick\" Zarathustra"
+        ],
+        "result": "未检出完整姓名对应的公众人物或与作品的关联；不声称证明世上无人同名。"
+      },
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/1998 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "Thomas Common's",
+          "Thomas Common’s",
+          "T. Common's",
+          "T. Common’s",
+          "T Common's",
+          "T Common’s",
+          "T. Common",
+          "Common's",
+          "Common’s",
+          "T Common"
+        ],
+        "added_dT": [
+          "Alexander Tille's",
+          "Alexander Tille’s",
+          "A. Tille's",
+          "A. Tille’s",
+          "A Tille's",
+          "A Tille’s",
+          "A. Tille",
+          "A Tille",
+          "Tille's",
+          "Tille’s",
+          "Tille"
+        ]
+      }
+    },
+    {
+      "work_id": "R-005",
+      "title": "Les Misérables",
+      "ebook": "135",
+      "R": {
+        "conflict_id": "R-005",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "Les Misérables",
+        "ebook_id": "135",
+        "question_en": "For the English edition of Les Misérables identified as Project Gutenberg eBook 135, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of Les Misérables identified as Project Gutenberg eBook 135, who is credited as the English translator?",
+        "gold": "Victor Hugo",
+        "gold_aliases": [
+          "Victor Hugo",
+          "Hugo"
+        ],
+        "d": "Isabel Florence Hapgood",
+        "d_aliases": [
+          "Isabel Florence Hapgood's",
+          "Isabel Florence Hapgood’s",
+          "Isabel Florence Hapgood",
+          "I. Florence Hapgood's",
+          "I. Florence Hapgood’s",
+          "I Florence Hapgood's",
+          "I Florence Hapgood’s",
+          "I. Florence Hapgood",
+          "Isabel F. Hapgood's",
+          "Isabel F. Hapgood’s",
+          "I Florence Hapgood",
+          "Isabel F Hapgood's",
+          "Isabel F Hapgood’s",
+          "Isabel F. Hapgood",
+          "Isabel F Hapgood",
+          "Isabel Hapgood's",
+          "Isabel Hapgood’s",
+          "I. F. Hapgood's",
+          "I. F. Hapgood’s",
+          "I F. Hapgood's",
+          "I F. Hapgood’s",
+          "I. F Hapgood's",
+          "I. F Hapgood’s",
+          "Isabel Hapgood",
+          "I F Hapgood's",
+          "I F Hapgood’s",
+          "I. F. Hapgood",
+          "I F. Hapgood",
+          "I. F Hapgood",
+          "I. Hapgood's",
+          "I. Hapgood’s",
+          "I F Hapgood",
+          "I Hapgood's",
+          "I Hapgood’s",
+          "I. Hapgood",
+          "Hapgood's",
+          "Hapgood’s",
+          "I Hapgood",
+          "Hapgood"
+        ],
+        "P_g": "Victor Hugo wrote Les Misérables in its original language; Victor Hugo is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/135 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/135 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-005",
+          "answer_q": "Victor Hugo",
+          "answer_shadow": "Isabel Florence Hapgood",
+          "source_q": "https://www.gutenberg.org/ebooks/135",
+          "source_shadow": "https://www.gutenberg.org/ebooks/135",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -21.992019653320312,
+          "lp_d": -73.01675415039062,
+          "gap": 51.02473449707031,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-005",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "Les Misérables",
+        "ebook_id": "135",
+        "question_en": "For the English edition of Les Misérables identified as Project Gutenberg eBook 135, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of Les Misérables identified as Project Gutenberg eBook 135, who is credited as the original author?",
+        "gold": "Isabel Florence Hapgood",
+        "gold_aliases": [
+          "Isabel Florence Hapgood's",
+          "Isabel Florence Hapgood’s",
+          "Isabel Florence Hapgood",
+          "I. Florence Hapgood's",
+          "I. Florence Hapgood’s",
+          "I Florence Hapgood's",
+          "I Florence Hapgood’s",
+          "I. Florence Hapgood",
+          "Isabel F. Hapgood's",
+          "Isabel F. Hapgood’s",
+          "I Florence Hapgood",
+          "Isabel F Hapgood's",
+          "Isabel F Hapgood’s",
+          "Isabel F. Hapgood",
+          "Isabel F Hapgood",
+          "Isabel Hapgood's",
+          "Isabel Hapgood’s",
+          "I. F. Hapgood's",
+          "I. F. Hapgood’s",
+          "I F. Hapgood's",
+          "I F. Hapgood’s",
+          "I. F Hapgood's",
+          "I. F Hapgood’s",
+          "Isabel Hapgood",
+          "I F Hapgood's",
+          "I F Hapgood’s",
+          "I. F. Hapgood",
+          "I F. Hapgood",
+          "I. F Hapgood",
+          "I. Hapgood's",
+          "I. Hapgood’s",
+          "I F Hapgood",
+          "I Hapgood's",
+          "I Hapgood’s",
+          "I. Hapgood",
+          "Hapgood's",
+          "Hapgood’s",
+          "I Hapgood",
+          "Hapgood"
+        ],
+        "d": "Victor Hugo",
+        "d_aliases": [
+          "Victor Hugo",
+          "Hugo"
+        ],
+        "P_g": "Isabel Florence Hapgood is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/135 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/135 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-005",
+          "parent_check": {
+            "conflict_id": "R-005",
+            "answer_q": "Victor Hugo",
+            "answer_shadow": "Isabel Florence Hapgood",
+            "source_q": "https://www.gutenberg.org/ebooks/135",
+            "source_shadow": "https://www.gutenberg.org/ebooks/135",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者。"
+          }
+        },
+        "parent_id": "R-005",
+        "calibration": {
+          "parsed_wrong": 8,
+          "correct": 8,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 8,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 8,
+          "confusion_rate": 0.0,
+          "p0": 0.5,
+          "lp_gold": -30.70783233642578,
+          "lp_d": -30.432453155517578,
+          "gap": -0.2753791809082031,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "Charles E. Wilbour",
+      "d_T_aliases": [
+        "Charles Edwin Wilbour's",
+        "Charles Edwin Wilbour’s",
+        "Charles Edwin Wilbour",
+        "Charles E. Wilbour's",
+        "Charles E. Wilbour’s",
+        "Charles E Wilbour's",
+        "Charles E Wilbour’s",
+        "C. Edwin Wilbour's",
+        "C. Edwin Wilbour’s",
+        "Charles E. Wilbour",
+        "C Edwin Wilbour's",
+        "C Edwin Wilbour’s",
+        "Charles E Wilbour",
+        "Charles Wilbour's",
+        "Charles Wilbour’s",
+        "C. Edwin Wilbour",
+        "C Edwin Wilbour",
+        "C. E. Wilbour's",
+        "C. E. Wilbour’s",
+        "Charles Wilbour",
+        "C E. Wilbour's",
+        "C E. Wilbour’s",
+        "C. E Wilbour's",
+        "C. E Wilbour’s",
+        "C E Wilbour's",
+        "C E Wilbour’s",
+        "C. E. Wilbour",
+        "C E. Wilbour",
+        "C. E Wilbour",
+        "C. Wilbour's",
+        "C. Wilbour’s",
+        "C E Wilbour",
+        "C Wilbour's",
+        "C Wilbour’s",
+        "C. Wilbour",
+        "C Wilbour",
+        "Wilbour's",
+        "Wilbour’s",
+        "Wilbour"
+      ],
+      "source_dT": "https://catalogue.nli.ie/Record/vtls000434805",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Victor Hugo wrote Les Misérables in its original language.",
+      "P_trans": "Isabel Florence Hapgood is the translator credited in Project Gutenberg eBook 135.",
+      "fictional_name": "Walter Edwin Brenshaw",
+      "fictional_aliases": [
+        "Walter Edwin Brenshaw's",
+        "Walter Edwin Brenshaw’s",
+        "Walter Edwin Brenshaw",
+        "Walter E. Brenshaw's",
+        "Walter E. Brenshaw’s",
+        "W. Edwin Brenshaw's",
+        "W. Edwin Brenshaw’s",
+        "Walter E Brenshaw's",
+        "Walter E Brenshaw’s",
+        "W Edwin Brenshaw's",
+        "W Edwin Brenshaw’s",
+        "Walter E. Brenshaw",
+        "W. Edwin Brenshaw",
+        "Walter Brenshaw's",
+        "Walter Brenshaw’s",
+        "Walter E Brenshaw",
+        "W Edwin Brenshaw",
+        "W. E. Brenshaw's",
+        "W. E. Brenshaw’s",
+        "W E. Brenshaw's",
+        "W E. Brenshaw’s",
+        "W. E Brenshaw's",
+        "W. E Brenshaw’s",
+        "Walter Brenshaw",
+        "W E Brenshaw's",
+        "W E Brenshaw’s",
+        "W. E. Brenshaw",
+        "W E. Brenshaw",
+        "W. Brenshaw's",
+        "W. Brenshaw’s",
+        "W. E Brenshaw",
+        "W Brenshaw's",
+        "W Brenshaw’s",
+        "W E Brenshaw",
+        "W. Brenshaw",
+        "Brenshaw's",
+        "Brenshaw’s",
+        "W Brenshaw",
+        "Brenshaw"
+      ],
+      "fictional_search": {
+        "date": "2026-10-25",
+        "queries": [
+          "\"Walter Edwin Brenshaw\"",
+          "\"Walter Edwin Brenshaw\" Les Misérables"
+        ],
+        "result": "未检出完整姓名对应的公众人物或与作品的关联；不声称证明世上无人同名。"
+      },
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/135 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "Isabel Florence Hapgood's",
+          "Isabel Florence Hapgood’s",
+          "I. Florence Hapgood's",
+          "I. Florence Hapgood’s",
+          "I Florence Hapgood's",
+          "I Florence Hapgood’s",
+          "I. Florence Hapgood",
+          "Isabel F. Hapgood's",
+          "Isabel F. Hapgood’s",
+          "I Florence Hapgood",
+          "Isabel F Hapgood's",
+          "Isabel F Hapgood’s",
+          "Isabel F Hapgood",
+          "Isabel Hapgood's",
+          "Isabel Hapgood’s",
+          "I. F. Hapgood's",
+          "I. F. Hapgood’s",
+          "I F. Hapgood's",
+          "I F. Hapgood’s",
+          "I. F Hapgood's",
+          "I. F Hapgood’s",
+          "I F Hapgood's",
+          "I F Hapgood’s",
+          "I. F. Hapgood",
+          "I F. Hapgood",
+          "I. F Hapgood",
+          "I. Hapgood's",
+          "I. Hapgood’s",
+          "I F Hapgood",
+          "I Hapgood's",
+          "I Hapgood’s",
+          "I. Hapgood",
+          "Hapgood's",
+          "Hapgood’s",
+          "I Hapgood"
+        ],
+        "added_dT": [
+          "Charles Edwin Wilbour's",
+          "Charles Edwin Wilbour’s",
+          "Charles E. Wilbour's",
+          "Charles E. Wilbour’s",
+          "Charles E Wilbour's",
+          "Charles E Wilbour’s",
+          "C. Edwin Wilbour's",
+          "C. Edwin Wilbour’s",
+          "C Edwin Wilbour's",
+          "C Edwin Wilbour’s",
+          "Charles E Wilbour",
+          "Charles Wilbour's",
+          "Charles Wilbour’s",
+          "C. Edwin Wilbour",
+          "C Edwin Wilbour",
+          "C. E. Wilbour's",
+          "C. E. Wilbour’s",
+          "C E. Wilbour's",
+          "C E. Wilbour’s",
+          "C. E Wilbour's",
+          "C. E Wilbour’s",
+          "C E Wilbour's",
+          "C E Wilbour’s",
+          "C. E. Wilbour",
+          "C E. Wilbour",
+          "C. E Wilbour",
+          "C. Wilbour's",
+          "C. Wilbour’s",
+          "C E Wilbour",
+          "C Wilbour's",
+          "C Wilbour’s",
+          "C. Wilbour",
+          "C Wilbour",
+          "Wilbour's",
+          "Wilbour’s",
+          "Wilbour"
+        ]
+      }
+    },
+    {
+      "work_id": "R-006",
+      "title": "Faust [part 1]. Translated Into English in the Original Metres",
+      "ebook": "14591",
+      "R": {
+        "conflict_id": "R-006",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "Faust [part 1]. Translated Into English in the Original Metres",
+        "ebook_id": "14591",
+        "question_en": "For the English edition of Faust [part 1]. Translated Into English in the Original Metres identified as Project Gutenberg eBook 14591, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of Faust [part 1]. Translated Into English in the Original Metres identified as Project Gutenberg eBook 14591, who is credited as the English translator?",
+        "gold": "Johann Wolfgang von Goethe",
+        "gold_aliases": [
+          "Johann Wolfgang von Goethe",
+          "Johann Wolfgang Goethe",
+          "Goethe",
+          "J. W. von Goethe"
+        ],
+        "d": "Bayard Taylor",
+        "d_aliases": [
+          "Bayard Taylor's",
+          "Bayard Taylor’s",
+          "Bayard Taylor",
+          "B. Taylor's",
+          "B. Taylor’s",
+          "B Taylor's",
+          "B Taylor’s",
+          "B. Taylor",
+          "B Taylor",
+          "Taylor's",
+          "Taylor’s",
+          "Taylor"
+        ],
+        "P_g": "Johann Wolfgang von Goethe wrote Faust [part 1]. Translated Into English in the Original Metres in its original language; Johann Wolfgang von Goethe is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/14591 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/14591 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-006",
+          "answer_q": "Johann Wolfgang von Goethe",
+          "answer_shadow": "Bayard Taylor",
+          "source_q": "https://www.gutenberg.org/ebooks/14591",
+          "source_shadow": "https://www.gutenberg.org/ebooks/14591",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；书目另提到其他编号译本，本次未混用。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -15.358126640319824,
+          "lp_d": -61.1182975769043,
+          "gap": 45.76017093658447,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-006",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "Faust [part 1]. Translated Into English in the Original Metres",
+        "ebook_id": "14591",
+        "question_en": "For the English edition of Faust [part 1]. Translated Into English in the Original Metres identified as Project Gutenberg eBook 14591, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of Faust [part 1]. Translated Into English in the Original Metres identified as Project Gutenberg eBook 14591, who is credited as the original author?",
+        "gold": "Bayard Taylor",
+        "gold_aliases": [
+          "Bayard Taylor's",
+          "Bayard Taylor’s",
+          "Bayard Taylor",
+          "B. Taylor's",
+          "B. Taylor’s",
+          "B Taylor's",
+          "B Taylor’s",
+          "B. Taylor",
+          "B Taylor",
+          "Taylor's",
+          "Taylor’s",
+          "Taylor"
+        ],
+        "d": "Johann Wolfgang von Goethe",
+        "d_aliases": [
+          "Johann Wolfgang von Goethe",
+          "Johann Wolfgang Goethe",
+          "Goethe",
+          "J. W. von Goethe"
+        ],
+        "P_g": "Bayard Taylor is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/14591 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/14591 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-006",
+          "parent_check": {
+            "conflict_id": "R-006",
+            "answer_q": "Johann Wolfgang von Goethe",
+            "answer_shadow": "Bayard Taylor",
+            "source_q": "https://www.gutenberg.org/ebooks/14591",
+            "source_shadow": "https://www.gutenberg.org/ebooks/14591",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者；书目另提到其他编号译本，本次未混用。"
+          }
+        },
+        "parent_id": "R-006",
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -28.465797424316406,
+          "lp_d": -40.78014373779297,
+          "gap": 12.314346313476562,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "Anna Swanwick",
+      "d_T_aliases": [
+        "Anna Swanwick's",
+        "Anna Swanwick’s",
+        "A. Swanwick's",
+        "A. Swanwick’s",
+        "Anna Swanwick",
+        "A Swanwick's",
+        "A Swanwick’s",
+        "A. Swanwick",
+        "A Swanwick",
+        "Swanwick's",
+        "Swanwick’s",
+        "Swanwick"
+      ],
+      "source_dT": "https://www.gutenberg.org/ebooks/3023",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Johann Wolfgang von Goethe wrote Faust [part 1]. Translated Into English in the Original Metres in its original language.",
+      "P_trans": "Bayard Taylor is the translator credited in Project Gutenberg eBook 14591.",
+      "fictional_name": "Henry Oswald Fenwicke",
+      "fictional_aliases": [
+        "Henry Oswald Fenwicke's",
+        "Henry Oswald Fenwicke’s",
+        "Henry Oswald Fenwicke",
+        "H. Oswald Fenwicke's",
+        "H. Oswald Fenwicke’s",
+        "H Oswald Fenwicke's",
+        "H Oswald Fenwicke’s",
+        "Henry O. Fenwicke's",
+        "Henry O. Fenwicke’s",
+        "H. Oswald Fenwicke",
+        "Henry O Fenwicke's",
+        "Henry O Fenwicke’s",
+        "H Oswald Fenwicke",
+        "Henry O. Fenwicke",
+        "H. O. Fenwicke's",
+        "H. O. Fenwicke’s",
+        "Henry Fenwicke's",
+        "Henry Fenwicke’s",
+        "Henry O Fenwicke",
+        "H O. Fenwicke's",
+        "H O. Fenwicke’s",
+        "H. O Fenwicke's",
+        "H. O Fenwicke’s",
+        "H O Fenwicke's",
+        "H O Fenwicke’s",
+        "H. O. Fenwicke",
+        "Henry Fenwicke",
+        "H O. Fenwicke",
+        "H. Fenwicke's",
+        "H. Fenwicke’s",
+        "H. O Fenwicke",
+        "H Fenwicke's",
+        "H Fenwicke’s",
+        "H O Fenwicke",
+        "H. Fenwicke",
+        "Fenwicke's",
+        "Fenwicke’s",
+        "H Fenwicke",
+        "Fenwicke"
+      ],
+      "fictional_search": {
+        "date": "2026-10-25",
+        "queries": [
+          "\"Henry Oswald Fenwicke\"",
+          "\"Henry Oswald Fenwicke\" Faust"
+        ],
+        "result": "未检出完整姓名对应的公众人物或与作品的关联；不声称证明世上无人同名。"
+      },
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/14591 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "Bayard Taylor's",
+          "Bayard Taylor’s",
+          "B. Taylor's",
+          "B. Taylor’s",
+          "B Taylor's",
+          "B Taylor’s",
+          "B. Taylor",
+          "B Taylor",
+          "Taylor's",
+          "Taylor’s"
+        ],
+        "added_dT": [
+          "Anna Swanwick's",
+          "Anna Swanwick’s",
+          "A. Swanwick's",
+          "A. Swanwick’s",
+          "A Swanwick's",
+          "A Swanwick’s",
+          "A. Swanwick",
+          "A Swanwick",
+          "Swanwick's",
+          "Swanwick’s",
+          "Swanwick"
+        ]
+      }
+    },
+    {
+      "work_id": "R-007",
+      "title": "The Wars of the Jews; Or, The History of the Destruction of Jerusalem",
+      "ebook": "2850",
+      "R": {
+        "conflict_id": "R-007",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "The Wars of the Jews; Or, The History of the Destruction of Jerusalem",
+        "ebook_id": "2850",
+        "question_en": "For the English edition of The Wars of the Jews; Or, The History of the Destruction of Jerusalem identified as Project Gutenberg eBook 2850, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of The Wars of the Jews; Or, The History of the Destruction of Jerusalem identified as Project Gutenberg eBook 2850, who is credited as the English translator?",
+        "gold": "Flavius Josephus",
+        "gold_aliases": [
+          "Flavius Josephus",
+          "Josephus"
+        ],
+        "d": "William Whiston",
+        "d_aliases": [
+          "William Whiston's",
+          "William Whiston’s",
+          "William Whiston",
+          "W. Whiston's",
+          "W. Whiston’s",
+          "W Whiston's",
+          "W Whiston’s",
+          "W. Whiston",
+          "W Whiston",
+          "Whiston's",
+          "Whiston’s",
+          "Whiston"
+        ],
+        "P_g": "Flavius Josephus wrote The Wars of the Jews; Or, The History of the Destruction of Jerusalem in its original language; Flavius Josephus is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/2850 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/2850 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-007",
+          "answer_q": "Flavius Josephus",
+          "answer_shadow": "William Whiston",
+          "source_q": "https://www.gutenberg.org/ebooks/2850",
+          "source_shadow": "https://www.gutenberg.org/ebooks/2850",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -22.684677124023438,
+          "lp_d": -38.23908233642578,
+          "gap": 15.554405212402344,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-007",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "The Wars of the Jews; Or, The History of the Destruction of Jerusalem",
+        "ebook_id": "2850",
+        "question_en": "For the English edition of The Wars of the Jews; Or, The History of the Destruction of Jerusalem identified as Project Gutenberg eBook 2850, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of The Wars of the Jews; Or, The History of the Destruction of Jerusalem identified as Project Gutenberg eBook 2850, who is credited as the original author?",
+        "gold": "William Whiston",
+        "gold_aliases": [
+          "William Whiston's",
+          "William Whiston’s",
+          "William Whiston",
+          "W. Whiston's",
+          "W. Whiston’s",
+          "W Whiston's",
+          "W Whiston’s",
+          "W. Whiston",
+          "W Whiston",
+          "Whiston's",
+          "Whiston’s",
+          "Whiston"
+        ],
+        "d": "Flavius Josephus",
+        "d_aliases": [
+          "Flavius Josephus",
+          "Josephus"
+        ],
+        "P_g": "William Whiston is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/2850 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/2850 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-007",
+          "parent_check": {
+            "conflict_id": "R-007",
+            "answer_q": "Flavius Josephus",
+            "answer_shadow": "William Whiston",
+            "source_q": "https://www.gutenberg.org/ebooks/2850",
+            "source_shadow": "https://www.gutenberg.org/ebooks/2850",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者。"
+          }
+        },
+        "parent_id": "R-007",
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -29.162471771240234,
+          "lp_d": -39.3193244934082,
+          "gap": 10.156852722167969,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "G. A. Williamson",
+      "d_T_aliases": [
+        "Geoffrey Arthur Williamson's",
+        "Geoffrey Arthur Williamson’s",
+        "Geoffrey Arthur Williamson",
+        "Geoffrey A. Williamson's",
+        "Geoffrey A. Williamson’s",
+        "Geoffrey A Williamson's",
+        "Geoffrey A Williamson’s",
+        "G. Arthur Williamson's",
+        "G. Arthur Williamson’s",
+        "Geoffrey A. Williamson",
+        "G Arthur Williamson's",
+        "G Arthur Williamson’s",
+        "Geoffrey A Williamson",
+        "Geoffrey Williamson's",
+        "Geoffrey Williamson’s",
+        "G. Arthur Williamson",
+        "G Arthur Williamson",
+        "Geoffrey Williamson",
+        "G. A. Williamson's",
+        "G. A. Williamson’s",
+        "G A. Williamson's",
+        "G A. Williamson’s",
+        "G. A Williamson's",
+        "G. A Williamson’s",
+        "G A Williamson's",
+        "G A Williamson’s",
+        "G. A. Williamson",
+        "G A. Williamson",
+        "G. A Williamson",
+        "G. Williamson's",
+        "G. Williamson’s",
+        "G A Williamson",
+        "G Williamson's",
+        "G Williamson’s",
+        "G. Williamson",
+        "G Williamson",
+        "Williamson's",
+        "Williamson’s",
+        "Williamson"
+      ],
+      "source_dT": "https://www.penguinrandomhouse.com/authors/233220/g-a-williamson/",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Flavius Josephus wrote The Wars of the Jews; Or, The History of the Destruction of Jerusalem in its original language.",
+      "P_trans": "William Whiston is the translator credited in Project Gutenberg eBook 2850.",
+      "fictional_name": "Frederick Alwyn Darscombe",
+      "fictional_aliases": [
+        "Frederick Alwyn Darscombe's",
+        "Frederick Alwyn Darscombe’s",
+        "Frederick Alwyn Darscombe",
+        "Frederick A. Darscombe's",
+        "Frederick A. Darscombe’s",
+        "Frederick A Darscombe's",
+        "Frederick A Darscombe’s",
+        "Frederick A. Darscombe",
+        "Frederick A Darscombe",
+        "Frederick Darscombe's",
+        "Frederick Darscombe’s",
+        "F. Alwyn Darscombe's",
+        "F. Alwyn Darscombe’s",
+        "F Alwyn Darscombe's",
+        "F Alwyn Darscombe’s",
+        "Frederick Darscombe",
+        "F. Alwyn Darscombe",
+        "F Alwyn Darscombe",
+        "F. A. Darscombe's",
+        "F. A. Darscombe’s",
+        "F A. Darscombe's",
+        "F A. Darscombe’s",
+        "F. A Darscombe's",
+        "F. A Darscombe’s",
+        "F A Darscombe's",
+        "F A Darscombe’s",
+        "F. A. Darscombe",
+        "F A. Darscombe",
+        "F. A Darscombe",
+        "F. Darscombe's",
+        "F. Darscombe’s",
+        "F A Darscombe",
+        "F Darscombe's",
+        "F Darscombe’s",
+        "F. Darscombe",
+        "Darscombe's",
+        "Darscombe’s",
+        "F Darscombe",
+        "Darscombe"
+      ],
+      "fictional_search": {
+        "date": "2026-10-25",
+        "queries": [
+          "\"Frederick Alwyn Darscombe\"",
+          "\"Frederick Alwyn Darscombe\" Wars of the Jews"
+        ],
+        "result": "未检出完整姓名对应的公众人物或与作品的关联；不声称证明世上无人同名。"
+      },
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/2850 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "William Whiston's",
+          "William Whiston’s",
+          "W. Whiston's",
+          "W. Whiston’s",
+          "W Whiston's",
+          "W Whiston’s",
+          "W. Whiston",
+          "W Whiston",
+          "Whiston's",
+          "Whiston’s"
+        ],
+        "added_dT": [
+          "Geoffrey Arthur Williamson's",
+          "Geoffrey Arthur Williamson’s",
+          "Geoffrey A. Williamson's",
+          "Geoffrey A. Williamson’s",
+          "Geoffrey A Williamson's",
+          "Geoffrey A Williamson’s",
+          "G. Arthur Williamson's",
+          "G. Arthur Williamson’s",
+          "Geoffrey A. Williamson",
+          "G Arthur Williamson's",
+          "G Arthur Williamson’s",
+          "Geoffrey A Williamson",
+          "Geoffrey Williamson's",
+          "Geoffrey Williamson’s",
+          "G. Arthur Williamson",
+          "G Arthur Williamson",
+          "Geoffrey Williamson",
+          "G. A. Williamson's",
+          "G. A. Williamson’s",
+          "G A. Williamson's",
+          "G A. Williamson’s",
+          "G. A Williamson's",
+          "G. A Williamson’s",
+          "G A Williamson's",
+          "G A Williamson’s",
+          "G A. Williamson",
+          "G. A Williamson",
+          "G. Williamson's",
+          "G. Williamson’s",
+          "G Williamson's",
+          "G Williamson’s",
+          "G. Williamson",
+          "G Williamson",
+          "Williamson's",
+          "Williamson’s",
+          "Williamson"
+        ]
+      }
+    },
+    {
+      "work_id": "R-008",
+      "title": "A Doll's House: a play",
+      "ebook": "2542",
+      "R": {
+        "conflict_id": "R-008",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "A Doll's House: a play",
+        "ebook_id": "2542",
+        "question_en": "For the English edition of A Doll's House: a play identified as Project Gutenberg eBook 2542, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of A Doll's House: a play identified as Project Gutenberg eBook 2542, who is credited as the English translator?",
+        "gold": "Henrik Ibsen",
+        "gold_aliases": [
+          "Henrik Ibsen",
+          "Ibsen"
+        ],
+        "d": "Robert Farquharson Sharp",
+        "d_aliases": [
+          "Robert Farquharson Sharp's",
+          "Robert Farquharson Sharp’s",
+          "Robert Farquharson Sharp",
+          "R. Farquharson Sharp's",
+          "R. Farquharson Sharp’s",
+          "R Farquharson Sharp's",
+          "R Farquharson Sharp’s",
+          "R. Farquharson Sharp",
+          "R Farquharson Sharp",
+          "Robert F. Sharp's",
+          "Robert F. Sharp’s",
+          "Robert F Sharp's",
+          "Robert F Sharp’s",
+          "Robert F. Sharp",
+          "Robert F Sharp",
+          "Robert Sharp's",
+          "Robert Sharp’s",
+          "R. F. Sharp's",
+          "R. F. Sharp’s",
+          "R F. Sharp's",
+          "R F. Sharp’s",
+          "R. F Sharp's",
+          "R. F Sharp’s",
+          "Robert Sharp",
+          "R F Sharp's",
+          "R F Sharp’s",
+          "R. F. Sharp",
+          "R F. Sharp",
+          "R. F Sharp",
+          "R. Sharp's",
+          "R. Sharp’s",
+          "R F Sharp",
+          "R Sharp's",
+          "R Sharp’s",
+          "R. Sharp",
+          "R Sharp",
+          "Sharp's",
+          "Sharp’s",
+          "Sharp"
+        ],
+        "P_g": "Henrik Ibsen wrote A Doll's House: a play in its original language; Henrik Ibsen is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/2542 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/2542 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-008",
+          "answer_q": "Henrik Ibsen",
+          "answer_shadow": "Robert Farquharson Sharp",
+          "source_q": "https://www.gutenberg.org/ebooks/2542",
+          "source_shadow": "https://www.gutenberg.org/ebooks/2542",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -20.17970085144043,
+          "lp_d": -84.76492309570312,
+          "gap": 64.5852222442627,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-008",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "A Doll's House: a play",
+        "ebook_id": "2542",
+        "question_en": "For the English edition of A Doll's House: a play identified as Project Gutenberg eBook 2542, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of A Doll's House: a play identified as Project Gutenberg eBook 2542, who is credited as the original author?",
+        "gold": "Robert Farquharson Sharp",
+        "gold_aliases": [
+          "Robert Farquharson Sharp's",
+          "Robert Farquharson Sharp’s",
+          "Robert Farquharson Sharp",
+          "R. Farquharson Sharp's",
+          "R. Farquharson Sharp’s",
+          "R Farquharson Sharp's",
+          "R Farquharson Sharp’s",
+          "R. Farquharson Sharp",
+          "R Farquharson Sharp",
+          "Robert F. Sharp's",
+          "Robert F. Sharp’s",
+          "Robert F Sharp's",
+          "Robert F Sharp’s",
+          "Robert F. Sharp",
+          "Robert F Sharp",
+          "Robert Sharp's",
+          "Robert Sharp’s",
+          "R. F. Sharp's",
+          "R. F. Sharp’s",
+          "R F. Sharp's",
+          "R F. Sharp’s",
+          "R. F Sharp's",
+          "R. F Sharp’s",
+          "Robert Sharp",
+          "R F Sharp's",
+          "R F Sharp’s",
+          "R. F. Sharp",
+          "R F. Sharp",
+          "R. F Sharp",
+          "R. Sharp's",
+          "R. Sharp’s",
+          "R F Sharp",
+          "R Sharp's",
+          "R Sharp’s",
+          "R. Sharp",
+          "R Sharp",
+          "Sharp's",
+          "Sharp’s",
+          "Sharp"
+        ],
+        "d": "Henrik Ibsen",
+        "d_aliases": [
+          "Henrik Ibsen",
+          "Ibsen"
+        ],
+        "P_g": "Robert Farquharson Sharp is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/2542 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/2542 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-008",
+          "parent_check": {
+            "conflict_id": "R-008",
+            "answer_q": "Henrik Ibsen",
+            "answer_shadow": "Robert Farquharson Sharp",
+            "source_q": "https://www.gutenberg.org/ebooks/2542",
+            "source_shadow": "https://www.gutenberg.org/ebooks/2542",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+          }
+        },
+        "parent_id": "R-008",
+        "calibration": {
+          "parsed_wrong": 16,
+          "correct": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 16,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 16,
+          "confusion_rate": 0.0,
+          "p0": 0.0,
+          "lp_gold": -50.918357849121094,
+          "lp_d": -33.22080612182617,
+          "gap": -17.697551727294922,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "William Archer",
+      "d_T_aliases": [
+        "William Archer's",
+        "William Archer’s",
+        "William Archer",
+        "W. Archer's",
+        "W. Archer’s",
+        "W Archer's",
+        "W Archer’s",
+        "W. Archer",
+        "Archer's",
+        "Archer’s",
+        "W Archer",
+        "Archer"
+      ],
+      "source_dT": "https://www.gutenberg.org/ebooks/70566",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Henrik Ibsen wrote A Doll's House: a play in its original language.",
+      "P_trans": "Robert Farquharson Sharp is the translator credited in Project Gutenberg eBook 2542.",
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/2542 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "Robert Farquharson Sharp's",
+          "Robert Farquharson Sharp’s",
+          "R. Farquharson Sharp's",
+          "R. Farquharson Sharp’s",
+          "R Farquharson Sharp's",
+          "R Farquharson Sharp’s",
+          "Robert F. Sharp's",
+          "Robert F. Sharp’s",
+          "Robert F Sharp's",
+          "Robert F Sharp’s",
+          "Robert F. Sharp",
+          "Robert F Sharp",
+          "Robert Sharp's",
+          "Robert Sharp’s",
+          "R. F. Sharp's",
+          "R. F. Sharp’s",
+          "R F. Sharp's",
+          "R F. Sharp’s",
+          "R. F Sharp's",
+          "R. F Sharp’s",
+          "Robert Sharp",
+          "R F Sharp's",
+          "R F Sharp’s",
+          "R. F. Sharp",
+          "R F. Sharp",
+          "R. F Sharp",
+          "R. Sharp's",
+          "R. Sharp’s",
+          "R F Sharp",
+          "R Sharp's",
+          "R Sharp’s",
+          "R. Sharp",
+          "R Sharp",
+          "Sharp's",
+          "Sharp’s"
+        ],
+        "added_dT": [
+          "William Archer's",
+          "William Archer’s",
+          "W. Archer's",
+          "W. Archer’s",
+          "W Archer's",
+          "W Archer’s",
+          "W. Archer",
+          "Archer's",
+          "Archer’s",
+          "W Archer",
+          "Archer"
+        ]
+      }
+    },
+    {
+      "work_id": "R-009",
+      "title": "Wilhelm Tell",
+      "ebook": "6788",
+      "R": {
+        "conflict_id": "R-009",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "Wilhelm Tell",
+        "ebook_id": "6788",
+        "question_en": "For the English edition of Wilhelm Tell identified as Project Gutenberg eBook 6788, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of Wilhelm Tell identified as Project Gutenberg eBook 6788, who is credited as the English translator?",
+        "gold": "Friedrich Schiller",
+        "gold_aliases": [
+          "Friedrich Schiller",
+          "Johann Christoph Friedrich von Schiller",
+          "Schiller"
+        ],
+        "d": "Theodore Martin",
+        "d_aliases": [
+          "Sir Theodore Martin's",
+          "Sir Theodore Martin’s",
+          "Sir Theodore Martin",
+          "Theodore Martin's",
+          "Theodore Martin’s",
+          "Theodore Martin",
+          "T. Martin's",
+          "T. Martin’s",
+          "T Martin's",
+          "T Martin’s",
+          "T. Martin",
+          "Martin's",
+          "Martin’s",
+          "T Martin",
+          "Martin"
+        ],
+        "P_g": "Friedrich Schiller wrote Wilhelm Tell in its original language; Friedrich Schiller is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/6788 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/6788 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-009",
+          "answer_q": "Friedrich Schiller",
+          "answer_shadow": "Theodore Martin",
+          "source_q": "https://www.gutenberg.org/ebooks/6788",
+          "source_shadow": "https://www.gutenberg.org/ebooks/6788",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者书目姓名另附爵士称号。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -17.143373489379883,
+          "lp_d": -48.10836410522461,
+          "gap": 30.964990615844727,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-009",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "Wilhelm Tell",
+        "ebook_id": "6788",
+        "question_en": "For the English edition of Wilhelm Tell identified as Project Gutenberg eBook 6788, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of Wilhelm Tell identified as Project Gutenberg eBook 6788, who is credited as the original author?",
+        "gold": "Theodore Martin",
+        "gold_aliases": [
+          "Sir Theodore Martin's",
+          "Sir Theodore Martin’s",
+          "Sir Theodore Martin",
+          "Theodore Martin's",
+          "Theodore Martin’s",
+          "Theodore Martin",
+          "T. Martin's",
+          "T. Martin’s",
+          "T Martin's",
+          "T Martin’s",
+          "T. Martin",
+          "Martin's",
+          "Martin’s",
+          "T Martin",
+          "Martin"
+        ],
+        "d": "Friedrich Schiller",
+        "d_aliases": [
+          "Friedrich Schiller",
+          "Johann Christoph Friedrich von Schiller",
+          "Schiller"
+        ],
+        "P_g": "Theodore Martin is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/6788 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/6788 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-009",
+          "parent_check": {
+            "conflict_id": "R-009",
+            "answer_q": "Friedrich Schiller",
+            "answer_shadow": "Theodore Martin",
+            "source_q": "https://www.gutenberg.org/ebooks/6788",
+            "source_shadow": "https://www.gutenberg.org/ebooks/6788",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者；译者书目姓名另附爵士称号。"
+          }
+        },
+        "parent_id": "R-009",
+        "calibration": {
+          "parsed_wrong": 16,
+          "correct": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 16,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 16,
+          "confusion_rate": 0.0,
+          "p0": 0.0,
+          "lp_gold": -44.18545150756836,
+          "lp_d": -47.933162689208984,
+          "gap": 3.747711181640625,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "William Peter",
+      "d_T_aliases": [
+        "William Peter's",
+        "William Peter’s",
+        "William Peter",
+        "W. Peter's",
+        "W. Peter’s",
+        "W Peter's",
+        "W Peter’s",
+        "W. Peter",
+        "Peter's",
+        "Peter’s",
+        "W Peter",
+        "Peter"
+      ],
+      "source_dT": "https://findingaids.library.upenn.edu/records/UPENN_RBML_PUSP.PRINTCOLL.79",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Friedrich Schiller wrote Wilhelm Tell in its original language.",
+      "P_trans": "Theodore Martin is the translator credited in Project Gutenberg eBook 6788.",
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/6788 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "Sir Theodore Martin's",
+          "Sir Theodore Martin’s",
+          "Theodore Martin's",
+          "Theodore Martin’s",
+          "T. Martin's",
+          "T. Martin’s",
+          "T Martin's",
+          "T Martin’s",
+          "T. Martin",
+          "Martin's",
+          "Martin’s",
+          "T Martin"
+        ],
+        "added_dT": [
+          "William Peter's",
+          "William Peter’s",
+          "W. Peter's",
+          "W. Peter’s",
+          "W Peter's",
+          "W Peter’s",
+          "W. Peter",
+          "Peter's",
+          "Peter’s",
+          "W Peter",
+          "Peter"
+        ]
+      }
+    },
+    {
+      "work_id": "R-010",
+      "title": "Around the World in Eighty Days",
+      "ebook": "103",
+      "R": {
+        "conflict_id": "R-010",
+        "pool": "R",
+        "relation": "original_author_vs_translator",
+        "title": "Around the World in Eighty Days",
+        "ebook_id": "103",
+        "question_en": "For the English edition of Around the World in Eighty Days identified as Project Gutenberg eBook 103, who is credited as the original author?",
+        "shadow_question_en": "For the English edition of Around the World in Eighty Days identified as Project Gutenberg eBook 103, who is credited as the English translator?",
+        "gold": "Jules Verne",
+        "gold_aliases": [
+          "Jules Verne",
+          "Verne"
+        ],
+        "d": "George Makepeace Towle",
+        "d_aliases": [
+          "George Makepeace Towle's",
+          "George Makepeace Towle’s",
+          "George Makepeace Towle",
+          "G. Makepeace Towle's",
+          "G. Makepeace Towle’s",
+          "G Makepeace Towle's",
+          "G Makepeace Towle’s",
+          "G. Makepeace Towle",
+          "G Makepeace Towle",
+          "George M. Towle's",
+          "George M. Towle’s",
+          "George M Towle's",
+          "George M Towle’s",
+          "George M. Towle",
+          "George M Towle",
+          "George Towle's",
+          "George Towle’s",
+          "G. M. Towle's",
+          "G. M. Towle’s",
+          "G M. Towle's",
+          "G M. Towle’s",
+          "G. M Towle's",
+          "G. M Towle’s",
+          "George Towle",
+          "G M Towle's",
+          "G M Towle’s",
+          "G. M. Towle",
+          "G M. Towle",
+          "G. M Towle",
+          "G. Towle's",
+          "G. Towle’s",
+          "G M Towle",
+          "G Towle's",
+          "G Towle’s",
+          "G. Towle",
+          "G Towle",
+          "Towle's",
+          "Towle’s",
+          "Towle"
+        ],
+        "P_g": "Jules Verne wrote Around the World in Eighty Days in its original language; Jules Verne is the original author.",
+        "source_g": "https://www.gutenberg.org/ebooks/103 — Author field",
+        "source_d": "https://www.gutenberg.org/ebooks/103 — Translator field",
+        "answer_format": "entity",
+        "status": "admitted",
+        "independent_check": {
+          "conflict_id": "R-010",
+          "answer_q": "Jules Verne",
+          "answer_shadow": "George Makepeace Towle",
+          "source_q": "https://www.gutenberg.org/ebooks/103",
+          "source_shadow": "https://www.gutenberg.org/ebooks/103",
+          "status": "verified",
+          "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+        },
+        "calibration": {
+          "correct": 16,
+          "parsed_wrong": 0,
+          "format_missing_only": 0,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 0,
+          "wrong_other": 0,
+          "format_missing": 0,
+          "format_reasons": {},
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 0,
+          "confusion_rate": null,
+          "p0": 1.0,
+          "lp_gold": -9.107258796691895,
+          "lp_d": -68.43025207519531,
+          "gap": 59.32299327850342,
+          "admitted": true
+        },
+        "admission_reason": "达到固定准入条件"
+      },
+      "F": {
+        "conflict_id": "F-010",
+        "pool": "F",
+        "relation": "original_author_vs_translator",
+        "title": "Around the World in Eighty Days",
+        "ebook_id": "103",
+        "question_en": "For the English edition of Around the World in Eighty Days identified as Project Gutenberg eBook 103, who is credited as the English translator?",
+        "shadow_question_en": "For the English edition of Around the World in Eighty Days identified as Project Gutenberg eBook 103, who is credited as the original author?",
+        "gold": "George Makepeace Towle",
+        "gold_aliases": [
+          "George Makepeace Towle's",
+          "George Makepeace Towle’s",
+          "George Makepeace Towle",
+          "G. Makepeace Towle's",
+          "G. Makepeace Towle’s",
+          "G Makepeace Towle's",
+          "G Makepeace Towle’s",
+          "G. Makepeace Towle",
+          "G Makepeace Towle",
+          "George M. Towle's",
+          "George M. Towle’s",
+          "George M Towle's",
+          "George M Towle’s",
+          "George M. Towle",
+          "George M Towle",
+          "George Towle's",
+          "George Towle’s",
+          "G. M. Towle's",
+          "G. M. Towle’s",
+          "G M. Towle's",
+          "G M. Towle’s",
+          "G. M Towle's",
+          "G. M Towle’s",
+          "George Towle",
+          "G M Towle's",
+          "G M Towle’s",
+          "G. M. Towle",
+          "G M. Towle",
+          "G. M Towle",
+          "G. Towle's",
+          "G. Towle’s",
+          "G M Towle",
+          "G Towle's",
+          "G Towle’s",
+          "G. Towle",
+          "G Towle",
+          "Towle's",
+          "Towle’s",
+          "Towle"
+        ],
+        "d": "Jules Verne",
+        "d_aliases": [
+          "Jules Verne",
+          "Verne"
+        ],
+        "P_g": "George Makepeace Towle is credited as the English translator of the specified edition.",
+        "source_g": "https://www.gutenberg.org/ebooks/103 — Translator field",
+        "source_d": "https://www.gutenberg.org/ebooks/103 — Author field",
+        "answer_format": "entity",
+        "status": "shadow_recorded",
+        "independent_check": {
+          "method": "继承父冲突独立核对，两问及答案角色交换；未额外生成核对回答",
+          "parent_id": "R-010",
+          "parent_check": {
+            "conflict_id": "R-010",
+            "answer_q": "Jules Verne",
+            "answer_shadow": "George Makepeace Towle",
+            "source_q": "https://www.gutenberg.org/ebooks/103",
+            "source_shadow": "https://www.gutenberg.org/ebooks/103",
+            "status": "verified",
+            "notes": "对应编号的官方书目分别列明原作者与译者；译者署名包含缩写及完整姓名。"
+          }
+        },
+        "parent_id": "R-010",
+        "calibration": {
+          "parsed_wrong": 14,
+          "correct": 1,
+          "format_missing_only": 1,
+          "truncated": 0,
+          "looped": 0,
+          "invalid": 1,
+          "wrong_other": 14,
+          "format_missing": 1,
+          "format_reasons": {
+            "negated_or_nonunique_entity": 1
+          },
+          "multiline_same_value": 0,
+          "confusion_d": 0,
+          "confusion_denominator": 14,
+          "confusion_rate": 0.0,
+          "p0": 0.0625,
+          "lp_gold": -24.57700538635254,
+          "lp_d": -21.810455322265625,
+          "gap": -2.766550064086914,
+          "admitted": null
+        },
+        "admission_reason": "影子问题仅记录，不套首答准入"
+      },
+      "d_T": "Michael Glencross",
+      "d_T_aliases": [
+        "Michael Glencross's",
+        "Michael Glencross’s",
+        "Michael Glencross",
+        "M. Glencross's",
+        "M. Glencross’s",
+        "M Glencross's",
+        "M Glencross’s",
+        "M. Glencross",
+        "Glencross's",
+        "Glencross’s",
+        "M Glencross",
+        "Glencross"
+      ],
+      "source_dT": "https://penguinrandomhousesecondaryeducation.com/book/?isbn=9780140449068",
+      "candidate_relation": "同一作品另一英译本的真实译者",
+      "P_auth": "Jules Verne wrote Around the World in Eighty Days in its original language.",
+      "P_trans": "George Makepeace Towle is the translator credited in Project Gutenberg eBook 103.",
+      "alias_amendment": {
+        "source": "https://www.gutenberg.org/ebooks/103 — Translator field",
+        "rule": "明确姓名的首字母缩写、中间名省略、姓氏与所有格形式；只在第四批材料生效。",
+        "added_gold": [
+          "George Makepeace Towle's",
+          "George Makepeace Towle’s",
+          "G. Makepeace Towle's",
+          "G. Makepeace Towle’s",
+          "G Makepeace Towle's",
+          "G Makepeace Towle’s",
+          "G. Makepeace Towle",
+          "G Makepeace Towle",
+          "George M. Towle's",
+          "George M. Towle’s",
+          "George M Towle's",
+          "George M Towle’s",
+          "George M Towle",
+          "George Towle's",
+          "George Towle’s",
+          "G. M. Towle's",
+          "G. M. Towle’s",
+          "G M. Towle's",
+          "G M. Towle’s",
+          "G. M Towle's",
+          "G. M Towle’s",
+          "G M Towle's",
+          "G M Towle’s",
+          "G. M. Towle",
+          "G M. Towle",
+          "G. M Towle",
+          "G. Towle's",
+          "G. Towle’s",
+          "G M Towle",
+          "G Towle's",
+          "G Towle’s",
+          "G. Towle",
+          "G Towle",
+          "Towle's",
+          "Towle’s"
+        ],
+        "added_dT": [
+          "Michael Glencross's",
+          "Michael Glencross’s",
+          "M. Glencross's",
+          "M. Glencross’s",
+          "M Glencross's",
+          "M Glencross’s",
+          "M. Glencross",
+          "Glencross's",
+          "Glencross’s",
+          "M Glencross",
+          "Glencross"
+        ]
+      }
+    }
+  ],
+  "alias_form_audit": [
+    {
+      "work_id": "R-001",
+      "unit": "F-D",
+      "idx": 13,
+      "raw_value": "William Fleetwood",
+      "old_value": "william fleetwood",
+      "new_value": "william fleetwood",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-001",
+      "unit": "S_T",
+      "idx": 0,
+      "raw_value": "W. K. Marriott",
+      "old_value": "William Kenaz Marriott",
+      "new_value": "William Kenaz Marriott",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-001",
+      "unit": "S_T",
+      "idx": 1,
+      "raw_value": "W. K. Marriott",
+      "old_value": "William Kenaz Marriott",
+      "new_value": "William Kenaz Marriott",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-001",
+      "unit": "S_T",
+      "idx": 3,
+      "raw_value": "W. K. Marriott",
+      "old_value": "William Kenaz Marriott",
+      "new_value": "William Kenaz Marriott",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-001",
+      "unit": "S_T",
+      "idx": 4,
+      "raw_value": "W. K. Marriott",
+      "old_value": "William Kenaz Marriott",
+      "new_value": "William Kenaz Marriott",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-001",
+      "unit": "S_T",
+      "idx": 5,
+      "raw_value": "W. K. Marriott",
+      "old_value": "William Kenaz Marriott",
+      "new_value": "William Kenaz Marriott",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-001",
+      "unit": "S_T",
+      "idx": 6,
+      "raw_value": "W. K. Marriott",
+      "old_value": "William Kenaz Marriott",
+      "new_value": "William Kenaz Marriott",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-002",
+      "unit": "F-D",
+      "idx": 4,
+      "raw_value": "B. Jowett",
+      "old_value": "b jowett",
+      "new_value": "Benjamin Jowett",
+      "same_identity": true,
+      "approved_exclusion": true
+    },
+    {
+      "work_id": "R-002",
+      "unit": "F-D",
+      "idx": 10,
+      "raw_value": "B. Jowett",
+      "old_value": "b jowett",
+      "new_value": "Benjamin Jowett",
+      "same_identity": true,
+      "approved_exclusion": true
+    },
+    {
+      "work_id": "R-002",
+      "unit": "F-D",
+      "idx": 11,
+      "raw_value": "B. Jowett",
+      "old_value": "b jowett",
+      "new_value": "Benjamin Jowett",
+      "same_identity": true,
+      "approved_exclusion": true
+    },
+    {
+      "work_id": "R-002",
+      "unit": "S_T",
+      "idx": 0,
+      "raw_value": "Benjamin Jowett",
+      "old_value": "Benjamin Jowett",
+      "new_value": "Benjamin Jowett",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-002",
+      "unit": "S_T",
+      "idx": 1,
+      "raw_value": "Benjamin Jowett",
+      "old_value": "Benjamin Jowett",
+      "new_value": "Benjamin Jowett",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-002",
+      "unit": "S_T",
+      "idx": 2,
+      "raw_value": "Benjamin Jowett",
+      "old_value": "Benjamin Jowett",
+      "new_value": "Benjamin Jowett",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-002",
+      "unit": "S_T",
+      "idx": 3,
+      "raw_value": "Benjamin Jowett",
+      "old_value": "Benjamin Jowett",
+      "new_value": "Benjamin Jowett",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-002",
+      "unit": "S_T",
+      "idx": 5,
+      "raw_value": "Benjamin Jowett",
+      "old_value": "Benjamin Jowett",
+      "new_value": "Benjamin Jowett",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-002",
+      "unit": "S_T",
+      "idx": 6,
+      "raw_value": "Benjamin Jowett",
+      "old_value": "Benjamin Jowett",
+      "new_value": "Benjamin Jowett",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-003",
+      "unit": "F-D",
+      "idx": 0,
+      "raw_value": "Constance Garnett",
+      "old_value": "constance garnett",
+      "new_value": "constance garnett",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-003",
+      "unit": "F-D",
+      "idx": 1,
+      "raw_value": "Constance Garnett",
+      "old_value": "constance garnett",
+      "new_value": "constance garnett",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-003",
+      "unit": "F-D",
+      "idx": 2,
+      "raw_value": "Constance Garnett",
+      "old_value": "constance garnett",
+      "new_value": "constance garnett",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-003",
+      "unit": "F-D",
+      "idx": 3,
+      "raw_value": "Constance Garnett",
+      "old_value": "constance garnett",
+      "new_value": "constance garnett",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-003",
+      "unit": "F-D",
+      "idx": 4,
+      "raw_value": "Constance Garnett",
+      "old_value": "constance garnett",
+      "new_value": "constance garnett",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-003",
+      "unit": "F-D",
+      "idx": 5,
+      "raw_value": "Constance Garnett",
+      "old_value": "constance garnett",
+      "new_value": "constance garnett",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-003",
+      "unit": "F-D",
+      "idx": 6,
+      "raw_value": "Constance Garnett",
+      "old_value": "constance garnett",
+      "new_value": "constance garnett",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-003",
+      "unit": "F-D",
+      "idx": 7,
+      "raw_value": "Constance Garnett",
+      "old_value": "constance garnett",
+      "new_value": "constance garnett",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-004",
+      "unit": "S_T",
+      "idx": 0,
+      "raw_value": "Thomas Common",
+      "old_value": "Thomas Common",
+      "new_value": "Thomas Common",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-004",
+      "unit": "S_T",
+      "idx": 1,
+      "raw_value": "Thomas Common",
+      "old_value": "Thomas Common",
+      "new_value": "Thomas Common",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-004",
+      "unit": "S_T",
+      "idx": 2,
+      "raw_value": "Thomas Common",
+      "old_value": "Thomas Common",
+      "new_value": "Thomas Common",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-004",
+      "unit": "S_T",
+      "idx": 3,
+      "raw_value": "Thomas Common",
+      "old_value": "Thomas Common",
+      "new_value": "Thomas Common",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-004",
+      "unit": "S_T",
+      "idx": 4,
+      "raw_value": "Thomas Common",
+      "old_value": "Thomas Common",
+      "new_value": "Thomas Common",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-004",
+      "unit": "S_T",
+      "idx": 5,
+      "raw_value": "Thomas Common",
+      "old_value": "Thomas Common",
+      "new_value": "Thomas Common",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "F-D",
+      "idx": 0,
+      "raw_value": "Charles E. Wilbour",
+      "old_value": "charles e wilbour",
+      "new_value": "charles e wilbour",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "F-D",
+      "idx": 4,
+      "raw_value": "Charles E. Wilbour",
+      "old_value": "charles e wilbour",
+      "new_value": "charles e wilbour",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "F-D",
+      "idx": 6,
+      "raw_value": "Charles E. Wilbour",
+      "old_value": "charles e wilbour",
+      "new_value": "charles e wilbour",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "F-D",
+      "idx": 10,
+      "raw_value": "Charles E. Wilbour",
+      "old_value": "charles e wilbour",
+      "new_value": "charles e wilbour",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "F-D",
+      "idx": 11,
+      "raw_value": "Charles E. Wilbour",
+      "old_value": "charles e wilbour",
+      "new_value": "charles e wilbour",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "F-D",
+      "idx": 12,
+      "raw_value": "Charles E. Wilbour",
+      "old_value": "charles e wilbour",
+      "new_value": "charles e wilbour",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "F-D",
+      "idx": 14,
+      "raw_value": "Charles E. Wilbour",
+      "old_value": "charles e wilbour",
+      "new_value": "charles e wilbour",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "F-D",
+      "idx": 15,
+      "raw_value": "Charles E. Wilbour",
+      "old_value": "charles e wilbour",
+      "new_value": "charles e wilbour",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "S_T",
+      "idx": 3,
+      "raw_value": "Isabel F. Hapgood",
+      "old_value": "Isabel Florence Hapgood",
+      "new_value": "Isabel Florence Hapgood",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "S_T",
+      "idx": 5,
+      "raw_value": "Isabel F. Hapgood",
+      "old_value": "Isabel Florence Hapgood",
+      "new_value": "Isabel Florence Hapgood",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-005",
+      "unit": "S_T",
+      "idx": 7,
+      "raw_value": "Isabel F. Hapgood",
+      "old_value": "Isabel Florence Hapgood",
+      "new_value": "Isabel Florence Hapgood",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-006",
+      "unit": "S_T",
+      "idx": 1,
+      "raw_value": "Bayard Taylor",
+      "old_value": "Bayard Taylor",
+      "new_value": "Bayard Taylor",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-006",
+      "unit": "S_T",
+      "idx": 2,
+      "raw_value": "Bayard Taylor",
+      "old_value": "Bayard Taylor",
+      "new_value": "Bayard Taylor",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-006",
+      "unit": "S_T",
+      "idx": 4,
+      "raw_value": "Bayard Taylor",
+      "old_value": "Bayard Taylor",
+      "new_value": "Bayard Taylor",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-007",
+      "unit": "S_T",
+      "idx": 0,
+      "raw_value": "William Whiston",
+      "old_value": "William Whiston",
+      "new_value": "William Whiston",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-007",
+      "unit": "S_T",
+      "idx": 1,
+      "raw_value": "William Whiston",
+      "old_value": "William Whiston",
+      "new_value": "William Whiston",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-007",
+      "unit": "S_T",
+      "idx": 2,
+      "raw_value": "William Whiston",
+      "old_value": "William Whiston",
+      "new_value": "William Whiston",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-007",
+      "unit": "S_T",
+      "idx": 3,
+      "raw_value": "William Whiston",
+      "old_value": "William Whiston",
+      "new_value": "William Whiston",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-007",
+      "unit": "S_T",
+      "idx": 4,
+      "raw_value": "William Whiston",
+      "old_value": "William Whiston",
+      "new_value": "William Whiston",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-007",
+      "unit": "S_T",
+      "idx": 5,
+      "raw_value": "William Whiston",
+      "old_value": "William Whiston",
+      "new_value": "William Whiston",
+      "same_identity": true,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-008",
+      "unit": "F-D",
+      "idx": 0,
+      "raw_value": "William Archer",
+      "old_value": "william archer",
+      "new_value": "william archer",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-008",
+      "unit": "F-D",
+      "idx": 1,
+      "raw_value": "William Archer",
+      "old_value": "william archer",
+      "new_value": "william archer",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-008",
+      "unit": "F-D",
+      "idx": 2,
+      "raw_value": "William Archer",
+      "old_value": "william archer",
+      "new_value": "william archer",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-008",
+      "unit": "F-D",
+      "idx": 3,
+      "raw_value": "William Archer",
+      "old_value": "william archer",
+      "new_value": "william archer",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-008",
+      "unit": "F-D",
+      "idx": 4,
+      "raw_value": "Isabel Hapgood",
+      "old_value": "isabel hapgood",
+      "new_value": "isabel hapgood",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-008",
+      "unit": "F-D",
+      "idx": 6,
+      "raw_value": "Isabel Hapgood",
+      "old_value": "isabel hapgood",
+      "new_value": "isabel hapgood",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-008",
+      "unit": "F-D",
+      "idx": 7,
+      "raw_value": "William Archer",
+      "old_value": "william archer",
+      "new_value": "william archer",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-009",
+      "unit": "F-D",
+      "idx": 0,
+      "raw_value": "Thomas Holcroft",
+      "old_value": "thomas holcroft",
+      "new_value": "thomas holcroft",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-009",
+      "unit": "F-D",
+      "idx": 1,
+      "raw_value": "John A. H. Murray",
+      "old_value": "john a h murray",
+      "new_value": "john a h murray",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-009",
+      "unit": "F-D",
+      "idx": 2,
+      "raw_value": "Thomas S. K. K. T",
+      "old_value": "thomas s k k t",
+      "new_value": "thomas s k k t",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-009",
+      "unit": "F-D",
+      "idx": 3,
+      "raw_value": "Thomas Holcroft",
+      "old_value": "thomas holcroft",
+      "new_value": "thomas holcroft",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-009",
+      "unit": "F-D",
+      "idx": 4,
+      "raw_value": "Thomas Carlyle",
+      "old_value": "thomas carlyle",
+      "new_value": "thomas carlyle",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-009",
+      "unit": "F-D",
+      "idx": 5,
+      "raw_value": "Thomas Carlyle",
+      "old_value": "thomas carlyle",
+      "new_value": "thomas carlyle",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-009",
+      "unit": "F-D",
+      "idx": 6,
+      "raw_value": "Thomas Roscoe",
+      "old_value": "thomas roscoe",
+      "new_value": "thomas roscoe",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-009",
+      "unit": "F-D",
+      "idx": 7,
+      "raw_value": "Thomas Holcroft",
+      "old_value": "thomas holcroft",
+      "new_value": "thomas holcroft",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-010",
+      "unit": "F-D",
+      "idx": 0,
+      "raw_value": "William Henry Hudson",
+      "old_value": "william henry hudson",
+      "new_value": "william henry hudson",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-010",
+      "unit": "F-D",
+      "idx": 1,
+      "raw_value": "Lawrence E. D. S. G",
+      "old_value": "lawrence e d s g",
+      "new_value": "lawrence e d s g",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-010",
+      "unit": "F-D",
+      "idx": 2,
+      "raw_value": "W. H. Hudson",
+      "old_value": "w h hudson",
+      "new_value": "w h hudson",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-010",
+      "unit": "F-D",
+      "idx": 4,
+      "raw_value": "L. L. Petrie",
+      "old_value": "l l petrie",
+      "new_value": "l l petrie",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-010",
+      "unit": "F-D",
+      "idx": 5,
+      "raw_value": "William Henry Hudson",
+      "old_value": "william henry hudson",
+      "new_value": "william henry hudson",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-010",
+      "unit": "F-D",
+      "idx": 6,
+      "raw_value": "William Henry Hudson",
+      "old_value": "william henry hudson",
+      "new_value": "william henry hudson",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-010",
+      "unit": "F-D",
+      "idx": 7,
+      "raw_value": "William Henry Hudson",
+      "old_value": "william henry hudson",
+      "new_value": "william henry hudson",
+      "same_identity": false,
+      "approved_exclusion": false
+    },
+    {
+      "work_id": "R-010",
+      "unit": "S_T",
+      "idx": 8,
+      "raw_value": "George M. Towle",
+      "old_value": "George Makepeace Towle",
+      "new_value": "George Makepeace Towle",
+      "same_identity": true,
+      "approved_exclusion": false
+    }
+  ],
+  "source_histories": 193,
+  "active_histories": 190,
+  "exclusions": [
+    {
+      "work_id": "R-002",
+      "idx": 4,
+      "unit": "F-D"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 10,
+      "unit": "F-D"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 11,
+      "unit": "F-D"
+    }
+  ],
+  "date": "2026-10-25",
+  "semantic_review_status": "代理逐条阅读，非人工",
+  "construction_review": [
+    {
+      "work_id": "R-002",
+      "idx": 0,
+      "variant": "H_adj",
+      "target": "Paul Shorey",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Paul Shorey",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ],
+        [
+          {
+            "start": 115,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 175,
+            "old": "Jowett's",
+            "new": "Shorey's"
+          },
+          {
+            "start": 297,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "19th-century English translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 0,
+      "variant": "H_fab",
+      "target": "Edmund Lionel Varncombe",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Edmund Lionel Varncombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ],
+        [
+          {
+            "start": 115,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 175,
+            "old": "Jowett's",
+            "new": "Varncombe's"
+          },
+          {
+            "start": 297,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "19th-century English translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 1,
+      "variant": "H_adj",
+      "target": "Paul Shorey",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "4bf59e3d9baeece049365033fb98aadb34427044b652409081b7c0d61b191fe1",
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Paul Shorey",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ],
+        [
+          {
+            "start": 117,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 206,
+            "old": "Jowett's",
+            "new": "Shorey's"
+          },
+          {
+            "start": 290,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 1,
+      "variant": "H_fab",
+      "target": "Edmund Lionel Varncombe",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "a9de875744407bbe5a284491d6ae174bfc93d658737e826fd9f14b3aff86639a",
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Edmund Lionel Varncombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ],
+        [
+          {
+            "start": 117,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 206,
+            "old": "Jowett's",
+            "new": "Varncombe's"
+          },
+          {
+            "start": 290,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 2,
+      "variant": "H_adj",
+      "target": "Paul Shorey",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Paul Shorey",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ],
+        [
+          {
+            "start": 92,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 181,
+            "old": "Jowett's",
+            "new": "Shorey's"
+          },
+          {
+            "start": 288,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "19th-century translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 2,
+      "variant": "H_fab",
+      "target": "Edmund Lionel Varncombe",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Edmund Lionel Varncombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ],
+        [
+          {
+            "start": 92,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 181,
+            "old": "Jowett's",
+            "new": "Varncombe's"
+          },
+          {
+            "start": 288,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "19th-century translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 3,
+      "variant": "H_adj",
+      "target": "Paul Shorey",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "d32f460ec2b7b4f0c1f81bdf28c5298b1c71688309f5a7f7d62dbca6e2348a02",
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Paul Shorey",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ],
+        [
+          {
+            "start": 130,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 219,
+            "old": "Jowett's",
+            "new": "Shorey's"
+          },
+          {
+            "start": 302,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 3,
+      "variant": "H_fab",
+      "target": "Edmund Lionel Varncombe",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "8cc70bd020337ac6163897cdc0cc4e7c026595af5f4a3930ad45226c1d0cdc6b",
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Edmund Lionel Varncombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ],
+        [
+          {
+            "start": 130,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 219,
+            "old": "Jowett's",
+            "new": "Varncombe's"
+          },
+          {
+            "start": 302,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 5,
+      "variant": "H_adj",
+      "target": "Paul Shorey",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Paul Shorey",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ],
+        [
+          {
+            "start": 92,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 152,
+            "old": "Jowett’s",
+            "new": "Shorey’s"
+          },
+          {
+            "start": 274,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "19th-century English translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 5,
+      "variant": "H_fab",
+      "target": "Edmund Lionel Varncombe",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Edmund Lionel Varncombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ],
+        [
+          {
+            "start": 92,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 152,
+            "old": "Jowett’s",
+            "new": "Varncombe’s"
+          },
+          {
+            "start": 274,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "19th-century English translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 6,
+      "variant": "H_adj",
+      "target": "Paul Shorey",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Paul Shorey",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ],
+        [
+          {
+            "start": 117,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          },
+          {
+            "start": 177,
+            "old": "Jowett's",
+            "new": "Shorey's"
+          },
+          {
+            "start": 331,
+            "old": "Benjamin Jowett",
+            "new": "Paul Shorey"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "19th-century translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-002",
+      "idx": 6,
+      "variant": "H_fab",
+      "target": "Edmund Lionel Varncombe",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Benjamin Jowett",
+        "replacement": "Edmund Lionel Varncombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 96,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 128,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ],
+        [
+          {
+            "start": 117,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          },
+          {
+            "start": 177,
+            "old": "Jowett's",
+            "new": "Varncombe's"
+          },
+          {
+            "start": 331,
+            "old": "Benjamin Jowett",
+            "new": "Edmund Lionel Varncombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "19th-century translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 0,
+      "variant": "H_adj",
+      "target": "Alexander Tille",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": true,
+      "history_sha256": "ad9b6cabf05b1afd3b5817aa0616004b4ad48c78ec9a556810f41239c614d140",
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Alexander Tille",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 133,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 163,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ],
+        [
+          {
+            "start": 125,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 229,
+            "old": "Common's",
+            "new": "Tille's"
+          },
+          {
+            "start": 361,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 0,
+      "variant": "H_fab",
+      "target": "Arthur Percival Tresswick",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": true,
+      "history_sha256": "81d02f78c8bf1082bbac9d81213a91516cc3f72638b2532105d8c9b5fcf72fe2",
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Arthur Percival Tresswick",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 133,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 163,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ],
+        [
+          {
+            "start": 125,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 229,
+            "old": "Common's",
+            "new": "Tresswick's"
+          },
+          {
+            "start": 361,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 1,
+      "variant": "H_adj",
+      "target": "Alexander Tille",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": true,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Alexander Tille",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 135,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 165,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ],
+        [
+          {
+            "start": 125,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 319,
+            "old": "Common's",
+            "new": "Tille's"
+          },
+          {
+            "start": 389,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "1909 translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 1,
+      "variant": "H_fab",
+      "target": "Arthur Percival Tresswick",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": true,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Arthur Percival Tresswick",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 135,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 165,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ],
+        [
+          {
+            "start": 125,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 319,
+            "old": "Common's",
+            "new": "Tresswick's"
+          },
+          {
+            "start": 389,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "1909 translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 2,
+      "variant": "H_adj",
+      "target": "Alexander Tille",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": true,
+      "history_sha256": "784f4d39c3f1c32c9ac7f2038d28cf03371f53cb8ad0dae442fec00abd084a01",
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Alexander Tille",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 133,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 163,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ],
+        [
+          {
+            "start": 143,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 316,
+            "old": "Common",
+            "new": "Tille"
+          },
+          {
+            "start": 388,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 2,
+      "variant": "H_fab",
+      "target": "Arthur Percival Tresswick",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": true,
+      "history_sha256": "8558578df516757fdfbf1b4ad8a84026095413697ce73377c78d7ee1fd228838",
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Arthur Percival Tresswick",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 133,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 163,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ],
+        [
+          {
+            "start": 143,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 316,
+            "old": "Common",
+            "new": "Tresswick"
+          },
+          {
+            "start": 388,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 3,
+      "variant": "H_adj",
+      "target": "Alexander Tille",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": true,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Alexander Tille",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 135,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 165,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ],
+        [
+          {
+            "start": 115,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 338,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "published in the early 20th century",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 3,
+      "variant": "H_fab",
+      "target": "Arthur Percival Tresswick",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": true,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Arthur Percival Tresswick",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 135,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 165,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ],
+        [
+          {
+            "start": 115,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 338,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "published in the early 20th century",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 4,
+      "variant": "H_adj",
+      "target": "Alexander Tille",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": true,
+      "history_sha256": "9401dd2770ef2059130310e3bab577e0b921cf88d3efa377bf7c596792c8d349",
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Alexander Tille",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 133,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 163,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ],
+        [
+          {
+            "start": 143,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 319,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 4,
+      "variant": "H_fab",
+      "target": "Arthur Percival Tresswick",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": true,
+      "history_sha256": "f42573e8d9d10d6ea1f4b6be9427b3fbfe125d73d35389a8df2f2923d3e29065",
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Arthur Percival Tresswick",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 133,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 163,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ],
+        [
+          {
+            "start": 143,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 319,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 5,
+      "variant": "H_adj",
+      "target": "Alexander Tille",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": true,
+      "history_sha256": "261f1a6cd3be0952305f444cdfbe99f20245e890a5bb7563ff4f38e9322c06bf",
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Alexander Tille",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 133,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 163,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ],
+        [
+          {
+            "start": 125,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          },
+          {
+            "start": 230,
+            "old": "Common's",
+            "new": "Tille's"
+          },
+          {
+            "start": 354,
+            "old": "Thomas Common",
+            "new": "Alexander Tille"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-004",
+      "idx": 5,
+      "variant": "H_fab",
+      "target": "Arthur Percival Tresswick",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": true,
+      "history_sha256": "cbb508b92dca5044b1fcef23e192aa53fffb217b677956e419e7f4c70b87683e",
+      "replacement_mapping": {
+        "original": "Thomas Common",
+        "replacement": "Arthur Percival Tresswick",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 133,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 163,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ],
+        [
+          {
+            "start": 125,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          },
+          {
+            "start": 230,
+            "old": "Common's",
+            "new": "Tresswick's"
+          },
+          {
+            "start": 354,
+            "old": "Thomas Common",
+            "new": "Arthur Percival Tresswick"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 已逐条检查Common均为姓名，无普通词被误换。"
+    },
+    {
+      "work_id": "R-005",
+      "idx": 3,
+      "variant": "H_adj",
+      "target": "Charles E. Wilbour",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "f7172ffff83f10ced96b3d4e60f2439e4a2b9411543fccbcb6108cc10603f9ed",
+      "replacement_mapping": {
+        "original": "Isabel Florence Hapgood",
+        "replacement": "Charles E. Wilbour",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 97,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          },
+          {
+            "start": 131,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          }
+        ],
+        [
+          {
+            "start": 365,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          },
+          {
+            "start": 461,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "第二轮曾提出其他名字，随后用no/incorrect或Actually明确纠正到最终答案；这些已撤回的尝试保持原文，不视为同时保留的矛盾。"
+    },
+    {
+      "work_id": "R-005",
+      "idx": 3,
+      "variant": "H_fab",
+      "target": "Walter Edwin Brenshaw",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "7ac3f8cfbb0644bf66f7f1abbcc5510f12f1898000643eb3eb456d1c3ce21e01",
+      "replacement_mapping": {
+        "original": "Isabel Florence Hapgood",
+        "replacement": "Walter Edwin Brenshaw",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 97,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          },
+          {
+            "start": 131,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          }
+        ],
+        [
+          {
+            "start": 365,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          },
+          {
+            "start": 461,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "第二轮曾提出其他名字，随后用no/incorrect或Actually明确纠正到最终答案；这些已撤回的尝试保持原文，不视为同时保留的矛盾。"
+    },
+    {
+      "work_id": "R-005",
+      "idx": 5,
+      "variant": "H_adj",
+      "target": "Charles E. Wilbour",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "c7471289e3b9126a6b4c0e7925977b3dbbd8ce6d7fd495f1dcdc9ac882965f35",
+      "replacement_mapping": {
+        "original": "Isabel Florence Hapgood",
+        "replacement": "Charles E. Wilbour",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 97,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          },
+          {
+            "start": 131,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          }
+        ],
+        [
+          {
+            "start": 825,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          },
+          {
+            "start": 925,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          },
+          {
+            "start": 977,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "第二轮曾提出其他名字，随后用no/incorrect或Actually明确纠正到最终答案；这些已撤回的尝试保持原文，不视为同时保留的矛盾。"
+    },
+    {
+      "work_id": "R-005",
+      "idx": 5,
+      "variant": "H_fab",
+      "target": "Walter Edwin Brenshaw",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "677047b77e717261f9550110eded28c70fc3758228ded9732ecda58dc0735603",
+      "replacement_mapping": {
+        "original": "Isabel Florence Hapgood",
+        "replacement": "Walter Edwin Brenshaw",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 97,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          },
+          {
+            "start": 131,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          }
+        ],
+        [
+          {
+            "start": 825,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          },
+          {
+            "start": 925,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          },
+          {
+            "start": 977,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "第二轮曾提出其他名字，随后用no/incorrect或Actually明确纠正到最终答案；这些已撤回的尝试保持原文，不视为同时保留的矛盾。"
+    },
+    {
+      "work_id": "R-005",
+      "idx": 7,
+      "variant": "H_adj",
+      "target": "Charles E. Wilbour",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "4d9d0af004c84dcb189c9e6d5138e3ce0c7db51bc0542901c30b822b1d81c5a8",
+      "replacement_mapping": {
+        "original": "Isabel Florence Hapgood",
+        "replacement": "Charles E. Wilbour",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 137,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          },
+          {
+            "start": 171,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          }
+        ],
+        [
+          {
+            "start": 493,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          },
+          {
+            "start": 590,
+            "old": "Isabel F. Hapgood",
+            "new": "Charles E. Wilbour"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "第二轮曾提出其他名字，随后用no/incorrect或Actually明确纠正到最终答案；这些已撤回的尝试保持原文，不视为同时保留的矛盾。"
+    },
+    {
+      "work_id": "R-005",
+      "idx": 7,
+      "variant": "H_fab",
+      "target": "Walter Edwin Brenshaw",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "c5263d5ad2b428c01abdfa97e5cbc8fa4970f23a378cd7ec98832d92b46da60c",
+      "replacement_mapping": {
+        "original": "Isabel Florence Hapgood",
+        "replacement": "Walter Edwin Brenshaw",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 137,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          },
+          {
+            "start": 171,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          }
+        ],
+        [
+          {
+            "start": 493,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          },
+          {
+            "start": 590,
+            "old": "Isabel F. Hapgood",
+            "new": "Walter Edwin Brenshaw"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "第二轮曾提出其他名字，随后用no/incorrect或Actually明确纠正到最终答案；这些已撤回的尝试保持原文，不视为同时保留的矛盾。"
+    },
+    {
+      "work_id": "R-006",
+      "idx": 1,
+      "variant": "H_adj",
+      "target": "Anna Swanwick",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "346be3c6e3d75c37889fc859d1a1ac3f79dd4f9a01518a3def4066828174702f",
+      "replacement_mapping": {
+        "original": "Bayard Taylor",
+        "replacement": "Anna Swanwick",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 142,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          },
+          {
+            "start": 172,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          }
+        ],
+        [
+          {
+            "start": 183,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          },
+          {
+            "start": 270,
+            "old": "Taylor",
+            "new": "Swanwick"
+          },
+          {
+            "start": 353,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          }
+        ]
+      ],
+      "pronoun_corrections": [
+        {
+          "field": "t2",
+          "before": "Swanwick is recognized for his metrical translation",
+          "after": "Swanwick is recognized for her metrical translation"
+        }
+      ],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 原格律描述来自题面本身，未添加译者生平或年代。"
+    },
+    {
+      "work_id": "R-006",
+      "idx": 1,
+      "variant": "H_fab",
+      "target": "Henry Oswald Fenwicke",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "259a89d731e1430bd9c83c1c19f1d7374d9cdbca9bf7ebab4675b291f8ab9997",
+      "replacement_mapping": {
+        "original": "Bayard Taylor",
+        "replacement": "Henry Oswald Fenwicke",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 142,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          },
+          {
+            "start": 172,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          }
+        ],
+        [
+          {
+            "start": 183,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          },
+          {
+            "start": 270,
+            "old": "Taylor",
+            "new": "Fenwicke"
+          },
+          {
+            "start": 353,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 原格律描述来自题面本身，未添加译者生平或年代。"
+    },
+    {
+      "work_id": "R-006",
+      "idx": 2,
+      "variant": "H_adj",
+      "target": "Anna Swanwick",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "0eefc5ca0aa4430cc4bb75adc2756ed872fcc04d82bba266307e719b958f2acd",
+      "replacement_mapping": {
+        "original": "Bayard Taylor",
+        "replacement": "Anna Swanwick",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 130,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          },
+          {
+            "start": 160,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          }
+        ],
+        [
+          {
+            "start": 163,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          },
+          {
+            "start": 250,
+            "old": "Taylor",
+            "new": "Swanwick"
+          },
+          {
+            "start": 411,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          }
+        ]
+      ],
+      "pronoun_corrections": [
+        {
+          "field": "t2",
+          "before": "Swanwick is recognized for his metrical translation",
+          "after": "Swanwick is recognized for her metrical translation"
+        },
+        {
+          "field": "t2",
+          "before": "His version is noted",
+          "after": "Her version is noted"
+        }
+      ],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 原格律描述来自题面本身，未添加译者生平或年代。"
+    },
+    {
+      "work_id": "R-006",
+      "idx": 2,
+      "variant": "H_fab",
+      "target": "Henry Oswald Fenwicke",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "7afb372a2cbc91c6582f69b61ad3fa143d07c4305ecf848b6cf402b3f52ca0ad",
+      "replacement_mapping": {
+        "original": "Bayard Taylor",
+        "replacement": "Henry Oswald Fenwicke",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 130,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          },
+          {
+            "start": 160,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          }
+        ],
+        [
+          {
+            "start": 163,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          },
+          {
+            "start": 250,
+            "old": "Taylor",
+            "new": "Fenwicke"
+          },
+          {
+            "start": 411,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 原格律描述来自题面本身，未添加译者生平或年代。"
+    },
+    {
+      "work_id": "R-006",
+      "idx": 4,
+      "variant": "H_adj",
+      "target": "Anna Swanwick",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "dec4ee35eaaa696251859adbe71b9f64c37f3ce1eecc86b1acbaf52d563c3d7d",
+      "replacement_mapping": {
+        "original": "Bayard Taylor",
+        "replacement": "Anna Swanwick",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 35,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          },
+          {
+            "start": 226,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          }
+        ],
+        [
+          {
+            "start": 163,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          },
+          {
+            "start": 237,
+            "old": "Taylor's",
+            "new": "Swanwick's"
+          },
+          {
+            "start": 350,
+            "old": "Bayard Taylor",
+            "new": "Anna Swanwick"
+          }
+        ]
+      ],
+      "pronoun_corrections": [
+        {
+          "field": "t1",
+          "before": "He translated Goethe's Faust",
+          "after": "She translated Goethe's Faust"
+        }
+      ],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 原格律描述来自题面本身，未添加译者生平或年代。"
+    },
+    {
+      "work_id": "R-006",
+      "idx": 4,
+      "variant": "H_fab",
+      "target": "Henry Oswald Fenwicke",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "3ecae561c407064d049f041ed023d3dcb3d74766a6ccc0d80f25ac234f9a8784",
+      "replacement_mapping": {
+        "original": "Bayard Taylor",
+        "replacement": "Henry Oswald Fenwicke",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 35,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          },
+          {
+            "start": 226,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          }
+        ],
+        [
+          {
+            "start": 163,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          },
+          {
+            "start": 237,
+            "old": "Taylor's",
+            "new": "Fenwicke's"
+          },
+          {
+            "start": 350,
+            "old": "Bayard Taylor",
+            "new": "Henry Oswald Fenwicke"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。 原格律描述来自题面本身，未添加译者生平或年代。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 0,
+      "variant": "H_adj",
+      "target": "G. A. Williamson",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "G. A. Williamson",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ],
+        [
+          {
+            "start": 189,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 231,
+            "old": "Whiston's",
+            "new": "Williamson's"
+          },
+          {
+            "start": 397,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "1737 translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 0,
+      "variant": "H_fab",
+      "target": "Frederick Alwyn Darscombe",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "Frederick Alwyn Darscombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ],
+        [
+          {
+            "start": 189,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 231,
+            "old": "Whiston's",
+            "new": "Darscombe's"
+          },
+          {
+            "start": 397,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "1737 translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 1,
+      "variant": "H_adj",
+      "target": "G. A. Williamson",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "G. A. Williamson",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ],
+        [
+          {
+            "start": 137,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 355,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "in the early 18th century",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 1,
+      "variant": "H_fab",
+      "target": "Frederick Alwyn Darscombe",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "Frederick Alwyn Darscombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ],
+        [
+          {
+            "start": 137,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 355,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "in the early 18th century",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 2,
+      "variant": "H_adj",
+      "target": "G. A. Williamson",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "7785594388c067ce2d5fd19969581e619df7f4b7778ab2971c01bc5a9fa7bfbb",
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "G. A. Williamson",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ],
+        [
+          {
+            "start": 189,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 271,
+            "old": "Whiston's",
+            "new": "Williamson's"
+          },
+          {
+            "start": 391,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 2,
+      "variant": "H_fab",
+      "target": "Frederick Alwyn Darscombe",
+      "decision": "accept",
+      "reason": "姓名归属一致；仅按授权修正指代译者的代词。",
+      "common_ordinary_only": false,
+      "history_sha256": "05023fc30abe419da168bd45e3b96c44c77e2af3bf878234977404a4d40283b7",
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "Frederick Alwyn Darscombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ],
+        [
+          {
+            "start": 189,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 271,
+            "old": "Whiston's",
+            "new": "Darscombe's"
+          },
+          {
+            "start": 391,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": false,
+      "specific_fact_excerpt": null,
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 3,
+      "variant": "H_adj",
+      "target": "G. A. Williamson",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "G. A. Williamson",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ],
+        [
+          {
+            "start": 140,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 213,
+            "old": "Whiston's",
+            "new": "Williamson's"
+          },
+          {
+            "start": 346,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "18th-century version",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 3,
+      "variant": "H_fab",
+      "target": "Frederick Alwyn Darscombe",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "Frederick Alwyn Darscombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ],
+        [
+          {
+            "start": 140,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 213,
+            "old": "Whiston's",
+            "new": "Darscombe's"
+          },
+          {
+            "start": 346,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "18th-century version",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 4,
+      "variant": "H_adj",
+      "target": "G. A. Williamson",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "G. A. Williamson",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ],
+        [
+          {
+            "start": 127,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 330,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "He translated the work from Josephus's original Greek",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 4,
+      "variant": "H_fab",
+      "target": "Frederick Alwyn Darscombe",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "Frederick Alwyn Darscombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ],
+        [
+          {
+            "start": 127,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 330,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "He translated the work from Josephus's original Greek",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 5,
+      "variant": "H_adj",
+      "target": "G. A. Williamson",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "G. A. Williamson",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ],
+        [
+          {
+            "start": 189,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          },
+          {
+            "start": 231,
+            "old": "Whiston's",
+            "new": "Williamson's"
+          },
+          {
+            "start": 409,
+            "old": "William Whiston",
+            "new": "G. A. Williamson"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "1737 translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    },
+    {
+      "work_id": "R-007",
+      "idx": 5,
+      "variant": "H_fab",
+      "target": "Frederick Alwyn Darscombe",
+      "decision": "exclude",
+      "reason": "含原译者的年代或具体译出方法；依用户修订排除，不修补。",
+      "common_ordinary_only": false,
+      "history_sha256": null,
+      "replacement_mapping": {
+        "original": "William Whiston",
+        "replacement": "Frederick Alwyn Darscombe",
+        "full_name_rule": "多词别名→全名，单词别名→姓氏；所有格保留"
+      },
+      "replacement_occurrences": [
+        [
+          {
+            "start": 155,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 187,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ],
+        [
+          {
+            "start": 189,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          },
+          {
+            "start": 231,
+            "old": "Whiston's",
+            "new": "Darscombe's"
+          },
+          {
+            "start": 409,
+            "old": "William Whiston",
+            "new": "Frederick Alwyn Darscombe"
+          }
+        ]
+      ],
+      "pronoun_corrections": [],
+      "has_specific_facts": true,
+      "specific_fact_excerpt": "1737 translation",
+      "semantic_note": "两轮最终均明确保持替换姓名；正文不存在未撤回的反向归属。"
+    }
+  ],
+  "approved_amendments": [
+    "仅修正指向替换名的性别代词，不润色其他文字。",
+    "排除文本内部未被撤回的矛盾及名字之外的原译者专属事实；年代、版本、生平等细节不修补。",
+    "按作品报告构造基底剩余数；不足3条仍如实报告，不补历史。"
+  ],
+  "construction_remaining_by_work": {
+    "R-002": {
+      "H_adj": 2,
+      "H_fab": 2
+    },
+    "R-004": {
+      "H_adj": 4,
+      "H_fab": 4
+    },
+    "R-007": {
+      "H_adj": 1,
+      "H_fab": 1
+    },
+    "R-005": {
+      "H_adj": 3,
+      "H_fab": 3
+    },
+    "R-006": {
+      "H_adj": 3,
+      "H_fab": 3
+    }
+  }
+}
