@@ -149,7 +149,9 @@ def render(out,s):
     lines+=['## 截断、缺失与预算','|实验格|计划条数|截断|循环|格式缺失|立场不可判|','|---|---:|---:|---:|---:|---:|']
     for ex,gs in s['diagnostics'].items():
         for name,g in gs.items():lines.append(f"|{ex}/{name}|{g['n']}|{g['truncated']}|{g['looped']}|{g['format_missing']}|{g['stance_unjudgeable']}|")
-    lines+=['120万仅预警，150万暂停请示，不自动删格。实际预算检查与各阶段耗时在JSON中。','## 解释范围','全部新生成只有第三轮。构造历史经过显式修改，不能等同自然错误首答；强弱层来自不同作品，组间差异不唯一归因于知识。经验达标不代表已精确排除所有代价。没有开展第四轮、门控、探针、激活干预、新冲突或实验D。']
+    lines+=['120万仅预警，150万暂停请示，不自动删格。实际预算检查与各阶段耗时在JSON中。',
+        '评审首次启动因两个同名公共模块的导入冲突退出，尚未加载评审模型或产生标签。随后通过独立启动入口先隔离导入原评审客户端，再调用原冻结评审程序恢复。冻结文件、提示词、标签定义、生成数据均未修改，也未重复生成。',
+        '## 解释范围','全部新生成只有第三轮。构造历史经过显式修改，不能等同自然错误首答；强弱层来自不同作品，组间差异不唯一归因于知识。经验达标不代表已精确排除所有代价。没有开展第四轮、门控、探针、激活干预、新冲突或实验D。']
     text=''
     for i,line in enumerate(lines):text+=('' if i==0 else '\n' if line.startswith('|') and lines[i-1].startswith('|') else '\n\n')+line
     (out/'factdiag4_report.md').write_text(text+'\n',encoding='utf-8')
