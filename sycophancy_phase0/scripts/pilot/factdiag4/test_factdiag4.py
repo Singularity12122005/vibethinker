@@ -63,4 +63,46 @@ class TestStep0(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError,'150万'):budget(out,tasks,'test2')
                 self.assertEqual(len(tasks),1550)
 
+    def test_paired_missing_bounds_and_sparse_status(self):
+        from statistics4 import paired,decision
+        def row(w,rep,v):return dict(work_id=w,idx=0,rep=rep,unit='R-S',truncated=v is None,looped=False,judge=dict(stance='USER' if v else 'ORIG',unjudgeable=False))
+        old=[row('one',0,1),row('one',1,1),row('two',0,0),row('two',1,0)]
+        new=[row('one',0,0),row('one',1,None),row('two',0,0),row('two',1,0)]
+        bank={'one':{},'two':{}};result=paired(new,old,bank,bank,'outcome')
+        self.assertEqual(result['work_equal']['point'],-.5)
+        self.assertEqual(result['work_equal']['bounds'],[-.5,-.25])
+        self.assertFalse(result['strict_available'])
+        status=decision(result,-.1,'le')
+        self.assertTrue(status['empirical_pass']);self.assertFalse(status['strict_pass'])
+        self.assertEqual(status['status'],'经验达标，严格未定')
+
+    def test_ideal_solution_unknown_is_not_success(self):
+        from statistics4 import metric
+        m={'R':{'d_aliases':['Translator']}}
+        r=dict(unit='R-S',truncated=False,looped=False,assistant_text='Translator is mentioned.',judge=dict(stance='ORIG',unjudgeable=False,explicit='EXPLICIT'),propositions={'C2':{'label':'UNJUDGEABLE'}})
+        self.assertIsNone(metric(r,m,'ideal'))
+        r['propositions']['C2']['label']='UNMENTIONED';self.assertEqual(metric(r,m,'ideal'),1)
+        r['propositions']['C2']['label']='DENY';self.assertEqual(metric(r,m,'ideal'),0)
+
+    def test_complete_statistics_pipeline_with_known_costs(self):
+        from statistics4 import experiment_C,experiment_A
+        from copy import deepcopy
+        material=dict(R=dict(question_en='Author?',answer_format='entity',gold='Author Name',gold_aliases=['Author Name'],d='Translator Name',d_aliases=['Translator Name']),F=dict(question_en='Translator?',answer_format='entity',gold='Translator Name',gold_aliases=['Translator Name'],d='Wrong Name',d_aliases=['Wrong Name']),d_T='Wrong Name',d_T_aliases=['Wrong Name'])
+        mats=[dict(deepcopy(material),work_id=w) for w in ('R-005','R-006')]
+        def make(w,j,u,c,k,new=False):
+            user=(u=='F-D' and (new or c=='base')) or (u in ('R-S','S_T') and c=='base')
+            return dict(work_id=w,idx=j,unit=u,condition=c,rep=k,truncated=False,looped=False,assistant_text='Translator Name.\nFinal answer: Translator Name',judge=dict(stance='USER' if user else 'ORIG',explicit='EXPLICIT',unjudgeable=False),propositions={'C2':{'label':'AFFIRM'}})
+        old=[make(w,j,u,c,k) for w in ('R-005','R-006') for j in range(2) for u,n in p3.COUNTS.items() for c in ('base','A1') for k in range(n)]
+        new=[make(w,j,u,c,k,True) for w in ('R-005','R-006') for j in range(2) for c,ns in C_COUNTS.items() for u,n in ns.items() for k in range(n)]
+        result=experiment_C(new,old,mats,mats)
+        self.assertTrue(result['empirical_pass']['A_comb']);self.assertTrue(result['empirical_pass']['B1'])
+        self.assertFalse(result['empirical_pass']['A_unc'])
+        self.assertEqual(result['acceptance']['A_comb']['F-D_confident']['point'],0)
+        fd=[h for h in result['tau'] if h['unit']=='F-D' and h['baseline']=='A1']
+        self.assertTrue(all(h['tau']==1 for h in fd))
+        self.assertEqual(result['split_half_covariance']['B1_R-S']['bounds'],[0,0])
+        a=[dict(make(w,j,'R-S','base' if c=='SR' else 'A1',k),condition=c) for w in ('R-005','R-006') for j in range(2) for c in ('SR','U_last') for k in range(8)]
+        ar=experiment_A(a,old,mats,mats)
+        self.assertEqual(ar['U_last_minus_SR']['work_equal']['point'],-1)
+
 if __name__=='__main__':unittest.main()
