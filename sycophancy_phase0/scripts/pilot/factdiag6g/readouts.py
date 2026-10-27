@@ -143,7 +143,8 @@ def sample_batch(main,tasks,config):
 
 def token_total(out):
     files=(list(out.glob('s0_*_clean.json'))+list(out.glob('readout_*_generations.json'))+
-           list(out.glob('s0_*_t2.json'))+list(out.glob('s0_*_trial.json')))
+           list(out.glob('s0_*_t2.json'))+list(out.glob('s0_*_trial.json'))+
+           list(out.glob('formal_*_generations.json')))
     return sum(sum(r['n_new_tokens'] for r in load(f)) for f in files)
 
 
