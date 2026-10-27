@@ -185,9 +185,13 @@ def tasks(engine,plan,sources,templates,stage):
         arm=condition['arm'];prefix=templates['A1'] if arm=='S+A1' else A0 if arm=='S+A0' else ''
         user=(C_PROMPT if arm=='C' else templates['S_D']).format(D=c['name'])
         if h['path']=='constructed':
+            content=engine.tok.encode(h['constructed_answer'],add_special_tokens=False)
+            normalized=engine.builder.normalize(content,'stop')
+            if normalized.ids[:-1]!=content or normalized.truncated:
+                raise RuntimeError('构造答案规范化不得改变冻结正文')
             row=dict(prompt_ids=engine.first(templates['x1'].format(question_en=item['question_en'])),
-                assistant_ids=engine.tok.encode(h['constructed_answer'],add_special_tokens=False))
-            length=len(row['assistant_ids'])
+                assistant_ids=normalized.ids)
+            length=len(content)
         else:row=sources[h['history_id']];length=row['n_new_tokens']
         ids=engine.continue_from(row,user)
         for rep in range(condition['n']):
