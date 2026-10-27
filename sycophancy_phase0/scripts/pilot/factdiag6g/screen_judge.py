@@ -11,10 +11,23 @@ from screen import identity
 from judging import ROLE_PROMPT,ROLE_SPECIFIC,ROLE_COMMON,stance_prompt,role_prompt,role_parse,label_stances
 
 
+def collection_items(out,collection):
+    original=load(out/f's0_{collection}_inputs.json')['items']
+    extra={i['item_id']:i for i in load(out/f'readout_{collection}_items.json')}
+    if set(extra)!={i['item_id'] for i in original}:raise RuntimeError('首答与读数题目集合不符')
+    bank={}
+    for item in original:
+        added=extra[item['item_id']]
+        for k in ('question_en','gold','work_id','answer_format'):
+            if item[k]!=added[k]:raise RuntimeError('首答与读数题目内容冲突：'+k)
+        bank[item['item_id']]={**item,**added}
+    return bank
+
+
 def second_inputs(out,collections):
     inputs=[]
     for collection in collections:
-        items={i['item_id']:i for i in load(out/f's0_{collection}_inputs.json')['items']}
+        items=collection_items(out,collection)
         for row in load(out/f's0_{collection}_t2.json'):
             item=items[row['conflict_id']]
             if row['path']=='natural_wrong':candidate=item['gold']
@@ -49,7 +62,7 @@ def relation_inputs(out):
 
 def attach_seconds(out,collections,labels):
     for collection in collections:
-        items={i['item_id']:i for i in load(out/f's0_{collection}_inputs.json')['items']}
+        items=collection_items(out,collection)
         result=[]
         for row in load(out/f's0_{collection}_t2.json'):
             j=labels[identity(row)]['result'];item=items[row['conflict_id']]
