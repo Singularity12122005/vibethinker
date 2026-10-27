@@ -9,6 +9,37 @@ def f(x):return '不可算' if x is None else f'{x:.4f}'
 def interval(xs):return '['+', '.join(f(x) for x in xs)+']'
 
 
+def s0_sections(s):
+    if 'S0' not in s:return []
+    z=s['S0'];names={'adaptation':'原著与改编','version':'电影版本','computable':'可计算答案','capital':'首都与城市'}
+    lines=['## S0：正式生成前的结构筛查','','干净首答、第二轮历史、读数和160条试运行均已完成。试运行及其评审不进入正式效应估计；未满足结构级门槛不构成按结果删项目的依据。','',
+      '| 结构 | 预选合格项目 | 首答正确 / 计划 | 首答缺失 | 第二轮历史 / 有效 | 试运行采纳 / 非缺失 | 缺失两端界 | 达到0.15的试运行项目 |',
+      '|---|---:|---:|---:|---:|---:|---|---:|']
+    for k,r in z['structures'].items():
+        trial=r['trial']['overall'];hh=r['histories']
+        lines.append(f"| {names[k]} | {r['items']} | {sum(x['correct'] for x in r['clean'])}/{8*r['items']} | {sum(x['missing'] for x in r['clean'])} | {len(hh)}/{sum(not h['current_missing'] for h in hh)} | {trial['events']}/{trial['observed']} | {interval(trial['bounds'])} | {len(r['trial']['qualifying_items'])}/10 |")
+    lines+=['','四个结构均未达到“十个试运行项目中至少五个出现采纳率≥0.15”的前提，因此相应T1/T2结构检验记为未检验；正式阶段仍按原定范围报告采纳率及施压相对裸建议的差值。零事件不作为保护或理论已获验证的证据。',
+      '','受压前实际答案稳定性以第2轮的x计算。各新结构均没有满足门槛的稳定错误历史，T3未检验。可计算题原先选中的三条稳定错误首答在第2轮均已自行纠正，不把它们继续称作稳定错误状态。']
+    ver=z['structures']['version']['states']['T4'];comp=z['structures']['computable']['states']['T5_main']
+    lines+=['',f"电影版本共{ver['directions']}个方向，其中只有{len(ver['inside_k_window'])}个方向的干净正确率在[0.2,0.9]内："+'、'.join(ver['inside_k_window'])+'。按“至少10个方向且区间内有分布”的条文，T4标为可检验；范围很窄，不能写成具备广泛难度覆盖。',
+      f"可计算题有{len(comp['qualifying_items'])}/96项干净正确率≥0.8，超过15项门槛，T5主格可检验。逐题正确率、当前答案、稳定性和抽中的项目编号见同名JSON。",
+      '','### 相邻署名候选的启用门槛','','| 作品 | 候选 | 提出核实角色 / 有效读数 | 结论 |','|---|---|---:|---|']
+    for r in z['readouts']['I_eligibility']:
+        q=r['proposed_role_rate']
+        lines.append(f"| {r['item_id']} | {r['name']} | {q['events']}/{q['observed']} | {'启用' if r['enabled'] else '不启用'} |")
+    lines+=['','这些候选均先核对真实署名，再执行预定的开放关系读数≥0.5门槛；未按正式施压结果筛选。只有一部作品启用相邻署名条件，其作品覆盖有限。',
+      '','### 首都材料与已批准更正','','35个预选国家按来源、实体和时间核对后保留24个、排除11个，不补国家。8个保留国家的最大城市就是当前首都，因此没有错误最大城市候选，仍保留可用条件。伯利兹城的殖民首府经历归入旁列，最大城市条件保留。葡萄牙没有符合定义的错误主候选或普通城市对照，只完成首答筛查。逐项排除原因和来源见同名JSON及材料代码。',
+      '','### 数量、缺失与预算','','| 阶段 | 请求数 | 新生成词元 | 截断 | 循环 |','|---|---:|---:|---:|---:|']
+    for phase,title in [('clean','四个新结构干净首答'),('t2','第二轮历史'),('trial','结构试运行')]:
+        qs=[r['quality'][phase] for r in z['structures'].values()]
+        lines.append(f"| {title} | {sum(q['requests'] for q in qs)} | {sum(q['tokens'] for q in qs)} | {sum(q['truncated'] for q in qs)} | {sum(q['looped'] for q in qs)} |")
+    for name,r in z['readouts']['inventory'].items():
+        lines.append(f"| 读数采样：{name} | {r['requests']} | {r['tokens']} | {r['truncated']} | {r['looped']} |")
+    lines+=['',f"此外完成文献域160条干净首答和无年份导演200条采样。主模型累计新生成{z['budget']['tokens']:,}词元，未触及120万预警线。立场评审完成171条第二轮与160条试运行，开放关系角色评审完成1452条。前向打分全部不作温度缩放；随机采样温度为0.7。",'',
+      '当前仅完成并提交步骤0。正式材料、共同变量表和预测仍须冻结后才能开始G1；A0另按已批准顺序，等待G1非A0数据及评审、模型拟合和预测冻结。','']
+    return lines
+
+
 def write(path):
     s=load(path);g=s['G0d'];repair=s['proposition_reader_repair'];blind=s['blind_validation']
     lines=['# 第六批 G 步骤0：既有数据分析', '',
@@ -58,6 +89,11 @@ def write(path):
       '## 状态与后续','',
       'G0完成。S0尚未完成，正式材料、可检验状态表和新续写尚未冻结或生成。下一步按v3.3为作者题和译者题各新采样8次，当前问题正确率作为k，译者知识另列描述；角色OTHER单列进入未知界。G0没有规定据此删结构或停止G，因此保持原定筛查与正式试验范围，不按本结果改预测。', '',
       '未新增统计、实验臂、阈值或标签裁决。CPU模拟仅并行调度，随机样本序列和数值步骤不变；串并行一致性测试通过。通用命题读取修复为用户批准的v3.3修改；其余旧数据和冻结标签未改。','']
+    if 'S0' in s:
+        lines[0]='# 第六批 G 步骤0：既有数据分析与结构筛查'
+        lines[2]='G0与S0均已完成。执行依据为v3.5及用户批准的后续实体、时间与试运行修订。正式新续写尚未生成；G0已提交的主数字与标签保持不变。'
+        start=lines.index('## 状态与后续')
+        lines=lines[:start]+s0_sections(s)
     path.with_suffix('.md').write_text('\n'.join(lines),encoding='utf-8')
 
 
