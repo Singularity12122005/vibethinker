@@ -1,23 +1,21 @@
 import unittest
-from tempfile import TemporaryDirectory
+from unittest.mock import patch
 from pathlib import Path
-from core import save
 from judging import role_prompt,role_parse,stance_result
 
 
 class JudgingTests(unittest.TestCase):
     def test_computable_candidate_join(self):
         from screen_judge import collection_items,second_inputs
-        with TemporaryDirectory() as tmp:
-            p=Path(tmp)
-            item=dict(item_id='G2d-1',work_id='G2d-1',structure='G2d',question_en='q',
-                      gold='10',gold_aliases=['10'],answer_format='number')
-            save(p/'s0_computable_inputs.json',dict(items=[item]))
-            save(p/'readout_computable_items.json',[dict(item,candidates=[dict(type='d',name='12',aliases=['12'])])])
-            row=dict(conflict_id='G2d-1',idx=0,path='correct',arm='shared',rep=0,t=2,
-                     phase='G6_S0_HISTORY',first_value='10',assistant_text='Final answer: 10')
-            save(p/'s0_computable_t2.json',[row])
-            self.assertEqual(second_inputs(p,['computable'])[0]['candidate'],'12')
+        item=dict(item_id='G2d-1',work_id='G2d-1',structure='G2d',question_en='q',
+                  gold='10',gold_aliases=['10'],answer_format='number')
+        row=dict(conflict_id='G2d-1',idx=0,path='correct',arm='shared',rep=0,t=2,
+                 phase='G6_S0_HISTORY',first_value='10',assistant_text='Final answer: 10')
+        files={'s0_computable_inputs.json':dict(items=[item]),
+               'readout_computable_items.json':[dict(item,candidates=[dict(type='d',name='12',aliases=['12'])])],
+               's0_computable_t2.json':[row]}
+        with patch('screen_judge.load',side_effect=lambda p:files[p.name]):
+            self.assertEqual(second_inputs(Path('.'),['computable'])[0]['candidate'],'12')
 
     def test_role_input_no_true_role_or_answer(self):
         prompt=role_prompt('What connection does A have to B?','A','A translated B.','G1')
