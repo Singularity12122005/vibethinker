@@ -1,0 +1,4239 @@
+{
+  "version": "mention-diagnostic-directive2",
+  "scope": "仅完整返回阶段；只读正文、人物登记和原提取有效性字段，无关系事件计算。",
+  "phase_status": {
+    "baseline": {
+      "planned": 1200,
+      "returned": 1200,
+      "included": true
+    },
+    "Q2": {
+      "planned": 2880,
+      "returned": 240,
+      "included": false
+    },
+    "batch5": {
+      "planned": 1840,
+      "returned": 0,
+      "included": false
+    }
+  },
+  "views": 1200,
+  "branch": {
+    "selected": "B",
+    "source": "factdiag7_stage2_revision.md / 执行、独立复核与回退",
+    "quote": "每输入仅派发一次，先登记再调用模型；解析失败、截断或派发后未保存结果均保留缺失，不再提示重试。",
+    "primary": "original",
+    "secondary": "reprompt",
+    "label": "事后代码侧纠正",
+    "chronology": "原版本质量诊断与旧版关系汇总此前已经存在；本次规则在第三版一致率及第三版按臂关系量计算前指定。不得声称从未看过任何旧版一致率或关系数字。"
+  },
+  "ambiguity_table": [
+    {
+      "work_id": "R-002",
+      "person_type": "X",
+      "name": "Samuel Butler",
+      "surname": "Butler",
+      "meaning": "管家"
+    },
+    {
+      "work_id": "R-004",
+      "person_type": "T",
+      "name": "Thomas Common",
+      "surname": "Common",
+      "meaning": "普通、共同；也可指公地"
+    },
+    {
+      "work_id": "R-005",
+      "person_type": "X",
+      "name": "Ellen Marriage",
+      "surname": "Marriage",
+      "meaning": "婚姻"
+    },
+    {
+      "work_id": "R-007",
+      "person_type": "X",
+      "name": "Gilbert West",
+      "surname": "West",
+      "meaning": "西方、西部"
+    },
+    {
+      "work_id": "R-008",
+      "person_type": "T",
+      "name": "Robert Farquharson Sharp",
+      "surname": "Sharp",
+      "meaning": "尖锐、锋利"
+    },
+    {
+      "work_id": "R-008",
+      "person_type": "d_T",
+      "name": "William Archer",
+      "surname": "Archer",
+      "meaning": "弓箭手"
+    },
+    {
+      "work_id": "R-009",
+      "person_type": "T",
+      "name": "Theodore Martin",
+      "surname": "Martin",
+      "meaning": "燕科鸟类名称"
+    },
+    {
+      "work_id": "R-009",
+      "person_type": "d_T",
+      "name": "William Peter",
+      "surname": "Peter",
+      "meaning": "动词短语 peter out 中表示逐渐耗尽"
+    }
+  ],
+  "normalization": "NFKC；去掉*、_、反引号；统一弯引号/撇号；合并空白；区分大小写整词匹配，允许所有格。仅应用姓名查找，不改变严格引文校验。",
+  "alias_policy": "纯姓别名与其所有格归姓氏层；歧义姓氏不独立触发，完整姓名或其他别名照常匹配。",
+  "unavailable_flag": {
+    "SPURIOUS_DISJUNCTION": "冻结解析器未实现该标记；这里统计已存标记（为0不表示没有伪析取）。不以缺少or或斜线自动判定语义错误。"
+  },
+  "dimensions": [
+    "phase",
+    "view_type",
+    "candidate_type",
+    "arm",
+    "structure"
+  ],
+  "tables": [
+    {
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "views": 240,
+      "marks": {
+        "INCONSISTENT": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "MISS_STRICT": {
+          "count": 6,
+          "rate": 0.025
+        },
+        "MISS_SURNAME": {
+          "count": 2,
+          "rate": 0.008333333333333333
+        },
+        "PHANTOM": {
+          "count": 0,
+          "rate": 0.0
+        }
+      },
+      "unflagged": 232,
+      "old_mention_mismatch": 6,
+      "claim_flags": {
+        "QUOTE_MISSING": {
+          "views": 60,
+          "view_rate": 0.25,
+          "claims": 67,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        },
+        "SPURIOUS_DISJUNCTION": {
+          "views": 0,
+          "view_rate": 0.0,
+          "claims": 0,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        }
+      }
+    },
+    {
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "views": 120,
+      "marks": {
+        "INCONSISTENT": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "MISS_STRICT": {
+          "count": 1,
+          "rate": 0.008333333333333333
+        },
+        "MISS_SURNAME": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "PHANTOM": {
+          "count": 0,
+          "rate": 0.0
+        }
+      },
+      "unflagged": 119,
+      "old_mention_mismatch": 1,
+      "claim_flags": {
+        "QUOTE_MISSING": {
+          "views": 3,
+          "view_rate": 0.025,
+          "claims": 3,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        },
+        "SPURIOUS_DISJUNCTION": {
+          "views": 0,
+          "view_rate": 0.0,
+          "claims": 0,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        }
+      }
+    },
+    {
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "views": 240,
+      "marks": {
+        "INCONSISTENT": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "MISS_STRICT": {
+          "count": 18,
+          "rate": 0.075
+        },
+        "MISS_SURNAME": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "PHANTOM": {
+          "count": 0,
+          "rate": 0.0
+        }
+      },
+      "unflagged": 222,
+      "old_mention_mismatch": 18,
+      "claim_flags": {
+        "QUOTE_MISSING": {
+          "views": 81,
+          "view_rate": 0.3375,
+          "claims": 92,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        },
+        "SPURIOUS_DISJUNCTION": {
+          "views": 0,
+          "view_rate": 0.0,
+          "claims": 0,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        }
+      }
+    },
+    {
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "views": 240,
+      "marks": {
+        "INCONSISTENT": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "MISS_STRICT": {
+          "count": 81,
+          "rate": 0.3375
+        },
+        "MISS_SURNAME": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "PHANTOM": {
+          "count": 0,
+          "rate": 0.0
+        }
+      },
+      "unflagged": 159,
+      "old_mention_mismatch": 81,
+      "claim_flags": {
+        "QUOTE_MISSING": {
+          "views": 64,
+          "view_rate": 0.26666666666666666,
+          "claims": 83,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        },
+        "SPURIOUS_DISJUNCTION": {
+          "views": 0,
+          "view_rate": 0.0,
+          "claims": 0,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        }
+      }
+    },
+    {
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "views": 120,
+      "marks": {
+        "INCONSISTENT": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "MISS_STRICT": {
+          "count": 30,
+          "rate": 0.25
+        },
+        "MISS_SURNAME": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "PHANTOM": {
+          "count": 0,
+          "rate": 0.0
+        }
+      },
+      "unflagged": 90,
+      "old_mention_mismatch": 30,
+      "claim_flags": {
+        "QUOTE_MISSING": {
+          "views": 16,
+          "view_rate": 0.13333333333333333,
+          "claims": 16,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        },
+        "SPURIOUS_DISJUNCTION": {
+          "views": 0,
+          "view_rate": 0.0,
+          "claims": 0,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        }
+      }
+    },
+    {
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "views": 240,
+      "marks": {
+        "INCONSISTENT": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "MISS_STRICT": {
+          "count": 49,
+          "rate": 0.20416666666666666
+        },
+        "MISS_SURNAME": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "PHANTOM": {
+          "count": 0,
+          "rate": 0.0
+        }
+      },
+      "unflagged": 191,
+      "old_mention_mismatch": 49,
+      "claim_flags": {
+        "QUOTE_MISSING": {
+          "views": 69,
+          "view_rate": 0.2875,
+          "claims": 84,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        },
+        "SPURIOUS_DISJUNCTION": {
+          "views": 0,
+          "view_rate": 0.0,
+          "claims": 0,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        }
+      }
+    }
+  ],
+  "marginals": {
+    "phase": [
+      {
+        "phase": "baseline",
+        "views": 1200,
+        "marks": {
+          "INCONSISTENT": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "MISS_STRICT": {
+            "count": 185,
+            "rate": 0.15416666666666667
+          },
+          "MISS_SURNAME": {
+            "count": 2,
+            "rate": 0.0016666666666666668
+          },
+          "PHANTOM": {
+            "count": 0,
+            "rate": 0.0
+          }
+        },
+        "unflagged": 1013,
+        "old_mention_mismatch": 185,
+        "claim_flags": {
+          "QUOTE_MISSING": {
+            "views": 293,
+            "view_rate": 0.24416666666666667,
+            "claims": 345,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          },
+          "SPURIOUS_DISJUNCTION": {
+            "views": 0,
+            "view_rate": 0.0,
+            "claims": 0,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          }
+        }
+      }
+    ],
+    "view_type": [
+      {
+        "view_type": "A",
+        "views": 600,
+        "marks": {
+          "INCONSISTENT": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "MISS_STRICT": {
+            "count": 25,
+            "rate": 0.041666666666666664
+          },
+          "MISS_SURNAME": {
+            "count": 2,
+            "rate": 0.0033333333333333335
+          },
+          "PHANTOM": {
+            "count": 0,
+            "rate": 0.0
+          }
+        },
+        "unflagged": 573,
+        "old_mention_mismatch": 25,
+        "claim_flags": {
+          "QUOTE_MISSING": {
+            "views": 144,
+            "view_rate": 0.24,
+            "claims": 162,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          },
+          "SPURIOUS_DISJUNCTION": {
+            "views": 0,
+            "view_rate": 0.0,
+            "claims": 0,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          }
+        }
+      },
+      {
+        "view_type": "D",
+        "views": 600,
+        "marks": {
+          "INCONSISTENT": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "MISS_STRICT": {
+            "count": 160,
+            "rate": 0.26666666666666666
+          },
+          "MISS_SURNAME": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "PHANTOM": {
+            "count": 0,
+            "rate": 0.0
+          }
+        },
+        "unflagged": 440,
+        "old_mention_mismatch": 160,
+        "claim_flags": {
+          "QUOTE_MISSING": {
+            "views": 149,
+            "view_rate": 0.24833333333333332,
+            "claims": 183,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          },
+          "SPURIOUS_DISJUNCTION": {
+            "views": 0,
+            "view_rate": 0.0,
+            "claims": 0,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          }
+        }
+      }
+    ],
+    "candidate_type": [
+      {
+        "candidate_type": "F_w",
+        "views": 480,
+        "marks": {
+          "INCONSISTENT": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "MISS_STRICT": {
+            "count": 87,
+            "rate": 0.18125
+          },
+          "MISS_SURNAME": {
+            "count": 2,
+            "rate": 0.004166666666666667
+          },
+          "PHANTOM": {
+            "count": 0,
+            "rate": 0.0
+          }
+        },
+        "unflagged": 391,
+        "old_mention_mismatch": 87,
+        "claim_flags": {
+          "QUOTE_MISSING": {
+            "views": 124,
+            "view_rate": 0.25833333333333336,
+            "claims": 150,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          },
+          "SPURIOUS_DISJUNCTION": {
+            "views": 0,
+            "view_rate": 0.0,
+            "claims": 0,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          }
+        }
+      },
+      {
+        "candidate_type": "X",
+        "views": 720,
+        "marks": {
+          "INCONSISTENT": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "MISS_STRICT": {
+            "count": 98,
+            "rate": 0.1361111111111111
+          },
+          "MISS_SURNAME": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "PHANTOM": {
+            "count": 0,
+            "rate": 0.0
+          }
+        },
+        "unflagged": 622,
+        "old_mention_mismatch": 98,
+        "claim_flags": {
+          "QUOTE_MISSING": {
+            "views": 169,
+            "view_rate": 0.23472222222222222,
+            "claims": 195,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          },
+          "SPURIOUS_DISJUNCTION": {
+            "views": 0,
+            "view_rate": 0.0,
+            "claims": 0,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          }
+        }
+      }
+    ],
+    "arm": [
+      {
+        "arm": "C",
+        "views": 240,
+        "marks": {
+          "INCONSISTENT": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "MISS_STRICT": {
+            "count": 31,
+            "rate": 0.12916666666666668
+          },
+          "MISS_SURNAME": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "PHANTOM": {
+            "count": 0,
+            "rate": 0.0
+          }
+        },
+        "unflagged": 209,
+        "old_mention_mismatch": 31,
+        "claim_flags": {
+          "QUOTE_MISSING": {
+            "views": 19,
+            "view_rate": 0.07916666666666666,
+            "claims": 19,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          },
+          "SPURIOUS_DISJUNCTION": {
+            "views": 0,
+            "view_rate": 0.0,
+            "claims": 0,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          }
+        }
+      },
+      {
+        "arm": "S",
+        "views": 960,
+        "marks": {
+          "INCONSISTENT": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "MISS_STRICT": {
+            "count": 154,
+            "rate": 0.16041666666666668
+          },
+          "MISS_SURNAME": {
+            "count": 2,
+            "rate": 0.0020833333333333333
+          },
+          "PHANTOM": {
+            "count": 0,
+            "rate": 0.0
+          }
+        },
+        "unflagged": 804,
+        "old_mention_mismatch": 154,
+        "claim_flags": {
+          "QUOTE_MISSING": {
+            "views": 274,
+            "view_rate": 0.28541666666666665,
+            "claims": 326,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          },
+          "SPURIOUS_DISJUNCTION": {
+            "views": 0,
+            "view_rate": 0.0,
+            "claims": 0,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          }
+        }
+      }
+    ],
+    "structure": [
+      {
+        "structure": "G1",
+        "views": 1200,
+        "marks": {
+          "INCONSISTENT": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "MISS_STRICT": {
+            "count": 185,
+            "rate": 0.15416666666666667
+          },
+          "MISS_SURNAME": {
+            "count": 2,
+            "rate": 0.0016666666666666668
+          },
+          "PHANTOM": {
+            "count": 0,
+            "rate": 0.0
+          }
+        },
+        "unflagged": 1013,
+        "old_mention_mismatch": 185,
+        "claim_flags": {
+          "QUOTE_MISSING": {
+            "views": 293,
+            "view_rate": 0.24416666666666667,
+            "claims": 345,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          },
+          "SPURIOUS_DISJUNCTION": {
+            "views": 0,
+            "view_rate": 0.0,
+            "claims": 0,
+            "by_category": {
+              "INCONSISTENT": 0,
+              "MISS_STRICT": 0,
+              "MISS_SURNAME": 0,
+              "PHANTOM": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "totals": [
+    {
+      "views": 1200,
+      "marks": {
+        "INCONSISTENT": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "MISS_STRICT": {
+          "count": 185,
+          "rate": 0.15416666666666667
+        },
+        "MISS_SURNAME": {
+          "count": 2,
+          "rate": 0.0016666666666666668
+        },
+        "PHANTOM": {
+          "count": 0,
+          "rate": 0.0
+        }
+      },
+      "unflagged": 1013,
+      "old_mention_mismatch": 185,
+      "claim_flags": {
+        "QUOTE_MISSING": {
+          "views": 293,
+          "view_rate": 0.24416666666666667,
+          "claims": 345,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        },
+        "SPURIOUS_DISJUNCTION": {
+          "views": 0,
+          "view_rate": 0.0,
+          "claims": 0,
+          "by_category": {
+            "INCONSISTENT": 0,
+            "MISS_STRICT": 0,
+            "MISS_SURNAME": 0,
+            "PHANTOM": 0
+          }
+        }
+      }
+    }
+  ],
+  "old_flag_breakdown": {
+    "n": 185,
+    "categories": {
+      "MISS_STRICT": 185
+    },
+    "none_reasons": {}
+  },
+  "flagged_views": [
+    {
+      "id": "baseline|R-001-R|1|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Niccolò Machiavelli",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-001-R|2|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Niccolò Machiavelli",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-001-R|3|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Niccolò Machiavelli",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-001-R|5|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Niccolò Machiavelli",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-001-R|5|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Niccolò Machiavelli",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-001-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Niccolò Machiavelli",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-001-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_SURNAME",
+      "reason": "MISS_SURNAME",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": false,
+      "name_form": "Machiavelli",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-001-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Niccolò Machiavelli",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|0|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Plato",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Plato",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|0|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Plato",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|1|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|1|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|1|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|1|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|2|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Plato",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|2|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|2|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|3|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|3|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|3|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|3|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|3|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|4|correct|X|S|1|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Plato",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|4|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|4|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|4|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|4|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|5|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|5|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|5|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Samuel Butler",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-002-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edmund Lionel Varncombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|0|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Aylmer Maude",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|0|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|0|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|1|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Aylmer Maude",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|1|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|2|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Aylmer Maude",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|2|correct|X|C|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Ivan Turgenev",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|2|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|2|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|2|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|3|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|4|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Aylmer Maude",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|4|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|4|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|4|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|5|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Aylmer Maude",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|5|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-003-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Edwin Percival Brackenholt",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Thomas Bailey Saunders",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|0|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Thomas Bailey Saunders",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|0|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Percival Tresswick",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|1|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Thomas Bailey Saunders",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Friedrich Nietzsche",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|2|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Friedrich Nietzsche",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|4|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Friedrich Nietzsche",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|5|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Thomas Bailey Saunders",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|5|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Thomas Bailey Saunders",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Percival Tresswick",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-004-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Percival Tresswick",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-005-R|1|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Walter Edwin Brenshaw",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-005-R|2|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Victor Hugo",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-005-R|3|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Walter Edwin Brenshaw",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-005-R|3|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Walter Edwin Brenshaw",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Helen Zimmern",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|0|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|0|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|1|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Helen Zimmern",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|1|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Helen Zimmern",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Helen Zimmern",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|1|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|1|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|2|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Helen Zimmern",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|2|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|3|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Helen Zimmern",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|3|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|3|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|4|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Helen Zimmern",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|4|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Helen Zimmern",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|4|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|4|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|5|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-006-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Henry Oswald Fenwicke",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|0|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|0|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|0|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|0|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|0|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Frederick Alwyn Darscombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|1|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|1|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|1|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Frederick Alwyn Darscombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_SURNAME",
+      "reason": "MISS_SURNAME",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": false,
+      "name_form": "Josephus",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|3|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|3|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|4|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Flavius Josephus",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|4|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|4|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Flavius Josephus",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|5|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|5|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Flavius Josephus",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|5|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-007-R|5|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Gilbert West",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|0|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|0|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|0|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|0|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|0|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Harold Alwyn Dunscombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Harold Alwyn Dunscombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|1|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|1|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|1|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|1|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|1|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|2|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|2|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|2|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|2|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|2|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|2|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|3|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|3|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|3|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|3|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|3|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|3|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|4|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|4|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|4|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|4|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|4|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|4|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Harold Alwyn Dunscombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|4|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Harold Alwyn Dunscombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|5|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|5|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|5|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|5|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|5|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|5|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "C",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "George Egerton",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-008-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Harold Alwyn Dunscombe",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-009-R|0|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Friedrich Schiller",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-009-R|0|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "John Oxenford",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-009-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Friedrich Schiller's",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-009-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Friedrich Schiller",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-009-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Friedrich Schiller",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-009-R|2|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+      "phase": "baseline",
+      "view_type": "A",
+      "candidate_type": "X",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Friedrich Schiller",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|0|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|0|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|1|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|1|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|2|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|2|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|2|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|2|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|3|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|3|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|3|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|4|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|4|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|5|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    },
+    {
+      "id": "baseline|R-010-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+      "phase": "baseline",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "arm": "S",
+      "structure": "G1",
+      "category": "MISS_STRICT",
+      "reason": "MISS_STRICT",
+      "claim_flags": {
+        "QUOTE_MISSING": 0,
+        "SPURIOUS_DISJUNCTION": 0
+      },
+      "old_mention_mismatch": true,
+      "name_form": "Arthur Wilfred Quenbrook",
+      "ambiguous_only": false
+    }
+  ],
+  "reprompt_candidates": [
+    "baseline|R-001-R|1|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-001-R|2|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-001-R|3|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-001-R|5|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-001-R|5|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-001-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-001-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-001-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-002-R|0|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-002-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-002-R|0|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-002-R|1|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|1|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|1|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|1|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|2|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-002-R|2|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|2|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|3|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|3|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|3|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|3|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|3|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|4|correct|X|S|1|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-002-R|4|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|4|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|4|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|4|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|5|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|5|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|5|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-002-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-002-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|0|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-003-R|0|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|0|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|1|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-003-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|1|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|2|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-003-R|2|correct|X|C|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-003-R|2|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|2|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|2|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|3|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|4|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-003-R|4|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|4|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|4|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|5|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-003-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|5|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-003-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-004-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-004-R|0|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-004-R|0|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-004-R|1|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-004-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-004-R|2|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-004-R|4|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-004-R|5|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-004-R|5|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-004-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-004-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-005-R|1|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-005-R|2|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-005-R|3|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-005-R|3|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-006-R|0|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|0|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|1|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-006-R|1|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-006-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-006-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|1|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|1|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|2|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-006-R|2|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|3|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-006-R|3|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|3|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|4|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-006-R|4|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-006-R|4|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|4|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|5|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-006-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-007-R|0|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|0|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|0|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|0|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|0|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-007-R|1|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|1|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|1|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-007-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-007-R|3|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|3|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|4|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-007-R|4|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|4|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-007-R|5|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|5|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-007-R|5|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-007-R|5|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|0|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|0|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|0|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|0|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|0|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-008-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-008-R|1|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|1|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|1|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|1|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|1|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|2|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|2|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|2|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|2|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|2|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|2|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|3|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|3|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|3|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|3|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|3|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|3|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|4|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|4|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|4|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|4|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|4|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|4|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-008-R|4|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-008-R|5|correct|X|S|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|5|correct|X|S|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|5|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|5|correct|X|S|3|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|5|correct|X|C|0|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|5|correct|X|C|1|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-008-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-009-R|0|correct|X|S|0|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-009-R|0|correct|X|S|2|3|G6_FORMAL_g1_non_a0|X",
+    "baseline|R-009-R|0|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-009-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-009-R|1|correct|X|S|3|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-009-R|2|correct|X|S|2|3|G6_FORMAL_g1_non_a0|GOLD",
+    "baseline|R-010-R|0|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|0|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|0|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|1|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|1|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|1|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|1|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|2|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|2|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|2|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|2|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|3|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|3|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|3|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|4|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|4|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|4|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|5|correct|F_w|S|0|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|5|correct|F_w|S|1|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|5|correct|F_w|S|2|3|G6_FORMAL_g1_non_a0|F_w",
+    "baseline|R-010-R|5|correct|F_w|S|3|3|G6_FORMAL_g1_non_a0|F_w"
+  ],
+  "reprompt_without_name_match": [],
+  "full_reprompt_template_sha256": "bf4d863a9ab8387042d683a1a734644ca7e2b91a6e0f6f72c064f858769f6153"
+}

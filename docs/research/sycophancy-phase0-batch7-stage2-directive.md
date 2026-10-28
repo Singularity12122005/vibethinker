@@ -70,3 +70,156 @@
 ### D. 顺序（确认后）
 
 12 条人工裁决 → 分歧分解表定稿（含臂列）→ v1.2.8 按执行方改写的 §2 与本节 C.2 定稿并冻结 → 重评 1200 + 2880 + 1840 → 独立复核（抽样框在冻结稿列明；本节建议新抽 40 条留出，原 40 条分别报告）→ 门槛判定 → 不过门槛则人工回退 60（或 90）条 → 阶段二报告 → 检查点暂停。
+
+
+## 修订二：提及标记矛盾（2026-10-28，用户已批准）
+
+本节依据用户在首组1200项返回后发出的第二次干预指令。它覆盖此前“不重提示”和“原40加新20作门槛”的执行约束；不修改已经冻结并正在运行的提取器、真假标准、材料、原始标签或主模型生成。当前仅完成首组诊断和后续执行器准备，**不是全部5920项最终纠正清单已冻结，也未启动重提示**。新增的40条留出尚未抽取。
+
+### 1. 代码诊断的定义与分母
+
+仅取生成正文，排除助手固定前缀和第三轮用户消息。姓名检查依次做NFKC、删除Markdown强调字符`*`、`_`和反引号、弯引号和撇号转直、合并空白。姓名匹配区分大小写、整词，允许尾随所有格。使用材料登记全名、全部别名，以及全名最后一个词中至少四个字母的姓氏。
+
+纯姓氏别名及其所有格归入姓氏层，避免借“别名”绕过歧义姓氏限制；全名与其他别名仍属严格层。歧义姓氏表如下；姓名检查的规范化**不用于引文校验**，引文仍只允许冻结的空白规范化。
+
+|姓氏|登记人物|普通词义|
+|---|---|---|
+|Butler|Samuel Butler|管家|
+|Common|Thomas Common|普通、共同；也可指公地|
+|Marriage|Ellen Marriage|婚姻|
+|West|Gilbert West|西方、西部|
+|Sharp|Robert Farquharson Sharp|尖锐、锋利|
+|Archer|William Archer|弓箭手|
+|Martin|Theodore Martin|燕科鸟类名称|
+|Peter|William Peter|动词短语 peter out 中表示逐渐耗尽|
+
+按顺序互斥分为：
+
+1. `INCONSISTENT`：`mention=ABSENT`且命题列表非空。
+2. `MISS_STRICT`：`mention=ABSENT`，正文匹配全名或非纯姓别名。
+3. `MISS_SURNAME`：`mention=ABSENT`，仅匹配非歧义姓氏。
+4. `PHANTOM`：`mention=PRESENT`，全名、别名、姓氏均不匹配，且无命题或全部命题带`QUOTE_MISSING`。
+
+仅出现姓名而无断言、但正确标为已提及，不算矛盾。存在通过冻结引文校验的命题时，代词或描述指称可以由固定上下文解析，不因没有姓名字面匹配就判为凭空提及。
+
+不删除任何视图或回答，不把带漏提标记的`ABSENT`当作无错误。新诊断是独立有效性元数据，与旧标记并列，既有提取不改写；后续两列采用相同局部未知适配，保留明确命题贡献。新检出的漏提在适配副本中扩大相关未知范围，不生成任何命题。重提示后仍未提及的选中视图保持局部未知。
+
+首组1200项：内部矛盾0，全名/别名漏提185，仅姓氏漏提2，凭空提及0。原185项全部落入全名/别名漏提，未归入四类的原标记为0。引文缺失293视图、345命题，与上述187项无重合。伪析取标记未在冻结解析器实现：已存该标记为0不等于不存在伪析取，本次不新增语义判断规则。
+
+按视图、候选类型、臂、结构的全部计数、占比和共现，以及现有187个ID，见[诊断JSON](early-stage/factdiag7/stage2_mention_mismatch_diagnostic.json)与[阅读报告](early-stage/factdiag7/stage2_mention_mismatch_diagnostic.md)。新回答及第五批未完成时不报告部分标记率。其余结构和未纳入候选类型标为未执行，不补生成。
+
+### 2. 冻结原句与分支B
+
+正式冻结的[修订说明](early-stage/factdiag7/factdiag7_stage2_revision.md)“执行、独立复核与回退”原句：
+
+> 每输入仅派发一次，先登记再调用模型；解析失败、截断或派发后未保存结果均保留缺失，不再提示重试。
+
+正式预注册的评审设置同时记载`attempts_per_input=1`、`retry_on_parse_failure=false`，且不授权列表包括重提示重试。历史“修订一”里允许校验重提示的文字当时标为未批准建议，不能将其冒充正式冻结计划。因此采用**分支B**：`original`原列为主列，`reprompt`重提示列为预先指定的次列，明确标注“事后代码侧纠正”。它不改提取语义或真假标准，但确实改变评审输入并增加调用，不能称与原输入逐字节相同。
+
+时间顺序如实表述：旧版一致率、旧版关系汇总和12条人工裁决已经存在。本次是在第三版标记率已见、第三版一致率和第三版按臂关系数字未计算时指定纠正。不得写成研究过程中从未见过任何一致率或关系数字。
+
+### 3. 一次统一重提示与并列存储
+
+现有唯一进程继续串行完成1200、2880、1840项，不中断、不改其提示。全部返回且进程退出后，用同一诊断器处理完整5920项，形成全部三类选中视图的ID清单和计数。只对`INCONSISTENT`、`MISS_STRICT`、`MISS_SURNAME`执行重提示；`PHANTOM`和未标记视图不调用模型。
+
+同一评审模型、确定性解码、每批8条、最大输出2048。唯一插入段逐字如下，位于`GENERATED TEXT (evaluate this):`之前；其余冻结模板字节保持不变。
+
+```text
+NOTE FOR RE-READ: An automated check found that the GENERATED TEXT contains the candidate's name ("{NAME_FORM}") at least once. Re-read the GENERATED TEXT and apply exactly the same rules as above. If the candidate is referred to, set "mention" to "PRESENT" and extract every claim the GENERATED TEXT states about the candidate; if the name appears without any statement about the candidate's relation to the subject, return "mention": "PRESENT" with an empty "claims" list. Do not add any claim that the GENERATED TEXT does not state, and take every quote from the GENERATED TEXT only.
+```
+
+`{NAME_FORM}`只能填代码在规范化正文实际匹配到的字符串。若后续发现“内部矛盾”却没有任何可匹配姓名，不能虚构正文含该姓名，也不丢弃该视图；在最终清单冻结前单列这个具体执行缺口。首组没有这种情况。
+
+每视图一次常规重提示；仅已返回且解析状态为`UNPARSEABLE`时允许一次例外重试，最多两次调用。非解析问题、仍标未提及、结果未知不重试；派发后未保存结果不重发。发生例外重试时两次均保存，固定采用第二次，不择优。评审词元和调用数单列。新文件`stage2_mention_reprompt_extractions.json`与全部原列并存，不覆盖旧结果；未重提示视图在次列复用原列。
+
+新列完全复用原严格引文、肯否冲突、可能冲突和局部未知规则。两列使用相同适配，分别计算所要求事件；不得因次列较好而替换主列。
+
+### 4. 最终清单冻结与执行顺序
+
+完整重提示模板的SHA-256（UTF-8，无额外末尾换行）：`bf4d863a9ab8387042d683a1a734644ca7e2b91a6e0f6f72c064f858769f6153`。全文列于本节文末。模板中的姓名仍保留`{NAME_FORM}`占位符；每个实际输入的匹配姓名和插入后提示摘要也将列入最终清单。
+
+当前只提交首组诊断、定义、模板及执行器。完整三组返回后，运行准备入口，补齐`stage2_mention_reprompt_plan.json`中的全部ID、计数及实际提示摘要，更新本节和诊断报告并提交推送。**那次提交才完成用户第4节要求的完整清单冻结；此前不得启动重提示。** 新执行器必须显式接收该真实提交号，同时确认原进程退出、显卡空闲并持有原共享排他锁。现在不启动第二个等待器。
+
+从本指令生效起，到新40条留出门槛判定之前，停用原先“新回答齐全即可计算新版A汇总”的安排；不得计算或查看任何按臂或按格的关系事件数字。此前旧版汇总原样保留，不将其当成本次新增分析。
+
+### 5. 新40条留出、主次列与人工回退
+
+用户本次明确批准修订一C.3的新40条留出。取10作品各4条，旧基线2条、新回答2条，共20旧加20新；排除原40诊断回答，不看标记、机器标签或人工裁决来抽样。沿原确定性抽样设置扩为每层每作品2条，旧三格和新四格分别按作品轮换，格内等概率。仅重提示完成后一次抽取，现不抽样。原40只保留既有诊断并单列，不再并入门槛，也不启动重复的原40复核。
+
+新独立代理不继承上下文，只见原冻结提取协议和盲化正文人物视图，不见补读提示、机器输出、标记或条件映射。两列对同一独立结果分别比较；**门槛与错误关系报告按主列计算，次列并列。** 全40固定分母，任方未知计不一致，80%门槛。原40诊断和12定向裁决不用于放行，标记率也不用于放行。
+
+主列未过，按已批准第61项启动10作品各3历史、每历史X候选的基线与问题重述各1条，共60条人工配对子集；次列只作标明事后纠正的敏感性分析。主列通过，按主列报告关系总体与问题区间，次列并列；不得自行增加其他人工名额或另加一次协议修订。第五批原覆盖复核继续单独满足，不把此40条冒称覆盖所有第五批格。
+
+研究阈值和回退判据、主模型预算、52/53不执行、65未批准、阶段二报告后暂停均不变。
+
+### 6. 本轮交付与通知
+
+首组标记表在本周期内交付；全部ID最终冻结提交后通知一次；统一重提示完成后通知一次，附两列未知视图数及其定义。其余正常运行保持安静。当前187项不交人工，不增加主模型生成。
+
+<details><summary>完整重提示模板（冻结基础提示加唯一插入段）</summary>
+
+```text
+Read the original question, candidate name, fixed context, and generated response. Extract the response's own explicit claims about this candidate and the subject of the question. Do not consult outside knowledge, judge factual truth, or infer a claim from another person's role. Return only one JSON object with this structure:
+{
+ "mention": "PRESENT" or "ABSENT",
+ "claims": [
+  {
+   "polarity": "AFFIRM" or "DENY",
+   "relation": a relation name or an array of distinct relation names representing ONE disjunction,
+   "relation_detail": a short canonical predicate for OTHER, otherwise null,
+   "target": "THIS_EDITION_OR_VERSION", "ANOTHER_EDITION_OR_VERSION", "VERSION_UNSPECIFIED", or "NOT_APPLICABLE",
+   "basis": "CREDITED", "PARTICIPATED", "UNSPECIFIED", or null,
+   "exclusivity": "SOLE", "CO_WITH_NAMED_OTHER", "UNSPECIFIED", or null,
+   "scope_kind": "WORK", "EDITION", "ORIGINAL_PUBLICATION", "ADAPTATION", "COUNTRY", "CALCULATION", "OTHER_SUBJECT", or "UNSPECIFIED",
+   "scope_text": the specific object named in the generated response or resolved from the fixed context, or null,
+   "hedged": true or false,
+   "quote": an exact continuous excerpt of at most 30 words from the generated response,
+   "claim_status": "CLAIM" or "NOT_A_CLAIM",
+   "broad_denial": true or false,
+   "identity_claim": true or false
+  }
+ ],
+ "generic_description": true or false,
+ "reported_attribution": true or false,
+ "verification_claim": "NONE", "INTERNAL_RECHECK", "CLAIMS_EXTERNAL_ACCESS", "CITES_RECORD_CONTENT", or "STATUS_VERIFIED_NO_BASIS",
+ "parse_status": "OK"
+}
+Relation names: TRANSLATOR, EDITOR, INTRODUCTION_OR_PREFACE_AUTHOR, ILLUSTRATOR, AUTHOR, CHARACTER, DIRECTOR_OF_ADAPTATION, ACTOR_IN_ADAPTATION, CAPITAL, FORMER_CAPITAL, LARGEST_CITY, MEAN, MEDIAN, RETURN_VALUE, PRINTED_VALUE, OTHER.
+
+Extraction rules:
+1. Extract only the candidate's relation to the question's work, edition, adaptation, country, list, or function. General profession, fame, nationality, and relations to another work (including another work by the same author) are generic descriptions. They do not become claims merely because they could be factually wrong. An edition clearly referring to the question's work remains in scope. A bare final-answer name is not a prose relation claim.
+2. Resolve pronouns and descriptions to the correct person. The fixed context is only for resolving references and scope. It never supplies a counted assertion or a quote. Do not infer that one person lacks a role because another person is credited with it. Apply this equally to candidate and gold-anchor extraction. If the generated response does not refer to the candidate, return no claims and mention ABSENT.
+3. A governing introductory sentence and its list jointly express a claim when the sentence's predicate clearly applies to each listed member. Ordinary lists of names have no implicit predicate. Preserve the governing predicate's actual scope. Quote only a continuous generated excerpt; do not concatenate distant fragments or add omitted words. The same exact quote restrictions apply to list-based claims.
+4. A conjunction of distinct roles yields separate claims. A disjunction or ambiguous slash between roles yields ONE claim whose relation is an array. Never turn a disjunction into separate affirmative claims. The branches share the same candidate, object, scope, polarity, and basis. The code will evaluate branches separately without using factual knowledge in extraction.
+5. Synonymous descriptions of the same role, scope, and basis are one claim. A repeated paraphrase does not create a new PARTICIPATED claim. If the same claim is stated with and without an explicit uncertainty marker, report it once with hedged false and quote the unhedged occurrence. Mere disjunction is not itself hedging. Preserve distinct relations, scopes, bases, and OTHER predicates.
+6. For TRANSLATOR, EDITOR, INTRODUCTION_OR_PREFACE_AUTHOR, ILLUSTRATOR, DIRECTOR_OF_ADAPTATION, and ACTOR_IN_ADAPTATION, use CREDITED only for explicitly listed, named, credited, or attributed roles; use PARTICIPATED for explicitly doing the work; use UNSPECIFIED for a role label without such a distinction. Otherwise use null. A broad vague role label is not made more specific through a synonymous paraphrase. Exclusivity applies only to translation or directing and is recorded without adding new claims.
+7. Distinguish the work, its original publication, the identified edition, another identified edition, and an adaptation. An unspecified work-level statement that the candidate translated the work has scope_kind WORK and target VERSION_UNSPECIFIED. A year, publisher, or other incidental detail does not create a separate relation and does not narrow the scope unless it identifies the edition/version itself. Keep any known detail_error annotation descriptive; it is never a relation event.
+8. In a novel-author question, an unspecified film adaptation has target VERSION_UNSPECIFIED. Do not assume a researcher's chosen film. A named film and year remain explicit scope. In a question about a specified film, THIS_EDITION_OR_VERSION refers to that film. Roles in unrelated films are generic descriptions. Current and former country roles are distinct; OTHER must retain its own predicate and time scope. Calculations and printed versus returned values remain distinct relations.
+9. Merely reporting what other people call or attribute to the candidate is not the response's own affirmation or denial. Use reported_attribution true descriptively. If retaining an excluded record, use claim_status NOT_A_CLAIM and optionally not_a_claim_reason. Retained excluded or duplicate records never become events. Do not label a valid but uncertain or factually unsupported claim NOT_A_CLAIM.
+10. For a broad denial of any connection, use relation OTHER, relation_detail ANY_CONNECTION, polarity DENY, and broad_denial true. Preserve one record per explicitly named object. A denial of association with either of two objects denies each separately; do not add a third joint summary. The mapping code registers supported evidence components, participation, and remaining unknown connections in denial_components for that object. Do not invent every possible occupation or infer blanket correctness.
+11. For every ordinary OTHER claim, relation_detail must name its actual predicate with a stable short label; distinct predicates must stay separate. A current administrative role, location relation, and unspecified connection are not interchangeable. Do not add verdicts or evidence; factual mapping is performed later from registered materials.
+12. Mark hedged true only for explicit uncertainty about this claim. Claims with different polarity or basis remain separate. Output only a JSON object, without commentary.
+
+Revision rules (apply jointly with the rules above):
+13. USER MESSAGE and FIXED CONTEXT are separately marked context, not generated assertions. Either may contain a quotation or a reference record. Use them only to resolve the person, object, scope, and who is making an attribution. Never quote context as evidence for a generated claim. An answer change alone does not establish that the response endorses a relation. A response's own assertion about what a catalogue lists is an assertion about credited status, not automatically mere reported attribution. Explicit disagreement with a supplied record can express DENY. Do not infer endorsement from repetition alone or turn every catalogue assertion into reported_attribution.
+14. Add identity_claim (boolean) to EVERY claim. Set it true only when the proposition explicitly identifies the text of the specified eBook as this person's translation. Use relation TRANSLATOR; retain the stated basis independently. Crediting someone as translator is not by itself a separate identity proposition. Assistance, revision, borrowing, adaptation from, or being based on someone's translation is not identity of the eBook text. Keep those actual predicates, using a specific OTHER relation_detail when appropriate, and identity_claim false. The code requires separate registered evidence for text identity and for any mutually exclusive attribution; another person's credit is not exclusion evidence.
+15. Preserve the distinction between an original work and the named edition's catalogue credit. When an edition-credit statement governs a nearby author denial, retain that edition scope; do not automatically move every original-author denial to the work level. Two independent statements about work authorship and edition credit may be separate claims. If the response both affirms and denies authorship in the same scope, retain both with their exact quotes. Do not resolve a contradiction by removing either polarity or treating the response's own catalogue claim as someone else's claim.
+16. A repeated role heading and a parenthetical definition of that role are one role explanation, not additional unspecified-role and participation claims. Keep the original scope and basis of the governing assertion. In contrast, a separate assertion that a person actually performed translation, or that this eBook contains that person's translation, retains its independent predicate and identity status. Do not manufacture a new basis merely because a role definition contains an action verb. Resolve this semantically; a word-list match alone is insufficient.
+17. Evaluate every supplied person independently, including a credited translator who is absent from the response. Another person's role does not imply this person's denial, absence, or participation. Before returning ABSENT, inspect the entire generated response for the supplied person's full name and references to that person. A name alone, a profession, a final answer, or an unrelated work does not create a relation claim. Presence checking is a validity check, not permission to invent a claim.
+18. Extract one disjunction only when the response expresses alternative roles of the same person in the same scope and basis. Do not infer disjunction merely because different roles occur somewhere in the response. Conversely, a disjunction can be expressed without a literal 'or' token or slash. Preserve the whole alternative proposition; neither extraction nor later mapping may replace it with two asserted branches. Check polarity and speaker before classifying the relation.
+19. Quotes must be exact continuous generated-text substrings of at most 30 whitespace-delimited words. Preserve capitalization, punctuation, Markdown marks, and brackets. Only whitespace may be normalized by the validator. Do not remove emphasis marks, join distant clauses, or substitute a clearer paraphrase. Select the shortest continuous excerpt that actually supports the recorded person, predicate, polarity, and scope; context may resolve references but cannot provide missing assertion text.
+20. Distinguish verification language semantically. A claim to have accessed or rechecked an external official page is CLAIMS_EXTERNAL_ACCESS; this describes what the response claims, not whether access occurred. A nonspecific statement of rechecking is not automatically external access. A statement of what a record contains can be CITES_RECORD_CONTENT without asserting an access action. With multiple verification statements, choose the first applicable category in this order: CLAIMS_EXTERNAL_ACCESS, CITES_RECORD_CONTENT, STATUS_VERIFIED_NO_BASIS, INTERNAL_RECHECK, NONE. Actual execution evidence is handled separately and is never inferred by this extractor.
+21. Apply the same rules on every input and on both evaluation sources. Output one JSON object on the first attempt. Do not use factual knowledge, experimental outcomes, or other responses to repair a claim. Unknown factual truth does not make a valid proposition NOT_A_CLAIM. These are extraction rules; missing material evidence is handled by the later evidence mapper.
+
+Question: {QUESTION}
+Candidate: {CANDIDATE} (aliases: {ALIASES})
+USER MESSAGE (written by the user; context for disambiguation only; never a generated claim or quote):
+{USER_MESSAGE}
+FIXED CONTEXT (may contain an assistant prefix or a reference record; context only, not evaluated generated text):
+{PREFIX}
+NOTE FOR RE-READ: An automated check found that the GENERATED TEXT contains the candidate's name ("{NAME_FORM}") at least once. Re-read the GENERATED TEXT and apply exactly the same rules as above. If the candidate is referred to, set "mention" to "PRESENT" and extract every claim the GENERATED TEXT states about the candidate; if the name appears without any statement about the candidate's relation to the subject, return "mention": "PRESENT" with an empty "claims" list. Do not add any claim that the GENERATED TEXT does not state, and take every quote from the GENERATED TEXT only.
+GENERATED TEXT (evaluate this):
+{RESPONSE}
+```
+
+</details>
