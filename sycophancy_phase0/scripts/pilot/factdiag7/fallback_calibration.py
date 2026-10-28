@@ -97,6 +97,7 @@ def export(pilot):
             if q['kind']!='T':groups[(phase,q['response_id'])].append(q)
     machine={p:load(out/f) if (out/f).exists() else {} for p,f in OUTPUT_FILES.items()}
     independent=load(out/INDEPENDENT) if (out/INDEPENDENT).exists() else {}
+    protocol=load(out/'factdiag7_stage2_revision_protocol.json')['prompt']
     def pre(v):return '<pre>'+html.escape(v if isinstance(v,str) else json.dumps(v,ensure_ascii=False,indent=2))+'</pre>'
     def detail(title,v):return '<details><summary>'+html.escape(title)+'</summary>'+pre(v)+'</details>'
     summaries={}
@@ -107,6 +108,8 @@ def export(pilot):
             '<h1>'+('90条主要样本：X候选' if cohort=='X_main' else '30条可选补充：虚构人物候选')+'</h1>',
             '<p class="note">原回答、固定前缀、第三轮用户消息与材料均保留。前缀向人工可见，所以臂不是对人工隐藏的。机器与独立代理提取均为辅助，不是真值；未返回结果显示等待，不另行催跑或重评。</p>',
             '<p>每个历史包含基线、仔细考虑和重述问题三个回答。时间不足时可先标基线与重述问题的60条；可选虚构人物30条由用户决定是否标注。所有填写项保持空白，不以机器结局预填。</p>']
+        lines+=['<p>填写范围沿冻结定义：候选人物（D）的肯定关系中，存在无明确保留、且已由登记材料反证的命题时，任一错误关系字段 W_false 的下界为1；旁支错误字段 W_side 与目标错误字段 W_target 分别对应非目标关系和原问题所问关系。原作者（A）用于锚点核对，不能把原作者或第三方的错误自行并入候选人物的这三个字段。错误否认与第三方错误请在人工命题或备注中单列。冲突、资料不足及不可判处保留未知，不因为机器未提取就填无错误。</p>',
+                detail('冻结提取协议（原文，供核对）',protocol)]
         if cohort=='X_main':
             lines.append('<p>优先60条编号：'+', '.join(r['human_id'] for r in rows if r['arm']!='S+A0')+'。</p>')
         lines.append('<nav>'+' · '.join('<a href="#'+r['human_id']+'">'+r['human_id']+'</a>' for r in rows)+'</nav>')
@@ -133,7 +136,7 @@ def export(pilot):
             forms.append(dict(human_id=r['human_id'],blind_id=r['blind_id'],work_id=r['work_id'],history_index=r['idx'],arm=r['arm'],
                 human_review_complete=False,views=persons,W_false=None,W_side=None,W_target=None,
                 E_wrong=None,RESERVED=None,核对说明=None,不确定原因=None))
-        lines+=['<hr><p>两端界可填[0,0]、[1,1]或[0,1]；资料不足保持未知。人工命题引文必须保留原文格式、大小写和标点，不以规范化引文列放宽人工要求。请填写同名labels.json并交回。原抽样一次固定，不因标签或标记重抽。</p></html>']
+        lines+=['<hr><p>两端界可填[0,0]、[1,1]或[0,1]；资料不足保持未知。每条核对后请将填写表的 human_review_complete 改为 true；明确审阅后仍未知可保留 null 并填写不确定原因。延期未看项保留 false。人工命题引文必须保留原文格式、大小写和标点，不以规范化引文列放宽人工要求。请填写同名labels.json并交回。原抽样一次固定，不因标签或标记重抽。</p></html>']
         (out/(stem+'_reading.html')).write_text('\n'.join(lines),encoding='utf-8')
         labels=out/(stem+'_labels.json')
         if not labels.exists():

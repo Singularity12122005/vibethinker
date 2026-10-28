@@ -1,0 +1,487 @@
+{
+  "payload_check": {
+    "flagged": 187,
+    "random_unflagged": 100,
+    "seed": 20261028,
+    "checked": 287,
+    "mismatch_count": 0,
+    "mismatches": [],
+    "limitation": "派发登记只保存完整提示摘要，没有独立的发送载荷正文副本；用冻结构造器重建并核对登记摘要，再比较正文UTF-8字节。发送器源码直接消费该q.prompt。支持排除已登记输入/正文错接，不能冒称比较过一份未保存的独立在途载荷。"
+  },
+  "original_40_comparison": {
+    "independent_original_100": {
+      "denominator": 100,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 0,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 0
+    },
+    "machine_v2_same_100": {
+      "denominator": 100,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 19,
+        "MISS_SURNAME": 1,
+        "PHANTOM": 0
+      },
+      "omissions": 20
+    },
+    "machine_v3_available": {
+      "denominator": 49,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 3,
+        "MISS_SURNAME": 1,
+        "PHANTOM": 0
+      },
+      "omissions": 4
+    },
+    "independent_paired_to_v3": {
+      "denominator": 49,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 0,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 0
+    },
+    "v3_not_yet_returned": 51,
+    "limits": "原独立代理按第二版协议提取；四类代码检查相同不代表提示语义与第三版完全相同。第三版未返回视图不补跑，不把不同分母的率直接相减。"
+  },
+  "heuristics": {
+    "views": 187,
+    "relation_stem_in_name_sentence": 163,
+    "all_name_sentences_have_user_cue": 1,
+    "sentence_split_name_not_found": 0,
+    "length_quantile_word_cutoffs": [
+      78,
+      94,
+      110
+    ],
+    "length_quantiles": {
+      "1": {
+        "denominator": 300,
+        "categories": {
+          "INCONSISTENT": 0,
+          "MISS_STRICT": 39,
+          "MISS_SURNAME": 0,
+          "PHANTOM": 0
+        },
+        "omissions": 39
+      },
+      "2": {
+        "denominator": 304,
+        "categories": {
+          "INCONSISTENT": 0,
+          "MISS_STRICT": 62,
+          "MISS_SURNAME": 1,
+          "PHANTOM": 0
+        },
+        "omissions": 63
+      },
+      "3": {
+        "denominator": 298,
+        "categories": {
+          "INCONSISTENT": 0,
+          "MISS_STRICT": 49,
+          "MISS_SURNAME": 1,
+          "PHANTOM": 0
+        },
+        "omissions": 50
+      },
+      "4": {
+        "denominator": 298,
+        "categories": {
+          "INCONSISTENT": 0,
+          "MISS_STRICT": 35,
+          "MISS_SURNAME": 0,
+          "PHANTOM": 0
+        },
+        "omissions": 35
+      }
+    },
+    "limitation": "词干和用户提示词只作句子级启发式，不判定事实、极性或仅转述；没有名称匹配的分句单列。长度四分位按600条唯一正文空白分词数定义，边界相同长度归低一档。"
+  },
+  "normalized_quote": {
+    "primary": "strict",
+    "secondary": "normalized_quote",
+    "source_column": "original，不与重提示列合并",
+    "normalization": "NFKC，删*_反引号，弯引号/撇号转直，所有Unicode破折号及减号统一为ASCII连字符，合并空白，casefold后子串；空引文不通过，原30词上限不变。",
+    "totals": {
+      "strict_missing": 345,
+      "normalized_substring_pass": 314,
+      "normalized_eligible": 260,
+      "normalized_still_invalid": 85,
+      "normalized_substring_fail": 31
+    },
+    "strata": [
+      {
+        "view_type": "A",
+        "candidate_type": "F_w",
+        "arm": "S",
+        "strict_missing": 67,
+        "normalized_substring_pass": 65,
+        "normalized_eligible": 57,
+        "normalized_substring_fail": 2,
+        "normalized_still_invalid": 10
+      },
+      {
+        "view_type": "A",
+        "candidate_type": "X",
+        "arm": "C",
+        "strict_missing": 3,
+        "normalized_substring_pass": 3,
+        "normalized_eligible": 3
+      },
+      {
+        "view_type": "A",
+        "candidate_type": "X",
+        "arm": "S",
+        "strict_missing": 92,
+        "normalized_substring_pass": 81,
+        "normalized_eligible": 68,
+        "normalized_substring_fail": 11,
+        "normalized_still_invalid": 24
+      },
+      {
+        "view_type": "D",
+        "candidate_type": "F_w",
+        "arm": "S",
+        "strict_missing": 83,
+        "normalized_substring_pass": 78,
+        "normalized_eligible": 61,
+        "normalized_substring_fail": 5,
+        "normalized_still_invalid": 22
+      },
+      {
+        "view_type": "D",
+        "candidate_type": "X",
+        "arm": "C",
+        "strict_missing": 16,
+        "normalized_substring_fail": 1,
+        "normalized_still_invalid": 8,
+        "normalized_substring_pass": 15,
+        "normalized_eligible": 8
+      },
+      {
+        "view_type": "D",
+        "candidate_type": "X",
+        "arm": "S",
+        "strict_missing": 84,
+        "normalized_substring_pass": 72,
+        "normalized_eligible": 63,
+        "normalized_still_invalid": 21,
+        "normalized_substring_fail": 12
+      }
+    ],
+    "changes_original_labels": false
+  },
+  "Q2_returned_counts": [
+    {
+      "arm": "S+A0",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "denominator": 60,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 0,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 0
+    },
+    {
+      "arm": "S+A0",
+      "view_type": "A",
+      "candidate_type": "X",
+      "denominator": 61,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 0,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 0
+    },
+    {
+      "arm": "S+A0",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "denominator": 60,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 23,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 23
+    },
+    {
+      "arm": "S+A0",
+      "view_type": "D",
+      "candidate_type": "X",
+      "denominator": 62,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 7,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 7
+    },
+    {
+      "arm": "S+A0",
+      "view_type": "T",
+      "candidate_type": "F_w",
+      "denominator": 60,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 9,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 9
+    },
+    {
+      "arm": "S+A0",
+      "view_type": "T",
+      "candidate_type": "X",
+      "denominator": 61,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 3,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 3
+    },
+    {
+      "arm": "S+A1",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "denominator": 60,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 0,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 0
+    },
+    {
+      "arm": "S+A1",
+      "view_type": "A",
+      "candidate_type": "X",
+      "denominator": 64,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 0,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 0
+    },
+    {
+      "arm": "S+A1",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "denominator": 60,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 28,
+        "MISS_SURNAME": 1,
+        "PHANTOM": 0
+      },
+      "omissions": 29
+    },
+    {
+      "arm": "S+A1",
+      "view_type": "D",
+      "candidate_type": "X",
+      "denominator": 64,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 20,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 20
+    },
+    {
+      "arm": "S+A1",
+      "view_type": "T",
+      "candidate_type": "F_w",
+      "denominator": 60,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 18,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 18
+    },
+    {
+      "arm": "S+A1",
+      "view_type": "T",
+      "candidate_type": "X",
+      "denominator": 64,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 13,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 13
+    }
+  ],
+  "models": {
+    "machine": {
+      "name": "Qwen2.5-32B-Instruct",
+      "decoding": "do_sample=False，确定性；temperature不用于采样",
+      "max_new_tokens": 2048
+    },
+    "independent": {
+      "name": "gpt-6-astra",
+      "reasoning_effort": "xhigh",
+      "temperature": "运行记录未暴露，不能填写0",
+      "max_output_tokens": "运行记录未暴露；不把模型支持上限冒充本次上限"
+    }
+  },
+  "no_relation_events_computed": true,
+  "strong_extractor_estimate": {
+    "model": "gpt-6-astra",
+    "reference_views": 100,
+    "reference_usage": {
+      "input_tokens": 647852,
+      "cached_input_tokens": 584448,
+      "output_tokens": 14596,
+      "reasoning_output_tokens": 3086,
+      "cache_write_input_tokens": 0
+    },
+    "scenarios": [
+      {
+        "label": "5920个全部人物视图",
+        "views": 5920,
+        "input_tokens": 38352838.4,
+        "cached_input_tokens": 34599321.6,
+        "output_tokens": 864083.2000000001,
+        "reasoning_output_tokens": 182691.2,
+        "cache_write_input_tokens": 0.0,
+        "usd_cache_pattern": 115.33864960000001,
+        "usd_no_cache": 426.732544
+      },
+      {
+        "label": "另187个重提示相当量（首组已知，非最终总量）",
+        "views": 187,
+        "input_tokens": 1211483.24,
+        "cached_input_tokens": 1092917.76,
+        "output_tokens": 27294.52,
+        "reasoning_output_tokens": 5770.820000000001,
+        "cache_write_input_tokens": 0.0,
+        "usd_cache_pattern": 3.64329856,
+        "usd_no_cache": 13.4795584
+      },
+      {
+        "label": "5920加首组187的预算情景",
+        "views": 6107,
+        "input_tokens": 39564321.64,
+        "cached_input_tokens": 35692239.36,
+        "output_tokens": 891377.72,
+        "reasoning_output_tokens": 188462.02,
+        "cache_write_input_tokens": 0.0,
+        "usd_cache_pattern": 118.98194816,
+        "usd_no_cache": 440.2121024
+      },
+      {
+        "label": "按本轮240视图实测外推全部5920",
+        "views": 5920,
+        "current_protocol_reference": true,
+        "input_tokens": 83342080.66666667,
+        "cached_input_tokens": 81667584.0,
+        "output_tokens": 1036740.0,
+        "reasoning_output_tokens": 185542.6666666667,
+        "usd_cache_pattern": 150.2495506666667,
+        "usd_no_cache": 885.2578066666667
+      },
+      {
+        "label": "按本轮实测另187个重提示相当量",
+        "views": 187,
+        "current_protocol_reference": true,
+        "input_tokens": 2632596.129166667,
+        "cached_input_tokens": 2579702.4,
+        "output_tokens": 32748.375,
+        "reasoning_output_tokens": 5860.891666666666,
+        "usd_cache_pattern": 4.7460584416666665,
+        "usd_no_cache": 27.963380041666667
+      },
+      {
+        "label": "按本轮实测5920加首组187",
+        "views": 6107,
+        "current_protocol_reference": true,
+        "input_tokens": 85974676.79583333,
+        "cached_input_tokens": 84247286.39999999,
+        "output_tokens": 1069488.375,
+        "reasoning_output_tokens": 191403.55833333332,
+        "usd_cache_pattern": 154.99560910833333,
+        "usd_no_cache": 913.2211867083333
+      }
+    ],
+    "basis": "以原40回答、100人物视图的独立代理完整工作流实测为经验基准：总输入647852词元（缓存读取584448）、输出14596（已含推理3086），记录未含缓存写入。按视图数线性外推，包含工具往返和重复上下文开销，不是每个独立接口请求的净提示大小。 本轮240视图已按当前冻结提示完成，另列基于这次实际工作流的外推，作为较贴近当前协议的预算参考；两次工作流的上下文复用长度不同，不把两者差额当模型效果。",
+    "increment_formula": "按当前协议这次240视图的工作流，另有m个重提示相当量时，增量输入约14078.0542×m、缓存读取13795.2×m、输出175.125×m词元；标准价格下增量约0.0253799917×m美元（沿本轮缓存比例）或0.1495367917×m美元（输入均不缓存）。表中旧100视图基准仅作历史对照；187仍非最终标记总量，新增提示段的开销未单独估算。",
+    "limits": "这是标准短上下文接口等价预算，不是当前订阅账单，也不是置信区间。旧代理实际服务档位和温度、最大输出配置未暴露；新提示较长、推理量、批次、缓存命中及服务档位可改变费用。快速档按对应官方单价另算；单请求超过272000输入词元时也需长上下文加价。重提示额外提示段尚未纳入经验点估计。187不是最终标记数；不能把首组率当全量事实。更强提取器尚未全量启动，能否采用须待人工校准后由用户决定；它不会自动补全不足的材料证据。",
+    "price_source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "pricing_checked_date": "2026-10-28",
+    "current_protocol_reference_views": 240,
+    "current_protocol_reference_usage": {
+      "input_tokens": 3378733,
+      "cached_input_tokens": 3310848,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 42030,
+      "reasoning_output_tokens": 7522,
+      "total_tokens": 3420763
+    }
+  },
+  "fallback_export": {
+    "preregistered_commit": "aadce904906c2ab287cf66975180406c80020b90",
+    "overlap_original_diagnostic": 2,
+    "counts": {
+      "X_main": {
+        "responses": 90,
+        "views": 180,
+        "machine_views_returned": 96,
+        "independent_views_returned": 180
+      },
+      "Fw_optional": {
+        "responses": 30,
+        "views": 60,
+        "machine_views_returned": 32,
+        "independent_views_returned": 60
+      }
+    },
+    "independent_complete": true
+  },
+  "Q2_snapshot_utc": "2026-10-28T23:09:00Z",
+  "Q2_snapshot_clock": "协调检查时钟，约至分钟；不以服务器绝对时钟估计完成时间",
+  "review_cost_accounting": {
+    "main_generation_tokens_unchanged": 520860,
+    "GPU_judge_model": "Qwen2.5-32B-Instruct",
+    "revised_baseline_output_tokens": 253258,
+    "revised_Q2_output_tokens_at_snapshot": 125994,
+    "revised_batch5_started": false,
+    "main_generation_budget_includes_review": false,
+    "new_independent_actual": {
+      "input_tokens": 3378733,
+      "cached_input_tokens": 3310848,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 42030,
+      "reasoning_output_tokens": 7522,
+      "total_tokens": 3420763
+    },
+    "new_independent_model": "gpt-6-astra",
+    "new_independent_reasoning": "xhigh"
+  }
+}

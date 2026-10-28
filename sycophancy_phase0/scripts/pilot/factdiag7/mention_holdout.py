@@ -10,6 +10,7 @@ import random
 from .stage2_revision import load,save_new,validate_freeze,OUTPUT_FILES
 from .mention_reprompt import PLAN,OUTPUT,require_original_complete,next_attempt
 from .mention_diagnostic import classify
+from .mention_followup_checks import normalized_quote_column
 
 SEED=20261028
 BLIND='stage2_mention_holdout_blind.json'
@@ -109,6 +110,8 @@ def column_extraction(q,original,reprompt,selected):
         if d['category']=='PHANTOM':flags.add('MENTION_FIELD_INVALID')
         e['extraction_flags']=sorted(flags)
         values[column]=e
+    # 次列二只规范化原列引文；不采用重提示结果，不合并两种纠正。
+    values['normalized_quote']=normalized_quote_column(values['original'],q['response'])
     return values
 
 
@@ -136,7 +139,7 @@ def compare(pilot):
             raise ValueError('独立人物顺序或编号不符')
         entries={e['candidate']:e['extraction'] for e in rec['extractions']}
         if len(entries)!=len(qs) or set(entries)!={q['person']['name'] for q in qs}:raise ValueError('独立人物集合不符')
-        mapped={label:{} for label in ('original','reprompt','independent')}
+        mapped={label:{} for label in ('original','reprompt','normalized_quote','independent')}
         for q in qs:
             original=saved[row['phase']][q['id']]
             if original['input_sha256']!=q['input_sha256']:raise ValueError('原列绑定不符')
@@ -147,15 +150,15 @@ def compare(pilot):
             for label,value in dict(cols,independent=e).items():mapped[label][q['kind']]=map_evidence(value,q['item'],q['person'])
         candidate=next(q['kind'] for q in qs if q['kind'] not in ('GOLD','T'))
         events={label:aggregate(v[candidate],v['GOLD'],technical_failure=qs[0]['technical_failure'],execution_no_tools=True)['W_false'] for label,v in mapped.items()}
-        for column in ('original','reprompt'):pairs[column].append((events[column],events['independent']))
+        for column in ('original','reprompt','normalized_quote'):pairs[column].append((events[column],events['independent']))
         private.append(dict(blind_id=bid,events=events))
     stats={column:agreement(value) for column,value in pairs.items()}
-    report=dict(n=40,views=100,threshold=.8,primary='original',secondary='reprompt',branch='B',
+    report=dict(n=40,views=100,threshold=.8,primary='original',secondary='reprompt',secondary_two='normalized_quote',branch='B',
         status='通过' if stats['original']['raw_agreement']>=.8 else '未通过',columns=stats,
         primary_passed=stats['original']['raw_agreement']>=.8,
         reviewer='无上下文独立代理，非人工；原40仅既有诊断，未并入门槛。',
         secondary_label='事后代码侧纠正',
-        rule='未知/缺失计不一致，全40分母；主列决定报告与回退，次列不替换主列。')
+        rule='未知/缺失计不一致，全40分母；主列决定留出门槛，两次列不替换主列。人工回退已由用户独立提前启动，不因留出通过而撤回；人工校准另按全样本保守一致率。')
     atomic_save(out/'stage2_mention_holdout_comparison_private.json',private)
     atomic_save(out/'stage2_mention_holdout_review.json',report)
     return report

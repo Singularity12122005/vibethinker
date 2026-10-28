@@ -49,6 +49,66 @@ def mark_counts(rows):
                 omissions=sum(r['category'] in CATEGORIES[:3] for r in rows))
 
 
+def refresh_q2_counts(pilot,observed_at=None):
+    """只刷新运行中的新回答标记；不重复已完成的载荷、旧样本或引文检查。"""
+    from datetime import datetime,timezone
+    pilot=Path(pilot);out=pilot/'factdiag7_20261112'
+    path=out/'stage2_mention_followup_checks.json';report=load(path)
+    queues=build_inputs(pilot)['Q2'];saved=load(out/OUTPUT_FILES['Q2'])
+    kinds={q['response_id']:q['kind'] for q in queues if q['kind'] not in ('GOLD','T')}
+    groups=defaultdict(list)
+    for q in queues:
+        rec=saved.get(q['id'],{})
+        if rec.get('completion')!='returned':continue
+        d=dimensions(q,kinds[q['response_id']])
+        groups[(d['arm'],d['view_type'],d['candidate_type'])].append(classify(rec['extraction'],q['response'],q['person']))
+    report['Q2_returned_counts']=[dict(zip(('arm','view_type','candidate_type'),key))|mark_counts(rows)
+        for key,rows in sorted(groups.items())]
+    report['Q2_snapshot_utc']=observed_at or datetime.now(timezone.utc).isoformat()
+    report['Q2_snapshot_clock']='协调检查时钟' if observed_at else 'A100系统自报时钟；进度以文件计数为准'
+    path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (out/'stage2_mention_followup_checks.md').write_text(render(report),encoding='utf-8')
+    return dict(snapshot=report['Q2_snapshot_utc'],returned=sum(v['denominator'] for v in report['Q2_returned_counts']),
+                strata=report['Q2_returned_counts'])
+
+
+def append_completed_quote_phase(pilot,phase):
+    """新阶段完整后补引文诊断；已经完成的阶段结果复用，不计算关系量。"""
+    if phase not in ('Q2','batch5'):raise ValueError('基线诊断已经完成；这里只接续新回答或第五批')
+    pilot=Path(pilot);out=pilot/'factdiag7_20261112';path=out/'stage2_mention_followup_checks.json'
+    report=load(path);completed=report.setdefault('normalized_quote_completed_phases',{})
+    if phase in completed:return dict(reused=True,phase=phase,**completed[phase])
+    queues=build_inputs(pilot);inputs=queues[phase];saved=load(out/OUTPUT_FILES[phase])
+    if set(saved)!={q['id'] for q in inputs} or any(v.get('completion')!='returned' for v in saved.values()):
+        raise ValueError('该阶段尚未全部返回，不对部分视图声称完整引文诊断')
+    kinds={}
+    if phase=='Q2':
+        kinds={q['response_id']:q['kind'] for q in inputs if q['kind'] not in ('GOLD','T')}
+    else:
+        materials=load(out/'factdiag7_stage2_revision_materials.json')
+        bank={i['work_id']:i for i in materials['items']}
+        for r in load(pilot/'factdiag5_20261112/core_generations.json'):
+            found=[person['type'] for person in bank[r['work_id']]['people'] if person['name']==r['candidate']]
+            kinds[r['request_id']]=found[0] if len(found)==1 else '其他'
+    groups=defaultdict(Counter)
+    for q in inputs:
+        rec=saved[q['id']]
+        if rec.get('input_sha256')!=q['input_sha256']:raise ValueError('引文诊断输入身份不符')
+        d=dimensions(q,kinds[q['response_id']]);key=tuple(d[k] for k in ('view_type','candidate_type','arm'))
+        groups[key]['views']+=1
+        for claim in rec['extraction'].get('claims',[]):
+            if 'QUOTE_MISSING' not in claim.get('flags',[]):continue
+            check=normalized_quote_check(claim,q['response']);groups[key]['strict_missing']+=1
+            groups[key]['normalized_substring_pass' if check['substring'] else 'normalized_substring_fail']+=1
+            groups[key]['normalized_eligible' if check['eligible'] else 'normalized_still_invalid']+=1
+    totals=Counter()
+    for v in groups.values():totals.update(v)
+    completed[phase]=dict(totals=dict(totals),strata=[dict(zip(('view_type','candidate_type','arm'),k))|dict(v) for k,v in sorted(groups.items())])
+    path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (out/'stage2_mention_followup_checks.md').write_text(render(report),encoding='utf-8')
+    return dict(reused=False,phase=phase,**completed[phase])
+
+
 def run(pilot):
     pilot=Path(pilot);out=pilot/'factdiag7_20261112';queues=build_inputs(pilot)
     saved={p:load(out/f) if (out/f).exists() else {} for p,f in OUTPUT_FILES.items()}
@@ -153,15 +213,53 @@ def render(r):
     p=r['payload_check'];q=r['normalized_quote']
     lines=['# 提及诊断补充检查','',f"载荷检查：{p['flagged']}个标记视图加随机{p['random_unflagged']}个未标记视图，共{p['checked']}个；记录摘要或正文字节不一致{p['mismatch_count']}个。",'',p['limitation'],'',
         '## 原独立复核的同视图对照','','|提取来源|分母|内部矛盾|全名别名漏提|仅姓氏漏提|凭空提及|漏提合计|','|---|---:|---:|---:|---:|---:|---:|']
+    sources={'independent_original_100':'原独立代理全部视图','machine_v2_same_100':'原机器同一批视图','machine_v3_available':'第三版机器已返回配对视图','independent_paired_to_v3':'对应的原独立代理视图'}
     for name,v in r['original_40_comparison'].items():
-        if isinstance(v,dict):lines.append('|'+'|'.join([name,str(v['denominator'])]+[str(v['categories'][c]) for c in CATEGORIES]+[str(v['omissions'])])+'|')
+        if isinstance(v,dict):lines.append('|'+'|'.join([sources.get(name,name),str(v['denominator'])]+[str(v['categories'][c]) for c in CATEGORIES]+[str(v['omissions'])])+'|')
     lines+=['',r['original_40_comparison']['limits'],'','机器为Qwen2.5-32B-Instruct，确定性解码，最大新输出2048。原独立代理为GPT-6 Astra，推理强度xhigh；运行记录未暴露温度及最大输出配置，不能把未知填成0或2048。两者不是同模型同配置实验。','',
-        '## 姓名所在句与长度线索','',json.dumps(r['heuristics'],ensure_ascii=False,indent=2),'',
-        '## 规范化引文次列','',q['normalization'],'',json.dumps(q['totals'],ensure_ascii=False),'',
+        '## 姓名所在句与长度线索','',
+        f"187个漏提视图中，姓名所在句含关系词干的有{r['heuristics']['relation_stem_in_name_sentence']}个；所有姓名句均含用户话语线索的有{r['heuristics']['all_name_sentences_have_user_cue']}个。分句后没有找到姓名的有{r['heuristics']['sentence_split_name_not_found']}个。",'',r['heuristics']['limitation'],'',
+        '四档空白词数边界为'+ '、'.join(map(str,r['heuristics']['length_quantile_word_cutoffs']))+'。','',
+        '|长度档|视图数|全名别名漏提|仅姓氏漏提|合计|漏提率|','|---|---:|---:|---:|---:|---:|']
+    for k,v in r['heuristics']['length_quantiles'].items():
+        lines.append(f"|{k}|{v['denominator']}|{v['categories']['MISS_STRICT']}|{v['categories']['MISS_SURNAME']}|{v['omissions']}|{v['omissions']/v['denominator']:.2%}|")
+    totals=q['totals']
+    lines+=['','## 规范化引文次列','',q['normalization'],'',
+        f"严格引文缺失{totals['strict_missing']}条命题；规范化子串通过{totals['normalized_substring_pass']}，仍非子串{totals['normalized_substring_fail']}。子串通过中仍有{totals['normalized_substring_pass']-totals['normalized_eligible']}条超过原30词上限，因此可解除引文缺失标记{totals['normalized_eligible']}条，仍无效{totals['normalized_still_invalid']}条。",'',
         '|视图／候选／臂|严格引文缺失|规范化子串通过|仍非子串|兼容30词上限的通过|','|---|---:|---:|---:|---:|']
     for v in q['strata']:lines.append('|'+ '/'.join(v[k] for k in ('view_type','candidate_type','arm'))+'|'+'|'.join(str(v.get(k,0)) for k in ('strict_missing','normalized_substring_pass','normalized_substring_fail','normalized_eligible'))+'|')
+    for phase,extra in r.get('normalized_quote_completed_phases',{}).items():
+        lines+=['','已完整的后续阶段：'+phase+'。','',
+            '|视图／候选／臂|全部视图|严格引文缺失|规范化子串通过|仍非子串|兼容30词上限的通过|','|---|---:|---:|---:|---:|---:|']
+        for v in extra['strata']:lines.append('|'+ '/'.join(v[k] for k in ('view_type','candidate_type','arm'))+'|'+'|'.join(str(v.get(k,0)) for k in ('views','strict_missing','normalized_substring_pass','normalized_substring_fail','normalized_eligible'))+'|')
     lines+=['','这是原列的独立次列二，不与重提示合并，不修改原始提取，不放宽人工连续带标记引文要求。','',
         '## 新回答已返回视图标记计数','', '以下只列已返回分母；串行队列的部分样本不代表完整臂。','',
         '|臂／视图／候选|已返回|内部矛盾|全名别名漏提|仅姓氏漏提|凭空提及|','|---|---:|---:|---:|---:|---:|']
     for v in r['Q2_returned_counts']:lines.append('|'+ '/'.join(v[k] for k in ('arm','view_type','candidate_type'))+'|'+'|'.join([str(v['denominator'])]+[str(v['categories'][c]) for c in CATEGORIES])+'|')
+    if r.get('Q2_snapshot_utc'):lines+=['','快照时间（协调世界时）：'+r['Q2_snapshot_utc']+'；'+r.get('Q2_snapshot_clock','A100系统自报时钟')+'。']
+    if r.get('strong_extractor_estimate'):
+        e=r['strong_extractor_estimate']
+        lines+=['','## 更强提取器的费用估计（未启动）','',e['basis'],'',
+            '按[官方标准接口价格](https://developers.openai.com/api/docs/models/gpt-6-astra)估计：每百万未缓存输入10美元、缓存读取1美元、输出50美元。查价日期：2026-10-28。','',
+            '|规模|总输入词元|其中缓存读取|输出词元（含推理）|沿对应实测缓存比例／美元|全部输入未缓存／美元|','|---|---:|---:|---:|---:|---:|']
+        for v in e['scenarios']:lines.append(f"|{v['label']}|{v['input_tokens']:,.2f}|{v['cached_input_tokens']:,.2f}|{v['output_tokens']:,.2f}|{v['usd_cache_pattern']:.2f}|{v['usd_no_cache']:.2f}|")
+        lines+=['',e['increment_formula'],'',e['limits']]
+    if r.get('fallback_export'):
+        e=r['fallback_export']
+        lines+=['','## 提前人工回退与导出','',
+            f"抽样前登记已提交：`{e['preregistered_commit']}`。主集90条、可选补充30条；共240人物视图，与原40诊断自然重合{e['overlap_original_diagnostic']}条。抽样没有读取标记、关系量或标签。",'',
+            '主集每作品3历史×3臂，可优先填写基线与重述问题的60条；可选补充单独编号。固定前缀向人工显示，因此臂对人工可见。独立代理是阅读辅助，填写表不预填结论。','',
+            '校准门槛为全样本保守一致率：双方都确定且一致才计一致；未知不一致。另列下界标记一致率和双方确定项一致率，不替换主门槛。','',
+            '|集合|回答数|人物视图|机器已返回|独立代理已返回|','|---|---:|---:|---:|---:|']
+        for name,label in [('X_main','X主要样本'),('Fw_optional','虚构人物可选补充')]:
+            v=e['counts'][name]
+            lines.append(f"|{label}|{v['responses']}|{v['views']}|{v['machine_views_returned']}|{v['independent_views_returned']}|")
+        lines+=['','尚未返回的机器视图明确显示等待，不另行评审；后续只更新阅读表，不覆盖人工填写表。']
+    if r.get('review_cost_accounting'):
+        a=r['review_cost_accounting']
+        lines+=['','## 本轮消耗分列','',
+            f"主模型已生成{a['main_generation_tokens_unchanged']:,}词元，本次未增加。独立显卡评审模型的修订基线输出{a['revised_baseline_output_tokens']:,}词元，新回答在本轮快照时输出{a['revised_Q2_output_tokens_at_snapshot']:,}词元，第五批修订尚未开始；这些评审输出单列，不混入主模型生成预算。"]
+        if a.get('new_independent_actual'):
+            v=a['new_independent_actual']
+            lines+=['',f"本次120回答、240人物视图的独立代理：累计输入{v['input_tokens']:,}词元（其中缓存读取{v.get('cached_input_tokens',0):,}），输出{v['output_tokens']:,}（已含推理{v.get('reasoning_output_tokens',0):,}）。这是完整代理工作流的实际用量，含工具上下文，不是主模型生成，也不等于订阅费用。"]
     return '\n'.join(lines)+'\n'

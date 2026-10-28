@@ -36,5 +36,20 @@ class MentionHoldoutTests(unittest.TestCase):
         cols=column_extraction(q,r,{'a':{'attempts':[r]}},{'a'})
         self.assertIn('MENTION_MISMATCH',cols['reprompt']['extraction_flags'])
 
+    def test_normalized_secondary_uses_original_not_reprompt(self):
+        q={'id':'a','response':'Edward **Storer** translated it.','person':{'name':'Edward Storer','aliases':[]}}
+        first={'mention':'PRESENT','claims':[{'quote':'Edward Storer translated it.','flags':['QUOTE_MISSING','POSSIBLE_CONFLICT']}],
+               'extraction_flags':[],'parse_status':'OK'}
+        second={'mention':'ABSENT','claims':[],'extraction_flags':[],'parse_status':'OK'}
+        original={'completion':'returned','extraction':first}
+        reprompt={'a':{'attempts':[{'completion':'returned','extraction':second}]}}
+        before=copy.deepcopy((original,reprompt))
+        cols=column_extraction(q,original,reprompt,{'a'})
+        self.assertEqual((original,reprompt),before)
+        self.assertEqual(cols['normalized_quote']['claims'][0]['flags'],['POSSIBLE_CONFLICT'])
+        self.assertIn('QUOTE_MISSING',cols['original']['claims'][0]['flags'])
+        self.assertEqual(cols['reprompt']['claims'],[])
+        self.assertIn('MENTION_MISMATCH',cols['reprompt']['extraction_flags'])
+
 
 if __name__=='__main__':unittest.main()
