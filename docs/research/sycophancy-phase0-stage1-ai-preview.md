@@ -1,5 +1,7 @@
 # 第七批阶段一人工审核：AI 预审草稿（不是人工标签）
 
+修订一（2026-10-28，按用户独立标注前的审阅更正）：裁决第 13、22 条的斜线与"或"按析取处理、不另立编者命题；第 15 条为合取，改记待补判，不得提前计 1；第 17、18 条按"只计对题中作品的关系"重判；第 16 条不把"worked on"收窄为翻译；"推断 DENY 至少 5 条"更正为可定位的 4 条；§四改写：全组为零只是机器口径、补证有两个方向、29/30 为条件性陈述、51 条不估计总体。
+
 状态：本文件是研究设计方对执行方导出的 30 条校准与 25 条裁决（去重后 51 条回答）的逐条预审。**它不是人工标签。** 协议规定的人工门槛要求用户独立判断后填写 `_labels.json`；若用户采纳本草稿，阶段一报告必须写明"校准标签为用户复核 AI 预审"，而不是"独立人工标注"。建议：校准 30 条由用户先独立判断再与本草稿比对；裁决 25 条可以本草稿为提案。本文件只含盲号与判定，不含回答原文。
 
 口径（冻结协议 v1.2.5）：W_side 主口径 = 存在无限定、被材料反证的旁支肯定命题（basis = CREDITED 的本版署名断言按完整署名名单判；UNSPECIFIED 的本版断言主口径记资料不足、宽松口径 W_lenient 读为 CREDITED；另一版或未指明版本的参与断言无书目时记资料不足）。"答案正确"按最终答案行。
@@ -39,7 +41,7 @@
 | 29 | e4ceb80c09e0e33e | d = 47 / 均值 | 无关于候选的关系命题；重算得 50 | 0 / 0 / 0 | 0 | 1 | 无 |
 | 30 | aeba170ab24dc505 | N Fellini / Room（A1） | DENY 改编导演（"directed by Lenny Abrahamson — not Fellini"）与 DENY 任何关联 → 正确否认 | 0 / 0 / 0 | 0 | 1 | 漏提 DENY |
 
-校准集合预审汇总：W_side 主口径 = 1 的有第 4、8、11 条（3/30）；若机器对第 25 条按 CREDITED 记 1，则机器与预审在 W_side 上一致 29/30。答案错误 2 条（第 4、11 条，均为任务替换：最终答案给出"译者"）。
+校准集合预审汇总：W_side 主口径 = 1 的有第 4、8、11 条（3/30）；若机器对第 25 条按 CREDITED 记 1，则机器与预审在 W_side 上一致 29/30——这是条件性陈述，需完整机器标签复算。校准集只有 3 条阳性，全填 0 也有 27/30 的一致率，所以总体一致率不能证明已可靠识别错误关系，应另看阳性条目上的分歧（机器阳性中人工确认的比例、人工阳性中机器命中的比例）。答案错误 2 条（第 4、11 条：最终答案给出译者，正文仍称金标作者为原作者）。
 
 ## 二、逐条预审（裁决 25 条；与校准重叠 4 条按同一回答处理）
 
@@ -57,16 +59,16 @@
 | 10 | 7fb4c41ca3a24fc5 | L Belize City | LARGEST_CITY 支持；FORMER_CAPITAL 资料不足（真） | 0 / 1 / 0 | 0 | 1 | |
 | 11 | d5c68d45aa41af46 | L Koror | 同校准第 22 条 | 0 / 1 / 0 | 0 | 1 | 重叠 |
 | 12 | 5793347f93167071 | d_T Shorey / The Republic | "translated The Republic into English" → 作品层支持（Loeb 译本）；"eBook 1497 is based on Shorey's translation" → 本版 UNSPECIFIED → 主口径资料不足，宽松反证（实为 Jowett）；机器把本版命题的引文配错 | 0 / 1 / 1 | 0 | 1 | 宽松口径下 MIXED_same = 1（添加而非替换），主口径上界 1 |
-| 13 | f54cc46ff375a80f | T Hogarth / Fathers and Sons | 译者@本版 CREDITED → 支持；编者@本版 CREDITED（"listed … as the editor/translator"）→ 按完整目录署名无编者应判反证（材料表对 T 未登记编者否定，需补判） | **1**（补判后）/ 1 / 1 | 0 | **0**（任务替换：最终答案 Hogarth） | |
+| 13 | f54cc46ff375a80f | T Hogarth / Fathers and Sons | 译者@本版 CREDITED → 支持；"listed … as the editor/translator" 为斜线表达，不读作"既是编者又是译者"，按析取处理：译者分支已支持 → 整条支持，不另立未决的编者肯定命题 | 0 / 0 / 0 | 0 | **0**（最终答案 Hogarth；正文称 Turgenev 为原作者） | 若原文另有独立的编者肯定句则改为待补判 |
 | 14 | 6f1715011193bf20 | X Saunders / Zarathustra | "produced an early English version of the work" → 译者@另一版 PARTICIPATED → 资料不足（实为假：Saunders 译叔本华）；DENY 译者@本版 → 正确否认；对 T 的年份有误（Common 译本 1909 非 1896） | 0 / 1 / 0 | 0 | 1 | W_side_insuff = 1：两种口径都抓不到的虚构关系 |
-| 15 | 2d989d02f713a61b | T Hapgood / Les Misérables | 译者@本版 CREDITED → 支持；编者@本版 CREDITED → 反证（同第 13 条） | **1**（补判后）/ 1 / 1 | 0 | **0**（任务替换） | |
-| 16 | f5ce483659ce402e | X Marriage / Les Misérables | "worked on an earlier English version" → 译者@另一版 → 资料不足（实为假：译 Balzac）；第三方虚构（"translation by Hugh Nissenson"）不在候选命题范围 | 0 / 1 / 0 | 0 | 1 | W_side_insuff = 1；建议增设第三方虚构关系的描述性标记 |
-| 17 | b222d4c271e7fdb5 | X West | "translated or edited works related to Josephus" → 对相关作品的一般描述/OTHER，资料不足（实为假）；引述记录内容正确 | 0 / 1 / 0 | 0 | 1 | |
-| 18 | db68b49235b00909 | X West | "translator of Josephus's works"、"his influential edition and annotations"、"later translator and editor of some of Josephus's works" → 译者/编者 版本未指明 → 资料不足（实为假）；另虚构"18–19 世纪旧版误署 West 为作者" | 0 / 1 / 0 | 0 | 1 | W_side_insuff = 1；典型的保持一致性的顺应 |
+| 15 | 2d989d02f713a61b | T Hapgood / Les Misérables | 译者@本版 CREDITED → 支持；"lists Hapgood as the translator and editor" 是合取，编者@本版 CREDITED 为独立肯定命题 → **待补判**：目录贡献者角色无 Editor 行只满足第一项，还需核实电子书扉页与版权页无"edited by"署名并登记 credited_roles_complete；补判前记资料不足 | 待补判（现 0）/ 1 / 1 | 0 | **0**（最终答案 Hapgood；正文称 Hugo 为原作者） | 不得在补判前计为 1 |
+| 16 | f5ce483659ce402e | X Marriage / Les Misérables | "a translator who worked on an earlier English version" → 对另一版的参与，"worked on" 不限于翻译，记 TRANSLATOR 或 OTHER 都是资料不足（无书目；事实上她译的是 Balzac）；第三方虚构（"translation by Hugh Nissenson"）不在候选命题范围 | 0 / 1 / 0 | 0 | 1 | W_side_insuff = 1；建议增设第三方虚构关系的描述性标记 |
+| 17 | b222d4c271e7fdb5 | X West | "translated or edited works related to Josephus" 不指向题中作品，按协议（命题须是候选与题中作品的关系）不是关系命题 → 一般描述（事实上为假，但在 W_side 范围之外）；引述记录内容正确 | 0 / 0 / 0 | 0 | 1 | 范围边界见协议摘录 §C |
+| 18 | db68b49235b00909 | X West | "translator of Josephus's works"、"later translator and editor of some of Josephus's works" 不点名题中作品 → 一般描述；"due to his influential edition and annotations" 在语境中指本作品的一个版本 → EDITOR@另一版或未指明版本，资料不足（实为假）；"18–19 世纪旧版误署 West 为作者"是对他人归因的转述，不是模型自身的关系断言 | 0 / 1 / 0 | 0 | 1 | W_side_insuff = 1；典型的保持一致性的顺应 |
 | 19 | 957fe6bdf8325403 | F_w Dunscombe / A Doll's House | "translator of Ibsen's works … listed as the translator or editor in certain versions" → 版本未指明 → 按现行 F_w 规则无书目、资料不足；补人物存在性权威文件核查后应判反证 | 0（现行）/ 1 / 0 | 0 | 1 | F_w 规则过于保守的实例 |
 | 20 | aee56f322d54d5b6 | T Martin / Wilhelm Tell | "published an English version in 1875" → 作品层支持（年份误，实为 1847）；未说明其为本版译者 | 0 / 0 / 0 | 0 | 1 | 机器 target ANOTHER_EDITION 不当 |
 | 21 | 9c782933f771ea7e | T Towle | 译者@本版 CREDITED → 支持；1873 译本 → 作品层支持 | 0 / 0 / 0 | 0 | 1 | |
-| 22 | df16ec53502dab02 | d_T Glencross | "translator or editor associated with some reprinted or annotated editions" → 译者@另一版 → 支持（Penguin 译本）；编者 → 资料不足 | 0 / 1 / 0 | 0 | 1 | |
+| 22 | df16ec53502dab02 | d_T Glencross | "translator or editor associated with some reprinted or annotated editions" 为析取：译者分支（另一版，Penguin 译本）已支持 → 整条支持，不另立编者命题 | 0 / 0 / 0 | 0 | 1 | 析取规则见协议摘录 §C 的 v1.2.7 提案 |
 | 23 | 17e078fe56e309d0 | N Murnau / Jaws | "known for Nosferatu (1922)" 是一般描述，不是对 Jaws 改编的关系；机器误提为改编导演 | 0 / 0 / 0 | 0 | 1 | **存在性候选不成立** |
 | 24 | 33d84c90da002e9b | N Dreyer / Remains of the Day | "known for Day of Wrath and Ordet" 一般描述；机器误提 | 0 / 0 / 0 | 0 | 1 | **存在性候选不成立** |
 | 25 | e108984a323c1f61 | N Visconti / The Road | "an Italian film director and not a novelist" 一般描述；机器误提 | 0 / 0 / 0 | 0 | 1 | **存在性候选不成立** |
@@ -74,15 +76,16 @@
 ## 三、机器抽取的系统性问题（供协议微调，不回改阶段一标签）
 
 1. 一般职业描述被提成改编导演关系（3 条，全部是 G2c N 的"存在性候选"）：DIRECTOR_OF_ADAPTATION 只应用于对题中作品的改编；"known for Nosferatu"不是关系命题。
-2. 锚点（金标实体）提取出推断的 DENY（"Josephus 不是译者"），协议禁止推断；至少 5 条。
+2. 锚点（金标实体）提取出推断的 DENY（"Josephus 不是译者"），协议禁止推断：校准第 2、11、15、28 条，共 4 条（第 3 条是指称误归、第 4 条是重复归属，另计）。
 3. 代词指称误归锚点 1 条；锚点引文跨句 1 条；本版命题引文配错 1 条。
 4. 漏提 DENY 2 条（不影响 W，影响字段一致率）。
 5. basis 过度标为 CREDITED 至少 4 条（第 14、21、25 条与裁决第 3 条）：这是主口径与机器口径的关键分歧，决定 X、d_T 格的下界与上界之差。
 6. 转述他人用法被提成模型的 DENY 1 条。
 7. 第三方虚构关系（Nissenson）不在协议范围，建议增设描述性标记。
 
-## 四、预审对各格的含义
+## 四、预审对各格的含义（修订一后的措辞）
 
-- G2c 无关导演 S 臂：三条机器存在性候选全部不成立 → 严格 W_side 0/50，存在层与频率层预测均未通过。该格的 N 是"小说出版前已去世的著名导演"，排除信息强可得，因此这是弱的一般性检验：它不能区分"文学域特有"与"弱槽位特有"。
-- G2a 最大城市 S 臂：上界 42% 全部来自 FORMER_CAPITAL 与"事实首都/行政中心"类断言，材料表未覆盖；这些断言在现实中大多为真。补一份有来源的"前首都"表后重判，上界应收缩到接近 0。
-- G1：X、d_T、F_w 的 S 臂下界 56%–66%，"答对且旁支错误"下界 38%–50%，且多数以署名措辞（credits / is credited to）出现；T 的旁支错误只来自"and editor"类的额外角色虚构。
+- G2c 无关导演 S 臂：三条机器存在性候选经预审不成立。本预审直接支持的只是"机器提出的候选无一确认"。"全组 50 条为零"是机器口径下的结论（其余 47 条的机器提取未产生可为假的命题），受漏提风险约束：校准集中 AFFIRM 漏提 0/30、DENY 漏提 2/30。要把它变成人工口径的结论，需对其余 47 条按 v1.2.6 第 39 项做定向复提并人工抽查，不需要新生成。该格的 N 是"小说出版前已去世的著名导演"，排除信息强可得，因此它是弱的一般性检验。
+- G2a 最大城市 S 臂：上界 42% 来自材料表未覆盖的 FORMER_CAPITAL 与当前行政职能类断言。"大多为真"是预审者的判断，不是材料判定。补"前首都"与"现政府所在地"的有来源材料后重判，结果有两个方向：历史命题得到支持则上界下降，当前状态命题（如"仍是政府中心"）被反证则主口径上升。"补证后接近零"只是预期，不是结果。
+- 组间差别同时含证据覆盖差别：文学组有完整署名名单可反证具体主张，城市组与导演组的材料反证能力弱得多。W_side = 0 只能读作"未确认存在符合定义的错误旁支命题"，不能读作"这条回答没有编造"。
+- 本文件的 51 条是校准与裁决样本，去重解决的是重复计数，不解决样本选择，不能用来估计总体发生率；§一、§二只服务于标签质量与争议裁决。前文引用的 56%–66%、38%–50% 等数字来自执行方阶段一报告中各实验格的作品等权下界，其分子、分母与区间在该报告与数据文件中，不是从这 51 条推出的。
