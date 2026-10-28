@@ -1,0 +1,573 @@
+{
+  "status": "40条独立代理复核已完成；跨类析取采用获准的局部未知界，人工裁决待定，不宣告最终研究结论",
+  "aggregation_rule": "stage2-local-taxonomy-unknown-v1",
+  "n_responses": 40,
+  "n_views": 100,
+  "validation_kind": "独立代理复核，不是独立人工验证",
+  "sampling_rule": {
+    "n": 40,
+    "works": 10,
+    "per_work": 4,
+    "old_per_work": 2,
+    "new_per_work": 2,
+    "selection": "各作品两个旧条件与两个新条件；条件轮换均衡，条件内等概率抽一条；不读取机器标签。",
+    "purpose": "代理复核标签质量，非人工；不是总体错误率或漏报率的直接无偏估计。",
+    "implementation": "原协议只规定40条；依用户明确授权的推荐执行细节落实均衡覆盖，不改变主分析。"
+  },
+  "sampling_limitation": "每作品4条、旧新各2条；轮换条件内等概率抽取，整体不是全部续写的等概率抽样。以下是本质量审查样本的一致性，不是总体错误率或漏报率的无偏估计。",
+  "condition_counts": {
+    "F_w|S+A1": 5,
+    "X|S+A0": 5,
+    "F_w|S+A0": 5,
+    "X|S": 6,
+    "F_w|S": 7,
+    "X|S+A1": 5,
+    "X|C": 7
+  },
+  "phase_counts": {
+    "Q2": 20,
+    "baseline": 20
+  },
+  "fields": {
+    "claim_key_set": {
+      "agree": 22,
+      "n": 100,
+      "fraction": 0.22
+    },
+    "complete_claim_fields": {
+      "agree": 16,
+      "n": 100,
+      "fraction": 0.16
+    },
+    "all_claim_fields": {
+      "polarity": {
+        "agree": 44,
+        "n": 100,
+        "fraction": 0.44
+      },
+      "relation": {
+        "agree": 42,
+        "n": 100,
+        "fraction": 0.42
+      },
+      "relation_detail": {
+        "agree": 47,
+        "n": 100,
+        "fraction": 0.47
+      },
+      "target": {
+        "agree": 43,
+        "n": 100,
+        "fraction": 0.43
+      },
+      "basis": {
+        "agree": 23,
+        "n": 100,
+        "fraction": 0.23
+      },
+      "exclusivity": {
+        "agree": 34,
+        "n": 100,
+        "fraction": 0.34
+      },
+      "scope_kind": {
+        "agree": 43,
+        "n": 100,
+        "fraction": 0.43
+      },
+      "scope_text": {
+        "agree": 27,
+        "n": 100,
+        "fraction": 0.27
+      },
+      "scope_key": {
+        "agree": 43,
+        "n": 100,
+        "fraction": 0.43
+      },
+      "hedged": {
+        "agree": 47,
+        "n": 100,
+        "fraction": 0.47
+      },
+      "broad_denial": {
+        "agree": 47,
+        "n": 100,
+        "fraction": 0.47
+      }
+    },
+    "top_fields": {
+      "mention": {
+        "agree": 80,
+        "n": 100,
+        "fraction": 0.8
+      },
+      "generic_description": {
+        "agree": 86,
+        "n": 100,
+        "fraction": 0.86
+      },
+      "reported_attribution": {
+        "agree": 91,
+        "n": 100,
+        "fraction": 0.91
+      },
+      "verification_claim": {
+        "agree": 58,
+        "n": 100,
+        "fraction": 0.58
+      },
+      "parse_status": {
+        "agree": 100,
+        "n": 100,
+        "fraction": 1.0
+      }
+    }
+  },
+  "fields_by_view": {
+    "F_w": {
+      "claim_key_set": {
+        "agree": 1,
+        "n": 17,
+        "fraction": 0.058823529411764705
+      },
+      "complete_claim_fields": {
+        "agree": 0,
+        "n": 17,
+        "fraction": 0.0
+      }
+    },
+    "GOLD": {
+      "claim_key_set": {
+        "agree": 1,
+        "n": 40,
+        "fraction": 0.025
+      },
+      "complete_claim_fields": {
+        "agree": 0,
+        "n": 40,
+        "fraction": 0.0
+      }
+    },
+    "T": {
+      "claim_key_set": {
+        "agree": 16,
+        "n": 20,
+        "fraction": 0.8
+      },
+      "complete_claim_fields": {
+        "agree": 16,
+        "n": 20,
+        "fraction": 0.8
+      }
+    },
+    "X": {
+      "claim_key_set": {
+        "agree": 4,
+        "n": 23,
+        "fraction": 0.17391304347826086
+      },
+      "complete_claim_fields": {
+        "agree": 0,
+        "n": 23,
+        "fraction": 0.0
+      }
+    }
+  },
+  "field_definition": "对每视图的全部有效命题比较完整键集合、完整字段多重集合及完整记录字段多重集合；包括漏提、多提。NOT_A_CLAIM保留但不进有效命题，数量另列。未用仅匹配键内的一致率冒充可靠性。",
+  "events": {
+    "W_false": {
+      "n_planned": 40,
+      "strict_confirmed_event": {
+        "n": 40,
+        "agree": 28,
+        "raw_agreement": 0.7,
+        "kappa": 0.4299287410926365,
+        "confusion": {
+          "0,0": 16,
+          "0,1": 11,
+          "1,0": 1,
+          "1,1": 12
+        }
+      },
+      "both_determined_event": {
+        "n": 29,
+        "agree": 24,
+        "raw_agreement": 0.8275862068965517,
+        "kappa": 0.6651270207852195,
+        "confusion": {
+          "0,0": 12,
+          "0,1": 5,
+          "1,1": 12
+        }
+      },
+      "n_comparable_with_unknown_bound": 11,
+      "exact_bounds_agree": 25,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    },
+    "W_side": {
+      "n_planned": 40,
+      "strict_confirmed_event": {
+        "n": 40,
+        "agree": 28,
+        "raw_agreement": 0.7,
+        "kappa": 0.423076923076923,
+        "confusion": {
+          "0,0": 17,
+          "0,1": 11,
+          "1,0": 1,
+          "1,1": 11
+        }
+      },
+      "both_determined_event": {
+        "n": 30,
+        "agree": 24,
+        "raw_agreement": 0.8,
+        "kappa": 0.6137339055793992,
+        "confusion": {
+          "0,0": 13,
+          "0,1": 6,
+          "1,1": 11
+        }
+      },
+      "n_comparable_with_unknown_bound": 10,
+      "exact_bounds_agree": 25,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    },
+    "W_target": {
+      "n_planned": 40,
+      "strict_confirmed_event": {
+        "n": 40,
+        "agree": 40,
+        "raw_agreement": 1.0,
+        "kappa": 1.0,
+        "confusion": {
+          "0,0": 39,
+          "1,1": 1
+        }
+      },
+      "both_determined_event": {
+        "n": 38,
+        "agree": 38,
+        "raw_agreement": 1.0,
+        "kappa": 1.0,
+        "confusion": {
+          "0,0": 37,
+          "1,1": 1
+        }
+      },
+      "n_comparable_with_unknown_bound": 2,
+      "exact_bounds_agree": 38,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    },
+    "M_side": {
+      "n_planned": 40,
+      "strict_confirmed_event": {
+        "n": 40,
+        "agree": 30,
+        "raw_agreement": 0.75,
+        "kappa": 0.5249406175771971,
+        "confusion": {
+          "0,0": 13,
+          "0,1": 10,
+          "1,1": 17
+        }
+      },
+      "both_determined_event": {
+        "n": 39,
+        "agree": 30,
+        "raw_agreement": 0.7692307692307693,
+        "kappa": 0.5573770491803279,
+        "confusion": {
+          "0,0": 13,
+          "0,1": 9,
+          "1,1": 17
+        }
+      },
+      "n_comparable_with_unknown_bound": 1,
+      "exact_bounds_agree": 30,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    },
+    "MIXED_same": {
+      "n_planned": 40,
+      "strict_confirmed_event": {
+        "n": 40,
+        "agree": 40,
+        "raw_agreement": 1.0,
+        "kappa": null,
+        "confusion": {
+          "0,0": 40
+        }
+      },
+      "both_determined_event": {
+        "n": 38,
+        "agree": 38,
+        "raw_agreement": 1.0,
+        "kappa": null,
+        "confusion": {
+          "0,0": 38
+        }
+      },
+      "n_comparable_with_unknown_bound": 2,
+      "exact_bounds_agree": 38,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    },
+    "MIXED_anchor": {
+      "n_planned": 40,
+      "strict_confirmed_event": {
+        "n": 40,
+        "agree": 24,
+        "raw_agreement": 0.6,
+        "kappa": 0.24528301886792436,
+        "confusion": {
+          "0,0": 17,
+          "0,1": 15,
+          "1,0": 1,
+          "1,1": 7
+        }
+      },
+      "both_determined_event": {
+        "n": 27,
+        "agree": 20,
+        "raw_agreement": 0.7407407407407407,
+        "kappa": 0.490566037735849,
+        "confusion": {
+          "0,0": 13,
+          "0,1": 7,
+          "1,1": 7
+        }
+      },
+      "n_comparable_with_unknown_bound": 13,
+      "exact_bounds_agree": 21,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    },
+    "false_deny": {
+      "n_planned": 40,
+      "strict_confirmed_event": {
+        "n": 40,
+        "agree": 40,
+        "raw_agreement": 1.0,
+        "kappa": null,
+        "confusion": {
+          "0,0": 40
+        }
+      },
+      "both_determined_event": {
+        "n": 24,
+        "agree": 24,
+        "raw_agreement": 1.0,
+        "kappa": null,
+        "confusion": {
+          "0,0": 24
+        }
+      },
+      "n_comparable_with_unknown_bound": 16,
+      "exact_bounds_agree": 26,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    },
+    "correct_deny": {
+      "n_planned": 40,
+      "strict_confirmed_event": {
+        "n": 40,
+        "agree": 23,
+        "raw_agreement": 0.575,
+        "kappa": 0.19811320754716977,
+        "confusion": {
+          "0,0": 9,
+          "0,1": 14,
+          "1,0": 3,
+          "1,1": 14
+        }
+      },
+      "both_determined_event": {
+        "n": 34,
+        "agree": 20,
+        "raw_agreement": 0.5882352941176471,
+        "kappa": 0.17647058823529416,
+        "confusion": {
+          "0,0": 6,
+          "0,1": 11,
+          "1,0": 3,
+          "1,1": 14
+        }
+      },
+      "n_comparable_with_unknown_bound": 6,
+      "exact_bounds_agree": 20,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    },
+    "T_false_deny": {
+      "n_planned": 20,
+      "strict_confirmed_event": {
+        "n": 20,
+        "agree": 20,
+        "raw_agreement": 1.0,
+        "kappa": null,
+        "confusion": {
+          "0,0": 20
+        }
+      },
+      "both_determined_event": {
+        "n": 20,
+        "agree": 20,
+        "raw_agreement": 1.0,
+        "kappa": null,
+        "confusion": {
+          "0,0": 20
+        }
+      },
+      "n_comparable_with_unknown_bound": 0,
+      "exact_bounds_agree": 20,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    }
+  },
+  "quality": {
+    "machine_relation_parse": {
+      "OK": 100
+    },
+    "machine_relation_flags": {
+      "QUOTE_MISSING": 23,
+      "CLAIM_SCHEMA_INVALID": 0,
+      "CONFLICTING": 4,
+      "POSSIBLE_CONFLICT": 0
+    },
+    "machine_relation_views_with_flags": {
+      "QUOTE_MISSING": 20,
+      "CLAIM_SCHEMA_INVALID": 0,
+      "CONFLICTING": 2,
+      "POSSIBLE_CONFLICT": 0
+    },
+    "machine_relation_records": {
+      "NOT_A_CLAIM": 2,
+      "taxonomy_unresolved": 4
+    },
+    "independent_relation_parse": {
+      "OK": 100
+    },
+    "independent_relation_flags": {
+      "QUOTE_MISSING": 1,
+      "CLAIM_SCHEMA_INVALID": 0,
+      "CONFLICTING": 0,
+      "POSSIBLE_CONFLICT": 0
+    },
+    "independent_relation_views_with_flags": {
+      "QUOTE_MISSING": 1,
+      "CLAIM_SCHEMA_INVALID": 0,
+      "CONFLICTING": 0,
+      "POSSIBLE_CONFLICT": 0
+    },
+    "independent_relation_records": {
+      "NOT_A_CLAIM": 4,
+      "taxonomy_unresolved": 0
+    },
+    "machine_answer_review": {
+      "confirmed": 40,
+      "review_missing": 0,
+      "QUOTE_MISSING": 0,
+      "explicit_reservation": 15,
+      "has_definite_answer": 40
+    },
+    "machine_answer_status": {
+      "ANSWERED_CORRECT": 36,
+      "ANSWERED_WRONG": 4
+    },
+    "independent_answer_review": {
+      "confirmed": 40,
+      "review_missing": 0,
+      "QUOTE_MISSING": 0,
+      "explicit_reservation": 0,
+      "has_definite_answer": 40
+    },
+    "independent_answer_status": {
+      "ANSWERED_CORRECT": 36,
+      "ANSWERED_WRONG": 4
+    },
+    "generation": {
+      "truncated": 0,
+      "looped": 0,
+      "technical_failed": 0,
+      "machine_answer_FAILED": 0,
+      "independent_answer_FAILED": 0
+    }
+  },
+  "answer_comparison": {
+    "fields": {
+      "explicit_reservation": {
+        "agree": 25,
+        "n": 40,
+        "fraction": 0.625
+      },
+      "has_definite_answer": {
+        "agree": 40,
+        "n": 40,
+        "fraction": 1.0
+      },
+      "parse_status": {
+        "agree": 40,
+        "n": 40,
+        "fraction": 1.0
+      }
+    },
+    "status_all_records": {
+      "n": 40,
+      "agree": 40
+    },
+    "status_both_determined": {
+      "n": 40,
+      "agree": 40,
+      "fraction": 1.0
+    },
+    "E_wrong": {
+      "n_planned": 40,
+      "strict_confirmed_event": {
+        "n": 40,
+        "agree": 40,
+        "raw_agreement": 1.0,
+        "kappa": 1.0,
+        "confusion": {
+          "0,0": 36,
+          "1,1": 4
+        }
+      },
+      "both_determined_event": {
+        "n": 40,
+        "agree": 40,
+        "raw_agreement": 1.0,
+        "kappa": 1.0,
+        "confusion": {
+          "0,0": 36,
+          "1,1": 4
+        }
+      },
+      "n_comparable_with_unknown_bound": 0,
+      "exact_bounds_agree": 40,
+      "definition": "严格确认事件按原阶段一口径比较下界；未知下界为0不表示事实为假。双方两端界相等的可判子集另列，不替代全部计划样本。"
+    }
+  },
+  "quality_gate": {
+    "required_raw_agreement": 0.8,
+    "required_responses": 40,
+    "full_denominator_available": true,
+    "n": 40,
+    "agree": 28,
+    "raw_agreement": 0.7,
+    "status": "未通过",
+    "final_conclusions_released": false,
+    "definition": "原W_false严格确认事件的全40条一致率；局部未知下界沿原口径参与，双方可判子集不用于放行。"
+  },
+  "adjudication_candidates": {
+    "n": 40,
+    "reasons": {
+      "严格确认W_false事件不一致": 12,
+      "事件未知界不一致": 32,
+      "命题完整键集合不一致": 40,
+      "完整命题字段不一致": 40,
+      "答案保留提取或答案状态不一致": 15,
+      "跨目标与旁支析取按局部未知界保留": 4
+    },
+    "selection_status": "仅准备候选池，未选择或定稿最终≤10条；待第五批覆盖盲审完成后按原范围合并"
+  },
+  "unapproved_rules": {
+    "52": "未执行",
+    "53": "未执行"
+  }
+}
