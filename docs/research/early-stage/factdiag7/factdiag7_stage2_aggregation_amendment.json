@@ -1,0 +1,41 @@
+{
+  "amendment_id": "stage2-local-taxonomy-unknown-v1",
+  "status": "用户已批准的独立聚合修订；原预注册与冻结文件保持原样",
+  "approval_source": {
+    "kind": "本轮用户明确批准，由协调代理/root传达",
+    "approved_instruction": "跨目标与旁支析取采用局部未知界；保留整条析取与机器提取，不拆成两条肯定；仅无法分配到目标或旁支的相关事件进未知两端界，其他明确命题贡献和全部分母不变。"
+  },
+  "implementation": "sycophancy_phase0/scripts/pilot/factdiag7/local_unknown_aggregation.py",
+  "interface": "aggregate(extraction, anchor=None, *, technical_failure=False)",
+  "input": "冻结relations_v2.parse/map_claims的既有输出；不重新生成、重评或抽样",
+  "change": {
+    "unit": "每个有效跨类析取仍为一个完整命题，只把其is_target分类视为未知",
+    "method": "候选的全部未知分类同取目标或旁支，锚点同取目标或旁支，至多4个组合调用冻结旧聚合器；逐事件取最小下界与最大上界",
+    "views": "深复制输入，沿原规则排除非命题并展开既有总括否认组件；不调用会拒绝跨类记录的冻结_event_view",
+    "unknown_count": "计数展开后实际进入事件的分类未知记录；另保留候选、锚点及合计计数，聚合元数据不使用列表以免误入事件集合",
+    "boundary": "输出各事件的边际包络，不声称不同事件的全部端点能在同一分类情形同时实现"
+  },
+  "equivalence_argument": {
+    "W_target": "两个端点对候选is_target分类变量逐坐标单调增",
+    "W_side_M_side_W_side_insuff": "两个端点对候选is_target分类变量逐坐标单调减",
+    "MIXED_anchor": "候选旁支端点与锚点目标支持端点的非负乘积；对候选变量单调减，对锚点变量单调增",
+    "remaining_events": "原其余事件与计数不依赖is_target分类变量；W_false、全关系否认和查证事件不会仅因分类未知而丢失确定性",
+    "conclusion": "各单调函数的端点极值必在对应角点取得，因此至多4个组合与枚举每条未知记录的全部独立分类结果逐事件等价；没有把析取分支新增为肯定命题"
+  },
+  "unchanged": [
+    "原始回答、机器提取、独立提取、命题关系数组、正命题真值、分支真值及材料范围",
+    "冻结关系映射、引文校验、技术失败、保留措辞与否认规则",
+    "全部计划分母、作品和历史权重、原重抽规则及原预测阈值",
+    "40条独立质量审查样本，不重新抽样；原始一致率与κ口径，双方可判子集单列但不能替代全样本门槛",
+    "第52和53项仍不执行"
+  ],
+  "quality_gate_and_publication": {
+    "threshold": 0.8,
+    "responses": 40,
+    "order": "先用同一新聚合器运行独立复核质量报告，再运行阶段二A统计；不接受旧聚合口径的质量报告",
+    "when_not_passed": "错误关系W层总体量及含W的联合量、差值和预测或触发判定仅保存在A100原stage2_A_private_mapped.json的machine_summary中；公开文件保留其分母和未知计数，标示评审质量门槛未通过，不能据此判定",
+    "other_outputs": "答案、名单及不依赖W的描述读数照常保留，注明机器提取及复核限制；不新增科学失败门槛",
+    "human_examples": "仅按原人工来源报告已确认实例；不把机器量视为已经验证的研究结论",
+    "fifth_batch": "适配器可共享；本修订不自动放行第五批的新关系总体量"
+  }
+}

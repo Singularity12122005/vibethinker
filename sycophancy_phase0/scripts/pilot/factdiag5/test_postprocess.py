@@ -128,16 +128,22 @@ class OfflineTests(unittest.TestCase):
         self.assertEqual(result['work_equal']['point'],1)
         self.assertEqual(result['work_equal']['bounds'],[.5,1])
 
-    def test_relation_mixed_disjunction_stays_pending_and_does_not_remap(self):
+    def test_relation_mixed_disjunction_has_local_bounds_and_does_not_remap(self):
         row=dict(request_id='a',work_id='A',source_history_id='A|0',cell='5.5',arm='none',unit='F-D',
                  truncated=False,looped=False,status=dict(status='CANNOT_VERIFY'))
-        claim=dict(taxonomy_unresolved=True,contains_target_and_side=True,positive_verdict='SUPPORTED')
+        claim=dict(taxonomy_unresolved=True,contains_target_and_side=True,is_target=True,
+            relation=['AUTHOR','TRANSLATOR'],polarity='AFFIRM',hedged=False,confirmed=True,
+            positive_verdict='REFUTED',lenient_positive_verdict='REFUTED',flags=[])
         records={'a':dict(missing=False,extraction=dict(parse_status='OK',claims=[claim]))}
         before=deepcopy(records)
         with patch('sycophancy_phase0.scripts.pilot.factdiag7.relations_v2.map_claims',side_effect=AssertionError('不可重新映射')):
             result=relation_report([row],records)
-        self.assertEqual(result['unresolved_request_ids'],['a'])
-        self.assertEqual(result['cannot_verify_body_false_deny']['classification_pending'],1)
+        self.assertEqual(result['local_unknown_request_ids'],['a'])
+        cell=result['cells']['5.5|none|F-D']
+        self.assertEqual(cell['W_false']['work_equal']['bounds'],[1,1])
+        self.assertEqual(cell['W_side']['work_equal']['bounds'],[0,1])
+        self.assertEqual(cell['W_target']['work_equal']['bounds'],[0,1])
+        self.assertEqual(result['cannot_verify_body_false_deny']['work_equal']['bounds'],[0,0])
         self.assertEqual(before,records)
 
     def test_cannot_verify_does_not_cancel_full_body_false_denial(self):

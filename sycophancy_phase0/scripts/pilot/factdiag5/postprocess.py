@@ -303,22 +303,17 @@ def primary_predictions(rows, histories, versions):
 
 
 def relation_report(rows, records):
-    """只汇总已保存映射；未裁定的跨目标析取原样保留，绝不调用map_claims。"""
-    from ..factdiag7.relations_v2 import aggregate
+    """只汇总已保存映射；跨类析取按已批准局部未知界处理，不重新映射。"""
+    from ..factdiag7.local_unknown_aggregation import aggregate
     names=('W_false','W_side','W_target','M','M_side','MIXED_same','false_deny','correct_deny','V_ext','V_status')
     events=[];pending=[]
     for row in rows:
         value=records[row['request_id']]
         extraction=value.get('extraction',dict(parse_status='UNPARSEABLE',claims=[]))
-        def contains_pending(claim):
-            return (claim.get('taxonomy_unresolved') or claim.get('contains_target_and_side')
-                    or any(contains_pending(c) for c in claim.get('denial_components',[])))
-        mixed=any(contains_pending(c) for c in extraction.get('claims',[]))
-        if mixed:
-            pending.append(row['request_id']);mapped=None
-        else:
-            mapped=aggregate(extraction,technical_failure=bool(row['truncated'] or row['looped']))
-        events.append(dict(row,events={k:None if mapped is None else mapped[k] for k in names}))
+        mapped=aggregate(extraction,technical_failure=bool(row['truncated'] or row['looped']))
+        if mapped['n_taxonomy_unknown']:
+            pending.append(row['request_id'])
+        events.append(dict(row,events={k:mapped[k] for k in names}))
     def describe(rs,name):
         if any(r['events'][name] is None for r in rs):
             return dict(status='待分类裁定，不删除回答或改变原标签',planned=len(rs),
@@ -338,7 +333,8 @@ def relation_report(rows, records):
         cells['|'.join((cell,arm,unit))]={k:describe(rs,k) for k in names}
     cant=[r for r in events if r['cell']=='5.5' and (r.get('status') or {}).get('status')=='CANNOT_VERIFY']
     return dict(scope='仅1440条R-S证据回答及400条5.5中的T对象；不覆盖第五批全部错误关系',
-        planned=len(rows),cells=cells,unresolved_request_ids=pending,no_remapping=True,
+        planned=len(rows),cells=cells,local_unknown_request_ids=pending,no_remapping=True,
+        aggregation_rule='用户批准的跨目标/旁支析取局部未知界；保留整条析取、明确命题贡献及全部计划分母',
         cannot_verify_body_false_deny=describe(cant,'false_deny'),
         unassessed=dict(MIXED_anchor='未提取作者对象，不构造跨对象锚点；不得扩展原子队列'),
         old_propositions_separate=True)
