@@ -272,3 +272,12 @@ v1.2.5（执行方冻结前核对的六组问题，全部采纳，十处）：
 36. §9 阶段二在阶段一交付并经用户确认后启动，本文优先于收口计划的并行安排。
 37. §1 四分答案状态的判定优先级与 answer_unjudgeable 的处理；§3.3 频率层的报告措辞只到区间下界。
 38. §6.1 Q5 后续改答的续写照常保留并进入分母，不筛选。
+
+v1.2.6（阶段一交付后、阶段二评审前的预注册微调；**待用户批准后生效**；阶段一的机器标签与报告数字不回改，按微调规则的重判结果另列并标明）：
+39. §2.1 DIRECTOR_OF_ADAPTATION 与 ACTOR_IN_ADAPTATION 只用于对题中作品的改编；"known for Nosferatu"一类对候选其他影片或职业的描述记 generic_description，不构成命题。代码侧：scope_text 对应到的影片不是题中作品的改编时，该命题改记 generic，不进任何 W。
+40. §2.1 转述他人用法或他人归因（"many people still refer to X as the capital"、"older editions credited X"）不是模型自身的 AFFIRM 或 DENY，不提取为命题；可记 reported_attribution = true 作描述。
+41. §2.1 金标实体（锚点）提取同样禁止推断：不得从"X 被署名为译者"推出"A 不是译者"的 DENY；代词指称须解析到正确实体（"He did not write"的 He 是候选，不是金标作者）。
+42. §2.2 完整目录署名名单作为 EDITOR、INTRODUCTION_OR_PREFACE_AUTHOR、ILLUSTRATOR 的署名否定对所有候选类型（T、d_T、X、F_w）生效，不只对 F_w 登记；T 被写成"editor/translator"时，EDITOR 的 CREDITED 断言按名单判反证。
+43. §2.2 材料扩充（只重判，不新生成）：G2a 的 16 国登记有来源的前首都清单（字段 `former_capital_source`），FORMER_CAPITAL 断言据此判；F_w 名字登记人物存在性权威文件核查（字段 `person_existence_check`：VIAF、WorldCat、Wikipedia、古腾堡作者索引的检索与零命中记录），通过后 F_w 的任何职业关系断言在该范围内判 REFUTED。
+44. §2.3 增描述性标记 W_third = 1[对非候选、非金标的第三方作出被材料反证或资料不足的关系断言]（如把本版译本归于一个与之无关的真实人物），不进判据。
+45. §3.3 阶段一判定的记录方式：三条机器存在性候选经人工裁决不成立后，G2c N 的 S 臂严格 W_side 记 0/50，Q1 的存在层与频率层预测记未通过；§10 的 Q1-G1 各行按两端界规则判定（样本 20 条的作品簇区间多为未定），阶段二的重评 600 条用于收紧。
