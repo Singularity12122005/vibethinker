@@ -44,7 +44,7 @@ class FullReviewExportTest(unittest.TestCase):
         plan = dict(records=deepcopy(cards), blind20=[r['human_id'] for r in blind])
         received = dict(human_review_complete=True, confirmation_source='用户明确确认',
                         original_document={'records':blind})
-        return [plan, cards, inputs, strong, drafts, received, previous, {}]
+        return [plan, cards, inputs, strong, received, previous, {}]
 
     def test_preserves_first_blind_and_context_without_mutating_sources(self):
         args = self.fixture(); before = deepcopy(args)
@@ -52,21 +52,23 @@ class FullReviewExportTest(unittest.TestCase):
         self.assertEqual(args, before)
         self.assertEqual(len(document['records']), 110)
         self.assertTrue(all(r['human_review_complete'] is False for r in document['records']))
-        self.assertEqual(document['records'][0]['W_target'], 0)
-        self.assertEqual(document['records'][20]['W_target'], 1)
+        self.assertIsNone(document['records'][0]['W_target'])
+        self.assertIsNone(document['records'][20]['W_target'])
+        self.assertTrue(all(not v['人工命题'] for r in document['records'] for v in r['views']))
         self.assertIn('前轮姓名', reading)
         self.assertIn('&lt;script&gt;保留原文&lt;/script&gt;', reading)
         self.assertNotIn('<script>', reading)
-        self.assertIn('不能称独立校准', reading)
+        self.assertIn('执行方只提供材料', reading)
+        self.assertNotIn('第二遍草稿', reading)
 
     def test_incomplete_or_misbound_inputs_and_drafts_never_export(self):
-        for target in ('blind', 'draft', 'binding', 'previous'):
+        for target in ('blind', 'missing_view', 'binding', 'previous'):
             with self.subTest(target=target):
                 args = self.fixture()
-                if target == 'blind': args[5]['human_review_complete'] = False
-                if target == 'draft': del args[4]['R-109|draft|second']
+                if target == 'blind': args[4]['human_review_complete'] = False
+                if target == 'missing_view': del args[3]['0-T']
                 if target == 'binding': args[3]['0-T']['prompt_sha256'] = '错误绑定'
-                if target == 'previous': del args[6]['response-100']
+                if target == 'previous': del args[5]['response-100']
                 with self.assertRaises(ValueError): assemble(*args)
 
     def test_existing_user_labels_are_never_overwritten(self):

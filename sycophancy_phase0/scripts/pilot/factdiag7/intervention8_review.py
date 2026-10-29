@@ -5,7 +5,7 @@ import argparse
 import html
 import json
 
-from .intervention8 import PLAN, INPUTS, CARDS, DRAFTS, SUPPLEMENT
+from .intervention8 import PLAN, INPUTS, CARDS, SUPPLEMENT
 from .strong_column import OUTPUT
 
 RECEIVED = 'stage2_batch5_blind20_received.json'
@@ -25,22 +25,8 @@ def _identity(row, *, card=False):
             row['arm'], row['cell'], row['unit'])
 
 
-def _draft(record, card):
-    value = record.get('draft')
-    if (record.get('completion') != 'returned' or record.get('draft_valid') is not True
-            or not isinstance(value, dict)):
-        raise ValueError('两遍起草尚未完整返回：' + card['human_id'])
-    if (value.get('human_id') != card['human_id']
-            or value.get('human_review_complete') is not False
-            or _views(value) != _views(card)):
-        raise ValueError('起草编号、人物或人工完成标记不符：' + card['human_id'])
-    if any(k not in value for k in EVENT_FIELDS):
-        raise ValueError('起草缺少填写字段：' + card['human_id'])
-    return value
-
-
-def assemble(plan, cards, inputs, strong, drafts, received, previous, machine):
-    """只整理固定110条；原始盲标与两个草稿分别显示。"""
+def assemble(plan, cards, inputs, strong, received, previous, machine):
+    """只整理固定110条；只读已接收盲标的身份，不预填语义标签。"""
     records = plan['records']
     if len(records) != 110 or len({r['human_id'] for r in records}) != 110:
         raise ValueError('固定110条清单不完整')
@@ -71,10 +57,10 @@ def assemble(plan, cards, inputs, strong, drafts, received, previous, machine):
              'section{border-top:3px solid #627d92;margin-top:38px}summary{cursor:pointer;padding:10px;background:#e9eff5}'
              'details{margin:12px 0}.note{padding:16px;background:#fff1cc}a{color:#1363a3}</style>',
              '<h1>第五批：110条人工复核</h1>',
-             '<p class="note">你已先行确认20条盲标。下表展示全部110条的正文、上下文、辅助提取和两遍草稿。'
-             '起草模型与全量提取同源，不能称独立校准；全量关系列只作描述量。</p>',
-             '<p>填写表中的20条沿用你的首次盲标内容，其余90条预填第二遍草稿。'
-             '所有完成标记仍为false，须本次逐条复核后确认。首次盲标原稿另存，不被本次复核覆盖。'
+             '<p class="note">采用4A：由用户的另一标注会话起草，用户逐条复核；执行方只提供材料。'
+             '下表包含110条正文、完整上下文和阅读辅助，辅助提取不是真值。</p>',
+             '<p>填写表110条全部空白，不预填任何机器或既有人工标签。'
+             '所有完成标记为false，须用户逐条复核后确认。首次盲标20条原稿单独保存，不被本次填写表覆盖。'
              '资料不足保留未知；前缀与条件可见，不称臂盲。</p>', detail('第五批标注口径补充', SUPPLEMENT)]
     lines.append('<nav>' + ' · '.join('<a href="#' + r['human_id'] + '">' + r['human_id'] + '</a>'
                                     for r in sorted(cards, key=lambda x:x['human_id'])) + '</nav>')
@@ -86,8 +72,6 @@ def assemble(plan, cards, inputs, strong, drafts, received, previous, machine):
         if bid in blind and (_identity(blind[bid]) != _identity(card, card=True)
                              or _views(blind[bid]) != _views(card)):
             raise ValueError('首次盲标与固定阅读卡不符：' + bid)
-        first = _draft(drafts.get(bid + '|draft|first', {}), card)
-        second = _draft(drafts.get(bid + '|draft|second', {}), card)
         if card['cell'] == '5.5' and not previous.get(card['response_id'], {}).get('current_answer'):
             raise ValueError('5.5缺少本轮生成前的冻结答案身份登记：' + bid)
         title = f"{bid} · {card['work_id']} · 历史{card['idx']} · {card['unit']} · {card['cell']} · {card['arm']}"
@@ -110,7 +94,7 @@ def assemble(plan, cards, inputs, strong, drafts, received, previous, machine):
                     or any(result.get(k) != q[k] for k in ('input_sha256', 'prompt_sha256'))):
                 raise ValueError('子集辅助提取尚未齐备或绑定不符：' + bid)
             lines += ['<h3>' + html.escape('人物：' + view['candidate'] + '；角色：' + '、'.join(view['roles'])) + '</h3>',
-                      detail('Astra原始辅助提取（与起草同源）', result['raw'])]
+                      detail('Astra原始辅助提取（全量列同一提取器，非人工真值）', result['raw'])]
             old = machine.get(key)
             if old is not None and old.get('completion') == 'returned':
                 if old.get('input_sha256') != q['input_sha256']:
@@ -118,17 +102,15 @@ def assemble(plan, cards, inputs, strong, drafts, received, previous, machine):
                 lines += [detail('原机器主列提取（第三版）', old['raw'])]
             else:
                 lines += ['<p>本视图无对应原机器主列返回；不代表无错误，不为导出追加调用。</p>']
-        lines += [detail('第一遍草稿（未读辅助提取）', first), detail('第二遍草稿（对照辅助提取）', second)]
-        if bid in blind:
-            lines += [detail('你的首次盲标原稿（单独保留）', blind[bid])]
-        form = deepcopy(blind[bid] if bid in blind else second)
+        form = dict(views=[dict(candidate=v['candidate'], roles=v['roles'], 人工命题=[], 备注=None) for v in card['views']], **{k:None for k in EVENT_FIELDS})
+        form['third_party_claims'] = []
         form.update(human_id=bid, work_id=card['work_id'], history_index=card['idx'],
                     arm=card['arm'], cell=card['cell'], unit=card['unit'], human_review_complete=False)
         forms.append(form)
         lines += ['</section>']
     lines += ['<p>请在填写表中逐条确认；明确复核后仍未知可保留null并写明原因。不要更改编号或人物角色。</p></html>']
     document = dict(cohort='batch5_intervention8_full110',
-                    说明='20条沿用首次盲标，90条预填Astra第二遍草稿。逐条复核后再确认完成；首次盲标另存。起草与全量提取同源，全量关系列仅描述量。',
+                    说明='4A：用户的另一标注会话起草，执行方只导出空白表及阅读辅助；用户逐条复核后确认。首次盲标20条另存，不被覆盖。',
                     records=forms)
     return '\n'.join(lines), document
 
@@ -142,7 +124,9 @@ def write_review(directory, reading, document):
         with labels.open('x', encoding='utf-8') as stream:
             json.dump(document, stream, ensure_ascii=False, indent=2)
     (directory / (STEM + '_reading.html')).write_text(reading, encoding='utf-8')
+    (directory / 'stage2_batch5_annotation_supplement.txt').write_text(SUPPLEMENT, encoding='utf-8')
     return dict(responses=len(document['records']), labels_preserved=preserved,
+                supplement='stage2_batch5_annotation_supplement.txt',
                 reading=STEM + '_reading.html', labels=STEM + '_labels.json')
 
 
@@ -153,7 +137,7 @@ def export(pilot):
     previous = {}
     for row in json.loads((p / 'factdiag5_20261112/core_generations.json').read_text(encoding='utf-8')):
         previous[row['request_id']] = {k:row.get(k) for k in ('source_history_id', 'current_answer', 'first_answer_description')}
-    reading, labels = assemble(load(PLAN), load(CARDS), load(INPUTS), load(OUTPUT), load(DRAFTS),
+    reading, labels = assemble(load(PLAN), load(CARDS), load(INPUTS), load(OUTPUT),
                                load(RECEIVED), previous, load('stage2_revision_batch5_extractions.json'))
     return write_review(out, reading, labels)
 

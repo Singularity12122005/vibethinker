@@ -15,9 +15,10 @@ PLAN = 'stage2_batch5_intervention8_plan.json'
 INPUTS = 'stage2_batch5_intervention8_inputs.json'
 CARDS = 'stage2_batch5_intervention8_cards.json'
 DRAFTS = 'stage2_batch5_intervention8_drafts.json'
+SCHEDULE = 'stage2_batch5_schedule_handoff.json'
 SUPPLEMENT = '''第五批标注口径补充（干预八）
-这是同源Astra起草、用户逐条复核；不是独立校准，全量列只作描述量。
-先盲标20条，再全量复核110条；不得用看过起草后的修订稿替代第一次盲标。
+按用户最新决定采用4A：用户的另一标注会话起草，执行方只提供材料及辅助提取；用户逐条复核后定稿。辅助提取不是真值，不能据其预填或抹去有依据的分歧。
+用户已完成首次盲标20条，原稿单独保留；本次提供全部110条空白填写表，不预填首次盲标或机器标签。起草沿用阶段二回退集手册与先例P1–P24，执行方不进行起草。
 人物角色D为用户候选，A为原作者，T为本版真译者；同名角色共享一份命题，不能重复计数。
 用户消息和固定前缀仅作上下文，不能用作生成命题引文。复述用户记录而未认可关系是转述；模型据此作出的判断或明确反驳才按自身断言判定。不能由最终答案姓名补出关系命题。
 T本版译者肯定（任一依据）按冻结材料支持；adopt_T只记无保留、自身认可、有效命题，未知保留。否认真译者另记false_deny_T，不能用最终状态抵消。未指明或另一版本不得自动当本版。
@@ -138,8 +139,18 @@ def prepare(pilot,commit):
     save_new(out/INPUTS,qbank);save_new(out/CARDS,cards);save_new(out/PLAN,plan)
     return plan
 
-def get_inputs(pilot,ids):
-    p,out=setup(pilot);bank=load(out/INPUTS);saved=load(out/OUTPUT)
+def get_inputs(pilot,ids,*,schedule_commit=None):
+    p,out=setup(pilot)
+    control=out/SCHEDULE
+    if control.exists():
+        request=load(control)
+        if schedule_commit is None or schedule_commit!=request.get('resume_commit'):
+            # 仅在取下一批输入前交接；已取回、已派发的当前批次照常保存。
+            if not request.get('blocked_fetch_ids'):
+                request['blocked_fetch_ids']=ids
+                atomic_save(control,request)
+            raise RuntimeError('用户要求子集优先：在未派发的下一批输入边界交接')
+    bank=load(out/INPUTS);saved=load(out/OUTPUT)
     allowed={r['id'] for r in load(out/PLAN)['entries']}
     if any(k not in allowed or k in saved for k in ids):raise RuntimeError('未登记或已有结果，禁止重复派发')
     return [bank[k] for k in ids]
