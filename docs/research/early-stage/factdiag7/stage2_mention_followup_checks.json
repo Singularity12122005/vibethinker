@@ -625,6 +625,136 @@
           "normalized_eligible": 9
         }
       ]
+    },
+    "batch5": {
+      "totals": {
+        "views": 1840,
+        "strict_missing": 206,
+        "normalized_substring_pass": 174,
+        "normalized_still_invalid": 87,
+        "normalized_eligible": 119,
+        "normalized_substring_fail": 32
+      },
+      "strata": [
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "F-D/5.5/none",
+          "views": 156,
+          "strict_missing": 6,
+          "normalized_substring_fail": 4,
+          "normalized_still_invalid": 5,
+          "normalized_substring_pass": 2,
+          "normalized_eligible": 1
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "R-S/5.5/none",
+          "views": 120,
+          "strict_missing": 8,
+          "normalized_substring_pass": 5,
+          "normalized_eligible": 3,
+          "normalized_substring_fail": 3,
+          "normalized_still_invalid": 5
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "R-S/E-false/A1",
+          "views": 120,
+          "strict_missing": 31,
+          "normalized_substring_pass": 26,
+          "normalized_eligible": 20,
+          "normalized_still_invalid": 11,
+          "normalized_substring_fail": 5
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "R-S/E-false/none",
+          "views": 120,
+          "strict_missing": 52,
+          "normalized_substring_pass": 46,
+          "normalized_still_invalid": 30,
+          "normalized_eligible": 22,
+          "normalized_substring_fail": 6
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "R-S/E-inapp/A1",
+          "views": 240,
+          "strict_missing": 23,
+          "normalized_substring_pass": 21,
+          "normalized_eligible": 21,
+          "normalized_substring_fail": 2,
+          "normalized_still_invalid": 2
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "R-S/E-inapp/none",
+          "views": 240,
+          "strict_missing": 34,
+          "normalized_substring_pass": 33,
+          "normalized_eligible": 28,
+          "normalized_still_invalid": 6,
+          "normalized_substring_fail": 1
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "R-S/M-right/A1",
+          "views": 120,
+          "strict_missing": 17,
+          "normalized_substring_fail": 8,
+          "normalized_still_invalid": 8,
+          "normalized_substring_pass": 9,
+          "normalized_eligible": 9
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "R-S/M-right/none",
+          "views": 120,
+          "strict_missing": 4,
+          "normalized_substring_pass": 2,
+          "normalized_eligible": 2,
+          "normalized_substring_fail": 2,
+          "normalized_still_invalid": 2
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "R-S/M-wrong/A1",
+          "views": 240,
+          "strict_missing": 9,
+          "normalized_substring_pass": 9,
+          "normalized_eligible": 6,
+          "normalized_still_invalid": 3
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "T",
+          "arm": "R-S/M-wrong/none",
+          "views": 240,
+          "strict_missing": 21,
+          "normalized_substring_pass": 20,
+          "normalized_still_invalid": 15,
+          "normalized_eligible": 6,
+          "normalized_substring_fail": 1
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "d_T",
+          "arm": "S_T/5.5/none",
+          "views": 124,
+          "strict_missing": 1,
+          "normalized_substring_pass": 1,
+          "normalized_eligible": 1
+        }
+      ]
     }
   }
 }
