@@ -1,0 +1,65 @@
+{
+  "inputs": 1440,
+  "syntax_counts": {
+    "outer_fence_removed": 1440,
+    "parsed": 1440
+  },
+  "quality": {
+    "original": {
+      "C1": {
+        "planned": 40,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 40,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 40,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 40,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 40,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 40,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      }
+    },
+    "fence_only": {
+      "C1": {
+        "planned": 40,
+        "both_determined": 39,
+        "matches": 35,
+        "unknown_in_either": 1,
+        "conservative_agreement": 0.875,
+        "determined_agreement": 0.8974358974358975
+      },
+      "C2": {
+        "planned": 40,
+        "both_determined": 36,
+        "matches": 24,
+        "unknown_in_either": 4,
+        "conservative_agreement": 0.6,
+        "determined_agreement": 0.6666666666666666
+      },
+      "C3": {
+        "planned": 40,
+        "both_determined": 39,
+        "matches": 33,
+        "unknown_in_either": 1,
+        "conservative_agreement": 0.825,
+        "determined_agreement": 0.8461538461538461
+      }
+    }
+  },
+  "original_preserved": true,
+  "model_calls": 0,
+  "population_rates_computed": false,
+  "interpretation": "仅移除单一外层代码围栏；内部文本原样交既有解析器，原引文及命题标准不变。未知保留分母。不是全量关系放行。"
+}

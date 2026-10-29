@@ -25,7 +25,7 @@ def run(pilot):
         raw=o.get('raw');inner=unwrap(raw)
         result=parse_result(q,inner) if inner is not None else dict(missing=True,reason='not_single_outer_fence')
         repaired[q['id']]=dict(input_sha256=q['input_sha256'],result=result,source='single_outer_fence_only')
-        by_response[q['response_id']]=(q,o['result'],result)
+        by_response[q['request_id']]=(q,o['result'],result)
         stats['outer_fence_removed']+=inner is not None;stats['parsed']+=not result['missing']
     key=load(p/'factdiag5_independent_key.json')['records'];pairs={col:{c:[] for c in ('C1','C2','C3')} for col in ('original','fence_only')}
     def label(r,c):
