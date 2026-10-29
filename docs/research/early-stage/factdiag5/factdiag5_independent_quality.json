@@ -1,0 +1,1289 @@
+{
+  "version": "factdiag5-independent-v3",
+  "responses": 76,
+  "relation_views": 60,
+  "coverage": {
+    "details": [
+      {
+        "quota_id": "identity_5_1",
+        "requested": 10,
+        "available": 1056,
+        "selected": 10,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|E-false|A1|1",
+        "requested": 2,
+        "available": 0,
+        "selected": 0,
+        "shortage": 2
+      },
+      {
+        "quota_id": "evidence|E-false|A1|0",
+        "requested": 2,
+        "available": 120,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|E-false|none|1",
+        "requested": 2,
+        "available": 67,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|E-false|none|0",
+        "requested": 2,
+        "available": 53,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|E-inapp|A1|1",
+        "requested": 2,
+        "available": 0,
+        "selected": 0,
+        "shortage": 2
+      },
+      {
+        "quota_id": "evidence|E-inapp|A1|0",
+        "requested": 2,
+        "available": 240,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|E-inapp|none|1",
+        "requested": 2,
+        "available": 18,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|E-inapp|none|0",
+        "requested": 2,
+        "available": 222,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|F-E-sys|none|1",
+        "requested": 2,
+        "available": 156,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|F-E-sys|none|0",
+        "requested": 2,
+        "available": 0,
+        "selected": 0,
+        "shortage": 2
+      },
+      {
+        "quota_id": "evidence|F-E-true|A1|1",
+        "requested": 2,
+        "available": 156,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|F-E-true|A1|0",
+        "requested": 2,
+        "available": 0,
+        "selected": 0,
+        "shortage": 2
+      },
+      {
+        "quota_id": "evidence|F-E-true|none|1",
+        "requested": 2,
+        "available": 156,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|F-E-true|none|0",
+        "requested": 2,
+        "available": 0,
+        "selected": 0,
+        "shortage": 2
+      },
+      {
+        "quota_id": "evidence|M-right|A1|1",
+        "requested": 2,
+        "available": 0,
+        "selected": 0,
+        "shortage": 2
+      },
+      {
+        "quota_id": "evidence|M-right|A1|0",
+        "requested": 2,
+        "available": 120,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|M-right|none|1",
+        "requested": 2,
+        "available": 0,
+        "selected": 0,
+        "shortage": 2
+      },
+      {
+        "quota_id": "evidence|M-right|none|0",
+        "requested": 2,
+        "available": 120,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|M-wrong|A1|1",
+        "requested": 2,
+        "available": 0,
+        "selected": 0,
+        "shortage": 2
+      },
+      {
+        "quota_id": "evidence|M-wrong|A1|0",
+        "requested": 2,
+        "available": 240,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence|M-wrong|none|1",
+        "requested": 2,
+        "available": 0,
+        "selected": 0,
+        "shortage": 2
+      },
+      {
+        "quota_id": "evidence|M-wrong|none|0",
+        "requested": 2,
+        "available": 240,
+        "selected": 2,
+        "shortage": 0
+      },
+      {
+        "quota_id": "evidence_disputed",
+        "requested": 20,
+        "available": 240,
+        "selected": 20,
+        "shortage": 0
+      },
+      {
+        "quota_id": "status_5_5",
+        "requested": 20,
+        "available": 400,
+        "selected": 20,
+        "shortage": 0
+      }
+    ],
+    "actual_unique": 76
+  },
+  "unexecuted": [
+    {
+      "cell": "R1doubleprime",
+      "originally_requested": 5,
+      "status": "专项不适用；核心身份总数仍为10，不补生成或伪造该格"
+    },
+    {
+      "stage": "5.2",
+      "status": "可选执行器均未执行，无其阳性/阴性配额"
+    }
+  ],
+  "labels": {
+    "identity": {
+      "planned": 76,
+      "both_determined": 76,
+      "matches": 76,
+      "unknown_in_either": 0,
+      "conservative_agreement": 1.0,
+      "determined_agreement": 1.0
+    },
+    "stance": {
+      "planned": 76,
+      "both_determined": 76,
+      "matches": 76,
+      "unknown_in_either": 0,
+      "conservative_agreement": 1.0,
+      "determined_agreement": 1.0
+    },
+    "explicit": {
+      "planned": 76,
+      "both_determined": 76,
+      "matches": 75,
+      "unknown_in_either": 0,
+      "conservative_agreement": 0.9868421052631579,
+      "determined_agreement": 0.9868421052631579
+    },
+    "status": {
+      "planned": 20,
+      "both_determined": 20,
+      "matches": 20,
+      "unknown_in_either": 0,
+      "conservative_agreement": 1.0,
+      "determined_agreement": 1.0
+    },
+    "C1": {
+      "planned": 40,
+      "both_determined": 0,
+      "matches": 0,
+      "unknown_in_either": 40,
+      "conservative_agreement": 0.0,
+      "determined_agreement": null
+    },
+    "C2": {
+      "planned": 40,
+      "both_determined": 0,
+      "matches": 0,
+      "unknown_in_either": 40,
+      "conservative_agreement": 0.0,
+      "determined_agreement": null
+    },
+    "C3": {
+      "planned": 40,
+      "both_determined": 0,
+      "matches": 0,
+      "unknown_in_either": 40,
+      "conservative_agreement": 0.0,
+      "determined_agreement": null
+    },
+    "evidence_disputed": {
+      "planned": 26,
+      "both_determined": 26,
+      "matches": 17,
+      "unknown_in_either": 0,
+      "conservative_agreement": 0.6538461538461539,
+      "determined_agreement": 0.6538461538461539
+    }
+  },
+  "labels_by_coverage_quota": {
+    "status_5_5": {
+      "identity": {
+        "planned": 20,
+        "both_determined": 20,
+        "matches": 20,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 20,
+        "both_determined": 20,
+        "matches": 20,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 20,
+        "both_determined": 20,
+        "matches": 20,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "status": {
+        "planned": 20,
+        "both_determined": 20,
+        "matches": 20,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      }
+    },
+    "evidence|M-wrong|A1|0": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      }
+    },
+    "evidence|F-E-sys|none|1": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      }
+    },
+    "identity_5_1": {
+      "identity": {
+        "planned": 10,
+        "both_determined": 10,
+        "matches": 10,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 10,
+        "both_determined": 10,
+        "matches": 10,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 10,
+        "both_determined": 10,
+        "matches": 10,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      }
+    },
+    "evidence_disputed": {
+      "identity": {
+        "planned": 20,
+        "both_determined": 20,
+        "matches": 20,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 20,
+        "both_determined": 20,
+        "matches": 20,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 20,
+        "both_determined": 20,
+        "matches": 19,
+        "unknown_in_either": 0,
+        "conservative_agreement": 0.95,
+        "determined_agreement": 0.95
+      },
+      "C1": {
+        "planned": 20,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 20,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 20,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 20,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 20,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 20,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "evidence_disputed": {
+        "planned": 20,
+        "both_determined": 20,
+        "matches": 13,
+        "unknown_in_either": 0,
+        "conservative_agreement": 0.65,
+        "determined_agreement": 0.65
+      }
+    },
+    "evidence|M-wrong|none|0": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      }
+    },
+    "evidence|E-inapp|A1|0": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      }
+    },
+    "evidence|F-E-true|A1|1": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      }
+    },
+    "evidence|F-E-true|none|1": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      }
+    },
+    "evidence|E-inapp|none|1": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      }
+    },
+    "evidence|E-inapp|none|0": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      }
+    },
+    "evidence|M-right|none|0": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      }
+    },
+    "evidence|E-false|A1|0": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "evidence_disputed": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 1,
+        "unknown_in_either": 0,
+        "conservative_agreement": 0.5,
+        "determined_agreement": 0.5
+      }
+    },
+    "evidence|M-right|A1|0": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      }
+    },
+    "evidence|E-false|none|1": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "evidence_disputed": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 1,
+        "unknown_in_either": 0,
+        "conservative_agreement": 0.5,
+        "determined_agreement": 0.5
+      }
+    },
+    "evidence|E-false|none|0": {
+      "identity": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "stance": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "explicit": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      },
+      "C1": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C2": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "C3": {
+        "planned": 2,
+        "both_determined": 0,
+        "matches": 0,
+        "unknown_in_either": 2,
+        "conservative_agreement": 0.0,
+        "determined_agreement": null
+      },
+      "evidence_disputed": {
+        "planned": 2,
+        "both_determined": 2,
+        "matches": 2,
+        "unknown_in_either": 0,
+        "conservative_agreement": 1.0,
+        "determined_agreement": 1.0
+      }
+    }
+  },
+  "relation_quality": {
+    "original": {
+      "W_false": {
+        "planned": 60,
+        "both_determined": 36,
+        "conservative_matches": 26,
+        "conservative_agreement": 0.43333333333333335,
+        "lower_marker_matches": 47,
+        "lower_marker_agreement": 0.7833333333333333,
+        "determined_agreement": 0.7222222222222222,
+        "unknown_in_either": 24
+      },
+      "W_side": {
+        "planned": 60,
+        "both_determined": 34,
+        "conservative_matches": 34,
+        "conservative_agreement": 0.5666666666666667,
+        "lower_marker_matches": 60,
+        "lower_marker_agreement": 1.0,
+        "determined_agreement": 1.0,
+        "unknown_in_either": 26
+      },
+      "W_target": {
+        "planned": 60,
+        "both_determined": 39,
+        "conservative_matches": 29,
+        "conservative_agreement": 0.48333333333333334,
+        "lower_marker_matches": 47,
+        "lower_marker_agreement": 0.7833333333333333,
+        "determined_agreement": 0.7435897435897436,
+        "unknown_in_either": 21
+      },
+      "M_side": {
+        "planned": 60,
+        "both_determined": 39,
+        "conservative_matches": 26,
+        "conservative_agreement": 0.43333333333333335,
+        "lower_marker_matches": 28,
+        "lower_marker_agreement": 0.4666666666666667,
+        "determined_agreement": 0.6666666666666666,
+        "unknown_in_either": 21
+      },
+      "MIXED_same": {
+        "planned": 60,
+        "both_determined": 41,
+        "conservative_matches": 33,
+        "conservative_agreement": 0.55,
+        "lower_marker_matches": 50,
+        "lower_marker_agreement": 0.8333333333333334,
+        "determined_agreement": 0.8048780487804879,
+        "unknown_in_either": 19
+      },
+      "false_deny": {
+        "planned": 60,
+        "both_determined": 40,
+        "conservative_matches": 36,
+        "conservative_agreement": 0.6,
+        "lower_marker_matches": 52,
+        "lower_marker_agreement": 0.8666666666666667,
+        "determined_agreement": 0.9,
+        "unknown_in_either": 20
+      },
+      "correct_deny": {
+        "planned": 60,
+        "both_determined": 40,
+        "conservative_matches": 31,
+        "conservative_agreement": 0.5166666666666667,
+        "lower_marker_matches": 47,
+        "lower_marker_agreement": 0.7833333333333333,
+        "determined_agreement": 0.775,
+        "unknown_in_either": 20
+      },
+      "external_access_claim": {
+        "planned": 60,
+        "both_determined": 58,
+        "conservative_matches": 43,
+        "conservative_agreement": 0.7166666666666667,
+        "lower_marker_matches": 44,
+        "lower_marker_agreement": 0.7333333333333333,
+        "determined_agreement": 0.7413793103448276,
+        "unknown_in_either": 2
+      },
+      "V_ext": {
+        "planned": 60,
+        "both_determined": 58,
+        "conservative_matches": 43,
+        "conservative_agreement": 0.7166666666666667,
+        "lower_marker_matches": 44,
+        "lower_marker_agreement": 0.7333333333333333,
+        "determined_agreement": 0.7413793103448276,
+        "unknown_in_either": 2
+      }
+    },
+    "reprompt": {
+      "W_false": {
+        "planned": 60,
+        "both_determined": 46,
+        "conservative_matches": 34,
+        "conservative_agreement": 0.5666666666666667,
+        "lower_marker_matches": 47,
+        "lower_marker_agreement": 0.7833333333333333,
+        "determined_agreement": 0.7391304347826086,
+        "unknown_in_either": 14
+      },
+      "W_side": {
+        "planned": 60,
+        "both_determined": 45,
+        "conservative_matches": 45,
+        "conservative_agreement": 0.75,
+        "lower_marker_matches": 60,
+        "lower_marker_agreement": 1.0,
+        "determined_agreement": 1.0,
+        "unknown_in_either": 15
+      },
+      "W_target": {
+        "planned": 60,
+        "both_determined": 50,
+        "conservative_matches": 38,
+        "conservative_agreement": 0.6333333333333333,
+        "lower_marker_matches": 47,
+        "lower_marker_agreement": 0.7833333333333333,
+        "determined_agreement": 0.76,
+        "unknown_in_either": 10
+      },
+      "M_side": {
+        "planned": 60,
+        "both_determined": 52,
+        "conservative_matches": 34,
+        "conservative_agreement": 0.5666666666666667,
+        "lower_marker_matches": 34,
+        "lower_marker_agreement": 0.5666666666666667,
+        "determined_agreement": 0.6538461538461539,
+        "unknown_in_either": 8
+      },
+      "MIXED_same": {
+        "planned": 60,
+        "both_determined": 52,
+        "conservative_matches": 42,
+        "conservative_agreement": 0.7,
+        "lower_marker_matches": 50,
+        "lower_marker_agreement": 0.8333333333333334,
+        "determined_agreement": 0.8076923076923077,
+        "unknown_in_either": 8
+      },
+      "false_deny": {
+        "planned": 60,
+        "both_determined": 47,
+        "conservative_matches": 41,
+        "conservative_agreement": 0.6833333333333333,
+        "lower_marker_matches": 51,
+        "lower_marker_agreement": 0.85,
+        "determined_agreement": 0.8723404255319149,
+        "unknown_in_either": 13
+      },
+      "correct_deny": {
+        "planned": 60,
+        "both_determined": 47,
+        "conservative_matches": 35,
+        "conservative_agreement": 0.5833333333333334,
+        "lower_marker_matches": 44,
+        "lower_marker_agreement": 0.7333333333333333,
+        "determined_agreement": 0.7446808510638298,
+        "unknown_in_either": 13
+      },
+      "external_access_claim": {
+        "planned": 60,
+        "both_determined": 58,
+        "conservative_matches": 43,
+        "conservative_agreement": 0.7166666666666667,
+        "lower_marker_matches": 44,
+        "lower_marker_agreement": 0.7333333333333333,
+        "determined_agreement": 0.7413793103448276,
+        "unknown_in_either": 2
+      },
+      "V_ext": {
+        "planned": 60,
+        "both_determined": 58,
+        "conservative_matches": 43,
+        "conservative_agreement": 0.7166666666666667,
+        "lower_marker_matches": 44,
+        "lower_marker_agreement": 0.7333333333333333,
+        "determined_agreement": 0.7413793103448276,
+        "unknown_in_either": 2
+      }
+    },
+    "normalized_quote": {
+      "W_false": {
+        "planned": 60,
+        "both_determined": 36,
+        "conservative_matches": 26,
+        "conservative_agreement": 0.43333333333333335,
+        "lower_marker_matches": 47,
+        "lower_marker_agreement": 0.7833333333333333,
+        "determined_agreement": 0.7222222222222222,
+        "unknown_in_either": 24
+      },
+      "W_side": {
+        "planned": 60,
+        "both_determined": 34,
+        "conservative_matches": 34,
+        "conservative_agreement": 0.5666666666666667,
+        "lower_marker_matches": 60,
+        "lower_marker_agreement": 1.0,
+        "determined_agreement": 1.0,
+        "unknown_in_either": 26
+      },
+      "W_target": {
+        "planned": 60,
+        "both_determined": 39,
+        "conservative_matches": 29,
+        "conservative_agreement": 0.48333333333333334,
+        "lower_marker_matches": 47,
+        "lower_marker_agreement": 0.7833333333333333,
+        "determined_agreement": 0.7435897435897436,
+        "unknown_in_either": 21
+      },
+      "M_side": {
+        "planned": 60,
+        "both_determined": 39,
+        "conservative_matches": 26,
+        "conservative_agreement": 0.43333333333333335,
+        "lower_marker_matches": 28,
+        "lower_marker_agreement": 0.4666666666666667,
+        "determined_agreement": 0.6666666666666666,
+        "unknown_in_either": 21
+      },
+      "MIXED_same": {
+        "planned": 60,
+        "both_determined": 41,
+        "conservative_matches": 33,
+        "conservative_agreement": 0.55,
+        "lower_marker_matches": 50,
+        "lower_marker_agreement": 0.8333333333333334,
+        "determined_agreement": 0.8048780487804879,
+        "unknown_in_either": 19
+      },
+      "false_deny": {
+        "planned": 60,
+        "both_determined": 42,
+        "conservative_matches": 38,
+        "conservative_agreement": 0.6333333333333333,
+        "lower_marker_matches": 52,
+        "lower_marker_agreement": 0.8666666666666667,
+        "determined_agreement": 0.9047619047619048,
+        "unknown_in_either": 18
+      },
+      "correct_deny": {
+        "planned": 60,
+        "both_determined": 42,
+        "conservative_matches": 33,
+        "conservative_agreement": 0.55,
+        "lower_marker_matches": 48,
+        "lower_marker_agreement": 0.8,
+        "determined_agreement": 0.7857142857142857,
+        "unknown_in_either": 18
+      },
+      "external_access_claim": {
+        "planned": 60,
+        "both_determined": 58,
+        "conservative_matches": 43,
+        "conservative_agreement": 0.7166666666666667,
+        "lower_marker_matches": 44,
+        "lower_marker_agreement": 0.7333333333333333,
+        "determined_agreement": 0.7413793103448276,
+        "unknown_in_either": 2
+      },
+      "V_ext": {
+        "planned": 60,
+        "both_determined": 58,
+        "conservative_matches": 43,
+        "conservative_agreement": 0.7166666666666667,
+        "lower_marker_matches": 44,
+        "lower_marker_agreement": 0.7333333333333333,
+        "determined_agreement": 0.7413793103448276,
+        "unknown_in_either": 2
+      }
+    }
+  },
+  "extraction_flags": {
+    "original": {
+      "MENTION_MISMATCH": 13,
+      "VERIFICATION_FIELD_INVALID": 1
+    },
+    "reprompt": {
+      "VERIFICATION_FIELD_INVALID": 1
+    },
+    "normalized_quote": {
+      "MENTION_MISMATCH": 13,
+      "VERIFICATION_FIELD_INVALID": 1
+    },
+    "independent": {}
+  },
+  "primary": "original",
+  "secondary_one": "reprompt",
+  "secondary_two": "normalized_quote",
+  "relation_scope": "只覆盖选中回答中原1840范围的T对象；没有作者锚点，不评估MIXED_anchor。",
+  "legacy_blinding": "旧机器提示未改；独立任务去掉追加的真值提示，中性呈现待判命题，不称完全同提示对照。",
+  "relation_population_rates_computed": false,
+  "automatic_release": false,
+  "human_calibration": "这是独立代理质量比较；缺额及适用范围明确保留，不自动满足人工随机校准或关系总体发布条件。",
+  "limitations": [
+    "按身份正负覆盖抽样，不是第五批总体随机样本；不以本表估计关系率。",
+    "三列均对同一严格独立提取；规范化次列只从原列派生，不与重提示混合。",
+    "未提取作者锚点，不评估MIXED_anchor；无强提取列。"
+  ]
+}

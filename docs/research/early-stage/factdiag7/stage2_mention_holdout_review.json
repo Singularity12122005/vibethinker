@@ -1,0 +1,58 @@
+{
+  "n": 40,
+  "views": 100,
+  "threshold": 0.8,
+  "primary": "original",
+  "secondary": "reprompt",
+  "secondary_two": "normalized_quote",
+  "branch": "B",
+  "status": "未通过",
+  "columns": {
+    "original": {
+      "n_planned": 40,
+      "agree": 14,
+      "unknown_or_missing": 24,
+      "raw_agreement": 0.35,
+      "both_determined": 16,
+      "kappa_determined_only": 0.6,
+      "confusion_determined_only": {
+        "0,0": 2,
+        "0,1": 2,
+        "1,1": 12
+      },
+      "definition": "任何一方未知或缺失均计不一致；κ仅对双方可判记录描述，不替代全分母门槛。"
+    },
+    "reprompt": {
+      "n_planned": 40,
+      "agree": 28,
+      "unknown_or_missing": 9,
+      "raw_agreement": 0.7,
+      "both_determined": 31,
+      "kappa_determined_only": 0.8074534161490684,
+      "confusion_determined_only": {
+        "0,0": 13,
+        "0,1": 3,
+        "1,1": 15
+      },
+      "definition": "任何一方未知或缺失均计不一致；κ仅对双方可判记录描述，不替代全分母门槛。"
+    },
+    "normalized_quote": {
+      "n_planned": 40,
+      "agree": 17,
+      "unknown_or_missing": 21,
+      "raw_agreement": 0.425,
+      "both_determined": 19,
+      "kappa_determined_only": 0.6122448979591837,
+      "confusion_determined_only": {
+        "0,0": 2,
+        "0,1": 2,
+        "1,1": 15
+      },
+      "definition": "任何一方未知或缺失均计不一致；κ仅对双方可判记录描述，不替代全分母门槛。"
+    }
+  },
+  "primary_passed": false,
+  "reviewer": "无上下文独立代理，非人工；原40仅既有诊断，未并入门槛。",
+  "secondary_label": "事后代码侧纠正",
+  "rule": "未知/缺失计不一致，全40分母；主列决定留出门槛，两次列不替换主列。人工回退已由用户独立提前启动，不因留出通过而撤回；人工校准另按全样本保守一致率。"
+}
