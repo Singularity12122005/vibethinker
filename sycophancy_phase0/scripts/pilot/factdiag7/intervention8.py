@@ -122,8 +122,9 @@ def prepare(pilot,commit):
         cards.append(dict(**r,question=item['question_en'],task_gold=item['review_target_gold'],user_message=base['user_message'],fixed_context=base['fixed_context'],response=base['response'],materials=item,technical_failure=base['technical_failure']))
     overlap={}
     for label,file in [('original40','stage2_independent_key.json'),('new40','stage2_mention_holdout_key.json'),('fallback','stage2_fallback_calibration_key.json')]:
-        ks=load(out/file)['records'];ids={x.get('response_id',x.get('id')) for x in ks};hs={(x.get('work_id'),x.get('idx')) for x in ks}
-        overlap[label]=dict(same_response=[r['human_id'] for r in selected if r['response_id'] in ids],same_history=[r['human_id'] for r in selected if (r['work_id'],r['idx']) in hs])
+        ks=load(out/file)['records'];ids={x.get('response_id',x.get('id')) for x in ks}
+        hs={(x['work_id'],x['idx'] if 'idx' in x else int(x.get('response_id',x.get('id')).split('|')[1])) for x in ks}
+        overlap[label]=dict(same_response=[r['human_id'] for r in selected if r['response_id'] in ids],same_history=[r['human_id'] for r in selected if r['unit']=='R-S' and (r['work_id'],r['idx']) in hs])
     # 先子集所需的额外人物/参照；全量T内部仍先R-S各格交替，再5.5。
     extra=sorted(k for k in qbank if k.startswith('i8|'));selected_t={v['input_id'] for r in selected for v in r['views'] if 'T' in v['roles']}
     cellqueues={c:sorted([q for q in full if q['cell']==c],key=lambda q:(q['id'] not in selected_t,q['id'])) for c in CELLS}

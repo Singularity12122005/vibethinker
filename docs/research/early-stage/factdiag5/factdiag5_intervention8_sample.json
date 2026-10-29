@@ -1,0 +1,3338 @@
+{
+  "seed": 20261029,
+  "blind_seed": 20261030,
+  "preregistered_commit": "7903ac47b2a98480568e05e2c877c3a22e7d1c56",
+  "records": [
+    {
+      "work_id": "R-003",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-003|5|F5|R-S|R-003|5|E-inapp|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-001",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-003|5|F5|R-S|R-003|5|E-inapp|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003|5|F5|R-S|R-003|5|E-inapp|A1|1|3|B7_F5_CORE_5.3|Ivan Turgenev"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-003",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-003_R-S|5|R-S|A1|4|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-001",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-003_R-S|5|R-S|A1|4|3|factdiag3|Charles James Hogarth"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003_R-S|5|R-S|A1|4|3|factdiag3|Ivan Turgenev"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-005",
+      "idx": 5,
+      "unit": "S_T",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "F-005|5|F5|S_T|R-005|5|5.5|none|2|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-001",
+      "views": [
+        {
+          "roles": [
+            "D"
+          ],
+          "input_id": "i8|F-005|5|F5|S_T|R-005|5|5.5|none|2|3|B7_F5_CORE_5.5|Charles E. Wilbour"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|F-005|5|F5|S_T|R-005|5|5.5|none|2|3|B7_F5_CORE_5.5|Victor Hugo"
+        },
+        {
+          "roles": [
+            "T"
+          ],
+          "input_id": "batch5|F-005|5|F5|S_T|R-005|5|5.5|none|2|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-003",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-003|5|F5|R-S|R-003|5|E-false|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-002",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-003|5|F5|R-S|R-003|5|E-false|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003|5|F5|R-S|R-003|5|E-false|A1|1|3|B7_F5_CORE_5.3|Ivan Turgenev"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-003",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-003|5|F5|R-S|R-003|5|M-wrong|A1|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-003",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-003|5|F5|R-S|R-003|5|M-wrong|A1|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003|5|F5|R-S|R-003|5|M-wrong|A1|2|3|B7_F5_CORE_5.3|Ivan Turgenev"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "R-004|2|F5|R-S|R-004|2|5.5|none|0|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-002",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-004|2|F5|R-S|R-004|2|5.5|none|0|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004|2|F5|R-S|R-004|2|5.5|none|0|3|B7_F5_CORE_5.5|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-005",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-005|3|F5|R-S|R-005|3|E-inapp|A1|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-004",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-005|3|F5|R-S|R-005|3|E-inapp|A1|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005|3|F5|R-S|R-005|3|E-inapp|A1|2|3|B7_F5_CORE_5.3|Victor Hugo"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-005",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-005|5|F5|R-S|R-005|5|M-right|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-005",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-005|5|F5|R-S|R-005|5|M-right|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005|5|F5|R-S|R-005|5|M-right|none|1|3|B7_F5_CORE_5.3|Victor Hugo"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-007|4|F5|R-S|R-007|4|M-wrong|A1|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-006",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-007|4|F5|R-S|R-007|4|M-wrong|A1|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007|4|F5|R-S|R-007|4|M-wrong|A1|2|3|B7_F5_CORE_5.3|Flavius Josephus"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-005",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-005|5|F5|R-S|R-005|5|E-inapp|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-007",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-005|5|F5|R-S|R-005|5|E-inapp|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005|5|F5|R-S|R-005|5|E-inapp|none|1|3|B7_F5_CORE_5.3|Victor Hugo"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-007_R-S|1|R-S|base|2|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-002",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-007_R-S|1|R-S|base|2|3|factdiag3|William Whiston"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007_R-S|1|R-S|base|2|3|factdiag3|Flavius Josephus"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-005",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-005|5|F5|R-S|R-005|5|E-false|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-008",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-005|5|F5|R-S|R-005|5|E-false|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005|5|F5|R-S|R-005|5|E-false|none|1|3|B7_F5_CORE_5.3|Victor Hugo"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-004|3|F5|R-S|R-004|3|M-right|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-009",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-004|3|F5|R-S|R-004|3|M-right|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004|3|F5|R-S|R-004|3|M-right|none|1|3|B7_F5_CORE_5.3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-003",
+      "idx": 4,
+      "unit": "F-D",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "F-003|4|F5|F-D|R-003|4|5.5|none|1|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-003",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|F-003|4|F5|F-D|R-003|4|5.5|none|1|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|F-003|4|F5|F-D|R-003|4|5.5|none|1|3|B7_F5_CORE_5.5|Ivan Turgenev"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-002",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-002|3|F5|R-S|R-002|3|E-false|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-010",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-002|3|F5|R-S|R-002|3|E-false|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002|3|F5|R-S|R-002|3|E-false|A1|1|3|B7_F5_CORE_5.3|Plato"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-002",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-002|3|F5|R-S|R-002|3|M-right|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-011",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-002|3|F5|R-S|R-002|3|M-right|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002|3|F5|R-S|R-002|3|M-right|A1|0|3|B7_F5_CORE_5.3|Plato"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-002",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-002|1|F5|R-S|R-002|1|E-inapp|none|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-012",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-002|1|F5|R-S|R-002|1|E-inapp|none|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002|1|F5|R-S|R-002|1|E-inapp|none|2|3|B7_F5_CORE_5.3|Plato"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-009",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-009_R-S|4|R-S|base|7|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-003",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-009_R-S|4|R-S|base|7|3|factdiag3|Theodore Martin"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009_R-S|4|R-S|base|7|3|factdiag3|Friedrich Schiller"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-010",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-010|2|F5|R-S|R-010|2|E-false|none|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-013",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|2|F5|R-S|R-010|2|E-false|none|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|2|F5|R-S|R-010|2|E-false|none|0|3|B7_F5_CORE_5.3|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-007|1|F5|R-S|R-007|1|M-wrong|none|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-014",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-007|1|F5|R-S|R-007|1|M-wrong|none|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007|1|F5|R-S|R-007|1|M-wrong|none|3|3|B7_F5_CORE_5.3|Flavius Josephus"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-005",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-005_R-S|3|R-S|A1|5|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-004",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-005_R-S|3|R-S|A1|5|3|factdiag3|Isabel Florence Hapgood"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005_R-S|3|R-S|A1|5|3|factdiag3|Victor Hugo"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-004_R-S|1|R-S|A1|4|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-005",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-004_R-S|1|R-S|A1|4|3|factdiag3|Thomas Common"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004_R-S|1|R-S|A1|4|3|factdiag3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-008",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-008|3|F5|R-S|R-008|3|E-inapp|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-015",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-008|3|F5|R-S|R-008|3|E-inapp|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008|3|F5|R-S|R-008|3|E-inapp|A1|0|3|B7_F5_CORE_5.3|Henrik Ibsen"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-010|4|F5|R-S|R-010|4|M-wrong|A1|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-016",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|4|F5|R-S|R-010|4|M-wrong|A1|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|4|F5|R-S|R-010|4|M-wrong|A1|3|3|B7_F5_CORE_5.3|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-003",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-003|3|F5|R-S|R-003|3|E-false|none|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-017",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-003|3|F5|R-S|R-003|3|E-false|none|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003|3|F5|R-S|R-003|3|E-false|none|0|3|B7_F5_CORE_5.3|Ivan Turgenev"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-010_R-S|4|R-S|A1|1|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-006",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-010_R-S|4|R-S|A1|1|3|factdiag3|George Makepeace Towle"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010_R-S|4|R-S|A1|1|3|factdiag3|Jules Verne"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-001",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-001|3|F5|R-S|R-001|3|E-false|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-018",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-001|3|F5|R-S|R-001|3|E-false|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001|3|F5|R-S|R-001|3|E-false|A1|1|3|B7_F5_CORE_5.3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-010|2|F5|R-S|R-010|2|E-inapp|none|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-019",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|2|F5|R-S|R-010|2|E-inapp|none|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|2|F5|R-S|R-010|2|E-inapp|none|2|3|B7_F5_CORE_5.3|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-007|1|F5|R-S|R-007|1|M-right|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-020",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-007|1|F5|R-S|R-007|1|M-right|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007|1|F5|R-S|R-007|1|M-right|none|1|3|B7_F5_CORE_5.3|Flavius Josephus"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-009",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-009|4|F5|R-S|R-009|4|E-false|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-021",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-009|4|F5|R-S|R-009|4|E-false|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009|4|F5|R-S|R-009|4|E-false|none|1|3|B7_F5_CORE_5.3|Friedrich Schiller"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-001",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-001|4|F5|R-S|R-001|4|M-right|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-022",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-001|4|F5|R-S|R-001|4|M-right|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001|4|F5|R-S|R-001|4|M-right|none|1|3|B7_F5_CORE_5.3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-009",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-009|5|F5|R-S|R-009|5|E-false|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-023",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-009|5|F5|R-S|R-009|5|E-false|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009|5|F5|R-S|R-009|5|E-false|A1|0|3|B7_F5_CORE_5.3|Friedrich Schiller"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-005",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-005|3|F5|R-S|R-005|3|M-wrong|A1|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-024",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-005|3|F5|R-S|R-005|3|M-wrong|A1|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005|3|F5|R-S|R-005|3|M-wrong|A1|2|3|B7_F5_CORE_5.3|Victor Hugo"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-004",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-004|1|F5|R-S|R-004|1|E-inapp|A1|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-025",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-004|1|F5|R-S|R-004|1|E-inapp|A1|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004|1|F5|R-S|R-004|1|E-inapp|A1|3|3|B7_F5_CORE_5.3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-001",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-001|3|F5|R-S|R-001|3|E-inapp|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-026",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-001|3|F5|R-S|R-001|3|E-inapp|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001|3|F5|R-S|R-001|3|E-inapp|A1|0|3|B7_F5_CORE_5.3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-001",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-001_R-S|4|R-S|base|2|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-007",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-001_R-S|4|R-S|base|2|3|factdiag3|William Kenaz Marriott"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001_R-S|4|R-S|base|2|3|factdiag3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-004|3|F5|R-S|R-004|3|E-inapp|none|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-027",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-004|3|F5|R-S|R-004|3|E-inapp|none|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004|3|F5|R-S|R-004|3|E-inapp|none|3|3|B7_F5_CORE_5.3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-009",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-009|5|F5|R-S|R-009|5|E-inapp|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-028",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-009|5|F5|R-S|R-009|5|E-inapp|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009|5|F5|R-S|R-009|5|E-inapp|A1|1|3|B7_F5_CORE_5.3|Friedrich Schiller"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-007_R-S|4|R-S|A1|2|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-008",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-007_R-S|4|R-S|A1|2|3|factdiag3|William Whiston"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007_R-S|4|R-S|A1|2|3|factdiag3|Flavius Josephus"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-001",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-001|4|F5|R-S|R-001|4|E-inapp|none|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-029",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-001|4|F5|R-S|R-001|4|E-inapp|none|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001|4|F5|R-S|R-001|4|E-inapp|none|3|3|B7_F5_CORE_5.3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-009",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-009|4|F5|R-S|R-009|4|M-wrong|none|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-030",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-009|4|F5|R-S|R-009|4|M-wrong|none|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009|4|F5|R-S|R-009|4|M-wrong|none|0|3|B7_F5_CORE_5.3|Friedrich Schiller"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-010|4|F5|R-S|R-010|4|E-false|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-031",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|4|F5|R-S|R-010|4|E-false|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|4|F5|R-S|R-010|4|E-false|A1|0|3|B7_F5_CORE_5.3|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-007|1|F5|R-S|R-007|1|E-inapp|none|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-032",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-007|1|F5|R-S|R-007|1|E-inapp|none|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007|1|F5|R-S|R-007|1|E-inapp|none|2|3|B7_F5_CORE_5.3|Flavius Josephus"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-006|5|F5|R-S|R-006|5|M-wrong|A1|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-033",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-006|5|F5|R-S|R-006|5|M-wrong|A1|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006|5|F5|R-S|R-006|5|M-wrong|A1|3|3|B7_F5_CORE_5.3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-007|4|F5|R-S|R-007|4|E-false|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-034",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-007|4|F5|R-S|R-007|4|E-false|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007|4|F5|R-S|R-007|4|E-false|A1|1|3|B7_F5_CORE_5.3|Flavius Josephus"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-006|2|F5|R-S|R-006|2|M-right|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-035",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-006|2|F5|R-S|R-006|2|M-right|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006|2|F5|R-S|R-006|2|M-right|none|1|3|B7_F5_CORE_5.3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-005",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-005|3|F5|R-S|R-005|3|E-false|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-036",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-005|3|F5|R-S|R-005|3|E-false|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005|3|F5|R-S|R-005|3|E-false|A1|0|3|B7_F5_CORE_5.3|Victor Hugo"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-008",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-008|3|F5|R-S|R-008|3|M-right|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-037",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-008|3|F5|R-S|R-008|3|M-right|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008|3|F5|R-S|R-008|3|M-right|A1|0|3|B7_F5_CORE_5.3|Henrik Ibsen"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-010|4|F5|R-S|R-010|4|E-inapp|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-038",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|4|F5|R-S|R-010|4|E-inapp|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|4|F5|R-S|R-010|4|E-inapp|A1|1|3|B7_F5_CORE_5.3|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-006|2|F5|R-S|R-006|2|E-inapp|none|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-039",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-006|2|F5|R-S|R-006|2|E-inapp|none|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006|2|F5|R-S|R-006|2|E-inapp|none|3|3|B7_F5_CORE_5.3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-002",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-002|1|F5|R-S|R-002|1|M-right|none|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-040",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-002|1|F5|R-S|R-002|1|M-right|none|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002|1|F5|R-S|R-002|1|M-right|none|0|3|B7_F5_CORE_5.3|Plato"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-008",
+      "idx": 2,
+      "unit": "F-D",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "F-008|2|F5|F-D|R-008|2|5.5|none|3|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-004",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|F-008|2|F5|F-D|R-008|2|5.5|none|3|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|F-008|2|F5|F-D|R-008|2|5.5|none|3|3|B7_F5_CORE_5.5|Henrik Ibsen"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-009",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-009_R-S|5|R-S|A1|6|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-009",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-009_R-S|5|R-S|A1|6|3|factdiag3|Theodore Martin"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009_R-S|5|R-S|A1|6|3|factdiag3|Friedrich Schiller"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 2,
+      "unit": "S_T",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "F-006|2|F5|S_T|R-006|2|5.5|none|1|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-005",
+      "views": [
+        {
+          "roles": [
+            "D"
+          ],
+          "input_id": "i8|F-006|2|F5|S_T|R-006|2|5.5|none|1|3|B7_F5_CORE_5.5|Anna Swanwick"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|F-006|2|F5|S_T|R-006|2|5.5|none|1|3|B7_F5_CORE_5.5|Johann Wolfgang von Goethe"
+        },
+        {
+          "roles": [
+            "T"
+          ],
+          "input_id": "batch5|F-006|2|F5|S_T|R-006|2|5.5|none|1|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-009",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-009|4|F5|R-S|R-009|4|M-right|none|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-041",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-009|4|F5|R-S|R-009|4|M-right|none|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009|4|F5|R-S|R-009|4|M-right|none|0|3|B7_F5_CORE_5.3|Friedrich Schiller"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-008",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-008|3|F5|R-S|R-008|3|E-false|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-042",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-008|3|F5|R-S|R-008|3|E-false|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008|3|F5|R-S|R-008|3|E-false|A1|0|3|B7_F5_CORE_5.3|Henrik Ibsen"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 3,
+      "unit": "S_T",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "F-007|3|F5|S_T|R-007|3|5.5|none|1|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-006",
+      "views": [
+        {
+          "roles": [
+            "D"
+          ],
+          "input_id": "i8|F-007|3|F5|S_T|R-007|3|5.5|none|1|3|B7_F5_CORE_5.5|G. A. Williamson"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|F-007|3|F5|S_T|R-007|3|5.5|none|1|3|B7_F5_CORE_5.5|Flavius Josephus"
+        },
+        {
+          "roles": [
+            "T"
+          ],
+          "input_id": "batch5|F-007|3|F5|S_T|R-007|3|5.5|none|1|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-005",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-005_R-S|5|R-S|base|7|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-010",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-005_R-S|5|R-S|base|7|3|factdiag3|Isabel Florence Hapgood"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005_R-S|5|R-S|base|7|3|factdiag3|Victor Hugo"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-001",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-001|4|F5|R-S|R-001|4|E-false|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-043",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-001|4|F5|R-S|R-001|4|E-false|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001|4|F5|R-S|R-001|4|E-false|none|1|3|B7_F5_CORE_5.3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-005",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-005|5|F5|R-S|R-005|5|M-wrong|none|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-044",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-005|5|F5|R-S|R-005|5|M-wrong|none|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005|5|F5|R-S|R-005|5|M-wrong|none|3|3|B7_F5_CORE_5.3|Victor Hugo"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "R-010|3|F5|R-S|R-010|3|5.5|none|0|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-007",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|3|F5|R-S|R-010|3|5.5|none|0|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|3|F5|R-S|R-010|3|5.5|none|0|3|B7_F5_CORE_5.5|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-004|3|F5|R-S|R-004|3|E-false|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-045",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-004|3|F5|R-S|R-004|3|E-false|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004|3|F5|R-S|R-004|3|E-false|none|1|3|B7_F5_CORE_5.3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-006|2|F5|R-S|R-006|2|M-wrong|none|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-046",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-006|2|F5|R-S|R-006|2|M-wrong|none|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006|2|F5|R-S|R-006|2|M-wrong|none|3|3|B7_F5_CORE_5.3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-009",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "R-009|1|F5|R-S|R-009|1|5.5|none|1|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-008",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-009|1|F5|R-S|R-009|1|5.5|none|1|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009|1|F5|R-S|R-009|1|5.5|none|1|3|B7_F5_CORE_5.5|Friedrich Schiller"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-002",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-002|3|F5|R-S|R-002|3|M-wrong|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-047",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-002|3|F5|R-S|R-002|3|M-wrong|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002|3|F5|R-S|R-002|3|M-wrong|A1|1|3|B7_F5_CORE_5.3|Plato"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-007|4|F5|R-S|R-007|4|M-right|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-048",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-007|4|F5|R-S|R-007|4|M-right|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007|4|F5|R-S|R-007|4|M-right|A1|1|3|B7_F5_CORE_5.3|Flavius Josephus"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-003",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-003|3|F5|R-S|R-003|3|M-right|none|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-049",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-003|3|F5|R-S|R-003|3|M-right|none|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003|3|F5|R-S|R-003|3|M-right|none|0|3|B7_F5_CORE_5.3|Ivan Turgenev"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "R-010|5|F5|R-S|R-010|5|5.5|none|0|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-009",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|5|F5|R-S|R-010|5|5.5|none|0|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|5|F5|R-S|R-010|5|5.5|none|0|3|B7_F5_CORE_5.5|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-006|2|F5|R-S|R-006|2|E-false|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-050",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-006|2|F5|R-S|R-006|2|E-false|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006|2|F5|R-S|R-006|2|E-false|none|1|3|B7_F5_CORE_5.3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-003",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-003|3|F5|R-S|R-003|3|E-inapp|none|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-051",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-003|3|F5|R-S|R-003|3|E-inapp|none|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003|3|F5|R-S|R-003|3|E-inapp|none|0|3|B7_F5_CORE_5.3|Ivan Turgenev"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-004|1|F5|R-S|R-004|1|M-wrong|A1|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-052",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-004|1|F5|R-S|R-004|1|M-wrong|A1|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004|1|F5|R-S|R-004|1|M-wrong|A1|3|3|B7_F5_CORE_5.3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-004|1|F5|R-S|R-004|1|M-right|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-053",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-004|1|F5|R-S|R-004|1|M-right|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004|1|F5|R-S|R-004|1|M-right|A1|0|3|B7_F5_CORE_5.3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-003",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-003_R-S|3|R-S|base|2|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-011",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-003_R-S|3|R-S|base|2|3|factdiag3|Charles James Hogarth"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003_R-S|3|R-S|base|2|3|factdiag3|Ivan Turgenev"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-007|4|F5|R-S|R-007|4|E-inapp|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-054",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-007|4|F5|R-S|R-007|4|E-inapp|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007|4|F5|R-S|R-007|4|E-inapp|A1|1|3|B7_F5_CORE_5.3|Flavius Josephus"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-010_R-S|2|R-S|base|0|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-012",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-010_R-S|2|R-S|base|0|3|factdiag3|George Makepeace Towle"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010_R-S|2|R-S|base|0|3|factdiag3|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-002",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-002|3|F5|R-S|R-002|3|E-inapp|A1|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-055",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-002|3|F5|R-S|R-002|3|E-inapp|A1|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002|3|F5|R-S|R-002|3|E-inapp|A1|2|3|B7_F5_CORE_5.3|Plato"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-001",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-001|3|F5|R-S|R-001|3|M-wrong|A1|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-056",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-001|3|F5|R-S|R-001|3|M-wrong|A1|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001|3|F5|R-S|R-001|3|M-wrong|A1|3|3|B7_F5_CORE_5.3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-007",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-007|1|F5|R-S|R-007|1|E-false|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-057",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-007|1|F5|R-S|R-007|1|E-false|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-007|1|F5|R-S|R-007|1|E-false|none|1|3|B7_F5_CORE_5.3|Flavius Josephus"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-008",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-008|3|F5|R-S|R-008|3|M-wrong|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-058",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-008|3|F5|R-S|R-008|3|M-wrong|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008|3|F5|R-S|R-008|3|M-wrong|A1|1|3|B7_F5_CORE_5.3|Henrik Ibsen"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-004|1|F5|R-S|R-004|1|E-false|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-059",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-004|1|F5|R-S|R-004|1|E-false|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004|1|F5|R-S|R-004|1|E-false|A1|0|3|B7_F5_CORE_5.3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-002",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-002_R-S|3|R-S|A1|3|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-013",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-002_R-S|3|R-S|A1|3|3|factdiag3|Benjamin Jowett"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002_R-S|3|R-S|A1|3|3|factdiag3|Plato"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "A1",
+      "response_id": "R-006|5|F5|R-S|R-006|5|E-false|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-060",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-006|5|F5|R-S|R-006|5|E-false|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006|5|F5|R-S|R-006|5|E-false|A1|0|3|B7_F5_CORE_5.3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-006_R-S|2|R-S|base|4|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-014",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-006_R-S|2|R-S|base|4|3|factdiag3|Bayard Taylor"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006_R-S|2|R-S|base|4|3|factdiag3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-001",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-001|3|F5|R-S|R-001|3|M-right|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-061",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-001|3|F5|R-S|R-001|3|M-right|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001|3|F5|R-S|R-001|3|M-right|A1|1|3|B7_F5_CORE_5.3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-002",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-002|1|F5|R-S|R-002|1|M-wrong|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-062",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-002|1|F5|R-S|R-002|1|M-wrong|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002|1|F5|R-S|R-002|1|M-wrong|none|1|3|B7_F5_CORE_5.3|Plato"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-010|2|F5|R-S|R-010|2|M-right|none|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-063",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|2|F5|R-S|R-010|2|M-right|none|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|2|F5|R-S|R-010|2|M-right|none|0|3|B7_F5_CORE_5.3|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-009",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-009|4|F5|R-S|R-009|4|E-inapp|none|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-064",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-009|4|F5|R-S|R-009|4|E-inapp|none|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009|4|F5|R-S|R-009|4|E-inapp|none|2|3|B7_F5_CORE_5.3|Friedrich Schiller"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-002",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-002|1|F5|R-S|R-002|1|E-false|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-065",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-002|1|F5|R-S|R-002|1|E-false|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002|1|F5|R-S|R-002|1|E-false|none|1|3|B7_F5_CORE_5.3|Plato"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-005",
+      "idx": 4,
+      "unit": "F-D",
+      "cell": "5.5",
+      "arm": "none",
+      "response_id": "F-005|4|F5|F-D|R-005|4|5.5|none|3|3|B7_F5_CORE_5.5",
+      "source": "batch5",
+      "cohort": "status",
+      "human_id": "F5-V-010",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|F-005|4|F5|F-D|R-005|4|5.5|none|3|3|B7_F5_CORE_5.5|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|F-005|4|F5|F-D|R-005|4|5.5|none|3|3|B7_F5_CORE_5.5|Victor Hugo"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-010",
+      "idx": 2,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-010|2|F5|R-S|R-010|2|M-wrong|none|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-066",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|2|F5|R-S|R-010|2|M-wrong|none|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|2|F5|R-S|R-010|2|M-wrong|none|2|3|B7_F5_CORE_5.3|Jules Verne"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-008",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-008|1|F5|R-S|R-008|1|M-wrong|none|2|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-067",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-008|1|F5|R-S|R-008|1|M-wrong|none|2|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008|1|F5|R-S|R-008|1|M-wrong|none|2|3|B7_F5_CORE_5.3|Henrik Ibsen"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-008",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-008_R-S|3|R-S|A1|3|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-015",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-008_R-S|3|R-S|A1|3|3|factdiag3|Robert Farquharson Sharp"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008_R-S|3|R-S|A1|3|3|factdiag3|Henrik Ibsen"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-005",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-005|3|F5|R-S|R-005|3|M-right|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-068",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-005|3|F5|R-S|R-005|3|M-right|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-005|3|F5|R-S|R-005|3|M-right|A1|0|3|B7_F5_CORE_5.3|Victor Hugo"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-002",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-002_R-S|1|R-S|base|1|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-016",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-002_R-S|1|R-S|base|1|3|factdiag3|Benjamin Jowett"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-002_R-S|1|R-S|base|1|3|factdiag3|Plato"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-008",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "none",
+      "response_id": "R-008|1|F5|R-S|R-008|1|M-right|none|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-069",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-008|1|F5|R-S|R-008|1|M-right|none|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008|1|F5|R-S|R-008|1|M-right|none|0|3|B7_F5_CORE_5.3|Henrik Ibsen"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-006",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "A1",
+      "response_id": "R-006|5|F5|R-S|R-006|5|E-inapp|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-070",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-006|5|F5|R-S|R-006|5|E-inapp|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006|5|F5|R-S|R-006|5|E-inapp|A1|1|3|B7_F5_CORE_5.3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-003",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-003|3|F5|R-S|R-003|3|M-wrong|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-071",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-003|3|F5|R-S|R-003|3|M-wrong|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003|3|F5|R-S|R-003|3|M-wrong|none|1|3|B7_F5_CORE_5.3|Ivan Turgenev"
+        }
+      ],
+      "blind20": true
+    },
+    {
+      "work_id": "R-009",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-009|5|F5|R-S|R-009|5|M-right|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-072",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-009|5|F5|R-S|R-009|5|M-right|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009|5|F5|R-S|R-009|5|M-right|A1|1|3|B7_F5_CORE_5.3|Friedrich Schiller"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-008",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "E-false",
+      "arm": "none",
+      "response_id": "R-008|1|F5|R-S|R-008|1|E-false|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-073",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-008|1|F5|R-S|R-008|1|E-false|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008|1|F5|R-S|R-008|1|E-false|none|1|3|B7_F5_CORE_5.3|Henrik Ibsen"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-009",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "A1",
+      "response_id": "R-009|5|F5|R-S|R-009|5|M-wrong|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-074",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-009|5|F5|R-S|R-009|5|M-wrong|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-009|5|F5|R-S|R-009|5|M-wrong|A1|0|3|B7_F5_CORE_5.3|Friedrich Schiller"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-008",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "E-inapp",
+      "arm": "none",
+      "response_id": "R-008|1|F5|R-S|R-008|1|E-inapp|none|3|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-075",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-008|1|F5|R-S|R-008|1|E-inapp|none|3|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008|1|F5|R-S|R-008|1|E-inapp|none|3|3|B7_F5_CORE_5.3|Henrik Ibsen"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-004|3|F5|R-S|R-004|3|M-wrong|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-076",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-004|3|F5|R-S|R-004|3|M-wrong|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004|3|F5|R-S|R-004|3|M-wrong|none|1|3|B7_F5_CORE_5.3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-006|5|F5|R-S|R-006|5|M-right|A1|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-077",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-006|5|F5|R-S|R-006|5|M-right|A1|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006|5|F5|R-S|R-006|5|M-right|A1|1|3|B7_F5_CORE_5.3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-008",
+      "idx": 1,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-008_R-S|1|R-S|base|1|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-017",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-008_R-S|1|R-S|base|1|3|factdiag3|Robert Farquharson Sharp"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-008_R-S|1|R-S|base|1|3|factdiag3|Henrik Ibsen"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-001",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "M-wrong",
+      "arm": "none",
+      "response_id": "R-001|4|F5|R-S|R-001|4|M-wrong|none|1|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-078",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-001|4|F5|R-S|R-001|4|M-wrong|none|1|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001|4|F5|R-S|R-001|4|M-wrong|none|1|3|B7_F5_CORE_5.3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-003",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-003|5|F5|R-S|R-003|5|M-right|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-079",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-003|5|F5|R-S|R-003|5|M-right|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-003|5|F5|R-S|R-003|5|M-right|A1|0|3|B7_F5_CORE_5.3|Ivan Turgenev"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-001",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-001_R-S|3|R-S|A1|4|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-018",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-001_R-S|3|R-S|A1|4|3|factdiag3|William Kenaz Marriott"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-001_R-S|3|R-S|A1|4|3|factdiag3|Niccolò Machiavelli"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-010",
+      "idx": 4,
+      "unit": "R-S",
+      "cell": "M-right",
+      "arm": "A1",
+      "response_id": "R-010|4|F5|R-S|R-010|4|M-right|A1|0|3|B7_F5_CORE_5.3",
+      "source": "batch5",
+      "cohort": "evidence",
+      "human_id": "F5-E-080",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "batch5|R-010|4|F5|R-S|R-010|4|M-right|A1|0|3|B7_F5_CORE_5.3|F5_REVIEW|relations_v2"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-010|4|F5|R-S|R-010|4|M-right|A1|0|3|B7_F5_CORE_5.3|Jules Verne"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-006",
+      "idx": 5,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "A1",
+      "response_id": "R-006_R-S|5|R-S|A1|6|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-019",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-006_R-S|5|R-S|A1|6|3|factdiag3|Bayard Taylor"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-006_R-S|5|R-S|A1|6|3|factdiag3|Johann Wolfgang von Goethe"
+        }
+      ],
+      "blind20": false
+    },
+    {
+      "work_id": "R-004",
+      "idx": 3,
+      "unit": "R-S",
+      "cell": "no_evidence",
+      "arm": "none",
+      "response_id": "R-004_R-S|3|R-S|base|6|3|factdiag3",
+      "source": "batch3",
+      "cohort": "no_evidence",
+      "human_id": "F5-N-020",
+      "views": [
+        {
+          "roles": [
+            "D",
+            "T"
+          ],
+          "input_id": "i8|R-004_R-S|3|R-S|base|6|3|factdiag3|Thomas Common"
+        },
+        {
+          "roles": [
+            "A"
+          ],
+          "input_id": "i8|R-004_R-S|3|R-S|base|6|3|factdiag3|Friedrich Nietzsche"
+        }
+      ],
+      "blind20": true
+    }
+  ],
+  "histories": [
+    {
+      "work_id": "R-001",
+      "idx": 4,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-001",
+      "idx": 3,
+      "arm": "A1",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-002",
+      "idx": 1,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-002",
+      "idx": 3,
+      "arm": "A1",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-003",
+      "idx": 3,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-003",
+      "idx": 5,
+      "arm": "A1",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-004",
+      "idx": 3,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-004",
+      "idx": 1,
+      "arm": "A1",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-005",
+      "idx": 5,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-005",
+      "idx": 3,
+      "arm": "A1",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-006",
+      "idx": 2,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-006",
+      "idx": 5,
+      "arm": "A1",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-007",
+      "idx": 1,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-007",
+      "idx": 4,
+      "arm": "A1",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-008",
+      "idx": 1,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-008",
+      "idx": 3,
+      "arm": "A1",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-009",
+      "idx": 4,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-009",
+      "idx": 5,
+      "arm": "A1",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-010",
+      "idx": 2,
+      "arm": "none",
+      "eligible_histories": 6
+    },
+    {
+      "work_id": "R-010",
+      "idx": 4,
+      "arm": "A1",
+      "eligible_histories": 6
+    }
+  ],
+  "skipped": [],
+  "blind20": [
+    "F5-E-009",
+    "F5-E-014",
+    "F5-E-024",
+    "F5-E-029",
+    "F5-E-041",
+    "F5-E-050",
+    "F5-E-055",
+    "F5-E-066",
+    "F5-E-069",
+    "F5-E-071",
+    "F5-N-001",
+    "F5-N-003",
+    "F5-N-005",
+    "F5-N-006",
+    "F5-N-020",
+    "F5-V-002",
+    "F5-V-004",
+    "F5-V-006",
+    "F5-V-008",
+    "F5-V-010"
+  ],
+  "overlap": {
+    "original40": {
+      "same_response": [],
+      "same_history": [
+        "F5-E-004",
+        "F5-E-006",
+        "F5-E-009",
+        "F5-E-013",
+        "F5-N-004",
+        "F5-N-005",
+        "F5-E-015",
+        "F5-E-017",
+        "F5-E-019",
+        "F5-E-022",
+        "F5-E-023",
+        "F5-E-024",
+        "F5-E-025",
+        "F5-N-007",
+        "F5-E-027",
+        "F5-E-028",
+        "F5-N-008",
+        "F5-E-029",
+        "F5-E-034",
+        "F5-E-036",
+        "F5-E-037",
+        "F5-N-009",
+        "F5-E-042",
+        "F5-E-043",
+        "F5-V-007",
+        "F5-E-045",
+        "F5-E-048",
+        "F5-E-049",
+        "F5-E-051",
+        "F5-E-052",
+        "F5-E-053",
+        "F5-N-011",
+        "F5-E-054",
+        "F5-N-012",
+        "F5-E-058",
+        "F5-E-059",
+        "F5-E-063",
+        "F5-E-066",
+        "F5-E-067",
+        "F5-N-015",
+        "F5-E-068",
+        "F5-E-069",
+        "F5-E-071",
+        "F5-E-072",
+        "F5-E-073",
+        "F5-E-074",
+        "F5-E-075",
+        "F5-E-076",
+        "F5-N-017",
+        "F5-E-078",
+        "F5-N-020"
+      ]
+    },
+    "new40": {
+      "same_response": [],
+      "same_history": [
+        "F5-E-005",
+        "F5-E-006",
+        "F5-E-007",
+        "F5-N-002",
+        "F5-E-008",
+        "F5-E-010",
+        "F5-E-011",
+        "F5-E-012",
+        "F5-E-014",
+        "F5-N-005",
+        "F5-E-015",
+        "F5-E-017",
+        "F5-E-020",
+        "F5-E-022",
+        "F5-E-023",
+        "F5-E-025",
+        "F5-N-007",
+        "F5-E-028",
+        "F5-N-008",
+        "F5-E-029",
+        "F5-E-032",
+        "F5-E-034",
+        "F5-E-037",
+        "F5-E-040",
+        "F5-N-009",
+        "F5-E-042",
+        "F5-N-010",
+        "F5-E-043",
+        "F5-E-044",
+        "F5-V-007",
+        "F5-V-008",
+        "F5-E-047",
+        "F5-E-048",
+        "F5-E-049",
+        "F5-V-009",
+        "F5-E-051",
+        "F5-E-052",
+        "F5-E-053",
+        "F5-N-011",
+        "F5-E-054",
+        "F5-E-055",
+        "F5-E-057",
+        "F5-E-058",
+        "F5-E-059",
+        "F5-N-013",
+        "F5-E-062",
+        "F5-E-065",
+        "F5-N-015",
+        "F5-N-016",
+        "F5-E-071",
+        "F5-E-072",
+        "F5-E-074",
+        "F5-E-078"
+      ]
+    },
+    "fallback": {
+      "same_response": [],
+      "same_history": [
+        "F5-E-001",
+        "F5-N-001",
+        "F5-E-002",
+        "F5-E-003",
+        "F5-E-004",
+        "F5-E-005",
+        "F5-E-006",
+        "F5-E-007",
+        "F5-N-002",
+        "F5-E-008",
+        "F5-E-009",
+        "F5-E-010",
+        "F5-E-011",
+        "F5-N-003",
+        "F5-E-013",
+        "F5-E-014",
+        "F5-N-004",
+        "F5-N-005",
+        "F5-E-015",
+        "F5-E-016",
+        "F5-N-006",
+        "F5-E-019",
+        "F5-E-020",
+        "F5-E-021",
+        "F5-E-022",
+        "F5-E-024",
+        "F5-E-025",
+        "F5-N-007",
+        "F5-E-027",
+        "F5-N-008",
+        "F5-E-029",
+        "F5-E-030",
+        "F5-E-031",
+        "F5-E-032",
+        "F5-E-034",
+        "F5-E-035",
+        "F5-E-036",
+        "F5-E-037",
+        "F5-E-038",
+        "F5-E-039",
+        "F5-E-041",
+        "F5-E-042",
+        "F5-N-010",
+        "F5-E-043",
+        "F5-E-044",
+        "F5-E-045",
+        "F5-E-046",
+        "F5-V-008",
+        "F5-E-047",
+        "F5-E-048",
+        "F5-E-050",
+        "F5-E-052",
+        "F5-E-053",
+        "F5-E-054",
+        "F5-N-012",
+        "F5-E-055",
+        "F5-E-057",
+        "F5-E-058",
+        "F5-E-059",
+        "F5-N-013",
+        "F5-N-014",
+        "F5-E-063",
+        "F5-E-064",
+        "F5-E-066",
+        "F5-N-015",
+        "F5-E-068",
+        "F5-E-076",
+        "F5-E-078",
+        "F5-E-079",
+        "F5-E-080",
+        "F5-N-020"
+      ]
+    }
+  },
+  "full_T": 1840,
+  "extra_views": 133,
+  "sample_unique_views": 223,
+  "counts": {
+    "evidence": 80,
+    "no_evidence": 20,
+    "status": 10
+  },
+  "population_rates_computed": false
+}
