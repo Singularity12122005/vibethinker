@@ -239,7 +239,7 @@ def render(r):
     if r.get('Q2_snapshot_utc'):lines+=['','快照时间（协调世界时）：'+r['Q2_snapshot_utc']+'；'+r.get('Q2_snapshot_clock','A100系统自报时钟')+'。']
     if r.get('strong_extractor_estimate'):
         e=r['strong_extractor_estimate']
-        lines+=['','## 更强提取器的费用估计（未启动）','',e['basis'],'',
+        lines+=['','## 强提取启动前的费用估计（历史记录）','',e['basis'],'',
             '按[官方标准接口价格](https://developers.openai.com/api/docs/models/gpt-6-astra)估计：每百万未缓存输入10美元、缓存读取1美元、输出50美元。查价日期：2026-10-28。','',
             '|规模|总输入词元|其中缓存读取|输出词元（含推理）|沿对应实测缓存比例／美元|全部输入未缓存／美元|','|---|---:|---:|---:|---:|---:|']
         for v in e['scenarios']:lines.append(f"|{v['label']}|{v['input_tokens']:,.2f}|{v['cached_input_tokens']:,.2f}|{v['output_tokens']:,.2f}|{v['usd_cache_pattern']:.2f}|{v['usd_no_cache']:.2f}|")
@@ -257,8 +257,8 @@ def render(r):
         lines+=['','尚未返回的机器视图明确显示等待，不另行评审；后续只更新阅读表，不覆盖人工填写表。']
     if r.get('review_cost_accounting'):
         a=r['review_cost_accounting']
-        lines+=['','## 本轮消耗分列','',
-            f"主模型已生成{a['main_generation_tokens_unchanged']:,}词元，本次未增加。独立显卡评审模型的修订基线输出{a['revised_baseline_output_tokens']:,}词元，新回答在本轮快照时输出{a['revised_Q2_output_tokens_at_snapshot']:,}词元，第五批修订尚未开始；这些评审输出单列，不混入主模型生成预算。"]
+        lines+=['','## 已登记的消耗快照（历史记录）','',
+            f"主模型已生成{a['main_generation_tokens_unchanged']:,}词元，本次未增加。此前登记的评审用量快照为：修订基线输出{a['revised_baseline_output_tokens']:,}词元，新回答输出{a['revised_Q2_output_tokens_at_snapshot']:,}词元；该用量快照早于第五批修订开始，不表示当前进度。这些评审输出单列，不混入主模型生成预算。"]
         if a.get('new_independent_actual'):
             v=a['new_independent_actual']
             lines+=['',f"本次120回答、240人物视图的独立代理：累计输入{v['input_tokens']:,}词元（其中缓存读取{v.get('cached_input_tokens',0):,}），输出{v['output_tokens']:,}（已含推理{v.get('reasoning_output_tokens',0):,}）。这是完整代理工作流的实际用量，含工具上下文，不是主模型生成，也不等于订阅费用。"]

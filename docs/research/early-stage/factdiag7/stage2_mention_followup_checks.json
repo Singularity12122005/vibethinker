@@ -185,7 +185,7 @@
       "arm": "S+A0",
       "view_type": "A",
       "candidate_type": "F_w",
-      "denominator": 60,
+      "denominator": 240,
       "categories": {
         "INCONSISTENT": 0,
         "MISS_STRICT": 0,
@@ -198,144 +198,144 @@
       "arm": "S+A0",
       "view_type": "A",
       "candidate_type": "X",
-      "denominator": 61,
+      "denominator": 240,
       "categories": {
         "INCONSISTENT": 0,
-        "MISS_STRICT": 0,
+        "MISS_STRICT": 2,
         "MISS_SURNAME": 0,
         "PHANTOM": 0
       },
-      "omissions": 0
+      "omissions": 2
     },
     {
       "arm": "S+A0",
       "view_type": "D",
       "candidate_type": "F_w",
-      "denominator": 60,
+      "denominator": 240,
       "categories": {
         "INCONSISTENT": 0,
-        "MISS_STRICT": 23,
-        "MISS_SURNAME": 0,
-        "PHANTOM": 0
-      },
-      "omissions": 23
-    },
-    {
-      "arm": "S+A0",
-      "view_type": "D",
-      "candidate_type": "X",
-      "denominator": 62,
-      "categories": {
-        "INCONSISTENT": 0,
-        "MISS_STRICT": 7,
-        "MISS_SURNAME": 0,
-        "PHANTOM": 0
-      },
-      "omissions": 7
-    },
-    {
-      "arm": "S+A0",
-      "view_type": "T",
-      "candidate_type": "F_w",
-      "denominator": 60,
-      "categories": {
-        "INCONSISTENT": 0,
-        "MISS_STRICT": 9,
-        "MISS_SURNAME": 0,
-        "PHANTOM": 0
-      },
-      "omissions": 9
-    },
-    {
-      "arm": "S+A0",
-      "view_type": "T",
-      "candidate_type": "X",
-      "denominator": 61,
-      "categories": {
-        "INCONSISTENT": 0,
-        "MISS_STRICT": 3,
-        "MISS_SURNAME": 0,
-        "PHANTOM": 0
-      },
-      "omissions": 3
-    },
-    {
-      "arm": "S+A1",
-      "view_type": "A",
-      "candidate_type": "F_w",
-      "denominator": 60,
-      "categories": {
-        "INCONSISTENT": 0,
-        "MISS_STRICT": 0,
-        "MISS_SURNAME": 0,
-        "PHANTOM": 0
-      },
-      "omissions": 0
-    },
-    {
-      "arm": "S+A1",
-      "view_type": "A",
-      "candidate_type": "X",
-      "denominator": 64,
-      "categories": {
-        "INCONSISTENT": 0,
-        "MISS_STRICT": 0,
-        "MISS_SURNAME": 0,
-        "PHANTOM": 0
-      },
-      "omissions": 0
-    },
-    {
-      "arm": "S+A1",
-      "view_type": "D",
-      "candidate_type": "F_w",
-      "denominator": 60,
-      "categories": {
-        "INCONSISTENT": 0,
-        "MISS_STRICT": 28,
+        "MISS_STRICT": 88,
         "MISS_SURNAME": 1,
         "PHANTOM": 0
       },
-      "omissions": 29
+      "omissions": 89
+    },
+    {
+      "arm": "S+A0",
+      "view_type": "D",
+      "candidate_type": "X",
+      "denominator": 240,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 54,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 54
+    },
+    {
+      "arm": "S+A0",
+      "view_type": "T",
+      "candidate_type": "F_w",
+      "denominator": 240,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 19,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 19
+    },
+    {
+      "arm": "S+A0",
+      "view_type": "T",
+      "candidate_type": "X",
+      "denominator": 240,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 8,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 8
+    },
+    {
+      "arm": "S+A1",
+      "view_type": "A",
+      "candidate_type": "F_w",
+      "denominator": 240,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 0,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 0
+    },
+    {
+      "arm": "S+A1",
+      "view_type": "A",
+      "candidate_type": "X",
+      "denominator": 240,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 0,
+        "MISS_SURNAME": 0,
+        "PHANTOM": 0
+      },
+      "omissions": 0
+    },
+    {
+      "arm": "S+A1",
+      "view_type": "D",
+      "candidate_type": "F_w",
+      "denominator": 240,
+      "categories": {
+        "INCONSISTENT": 0,
+        "MISS_STRICT": 116,
+        "MISS_SURNAME": 4,
+        "PHANTOM": 0
+      },
+      "omissions": 120
     },
     {
       "arm": "S+A1",
       "view_type": "D",
       "candidate_type": "X",
-      "denominator": 64,
+      "denominator": 240,
       "categories": {
         "INCONSISTENT": 0,
-        "MISS_STRICT": 20,
-        "MISS_SURNAME": 0,
+        "MISS_STRICT": 110,
+        "MISS_SURNAME": 1,
         "PHANTOM": 0
       },
-      "omissions": 20
+      "omissions": 111
     },
     {
       "arm": "S+A1",
       "view_type": "T",
       "candidate_type": "F_w",
-      "denominator": 60,
+      "denominator": 240,
       "categories": {
         "INCONSISTENT": 0,
-        "MISS_STRICT": 18,
+        "MISS_STRICT": 44,
         "MISS_SURNAME": 0,
         "PHANTOM": 0
       },
-      "omissions": 18
+      "omissions": 44
     },
     {
       "arm": "S+A1",
       "view_type": "T",
       "candidate_type": "X",
-      "denominator": 64,
+      "denominator": 240,
       "categories": {
         "INCONSISTENT": 0,
-        "MISS_STRICT": 13,
+        "MISS_STRICT": 35,
         "MISS_SURNAME": 0,
         "PHANTOM": 0
       },
-      "omissions": 13
+      "omissions": 35
     }
   ],
   "models": {
@@ -452,20 +452,20 @@
       "X_main": {
         "responses": 90,
         "views": 180,
-        "machine_views_returned": 96,
+        "machine_views_returned": 180,
         "independent_views_returned": 180
       },
       "Fw_optional": {
         "responses": 30,
         "views": 60,
-        "machine_views_returned": 32,
+        "machine_views_returned": 60,
         "independent_views_returned": 60
       }
     },
     "independent_complete": true
   },
-  "Q2_snapshot_utc": "2026-10-28T23:09:00Z",
-  "Q2_snapshot_clock": "协调检查时钟，约至分钟；不以服务器绝对时钟估计完成时间",
+  "Q2_snapshot_utc": "2026-10-29T03:35:47Z",
+  "Q2_snapshot_clock": "协调检查时钟",
   "review_cost_accounting": {
     "main_generation_tokens_unchanged": 520860,
     "GPU_judge_model": "Qwen2.5-32B-Instruct",
@@ -483,5 +483,148 @@
     },
     "new_independent_model": "gpt-6-astra",
     "new_independent_reasoning": "xhigh"
+  },
+  "normalized_quote_completed_phases": {
+    "Q2": {
+      "totals": {
+        "views": 2880,
+        "strict_missing": 548,
+        "normalized_substring_pass": 488,
+        "normalized_eligible": 422,
+        "normalized_still_invalid": 126,
+        "normalized_substring_fail": 60
+      },
+      "strata": [
+        {
+          "view_type": "A",
+          "candidate_type": "F_w",
+          "arm": "S+A0",
+          "views": 240,
+          "strict_missing": 38,
+          "normalized_substring_pass": 36,
+          "normalized_eligible": 33,
+          "normalized_still_invalid": 5,
+          "normalized_substring_fail": 2
+        },
+        {
+          "view_type": "A",
+          "candidate_type": "F_w",
+          "arm": "S+A1",
+          "views": 240,
+          "strict_missing": 88,
+          "normalized_substring_pass": 80,
+          "normalized_eligible": 72,
+          "normalized_still_invalid": 16,
+          "normalized_substring_fail": 8
+        },
+        {
+          "view_type": "A",
+          "candidate_type": "X",
+          "arm": "S+A0",
+          "views": 240,
+          "strict_missing": 64,
+          "normalized_substring_pass": 53,
+          "normalized_eligible": 45,
+          "normalized_substring_fail": 11,
+          "normalized_still_invalid": 19
+        },
+        {
+          "view_type": "A",
+          "candidate_type": "X",
+          "arm": "S+A1",
+          "views": 240,
+          "strict_missing": 92,
+          "normalized_substring_pass": 86,
+          "normalized_eligible": 78,
+          "normalized_substring_fail": 6,
+          "normalized_still_invalid": 14
+        },
+        {
+          "view_type": "D",
+          "candidate_type": "F_w",
+          "arm": "S+A0",
+          "views": 240,
+          "strict_missing": 41,
+          "normalized_substring_fail": 5,
+          "normalized_still_invalid": 10,
+          "normalized_substring_pass": 36,
+          "normalized_eligible": 31
+        },
+        {
+          "view_type": "D",
+          "candidate_type": "F_w",
+          "arm": "S+A1",
+          "views": 240,
+          "strict_missing": 40,
+          "normalized_substring_pass": 35,
+          "normalized_eligible": 30,
+          "normalized_still_invalid": 10,
+          "normalized_substring_fail": 5
+        },
+        {
+          "view_type": "D",
+          "candidate_type": "X",
+          "arm": "S+A0",
+          "views": 240,
+          "strict_missing": 77,
+          "normalized_substring_pass": 59,
+          "normalized_still_invalid": 33,
+          "normalized_eligible": 44,
+          "normalized_substring_fail": 18
+        },
+        {
+          "view_type": "D",
+          "candidate_type": "X",
+          "arm": "S+A1",
+          "views": 240,
+          "strict_missing": 66,
+          "normalized_substring_pass": 66,
+          "normalized_eligible": 60,
+          "normalized_still_invalid": 6
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "F_w",
+          "arm": "S+A0",
+          "views": 240,
+          "strict_missing": 12,
+          "normalized_substring_pass": 10,
+          "normalized_eligible": 8,
+          "normalized_substring_fail": 2,
+          "normalized_still_invalid": 4
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "F_w",
+          "arm": "S+A1",
+          "views": 240,
+          "strict_missing": 4,
+          "normalized_substring_pass": 4,
+          "normalized_eligible": 4
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "X",
+          "arm": "S+A0",
+          "views": 240,
+          "strict_missing": 13,
+          "normalized_substring_pass": 12,
+          "normalized_eligible": 8,
+          "normalized_still_invalid": 5,
+          "normalized_substring_fail": 1
+        },
+        {
+          "view_type": "T",
+          "candidate_type": "X",
+          "arm": "S+A1",
+          "views": 240,
+          "strict_missing": 13,
+          "normalized_substring_fail": 2,
+          "normalized_still_invalid": 4,
+          "normalized_substring_pass": 11,
+          "normalized_eligible": 9
+        }
+      ]
+    }
   }
 }
