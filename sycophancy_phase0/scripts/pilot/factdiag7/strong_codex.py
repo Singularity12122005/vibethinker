@@ -162,6 +162,7 @@ def infer(q,cwd):
 
 
 def run(workspace):
+    sys.stdout.reconfigure(encoding='utf-8');sys.stderr.reconfigure(encoding='utf-8')
     workspace=Path(workspace);work=workspace/'factdiag7-work'/'strong';work.mkdir(exist_ok=True)
     import msvcrt
     lock=(work/'runner.lock').open('a+b');lock.seek(0)
@@ -181,7 +182,9 @@ def run(workspace):
     if not any(m['model']=='gpt-6-astra' for m in models):raise RuntimeError('指定模型未列为可用')
     if safety_stop(balance,balance,[],[]):raise RuntimeError('开跑余额不足')
     ids=remote_json(remote,f"from pathlib import Path\np=json.loads(Path('{BASE}/factdiag7_20261112/stage2_strong_plan.json').read_text())\nprint('RESULT:'+json.dumps([r['id'] for r in p['entries'] if r['layer']==1][:200]))")
-    qs=fetch_inputs(remote,ids)
+    try:qs=fetch_inputs(remote,ids)
+    except Exception:
+        account.close();raise
     if len(qs)!=200 or [q['id'] for q in qs]!=ids:raise RuntimeError('先导输入顺序或数量变化')
     # 真正首次调用之前再次读取，避免把准备工作计入先导余额差。
     limits=account.limits();balance=float(limits['credits']['balance'])
