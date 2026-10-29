@@ -86,28 +86,39 @@ def prepare(pilot):
     return {k:v for k,v in plan.items() if k not in ('entries','reused_ids')}
 
 
-def get_inputs(pilot, ids):
+def get_inputs(pilot, ids, retry_missing=None):
     out=Path(pilot)/'factdiag7_20261112';plan=load(out/PLAN)
     allowed={r['id']:r for r in plan['entries']};queues=build_inputs(pilot)
     bank={q['id']:q for rows in queues.values() for q in rows};saved=load(out/OUTPUT)
     rows=[]
     for key in ids:
-        if key not in allowed or key in saved:raise ValueError('输入未登记或已经返回')
+        if key not in allowed:raise ValueError('输入未登记')
+        if key in saved:
+            old=saved[key]
+            if (key!=retry_missing or old.get('completion')!='attempted_result_missing'
+                    or old.get('attempts')!=1 or old.get('previous_attempts')):
+                raise ValueError('已有结果不属于本次获准的首次缺失重试')
         q=bank[key]
         if q['prompt_sha256']!=allowed[key]['prompt_sha256']:raise ValueError('提示变化')
         rows.append(q)
     return rows
 
 
-def save_result(pilot, key, result):
+def save_result(pilot, key, result, retry_missing=None):
     out=Path(pilot)/'factdiag7_20261112';plan=load(out/PLAN)
     q=next(r for r in plan['entries'] if r['id']==key)
     if result['input_sha256']!=q['input_sha256'] or result['prompt_sha256']!=q['prompt_sha256']:
         raise ValueError('结果错接输入')
     saved=load(out/OUTPUT)
     if key in saved:
-        if saved[key]!=result:raise ValueError('不覆盖已有强提取结果')
-        return
+        old=saved[key]
+        if old==result:return
+        if (key!=retry_missing or old.get('completion')!='attempted_result_missing'
+                or old.get('attempts')!=1 or old.get('previous_attempts')
+                or result.get('attempts')!=2 or not result.get('retry_authorization')):
+            raise ValueError('不覆盖已有强提取结果')
+        # 用户明确批准重试缺失项；保留原失败记录，只让本次返回成为有效结果。
+        result=dict(result,previous_attempts=[old])
     saved[key]=result;atomic_save(out/OUTPUT,saved)
 
 
