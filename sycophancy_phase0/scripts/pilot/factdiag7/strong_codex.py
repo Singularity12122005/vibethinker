@@ -97,13 +97,24 @@ def fetch_inputs(remote,ids):
 from pathlib import Path
 p=Path('{BASE}');sys.path.insert(0,str(p))
 from scripts.pilot.factdiag7.strong_column import get_inputs
-data=base64.b64encode(zlib.compress(json.dumps(get_inputs(p,{ids!r}),ensure_ascii=False).encode())).decode()
+rows=get_inputs(p,{ids!r})
+items={{}};packed=[]
+for q in rows:
+ item=json.dumps(q['item'],ensure_ascii=False,sort_keys=True)
+ h=__import__('hashlib').sha256(item.encode()).hexdigest()
+ items[h]=q['item'];packed.append({{**{{k:v for k,v in q.items() if k!='item'}},'item_ref':h}})
+data=base64.b64encode(zlib.compress(json.dumps({{'items':items,'rows':packed}},ensure_ascii=False).encode())).decode()
 """
     n=remote_json(remote,setup+"print('RESULT:'+json.dumps(len(data)))")
+    print(json.dumps(dict(stage='读取固定输入',transfer_chunks=(n+17999)//18000),ensure_ascii=False),flush=True)
     parts=[]
     for off in range(0,n,18000):
         parts.append(remote_json(remote,setup+f"print('RESULT:'+json.dumps(data[{off}:{off+18000}]))"))
-    return json.loads(zlib.decompress(base64.b64decode(''.join(parts))))
+    packed=json.loads(zlib.decompress(base64.b64decode(''.join(parts))))
+    rows=[]
+    for q in packed['rows']:
+        item=packed['items'][q.pop('item_ref')];rows.append(dict(q,item=item))
+    return rows
 
 
 def save_remote(remote,q,value):
@@ -171,6 +182,7 @@ def run(workspace):
     if safety_stop(balance,balance,[],[]):raise RuntimeError('开跑余额不足')
     ids=remote_json(remote,f"from pathlib import Path\np=json.loads(Path('{BASE}/factdiag7_20261112/stage2_strong_plan.json').read_text())\nprint('RESULT:'+json.dumps([r['id'] for r in p['entries'] if r['layer']==1][:200]))")
     qs=fetch_inputs(remote,ids)
+    if len(qs)!=200 or [q['id'] for q in qs]!=ids:raise RuntimeError('先导输入顺序或数量变化')
     # 真正首次调用之前再次读取，避免把准备工作计入先导余额差。
     limits=account.limits();balance=float(limits['credits']['balance'])
     record(dict(type='pilot_start',login='ChatGPT',api_key_present=False,limits=limits,model='gpt-6-astra',views=200))
