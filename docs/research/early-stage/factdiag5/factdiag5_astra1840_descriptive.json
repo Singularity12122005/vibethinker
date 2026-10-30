@@ -1,0 +1,5024 @@
+{
+  "status": "完成；机器描述量，人工校准未通过，不放行总体事实结论",
+  "integrity": {
+    "counts": {
+      "batch5_subset": 133,
+      "batch5_T": 1840
+    },
+    "unique_full_responses": 1840,
+    "all_attempts_one": true,
+    "all_bindings_match": true,
+    "source_texts_match": true,
+    "template_matches": true,
+    "runtime_config_matches": true,
+    "runtime_versions": [
+      {
+        "cli_version": "0.165.0-alpha.1.2",
+        "service_tier": "default",
+        "temperature": null,
+        "max_output_tokens": null,
+        "n": 1973
+      }
+    ],
+    "parse_status": {
+      "OK": 1840
+    },
+    "validity": {
+      "views_with_extraction_flags": 0,
+      "views_with_claim_flags": 67,
+      "generation_technical_failure": 0
+    },
+    "extraction_flags": {}
+  },
+  "usage": {
+    "batch5_subset": {
+      "input_tokens": 1742599,
+      "cached_input_tokens": 680960,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 123364,
+      "reasoning_output_tokens": 86900
+    },
+    "batch5_T": {
+      "input_tokens": 24646650,
+      "cached_input_tokens": 14048256,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1608137,
+      "reasoning_output_tokens": 1037935
+    }
+  },
+  "groups": {
+    "5.5|F-D|none": {
+      "n": 156,
+      "candidate_is_T": 156,
+      "challenge_covered": 0,
+      "status": {
+        "VERIFIED": 80,
+        "CONTRADICTION_FOUND": 76
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 0,
+          "negative": 97,
+          "unknown": 59,
+          "histories": 39,
+          "works": 6,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.3608630952380953
+            ],
+            "outer95": [
+              0.0,
+              0.5387648809523805
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.3782051282051282
+            ],
+            "outer95": [
+              0.0,
+              0.578125
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 112,
+          "unknown": 44,
+          "histories": 39,
+          "works": 6,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.2819940476190476
+            ],
+            "outer95": [
+              0.0,
+              0.3958333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.28205128205128205
+            ],
+            "outer95": [
+              0.0,
+              0.41346153846153844
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 0,
+          "negative": 136,
+          "unknown": 20,
+          "histories": 39,
+          "works": 6,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.10788690476190477
+            ],
+            "outer95": [
+              0.0,
+              0.2224702380952381
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.1282051282051282
+            ],
+            "outer95": [
+              0.0,
+              0.23917069243156178
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 128,
+          "negative": 28,
+          "unknown": 0,
+          "histories": 39,
+          "works": 6,
+          "work_equal": {
+            "bounds": [
+              0.7715773809523809,
+              0.7715773809523809
+            ],
+            "outer95": [
+              0.6205357142857143,
+              0.9226190476190476
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.8205128205128205,
+              0.8205128205128205
+            ],
+            "outer95": [
+              0.6640625,
+              0.95625
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 97,
+          "negative": 59,
+          "unknown": 0,
+          "histories": 39,
+          "works": 6,
+          "work_equal": {
+            "bounds": [
+              0.6845238095238094,
+              0.6845238095238094
+            ],
+            "outer95": [
+              0.41592261904761907,
+              0.9032738095238096
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.6217948717948718,
+              0.6217948717948718
+            ],
+            "outer95": [
+              0.3382352941176471,
+              0.8717948717948718
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 46,
+          "negative": 110,
+          "unknown": 0,
+          "histories": 39,
+          "works": 6,
+          "work_equal": {
+            "bounds": [
+              0.2418154761904762,
+              0.2418154761904762
+            ],
+            "outer95": [
+              0.03571428571428571,
+              0.5052083333333334
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.2948717948717949,
+              0.2948717948717949
+            ],
+            "outer95": [
+              0.051107954545454554,
+              0.5792682926829268
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 50,
+          "negative": 106,
+          "unknown": 0,
+          "histories": 39,
+          "works": 6,
+          "work_equal": {
+            "bounds": [
+              0.26264880952380953,
+              0.26264880952380953
+            ],
+            "outer95": [
+              0.03571428571428571,
+              0.5520833333333334
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.32051282051282054,
+              0.32051282051282054
+            ],
+            "outer95": [
+              0.051107954545454554,
+              0.6382978723404256
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 156,
+          "histories": 39,
+          "works": 6,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "5.5|R-S|none": {
+      "n": 120,
+      "candidate_is_T": 120,
+      "challenge_covered": 0,
+      "status": {
+        "VERIFIED": 103,
+        "CONTRADICTION_FOUND": 17
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 4,
+          "negative": 103,
+          "unknown": 13,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.03333333333333333,
+              0.14166666666666666
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.20833333333333331
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.03333333333333333,
+              0.14166666666666666
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.20833333333333334
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 107,
+          "unknown": 13,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.10833333333333332
+            ],
+            "outer95": [
+              0.0,
+              0.16666666666666669
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.10833333333333334
+            ],
+            "outer95": [
+              0.0,
+              0.16666666666666666
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 4,
+          "negative": 116,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.03333333333333333,
+              0.03333333333333333
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.05833333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.03333333333333333,
+              0.03333333333333333
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.058333333333333334
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 70,
+          "negative": 50,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.5833333333333334,
+              0.5833333333333334
+            ],
+            "outer95": [
+              0.3916666666666667,
+              0.7500000000000001
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.5833333333333334,
+              0.5833333333333334
+            ],
+            "outer95": [
+              0.39166666666666666,
+              0.75
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 98,
+          "negative": 22,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.8166666666666667,
+              0.8166666666666667
+            ],
+            "outer95": [
+              0.7,
+              0.9166666666666667
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.8166666666666667,
+              0.8166666666666667
+            ],
+            "outer95": [
+              0.7,
+              0.9166666666666666
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 10,
+          "negative": 110,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.08333333333333334,
+              0.08333333333333334
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.17500000000000002
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.08333333333333333,
+              0.08333333333333333
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.175
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 13,
+          "negative": 107,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.10833333333333332,
+              0.10833333333333332
+            ],
+            "outer95": [
+              0.041666666666666664,
+              0.19166666666666665
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.10833333333333334,
+              0.10833333333333334
+            ],
+            "outer95": [
+              0.041666666666666664,
+              0.19166666666666668
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 120,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "5.5|S_T|none": {
+      "n": 124,
+      "candidate_is_T": 0,
+      "challenge_covered": 0,
+      "status": {
+        "CONTRADICTION_FOUND": 66,
+        "VERIFIED": 58
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 0,
+          "negative": 95,
+          "unknown": 29,
+          "histories": 31,
+          "works": 7,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.26785714285714285
+            ],
+            "outer95": [
+              0.0,
+              0.41086309523809444
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.23387096774193547
+            ],
+            "outer95": [
+              0.0,
+              0.38461538461538464
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 117,
+          "unknown": 7,
+          "histories": 31,
+          "works": 7,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.041666666666666664
+            ],
+            "outer95": [
+              0.0,
+              0.08928571428571427
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.056451612903225805
+            ],
+            "outer95": [
+              0.0,
+              0.0967741935483871
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 0,
+          "negative": 102,
+          "unknown": 22,
+          "histories": 31,
+          "works": 7,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.2261904761904762
+            ],
+            "outer95": [
+              0.0,
+              0.375
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.1774193548387097
+            ],
+            "outer95": [
+              0.0,
+              0.32258904569892466
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 102,
+          "negative": 22,
+          "unknown": 0,
+          "histories": 31,
+          "works": 7,
+          "work_equal": {
+            "bounds": [
+              0.8333333333333333,
+              0.8333333333333333
+            ],
+            "outer95": [
+              0.7261904761904762,
+              0.9226190476190477
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.8225806451612904,
+              0.8225806451612904
+            ],
+            "outer95": [
+              0.7299791666666666,
+              0.9051724137931034
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 57,
+          "negative": 67,
+          "unknown": 0,
+          "histories": 31,
+          "works": 7,
+          "work_equal": {
+            "bounds": [
+              0.3392857142857143,
+              0.3392857142857143
+            ],
+            "outer95": [
+              0.07738095238095237,
+              0.625
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.4596774193548387,
+              0.4596774193548387
+            ],
+            "outer95": [
+              0.17174479166666667,
+              0.7023995535714285
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 37,
+          "negative": 87,
+          "unknown": 0,
+          "histories": 31,
+          "works": 7,
+          "work_equal": {
+            "bounds": [
+              0.3392857142857143,
+              0.3392857142857143
+            ],
+            "outer95": [
+              0.11904761904761905,
+              0.5595238095238095
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.29838709677419356,
+              0.29838709677419356
+            ],
+            "outer95": [
+              0.10416666666666667,
+              0.5089285714285714
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 67,
+          "negative": 57,
+          "unknown": 0,
+          "histories": 31,
+          "works": 7,
+          "work_equal": {
+            "bounds": [
+              0.6607142857142857,
+              0.6607142857142857
+            ],
+            "outer95": [
+              0.375,
+              0.9226190476190476
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.5403225806451613,
+              0.5403225806451613
+            ],
+            "outer95": [
+              0.2976004464285714,
+              0.8282552083333327
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 124,
+          "histories": 31,
+          "works": 7,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "E-false|R-S|A1": {
+      "n": 120,
+      "candidate_is_T": 120,
+      "challenge_covered": 120,
+      "status": {
+        "NOT_APPLICABLE": 120
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 32,
+          "negative": 44,
+          "unknown": 44,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.26666666666666666,
+              0.6333333333333334
+            ],
+            "outer95": [
+              0.15,
+              0.75
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.26666666666666666,
+              0.6333333333333333
+            ],
+            "outer95": [
+              0.15,
+              0.75
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 98,
+          "unknown": 22,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.18333333333333332
+            ],
+            "outer95": [
+              0.0,
+              0.2833333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.18333333333333332
+            ],
+            "outer95": [
+              0.0,
+              0.2833333333333333
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 32,
+          "negative": 57,
+          "unknown": 31,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.26666666666666666,
+              0.525
+            ],
+            "outer95": [
+              0.15,
+              0.6666666666666667
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.26666666666666666,
+              0.525
+            ],
+            "outer95": [
+              0.15,
+              0.6666666666666666
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 7,
+          "negative": 113,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.05833333333333333,
+              0.05833333333333333
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.11666666666666665
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.058333333333333334,
+              0.058333333333333334
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.11666666666666667
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 102,
+          "negative": 18,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.8500000000000002,
+              0.8500000000000002
+            ],
+            "outer95": [
+              0.7916666666666667,
+              0.9083333333333332
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.85,
+              0.85
+            ],
+            "outer95": [
+              0.7916666666666666,
+              0.9083333333333333
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 2,
+          "negative": 118,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.016666666666666666,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.041666666666666664
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.016666666666666666,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.041666666666666664
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 68,
+          "negative": 52,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.5666666666666667,
+              0.5666666666666667
+            ],
+            "outer95": [
+              0.4833333333333333,
+              0.6583333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.5666666666666667,
+              0.5666666666666667
+            ],
+            "outer95": [
+              0.48333333333333334,
+              0.6583333333333333
+            ]
+          }
+        }
+      }
+    },
+    "E-false|R-S|none": {
+      "n": 120,
+      "candidate_is_T": 120,
+      "challenge_covered": 120,
+      "status": {
+        "NOT_APPLICABLE": 120
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 61,
+          "negative": 13,
+          "unknown": 46,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.5083333333333333,
+              0.8916666666666668
+            ],
+            "outer95": [
+              0.3833333333333333,
+              0.9583333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.5083333333333333,
+              0.8916666666666667
+            ],
+            "outer95": [
+              0.38333333333333336,
+              0.9583333333333334
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 69,
+          "unknown": 51,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.425
+            ],
+            "outer95": [
+              0.0,
+              0.625
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.425
+            ],
+            "outer95": [
+              0.0,
+              0.625
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 61,
+          "negative": 27,
+          "unknown": 32,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.5083333333333333,
+              0.775
+            ],
+            "outer95": [
+              0.3833333333333333,
+              0.875
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.5083333333333333,
+              0.775
+            ],
+            "outer95": [
+              0.38333333333333336,
+              0.875
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 54,
+          "negative": 66,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.45,
+              0.45
+            ],
+            "outer95": [
+              0.275,
+              0.6250000000000001
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.45,
+              0.45
+            ],
+            "outer95": [
+              0.275,
+              0.625
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 106,
+          "negative": 14,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.8833333333333334,
+              0.8833333333333334
+            ],
+            "outer95": [
+              0.7999999999999999,
+              0.95
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.8833333333333333,
+              0.8833333333333333
+            ],
+            "outer95": [
+              0.8,
+              0.95
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 67,
+          "negative": 53,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.5583333333333333,
+              0.5583333333333333
+            ],
+            "outer95": [
+              0.3916666666666667,
+              0.7083333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.5583333333333333,
+              0.5583333333333333
+            ],
+            "outer95": [
+              0.39166666666666666,
+              0.7083333333333334
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 37,
+          "negative": 83,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.3083333333333333,
+              0.3083333333333333
+            ],
+            "outer95": [
+              0.16666666666666666,
+              0.4749999999999999
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.30833333333333335,
+              0.30833333333333335
+            ],
+            "outer95": [
+              0.16666666666666666,
+              0.475
+            ]
+          }
+        }
+      }
+    },
+    "E-inapp|R-S|A1": {
+      "n": 240,
+      "candidate_is_T": 240,
+      "challenge_covered": 0,
+      "status": {
+        "NOT_APPLICABLE": 240
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 0,
+          "negative": 234,
+          "unknown": 6,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.025
+            ],
+            "outer95": [
+              0.0,
+              0.07083333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.025
+            ],
+            "outer95": [
+              0.0,
+              0.07083333333333333
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 234,
+          "unknown": 6,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.025
+            ],
+            "outer95": [
+              0.0,
+              0.07083333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.025
+            ],
+            "outer95": [
+              0.0,
+              0.07083333333333333
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 240,
+          "negative": 0,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 240,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "E-inapp|R-S|none": {
+      "n": 240,
+      "candidate_is_T": 240,
+      "challenge_covered": 0,
+      "status": {
+        "NOT_APPLICABLE": 240
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 2,
+          "negative": 233,
+          "unknown": 5,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.029166666666666664
+            ],
+            "outer95": [
+              0.0,
+              0.06666666666666667
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.029166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.06666666666666667
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 236,
+          "unknown": 4,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.04583333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.04583333333333333
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 2,
+          "negative": 236,
+          "unknown": 2,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.03333333333333334
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.03333333333333333
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 80,
+          "negative": 160,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "outer95": [
+              0.16249999999999998,
+              0.5291666666666667
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "outer95": [
+              0.1625,
+              0.5291666666666667
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 240,
+          "negative": 0,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 18,
+          "negative": 222,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.075,
+              0.075
+            ],
+            "outer95": [
+              0.025,
+              0.14583333333333331
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.075,
+              0.075
+            ],
+            "outer95": [
+              0.025,
+              0.14583333333333334
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 240,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "M-right|R-S|A1": {
+      "n": 120,
+      "candidate_is_T": 120,
+      "challenge_covered": 0,
+      "status": {
+        "NOT_APPLICABLE": 120
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 4,
+          "negative": 116,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.03333333333333333,
+              0.03333333333333333
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.05833333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.03333333333333333,
+              0.03333333333333333
+            ],
+            "outer95": [
+              0.008333333333333333,
+              0.058333333333333334
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 119,
+          "negative": 1,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.9916666666666666,
+              0.9916666666666666
+            ],
+            "outer95": [
+              0.975,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.9916666666666667,
+              0.9916666666666667
+            ],
+            "outer95": [
+              0.975,
+              1.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 120,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "M-right|R-S|none": {
+      "n": 120,
+      "candidate_is_T": 120,
+      "challenge_covered": 0,
+      "status": {
+        "NOT_APPLICABLE": 120
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 18,
+          "negative": 102,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.14999999999999997,
+              0.14999999999999997
+            ],
+            "outer95": [
+              0.07499999999999998,
+              0.2333333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.15,
+              0.15
+            ],
+            "outer95": [
+              0.075,
+              0.23333333333333334
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 120,
+          "negative": 0,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 0,
+          "negative": 120,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 120,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "M-wrong|R-S|A1": {
+      "n": 240,
+      "candidate_is_T": 240,
+      "challenge_covered": 0,
+      "status": {
+        "NOT_APPLICABLE": 240
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 0,
+          "negative": 239,
+          "unknown": 1,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.004166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.0125
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.004166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.0125
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 239,
+          "unknown": 1,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.004166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.0125
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.004166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.0125
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 240,
+          "negative": 0,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 240,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "M-wrong|R-S|none": {
+      "n": 240,
+      "candidate_is_T": 240,
+      "challenge_covered": 0,
+      "status": {
+        "NOT_APPLICABLE": 240
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 0,
+          "negative": 238,
+          "unknown": 2,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 238,
+          "unknown": 2,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 24,
+          "negative": 216,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.09999999999999999,
+              0.09999999999999999
+            ],
+            "outer95": [
+              0.0125,
+              0.19583333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.1,
+              0.1
+            ],
+            "outer95": [
+              0.0125,
+              0.19583333333333333
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 240,
+          "negative": 0,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 240,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    }
+  },
+  "pooled_evidence": {
+    "M-wrong": {
+      "n": 480,
+      "candidate_is_T": 480,
+      "challenge_covered": 0,
+      "status": {
+        "NOT_APPLICABLE": 480
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 0,
+          "negative": 477,
+          "unknown": 3,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.00625
+            ],
+            "outer95": [
+              0.0,
+              0.014583333333333334
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.00625
+            ],
+            "outer95": [
+              0.0,
+              0.014583333333333334
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 477,
+          "unknown": 3,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.00625
+            ],
+            "outer95": [
+              0.0,
+              0.014583333333333334
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.00625
+            ],
+            "outer95": [
+              0.0,
+              0.014583333333333334
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 0,
+          "negative": 480,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 24,
+          "negative": 456,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.049999999999999996,
+              0.049999999999999996
+            ],
+            "outer95": [
+              0.00625,
+              0.09791666666666667
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.05,
+              0.05
+            ],
+            "outer95": [
+              0.00625,
+              0.09791666666666667
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 480,
+          "negative": 0,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 480,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 0,
+          "negative": 480,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 480,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "M-right": {
+      "n": 240,
+      "candidate_is_T": 240,
+      "challenge_covered": 0,
+      "status": {
+        "NOT_APPLICABLE": 240
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 22,
+          "negative": 218,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.09166666666666666,
+              0.09166666666666666
+            ],
+            "outer95": [
+              0.049999999999999996,
+              0.13749999999999998
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.09166666666666666,
+              0.09166666666666666
+            ],
+            "outer95": [
+              0.05,
+              0.1375
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 239,
+          "negative": 1,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.9958333333333333,
+              0.9958333333333333
+            ],
+            "outer95": [
+              0.9875,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.9958333333333333,
+              0.9958333333333333
+            ],
+            "outer95": [
+              0.9875,
+              1.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 0,
+          "negative": 240,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 240,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "E-inapp": {
+      "n": 480,
+      "candidate_is_T": 480,
+      "challenge_covered": 0,
+      "status": {
+        "NOT_APPLICABLE": 480
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 2,
+          "negative": 467,
+          "unknown": 11,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.004166666666666667,
+              0.027083333333333338
+            ],
+            "outer95": [
+              0.0,
+              0.06666666666666668
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.004166666666666667,
+              0.027083333333333334
+            ],
+            "outer95": [
+              0.0,
+              0.06666666666666667
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 470,
+          "unknown": 10,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.020833333333333332
+            ],
+            "outer95": [
+              0.0,
+              0.05833333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.020833333333333332
+            ],
+            "outer95": [
+              0.0,
+              0.058333333333333334
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 2,
+          "negative": 476,
+          "unknown": 2,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.004166666666666667,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.01666666666666667
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.004166666666666667,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.016666666666666666
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 80,
+          "negative": 400,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.16666666666666666,
+              0.16666666666666666
+            ],
+            "outer95": [
+              0.08124999999999999,
+              0.26458333333333334
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.16666666666666666,
+              0.16666666666666666
+            ],
+            "outer95": [
+              0.08125,
+              0.26458333333333334
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 480,
+          "negative": 0,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              1.0,
+              1.0
+            ],
+            "outer95": [
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 0,
+          "negative": 480,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 18,
+          "negative": 462,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0375,
+              0.0375
+            ],
+            "outer95": [
+              0.0125,
+              0.07291666666666666
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0375,
+              0.0375
+            ],
+            "outer95": [
+              0.0125,
+              0.07291666666666667
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 0,
+          "negative": 0,
+          "unknown": 480,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              1.0
+            ],
+            "outer95": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "E-false": {
+      "n": 240,
+      "candidate_is_T": 240,
+      "challenge_covered": 240,
+      "status": {
+        "NOT_APPLICABLE": 240
+      },
+      "metrics": {
+        "W_false": {
+          "positive": 93,
+          "negative": 57,
+          "unknown": 90,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.38749999999999996,
+              0.7625
+            ],
+            "outer95": [
+              0.2708333333333333,
+              0.8416666666666668
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.3875,
+              0.7625
+            ],
+            "outer95": [
+              0.2708333333333333,
+              0.8416666666666667
+            ]
+          }
+        },
+        "W_side": {
+          "positive": 0,
+          "negative": 167,
+          "unknown": 73,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.3041666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.4376041666666661
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.30416666666666664
+            ],
+            "outer95": [
+              0.0,
+              0.4376041666666661
+            ]
+          }
+        },
+        "W_target": {
+          "positive": 93,
+          "negative": 84,
+          "unknown": 63,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.38749999999999996,
+              0.65
+            ],
+            "outer95": [
+              0.2708333333333333,
+              0.7500000000000001
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.3875,
+              0.65
+            ],
+            "outer95": [
+              0.2708333333333333,
+              0.75
+            ]
+          }
+        },
+        "V_ext": {
+          "positive": 61,
+          "negative": 179,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.2541666666666667,
+              0.2541666666666667
+            ],
+            "outer95": [
+              0.15000000000000002,
+              0.3625
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.25416666666666665,
+              0.25416666666666665
+            ],
+            "outer95": [
+              0.15,
+              0.3625
+            ]
+          }
+        },
+        "adopt_T": {
+          "positive": 208,
+          "negative": 32,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.8666666666666666,
+              0.8666666666666666
+            ],
+            "outer95": [
+              0.8083333333333333,
+              0.9167708333333329
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.8666666666666667,
+              0.8666666666666667
+            ],
+            "outer95": [
+              0.8083333333333333,
+              0.9167708333333328
+            ]
+          }
+        },
+        "false_deny_T": {
+          "positive": 2,
+          "negative": 238,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          }
+        },
+        "answer_wrong": {
+          "positive": 67,
+          "negative": 173,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.2791666666666667,
+              0.2791666666666667
+            ],
+            "outer95": [
+              0.19583333333333336,
+              0.35416666666666663
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.2791666666666667,
+              0.2791666666666667
+            ],
+            "outer95": [
+              0.19583333333333333,
+              0.3541666666666667
+            ]
+          }
+        },
+        "challenge_old": {
+          "positive": 105,
+          "negative": 135,
+          "unknown": 0,
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.4374999999999999,
+              0.4374999999999999
+            ],
+            "outer95": [
+              0.3333333333333333,
+              0.5583333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.4375,
+              0.4375
+            ],
+            "outer95": [
+              0.3333333333333333,
+              0.5583333333333333
+            ]
+          }
+        }
+      }
+    }
+  },
+  "contrasts": [
+    {
+      "left": "M-wrong",
+      "right": "M-right",
+      "arm": "none",
+      "left_histories": 60,
+      "right_histories": 60,
+      "paired_histories": 60,
+      "left_unpaired": 0,
+      "right_unpaired": 0,
+      "metrics": {
+        "W_false": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          }
+        },
+        "W_side": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.020833333333333332
+            ]
+          }
+        },
+        "W_target": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.049999999999999996,
+              -0.049999999999999996
+            ],
+            "outer95": [
+              -0.15416666666666665,
+              0.04583333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.05,
+              -0.05
+            ],
+            "outer95": [
+              -0.15416666666666667,
+              0.04583333333333333
+            ]
+          }
+        },
+        "adopt_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "left": "M-wrong",
+      "right": "M-right",
+      "arm": "A1",
+      "left_histories": 60,
+      "right_histories": 60,
+      "paired_histories": 60,
+      "left_unpaired": 0,
+      "right_unpaired": 0,
+      "metrics": {
+        "W_false": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.004166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.0125
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.004166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.0125
+            ]
+          }
+        },
+        "W_side": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.004166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.0125
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.004166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.0125
+            ]
+          }
+        },
+        "W_target": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.03333333333333333,
+              -0.03333333333333333
+            ],
+            "outer95": [
+              -0.05833333333333333,
+              -0.008333333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.03333333333333333,
+              -0.03333333333333333
+            ],
+            "outer95": [
+              -0.058333333333333334,
+              -0.008333333333333333
+            ]
+          }
+        },
+        "adopt_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.025
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.025
+            ]
+          }
+        },
+        "false_deny_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "left": "E-inapp",
+      "right": "M-right",
+      "arm": "none",
+      "left_histories": 60,
+      "right_histories": 60,
+      "paired_histories": 60,
+      "left_unpaired": 0,
+      "right_unpaired": 0,
+      "metrics": {
+        "W_false": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.029166666666666664
+            ],
+            "outer95": [
+              0.0,
+              0.06666666666666667
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.029166666666666667
+            ],
+            "outer95": [
+              0.0,
+              0.06666666666666667
+            ]
+          }
+        },
+        "W_side": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.04583333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.04583333333333333
+            ]
+          }
+        },
+        "W_target": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.03333333333333334
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.03333333333333333
+            ]
+          }
+        },
+        "V_ext": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.18333333333333335,
+              0.18333333333333335
+            ],
+            "outer95": [
+              0.01666666666666667,
+              0.35833333333333334
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.18333333333333332,
+              0.18333333333333332
+            ],
+            "outer95": [
+              0.016666666666666666,
+              0.35833333333333334
+            ]
+          }
+        },
+        "adopt_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.075,
+              0.075
+            ],
+            "outer95": [
+              0.025,
+              0.14583333333333331
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.075,
+              0.075
+            ],
+            "outer95": [
+              0.025,
+              0.14583333333333334
+            ]
+          }
+        }
+      }
+    },
+    {
+      "left": "E-inapp",
+      "right": "M-right",
+      "arm": "A1",
+      "left_histories": 60,
+      "right_histories": 60,
+      "paired_histories": 60,
+      "left_unpaired": 0,
+      "right_unpaired": 0,
+      "metrics": {
+        "W_false": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.025
+            ],
+            "outer95": [
+              0.0,
+              0.07083333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.025
+            ],
+            "outer95": [
+              0.0,
+              0.07083333333333333
+            ]
+          }
+        },
+        "W_side": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.025
+            ],
+            "outer95": [
+              0.0,
+              0.07083333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.025
+            ],
+            "outer95": [
+              0.0,
+              0.07083333333333333
+            ]
+          }
+        },
+        "W_target": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.03333333333333333,
+              -0.03333333333333333
+            ],
+            "outer95": [
+              -0.05833333333333333,
+              -0.008333333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.03333333333333333,
+              -0.03333333333333333
+            ],
+            "outer95": [
+              -0.058333333333333334,
+              -0.008333333333333333
+            ]
+          }
+        },
+        "adopt_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.025
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.008333333333333333,
+              0.008333333333333333
+            ],
+            "outer95": [
+              0.0,
+              0.025
+            ]
+          }
+        },
+        "false_deny_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "left": "A1",
+      "right": "none",
+      "cell": "M-wrong",
+      "paired_histories": 60,
+      "metrics": {
+        "W_false": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.008333333333333333,
+              0.004166666666666667
+            ],
+            "outer95": [
+              -0.020833333333333332,
+              0.0125
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.008333333333333333,
+              0.004166666666666667
+            ],
+            "outer95": [
+              -0.020833333333333332,
+              0.0125
+            ]
+          }
+        },
+        "W_side": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.008333333333333333,
+              0.004166666666666667
+            ],
+            "outer95": [
+              -0.020833333333333332,
+              0.0125
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.008333333333333333,
+              0.004166666666666667
+            ],
+            "outer95": [
+              -0.020833333333333332,
+              0.0125
+            ]
+          }
+        },
+        "W_target": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.09999999999999999,
+              -0.09999999999999999
+            ],
+            "outer95": [
+              -0.19583333333333333,
+              -0.0125
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.1,
+              -0.1
+            ],
+            "outer95": [
+              -0.19583333333333333,
+              -0.0125
+            ]
+          }
+        },
+        "adopt_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "left": "A1",
+      "right": "none",
+      "cell": "M-right",
+      "paired_histories": 60,
+      "metrics": {
+        "W_false": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "W_side": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "W_target": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.11666666666666665,
+              -0.11666666666666665
+            ],
+            "outer95": [
+              -0.20833333333333331,
+              -0.03333333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.11666666666666667,
+              -0.11666666666666667
+            ],
+            "outer95": [
+              -0.20833333333333334,
+              -0.03333333333333333
+            ]
+          }
+        },
+        "adopt_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.008333333333333333,
+              -0.008333333333333333
+            ],
+            "outer95": [
+              -0.025,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.008333333333333333,
+              -0.008333333333333333
+            ],
+            "outer95": [
+              -0.025,
+              0.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "left": "A1",
+      "right": "none",
+      "cell": "E-inapp",
+      "paired_histories": 60,
+      "metrics": {
+        "W_false": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.029166666666666664,
+              0.016666666666666666
+            ],
+            "outer95": [
+              -0.06666666666666667,
+              0.05416666666666666
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.029166666666666667,
+              0.016666666666666666
+            ],
+            "outer95": [
+              -0.06666666666666667,
+              0.05416666666666667
+            ]
+          }
+        },
+        "W_side": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.016666666666666666,
+              0.025
+            ],
+            "outer95": [
+              -0.04583333333333333,
+              0.07083333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.016666666666666666,
+              0.025
+            ],
+            "outer95": [
+              -0.04583333333333333,
+              0.07083333333333333
+            ]
+          }
+        },
+        "W_target": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.016666666666666666,
+              -0.008333333333333333
+            ],
+            "outer95": [
+              -0.03333333333333334,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.016666666666666666,
+              -0.008333333333333333
+            ],
+            "outer95": [
+              -0.03333333333333333,
+              0.0
+            ]
+          }
+        },
+        "V_ext": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.3333333333333333,
+              -0.3333333333333333
+            ],
+            "outer95": [
+              -0.5291666666666667,
+              -0.16249999999999998
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.3333333333333333,
+              -0.3333333333333333
+            ],
+            "outer95": [
+              -0.5291666666666667,
+              -0.1625
+            ]
+          }
+        },
+        "adopt_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "false_deny_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.0,
+              0.0
+            ],
+            "outer95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "answer_wrong": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.075,
+              -0.075
+            ],
+            "outer95": [
+              -0.14583333333333331,
+              -0.025
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.075,
+              -0.075
+            ],
+            "outer95": [
+              -0.14583333333333334,
+              -0.025
+            ]
+          }
+        }
+      }
+    },
+    {
+      "left": "A1",
+      "right": "none",
+      "cell": "E-false",
+      "paired_histories": 60,
+      "metrics": {
+        "W_false": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.625,
+              0.125
+            ],
+            "outer95": [
+              -0.7416666666666666,
+              0.26666666666666666
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.625,
+              0.125
+            ],
+            "outer95": [
+              -0.7416666666666667,
+              0.26666666666666666
+            ]
+          }
+        },
+        "W_side": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.425,
+              0.18333333333333332
+            ],
+            "outer95": [
+              -0.625,
+              0.2833333333333333
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.425,
+              0.18333333333333332
+            ],
+            "outer95": [
+              -0.625,
+              0.2833333333333333
+            ]
+          }
+        },
+        "W_target": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.5083333333333333,
+              0.01666666666666667
+            ],
+            "outer95": [
+              -0.6083333333333334,
+              0.14166666666666666
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.5083333333333333,
+              0.016666666666666666
+            ],
+            "outer95": [
+              -0.6083333333333333,
+              0.14166666666666666
+            ]
+          }
+        },
+        "V_ext": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.39166666666666666,
+              -0.39166666666666666
+            ],
+            "outer95": [
+              -0.55,
+              -0.25
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.39166666666666666,
+              -0.39166666666666666
+            ],
+            "outer95": [
+              -0.55,
+              -0.25
+            ]
+          }
+        },
+        "adopt_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.033333333333333326,
+              -0.033333333333333326
+            ],
+            "outer95": [
+              -0.10833333333333332,
+              0.05
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.03333333333333333,
+              -0.03333333333333333
+            ],
+            "outer95": [
+              -0.10833333333333334,
+              0.05
+            ]
+          }
+        },
+        "false_deny_T": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              0.016666666666666666,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.041666666666666664
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              0.016666666666666666,
+              0.016666666666666666
+            ],
+            "outer95": [
+              0.0,
+              0.041666666666666664
+            ]
+          }
+        },
+        "answer_wrong": {
+          "histories": 60,
+          "works": 10,
+          "work_equal": {
+            "bounds": [
+              -0.5583333333333333,
+              -0.5583333333333333
+            ],
+            "outer95": [
+              -0.7083333333333333,
+              -0.3916666666666667
+            ]
+          },
+          "history_equal": {
+            "bounds": [
+              -0.5583333333333333,
+              -0.5583333333333333
+            ],
+            "outer95": [
+              -0.7083333333333334,
+              -0.39166666666666666
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "not_assessed": [
+    "全量D不等于T的D关系",
+    "全量第三方关系",
+    "全量末行状态与正文的语义一致性",
+    "全量无证据T参照；此比较复用人工20对"
+  ],
+  "method": "单回答事件保留未知上下界；同历史先平均续写，再作品等权，历史等权并列；作品簇重抽2000次。状态为既有机械解析；证据质疑为旧评审，缺测不计0。",
+  "local_execution": {
+    "unique_dispatches": 1973,
+    "unique_returns": 1973,
+    "last_result_utc": "2026-10-30T19:38:44.337284+00:00",
+    "summary_status": "extraction_complete_waiting_full110_review",
+    "stop_reason": null,
+    "account_start": {
+      "credits_balance": "15750.9227325000",
+      "quota_used_percent": 52
+    },
+    "account_end": {
+      "credits_balance": "15750.9227325000",
+      "quota_used_percent": 94
+    },
+    "account_cost_note": "账号余额及额度含其他任务；余额差不是本队列独立账单。"
+  },
+  "human110_calibration": {
+    "W_false": {
+      "n": 110,
+      "matches": 84,
+      "conservative": 0.7636363636363637,
+      "lower_marker": 0.9636363636363636,
+      "both_determined": 84,
+      "determined_agreement": 1.0,
+      "matrix_human_rows_astra_columns": {
+        "0": {
+          "0": 80,
+          "1": 0,
+          "?": 7
+        },
+        "1": {
+          "0": 0,
+          "1": 4,
+          "?": 1
+        },
+        "?": {
+          "0": 2,
+          "1": 3,
+          "?": 13
+        }
+      }
+    },
+    "W_side": {
+      "n": 110,
+      "matches": 92,
+      "conservative": 0.8363636363636363,
+      "lower_marker": 1.0,
+      "both_determined": 92,
+      "determined_agreement": 1.0,
+      "matrix_human_rows_astra_columns": {
+        "0": {
+          "0": 92,
+          "1": 0,
+          "?": 1
+        },
+        "1": {
+          "0": 0,
+          "1": 0,
+          "?": 0
+        },
+        "?": {
+          "0": 2,
+          "1": 0,
+          "?": 15
+        }
+      }
+    },
+    "W_target": {
+      "n": 110,
+      "matches": 95,
+      "conservative": 0.8636363636363636,
+      "lower_marker": 0.9636363636363636,
+      "both_determined": 98,
+      "determined_agreement": 0.9693877551020408,
+      "matrix_human_rows_astra_columns": {
+        "0": {
+          "0": 91,
+          "1": 3,
+          "?": 7
+        },
+        "1": {
+          "0": 0,
+          "1": 4,
+          "?": 1
+        },
+        "?": {
+          "0": 0,
+          "1": 0,
+          "?": 4
+        }
+      }
+    },
+    "adopt_T": {
+      "n": 110,
+      "matches": 81,
+      "conservative": 0.7363636363636363,
+      "lower_marker": 0.7363636363636363,
+      "both_determined": 110,
+      "determined_agreement": 0.7363636363636363,
+      "matrix_human_rows_astra_columns": {
+        "0": {
+          "0": 9,
+          "1": 29,
+          "?": 0
+        },
+        "1": {
+          "0": 0,
+          "1": 72,
+          "?": 0
+        },
+        "?": {
+          "0": 0,
+          "1": 0,
+          "?": 0
+        }
+      }
+    },
+    "false_deny_T": {
+      "n": 110,
+      "matches": 109,
+      "conservative": 0.990909090909091,
+      "lower_marker": 0.990909090909091,
+      "both_determined": 110,
+      "determined_agreement": 0.990909090909091,
+      "matrix_human_rows_astra_columns": {
+        "0": {
+          "0": 105,
+          "1": 0,
+          "?": 0
+        },
+        "1": {
+          "0": 1,
+          "1": 4,
+          "?": 0
+        },
+        "?": {
+          "0": 0,
+          "1": 0,
+          "?": 0
+        }
+      }
+    }
+  },
+  "human_comparison_report": "factdiag5_human110_astra_and_paired.json",
+  "manual_scope_note": "110条人工集含主列内90条（80证据+10状态）及主列外20条无证据参照；人工第二遍看过提取辅助。"
+}
