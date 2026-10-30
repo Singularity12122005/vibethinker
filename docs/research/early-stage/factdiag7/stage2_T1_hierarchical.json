@@ -1,0 +1,454 @@
+{
+  "registration_commit": "7523b69518baa55c21ea4324580f2625f1a32018",
+  "units": {
+    "F-D": {
+      "main": {
+        "work_equal": {
+          "delta": 4.926782723594929,
+          "gamma": -4.926782723594929,
+          "converged": true,
+          "max_penalized_score": 6.183109010904353e-09,
+          "observations": 78,
+          "histories": 39,
+          "works": 6,
+          "weighting": "work_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            3.0900072173571274,
+            8.878860922674322
+          ]
+        },
+        "history_equal": {
+          "delta": 5.351536518314074,
+          "gamma": -5.351536518314074,
+          "converged": true,
+          "max_penalized_score": 9.292746220787573e-07,
+          "observations": 78,
+          "histories": 39,
+          "works": 6,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            3.510192612241575,
+            9.37781859860489
+          ]
+        }
+      },
+      "per_work": {
+        "R-001": {
+          "delta": -2.430086665463332e-09,
+          "gamma": 2.430086665463332e-09,
+          "converged": true,
+          "max_penalized_score": 7.429762916011384e-10,
+          "observations": 2,
+          "histories": 1,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -5.327000567338761,
+            5.327000567338782
+          ]
+        },
+        "R-003": {
+          "delta": 5.271430239475071,
+          "gamma": -5.271430239475071,
+          "converged": true,
+          "max_penalized_score": 1.6817082268416605e-08,
+          "observations": 16,
+          "histories": 8,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            3.2432912285319992,
+            9.438552832520092
+          ]
+        },
+        "R-005": {
+          "delta": 4.420911090407873,
+          "gamma": -4.420911090407873,
+          "converged": true,
+          "max_penalized_score": 3.778105231444506e-09,
+          "observations": 16,
+          "histories": 8,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            2.1195841299739517,
+            9.620279706980048
+          ]
+        },
+        "R-008": {
+          "delta": 1.1053178989356793e-08,
+          "gamma": -1.1053178989356793e-08,
+          "converged": true,
+          "max_penalized_score": 7.543834612544487e-09,
+          "observations": 14,
+          "histories": 7,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -4.732245387086523,
+            4.732245387086959
+          ]
+        },
+        "R-009": {
+          "delta": -1.1160043446302665e-09,
+          "gamma": 1.1160043446302665e-09,
+          "converged": true,
+          "max_penalized_score": 1.3542575949543334e-09,
+          "observations": 16,
+          "histories": 8,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -4.6512918183997805,
+            4.651291818399633
+          ]
+        },
+        "R-010": {
+          "delta": 0.947781201412364,
+          "gamma": -0.947781201412364,
+          "converged": true,
+          "max_penalized_score": 7.826717218772927e-09,
+          "observations": 14,
+          "histories": 7,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -1.7917659969960231,
+            5.803249836771012
+          ]
+        }
+      },
+      "conditional": {
+        "work_equal": {
+          "estimate": "+Infinity",
+          "status": "positive_separation",
+          "profile95": [
+            4.176850271480593,
+            "+Infinity"
+          ],
+          "likelihood_ratio_cutoff": 2.7055435,
+          "interval_type": "one_sided_95",
+          "work_cluster_bootstrap": {
+            "cluster": "work",
+            "requested": 2000,
+            "defined": 1976,
+            "unidentified": 24,
+            "positive_infinite": 1976,
+            "negative_infinite": 0,
+            "interval95": [
+              "+Infinity",
+              "+Infinity"
+            ],
+            "degenerate_infinity": true,
+            "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+          },
+          "history_cluster_bootstrap": {
+            "cluster": "history",
+            "requested": 2000,
+            "defined": 2000,
+            "unidentified": 0,
+            "positive_infinite": 2000,
+            "negative_infinite": 0,
+            "interval95": [
+              "+Infinity",
+              "+Infinity"
+            ],
+            "degenerate_infinity": true,
+            "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+          }
+        },
+        "history_equal": {
+          "estimate": "+Infinity",
+          "status": "positive_separation",
+          "profile95": [
+            4.394628228648445,
+            "+Infinity"
+          ],
+          "likelihood_ratio_cutoff": 2.7055435,
+          "interval_type": "one_sided_95",
+          "work_cluster_bootstrap": {
+            "cluster": "work",
+            "requested": 2000,
+            "defined": 1967,
+            "unidentified": 33,
+            "positive_infinite": 1967,
+            "negative_infinite": 0,
+            "interval95": [
+              "+Infinity",
+              "+Infinity"
+            ],
+            "degenerate_infinity": true,
+            "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+          },
+          "history_cluster_bootstrap": {
+            "cluster": "history",
+            "requested": 2000,
+            "defined": 2000,
+            "unidentified": 0,
+            "positive_infinite": 2000,
+            "negative_infinite": 0,
+            "interval95": [
+              "+Infinity",
+              "+Infinity"
+            ],
+            "degenerate_infinity": true,
+            "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+          }
+        }
+      },
+      "sigma_beta_posterior": null,
+      "posterior_summary": null,
+      "limitation": "无贝叶斯采样环境，采用已批准Firth替代；这里不是后验，没有随机斜率方差，不能据作品系数离散程度补造σβ。"
+    },
+    "X": {
+      "main": {
+        "work_equal": {
+          "delta": 5.17037832173513,
+          "gamma": -5.17037832173513,
+          "converged": true,
+          "max_penalized_score": 2.712390700931877e-09,
+          "observations": 120,
+          "histories": 60,
+          "works": 10,
+          "weighting": "work_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            3.310834457569827,
+            9.814159866393256
+          ]
+        },
+        "history_equal": {
+          "delta": 5.17037832173513,
+          "gamma": -5.17037832173513,
+          "converged": true,
+          "max_penalized_score": 2.712390700931877e-09,
+          "observations": 120,
+          "histories": 60,
+          "works": 10,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            3.310834457569827,
+            9.814159866393256
+          ]
+        }
+      },
+      "per_work": {
+        "R-001": {
+          "delta": 3.857999015496055,
+          "gamma": -3.857999015496055,
+          "converged": true,
+          "max_penalized_score": 6.1907561195451155e-09,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            1.73715624483034,
+            8.68852729385284
+          ]
+        },
+        "R-002": {
+          "delta": 3.1194137163632147,
+          "gamma": -3.1194137163632147,
+          "converged": true,
+          "max_penalized_score": 2.708391635963814e-10,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            0.7475235782914996,
+            8.079815501823806
+          ]
+        },
+        "R-003": {
+          "delta": 4.977698232004359e-10,
+          "gamma": -4.977698232004359e-10,
+          "converged": true,
+          "max_penalized_score": 6.46849240837355e-10,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -4.814476666898102,
+            4.814476666898115
+          ]
+        },
+        "R-004": {
+          "delta": 3.482756720067718,
+          "gamma": -3.482756720067718,
+          "converged": true,
+          "max_penalized_score": 1.9986350319536883e-08,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            1.3428254781854125,
+            8.347644211150959
+          ]
+        },
+        "R-005": {
+          "delta": 3.1135994235257622,
+          "gamma": -3.1135994235257622,
+          "converged": true,
+          "max_penalized_score": 1.1304169718340251e-08,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            0.8338515184845819,
+            8.070837412704982
+          ]
+        },
+        "R-006": {
+          "delta": 1.908349089021148,
+          "gamma": -1.908349089021148,
+          "converged": true,
+          "max_penalized_score": 6.3423352819613754e-09,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -0.3947924453885116,
+            6.773056733405075
+          ]
+        },
+        "R-007": {
+          "delta": 2.1691123979534077,
+          "gamma": -2.1691123979534077,
+          "converged": true,
+          "max_penalized_score": 9.006483059348369e-11,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -0.03942663797411377,
+            7.019287388254348
+          ]
+        },
+        "R-008": {
+          "delta": 4.977698232004359e-10,
+          "gamma": -4.977698232004359e-10,
+          "converged": true,
+          "max_penalized_score": 6.46849240837355e-10,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -4.814476666898102,
+            4.814476666898115
+          ]
+        },
+        "R-009": {
+          "delta": 4.663235916669161,
+          "gamma": -4.663235916669161,
+          "converged": true,
+          "max_penalized_score": 2.1967776278608575e-08,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            2.545112056879612,
+            9.542864621478829
+          ]
+        },
+        "R-010": {
+          "delta": 2.1048855367828216,
+          "gamma": -2.1048855367828216,
+          "converged": true,
+          "max_penalized_score": 4.41711944798584e-11,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -0.3339270671325744,
+            7.061996475196688
+          ]
+        }
+      },
+      "conditional": {
+        "work_equal": {
+          "estimate": "+Infinity",
+          "status": "positive_separation",
+          "profile95": [
+            4.399591100659957,
+            "+Infinity"
+          ],
+          "likelihood_ratio_cutoff": 2.7055435,
+          "interval_type": "one_sided_95",
+          "work_cluster_bootstrap": {
+            "cluster": "work",
+            "requested": 2000,
+            "defined": 2000,
+            "unidentified": 0,
+            "positive_infinite": 2000,
+            "negative_infinite": 0,
+            "interval95": [
+              "+Infinity",
+              "+Infinity"
+            ],
+            "degenerate_infinity": true,
+            "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+          }
+        },
+        "history_equal": {
+          "estimate": "+Infinity",
+          "status": "positive_separation",
+          "profile95": [
+            4.399591100659957,
+            "+Infinity"
+          ],
+          "likelihood_ratio_cutoff": 2.7055435,
+          "interval_type": "one_sided_95",
+          "work_cluster_bootstrap": {
+            "cluster": "work",
+            "requested": 2000,
+            "defined": 2000,
+            "unidentified": 0,
+            "positive_infinite": 2000,
+            "negative_infinite": 0,
+            "interval95": [
+              "+Infinity",
+              "+Infinity"
+            ],
+            "degenerate_infinity": true,
+            "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+          }
+        }
+      },
+      "sigma_beta_posterior": null,
+      "posterior_summary": null,
+      "limitation": "无贝叶斯采样环境，采用已批准Firth替代；这里不是后验，没有随机斜率方差，不能据作品系数离散程度补造σβ。"
+    }
+  },
+  "pending_units": [
+    "S_T"
+  ]
+}
