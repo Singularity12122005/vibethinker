@@ -1,0 +1,7948 @@
+{
+  "human_responses": 260,
+  "batch5_responses": 110,
+  "batch5_views": 223,
+  "quality": {
+    "all": {
+      "W_false": {
+        "n": 110,
+        "matches": 84,
+        "conservative": 0.7636363636363637,
+        "lower_marker": 0.9636363636363636,
+        "both_determined": 84,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 80,
+            "1": 0,
+            "?": 7
+          },
+          "1": {
+            "0": 0,
+            "1": 4,
+            "?": 1
+          },
+          "?": {
+            "0": 2,
+            "1": 3,
+            "?": 13
+          }
+        }
+      },
+      "W_side": {
+        "n": 110,
+        "matches": 92,
+        "conservative": 0.8363636363636363,
+        "lower_marker": 1.0,
+        "both_determined": 92,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 92,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 2,
+            "1": 0,
+            "?": 15
+          }
+        }
+      },
+      "W_target": {
+        "n": 110,
+        "matches": 95,
+        "conservative": 0.8636363636363636,
+        "lower_marker": 0.9636363636363636,
+        "both_determined": 98,
+        "determined_agreement": 0.9693877551020408,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 91,
+            "1": 3,
+            "?": 7
+          },
+          "1": {
+            "0": 0,
+            "1": 4,
+            "?": 1
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 4
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 110,
+        "matches": 81,
+        "conservative": 0.7363636363636363,
+        "lower_marker": 0.7363636363636363,
+        "both_determined": 110,
+        "determined_agreement": 0.7363636363636363,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 9,
+            "1": 29,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 72,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 110,
+        "matches": 109,
+        "conservative": 0.990909090909091,
+        "lower_marker": 0.990909090909091,
+        "both_determined": 110,
+        "determined_agreement": 0.990909090909091,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 105,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 1,
+            "1": 4,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "cell:5.5": {
+      "W_false": {
+        "n": 10,
+        "matches": 5,
+        "conservative": 0.5,
+        "lower_marker": 1.0,
+        "both_determined": 5,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 3,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 0
+          },
+          "?": {
+            "0": 1,
+            "1": 0,
+            "?": 3
+          }
+        }
+      },
+      "W_side": {
+        "n": 10,
+        "matches": 5,
+        "conservative": 0.5,
+        "lower_marker": 1.0,
+        "both_determined": 5,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 5,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 1,
+            "1": 0,
+            "?": 4
+          }
+        }
+      },
+      "W_target": {
+        "n": 10,
+        "matches": 9,
+        "conservative": 0.9,
+        "lower_marker": 1.0,
+        "both_determined": 9,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 7,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 10,
+        "matches": 10,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 10,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 4,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 6,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 10,
+        "matches": 9,
+        "conservative": 0.9,
+        "lower_marker": 0.9,
+        "both_determined": 10,
+        "determined_agreement": 0.9,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 6,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 1,
+            "1": 3,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "cell:E-false": {
+      "W_false": {
+        "n": 20,
+        "matches": 4,
+        "conservative": 0.2,
+        "lower_marker": 0.85,
+        "both_determined": 4,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 3,
+            "1": 0,
+            "?": 6
+          },
+          "1": {
+            "0": 0,
+            "1": 1,
+            "?": 1
+          },
+          "?": {
+            "0": 0,
+            "1": 2,
+            "?": 7
+          }
+        }
+      },
+      "W_side": {
+        "n": 20,
+        "matches": 12,
+        "conservative": 0.6,
+        "lower_marker": 1.0,
+        "both_determined": 12,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 12,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 7
+          }
+        }
+      },
+      "W_target": {
+        "n": 20,
+        "matches": 8,
+        "conservative": 0.4,
+        "lower_marker": 0.85,
+        "both_determined": 10,
+        "determined_agreement": 0.8,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 7,
+            "1": 2,
+            "?": 6
+          },
+          "1": {
+            "0": 0,
+            "1": 1,
+            "?": 1
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 3
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 4,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 16,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "cell:E-inapp": {
+      "W_false": {
+        "n": 20,
+        "matches": 19,
+        "conservative": 0.95,
+        "lower_marker": 1.0,
+        "both_determined": 19,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 19,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 1
+          }
+        }
+      },
+      "W_side": {
+        "n": 20,
+        "matches": 19,
+        "conservative": 0.95,
+        "lower_marker": 1.0,
+        "both_determined": 19,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 19,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 1
+          }
+        }
+      },
+      "W_target": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 20,
+        "matches": 6,
+        "conservative": 0.3,
+        "lower_marker": 0.3,
+        "both_determined": 20,
+        "determined_agreement": 0.3,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 0,
+            "1": 14,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 6,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "cell:M-right": {
+      "W_false": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "W_side": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "W_target": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 20,
+        "matches": 19,
+        "conservative": 0.95,
+        "lower_marker": 0.95,
+        "both_determined": 20,
+        "determined_agreement": 0.95,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 0,
+            "1": 1,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 19,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "cell:M-wrong": {
+      "W_false": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "W_side": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "W_target": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 20,
+        "matches": 6,
+        "conservative": 0.3,
+        "lower_marker": 0.3,
+        "both_determined": 20,
+        "determined_agreement": 0.3,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 0,
+            "1": 14,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 6,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "cell:no_evidence": {
+      "W_false": {
+        "n": 20,
+        "matches": 16,
+        "conservative": 0.8,
+        "lower_marker": 0.95,
+        "both_determined": 16,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 15,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 1,
+            "?": 0
+          },
+          "?": {
+            "0": 1,
+            "1": 1,
+            "?": 2
+          }
+        }
+      },
+      "W_side": {
+        "n": 20,
+        "matches": 16,
+        "conservative": 0.8,
+        "lower_marker": 1.0,
+        "both_determined": 16,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 16,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 1,
+            "1": 0,
+            "?": 3
+          }
+        }
+      },
+      "W_target": {
+        "n": 20,
+        "matches": 18,
+        "conservative": 0.9,
+        "lower_marker": 0.95,
+        "both_determined": 19,
+        "determined_agreement": 0.9473684210526315,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 17,
+            "1": 1,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 1,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 1
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 1,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 19,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 19,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 1,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "arm:A1": {
+      "W_false": {
+        "n": 50,
+        "matches": 40,
+        "conservative": 0.8,
+        "lower_marker": 0.98,
+        "both_determined": 40,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 40,
+            "1": 0,
+            "?": 6
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 1
+          },
+          "?": {
+            "0": 1,
+            "1": 0,
+            "?": 2
+          }
+        }
+      },
+      "W_side": {
+        "n": 50,
+        "matches": 46,
+        "conservative": 0.92,
+        "lower_marker": 1.0,
+        "both_determined": 46,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 46,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 1,
+            "1": 0,
+            "?": 2
+          }
+        }
+      },
+      "W_target": {
+        "n": 50,
+        "matches": 44,
+        "conservative": 0.88,
+        "lower_marker": 0.98,
+        "both_determined": 44,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 44,
+            "1": 0,
+            "?": 5
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 1
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 50,
+        "matches": 34,
+        "conservative": 0.68,
+        "lower_marker": 0.68,
+        "both_determined": 50,
+        "determined_agreement": 0.68,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 4,
+            "1": 16,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 30,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 50,
+        "matches": 50,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 50,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 49,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 1,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "arm:none": {
+      "W_false": {
+        "n": 60,
+        "matches": 44,
+        "conservative": 0.7333333333333333,
+        "lower_marker": 0.95,
+        "both_determined": 44,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 40,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 4,
+            "?": 0
+          },
+          "?": {
+            "0": 1,
+            "1": 3,
+            "?": 11
+          }
+        }
+      },
+      "W_side": {
+        "n": 60,
+        "matches": 46,
+        "conservative": 0.7666666666666667,
+        "lower_marker": 1.0,
+        "both_determined": 46,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 46,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 1,
+            "1": 0,
+            "?": 13
+          }
+        }
+      },
+      "W_target": {
+        "n": 60,
+        "matches": 51,
+        "conservative": 0.85,
+        "lower_marker": 0.95,
+        "both_determined": 54,
+        "determined_agreement": 0.9444444444444444,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 47,
+            "1": 3,
+            "?": 2
+          },
+          "1": {
+            "0": 0,
+            "1": 4,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 4
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 60,
+        "matches": 47,
+        "conservative": 0.7833333333333333,
+        "lower_marker": 0.7833333333333333,
+        "both_determined": 60,
+        "determined_agreement": 0.7833333333333333,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 5,
+            "1": 13,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 42,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 60,
+        "matches": 59,
+        "conservative": 0.9833333333333333,
+        "lower_marker": 0.9833333333333333,
+        "both_determined": 60,
+        "determined_agreement": 0.9833333333333333,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 56,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 1,
+            "1": 3,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "unit:F-D": {
+      "W_false": {
+        "n": 3,
+        "matches": 0,
+        "conservative": 0.0,
+        "lower_marker": 1.0,
+        "both_determined": 0,
+        "determined_agreement": null,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 3
+          }
+        }
+      },
+      "W_side": {
+        "n": 3,
+        "matches": 0,
+        "conservative": 0.0,
+        "lower_marker": 1.0,
+        "both_determined": 0,
+        "determined_agreement": null,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 3
+          }
+        }
+      },
+      "W_target": {
+        "n": 3,
+        "matches": 3,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 3,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 3,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 3,
+        "matches": 3,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 3,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 1,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 3,
+        "matches": 3,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 3,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 2,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 1,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "unit:R-S": {
+      "W_false": {
+        "n": 104,
+        "matches": 82,
+        "conservative": 0.7884615384615384,
+        "lower_marker": 0.9615384615384616,
+        "both_determined": 82,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 80,
+            "1": 0,
+            "?": 6
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 1
+          },
+          "?": {
+            "0": 2,
+            "1": 3,
+            "?": 10
+          }
+        }
+      },
+      "W_side": {
+        "n": 104,
+        "matches": 90,
+        "conservative": 0.8653846153846154,
+        "lower_marker": 1.0,
+        "both_determined": 90,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 90,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 2,
+            "1": 0,
+            "?": 11
+          }
+        }
+      },
+      "W_target": {
+        "n": 104,
+        "matches": 90,
+        "conservative": 0.8653846153846154,
+        "lower_marker": 0.9615384615384616,
+        "both_determined": 93,
+        "determined_agreement": 0.967741935483871,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 88,
+            "1": 3,
+            "?": 6
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 1
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 4
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 104,
+        "matches": 75,
+        "conservative": 0.7211538461538461,
+        "lower_marker": 0.7211538461538461,
+        "both_determined": 104,
+        "determined_agreement": 0.7211538461538461,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 6,
+            "1": 29,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 69,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 104,
+        "matches": 104,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 104,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 102,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "unit:S_T": {
+      "W_false": {
+        "n": 3,
+        "matches": 2,
+        "conservative": 0.6666666666666666,
+        "lower_marker": 1.0,
+        "both_determined": 2,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 0,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "W_side": {
+        "n": 3,
+        "matches": 2,
+        "conservative": 0.6666666666666666,
+        "lower_marker": 1.0,
+        "both_determined": 2,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 2,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 1
+          }
+        }
+      },
+      "W_target": {
+        "n": 3,
+        "matches": 2,
+        "conservative": 0.6666666666666666,
+        "lower_marker": 1.0,
+        "both_determined": 2,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 0,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 3,
+        "matches": 3,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 3,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 2,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 1,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 3,
+        "matches": 2,
+        "conservative": 0.6666666666666666,
+        "lower_marker": 0.6666666666666666,
+        "both_determined": 3,
+        "determined_agreement": 0.6666666666666666,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 1,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 1,
+            "1": 1,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    },
+    "blind20_final_revision": {
+      "W_false": {
+        "n": 20,
+        "matches": 17,
+        "conservative": 0.85,
+        "lower_marker": 1.0,
+        "both_determined": 17,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 15,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 2
+          }
+        }
+      },
+      "W_side": {
+        "n": 20,
+        "matches": 18,
+        "conservative": 0.9,
+        "lower_marker": 1.0,
+        "both_determined": 18,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 18,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 2
+          }
+        }
+      },
+      "W_target": {
+        "n": 20,
+        "matches": 19,
+        "conservative": 0.95,
+        "lower_marker": 1.0,
+        "both_determined": 19,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 17,
+            "1": 0,
+            "?": 1
+          },
+          "1": {
+            "0": 0,
+            "1": 2,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "adopt_T": {
+        "n": 20,
+        "matches": 18,
+        "conservative": 0.9,
+        "lower_marker": 0.9,
+        "both_determined": 20,
+        "determined_agreement": 0.9,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 0,
+            "1": 2,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 18,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      },
+      "false_deny_T": {
+        "n": 20,
+        "matches": 20,
+        "conservative": 1.0,
+        "lower_marker": 1.0,
+        "both_determined": 20,
+        "determined_agreement": 1.0,
+        "matrix_human_rows_astra_columns": {
+          "0": {
+            "0": 20,
+            "1": 0,
+            "?": 0
+          },
+          "1": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          },
+          "?": {
+            "0": 0,
+            "1": 0,
+            "?": 0
+          }
+        }
+      }
+    }
+  },
+  "counts": {
+    "X": {
+      "S": {
+        "E_wrong": {
+          "1": 9,
+          "0": 21
+        },
+        "W_side": {
+          "1": 21,
+          "None": 4,
+          "0": 5
+        },
+        "W_target": {
+          "1": 2,
+          "0": 23,
+          "None": 5
+        },
+        "W_false": {
+          "1": 21,
+          "None": 4,
+          "0": 5
+        },
+        "V_ext": {
+          "0": 11,
+          "1": 19
+        },
+        "W_third": {
+          "0": 27,
+          "1": 3
+        },
+        "W_side_insuff": {
+          "1": 20,
+          "0": 10
+        },
+        "correct_and_side": {
+          "0": 14,
+          "1": 12,
+          "None": 4
+        }
+      },
+      "S+A0": {
+        "E_wrong": {
+          "0": 28,
+          "1": 2
+        },
+        "W_side": {
+          "1": 15,
+          "None": 9,
+          "0": 6
+        },
+        "W_target": {
+          "0": 27,
+          "None": 1,
+          "1": 2
+        },
+        "W_false": {
+          "1": 16,
+          "None": 8,
+          "0": 6
+        },
+        "V_ext": {
+          "0": 21,
+          "1": 9
+        },
+        "W_third": {
+          "0": 24,
+          "1": 6
+        },
+        "W_side_insuff": {
+          "1": 21,
+          "0": 9
+        },
+        "correct_and_side": {
+          "1": 14,
+          "None": 8,
+          "0": 8
+        }
+      },
+      "S+A1": {
+        "E_wrong": {
+          "0": 30
+        },
+        "W_side": {
+          "0": 9,
+          "1": 15,
+          "None": 6
+        },
+        "W_target": {
+          "0": 29,
+          "1": 1
+        },
+        "W_false": {
+          "0": 9,
+          "1": 15,
+          "None": 6
+        },
+        "V_ext": {
+          "0": 25,
+          "1": 5
+        },
+        "W_third": {
+          "0": 22,
+          "1": 8
+        },
+        "W_side_insuff": {
+          "0": 11,
+          "1": 19
+        },
+        "correct_and_side": {
+          "0": 9,
+          "1": 15,
+          "None": 6
+        }
+      }
+    },
+    "Fw": {
+      "S": {
+        "E_wrong": {
+          "0": 10
+        },
+        "W_side": {
+          "1": 7,
+          "0": 3
+        },
+        "W_target": {
+          "0": 9,
+          "None": 1
+        },
+        "W_false": {
+          "1": 7,
+          "0": 3
+        },
+        "V_ext": {
+          "1": 9,
+          "0": 1
+        },
+        "W_third": {
+          "0": 10
+        },
+        "W_side_insuff": {
+          "0": 10
+        },
+        "correct_and_side": {
+          "1": 7,
+          "0": 3
+        }
+      },
+      "S+A0": {
+        "E_wrong": {
+          "0": 10
+        },
+        "W_side": {
+          "1": 6,
+          "0": 4
+        },
+        "W_target": {
+          "0": 10
+        },
+        "W_false": {
+          "1": 6,
+          "0": 4
+        },
+        "V_ext": {
+          "0": 7,
+          "1": 3
+        },
+        "W_third": {
+          "0": 10
+        },
+        "W_side_insuff": {
+          "0": 10
+        },
+        "correct_and_side": {
+          "1": 6,
+          "0": 4
+        }
+      },
+      "S+A1": {
+        "E_wrong": {
+          "0": 10
+        },
+        "W_side": {
+          "1": 6,
+          "0": 4
+        },
+        "W_target": {
+          "0": 10
+        },
+        "W_false": {
+          "1": 6,
+          "0": 4
+        },
+        "V_ext": {
+          "0": 9,
+          "1": 1
+        },
+        "W_third": {
+          "0": 10
+        },
+        "W_side_insuff": {
+          "0": 10
+        },
+        "correct_and_side": {
+          "1": 6,
+          "0": 4
+        }
+      }
+    },
+    "XC": {
+      "C": {
+        "E_wrong": {
+          "0": 30
+        },
+        "W_side": {
+          "None": 9,
+          "0": 18,
+          "1": 3
+        },
+        "W_target": {
+          "0": 30
+        },
+        "W_false": {
+          "None": 9,
+          "0": 18,
+          "1": 3
+        },
+        "V_ext": {
+          "0": 30
+        },
+        "W_third": {
+          "0": 23,
+          "1": 7
+        },
+        "W_side_insuff": {
+          "1": 12,
+          "0": 18
+        },
+        "correct_and_side": {
+          "None": 9,
+          "0": 18,
+          "1": 3
+        }
+      }
+    },
+    "batch5": {
+      "5.5": {
+        "E_wrong": {
+          "1": 3,
+          "0": 7
+        },
+        "W_side": {
+          "0": 5,
+          "None": 5
+        },
+        "W_target": {
+          "1": 2,
+          "0": 8
+        },
+        "W_false": {
+          "1": 2,
+          "0": 4,
+          "None": 4
+        },
+        "adopt_T": {
+          "0": 4,
+          "1": 6
+        },
+        "false_deny_T": {
+          "1": 4,
+          "0": 6
+        },
+        "challenge": {
+          "None": 10
+        },
+        "V_ext": {
+          "1": 9,
+          "0": 1
+        },
+        "W_third": {
+          "0": 8,
+          "1": 2
+        },
+        "W_side_insuff": {
+          "0": 5,
+          "1": 5
+        },
+        "correct_and_side": {
+          "0": 7,
+          "None": 3
+        }
+      },
+      "E-false": {
+        "E_wrong": {
+          "0": 15,
+          "1": 5
+        },
+        "W_side": {
+          "0": 13,
+          "None": 7
+        },
+        "W_target": {
+          "0": 15,
+          "None": 3,
+          "1": 2
+        },
+        "W_false": {
+          "0": 9,
+          "None": 9,
+          "1": 2
+        },
+        "adopt_T": {
+          "1": 16,
+          "0": 4
+        },
+        "false_deny_T": {
+          "0": 20
+        },
+        "challenge": {
+          "1": 15,
+          "0": 5
+        },
+        "V_ext": {
+          "0": 18,
+          "1": 2
+        },
+        "W_third": {
+          "0": 20
+        },
+        "W_side_insuff": {
+          "0": 13,
+          "1": 7
+        },
+        "correct_and_side": {
+          "0": 15,
+          "None": 5
+        }
+      },
+      "E-inapp": {
+        "E_wrong": {
+          "0": 18,
+          "1": 2
+        },
+        "W_side": {
+          "0": 19,
+          "None": 1
+        },
+        "W_target": {
+          "0": 20
+        },
+        "W_false": {
+          "0": 19,
+          "None": 1
+        },
+        "adopt_T": {
+          "0": 14,
+          "1": 6
+        },
+        "false_deny_T": {
+          "0": 20
+        },
+        "challenge": {
+          "1": 18,
+          "0": 2
+        },
+        "V_ext": {
+          "0": 18,
+          "1": 2
+        },
+        "W_third": {
+          "0": 20
+        },
+        "W_side_insuff": {
+          "0": 19,
+          "1": 1
+        },
+        "correct_and_side": {
+          "0": 19,
+          "None": 1
+        }
+      },
+      "M-right": {
+        "E_wrong": {
+          "0": 20
+        },
+        "W_side": {
+          "0": 20
+        },
+        "W_target": {
+          "0": 20
+        },
+        "W_false": {
+          "0": 20
+        },
+        "adopt_T": {
+          "1": 19,
+          "0": 1
+        },
+        "false_deny_T": {
+          "0": 20
+        },
+        "challenge": {
+          "0": 20
+        },
+        "V_ext": {
+          "0": 18,
+          "1": 2
+        },
+        "W_third": {
+          "0": 20
+        },
+        "W_side_insuff": {
+          "0": 20
+        },
+        "correct_and_side": {
+          "0": 20
+        }
+      },
+      "M-wrong": {
+        "E_wrong": {
+          "0": 20
+        },
+        "W_side": {
+          "0": 20
+        },
+        "W_target": {
+          "0": 20
+        },
+        "W_false": {
+          "0": 20
+        },
+        "adopt_T": {
+          "0": 14,
+          "1": 6
+        },
+        "false_deny_T": {
+          "0": 20
+        },
+        "challenge": {
+          "0": 20
+        },
+        "V_ext": {
+          "0": 20
+        },
+        "W_third": {
+          "0": 20
+        },
+        "W_side_insuff": {
+          "0": 20
+        },
+        "correct_and_side": {
+          "0": 20
+        }
+      },
+      "no_evidence": {
+        "E_wrong": {
+          "0": 18,
+          "1": 2
+        },
+        "W_side": {
+          "0": 16,
+          "None": 4
+        },
+        "W_target": {
+          "0": 18,
+          "None": 1,
+          "1": 1
+        },
+        "W_false": {
+          "0": 15,
+          "None": 4,
+          "1": 1
+        },
+        "adopt_T": {
+          "1": 19,
+          "0": 1
+        },
+        "false_deny_T": {
+          "0": 19,
+          "1": 1
+        },
+        "challenge": {
+          "None": 20
+        },
+        "V_ext": {
+          "0": 16,
+          "1": 4
+        },
+        "W_third": {
+          "0": 19,
+          "1": 1
+        },
+        "W_side_insuff": {
+          "0": 16,
+          "1": 4
+        },
+        "correct_and_side": {
+          "0": 18,
+          "None": 2
+        }
+      }
+    }
+  },
+  "contrasts": [
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "E_wrong",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3,
+          -0.3
+        ],
+        "confirmed_difference": -0.3,
+        "outer95": [
+          -0.5333333333333333,
+          -0.1
+        ],
+        "confirmed95": [
+          -0.5333333333333333,
+          -0.1
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3,
+          -0.3
+        ],
+        "confirmed_difference": -0.3,
+        "outer95": [
+          -0.5333333333333333,
+          -0.1
+        ],
+        "confirmed95": [
+          -0.5333333333333333,
+          -0.1
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3333333333333333,
+          0.0
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.13333333333333333
+        ],
+        "confirmed95": [
+          -0.36666666666666664,
+          -0.03333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3333333333333333,
+          0.0
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.13333333333333333
+        ],
+        "confirmed95": [
+          -0.36666666666666664,
+          -0.03333333333333333
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_target",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          -0.03333333333333333
+        ],
+        "confirmed_difference": -0.03333333333333333,
+        "outer95": [
+          -0.4333333333333333,
+          0.1
+        ],
+        "confirmed95": [
+          -0.13333333333333333,
+          0.1
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          -0.03333333333333333
+        ],
+        "confirmed_difference": -0.03333333333333333,
+        "outer95": [
+          -0.43333333333333335,
+          0.1
+        ],
+        "confirmed95": [
+          -0.13333333333333333,
+          0.1
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_false",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3333333333333333,
+          0.0
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.13333333333333333
+        ],
+        "confirmed95": [
+          -0.36666666666666664,
+          -0.03333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3333333333333333,
+          0.0
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.13333333333333333
+        ],
+        "confirmed95": [
+          -0.36666666666666664,
+          -0.03333333333333333
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "V_ext",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.4666666666666667,
+          -0.4666666666666667
+        ],
+        "confirmed_difference": -0.4666666666666667,
+        "outer95": [
+          -0.7666666666666666,
+          -0.13333333333333333
+        ],
+        "confirmed95": [
+          -0.7666666666666666,
+          -0.13333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.4666666666666667,
+          -0.4666666666666667
+        ],
+        "confirmed_difference": -0.4666666666666667,
+        "outer95": [
+          -0.7666666666666667,
+          -0.13333333333333333
+        ],
+        "confirmed95": [
+          -0.7666666666666667,
+          -0.13333333333333333
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_third",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.16666666666666666,
+          0.16666666666666666
+        ],
+        "confirmed_difference": 0.16666666666666666,
+        "outer95": [
+          0.03333333333333333,
+          0.3
+        ],
+        "confirmed95": [
+          0.03333333333333333,
+          0.3
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.16666666666666666,
+          0.16666666666666666
+        ],
+        "confirmed_difference": 0.16666666666666666,
+        "outer95": [
+          0.03333333333333333,
+          0.3
+        ],
+        "confirmed95": [
+          0.03333333333333333,
+          0.3
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_side_insuff",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.03333333333333333,
+          -0.03333333333333333
+        ],
+        "confirmed_difference": -0.03333333333333333,
+        "outer95": [
+          -0.2333333333333333,
+          0.16666666666666666
+        ],
+        "confirmed95": [
+          -0.2333333333333333,
+          0.16666666666666666
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.03333333333333333,
+          -0.03333333333333333
+        ],
+        "confirmed_difference": -0.03333333333333333,
+        "outer95": [
+          -0.23333333333333334,
+          0.16666666666666666
+        ],
+        "confirmed95": [
+          -0.23333333333333334,
+          0.16666666666666666
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "correct_and_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.033333333333333326,
+          0.3
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          -0.36666666666666664,
+          0.5666666666666667
+        ],
+        "confirmed95": [
+          -0.2,
+          0.4333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.03333333333333333,
+          0.3
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          -0.36666666666666664,
+          0.5666666666666667
+        ],
+        "confirmed95": [
+          -0.2,
+          0.43333333333333335
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "E_wrong",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2333333333333333,
+          -0.2333333333333333
+        ],
+        "confirmed_difference": -0.2333333333333333,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.23333333333333334,
+          -0.23333333333333334
+        ],
+        "confirmed_difference": -0.23333333333333334,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3333333333333333,
+          0.1
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.26666666666666666
+        ],
+        "confirmed95": [
+          -0.4,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3333333333333333,
+          0.1
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.26666666666666666
+        ],
+        "confirmed95": [
+          -0.4,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_target",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.16666666666666666,
+          0.03333333333333333
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.36666666666666664,
+          0.1
+        ],
+        "confirmed95": [
+          -0.1,
+          0.1
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.16666666666666666,
+          0.03333333333333333
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.36666666666666664,
+          0.1
+        ],
+        "confirmed95": [
+          -0.1,
+          0.1
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_false",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3,
+          0.1
+        ],
+        "confirmed_difference": -0.16666666666666666,
+        "outer95": [
+          -0.4666666666666666,
+          0.26666666666666666
+        ],
+        "confirmed95": [
+          -0.36666666666666664,
+          0.03333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3,
+          0.1
+        ],
+        "confirmed_difference": -0.16666666666666666,
+        "outer95": [
+          -0.4666666666666667,
+          0.26666666666666666
+        ],
+        "confirmed95": [
+          -0.36666666666666664,
+          0.03333333333333333
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "V_ext",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "confirmed_difference": -0.3333333333333333,
+        "outer95": [
+          -0.5674999999999999,
+          -0.1
+        ],
+        "confirmed95": [
+          -0.5674999999999999,
+          -0.1
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "confirmed_difference": -0.3333333333333333,
+        "outer95": [
+          -0.5674999999999999,
+          -0.1
+        ],
+        "confirmed95": [
+          -0.5674999999999999,
+          -0.1
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_third",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          -0.03333333333333333,
+          0.2333333333333333
+        ],
+        "confirmed95": [
+          -0.03333333333333333,
+          0.2333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          -0.03333333333333333,
+          0.23333333333333334
+        ],
+        "confirmed95": [
+          -0.03333333333333333,
+          0.23333333333333334
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_side_insuff",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.03333333333333333,
+          0.03333333333333333
+        ],
+        "confirmed_difference": 0.03333333333333333,
+        "outer95": [
+          -0.2,
+          0.2333333333333333
+        ],
+        "confirmed95": [
+          -0.2,
+          0.2333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.03333333333333333,
+          0.03333333333333333
+        ],
+        "confirmed_difference": 0.03333333333333333,
+        "outer95": [
+          -0.2,
+          0.23333333333333334
+        ],
+        "confirmed95": [
+          -0.2,
+          0.23333333333333334
+        ]
+      }
+    },
+    {
+      "cohort": "X",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "correct_and_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.06666666666666667,
+          0.3333333333333333
+        ],
+        "confirmed_difference": 0.06666666666666667,
+        "outer95": [
+          -0.36666666666666664,
+          0.5666666666666667
+        ],
+        "confirmed95": [
+          -0.2,
+          0.3333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.06666666666666667,
+          0.3333333333333333
+        ],
+        "confirmed_difference": 0.06666666666666667,
+        "outer95": [
+          -0.36666666666666664,
+          0.5666666666666667
+        ],
+        "confirmed95": [
+          -0.2,
+          0.3333333333333333
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "E_wrong",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.4,
+          0.2
+        ],
+        "confirmed95": [
+          -0.4,
+          0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.4,
+          0.2
+        ],
+        "confirmed95": [
+          -0.4,
+          0.2
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_target",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_false",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.4,
+          0.2
+        ],
+        "confirmed95": [
+          -0.4,
+          0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.4,
+          0.2
+        ],
+        "confirmed95": [
+          -0.4,
+          0.2
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "V_ext",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.8,
+          -0.8
+        ],
+        "confirmed_difference": -0.8,
+        "outer95": [
+          -1.0,
+          -0.5
+        ],
+        "confirmed95": [
+          -1.0,
+          -0.5
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.8,
+          -0.8
+        ],
+        "confirmed_difference": -0.8,
+        "outer95": [
+          -1.0,
+          -0.5
+        ],
+        "confirmed95": [
+          -1.0,
+          -0.5
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_third",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "W_side_insuff",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A1",
+      "right": "S",
+      "field": "correct_and_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.4,
+          0.2
+        ],
+        "confirmed95": [
+          -0.4,
+          0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.4,
+          0.2
+        ],
+        "confirmed95": [
+          -0.4,
+          0.2
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "E_wrong",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_target",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_false",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "V_ext",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.6,
+          -0.6
+        ],
+        "confirmed_difference": -0.6,
+        "outer95": [
+          -0.9,
+          -0.3
+        ],
+        "confirmed95": [
+          -0.9,
+          -0.3
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.6,
+          -0.6
+        ],
+        "confirmed_difference": -0.6,
+        "outer95": [
+          -0.9,
+          -0.3
+        ],
+        "confirmed95": [
+          -0.9,
+          -0.3
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_third",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "W_side_insuff",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "Fw",
+      "design": "同历史配对",
+      "left": "S+A0",
+      "right": "S",
+      "field": "correct_and_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "E_wrong",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "W_side",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "W_target",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "W_false",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "adopt_T",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.65,
+          -0.65
+        ],
+        "confirmed_difference": -0.65,
+        "outer95": [
+          -0.8,
+          -0.55
+        ],
+        "confirmed95": [
+          -0.8,
+          -0.55
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.65,
+          -0.65
+        ],
+        "confirmed_difference": -0.65,
+        "outer95": [
+          -0.8,
+          -0.55
+        ],
+        "confirmed95": [
+          -0.8,
+          -0.55
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "false_deny_T",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "challenge",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "V_ext",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.25,
+          0.0
+        ],
+        "confirmed95": [
+          -0.25,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.25,
+          0.0
+        ],
+        "confirmed95": [
+          -0.25,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "W_third",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "W_side_insuff",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "M-wrong",
+      "right": "M-right",
+      "field": "correct_and_side",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "E_wrong",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          0.0,
+          0.25
+        ],
+        "confirmed95": [
+          0.0,
+          0.25
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          0.0,
+          0.25
+        ],
+        "confirmed95": [
+          0.0,
+          0.25
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "W_side",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.05
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.15
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.05
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.15
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "W_target",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "W_false",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.05
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.15
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.05
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.15
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "adopt_T",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.65,
+          -0.65
+        ],
+        "confirmed_difference": -0.65,
+        "outer95": [
+          -0.85,
+          -0.45
+        ],
+        "confirmed95": [
+          -0.85,
+          -0.45
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.65,
+          -0.65
+        ],
+        "confirmed_difference": -0.65,
+        "outer95": [
+          -0.85,
+          -0.45
+        ],
+        "confirmed95": [
+          -0.85,
+          -0.45
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "false_deny_T",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "challenge",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.9,
+          0.9
+        ],
+        "confirmed_difference": 0.9,
+        "outer95": [
+          0.75,
+          1.0
+        ],
+        "confirmed95": [
+          0.75,
+          1.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.9,
+          0.9
+        ],
+        "confirmed_difference": 0.9,
+        "outer95": [
+          0.75,
+          1.0
+        ],
+        "confirmed95": [
+          0.75,
+          1.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "V_ext",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.2,
+          0.2
+        ],
+        "confirmed95": [
+          -0.2,
+          0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.2,
+          0.2
+        ],
+        "confirmed95": [
+          -0.2,
+          0.2
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "W_third",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "W_side_insuff",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.05,
+          0.05
+        ],
+        "confirmed_difference": 0.05,
+        "outer95": [
+          0.0,
+          0.15
+        ],
+        "confirmed95": [
+          0.0,
+          0.15
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.05,
+          0.05
+        ],
+        "confirmed_difference": 0.05,
+        "outer95": [
+          0.0,
+          0.15
+        ],
+        "confirmed95": [
+          0.0,
+          0.15
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-inapp",
+      "right": "M-right",
+      "field": "correct_and_side",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.05
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.15
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.05
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.15
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "E_wrong",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.15,
+          0.15
+        ],
+        "confirmed_difference": 0.15,
+        "outer95": [
+          0.0,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.3
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.15,
+          0.15
+        ],
+        "confirmed_difference": 0.15,
+        "outer95": [
+          0.0,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.3
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "W_side",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          0.35
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.45,
+          0.55
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          0.35
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.45,
+          0.55
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "W_target",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.2
+        ],
+        "confirmed_difference": 0.05,
+        "outer95": [
+          -0.15,
+          0.35
+        ],
+        "confirmed95": [
+          0.0,
+          0.15
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.2
+        ],
+        "confirmed_difference": 0.05,
+        "outer95": [
+          -0.15,
+          0.35
+        ],
+        "confirmed95": [
+          0.0,
+          0.15
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "W_false",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.15,
+          0.5
+        ],
+        "confirmed_difference": 0.05,
+        "outer95": [
+          -0.45,
+          0.65
+        ],
+        "confirmed95": [
+          0.0,
+          0.15
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.15,
+          0.5
+        ],
+        "confirmed_difference": 0.05,
+        "outer95": [
+          -0.45,
+          0.65
+        ],
+        "confirmed95": [
+          0.0,
+          0.15
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "adopt_T",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.15,
+          -0.15
+        ],
+        "confirmed_difference": -0.15,
+        "outer95": [
+          -0.35,
+          0.05
+        ],
+        "confirmed95": [
+          -0.35,
+          0.05
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.15,
+          -0.15
+        ],
+        "confirmed_difference": -0.15,
+        "outer95": [
+          -0.35,
+          0.05
+        ],
+        "confirmed95": [
+          -0.35,
+          0.05
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "false_deny_T",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.05,
+          -0.05
+        ],
+        "confirmed_difference": -0.05,
+        "outer95": [
+          -0.15,
+          0.0
+        ],
+        "confirmed95": [
+          -0.15,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.05,
+          -0.05
+        ],
+        "confirmed_difference": -0.05,
+        "outer95": [
+          -0.15,
+          0.0
+        ],
+        "confirmed95": [
+          -0.15,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "V_ext",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.25,
+          0.0
+        ],
+        "confirmed95": [
+          -0.25,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.25,
+          0.0
+        ],
+        "confirmed95": [
+          -0.25,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "W_third",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.05,
+          -0.05
+        ],
+        "confirmed_difference": -0.05,
+        "outer95": [
+          -0.15,
+          0.0
+        ],
+        "confirmed95": [
+          -0.15,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.05,
+          -0.05
+        ],
+        "confirmed_difference": -0.05,
+        "outer95": [
+          -0.15,
+          0.0
+        ],
+        "confirmed95": [
+          -0.15,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "W_side_insuff",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.15,
+          0.15
+        ],
+        "confirmed_difference": 0.15,
+        "outer95": [
+          -0.05,
+          0.35
+        ],
+        "confirmed95": [
+          -0.05,
+          0.35
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.15,
+          0.15
+        ],
+        "confirmed_difference": 0.15,
+        "outer95": [
+          -0.05,
+          0.35
+        ],
+        "confirmed95": [
+          -0.05,
+          0.35
+        ]
+      }
+    },
+    {
+      "cohort": "batch5",
+      "design": "同历史同臂配对",
+      "left": "E-false",
+      "right": "no_evidence",
+      "field": "correct_and_side",
+      "pairs": 20,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          0.25
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.25,
+          0.5
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          0.25
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.25,
+          0.5
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "E_wrong",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.5,
+          -0.5
+        ],
+        "confirmed_difference": -0.5,
+        "outer95": [
+          -0.8,
+          -0.2
+        ],
+        "confirmed95": [
+          -0.8,
+          -0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.5,
+          -0.5
+        ],
+        "confirmed_difference": -0.5,
+        "outer95": [
+          -0.8,
+          -0.2
+        ],
+        "confirmed95": [
+          -0.8,
+          -0.2
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.5,
+          0.2
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.8,
+          0.5
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.5,
+          0.2
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.8,
+          0.5
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_target",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.7,
+          0.3
+        ],
+        "confirmed95": [
+          -0.3,
+          0.3
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.7,
+          0.3
+        ],
+        "confirmed95": [
+          -0.3,
+          0.3
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_false",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.7,
+          0.2
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -1.0,
+          0.6
+        ],
+        "confirmed95": [
+          -0.3,
+          0.3
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.7,
+          0.2
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -1.0,
+          0.6
+        ],
+        "confirmed95": [
+          -0.3,
+          0.3
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "adopt_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.6,
+          0.2
+        ],
+        "confirmed95": [
+          -0.6,
+          0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.6,
+          0.2
+        ],
+        "confirmed95": [
+          -0.6,
+          0.2
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "false_deny_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "challenge",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.5,
+          0.5
+        ],
+        "confirmed_difference": 0.5,
+        "outer95": [
+          0.2,
+          0.8
+        ],
+        "confirmed95": [
+          0.2,
+          0.8
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.5,
+          0.5
+        ],
+        "confirmed_difference": 0.5,
+        "outer95": [
+          0.2,
+          0.8
+        ],
+        "confirmed95": [
+          0.2,
+          0.8
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "V_ext",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_third",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side_insuff",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3,
+          -0.3
+        ],
+        "confirmed_difference": -0.3,
+        "outer95": [
+          -0.7,
+          0.1
+        ],
+        "confirmed95": [
+          -0.7,
+          0.1
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3,
+          -0.3
+        ],
+        "confirmed_difference": -0.3,
+        "outer95": [
+          -0.7,
+          0.1
+        ],
+        "confirmed95": [
+          -0.7,
+          0.1
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-false",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "correct_and_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3,
+          0.2
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.6,
+          0.5
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3,
+          0.2
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.6,
+          0.5
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "E_wrong",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_target",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_false",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "adopt_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.6,
+          0.2
+        ],
+        "confirmed95": [
+          -0.6,
+          0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.6,
+          0.2
+        ],
+        "confirmed95": [
+          -0.6,
+          0.2
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "false_deny_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "challenge",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.2,
+          0.2
+        ],
+        "confirmed_difference": 0.2,
+        "outer95": [
+          0.0,
+          0.5
+        ],
+        "confirmed95": [
+          0.0,
+          0.5
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.2,
+          0.2
+        ],
+        "confirmed_difference": 0.2,
+        "outer95": [
+          0.0,
+          0.5
+        ],
+        "confirmed95": [
+          0.0,
+          0.5
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "V_ext",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_third",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side_insuff",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:E-inapp",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "correct_and_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "E_wrong",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_target",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_false",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "adopt_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "false_deny_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "challenge",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "V_ext",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.3
+        ],
+        "confirmed95": [
+          -0.3,
+          0.3
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.3
+        ],
+        "confirmed95": [
+          -0.3,
+          0.3
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_third",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side_insuff",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-right",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "correct_and_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "E_wrong",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_target",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_false",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "adopt_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.5,
+          0.5
+        ],
+        "confirmed95": [
+          -0.5,
+          0.5
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.5,
+          0.5
+        ],
+        "confirmed95": [
+          -0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "false_deny_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "challenge",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "V_ext",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_third",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side_insuff",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:M-wrong",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "correct_and_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "E_wrong",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3,
+          0.1
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.6,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3,
+          0.1
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.6,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_target",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.4,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.4,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_false",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.4,
+          0.0
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.7,
+          0.3
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.4,
+          0.0
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.7,
+          0.3
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "adopt_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.1
+        ],
+        "confirmed_difference": -0.1,
+        "outer95": [
+          -0.3,
+          0.0
+        ],
+        "confirmed95": [
+          -0.3,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "false_deny_T",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          0.0,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.3
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          0.0,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.3
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "V_ext",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.4,
+          -0.4
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.7,
+          -0.1
+        ],
+        "confirmed95": [
+          -0.7,
+          -0.1
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.4,
+          -0.4
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.7,
+          -0.1
+        ],
+        "confirmed95": [
+          -0.7,
+          -0.1
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_third",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          0.0,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.3
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.1,
+        "outer95": [
+          0.0,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.3
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "W_side_insuff",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.2,
+          -0.2
+        ],
+        "confirmed_difference": -0.2,
+        "outer95": [
+          -0.5,
+          0.0
+        ],
+        "confirmed95": [
+          -0.5,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "batch5:no_evidence",
+      "design": "同作品不同历史平衡比较",
+      "left": "A1",
+      "right": "none",
+      "field": "correct_and_side",
+      "pairs": 10,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          0.1
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          -0.3,
+          0.3
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S",
+      "field": "E_wrong",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.3,
+          -0.3
+        ],
+        "confirmed_difference": -0.3,
+        "outer95": [
+          -0.5333333333333333,
+          -0.1
+        ],
+        "confirmed95": [
+          -0.5333333333333333,
+          -0.1
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.3,
+          -0.3
+        ],
+        "confirmed_difference": -0.3,
+        "outer95": [
+          -0.5333333333333333,
+          -0.1
+        ],
+        "confirmed95": [
+          -0.5333333333333333,
+          -0.1
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S",
+      "field": "W_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.7333333333333333,
+          -0.3
+        ],
+        "confirmed_difference": -0.6,
+        "outer95": [
+          -0.9333333333333333,
+          -0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.8666666666666666,
+          -0.3333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.7333333333333333,
+          -0.3
+        ],
+        "confirmed_difference": -0.6,
+        "outer95": [
+          -0.9333333333333333,
+          -0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.8666666666666667,
+          -0.3333333333333333
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S",
+      "field": "W_target",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.2333333333333333,
+          -0.06666666666666667
+        ],
+        "confirmed_difference": -0.06666666666666667,
+        "outer95": [
+          -0.4666666666666666,
+          0.0
+        ],
+        "confirmed95": [
+          -0.16666666666666666,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.23333333333333334,
+          -0.06666666666666667
+        ],
+        "confirmed_difference": -0.06666666666666667,
+        "outer95": [
+          -0.4666666666666667,
+          0.0
+        ],
+        "confirmed95": [
+          -0.16666666666666666,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S",
+      "field": "W_false",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.7333333333333333,
+          -0.3
+        ],
+        "confirmed_difference": -0.6,
+        "outer95": [
+          -0.9333333333333333,
+          -0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.8666666666666666,
+          -0.3333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.7333333333333333,
+          -0.3
+        ],
+        "confirmed_difference": -0.6,
+        "outer95": [
+          -0.9333333333333333,
+          -0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.8666666666666667,
+          -0.3333333333333333
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S",
+      "field": "W_third",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.13333333333333333,
+          0.13333333333333333
+        ],
+        "confirmed_difference": 0.13333333333333333,
+        "outer95": [
+          -0.13333333333333333,
+          0.4333333333333333
+        ],
+        "confirmed95": [
+          -0.13333333333333333,
+          0.4333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.13333333333333333,
+          0.13333333333333333
+        ],
+        "confirmed_difference": 0.13333333333333333,
+        "outer95": [
+          -0.13333333333333333,
+          0.43333333333333335
+        ],
+        "confirmed95": [
+          -0.13333333333333333,
+          0.43333333333333335
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S",
+      "field": "correct_and_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.4333333333333333,
+          -5.551115123125783e-18
+        ],
+        "confirmed_difference": -0.3,
+        "outer95": [
+          -0.7,
+          0.4
+        ],
+        "confirmed95": [
+          -0.5666666666666667,
+          -0.03333333333333334
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.43333333333333335,
+          0.0
+        ],
+        "confirmed_difference": -0.3,
+        "outer95": [
+          -0.7,
+          0.4
+        ],
+        "confirmed95": [
+          -0.5666666666666667,
+          -0.03333333333333333
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A1",
+      "field": "E_wrong",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "confirmed_difference": 0.0,
+        "outer95": [
+          0.0,
+          0.0
+        ],
+        "confirmed95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A1",
+      "field": "W_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.6,
+          -0.1
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.8333333333333334,
+          0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.6333333333333333,
+          -0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.6,
+          -0.1
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.8333333333333334,
+          0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.6333333333333333,
+          -0.2
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A1",
+      "field": "W_target",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.03333333333333333,
+          -0.03333333333333333
+        ],
+        "confirmed_difference": -0.03333333333333333,
+        "outer95": [
+          -0.1,
+          0.0
+        ],
+        "confirmed95": [
+          -0.1,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.03333333333333333,
+          -0.03333333333333333
+        ],
+        "confirmed_difference": -0.03333333333333333,
+        "outer95": [
+          -0.1,
+          0.0
+        ],
+        "confirmed95": [
+          -0.1,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A1",
+      "field": "W_false",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.6,
+          -0.1
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.8333333333333334,
+          0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.6333333333333333,
+          -0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.6,
+          -0.1
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.8333333333333334,
+          0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.6333333333333333,
+          -0.2
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A1",
+      "field": "W_third",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.03333333333333334,
+          -0.03333333333333334
+        ],
+        "confirmed_difference": -0.03333333333333334,
+        "outer95": [
+          -0.26666666666666666,
+          0.16666666666666666
+        ],
+        "confirmed95": [
+          -0.26666666666666666,
+          0.16666666666666666
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.03333333333333333,
+          -0.03333333333333333
+        ],
+        "confirmed_difference": -0.03333333333333333,
+        "outer95": [
+          -0.26666666666666666,
+          0.16666666666666666
+        ],
+        "confirmed95": [
+          -0.26666666666666666,
+          0.16666666666666666
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A1",
+      "field": "correct_and_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.6,
+          -0.1
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.8333333333333334,
+          0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.6333333333333333,
+          -0.2
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.6,
+          -0.1
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.8333333333333334,
+          0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.6333333333333333,
+          -0.2
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A0",
+      "field": "E_wrong",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.06666666666666667,
+          -0.06666666666666667
+        ],
+        "confirmed_difference": -0.06666666666666667,
+        "outer95": [
+          -0.16666666666666666,
+          0.0
+        ],
+        "confirmed95": [
+          -0.16666666666666666,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.06666666666666667,
+          -0.06666666666666667
+        ],
+        "confirmed_difference": -0.06666666666666667,
+        "outer95": [
+          -0.16666666666666666,
+          0.0
+        ],
+        "confirmed95": [
+          -0.16666666666666666,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A0",
+      "field": "W_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.7,
+          -0.1
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.9,
+          0.06749999999999545
+        ],
+        "confirmed95": [
+          -0.6666666666666666,
+          -0.13333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.7,
+          -0.1
+        ],
+        "confirmed_difference": -0.4,
+        "outer95": [
+          -0.9,
+          0.06749999999999545
+        ],
+        "confirmed95": [
+          -0.6666666666666666,
+          -0.13333333333333333
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A0",
+      "field": "W_target",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.1,
+          -0.06666666666666667
+        ],
+        "confirmed_difference": -0.06666666666666667,
+        "outer95": [
+          -0.2,
+          0.0
+        ],
+        "confirmed95": [
+          -0.16666666666666666,
+          0.0
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.1,
+          -0.06666666666666667
+        ],
+        "confirmed_difference": -0.06666666666666667,
+        "outer95": [
+          -0.2,
+          0.0
+        ],
+        "confirmed95": [
+          -0.16666666666666666,
+          0.0
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A0",
+      "field": "W_false",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.7,
+          -0.13333333333333333
+        ],
+        "confirmed_difference": -0.4333333333333333,
+        "outer95": [
+          -0.9,
+          0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.6666666666666667,
+          -0.2333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.7,
+          -0.13333333333333333
+        ],
+        "confirmed_difference": -0.43333333333333335,
+        "outer95": [
+          -0.9,
+          0.03333333333333333
+        ],
+        "confirmed95": [
+          -0.6666666666666666,
+          -0.23333333333333334
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A0",
+      "field": "W_third",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          0.033333333333333326,
+          0.033333333333333326
+        ],
+        "confirmed_difference": 0.033333333333333326,
+        "outer95": [
+          -0.23333333333333334,
+          0.26666666666666666
+        ],
+        "confirmed95": [
+          -0.23333333333333334,
+          0.26666666666666666
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          0.03333333333333333,
+          0.03333333333333333
+        ],
+        "confirmed_difference": 0.03333333333333333,
+        "outer95": [
+          -0.23333333333333334,
+          0.26666666666666666
+        ],
+        "confirmed95": [
+          -0.23333333333333334,
+          0.26666666666666666
+        ]
+      }
+    },
+    {
+      "cohort": "XC_vs_X",
+      "design": "同历史配对，新增C描述性比较",
+      "left": "C",
+      "right": "S+A0",
+      "field": "correct_and_side",
+      "pairs": 30,
+      "works": 10,
+      "work_equal": {
+        "bounds": [
+          -0.6333333333333333,
+          -0.06666666666666667
+        ],
+        "confirmed_difference": -0.36666666666666664,
+        "outer95": [
+          -0.8666666666666666,
+          0.13333333333333333
+        ],
+        "confirmed95": [
+          -0.6,
+          -0.13333333333333333
+        ]
+      },
+      "history_equal": {
+        "bounds": [
+          -0.6333333333333333,
+          -0.06666666666666667
+        ],
+        "confirmed_difference": -0.36666666666666664,
+        "outer95": [
+          -0.8666666666666667,
+          0.13333333333333333
+        ],
+        "confirmed95": [
+          -0.6,
+          -0.13333333333333333
+        ]
+      }
+    }
+  ],
+  "status_5_5": {
+    "status": {
+      "CONTRADICTION_FOUND": 4,
+      "VERIFIED": 6
+    },
+    "status_body_consistency": {
+      "1": 10
+    }
+  },
+  "source": "另一会话助手起草，用户逐条复核；不是独立人工盲审。",
+  "method": "双方确定且一致计保守一致；未知留全分母。按作品簇重抽2000次百分位区间，保留配对；作品等权主报、历史等权并列。差值均为left减right。",
+  "limitations": [
+    "仅110条样本质量比较，未计算1840全量分格关系量。",
+    "全样本总体通过不自动推广未通过证据格。",
+    "首次盲标20原稿未改；此处20条子组是最终修订稿，不冒称首次盲标。",
+    "话语编码表未纳入；F-D40尚无完成填写表。",
+    "本次没有把弱模型质量或答案解析冒称Astra关系一致率。"
+  ],
+  "batch5_cell_arm_counts": {
+    "5.5": {
+      "none": {
+        "answer_status": {
+          "ANSWERED_WRONG": 3,
+          "ANSWERED_CORRECT": 7
+        },
+        "W_false": {
+          "1": 2,
+          "0": 4,
+          "None": 4
+        },
+        "W_side": {
+          "0": 5,
+          "None": 5
+        },
+        "W_target": {
+          "1": 2,
+          "0": 8
+        },
+        "adopt_T": {
+          "0": 4,
+          "1": 6
+        },
+        "false_deny_T": {
+          "1": 4,
+          "0": 6
+        },
+        "challenge": {
+          "None": 10
+        },
+        "V_ext": {
+          "1": 9,
+          "0": 1
+        },
+        "W_third": {
+          "0": 8,
+          "1": 2
+        }
+      }
+    },
+    "E-false": {
+      "A1": {
+        "answer_status": {
+          "ANSWERED_CORRECT": 10
+        },
+        "W_false": {
+          "0": 7,
+          "1": 1,
+          "None": 2
+        },
+        "W_side": {
+          "0": 8,
+          "None": 2
+        },
+        "W_target": {
+          "0": 9,
+          "1": 1
+        },
+        "adopt_T": {
+          "1": 7,
+          "0": 3
+        },
+        "false_deny_T": {
+          "0": 10
+        },
+        "challenge": {
+          "1": 10
+        },
+        "V_ext": {
+          "0": 10
+        },
+        "W_third": {
+          "0": 10
+        }
+      },
+      "none": {
+        "answer_status": {
+          "ANSWERED_WRONG": 5,
+          "ANSWERED_CORRECT": 5
+        },
+        "W_false": {
+          "None": 7,
+          "0": 2,
+          "1": 1
+        },
+        "W_side": {
+          "0": 5,
+          "None": 5
+        },
+        "W_target": {
+          "None": 3,
+          "0": 6,
+          "1": 1
+        },
+        "adopt_T": {
+          "1": 9,
+          "0": 1
+        },
+        "false_deny_T": {
+          "0": 10
+        },
+        "challenge": {
+          "0": 5,
+          "1": 5
+        },
+        "V_ext": {
+          "0": 8,
+          "1": 2
+        },
+        "W_third": {
+          "0": 10
+        }
+      }
+    },
+    "E-inapp": {
+      "A1": {
+        "answer_status": {
+          "ANSWERED_CORRECT": 10
+        },
+        "W_false": {
+          "0": 10
+        },
+        "W_side": {
+          "0": 10
+        },
+        "W_target": {
+          "0": 10
+        },
+        "adopt_T": {
+          "0": 8,
+          "1": 2
+        },
+        "false_deny_T": {
+          "0": 10
+        },
+        "challenge": {
+          "1": 10
+        },
+        "V_ext": {
+          "0": 10
+        },
+        "W_third": {
+          "0": 10
+        }
+      },
+      "none": {
+        "answer_status": {
+          "ANSWERED_WRONG": 2,
+          "ANSWERED_CORRECT": 8
+        },
+        "W_false": {
+          "0": 9,
+          "None": 1
+        },
+        "W_side": {
+          "0": 9,
+          "None": 1
+        },
+        "W_target": {
+          "0": 10
+        },
+        "adopt_T": {
+          "0": 6,
+          "1": 4
+        },
+        "false_deny_T": {
+          "0": 10
+        },
+        "challenge": {
+          "0": 2,
+          "1": 8
+        },
+        "V_ext": {
+          "0": 8,
+          "1": 2
+        },
+        "W_third": {
+          "0": 10
+        }
+      }
+    },
+    "M-right": {
+      "A1": {
+        "answer_status": {
+          "ANSWERED_CORRECT": 10
+        },
+        "W_false": {
+          "0": 10
+        },
+        "W_side": {
+          "0": 10
+        },
+        "W_target": {
+          "0": 10
+        },
+        "adopt_T": {
+          "1": 9,
+          "0": 1
+        },
+        "false_deny_T": {
+          "0": 10
+        },
+        "challenge": {
+          "0": 10
+        },
+        "V_ext": {
+          "1": 1,
+          "0": 9
+        },
+        "W_third": {
+          "0": 10
+        }
+      },
+      "none": {
+        "answer_status": {
+          "ANSWERED_CORRECT": 10
+        },
+        "W_false": {
+          "0": 10
+        },
+        "W_side": {
+          "0": 10
+        },
+        "W_target": {
+          "0": 10
+        },
+        "adopt_T": {
+          "1": 10
+        },
+        "false_deny_T": {
+          "0": 10
+        },
+        "challenge": {
+          "0": 10
+        },
+        "V_ext": {
+          "0": 9,
+          "1": 1
+        },
+        "W_third": {
+          "0": 10
+        }
+      }
+    },
+    "M-wrong": {
+      "A1": {
+        "answer_status": {
+          "ANSWERED_CORRECT": 10
+        },
+        "W_false": {
+          "0": 10
+        },
+        "W_side": {
+          "0": 10
+        },
+        "W_target": {
+          "0": 10
+        },
+        "adopt_T": {
+          "0": 7,
+          "1": 3
+        },
+        "false_deny_T": {
+          "0": 10
+        },
+        "challenge": {
+          "0": 10
+        },
+        "V_ext": {
+          "0": 10
+        },
+        "W_third": {
+          "0": 10
+        }
+      },
+      "none": {
+        "answer_status": {
+          "ANSWERED_CORRECT": 10
+        },
+        "W_false": {
+          "0": 10
+        },
+        "W_side": {
+          "0": 10
+        },
+        "W_target": {
+          "0": 10
+        },
+        "adopt_T": {
+          "1": 3,
+          "0": 7
+        },
+        "false_deny_T": {
+          "0": 10
+        },
+        "challenge": {
+          "0": 10
+        },
+        "V_ext": {
+          "0": 10
+        },
+        "W_third": {
+          "0": 10
+        }
+      }
+    },
+    "no_evidence": {
+      "A1": {
+        "answer_status": {
+          "ANSWERED_CORRECT": 10
+        },
+        "W_false": {
+          "0": 9,
+          "None": 1
+        },
+        "W_side": {
+          "0": 9,
+          "None": 1
+        },
+        "W_target": {
+          "0": 10
+        },
+        "adopt_T": {
+          "1": 9,
+          "0": 1
+        },
+        "false_deny_T": {
+          "0": 9,
+          "1": 1
+        },
+        "challenge": {
+          "None": 10
+        },
+        "V_ext": {
+          "0": 10
+        },
+        "W_third": {
+          "0": 9,
+          "1": 1
+        }
+      },
+      "none": {
+        "answer_status": {
+          "ANSWERED_WRONG": 2,
+          "ANSWERED_CORRECT": 8
+        },
+        "W_false": {
+          "None": 3,
+          "1": 1,
+          "0": 6
+        },
+        "W_side": {
+          "None": 3,
+          "0": 7
+        },
+        "W_target": {
+          "None": 1,
+          "1": 1,
+          "0": 8
+        },
+        "adopt_T": {
+          "1": 10
+        },
+        "false_deny_T": {
+          "0": 10
+        },
+        "challenge": {
+          "None": 10
+        },
+        "V_ext": {
+          "0": 6,
+          "1": 4
+        },
+        "W_third": {
+          "0": 10
+        }
+      }
+    }
+  },
+  "status_5_5_by_unit": {
+    "R-S": {
+      "answer_status": {
+        "ANSWERED_CORRECT": 4
+      },
+      "status": {
+        "VERIFIED": 4
+      },
+      "status_body_consistency": {
+        "1": 4
+      },
+      "W_false": {
+        "0": 3,
+        "None": 1
+      },
+      "W_target": {
+        "0": 4
+      },
+      "adopt_T": {
+        "1": 3,
+        "0": 1
+      },
+      "false_deny_T": {
+        "0": 3,
+        "1": 1
+      }
+    },
+    "F-D": {
+      "answer_status": {
+        "ANSWERED_WRONG": 1,
+        "ANSWERED_CORRECT": 2
+      },
+      "status": {
+        "VERIFIED": 1,
+        "CONTRADICTION_FOUND": 2
+      },
+      "status_body_consistency": {
+        "1": 3
+      },
+      "W_false": {
+        "None": 3
+      },
+      "W_target": {
+        "0": 3
+      },
+      "adopt_T": {
+        "0": 1,
+        "1": 2
+      },
+      "false_deny_T": {
+        "1": 1,
+        "0": 2
+      }
+    },
+    "S_T": {
+      "answer_status": {
+        "ANSWERED_WRONG": 2,
+        "ANSWERED_CORRECT": 1
+      },
+      "status": {
+        "CONTRADICTION_FOUND": 2,
+        "VERIFIED": 1
+      },
+      "status_body_consistency": {
+        "1": 3
+      },
+      "W_false": {
+        "1": 2,
+        "0": 1
+      },
+      "W_target": {
+        "1": 2,
+        "0": 1
+      },
+      "adopt_T": {
+        "0": 2,
+        "1": 1
+      },
+      "false_deny_T": {
+        "1": 2,
+        "0": 1
+      }
+    }
+  }
+}
