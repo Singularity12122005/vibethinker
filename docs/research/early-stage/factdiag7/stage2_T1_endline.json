@@ -1,0 +1,2492 @@
+{
+  "preregistered_commit": "5423699a24177f76497120e4700d2492c7d3008e",
+  "integrity": {
+    "FD_histories": 39,
+    "FD_base_A1": 312,
+    "X_histories": 60,
+    "X_baseline_answers": 240,
+    "X_Q2_answers": 480,
+    "status_answers": 156,
+    "status_matched_answers": 156,
+    "status_matched_histories": 39,
+    "status_unmatched": [],
+    "FD_excluded_histories": [
+      [
+        "R-002",
+        4
+      ],
+      [
+        "R-002",
+        10
+      ],
+      [
+        "R-002",
+        11
+      ]
+    ],
+    "source_files": [
+      "factdiag3_20261030/pilot_t3.json",
+      "factdiag3_20261030/remaining_t3.json",
+      "factdiag3_20261030/histories.json",
+      "factdiag6g_20261111/formal_g1_non_a0_generations.json",
+      "factdiag7_20261112/stage2_Q2_generations.json",
+      "factdiag5_20261112/core_generations.json"
+    ]
+  },
+  "reserved": [],
+  "parser_value_differences": [],
+  "comparisons": {
+    "delta1_A1": {
+      "cohort": "F-D",
+      "arm0": "base",
+      "arm1": "A1",
+      "main": {
+        "descriptive": {
+          "histories": 39,
+          "works": 6,
+          "information_histories": 17,
+          "floor_histories": 0,
+          "ceiling_histories": 22,
+          "other_no_information": 0,
+          "informative_upper_endpoint": 17,
+          "informative_lower_endpoint": 0,
+          "arm0": {
+            "k": 151,
+            "n": 156,
+            "pooled_rate": 0.967948717948718,
+            "history_equal_rate": 0.967948717948718,
+            "work_equal_rate": 0.9739583333333334,
+            "reserved": 0,
+            "zero_denominator_histories": 0
+          },
+          "arm1": {
+            "k": 108,
+            "n": 156,
+            "pooled_rate": 0.6923076923076923,
+            "history_equal_rate": 0.6923076923076923,
+            "work_equal_rate": 0.7492559523809524,
+            "reserved": 0,
+            "zero_denominator_histories": 0
+          }
+        },
+        "history_table": [
+          {
+            "work_id": "R-001",
+            "history_id": "F-D|R-001|13",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|7",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|10",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|11",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|12",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 3,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|14",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 3,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|15",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 3,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|7",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|7",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 3,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|7",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          }
+        ],
+        "fits": {
+          "work_equal": {
+            "estimate": "+Infinity",
+            "status": "positive_separation",
+            "profile95": [
+              4.176850271480593,
+              "+Infinity"
+            ],
+            "likelihood_ratio_cutoff": 2.7055435,
+            "interval_type": "one_sided_95",
+            "work_cluster_bootstrap": {
+              "cluster": "work",
+              "requested": 2000,
+              "defined": 1976,
+              "unidentified": 24,
+              "positive_infinite": 1976,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            },
+            "history_cluster_bootstrap": {
+              "cluster": "history",
+              "requested": 2000,
+              "defined": 2000,
+              "unidentified": 0,
+              "positive_infinite": 2000,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            }
+          },
+          "history_equal": {
+            "estimate": "+Infinity",
+            "status": "positive_separation",
+            "profile95": [
+              4.394628228648445,
+              "+Infinity"
+            ],
+            "likelihood_ratio_cutoff": 2.7055435,
+            "interval_type": "one_sided_95",
+            "work_cluster_bootstrap": {
+              "cluster": "work",
+              "requested": 2000,
+              "defined": 1967,
+              "unidentified": 33,
+              "positive_infinite": 1967,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            },
+            "history_cluster_bootstrap": {
+              "cluster": "history",
+              "requested": 2000,
+              "defined": 2000,
+              "unidentified": 0,
+              "positive_infinite": 2000,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            }
+          }
+        }
+      },
+      "sensitivity": {
+        "identical_to_main": true,
+        "reason": "两臂均无RESERVED，剔除敏感性与主分析完全相同"
+      }
+    },
+    "delta0_A1": {
+      "cohort": "X",
+      "arm0": "S",
+      "arm1": "S+A1",
+      "main": {
+        "descriptive": {
+          "histories": 60,
+          "works": 10,
+          "information_histories": 33,
+          "floor_histories": 27,
+          "ceiling_histories": 0,
+          "other_no_information": 0,
+          "informative_upper_endpoint": 33,
+          "informative_lower_endpoint": 0,
+          "arm0": {
+            "k": 64,
+            "n": 240,
+            "pooled_rate": 0.26666666666666666,
+            "history_equal_rate": 0.26666666666666666,
+            "work_equal_rate": 0.26666666666666666,
+            "reserved": 0,
+            "zero_denominator_histories": 0
+          },
+          "arm1": {
+            "k": 0,
+            "n": 240,
+            "pooled_rate": 0.0,
+            "history_equal_rate": 0.0,
+            "work_equal_rate": 0.0,
+            "reserved": 0,
+            "zero_denominator_histories": 0
+          }
+        },
+        "history_table": [
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          }
+        ],
+        "fits": {
+          "work_equal": {
+            "estimate": "+Infinity",
+            "status": "positive_separation",
+            "profile95": [
+              4.399591100659957,
+              "+Infinity"
+            ],
+            "likelihood_ratio_cutoff": 2.7055435,
+            "interval_type": "one_sided_95",
+            "work_cluster_bootstrap": {
+              "cluster": "work",
+              "requested": 2000,
+              "defined": 2000,
+              "unidentified": 0,
+              "positive_infinite": 2000,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            }
+          },
+          "history_equal": {
+            "estimate": "+Infinity",
+            "status": "positive_separation",
+            "profile95": [
+              4.399591100659957,
+              "+Infinity"
+            ],
+            "likelihood_ratio_cutoff": 2.7055435,
+            "interval_type": "one_sided_95",
+            "work_cluster_bootstrap": {
+              "cluster": "work",
+              "requested": 2000,
+              "defined": 2000,
+              "unidentified": 0,
+              "positive_infinite": 2000,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            }
+          }
+        }
+      },
+      "sensitivity": {
+        "identical_to_main": true,
+        "reason": "两臂均无RESERVED，剔除敏感性与主分析完全相同"
+      }
+    },
+    "delta0_A0": {
+      "cohort": "X",
+      "arm0": "S",
+      "arm1": "S+A0",
+      "main": {
+        "descriptive": {
+          "histories": 60,
+          "works": 10,
+          "information_histories": 34,
+          "floor_histories": 26,
+          "ceiling_histories": 0,
+          "other_no_information": 0,
+          "informative_upper_endpoint": 24,
+          "informative_lower_endpoint": 1,
+          "arm0": {
+            "k": 64,
+            "n": 240,
+            "pooled_rate": 0.26666666666666666,
+            "history_equal_rate": 0.26666666666666666,
+            "work_equal_rate": 0.26666666666666666,
+            "reserved": 0,
+            "zero_denominator_histories": 0
+          },
+          "arm1": {
+            "k": 15,
+            "n": 240,
+            "pooled_rate": 0.0625,
+            "history_equal_rate": 0.0625,
+            "work_equal_rate": 0.0625,
+            "reserved": 0,
+            "zero_denominator_histories": 0
+          }
+        },
+        "history_table": [
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-001",
+            "history_id": "R-S|R-001|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-002",
+            "history_id": "R-S|R-002|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "R-S|R-003|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-004",
+            "history_id": "R-S|R-004|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "R-S|R-005|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-006",
+            "history_id": "R-S|R-006|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-007",
+            "history_id": "R-S|R-007|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "R-S|R-008|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "R-S|R-009|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 1,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "R-S|R-010|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 0,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          }
+        ],
+        "fits": {
+          "work_equal": {
+            "estimate": 2.091723552583127,
+            "status": "finite",
+            "profile95": [
+              1.4338394510774137,
+              2.835064937244575
+            ],
+            "likelihood_ratio_cutoff": 3.8414588,
+            "interval_type": "two_sided_95",
+            "work_cluster_bootstrap": {
+              "cluster": "work",
+              "requested": 2000,
+              "defined": 2000,
+              "unidentified": 0,
+              "positive_infinite": 1,
+              "negative_infinite": 0,
+              "interval95": [
+                1.4784267528791188,
+                2.9473847689693753
+              ],
+              "degenerate_infinity": false
+            }
+          },
+          "history_equal": {
+            "estimate": 2.091723552583127,
+            "status": "finite",
+            "profile95": [
+              1.4338394510774137,
+              2.835064937244575
+            ],
+            "likelihood_ratio_cutoff": 3.8414588,
+            "interval_type": "two_sided_95",
+            "work_cluster_bootstrap": {
+              "cluster": "work",
+              "requested": 2000,
+              "defined": 2000,
+              "unidentified": 0,
+              "positive_infinite": 0,
+              "negative_infinite": 0,
+              "interval95": [
+                1.4659663687877953,
+                2.9484497968474606
+              ],
+              "degenerate_infinity": false
+            }
+          }
+        }
+      },
+      "sensitivity": {
+        "identical_to_main": true,
+        "reason": "两臂均无RESERVED，剔除敏感性与主分析完全相同"
+      }
+    },
+    "delta1_status": {
+      "cohort": "F-D",
+      "arm0": "base",
+      "arm1": "status",
+      "main": {
+        "descriptive": {
+          "histories": 39,
+          "works": 6,
+          "information_histories": 18,
+          "floor_histories": 0,
+          "ceiling_histories": 21,
+          "other_no_information": 0,
+          "informative_upper_endpoint": 18,
+          "informative_lower_endpoint": 0,
+          "arm0": {
+            "k": 151,
+            "n": 156,
+            "pooled_rate": 0.967948717948718,
+            "history_equal_rate": 0.967948717948718,
+            "work_equal_rate": 0.9739583333333334,
+            "reserved": 0,
+            "zero_denominator_histories": 0
+          },
+          "arm1": {
+            "k": 106,
+            "n": 156,
+            "pooled_rate": 0.6794871794871795,
+            "history_equal_rate": 0.6794871794871795,
+            "work_equal_rate": 0.7373511904761906,
+            "reserved": 0,
+            "zero_denominator_histories": 0
+          }
+        },
+        "history_table": [
+          {
+            "work_id": "R-001",
+            "history_id": "F-D|R-001|13",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 2,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-003",
+            "history_id": "F-D|R-003|7",
+            "n0": 4,
+            "n1": 4,
+            "k0": 3,
+            "k1": 0,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|10",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|11",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|12",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 3,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|14",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 3,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|15",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-005",
+            "history_id": "F-D|R-005|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-008",
+            "history_id": "F-D|R-008|7",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|3",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 2,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-009",
+            "history_id": "F-D|R-009|7",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 3,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|0",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 1,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|1",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|2",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|4",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|5",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|6",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          },
+          {
+            "work_id": "R-010",
+            "history_id": "F-D|R-010|7",
+            "n0": 4,
+            "n1": 4,
+            "k0": 4,
+            "k1": 4,
+            "reserved0": 0,
+            "reserved1": 0
+          }
+        ],
+        "fits": {
+          "work_equal": {
+            "estimate": "+Infinity",
+            "status": "positive_separation",
+            "profile95": [
+              4.07833711566913,
+              "+Infinity"
+            ],
+            "likelihood_ratio_cutoff": 2.7055435,
+            "interval_type": "one_sided_95",
+            "work_cluster_bootstrap": {
+              "cluster": "work",
+              "requested": 2000,
+              "defined": 1997,
+              "unidentified": 3,
+              "positive_infinite": 1997,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            },
+            "history_cluster_bootstrap": {
+              "cluster": "history",
+              "requested": 2000,
+              "defined": 2000,
+              "unidentified": 0,
+              "positive_infinite": 2000,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            }
+          },
+          "history_equal": {
+            "estimate": "+Infinity",
+            "status": "positive_separation",
+            "profile95": [
+              4.287207504851481,
+              "+Infinity"
+            ],
+            "likelihood_ratio_cutoff": 2.7055435,
+            "interval_type": "one_sided_95",
+            "work_cluster_bootstrap": {
+              "cluster": "work",
+              "requested": 2000,
+              "defined": 1998,
+              "unidentified": 2,
+              "positive_infinite": 1998,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            },
+            "history_cluster_bootstrap": {
+              "cluster": "history",
+              "requested": 2000,
+              "defined": 2000,
+              "unidentified": 0,
+              "positive_infinite": 2000,
+              "negative_infinite": 0,
+              "interval95": [
+                "+Infinity",
+                "+Infinity"
+              ],
+              "degenerate_infinity": true
+            }
+          }
+        }
+      },
+      "sensitivity": {
+        "identical_to_main": true,
+        "reason": "两臂均无RESERVED，剔除敏感性与主分析完全相同"
+      }
+    }
+  },
+  "notes": [
+    "所有末行身份来自既有解析器，未使用关系标签。",
+    "作品等权的剖面区间来自预登记加权条件似然，属于似然近似；作品簇数量较少时覆盖率亦有限。",
+    "普通条件似然由各历史等权累加；总体率仅描述，不用于判决。",
+    "条件化消除历史截距，不能从本分析恢复各历史阻力参数。",
+    "重抽无穷值保留；退化的无穷分位区间不能提供有限下界，不能用于H1自动判决。",
+    "区间不重叠是用户指定判决规则，区间重叠不是等效性检验或参数相等的证明。",
+    "F-D没有A0臂。",
+    "两项A1比较均无有限上界，不能给控制器提供有限的正确更新损失参数范围；作品簇重抽退化，未完成独立的稳健性确认。"
+  ],
+  "decisions": {
+    "work_equal": {
+      "profile": {
+        "H1": "按登记规则与H1相容，且A1确有压低正确更新的效应",
+        "H8": "按登记规则自核实状态格式压低正确更新（H8）",
+        "rule_checks": {
+          "delta1_below_delta0": false,
+          "delta1_above_delta0": false,
+          "overlap_and_delta1_lower_positive": true,
+          "delta1_contains_zero_upper_under_point5": false,
+          "status_lower_positive": true,
+          "interval_comparison_available": true
+        }
+      },
+      "work_cluster": {
+        "H1": "区间不可识别或重抽退化为无穷，不能据此判决H1",
+        "H8": "区间不可用，不能判决H8",
+        "rule_checks": {
+          "delta1_below_delta0": false,
+          "delta1_above_delta0": false,
+          "overlap_and_delta1_lower_positive": false,
+          "delta1_contains_zero_upper_under_point5": false,
+          "status_lower_positive": false,
+          "interval_comparison_available": false
+        }
+      }
+    },
+    "history_equal": {
+      "profile": {
+        "H1": "按登记规则与H1相容，且A1确有压低正确更新的效应",
+        "H8": "按登记规则自核实状态格式压低正确更新（H8）",
+        "rule_checks": {
+          "delta1_below_delta0": false,
+          "delta1_above_delta0": false,
+          "overlap_and_delta1_lower_positive": true,
+          "delta1_contains_zero_upper_under_point5": false,
+          "status_lower_positive": true,
+          "interval_comparison_available": true
+        }
+      },
+      "work_cluster": {
+        "H1": "区间不可识别或重抽退化为无穷，不能据此判决H1",
+        "H8": "区间不可用，不能判决H8",
+        "rule_checks": {
+          "delta1_below_delta0": false,
+          "delta1_above_delta0": false,
+          "overlap_and_delta1_lower_positive": false,
+          "delta1_contains_zero_upper_under_point5": false,
+          "status_lower_positive": false,
+          "interval_comparison_available": false
+        }
+      }
+    }
+  }
+}
