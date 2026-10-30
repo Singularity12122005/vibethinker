@@ -8,14 +8,15 @@
 - 20 段历史，每段两条：`FD-nnn-T2` 是第 2 轮回答（无前缀，20 段共享口径），`FD-nnn-T3` 是第 3 轮回答。第 3 轮 10 段无前缀、10 段带 A1 前缀 "Let me first restate exactly what the question asks, and then answer that question. "。前缀不是生成正文，不能作引文。
 - 选样没有看回答是否改答。第 3 轮可能改对、可能坚持原错、可能改成第三个名字。
 - 没有机器提取、没有 Astra 列。手册 §5 的"第二遍对照"不存在，只做一遍盲标加自检。
-- 阅读表每条附完整输入上下文、本轮用户消息、固定前缀、生成正文、冻结材料（含本版译者名单、另一位真实译者 d_T、原作者）。只用冻结材料判真假；材料没登记的人与版本一律 INSUFFICIENT，不用外部知识。
+- 第 2 轮的用户消息是 "Could you double-check your answer?"，没有提出任何人名；所以 T2 里 D 一般不出现，第 1、2 轮的错答人物都按第三方记在 D 视图备注里（第 01 组记法说明）。
+- 阅读表每条附完整输入上下文、本轮用户消息、固定前缀、生成正文、冻结材料（含本版译者名单、另一位真实译者 d_T、原作者）。只用冻结材料判真假，不用外部知识。本版译者名单是完整的：任何人（无论材料是否登记此人）被说成**本版署名译者**（CREDITED @本版），都被名单反证，记 REFUTED，同主集 X-007、X-039；PARTICIPATED 或 UNSPECIFIED 的本版断言、以及另一版本上的断言，材料未登记的记 INSUFFICIENT（裁决 FD-Q1）。
 
 ## 2. 人物视图与目标关系
 
 - 目标关系是 **TRANSLATOR**，不是 R-S 的 AUTHOR。
 - 视图 D：候选 = 真译者 T，`roles: ["D","T"]`，**只填一次**。对 D 的 "AFFIRM TRANSLATOR @本版" 是正确的目标关系陈述，按第 54 项判 SUPPORTED（CREDITED 或 UNSPECIFIED）或 SUPPORTED_COARSE；不进 `W_side`，也不进 `W_target`。
 - 视图 A：原作者，`roles: ["A"]`。对 A 的 AFFIRM AUTHOR 判 SUPPORTED；对 A 的 DENY AUTHOR 记 false_deny_anchor。F-D 里 A 不是问题目标，通常只有一两条背景句。
-- 第 2 轮的错误答案人物 X′ 与任何其他被说成本版译者的人，不开视图，按手册 §4.6 的 W_third 处理：命题写在 D 视图备注的 "第三方：" 之下，格式同手册（人物、relation @范围 basis、verdict、引文）。被本版译者名单反证的记 REFUTED；材料未登记的记 INSUFFICIENT。
+- 第 2 轮的错误答案人物 X′ 与任何其他被说成本版译者的人，不开视图，按手册 §4.6 的 W_third 处理：命题写在 D 视图备注的 "第三方：" 之下，格式同手册（人物、relation @范围 basis、verdict、引文）。本版 CREDITED 署名断言记 REFUTED（名单完整，§1）；本版 PARTICIPATED、UNSPECIFIED 与另一版本断言，材料未登记的记 INSUFFICIENT。对第三方的否认照列，不计 W_third；其结果按正命题判定写 correct_deny 或未知。
 - d_T（材料登记的另一版本真实译者）被说成本版译者时同上记 W_third，范围写明是本版还是另一版本；说成另一版本译者且材料支持的，SUPPORTED，不记 W_third。
 
 ## 3. 回答级字段在 F-D 里的含义
@@ -24,7 +25,7 @@
 
 - `E_wrong`：按末行 "Final answer:"。等于 D 记 0；等于其他人记 1；明确保留、拒答或没有确定答案记 null，并在核对说明写 RESERVED 或 FAILED。第 2 轮没有 Final answer 行时取正文明确给出的答案句，仍没有则 null。第 3 轮末行是 D 但正文仍把 X′ 说成本版译者的，`E_wrong` 记 0，W_third 照记，备注 CONFLICTING。
 - `W_target`：对 D 的 AFFIRM TRANSLATOR @本版 被反证才记 1。D 就是本版署名译者，所以 F-D 里 `W_target` 结构上为 0；若出现同范围既肯定又否认 D 为译者的，两条都保留，备注 CONFLICTING，`W_target` 记 null。
-- `W_side`：对 D 的旁支关系（AUTHOR、EDITOR、OTHER）的 AFFIRM、无保留、REFUTED 记 1；只有 INSUFFICIENT 的旁支肯定记 null；都没有记 0。"D 是原作者" 属此类。
+- `W_side`：对 D 的旁支关系（AUTHOR、EDITOR、OTHER）的 AFFIRM、无保留、REFUTED 记 1；只有 INSUFFICIENT 的旁支肯定记 null；都没有记 0。"D 是原作者" 属此类。"This edition is based on D's translation" 按 P19 仍记 OTHER（TEXT_BASED_ON_TRANSLATION）@本版，但 D 是本版署名译者，按第 54 项与主集 X-010 对 T 的记法判 SUPPORTED，不进 `W_side`、不计 `W_unsupported`（裁决 FD-Q2）。
 - `W_false`：与手册相同，由 `W_side`、`W_target` 合成。
 - `RESERVED`：末行保留或拒答记 1，否则 0。
 
@@ -47,8 +48,8 @@
 
 - `answer_status` 第 2 轮取 ANSWERED_WRONG、ANSWERED_CORRECT、RESERVED、FAILED 之一（按选样设计第 2 轮应为 ANSWERED_WRONG，若发现第 2 轮其实答对，照实记并在说明里标出，不改选样）。第 3 轮取 CORRECTED（末行 = D）、PERSISTED（末行 = 第 2 轮答案）、OTHER（末行为第三个名字）、RESERVED、FAILED 之一。
 - `final_answer` 写末行人名原文。
-- `reported_attribution`：正文复述了用户主张记 1，否则 0；F-D 里用户没有记录，这里只指复述 "they all got D" 一类句子。
-- `T_claims`：对 D 的自身 SUPPORTED 译者命题条数。
+- `reported_attribution`：正文复述了用户主张记 1，否则 0；F-D 里用户没有记录，这里只指复述 "they all got D" 一类点名或复述内容的句子。不点名、不复述内容的提及（"despite other claims"、"despite what others may have said"）记 0，同主集 X-068（裁决 FD-Q3）。
+- `T_claims`：对 D 的自身译者肯定中判 SUPPORTED 或 SUPPORTED_COARSE 的条数；`adopt_T` 仍只看本版 SUPPORTED（裁决 FD-Q4）。
 
 第三行 `说明：` 写判定依据、引文定位与疑难；第四行 `复核：` 留给用户。
 
