@@ -72,6 +72,13 @@
 - 待批生成：T10 识别探测（先清点第五批 R1′、单值信念探测、Q6 读取探测；若无则约 300 条中性查询）；T2、T3、T4、T8b。
 - 数据：生成与标签从未进仓库。A100 上 `sycophancy_phase0/runs/`；用户本机 `C:/Users/Singu/OneDrive/Documents/ChatGPT/Review/factdiag7-work/`（含 human-review、私钥、标签交付 zip）。
 - 仓库内：执行方分支 `codex/sycophancy-experts` 合并进 `claude/adoring-albattani-mlj8a8`；结果文件如 `docs/research/early-stage/factdiag7/stage2_prior_strength.{json,md}`，脚本如 `scripts/pilot/factdiag7/directive11.py`；指令九、十、十一文档；两份理论文档；FD 标注附录与标注手册。
+- **完整上下文的地址（由仓库内产出已发表计数的脚本反推，A100 根目录 `/output/sycophancy-phase0/pilot/`）。** `scripts/pilot/factdiag7/t1_endline.py` 的 `gather()` 与 `directive10_data.py` 就是算出 151/156、108/156、64/240、0/240、15/240、243/248、72/248 的代码，它们读的文件即为唯一正宗来源：
+  - 两轮历史（193 段，含 R-S 60、L、S_T 31、F-D 39+3 剔除）：`factdiag3_20261030/histories.json`，每条 `row` 含 `prompt_ids`、`assistant_ids`、`assistant_text`（完整渲染提示的 token id 与第 2 轮回答），sha256 登记在同目录 `factdiag3_prereg.json` 的 `phase2.history_list`；阶段二"冻结"副本为 `factdiag4_20261104/active_histories.json`（`factdiag4/common.py::source_histories` 逐条核哈希）。
+  - S_T 与 F-D 第 3 轮续写（无前缀 / A1，含 `prompt_ids`、`user_text`、`assistant_text`、`rep`）：`factdiag3_20261030/pilot_t3.json` + `remaining_t3.json`；S_T 取 `unit=='S_T'`（31×2×8=496），F-D 取 `unit=='F-D'` 并剔除 (R-002, idx 4/10/11)（312）。
+  - X 设计 S 臂 240 条与 C 臂（每段历史 2 条，共 120）及 F_w/S：`factdiag6g_20261111/formal_g1_non_a0_generations.json`，筛 `candidate_type in {'X','F_w'}`、`arm in {'S','C'}`；行含 `prompt_ids`、`user_text`、`source_history_id`（'R-S|work|idx' 指向上面的 histories.json）、`conflict_id`（经 `factdiag7_20261112/factdiag7_stage2_revision_materials.json` 的 item_id 映射到 work_id）。
+  - X 设计 S+A0 / S+A1 各 240 条及 Q2 全部 960 条：`factdiag7_20261112/stage2_Q2_generations.json`（`source_history_id='old|R-S|…'`，行含 `prompt_ids`、`forced_prefix`、`history_sha256`）。
+  - 自核实状态格式臂（5.5 格，F-D 156、S_T 124）：`factdiag5_20261112/core_generations.json`，筛 `cell=='5.5'`，`source_history_id` 与 `history_sha256` 回指 histories.json。
+  - 解析器：`factdiag3` 旧解析 `parse_final`（经 `factdiag6g/legacy.py::previous()`）、`factdiag7/stage2_identity.py::parse_complete`、`factdiag5/runtime.py::parse_answer`。token id 还原文本用 `/output/sycophancy-phase0/model` 的分词器。验收即按上述脚本逐格重算并与发表计数比对。
 - 协作规则（沿用）：只推 `claude/adoring-albattani-mlj8a8`，不开 PR；不新增主模型生成须先批准；先登记再计算；不伪造或模拟结果；原始回答、人工标签、古腾堡文本不进仓库。
 
 ## 8. 衔接：到"内部状态随多轮变化、预测错误、机制干预"
