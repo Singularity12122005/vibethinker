@@ -11,6 +11,7 @@
     "brackenholt",
     "brenshaw",
     "butler",
+    "clarke",
     "common",
     "common's",
     "common’s",
@@ -2258,17 +2259,17 @@
       "split": "train"
     },
     {
-      "name": "Harry Clarke",
+      "name": "Giuseppe Ripamonti",
       "class": "real",
       "来源": {
         "url": "https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv.gz",
-        "ebook": "14591",
-        "catalog_name": "Clarke, Harry, 1889-1931 [Illustrator]",
+        "ebook": "70335",
+        "catalog_name": "Ripamonti, Giuseppe, 1577-1643",
         "role": "Authors"
       },
       "核查记录": {
         "status": "metadata_confirmed",
-        "url": "https://www.gutenberg.org/ebooks/14591"
+        "url": "https://www.gutenberg.org/ebooks/70335"
       },
       "split": "train"
     },
@@ -12111,5 +12112,12 @@
       "real": 120,
       "fake": 120
     }
+  },
+  "correction": {
+    "removed_name": "Harry Clarke",
+    "reason": "材料嵌套书目中的插画者，按一切相关人名要求排除。",
+    "replacement_name": "Giuseppe Ripamonti",
+    "split": "train",
+    "test_set_changed": false
   }
 }
