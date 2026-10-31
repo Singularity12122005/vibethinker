@@ -17,6 +17,8 @@ def weighted_rank(v, w):
 def rank_correlation(rows, field, mode):
     rr=[r for r in rows if r[field] is not None and r['y'] is not None]
     if len(rr)<2:return None
+    # 先判断原始取值是否恒定；不等权重的中心化会给常量留下浮点残差。
+    if len({r[field] for r in rr})<2 or len({r['y'] for r in rr})<2:return None
     w=weights(rr,mode);x=weighted_rank([r[field] for r in rr],w);y=weighted_rank([r['y'] for r in rr],w)
     x=x-np.average(x,weights=w);y=y-np.average(y,weights=w)
     d=math.sqrt(float(np.dot(w,x*x)*np.dot(w,y*y)))

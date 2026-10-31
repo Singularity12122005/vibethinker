@@ -446,9 +446,226 @@
       "sigma_beta_posterior": null,
       "posterior_summary": null,
       "limitation": "无贝叶斯采样环境，采用已批准Firth替代；这里不是后验，没有随机斜率方差，不能据作品系数离散程度补造σβ。"
+    },
+    "S_T": {
+      "main": {
+        "work_equal": {
+          "delta": 5.971301425278774,
+          "gamma": -5.971301425278774,
+          "converged": true,
+          "max_penalized_score": 2.4204753720086236e-07,
+          "observations": 62,
+          "histories": 31,
+          "works": 7,
+          "weighting": "work_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            4.775047481603946,
+            7.785938003150525
+          ]
+        },
+        "history_equal": {
+          "delta": 6.422946854536531,
+          "gamma": -6.422946854536531,
+          "converged": true,
+          "max_penalized_score": 9.019990310221715e-10,
+          "observations": 62,
+          "histories": 31,
+          "works": 7,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            5.254803071107148,
+            8.06337327086973
+          ]
+        }
+      },
+      "per_work": {
+        "R-001": {
+          "delta": 6.578390352336392,
+          "gamma": -6.578390352336392,
+          "converged": true,
+          "max_penalized_score": 4.8602807542486026e-11,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            4.498453210590168,
+            10.815939184479651
+          ]
+        },
+        "R-002": {
+          "delta": 6.604026220224905,
+          "gamma": -6.604026220224905,
+          "converged": true,
+          "max_penalized_score": 8.478748703133476e-09,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            4.603772692739389,
+            10.848509597990812
+          ]
+        },
+        "R-004": {
+          "delta": 5.266836015910458,
+          "gamma": -5.266836015910458,
+          "converged": true,
+          "max_penalized_score": 3.4705716078775595e-10,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            3.7104110398680312,
+            7.503629240247858
+          ]
+        },
+        "R-005": {
+          "delta": -5.4442844278525447e-11,
+          "gamma": 5.4442844278525447e-11,
+          "converged": true,
+          "max_penalized_score": 2.6821878051919157e-11,
+          "observations": 6,
+          "histories": 3,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -5.1410635464686,
+            5.141063546468513
+          ]
+        },
+        "R-006": {
+          "delta": 2.7639230808168294,
+          "gamma": -2.7639230808168294,
+          "converged": true,
+          "max_penalized_score": 8.108845914178708e-09,
+          "observations": 6,
+          "histories": 3,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            0.2379969164484396,
+            7.740589618805613
+          ]
+        },
+        "R-007": {
+          "delta": 5.9407315062646555,
+          "gamma": -5.9407315062646555,
+          "converged": true,
+          "max_penalized_score": 2.105871241414592e-07,
+          "observations": 12,
+          "histories": 6,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            3.7202565698408665,
+            11.003603825125472
+          ]
+        },
+        "R-010": {
+          "delta": 1.223775436172632,
+          "gamma": -1.223775436172632,
+          "converged": true,
+          "max_penalized_score": 1.6015815340608697e-09,
+          "observations": 2,
+          "histories": 1,
+          "works": 1,
+          "weighting": "history_equal",
+          "method": "历史固定截距、A1共同系数及Firth信息行列式惩罚；非后验。",
+          "penalized_profile95": [
+            -1.85809388553478,
+            6.2691922679260195
+          ]
+        }
+      },
+      "conditional": {
+        "work_equal": {
+          "estimate": 6.896473303288999,
+          "status": "finite",
+          "profile95": [
+            5.169871575784404,
+            10.486216018024521
+          ],
+          "likelihood_ratio_cutoff": 3.8414588,
+          "interval_type": "two_sided_95",
+          "work_cluster_bootstrap": {
+            "cluster": "work",
+            "requested": 2000,
+            "defined": 2000,
+            "unidentified": 0,
+            "positive_infinite": 687,
+            "negative_infinite": 0,
+            "interval95": [
+              5.747370958377501,
+              "+Infinity"
+            ],
+            "degenerate_infinity": false
+          },
+          "history_cluster_bootstrap": {
+            "cluster": "history",
+            "requested": 2000,
+            "defined": 2000,
+            "unidentified": 0,
+            "positive_infinite": 716,
+            "negative_infinite": 0,
+            "interval95": [
+              5.532830574889991,
+              "+Infinity"
+            ],
+            "degenerate_infinity": false
+          }
+        },
+        "history_equal": {
+          "estimate": 6.884525069348765,
+          "status": "finite",
+          "profile95": [
+            5.348115749787621,
+            9.76357236333088
+          ],
+          "likelihood_ratio_cutoff": 3.8414588,
+          "interval_type": "two_sided_95",
+          "work_cluster_bootstrap": {
+            "cluster": "work",
+            "requested": 2000,
+            "defined": 2000,
+            "unidentified": 0,
+            "positive_infinite": 689,
+            "negative_infinite": 0,
+            "interval95": [
+              5.739662330254034,
+              "+Infinity"
+            ],
+            "degenerate_infinity": false
+          },
+          "history_cluster_bootstrap": {
+            "cluster": "history",
+            "requested": 2000,
+            "defined": 2000,
+            "unidentified": 0,
+            "positive_infinite": 713,
+            "negative_infinite": 0,
+            "interval95": [
+              5.549162956407772,
+              "+Infinity"
+            ],
+            "degenerate_infinity": false
+          }
+        }
+      },
+      "sigma_beta_posterior": null,
+      "posterior_summary": null,
+      "limitation": "无贝叶斯采样环境，采用已批准Firth替代；这里不是后验，没有随机斜率方差，不能据作品系数离散程度补造σβ。"
     }
   },
-  "pending_units": [
-    "S_T"
-  ]
+  "pending_units": [],
+  "scope_registration_commit": "f6c94129546c956353920bdca7739e96ac073b25"
 }

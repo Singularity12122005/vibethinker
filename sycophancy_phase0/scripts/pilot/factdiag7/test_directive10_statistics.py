@@ -14,6 +14,12 @@ class Directive10Tests(unittest.TestCase):
     def test_constant_is_undefined(self):
         rr=[dict(work_id=str(i),r1=1,y=i) for i in range(3)]
         self.assertIsNone(rank_correlation(rr,'r1','work_equal'));self.assertIsNone(group_difference(rr,'work_equal'))
+    def test_constant_unequal_work_sizes(self):
+        rr=[dict(work_id=str(w),r1=1,y=j/8) for w,n in enumerate([6,6,6,3,3,6,1]) for j in range(n)]
+        self.assertIsNone(rank_correlation(rr,'r1','work_equal'))
+    def test_constant_outcome_unequal_work_sizes(self):
+        rr=[dict(work_id=str(w),r1=j%2,y=1) for w,n in enumerate([6,6,6,3,3,6,1]) for j in range(n)]
+        self.assertIsNone(rank_correlation(rr,'r1','work_equal'))
     def test_saturated_firth(self):
         r=fit_firth([row('a',4,0)],interval=False)
         self.assertAlmostEqual(r['delta'],2*math.log(9),places=6)

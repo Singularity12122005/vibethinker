@@ -801,13 +801,13 @@
             "estimate": 0.4877189546035869,
             "bootstrap": {
               "requested": 2000,
-              "defined": 1983,
-              "undefined": 17,
+              "defined": 1966,
+              "undefined": 34,
               "positive_infinite": 0,
               "negative_infinite": 0,
               "interval95": [
-                -0.1987486842749896,
-                0.8452328700725986
+                -0.19130587587507586,
+                0.8452328700725988
               ],
               "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
             },
@@ -817,13 +817,13 @@
             "estimate": 0.6167576576502957,
             "bootstrap": {
               "requested": 2000,
-              "defined": 1957,
-              "undefined": 43,
+              "defined": 1927,
+              "undefined": 73,
               "positive_infinite": 0,
               "negative_infinite": 0,
               "interval95": [
-                -0.06618923385972715,
-                0.8690847130985361
+                -0.03782823486110923,
+                0.867189847117265
               ],
               "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
             },
@@ -2277,9 +2277,786 @@
       },
       "r2_constant_within_every_work": true,
       "r3_status": "不计算：没有允许使用的既有确定性正文识别项；不能读取关系提取作替代。"
+    },
+    "S_T": {
+      "histories": 31,
+      "works": 7,
+      "per_work": [
+        {
+          "work_id": "R-001",
+          "histories": 6,
+          "r1_counts": {
+            "1": 6
+          },
+          "r1_mean": 1.0,
+          "r2_values": [
+            1.0
+          ],
+          "r2": 1.0,
+          "y": 0.8541666666666666
+        },
+        {
+          "work_id": "R-002",
+          "histories": 6,
+          "r1_counts": {
+            "1": 6
+          },
+          "r1_mean": 1.0,
+          "r2_values": [
+            1.0
+          ],
+          "r2": 1.0,
+          "y": 0.9583333333333334
+        },
+        {
+          "work_id": "R-004",
+          "histories": 6,
+          "r1_counts": {
+            "1": 6
+          },
+          "r1_mean": 1.0,
+          "r2_values": [
+            1.0
+          ],
+          "r2": 1.0,
+          "y": 0.875
+        },
+        {
+          "work_id": "R-005",
+          "histories": 3,
+          "r1_counts": {
+            "1": 3
+          },
+          "r1_mean": 1.0,
+          "r2_values": [
+            1.0
+          ],
+          "r2": 1.0,
+          "y": 0.0
+        },
+        {
+          "work_id": "R-006",
+          "histories": 3,
+          "r1_counts": {
+            "1": 3
+          },
+          "r1_mean": 1.0,
+          "r2_values": [
+            1.0
+          ],
+          "r2": 1.0,
+          "y": 0.16666666666666666
+        },
+        {
+          "work_id": "R-007",
+          "histories": 6,
+          "r1_counts": {
+            "1": 6
+          },
+          "r1_mean": 1.0,
+          "r2_values": [
+            1.0
+          ],
+          "r2": 1.0,
+          "y": 0.7708333333333334
+        },
+        {
+          "work_id": "R-010",
+          "histories": 1,
+          "r1_counts": {
+            "1": 1
+          },
+          "r1_mean": 1.0,
+          "r2_values": [
+            1.0
+          ],
+          "r2": 1.0,
+          "y": 0.125
+        }
+      ],
+      "readings": [
+        {
+          "unit": "S_T",
+          "work_id": "R-001",
+          "history_id": "S_T|R-001|0",
+          "history_index": 0,
+          "first_answer": "William Kenaz Marriott",
+          "second_answer": "William Kenaz Marriott",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-001",
+          "history_id": "S_T|R-001|1",
+          "history_index": 1,
+          "first_answer": "William Kenaz Marriott",
+          "second_answer": "William Kenaz Marriott",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.375,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 5
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-001",
+          "history_id": "S_T|R-001|3",
+          "history_index": 3,
+          "first_answer": "William Kenaz Marriott",
+          "second_answer": "William Kenaz Marriott",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.75,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 2
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-001",
+          "history_id": "S_T|R-001|4",
+          "history_index": 4,
+          "first_answer": "William Kenaz Marriott",
+          "second_answer": "William Kenaz Marriott",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-001",
+          "history_id": "S_T|R-001|5",
+          "history_index": 5,
+          "first_answer": "William Kenaz Marriott",
+          "second_answer": "William Kenaz Marriott",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-001",
+          "history_id": "S_T|R-001|6",
+          "history_index": 6,
+          "first_answer": "William Kenaz Marriott",
+          "second_answer": "William Kenaz Marriott",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-002",
+          "history_id": "S_T|R-002|0",
+          "history_index": 0,
+          "first_answer": "Benjamin Jowett",
+          "second_answer": "Benjamin Jowett",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.875,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 1
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-002",
+          "history_id": "S_T|R-002|1",
+          "history_index": 1,
+          "first_answer": "Benjamin Jowett",
+          "second_answer": "Benjamin Jowett",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-002",
+          "history_id": "S_T|R-002|2",
+          "history_index": 2,
+          "first_answer": "Benjamin Jowett",
+          "second_answer": "Benjamin Jowett",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-002",
+          "history_id": "S_T|R-002|3",
+          "history_index": 3,
+          "first_answer": "Benjamin Jowett",
+          "second_answer": "Benjamin Jowett",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-002",
+          "history_id": "S_T|R-002|5",
+          "history_index": 5,
+          "first_answer": "Benjamin Jowett",
+          "second_answer": "Benjamin Jowett",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-002",
+          "history_id": "S_T|R-002|6",
+          "history_index": 6,
+          "first_answer": "Benjamin Jowett",
+          "second_answer": "Benjamin Jowett",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.875,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 1
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-004",
+          "history_id": "S_T|R-004|0",
+          "history_index": 0,
+          "first_answer": "Thomas Common",
+          "second_answer": "Thomas Common",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-004",
+          "history_id": "S_T|R-004|1",
+          "history_index": 1,
+          "first_answer": "Thomas Common",
+          "second_answer": "Thomas Common",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.875,
+          "n_per_arm": 8,
+          "k_base": 7,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-004",
+          "history_id": "S_T|R-004|2",
+          "history_index": 2,
+          "first_answer": "Thomas Common",
+          "second_answer": "Thomas Common",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.875,
+          "n_per_arm": 8,
+          "k_base": 7,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-004",
+          "history_id": "S_T|R-004|3",
+          "history_index": 3,
+          "first_answer": "Thomas Common",
+          "second_answer": "Thomas Common",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.5,
+          "n_per_arm": 8,
+          "k_base": 5,
+          "k_A1": 1
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-004",
+          "history_id": "S_T|R-004|4",
+          "history_index": 4,
+          "first_answer": "Thomas Common",
+          "second_answer": "Thomas Common",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-004",
+          "history_id": "S_T|R-004|5",
+          "history_index": 5,
+          "first_answer": "Thomas Common",
+          "second_answer": "Thomas Common",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-005",
+          "history_id": "S_T|R-005|3",
+          "history_index": 3,
+          "first_answer": "Isabel Florence Hapgood",
+          "second_answer": "Isabel Florence Hapgood",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 3,
+          "y": 0.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 8
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-005",
+          "history_id": "S_T|R-005|5",
+          "history_index": 5,
+          "first_answer": "Isabel Florence Hapgood",
+          "second_answer": "Isabel Florence Hapgood",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 3,
+          "y": 0.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 8
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-005",
+          "history_id": "S_T|R-005|7",
+          "history_index": 7,
+          "first_answer": "Isabel Florence Hapgood",
+          "second_answer": "Isabel Florence Hapgood",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 3,
+          "y": 0.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 8
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-006",
+          "history_id": "S_T|R-006|1",
+          "history_index": 1,
+          "first_answer": "Bayard Taylor",
+          "second_answer": "Bayard Taylor",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 3,
+          "y": 0.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 8
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-006",
+          "history_id": "S_T|R-006|2",
+          "history_index": 2,
+          "first_answer": "Bayard Taylor",
+          "second_answer": "Bayard Taylor",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 3,
+          "y": 0.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 8
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-006",
+          "history_id": "S_T|R-006|4",
+          "history_index": 4,
+          "first_answer": "Bayard Taylor",
+          "second_answer": "Bayard Taylor",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 3,
+          "y": 0.5,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 4
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-007",
+          "history_id": "S_T|R-007|0",
+          "history_index": 0,
+          "first_answer": "William Whiston",
+          "second_answer": "William Whiston",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.625,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 3
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-007",
+          "history_id": "S_T|R-007|1",
+          "history_index": 1,
+          "first_answer": "William Whiston",
+          "second_answer": "William Whiston",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.875,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 1
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-007",
+          "history_id": "S_T|R-007|2",
+          "history_index": 2,
+          "first_answer": "William Whiston",
+          "second_answer": "William Whiston",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.625,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 3
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-007",
+          "history_id": "S_T|R-007|3",
+          "history_index": 3,
+          "first_answer": "William Whiston",
+          "second_answer": "William Whiston",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.875,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 1
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-007",
+          "history_id": "S_T|R-007|4",
+          "history_index": 4,
+          "first_answer": "William Whiston",
+          "second_answer": "William Whiston",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 0.625,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 3
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-007",
+          "history_id": "S_T|R-007|5",
+          "history_index": 5,
+          "first_answer": "William Whiston",
+          "second_answer": "William Whiston",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 6,
+          "y": 1.0,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 0
+        },
+        {
+          "unit": "S_T",
+          "work_id": "R-010",
+          "history_id": "S_T|R-010|8",
+          "history_index": 8,
+          "first_answer": "George Makepeace Towle",
+          "second_answer": "George Makepeace Towle",
+          "first_parse_reason": null,
+          "second_parse_reason": null,
+          "r1": 1,
+          "r3": null,
+          "r2": 1.0,
+          "r2_denominator": 1,
+          "y": 0.125,
+          "n_per_arm": 8,
+          "k_base": 8,
+          "k_A1": 7
+        }
+      ],
+      "modes": {
+        "work_equal": {
+          "r1": {
+            "estimate": null,
+            "bootstrap": {
+              "requested": 2000,
+              "defined": 0,
+              "undefined": 2000,
+              "positive_infinite": 0,
+              "negative_infinite": 0,
+              "interval95": null,
+              "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+            },
+            "decision": "读数或结局无变异/可用配对不足，预测力不可识别；不能记为相关0。"
+          },
+          "r2": {
+            "estimate": null,
+            "bootstrap": {
+              "requested": 2000,
+              "defined": 0,
+              "undefined": 2000,
+              "positive_infinite": 0,
+              "negative_infinite": 0,
+              "interval95": null,
+              "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+            },
+            "decision": "读数或结局无变异/可用配对不足，预测力不可识别；不能记为相关0。"
+          },
+          "r1_groups": {
+            "group1_n": 31,
+            "group0_n": 0,
+            "group1_mean": 0.5357142857142857,
+            "group0_mean": null,
+            "difference": null,
+            "bootstrap": {
+              "requested": 2000,
+              "defined": 0,
+              "undefined": 2000,
+              "positive_infinite": 0,
+              "negative_infinite": 0,
+              "interval95": null,
+              "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+            },
+            "note": "1组减0组；组间作品组成可能不同，不是同作品内因果效应。"
+          },
+          "work_level_r2": {
+            "estimate": null,
+            "works": 7,
+            "bootstrap": {
+              "requested": 2000,
+              "defined": 0,
+              "undefined": 2000,
+              "positive_infinite": 0,
+              "negative_infinite": 0,
+              "interval95": null,
+              "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+            }
+          }
+        },
+        "history_equal": {
+          "r1": {
+            "estimate": null,
+            "bootstrap": {
+              "requested": 2000,
+              "defined": 0,
+              "undefined": 2000,
+              "positive_infinite": 0,
+              "negative_infinite": 0,
+              "interval95": null,
+              "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+            },
+            "decision": "读数或结局无变异/可用配对不足，预测力不可识别；不能记为相关0。"
+          },
+          "r2": {
+            "estimate": null,
+            "bootstrap": {
+              "requested": 2000,
+              "defined": 0,
+              "undefined": 2000,
+              "positive_infinite": 0,
+              "negative_infinite": 0,
+              "interval95": null,
+              "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+            },
+            "decision": "读数或结局无变异/可用配对不足，预测力不可识别；不能记为相关0。"
+          },
+          "r1_groups": {
+            "group1_n": 31,
+            "group0_n": 0,
+            "group1_mean": 0.6895161290322581,
+            "group0_mean": null,
+            "difference": null,
+            "bootstrap": {
+              "requested": 2000,
+              "defined": 0,
+              "undefined": 2000,
+              "positive_infinite": 0,
+              "negative_infinite": 0,
+              "interval95": null,
+              "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+            },
+            "note": "1组减0组；组间作品组成可能不同，不是同作品内因果效应。"
+          },
+          "work_level_r2": {
+            "estimate": null,
+            "works": 7,
+            "bootstrap": {
+              "requested": 2000,
+              "defined": 0,
+              "undefined": 2000,
+              "positive_infinite": 0,
+              "negative_infinite": 0,
+              "interval95": null,
+              "interval_conditioning": "在可定义重抽上取经验分位；未定义次数单列，不能冒称所有重抽均给出有效估计。"
+            }
+          }
+        }
+      },
+      "r2_constant_within_every_work": true,
+      "r3_status": "不计算：没有允许使用的既有确定性正文识别项；不能读取关系提取作替代。"
     }
   },
-  "pending_units": [
-    "S_T"
-  ]
+  "pending_units": [],
+  "scope_registration_commit": "f6c94129546c956353920bdca7739e96ac073b25",
+  "numerical_correction": "常量读数或常量结局在加权中心化前直接判为不可定义，避免浮点残差被当作相关。仅修正S_T常量结果，并重新计算受影响的F-D作品等权r1/r2相关的2000次重抽；历史等权、分组均值、作品层相关、末行条件似然及偏差修正拟合未重算。"
 }
