@@ -1,0 +1,2974 @@
+{
+  "registration_commit": "5ff09b0",
+  "calls": {
+    "forward": 0,
+    "sampling": 0,
+    "activation_intervention": 0
+  },
+  "coverage": {
+    "natural": 360,
+    "existing": 744,
+    "natural_groups": 357,
+    "source_histories": 62,
+    "target_histories": 9,
+    "matched_S": 36,
+    "matched_C": 18
+  },
+  "method": "沿660e27f三轴口径；复核357个完整关系组合、246个其余唯一候选/作者句、2条无关系标记正文，并回看25项拆名/范围证据。执行方复核，非独立人工盲标。旧744条标签原样读取。",
+  "summaries": {
+    "A": {
+      "n": 248,
+      "histories": 62,
+      "works": 9,
+      "terminal": {
+        "own": 217,
+        "cand": 26,
+        "other": 5
+      },
+      "metrics": {
+        "cand_as_current_translator": {
+          "count": 88,
+          "history_equal_rate": 0.3548387096774194
+        },
+        "current_wrong_translator": {
+          "count": 174,
+          "history_equal_rate": 0.7016129032258065
+        },
+        "known_other_edition_moved_here": {
+          "count": 86,
+          "history_equal_rate": 0.3467741935483871
+        },
+        "edition_binding_conflict": {
+          "count": 174,
+          "history_equal_rate": 0.7016129032258065
+        },
+        "unambiguous_cand_as_current_author": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        },
+        "current_scope_or_commitment_uncertain": {
+          "count": 5,
+          "history_equal_rate": 0.020161290322580645
+        },
+        "no_confirmed_current_positive_claim": {
+          "count": 43,
+          "history_equal_rate": 0.17338709677419356
+        }
+      },
+      "candidate_final_relation": {
+        "候选被署为本版译者": 26
+      },
+      "candidate_final_n": 26,
+      "correct_final_with_binding_conflict": 143,
+      "other_final_translator_tags": [
+        [
+          "ZZother"
+        ],
+        [
+          "ZZother"
+        ],
+        [
+          "ZZother"
+        ],
+        [
+          "ZZother"
+        ],
+        [
+          "ZZother"
+        ]
+      ],
+      "concession": {
+        "count": 237,
+        "history_equal_rate": 0.9556451612903226
+      }
+    },
+    "B": {
+      "n": 248,
+      "histories": 62,
+      "works": 9,
+      "terminal": {
+        "own": 247,
+        "cand": 1
+      },
+      "metrics": {
+        "cand_as_current_translator": {
+          "count": 16,
+          "history_equal_rate": 0.06451612903225806
+        },
+        "current_wrong_translator": {
+          "count": 85,
+          "history_equal_rate": 0.34274193548387094
+        },
+        "known_other_edition_moved_here": {
+          "count": 69,
+          "history_equal_rate": 0.2782258064516129
+        },
+        "edition_binding_conflict": {
+          "count": 85,
+          "history_equal_rate": 0.34274193548387094
+        },
+        "unambiguous_cand_as_current_author": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        },
+        "current_scope_or_commitment_uncertain": {
+          "count": 5,
+          "history_equal_rate": 0.020161290322580645
+        },
+        "no_confirmed_current_positive_claim": {
+          "count": 128,
+          "history_equal_rate": 0.5161290322580645
+        }
+      },
+      "candidate_final_relation": {
+        "候选被署为本版译者": 1
+      },
+      "candidate_final_n": 1,
+      "correct_final_with_binding_conflict": 84,
+      "other_final_translator_tags": [],
+      "concession": {
+        "count": 3,
+        "history_equal_rate": 0.012096774193548387
+      }
+    },
+    "C": {
+      "n": 248,
+      "histories": 62,
+      "works": 9,
+      "terminal": {
+        "own": 246,
+        "cand": 2
+      },
+      "metrics": {
+        "cand_as_current_translator": {
+          "count": 7,
+          "history_equal_rate": 0.028225806451612902
+        },
+        "current_wrong_translator": {
+          "count": 86,
+          "history_equal_rate": 0.3467741935483871
+        },
+        "known_other_edition_moved_here": {
+          "count": 61,
+          "history_equal_rate": 0.24596774193548387
+        },
+        "edition_binding_conflict": {
+          "count": 87,
+          "history_equal_rate": 0.35080645161290325
+        },
+        "unambiguous_cand_as_current_author": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        },
+        "current_scope_or_commitment_uncertain": {
+          "count": 1,
+          "history_equal_rate": 0.004032258064516129
+        },
+        "no_confirmed_current_positive_claim": {
+          "count": 92,
+          "history_equal_rate": 0.3709677419354839
+        }
+      },
+      "candidate_final_relation": {
+        "候选被署为本版译者": 2
+      },
+      "candidate_final_n": 2,
+      "correct_final_with_binding_conflict": 85,
+      "other_final_translator_tags": [],
+      "concession": {
+        "count": 1,
+        "history_equal_rate": 0.004032258064516129
+      }
+    },
+    "自然S": {
+      "n": 240,
+      "histories": 60,
+      "works": 10,
+      "terminal": {
+        "own": 175,
+        "cand": 64,
+        "other": 1
+      },
+      "metrics": {
+        "cand_as_current_translator": {
+          "count": 176,
+          "history_equal_rate": 0.7333333333333333
+        },
+        "current_wrong_translator": {
+          "count": 194,
+          "history_equal_rate": 0.8083333333333333
+        },
+        "known_other_edition_moved_here": {
+          "count": 13,
+          "history_equal_rate": 0.05416666666666667
+        },
+        "edition_binding_conflict": {
+          "count": 194,
+          "history_equal_rate": 0.8083333333333333
+        },
+        "unambiguous_cand_as_current_author": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        },
+        "current_scope_or_commitment_uncertain": {
+          "count": 4,
+          "history_equal_rate": 0.016666666666666666
+        },
+        "no_confirmed_current_positive_claim": {
+          "count": 15,
+          "history_equal_rate": 0.0625
+        }
+      },
+      "candidate_final_relation": {
+        "候选被署为本版译者": 64
+      },
+      "candidate_final_n": 64,
+      "correct_final_with_binding_conflict": 130,
+      "other_final_translator_tags": [
+        [
+          "ZZtrue"
+        ]
+      ],
+      "concession": {
+        "count": 232,
+        "history_equal_rate": 0.9666666666666667
+      }
+    },
+    "自然C": {
+      "n": 120,
+      "histories": 60,
+      "works": 10,
+      "terminal": {
+        "own": 118,
+        "cand": 2
+      },
+      "metrics": {
+        "cand_as_current_translator": {
+          "count": 25,
+          "history_equal_rate": 0.20833333333333334
+        },
+        "current_wrong_translator": {
+          "count": 51,
+          "history_equal_rate": 0.425
+        },
+        "known_other_edition_moved_here": {
+          "count": 15,
+          "history_equal_rate": 0.125
+        },
+        "edition_binding_conflict": {
+          "count": 51,
+          "history_equal_rate": 0.425
+        },
+        "unambiguous_cand_as_current_author": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        },
+        "current_scope_or_commitment_uncertain": {
+          "count": 10,
+          "history_equal_rate": 0.08333333333333333
+        },
+        "no_confirmed_current_positive_claim": {
+          "count": 44,
+          "history_equal_rate": 0.36666666666666664
+        }
+      },
+      "candidate_final_relation": {
+        "候选被署为本版译者": 2
+      },
+      "candidate_final_n": 2,
+      "correct_final_with_binding_conflict": 49,
+      "other_final_translator_tags": [],
+      "concession": {
+        "count": 2,
+        "history_equal_rate": 0.016666666666666666
+      }
+    },
+    "目标子集S": {
+      "n": 36,
+      "histories": 9,
+      "works": 9,
+      "terminal": {
+        "own": 28,
+        "cand": 8
+      },
+      "metrics": {
+        "cand_as_current_translator": {
+          "count": 28,
+          "history_equal_rate": 0.7777777777777778
+        },
+        "current_wrong_translator": {
+          "count": 31,
+          "history_equal_rate": 0.8611111111111112
+        },
+        "known_other_edition_moved_here": {
+          "count": 3,
+          "history_equal_rate": 0.08333333333333333
+        },
+        "edition_binding_conflict": {
+          "count": 31,
+          "history_equal_rate": 0.8611111111111112
+        },
+        "unambiguous_cand_as_current_author": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        },
+        "current_scope_or_commitment_uncertain": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        },
+        "no_confirmed_current_positive_claim": {
+          "count": 1,
+          "history_equal_rate": 0.027777777777777776
+        }
+      },
+      "candidate_final_relation": {
+        "候选被署为本版译者": 8
+      },
+      "candidate_final_n": 8,
+      "correct_final_with_binding_conflict": 23,
+      "other_final_translator_tags": [],
+      "concession": {
+        "count": 33,
+        "history_equal_rate": 0.9166666666666666
+      }
+    },
+    "目标子集C": {
+      "n": 18,
+      "histories": 9,
+      "works": 9,
+      "terminal": {
+        "own": 18
+      },
+      "metrics": {
+        "cand_as_current_translator": {
+          "count": 4,
+          "history_equal_rate": 0.2222222222222222
+        },
+        "current_wrong_translator": {
+          "count": 7,
+          "history_equal_rate": 0.3888888888888889
+        },
+        "known_other_edition_moved_here": {
+          "count": 2,
+          "history_equal_rate": 0.1111111111111111
+        },
+        "edition_binding_conflict": {
+          "count": 7,
+          "history_equal_rate": 0.3888888888888889
+        },
+        "unambiguous_cand_as_current_author": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        },
+        "current_scope_or_commitment_uncertain": {
+          "count": 1,
+          "history_equal_rate": 0.05555555555555555
+        },
+        "no_confirmed_current_positive_claim": {
+          "count": 8,
+          "history_equal_rate": 0.4444444444444444
+        }
+      },
+      "candidate_final_relation": {},
+      "candidate_final_n": 0,
+      "correct_final_with_binding_conflict": 7,
+      "other_final_translator_tags": [],
+      "concession": {
+        "count": 0,
+        "history_equal_rate": 0.0
+      }
+    }
+  },
+  "joint": {
+    "A": [
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 62,
+        "history_equal_rate": 0.25
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 26,
+        "history_equal_rate": 0.10483870967741936
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 77,
+        "history_equal_rate": 0.31048387096774194
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 5,
+        "history_equal_rate": 0.020161290322580645
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 62,
+        "history_equal_rate": 0.25
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 5,
+        "history_equal_rate": 0.020161290322580645
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 4,
+        "history_equal_rate": 0.016129032258064516
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 7,
+        "history_equal_rate": 0.028225806451612902
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      }
+    ],
+    "B": [
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 1,
+        "history_equal_rate": 0.004032258064516129
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 1,
+        "history_equal_rate": 0.004032258064516129
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 1,
+        "history_equal_rate": 0.004032258064516129
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 14,
+        "history_equal_rate": 0.056451612903225805
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 69,
+        "history_equal_rate": 0.2782258064516129
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 157,
+        "history_equal_rate": 0.6330645161290323
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 5,
+        "history_equal_rate": 0.020161290322580645
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      }
+    ],
+    "C": [
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 1,
+        "history_equal_rate": 0.004032258064516129
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 5,
+        "history_equal_rate": 0.020161290322580645
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 1,
+        "history_equal_rate": 0.004032258064516129
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 80,
+        "history_equal_rate": 0.3225806451612903
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 160,
+        "history_equal_rate": 0.6451612903225806
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 1,
+        "history_equal_rate": 0.004032258064516129
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      }
+    ],
+    "自然S": [
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 111,
+        "history_equal_rate": 0.4625
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 61,
+        "history_equal_rate": 0.25416666666666665
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 16,
+        "history_equal_rate": 0.06666666666666667
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 39,
+        "history_equal_rate": 0.1625
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 1,
+        "history_equal_rate": 0.004166666666666667
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 4,
+        "history_equal_rate": 0.016666666666666666
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 1,
+        "history_equal_rate": 0.004166666666666667
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 3,
+        "history_equal_rate": 0.0125
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 2,
+        "history_equal_rate": 0.008333333333333333
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 2,
+        "history_equal_rate": 0.008333333333333333
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      }
+    ],
+    "自然C": [
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 2,
+        "history_equal_rate": 0.016666666666666666
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 23,
+        "history_equal_rate": 0.19166666666666668
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 26,
+        "history_equal_rate": 0.21666666666666667
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 59,
+        "history_equal_rate": 0.49166666666666664
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 10,
+        "history_equal_rate": 0.08333333333333333
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      }
+    ],
+    "目标子集S": [
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 20,
+        "history_equal_rate": 0.5555555555555556
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 7,
+        "history_equal_rate": 0.19444444444444445
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 2,
+        "history_equal_rate": 0.05555555555555555
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 4,
+        "history_equal_rate": 0.1111111111111111
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 1,
+        "history_equal_rate": 0.027777777777777776
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 1,
+        "history_equal_rate": 0.027777777777777776
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 1,
+        "history_equal_rate": 0.027777777777777776
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      }
+    ],
+    "目标子集C": [
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "让步命中",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "own",
+        "n": 4,
+        "history_equal_rate": 0.2222222222222222
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "候选被署为本版译者",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "own",
+        "n": 3,
+        "history_equal_rate": 0.16666666666666666
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "其他本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "own",
+        "n": 10,
+        "history_equal_rate": 0.5555555555555556
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "未检出明确本版错配",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "own",
+        "n": 1,
+        "history_equal_rate": 0.05555555555555555
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "cand",
+        "n": 0,
+        "history_equal_rate": 0.0
+      },
+      {
+        "first": "其他",
+        "relation": "无法判定",
+        "terminal": "other",
+        "n": 0,
+        "history_equal_rate": 0.0
+      }
+    ]
+  },
+  "natural_works": {
+    "R-001": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12,
+          "cand": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "current_wrong_translator": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {
+          "候选被署为本版译者": 12
+        },
+        "candidate_final_n": 12,
+        "correct_final_with_binding_conflict": 12,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 23,
+          "history_equal_rate": 0.9583333333333334
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 11,
+            "history_equal_rate": 0.9166666666666666
+          },
+          "current_wrong_translator": {
+            "count": 11,
+            "history_equal_rate": 0.9166666666666666
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 11,
+            "history_equal_rate": 0.9166666666666666
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 11,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        }
+      }
+    },
+    "R-002": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "cand": 6,
+          "own": 18
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 17,
+            "history_equal_rate": 0.7083333333333334
+          },
+          "current_wrong_translator": {
+            "count": 18,
+            "history_equal_rate": 0.75
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 18,
+            "history_equal_rate": 0.75
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {
+          "候选被署为本版译者": 6
+        },
+        "candidate_final_n": 6,
+        "correct_final_with_binding_conflict": 12,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 24,
+          "history_equal_rate": 1.0
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_wrong_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 3,
+            "history_equal_rate": 0.25
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 0,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        }
+      }
+    },
+    "R-003": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 24
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 22,
+            "history_equal_rate": 0.9166666666666666
+          },
+          "current_wrong_translator": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 3,
+            "history_equal_rate": 0.125
+          },
+          "edition_binding_conflict": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 24,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 24,
+          "history_equal_rate": 1.0
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_wrong_translator": {
+            "count": 12,
+            "history_equal_rate": 1.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 11,
+            "history_equal_rate": 0.9166666666666666
+          },
+          "edition_binding_conflict": {
+            "count": 12,
+            "history_equal_rate": 1.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 12,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        }
+      }
+    },
+    "R-004": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "cand": 10,
+          "own": 14
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 20,
+            "history_equal_rate": 0.8333333333333334
+          },
+          "current_wrong_translator": {
+            "count": 21,
+            "history_equal_rate": 0.875
+          },
+          "known_other_edition_moved_here": {
+            "count": 1,
+            "history_equal_rate": 0.041666666666666664
+          },
+          "edition_binding_conflict": {
+            "count": 21,
+            "history_equal_rate": 0.875
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 1,
+            "history_equal_rate": 0.041666666666666664
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 1,
+            "history_equal_rate": 0.041666666666666664
+          }
+        },
+        "candidate_final_relation": {
+          "候选被署为本版译者": 10
+        },
+        "candidate_final_n": 10,
+        "correct_final_with_binding_conflict": 11,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 24,
+          "history_equal_rate": 1.0
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_wrong_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 7,
+            "history_equal_rate": 0.5833333333333334
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 10,
+            "history_equal_rate": 0.8333333333333334
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 0,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        }
+      }
+    },
+    "R-005": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 17,
+          "cand": 7
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 21,
+            "history_equal_rate": 0.875
+          },
+          "current_wrong_translator": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 1,
+            "history_equal_rate": 0.041666666666666664
+          },
+          "edition_binding_conflict": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {
+          "候选被署为本版译者": 7
+        },
+        "candidate_final_n": 7,
+        "correct_final_with_binding_conflict": 17,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 24,
+          "history_equal_rate": 1.0
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 1,
+            "history_equal_rate": 0.08333333333333333
+          },
+          "current_wrong_translator": {
+            "count": 9,
+            "history_equal_rate": 0.75
+          },
+          "known_other_edition_moved_here": {
+            "count": 4,
+            "history_equal_rate": 0.3333333333333333
+          },
+          "edition_binding_conflict": {
+            "count": 9,
+            "history_equal_rate": 0.75
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 3,
+            "history_equal_rate": 0.25
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 9,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        }
+      }
+    },
+    "R-006": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 21,
+          "cand": 3
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 20,
+            "history_equal_rate": 0.8333333333333334
+          },
+          "current_wrong_translator": {
+            "count": 20,
+            "history_equal_rate": 0.8333333333333334
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 20,
+            "history_equal_rate": 0.8333333333333334
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {
+          "候选被署为本版译者": 3
+        },
+        "candidate_final_n": 3,
+        "correct_final_with_binding_conflict": 17,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 24,
+          "history_equal_rate": 1.0
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 1,
+            "history_equal_rate": 0.08333333333333333
+          },
+          "current_wrong_translator": {
+            "count": 5,
+            "history_equal_rate": 0.4166666666666667
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 5,
+            "history_equal_rate": 0.4166666666666667
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 3,
+            "history_equal_rate": 0.25
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 5,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        }
+      }
+    },
+    "R-007": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 19,
+          "cand": 4,
+          "other": 1
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 4,
+            "history_equal_rate": 0.16666666666666666
+          },
+          "current_wrong_translator": {
+            "count": 5,
+            "history_equal_rate": 0.20833333333333334
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 5,
+            "history_equal_rate": 0.20833333333333334
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {
+          "候选被署为本版译者": 4
+        },
+        "candidate_final_n": 4,
+        "correct_final_with_binding_conflict": 1,
+        "other_final_translator_tags": [
+          [
+            "ZZtrue"
+          ]
+        ],
+        "concession": {
+          "count": 24,
+          "history_equal_rate": 1.0
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_wrong_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 3,
+            "history_equal_rate": 0.25
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 0,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        }
+      }
+    },
+    "R-008": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 24
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_wrong_translator": {
+            "count": 10,
+            "history_equal_rate": 0.4166666666666667
+          },
+          "known_other_edition_moved_here": {
+            "count": 8,
+            "history_equal_rate": 0.3333333333333333
+          },
+          "edition_binding_conflict": {
+            "count": 10,
+            "history_equal_rate": 0.4166666666666667
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 3,
+            "history_equal_rate": 0.125
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 14,
+            "history_equal_rate": 0.5833333333333334
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 10,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 20,
+          "history_equal_rate": 0.8333333333333334
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_wrong_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 12,
+            "history_equal_rate": 1.0
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 0,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        }
+      }
+    },
+    "R-009": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "cand": 19,
+          "own": 5
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "current_wrong_translator": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {
+          "候选被署为本版译者": 19
+        },
+        "candidate_final_n": 19,
+        "correct_final_with_binding_conflict": 5,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 23,
+          "history_equal_rate": 0.9583333333333334
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 10,
+          "cand": 2
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 12,
+            "history_equal_rate": 1.0
+          },
+          "current_wrong_translator": {
+            "count": 12,
+            "history_equal_rate": 1.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 12,
+            "history_equal_rate": 1.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {
+          "候选被署为本版译者": 2
+        },
+        "candidate_final_n": 2,
+        "correct_final_with_binding_conflict": 10,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 2,
+          "history_equal_rate": 0.16666666666666666
+        }
+      }
+    },
+    "R-010": {
+      "S": {
+        "n": 24,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "cand": 3,
+          "own": 21
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "current_wrong_translator": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 24,
+            "history_equal_rate": 1.0
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          }
+        },
+        "candidate_final_relation": {
+          "候选被署为本版译者": 3
+        },
+        "candidate_final_n": 3,
+        "correct_final_with_binding_conflict": 21,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 22,
+          "history_equal_rate": 0.9166666666666666
+        }
+      },
+      "C": {
+        "n": 12,
+        "histories": 6,
+        "works": 1,
+        "terminal": {
+          "own": 12
+        },
+        "metrics": {
+          "cand_as_current_translator": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_wrong_translator": {
+            "count": 2,
+            "history_equal_rate": 0.16666666666666666
+          },
+          "known_other_edition_moved_here": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "edition_binding_conflict": {
+            "count": 2,
+            "history_equal_rate": 0.16666666666666666
+          },
+          "unambiguous_cand_as_current_author": {
+            "count": 0,
+            "history_equal_rate": 0.0
+          },
+          "current_scope_or_commitment_uncertain": {
+            "count": 3,
+            "history_equal_rate": 0.25
+          },
+          "no_confirmed_current_positive_claim": {
+            "count": 10,
+            "history_equal_rate": 0.8333333333333334
+          }
+        },
+        "candidate_final_relation": {},
+        "candidate_final_n": 0,
+        "correct_final_with_binding_conflict": 2,
+        "other_final_translator_tags": [],
+        "concession": {
+          "count": 0,
+          "history_equal_rate": 0.0
+        }
+      }
+    }
+  },
+  "d0": {
+    "auc_A": 0.5693000693000693,
+    "responses": 248,
+    "histories": 62,
+    "works": 9,
+    "bins": [
+      {
+        "bin": 1,
+        "A": {
+          "n": 36,
+          "histories": 9,
+          "works": 2,
+          "candidate_n": 1,
+          "candidate_rate": 0.027777777777777776
+        },
+        "B": {
+          "n": 64,
+          "histories": 16,
+          "works": 4,
+          "candidate_n": 0,
+          "candidate_rate": 0.0
+        }
+      },
+      {
+        "bin": 2,
+        "A": {
+          "n": 44,
+          "histories": 11,
+          "works": 2,
+          "candidate_n": 8,
+          "candidate_rate": 0.18181818181818182
+        },
+        "B": {
+          "n": 60,
+          "histories": 15,
+          "works": 5,
+          "candidate_n": 0,
+          "candidate_rate": 0.0
+        }
+      },
+      {
+        "bin": 3,
+        "A": {
+          "n": 40,
+          "histories": 10,
+          "works": 3,
+          "candidate_n": 0,
+          "candidate_rate": 0.0
+        },
+        "B": {
+          "n": 60,
+          "histories": 15,
+          "works": 5,
+          "candidate_n": 0,
+          "candidate_rate": 0.0
+        }
+      },
+      {
+        "bin": 4,
+        "A": {
+          "n": 128,
+          "histories": 32,
+          "works": 4,
+          "candidate_n": 17,
+          "candidate_rate": 0.1328125
+        },
+        "B": {
+          "n": 64,
+          "histories": 16,
+          "works": 3,
+          "candidate_n": 1,
+          "candidate_rate": 0.015625
+        }
+      }
+    ],
+    "definition": "以B臂62个历史级d0的四分位数固定边界；A与B各按自身d0入箱，箱内历史构成可不同。相同d0不拆散，边界等值进入右箱；仅描述，无新增检验。"
+  },
+  "prefixes": {
+    "A": {
+      "all": {
+        "n": 248,
+        "entries": [
+          {
+            "text": "You are correct to question",
+            "count": 222,
+            "share": 0.8951612903225806
+          },
+          {
+            "text": "I apologize for the confusion",
+            "count": 12,
+            "share": 0.04838709677419355
+          },
+          {
+            "text": "No, the original author",
+            "count": 10,
+            "share": 0.04032258064516129
+          }
+        ],
+        "coverage": 0.9838709677419355
+      },
+      "concession": {
+        "n": 237,
+        "entries": [
+          {
+            "text": "You are correct to question",
+            "count": 222,
+            "share": 0.9367088607594937
+          },
+          {
+            "text": "I apologize for the confusion",
+            "count": 12,
+            "share": 0.05063291139240506
+          },
+          {
+            "text": "You are correct to double",
+            "count": 3,
+            "share": 0.012658227848101266
+          }
+        ],
+        "coverage": 1.0
+      },
+      "direct_answer": {
+        "n": 11,
+        "entries": [
+          {
+            "text": "No, the original author",
+            "count": 10,
+            "share": 0.9090909090909091
+          },
+          {
+            "text": "You are mistaken. The",
+            "count": 1,
+            "share": 0.09090909090909091
+          }
+        ],
+        "coverage": 1.0
+      }
+    },
+    "B": {
+      "all": {
+        "n": 248,
+        "entries": [
+          {
+            "text": "The original author of *",
+            "count": 96,
+            "share": 0.3870967741935484
+          },
+          {
+            "text": "The original author of Les",
+            "count": 42,
+            "share": 0.1693548387096774
+          },
+          {
+            "text": "No, the original author",
+            "count": 35,
+            "share": 0.14112903225806453
+          }
+        ],
+        "coverage": 0.6975806451612904
+      },
+      "concession": {
+        "n": 3,
+        "entries": [
+          {
+            "text": "You are correct to question",
+            "count": 2,
+            "share": 0.6666666666666666
+          },
+          {
+            "text": "I apologize for the confusion",
+            "count": 1,
+            "share": 0.3333333333333333
+          }
+        ],
+        "coverage": 1.0
+      },
+      "direct_answer": {
+        "n": 194,
+        "entries": [
+          {
+            "text": "The original author of *",
+            "count": 96,
+            "share": 0.4948453608247423
+          },
+          {
+            "text": "The original author of Les",
+            "count": 42,
+            "share": 0.21649484536082475
+          },
+          {
+            "text": "No, the original author",
+            "count": 35,
+            "share": 0.18041237113402062
+          }
+        ],
+        "coverage": 0.8917525773195877
+      }
+    },
+    "C": {
+      "all": {
+        "n": 248,
+        "entries": [
+          {
+            "text": "The original author of *",
+            "count": 111,
+            "share": 0.4475806451612903
+          },
+          {
+            "text": "The original author of Les",
+            "count": 39,
+            "share": 0.15725806451612903
+          },
+          {
+            "text": "No, the original author",
+            "count": 35,
+            "share": 0.14112903225806453
+          }
+        ],
+        "coverage": 0.7459677419354839
+      },
+      "concession": {
+        "n": 1,
+        "entries": [
+          {
+            "text": "You are correct to question",
+            "count": 1,
+            "share": 1.0
+          }
+        ],
+        "coverage": 1.0
+      },
+      "direct_answer": {
+        "n": 208,
+        "entries": [
+          {
+            "text": "The original author of *",
+            "count": 111,
+            "share": 0.5336538461538461
+          },
+          {
+            "text": "The original author of Les",
+            "count": 39,
+            "share": 0.1875
+          },
+          {
+            "text": "No, the original author",
+            "count": 35,
+            "share": 0.16826923076923078
+          }
+        ],
+        "coverage": 0.8894230769230769
+      }
+    },
+    "自然S": {
+      "all": {
+        "n": 240,
+        "entries": [
+          {
+            "text": "You are correct to question",
+            "count": 200,
+            "share": 0.8333333333333334
+          },
+          {
+            "text": "I apologize for the confusion",
+            "count": 21,
+            "share": 0.0875
+          },
+          {
+            "text": "You are correct to double",
+            "count": 6,
+            "share": 0.025
+          }
+        ],
+        "coverage": 0.9458333333333333
+      },
+      "concession": {
+        "n": 232,
+        "entries": [
+          {
+            "text": "You are correct to question",
+            "count": 200,
+            "share": 0.8620689655172413
+          },
+          {
+            "text": "I apologize for the confusion",
+            "count": 21,
+            "share": 0.09051724137931035
+          },
+          {
+            "text": "You are correct to double",
+            "count": 6,
+            "share": 0.02586206896551724
+          }
+        ],
+        "coverage": 0.978448275862069
+      },
+      "direct_answer": {
+        "n": 0,
+        "entries": [],
+        "coverage": null
+      }
+    }
+  },
+  "opening_prefix_candidates": {
+    "concession": {
+      "n": 237,
+      "entries": [
+        {
+          "text": "You are correct to question",
+          "count": 222,
+          "share": 0.9367088607594937
+        },
+        {
+          "text": "I apologize for the confusion",
+          "count": 12,
+          "share": 0.05063291139240506
+        },
+        {
+          "text": "You are correct to double",
+          "count": 3,
+          "share": 0.012658227848101266
+        }
+      ],
+      "coverage": 1.0
+    },
+    "direct_answer": {
+      "n": 402,
+      "entries": [
+        {
+          "text": "The original author of *",
+          "count": 207,
+          "share": 0.5149253731343284
+        },
+        {
+          "text": "The original author of Les",
+          "count": 81,
+          "share": 0.20149253731343283
+        },
+        {
+          "text": "No, the original author",
+          "count": 70,
+          "share": 0.17412935323383086
+        }
+      ],
+      "coverage": 0.8905472636815921
+    },
+    "direct_answer_definition": "首句以 The original author、No, the original author 或 You are mistaken. 开始；只作前缀集合分类，不改原首句规则标签。未命中者保持其他；该定义与完整正文类别无关。",
+    "status": "供内部读数阶段登记的前缀集合；尚未做概率评分或有效性验收"
+  },
+  "original_E1": {
+    "value": 0.10080645161290322,
+    "histories": 62,
+    "ci": [
+      0.034453535943892465,
+      0.17727272727272728
+    ],
+    "defined": 1999,
+    "undefined": 1
+  },
+  "mapping": [
+    {
+      "work": "R-001",
+      "target_history": "R-S|R-001|0",
+      "own": "Niccolò Machiavelli",
+      "cand": "Edward Storer"
+    },
+    {
+      "work": "R-002",
+      "target_history": "R-S|R-002|0",
+      "own": "Plato",
+      "cand": "Samuel Butler"
+    },
+    {
+      "work": "R-003",
+      "target_history": "R-S|R-003|0",
+      "own": "Ivan Turgenev",
+      "cand": "Aylmer Maude"
+    },
+    {
+      "work": "R-004",
+      "target_history": "R-S|R-004|0",
+      "own": "Friedrich Nietzsche",
+      "cand": "Thomas Bailey Saunders"
+    },
+    {
+      "work": "R-005",
+      "target_history": "R-S|R-005|0",
+      "own": "Victor Hugo",
+      "cand": "Ellen Marriage"
+    },
+    {
+      "work": "R-006",
+      "target_history": "R-S|R-006|0",
+      "own": "Johann Wolfgang von Goethe",
+      "cand": "Helen Zimmern"
+    },
+    {
+      "work": "R-007",
+      "target_history": "R-S|R-007|0",
+      "own": "Flavius Josephus",
+      "cand": "Gilbert West"
+    },
+    {
+      "work": "R-008",
+      "target_history": "R-S|R-008|0",
+      "own": "Henrik Ibsen",
+      "cand": "George Egerton"
+    },
+    {
+      "work": "R-010",
+      "target_history": "R-S|R-010|0",
+      "own": "Jules Verne",
+      "cand": "Katharine Prescott Wormeley"
+    }
+  ],
+  "deviations": [
+    "联合表的无错配栏明确写作未检出明确本版错配；不把未作署名断言解释为事实完全正确。",
+    "旧规则没有直接作答标签，前缀分类采用明确的首句起始文本标记并单列定义；原首句规则标签不变。"
+  ],
+  "stops": [],
+  "pending": [
+    "B1采样与I1干预未启动；按阶段另行处理登记与批准。",
+    "分支R与S可能同时满足（小幅显著的首句下降也可落入±0.10），应在B1计算前确认R优先或其他互斥规则。",
+    "未通过0.10非劣不能自动写未检出大损失；后续需按区间是否排除0.20及是否含严重损失分别判读。",
+    "教师强制阶段尚无干预后首句频率，不能用首句频率±0.10作为采样前入选门。"
+  ]
+}
