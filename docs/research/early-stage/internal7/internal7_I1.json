@@ -1,0 +1,213 @@
+{
+  "stage": "I1原生入口及恒等验收",
+  "status": "STOP_identity",
+  "native_registration": "70b98dc",
+  "operation_implementation_registration": "e77d5f9",
+  "frozen_branch": "U",
+  "authorization": "只批准内部读数，不含行为采样",
+  "native_gate": {
+    "registration": "70b98dc",
+    "histories": 62,
+    "works": 9,
+    "bootstrap": 2000,
+    "discarded_bootstraps": 0,
+    "paired_AB": {
+      "o": {
+        "mean": 8.610939666506093,
+        "ci": [
+          7.827726292193287,
+          9.435883742928652
+        ],
+        "native_means": {
+          "A": 5.228466844853623,
+          "B": -3.3824728216524695,
+          "C": -4.338653056629164,
+          "D": -3.978426549696326
+        }
+      },
+      "os": {
+        "mean": 36.17245111157817,
+        "ci": [
+          34.89965500374196,
+          37.48340711183206
+        ],
+        "native_means": {
+          "A": 20.100844444767123,
+          "B": -16.07160666681105,
+          "C": -16.40901547093545,
+          "D": -0.8040743181782384
+        }
+      },
+      "q": {
+        "mean": -1.1401195526123047,
+        "ci": [
+          -2.1391060160560196,
+          0.004515403417439455
+        ],
+        "native_means": {
+          "A": 15.967665949175435,
+          "B": 17.10778550178774,
+          "C": 17.929900815409997,
+          "D": 15.118822036250945
+        }
+      },
+      "t": {
+        "mean": 0.9917470255205708,
+        "ci": [
+          0.11807457965791429,
+          1.8165498191207174
+        ],
+        "native_means": {
+          "A": 10.237798352395334,
+          "B": 9.246051326874763,
+          "C": 7.35607780948762,
+          "D": 8.741545338784494
+        }
+      },
+      "d": {
+        "mean": 1.6724638323630057,
+        "ci": [
+          1.0093821702968506,
+          2.4265179096460345
+        ],
+        "native_means": {
+          "A": -10.429842241348759,
+          "B": -12.102306073711764,
+          "C": -16.82263106684531,
+          "D": -12.68337954244306
+        }
+      }
+    },
+    "gate_passed": true,
+    "failed": [],
+    "sampling": 0,
+    "activation_interventions": 0,
+    "counts": {
+      "prefix_calls": 992,
+      "suffix_calls": 3472
+    }
+  },
+  "identity_gate": {
+    "passed": false,
+    "failed_key": "F-D_R-008_2_A",
+    "operation": "SELF_KV_S3",
+    "error": 0.039447784423828125,
+    "limit": 0.0001,
+    "completed": 191
+  },
+  "identity_summary": {
+    "SELF_KV_S3": {
+      "completed": 39,
+      "passed": 38,
+      "max_error": 0.039447784423828125
+    },
+    "SELF_KV_S3S4": {
+      "completed": 38,
+      "passed": 38,
+      "max_error": 0.0
+    },
+    "SELF_RES_24": {
+      "completed": 38,
+      "passed": 38,
+      "max_error": 0.0
+    },
+    "SELF_RES_36": {
+      "completed": 38,
+      "passed": 38,
+      "max_error": 0.0
+    },
+    "EMPTY_MASK": {
+      "completed": 38,
+      "passed": 38,
+      "max_error": 0.0
+    }
+  },
+  "failed_readout_differences": {
+    "o": 0.0,
+    "os": 0.039447784423828125,
+    "q": 0.0,
+    "t": 0.0,
+    "d": 0.0
+  },
+  "counts": {
+    "native_contexts": 248,
+    "native_suffix_scores": 3472,
+    "identity_contexts": 191,
+    "identity_suffix_scores": 2674,
+    "total_suffix_scores": 6146,
+    "native_cache_advances": 992,
+    "identity_cache_advances": 390,
+    "total_model_forward_calls": 7528,
+    "self_replacement_checks": 153,
+    "empty_mask_checks": 38,
+    "cross_condition_operations": 0,
+    "nonempty_mask_operations": 0,
+    "random_controls": 0,
+    "sampling": 0
+  },
+  "prefixes": {
+    "concession": {
+      "n": 237,
+      "entries": [
+        {
+          "text": "You are correct to question",
+          "count": 222,
+          "share": 0.9367088607594937
+        },
+        {
+          "text": "I apologize for the confusion",
+          "count": 12,
+          "share": 0.05063291139240506
+        },
+        {
+          "text": "You are correct to double",
+          "count": 3,
+          "share": 0.012658227848101266
+        }
+      ],
+      "coverage": 1.0
+    },
+    "direct_answer": {
+      "n": 402,
+      "entries": [
+        {
+          "text": "The original author of *",
+          "count": 207,
+          "share": 0.5149253731343284
+        },
+        {
+          "text": "The original author of Les",
+          "count": 81,
+          "share": 0.20149253731343283
+        },
+        {
+          "text": "No, the original author",
+          "count": 70,
+          "share": 0.17412935323383086
+        }
+      ],
+      "coverage": 0.8905472636815921
+    },
+    "direct_answer_definition": "首句以 The original author、No, the original author 或 You are mistaken. 开始；只作前缀集合分类，不改原首句规则标签。未命中者保持其他；该定义与完整正文类别无关。",
+    "status": "供内部读数阶段登记的前缀集合；尚未做概率评分或有效性验收"
+  },
+  "input_acceptance": {
+    "prefix_token_roundtrip": true,
+    "shared_suffix_tokens_equal": true
+  },
+  "implementation_notes": [
+    "ValueError('Calling `crop` with a positive value (`527`) is not supported. Please use a negative integer to remove that number of tokens from the cache instead.')"
+  ],
+  "operation_effects": null,
+  "selected_operation": null,
+  "behavior_validation_started": false,
+  "stopping_items": [
+    "共同问答块缓存自替换未恢复原生读数至1e-4；在第191项退出，后续全部停止"
+  ],
+  "interpretation": [
+    "两项入口有效性通过，但自替换恒等门失败；不能将本轮解释为干预阴性或内部不承载。",
+    "异常仅出现在固定脚本对的让步句评分；仍按全部登记读数的统一验收门停止，不以其他读数误差为0放行。",
+    "差异来源未确定：尚未区分缓存位置变换、前向数值波动或其他实现问题。"
+  ],
+  "next_boundary": "未进行额外前向诊断；恢复计算须由负责人裁定，不放宽原门。"
+}
