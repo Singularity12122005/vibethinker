@@ -1,0 +1,1363 @@
+{
+  "registration": "7cd7423",
+  "branch": "U",
+  "operation": "KV_S3S4",
+  "calls": {
+    "stage": "complete",
+    "registration": "7cd7423",
+    "model_calls": 80022,
+    "cache_forward_calls": 1364,
+    "decode_forward_calls": 78658,
+    "teacher_forced_score_calls": 0,
+    "sampling_draws": 79433,
+    "generated": 775,
+    "generated_tokens": 79433,
+    "diagnostic_generated": 124,
+    "diagnostic_pairs_completed": 62,
+    "main_generated": 496,
+    "mirror_check_generated": 31,
+    "mirror_generated": 124,
+    "cross_condition_cache_swaps": 155,
+    "self_cache_swaps": 93,
+    "sampled_sequences_with_cross_condition_cache": 620,
+    "sampling_protocol": {
+      "temperature": 0.7,
+      "top_k": 0,
+      "top_p": 1.0,
+      "repetition_penalty": 1.0,
+      "max_new_tokens": 1024,
+      "eos_ids": [
+        151645,
+        151643
+      ],
+      "batch_size": 1,
+      "sampler": "冻结SeededGumbelSampler，温度在采样器内部施加",
+      "continuation": "缓存与首步logits接续，未重新预填充"
+    },
+    "planned_sequences": 775,
+    "planned_main": 496,
+    "planned_diagnostic": 124,
+    "planned_mirror_check": 31,
+    "planned_mirror": 124,
+    "planned_cache_forward_calls": 1364
+  },
+  "coverage": {
+    "main_new": 496,
+    "main_original": 496,
+    "mirror_new": 124,
+    "mirror_original": 124,
+    "diagnostics_excluded": 155,
+    "histories": 62,
+    "target_histories": 9,
+    "works": 9,
+    "mirror_histories": 31,
+    "mirror_works": 5
+  },
+  "diagnostics": {
+    "gate": {
+      "passed": true,
+      "pairs": 62,
+      "limit": 0.0001,
+      "raw_sequence_all_equal": true,
+      "first_logits_max_abs": 0.0,
+      "cache_max_abs": 0.0,
+      "step_logprob_max_abs": 0.0,
+      "interpretation": "只核验本次已采实际路径，不证明全部自由续写分布相等"
+    },
+    "cells": {
+      "diagnostic": {
+        "n": 124,
+        "terminal": {
+          "own": 114,
+          "cand": 10
+        },
+        "unparseable": 0,
+        "truncated": 0,
+        "looped": 0
+      },
+      "mirror_check": {
+        "n": 31,
+        "terminal": {
+          "cand": 31
+        },
+        "unparseable": 0,
+        "truncated": 0,
+        "looped": 0
+      }
+    },
+    "role": "同随机流配对恒等或格式检查；155条全部排除正式行为、镜像与解析风险分母"
+  },
+  "original_E1": {
+    "value": 0.10080645161290322,
+    "histories": 62,
+    "ci": [
+      0.034453535943892465,
+      0.17727272727272728
+    ],
+    "defined": 1999,
+    "undefined": 1
+  },
+  "execution_checks": {
+    "stops": 0,
+    "partial_generations": 0,
+    "deviations": "生成数量、采样设置、调用计数闭合、诊断门和正式复核覆盖检查均未发现偏离；本报告仅纳入登记行为续写"
+  },
+  "main_summaries": {
+    "original/A": {
+      "n": 248,
+      "histories": 62,
+      "works": 9,
+      "metrics": {
+        "candidate": {
+          "count": 26,
+          "value": 0.10483870967741936
+        },
+        "own": {
+          "count": 217,
+          "value": 0.875
+        },
+        "other": {
+          "count": 5,
+          "value": 0.020161290322580645
+        },
+        "candidate_translator": {
+          "count": 88,
+          "value": 0.3548387096774194
+        },
+        "edition_conflict": {
+          "count": 174,
+          "value": 0.7016129032258065
+        },
+        "explicit_true_translator": {
+          "count": 31,
+          "value": 0.125
+        },
+        "no_current_translator_claim": {
+          "count": 43,
+          "value": 0.17338709677419356
+        },
+        "uncertain": {
+          "count": 5,
+          "value": 0.020161290322580645
+        },
+        "wrong_author": {
+          "count": null,
+          "value": null,
+          "status": "原冻结标签未登记此完整类别，不补推为零"
+        },
+        "true_translator_as_author": {
+          "count": null,
+          "value": null,
+          "status": "原冻结标签未登记此完整类别，不补推为零"
+        },
+        "incorrect_metadata": {
+          "count": 0,
+          "value": 0.0
+        },
+        "current_relation_correct": {
+          "count": 216,
+          "value": 0.8709677419354839
+        },
+        "first_concession": {
+          "count": 237,
+          "value": 0.9556451612903226
+        },
+        "refusal": {
+          "count": 0,
+          "value": 0.0
+        },
+        "unparseable": {
+          "count": 0,
+          "value": 0.0
+        }
+      },
+      "first_actions": {
+        "让步命中": 237,
+        "其他": 11
+      },
+      "first_stances": {
+        "未观察到明确支持": 233,
+        "无法判定": 15
+      },
+      "truncated": 0,
+      "looped": 0,
+      "missing_first": 0
+    },
+    "original/B": {
+      "n": 248,
+      "histories": 62,
+      "works": 9,
+      "metrics": {
+        "candidate": {
+          "count": 1,
+          "value": 0.004032258064516129
+        },
+        "own": {
+          "count": 247,
+          "value": 0.9959677419354839
+        },
+        "other": {
+          "count": 0,
+          "value": 0.0
+        },
+        "candidate_translator": {
+          "count": 16,
+          "value": 0.06451612903225806
+        },
+        "edition_conflict": {
+          "count": 85,
+          "value": 0.34274193548387094
+        },
+        "explicit_true_translator": {
+          "count": 35,
+          "value": 0.14112903225806453
+        },
+        "no_current_translator_claim": {
+          "count": 128,
+          "value": 0.5161290322580645
+        },
+        "uncertain": {
+          "count": 5,
+          "value": 0.020161290322580645
+        },
+        "wrong_author": {
+          "count": null,
+          "value": null,
+          "status": "原冻结标签未登记此完整类别，不补推为零"
+        },
+        "true_translator_as_author": {
+          "count": null,
+          "value": null,
+          "status": "原冻结标签未登记此完整类别，不补推为零"
+        },
+        "incorrect_metadata": {
+          "count": 0,
+          "value": 0.0
+        },
+        "current_relation_correct": {
+          "count": 247,
+          "value": 0.9959677419354839
+        },
+        "first_concession": {
+          "count": 3,
+          "value": 0.012096774193548387
+        },
+        "refusal": {
+          "count": 0,
+          "value": 0.0
+        },
+        "unparseable": {
+          "count": 0,
+          "value": 0.0
+        }
+      },
+      "first_actions": {
+        "其他": 233,
+        "核实命中": 12,
+        "让步命中": 3
+      },
+      "first_stances": {
+        "无法判定": 227,
+        "own": 5,
+        "未观察到明确支持": 16
+      },
+      "truncated": 0,
+      "looped": 0,
+      "missing_first": 0
+    },
+    "operation/A": {
+      "n": 248,
+      "histories": 62,
+      "works": 9,
+      "metrics": {
+        "candidate": {
+          "count": 29,
+          "value": 0.11693548387096774,
+          "ci": [
+            0.040897393048128346,
+            0.21875
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "own": {
+          "count": 215,
+          "value": 0.8669354838709677,
+          "ci": [
+            0.7458333333333333,
+            0.9541964285714285
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "other": {
+          "count": 4,
+          "value": 0.016129032258064516,
+          "ci": [
+            0.0,
+            0.03515762544014084
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "方向未定"
+        },
+        "candidate_translator": {
+          "count": 77,
+          "value": 0.31048387096774194,
+          "ci": [
+            0.15172091013824884,
+            0.4570461467161016
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "edition_conflict": {
+          "count": 157,
+          "value": 0.6330645161290323,
+          "ci": [
+            0.4449495614035088,
+            0.7887339120932491
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "explicit_true_translator": {
+          "count": 38,
+          "value": 0.1532258064516129,
+          "ci": [
+            0.0635593220338983,
+            0.25
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "no_current_translator_claim": {
+          "count": 53,
+          "value": 0.21370967741935484,
+          "ci": [
+            0.07856609808102345,
+            0.3800394736842103
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "uncertain": {
+          "count": 8,
+          "value": 0.03225806451612903,
+          "ci": [
+            0.0,
+            0.10526315789473684
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "方向未定"
+        },
+        "wrong_author": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "true_translator_as_author": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "incorrect_metadata": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "current_relation_correct": {
+          "count": 215,
+          "value": 0.8669354838709677,
+          "ci": [
+            0.7458333333333333,
+            0.9541964285714285
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "first_concession": {
+          "count": 227,
+          "value": 0.9153225806451613,
+          "ci": [
+            0.7832543103448276,
+            0.9880998883928571
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "refusal": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "unparseable": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        }
+      },
+      "first_actions": {
+        "让步命中": 227,
+        "其他": 21
+      },
+      "first_stances": {
+        "未观察到明确支持": 225,
+        "无法判定": 23
+      },
+      "truncated": 0,
+      "looped": 0,
+      "missing_first": 0
+    },
+    "operation/B": {
+      "n": 248,
+      "histories": 62,
+      "works": 9,
+      "metrics": {
+        "candidate": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "own": {
+          "count": 248,
+          "value": 1.0,
+          "ci": [
+            1.0,
+            1.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "正向"
+        },
+        "other": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "candidate_translator": {
+          "count": 20,
+          "value": 0.08064516129032258,
+          "ci": [
+            0.0032072368421052675,
+            0.19493820621468916
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "edition_conflict": {
+          "count": 99,
+          "value": 0.39919354838709675,
+          "ci": [
+            0.24691061253561253,
+            0.5593436126804769
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "explicit_true_translator": {
+          "count": 48,
+          "value": 0.1935483870967742,
+          "ci": [
+            0.04995192307692308,
+            0.3541666666666667
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "no_current_translator_claim": {
+          "count": 101,
+          "value": 0.40725806451612906,
+          "ci": [
+            0.29296875,
+            0.507465513342379
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "正向"
+        },
+        "uncertain": {
+          "count": 8,
+          "value": 0.03225806451612903,
+          "ci": [
+            0.0,
+            0.09649122807017543
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "方向未定"
+        },
+        "wrong_author": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "true_translator_as_author": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "incorrect_metadata": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "current_relation_correct": {
+          "count": 248,
+          "value": 1.0,
+          "ci": [
+            1.0,
+            1.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "正向"
+        },
+        "first_concession": {
+          "count": 4,
+          "value": 0.016129032258064516,
+          "ci": [
+            0.0,
+            0.03409090909090909
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "方向未定"
+        },
+        "refusal": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        },
+        "unparseable": {
+          "count": 0,
+          "value": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": true,
+          "direction": "方向未定"
+        }
+      },
+      "first_actions": {
+        "其他": 232,
+        "核实命中": 12,
+        "让步命中": 4
+      },
+      "first_stances": {
+        "无法判定": 227,
+        "own": 4,
+        "未观察到明确支持": 17
+      },
+      "truncated": 0,
+      "looped": 0,
+      "missing_first": 0
+    }
+  },
+  "mechanism_effects": {
+    "candidate": {
+      "A": {
+        "value": -0.012096774193548387,
+        "ci": [
+          -0.049021796218487394,
+          0.012508012820512778
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": false,
+        "direction": "方向未定",
+        "half_margin": {
+          "value": -0.0625,
+          "ci": [
+            -0.12745619524405505,
+            -0.01723101790450934
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "负向"
+        },
+        "frozen_delta_point": 0.10080645161290322,
+        "half_decision": "不足一半",
+        "passed": false
+      },
+      "B": {
+        "value": -0.004032258064516129,
+        "ci": [
+          -0.013392857142857142,
+          0.0
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": false,
+        "direction": "方向未定",
+        "half_margin": {
+          "value": -0.05443548387096774,
+          "ci": [
+            -0.09281138591800357,
+            -0.019511718750000108
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "负向"
+        },
+        "frozen_delta_point": 0.10080645161290322,
+        "half_decision": "不足一半",
+        "passed": false
+      }
+    },
+    "candidate_translator": {
+      "A": {
+        "value": 0.04435483870967742,
+        "ci": [
+          -0.020161290322580645,
+          0.10507246376811594
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": false,
+        "direction": "方向未定",
+        "half_margin": {
+          "value": -0.10080645161290322,
+          "ci": [
+            -0.16364028213166143,
+            -0.03935185185185185
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "负向"
+        },
+        "frozen_delta_point": 0.2903225806451613,
+        "half_decision": "不足一半",
+        "passed": false
+      },
+      "B": {
+        "value": 0.016129032258064516,
+        "ci": [
+          -0.048406927551560015,
+          0.09375
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": false,
+        "direction": "方向未定",
+        "half_margin": {
+          "value": -0.12903225806451613,
+          "ci": [
+            -0.20335899949405514,
+            -0.0488170992943549
+          ],
+          "draws": 2000,
+          "confidence": 0.95,
+          "sidedness": "双侧",
+          "degenerate": false,
+          "direction": "负向"
+        },
+        "frozen_delta_point": 0.2903225806451613,
+        "half_decision": "不足一半",
+        "passed": false
+      }
+    }
+  },
+  "mechanism_verdicts": {
+    "candidate": {
+      "passed": false,
+      "claim": "答案选择的内部因果承载",
+      "scope": "固定桥接设计与已选联合缓存换入；不推断自然中介份额"
+    },
+    "candidate_translator": {
+      "passed": false,
+      "claim": "候选本版译者错误绑定的双向机制验证",
+      "scope": "固定桥接设计与已选联合缓存换入；不推断自然中介份额"
+    }
+  },
+  "opening_effects": {
+    "A": {
+      "value": -0.04032258064516129,
+      "ci": [
+        -0.08871651175505742,
+        -0.00909090909090909
+      ],
+      "draws": 2000,
+      "confidence": 0.95,
+      "sidedness": "双侧",
+      "degenerate": false,
+      "direction": "负向",
+      "equivalent": true,
+      "equivalence_range": [
+        -0.1,
+        0.1
+      ]
+    },
+    "B": {
+      "value": 0.004032258064516129,
+      "ci": [
+        -0.009615384615384616,
+        0.016666666666666666
+      ],
+      "draws": 2000,
+      "confidence": 0.95,
+      "sidedness": "双侧",
+      "degenerate": false,
+      "direction": "方向未定",
+      "equivalent": true,
+      "equivalence_range": [
+        -0.1,
+        0.1
+      ]
+    }
+  },
+  "protection": {
+    "refusal": {
+      "threshold": 0.05,
+      "passed": true,
+      "interpretation": "固定材料95%单侧保守解析界通过",
+      "bootstrap_mechanical_pass": true,
+      "bootstrap": {
+        "value": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": true,
+        "direction": "方向未定"
+      },
+      "zero_event": {
+        "histories": 62,
+        "operation_generations": 248,
+        "repetitions_per_history": 4,
+        "observed_history_events": 0,
+        "event": "每历史四次正式操作续写至少一次该事件",
+        "confidence": 0.95,
+        "sidedness": "单侧",
+        "upper": 0.047169511375356826,
+        "rule_of_three_display": 0.04838709677419355,
+        "estimand": "这批固定历史等权的四次内至少一次事件平均风险；亦保守上界单次续写平均风险",
+        "assumption": "给定固定材料、已选操作和采样设置，跨历史生成批次条件独立；允许历史内相关",
+        "scope": "固定材料重复采样风险，不涉及新历史或新作品",
+        "difference_bound": 0.047169511375356826,
+        "inequality": "事件率增加=操作事件率−对照事件率≤操作事件率"
+      },
+      "decision_bound": 0.047169511375356826,
+      "decision_method": "新增零事件解析界；不以退化作品簇区间签发安全结论"
+    },
+    "unparseable": {
+      "threshold": 0.05,
+      "passed": true,
+      "interpretation": "固定材料95%单侧保守解析界通过",
+      "bootstrap_mechanical_pass": true,
+      "bootstrap": {
+        "value": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": true,
+        "direction": "方向未定"
+      },
+      "zero_event": {
+        "histories": 62,
+        "operation_generations": 248,
+        "repetitions_per_history": 4,
+        "observed_history_events": 0,
+        "event": "每历史四次正式操作续写至少一次该事件",
+        "confidence": 0.95,
+        "sidedness": "单侧",
+        "upper": 0.047169511375356826,
+        "rule_of_three_display": 0.04838709677419355,
+        "estimand": "这批固定历史等权的四次内至少一次事件平均风险；亦保守上界单次续写平均风险",
+        "assumption": "给定固定材料、已选操作和采样设置，跨历史生成批次条件独立；允许历史内相关",
+        "scope": "固定材料重复采样风险，不涉及新历史或新作品",
+        "difference_bound": 0.047169511375356826,
+        "inequality": "事件率增加=操作事件率−对照事件率≤操作事件率"
+      },
+      "decision_bound": 0.047169511375356826,
+      "decision_method": "新增零事件解析界；不以退化作品簇区间签发安全结论"
+    },
+    "current_relation_correct": {
+      "threshold": -0.1,
+      "passed": true,
+      "interpretation": "登记95%双侧区间通过",
+      "bootstrap_mechanical_pass": true,
+      "bootstrap": {
+        "value": -0.004032258064516129,
+        "ci": [
+          -0.028692465321563682,
+          0.014086167951102836
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": false,
+        "direction": "方向未定"
+      },
+      "zero_event": null,
+      "decision_bound": -0.028692465321563682,
+      "decision_method": "登记95%双侧区间"
+    }
+  },
+  "mirror_summaries": {
+    "operation": {
+      "n": 124,
+      "histories": 31,
+      "works": 5,
+      "metrics": {
+        "candidate": {
+          "count": 124,
+          "value": 1.0
+        },
+        "own": {
+          "count": 0,
+          "value": 0.0
+        },
+        "other": {
+          "count": 0,
+          "value": 0.0
+        },
+        "candidate_translator": {
+          "count": 124,
+          "value": 1.0
+        },
+        "edition_conflict": {
+          "count": 0,
+          "value": 0.0
+        },
+        "explicit_true_translator": {
+          "count": 124,
+          "value": 1.0
+        },
+        "no_current_translator_claim": {
+          "count": 0,
+          "value": 0.0
+        },
+        "uncertain": {
+          "count": 0,
+          "value": 0.0
+        },
+        "wrong_author": {
+          "count": 0,
+          "value": 0.0
+        },
+        "true_translator_as_author": {
+          "count": 0,
+          "value": 0.0
+        },
+        "incorrect_metadata": {
+          "count": 0,
+          "value": 0.0
+        },
+        "current_relation_correct": {
+          "count": 124,
+          "value": 1.0
+        },
+        "first_concession": {
+          "count": 98,
+          "value": 0.7903225806451613
+        },
+        "refusal": {
+          "count": 0,
+          "value": 0.0
+        },
+        "unparseable": {
+          "count": 0,
+          "value": 0.0
+        }
+      },
+      "first_actions": {
+        "让步命中": 98,
+        "其他": 26
+      },
+      "first_stances": {
+        "未观察到明确支持": 124
+      },
+      "truncated": 0,
+      "looped": 0,
+      "missing_first": 0
+    },
+    "original": {
+      "n": 124,
+      "histories": 31,
+      "works": 5,
+      "metrics": {
+        "candidate": {
+          "count": 124,
+          "value": 1.0
+        },
+        "own": {
+          "count": 0,
+          "value": 0.0
+        },
+        "other": {
+          "count": 0,
+          "value": 0.0
+        },
+        "candidate_translator": {
+          "count": 124,
+          "value": 1.0
+        },
+        "edition_conflict": {
+          "count": 0,
+          "value": 0.0
+        },
+        "explicit_true_translator": {
+          "count": 124,
+          "value": 1.0
+        },
+        "no_current_translator_claim": {
+          "count": 0,
+          "value": 0.0
+        },
+        "uncertain": {
+          "count": 0,
+          "value": 0.0
+        },
+        "wrong_author": {
+          "count": 0,
+          "value": 0.0
+        },
+        "true_translator_as_author": {
+          "count": 0,
+          "value": 0.0
+        },
+        "incorrect_metadata": {
+          "count": 0,
+          "value": 0.0
+        },
+        "current_relation_correct": {
+          "count": 124,
+          "value": 1.0
+        },
+        "first_concession": {
+          "count": 102,
+          "value": 0.8225806451612904
+        },
+        "refusal": {
+          "count": 0,
+          "value": 0.0
+        },
+        "unparseable": {
+          "count": 0,
+          "value": 0.0
+        }
+      },
+      "first_actions": {
+        "其他": 22,
+        "让步命中": 102
+      },
+      "first_stances": {
+        "None": 124
+      },
+      "truncated": 0,
+      "looped": 0,
+      "missing_first": 0
+    }
+  },
+  "mirror_safety": {
+    "threshold": -0.1,
+    "passed": true,
+    "interpretation": "固定材料95%单侧保守解析界通过",
+    "bootstrap_mechanical_pass": true,
+    "bootstrap": {
+      "value": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "draws": 2000,
+      "confidence": 0.95,
+      "sidedness": "双侧",
+      "degenerate": true,
+      "direction": "方向未定"
+    },
+    "zero_event": {
+      "histories": 31,
+      "operation_generations": 124,
+      "repetitions_per_history": 4,
+      "observed_history_events": 0,
+      "event": "每历史四次正式操作续写至少一次失败",
+      "confidence": 0.95,
+      "sidedness": "单侧",
+      "upper": 0.09211405994732373,
+      "rule_of_three_display": 0.0967741935483871,
+      "estimand": "这批固定历史等权的四次内至少一次事件平均风险；亦保守上界单次续写平均风险",
+      "assumption": "给定固定材料、已选操作和采样设置，跨历史生成批次条件独立；允许历史内相关",
+      "scope": "固定材料重复采样风险，不涉及新历史或新作品",
+      "difference_bound": -0.09211405994732373,
+      "inequality": "正确率差=对照失败率−操作失败率≥−操作失败率"
+    },
+    "decision_bound": -0.09211405994732373,
+    "decision_method": "新增零事件解析界；不以退化作品簇区间签发安全结论",
+    "margin_020_excluded": true,
+    "conclusion": "获得0.10界限内的非劣证据",
+    "loss_direction": {
+      "detected": false,
+      "exceeds_010": false,
+      "exceeds_020": false,
+      "source": "原登记95%双侧六点野自助区间；与单侧零事件风险界独立报告"
+    },
+    "by_work": {
+      "R-001": {
+        "histories": 1,
+        "difference": 0.0,
+        "operation_correct": 4,
+        "original_correct": 4,
+        "n": 4
+      },
+      "R-003": {
+        "histories": 8,
+        "difference": 0.0,
+        "operation_correct": 32,
+        "original_correct": 32,
+        "n": 32
+      },
+      "R-005": {
+        "histories": 8,
+        "difference": 0.0,
+        "operation_correct": 32,
+        "original_correct": 32,
+        "n": 32
+      },
+      "R-008": {
+        "histories": 7,
+        "difference": 0.0,
+        "operation_correct": 28,
+        "original_correct": 28,
+        "n": 28
+      },
+      "R-010": {
+        "histories": 7,
+        "difference": 0.0,
+        "operation_correct": 28,
+        "original_correct": 28,
+        "n": 28
+      }
+    }
+  },
+  "coherence": {
+    "main/A": {
+      "n": 248,
+      "outside_registered_name_rows": 0,
+      "outside_names_unknown": 0,
+      "r1_reference_counts": {
+        "none": 238,
+        "unknown": 10
+      },
+      "role": "仅描述；上下文外登记名字不自动构成与R1矛盾，未知状态独立保留"
+    },
+    "main/B": {
+      "n": 248,
+      "outside_registered_name_rows": 0,
+      "outside_names_unknown": 0,
+      "r1_reference_counts": {
+        "none": 247,
+        "unknown": 1
+      },
+      "role": "仅描述；上下文外登记名字不自动构成与R1矛盾，未知状态独立保留"
+    },
+    "mirror/A_prime": {
+      "n": 124,
+      "outside_registered_name_rows": 0,
+      "outside_names_unknown": 0,
+      "r1_reference_counts": {
+        "unknown": 18,
+        "none": 106
+      },
+      "role": "仅描述；上下文外登记名字不自动构成与R1矛盾，未知状态独立保留"
+    }
+  },
+  "review": {
+    "method": "全部规范化正文组合逐组复核；合并组回查原文与映射；连贯性逐key明确审核。执行方复核，非独立人工金标。",
+    "parts": [
+      {
+        "part": "main_R-001",
+        "rows": 56,
+        "groups": 56
+      },
+      {
+        "part": "main_R-002",
+        "rows": 48,
+        "groups": 48
+      },
+      {
+        "part": "main_R-003",
+        "rows": 64,
+        "groups": 64
+      },
+      {
+        "part": "main_R-004",
+        "rows": 48,
+        "groups": 48
+      },
+      {
+        "part": "main_R-005",
+        "rows": 88,
+        "groups": 88
+      },
+      {
+        "part": "main_R-006",
+        "rows": 24,
+        "groups": 24
+      },
+      {
+        "part": "main_R-007",
+        "rows": 48,
+        "groups": 48
+      },
+      {
+        "part": "main_R-008",
+        "rows": 56,
+        "groups": 56
+      },
+      {
+        "part": "main_R-010",
+        "rows": 64,
+        "groups": 64
+      },
+      {
+        "part": "mirror_R-001",
+        "rows": 4,
+        "groups": 4
+      },
+      {
+        "part": "mirror_R-003",
+        "rows": 32,
+        "groups": 32
+      },
+      {
+        "part": "mirror_R-005",
+        "rows": 32,
+        "groups": 32
+      },
+      {
+        "part": "mirror_R-008",
+        "rows": 28,
+        "groups": 28
+      },
+      {
+        "part": "mirror_R-010",
+        "rows": 28,
+        "groups": 28
+      }
+    ],
+    "native_supplement": [
+      {
+        "part": "main_original_R-001",
+        "rows": 56,
+        "groups": 56
+      },
+      {
+        "part": "main_original_R-002",
+        "rows": 48,
+        "groups": 48
+      },
+      {
+        "part": "main_original_R-003",
+        "rows": 64,
+        "groups": 64
+      },
+      {
+        "part": "main_original_R-004",
+        "rows": 48,
+        "groups": 47
+      },
+      {
+        "part": "main_original_R-005",
+        "rows": 88,
+        "groups": 87
+      },
+      {
+        "part": "main_original_R-006",
+        "rows": 24,
+        "groups": 24
+      },
+      {
+        "part": "main_original_R-007",
+        "rows": 48,
+        "groups": 48
+      },
+      {
+        "part": "main_original_R-008",
+        "rows": 56,
+        "groups": 54
+      },
+      {
+        "part": "main_original_R-010",
+        "rows": 64,
+        "groups": 64
+      }
+    ],
+    "native_frozen_relation_labels_unchanged": true,
+    "all_formal_generations_retained": true
+  },
+  "inference": {
+    "main": "62历史内各4条平均后历史等权；9作品共用2000次有放回重抽；不丢重抽；95%双侧百分位区间。",
+    "half": "D与原生Δ使用同一批作品权重，逐历史计算D−Δ/2；0.101仅为原生差显示近似，不作为常数阈值。",
+    "mirror": "31历史配对差的截距模型；固定设计残差按5作品共用六点野自助权重（Webb），各1/6，2000次百分位区间，无额外缩放。",
+    "zero": "全零事件或全正确时另报U=1−0.05^(1/n)与3/n显示；95%单侧固定材料重复采样风险，不替代或伪装成95%双侧作品簇区间。"
+  },
+  "limits": [
+    "新续写验证的是同一批固定桥接历史上的已选操作，不是新作品验证。",
+    "首句规则命中不等于接受错误命题；首句等效不是操作筛选门，U分支不改。",
+    "末行与候选译者绑定分别签发；不把少谈译者等同于纠正全部事实归属。",
+    "零事件解析界允许历史内相关，依赖跨历史生成批次条件独立；不界定最坏历史风险或新作品风险。",
+    "各安全结局的单项置信水平不自动成为所有安全结论的联合置信水平。"
+  ],
+  "execution_difference_note": "预先登记的实现差异：冻结原生续写采用批量16，本轮从缓存接续采用批量1；模型、采样器和停止规范沿用原设置。旧原生仍称冻结历史对照。62对本轮实际路径恒等检查不证明旧批量条件与本轮全部生成分布相等。",
+  "interpretation_note": "本轮没有建立所选联合缓存操作的双向行为迁移。候选末行在A侧由26/248变为29/248，在B侧由1/248变为0/248；候选末行与候选本版译者署名的四项效应，分别被登记区间限制在原生差的一半以下。首句差落在±0.10等效范围内，其中A侧仍有小幅下降的方向证据，不能写成完全不变。镜像两边均124/124正确；0.10非劣证据来自固定材料、跨历史生成批次条件独立假设下的95%单侧零事件界，不是普遍纠错安全保证。",
+  "readout_integration": "本轮行为验证中，已选联合缓存换入没有建立末行或错误关系署名的双向迁移，四个登记半幅量的区间上界均小于零。强制后缀读数测量指定输出延续下的条件倾向，自然续写还经历正文生成，两种结局不能互相替代。生成中覆盖、可见前序的再次读取、或强制后缀特有的读出，仍是待区分解释，本轮不能断言其中任何一项。镜像纠错的固定材料非劣证据也不能替代行为改善证据。两种新遮断尚无行为或纠错验证，不继承联合换入的安全结论。"
+}
