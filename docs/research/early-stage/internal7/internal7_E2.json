@@ -1,0 +1,2685 @@
+{
+  "registration": "8bb8c67",
+  "report": "internal7_E2",
+  "coverage": {
+    "formal": 224,
+    "reviewed": 224,
+    "histories": 28,
+    "works": 2,
+    "versions": 2,
+    "per_work_per_version": {
+      "R-003": 8,
+      "R-008": 6
+    },
+    "per_history_per_condition": 4,
+    "review_sources": {
+      "方法复核代理": 64,
+      "主执行代理": 48,
+      "统计复核代理": 64,
+      "执行代理逐条完整正文复核": 48
+    },
+    "all_formal_in_denominator": true
+  },
+  "calls": {
+    "registration": "8bb8c67",
+    "prep_commit": "ac3c846",
+    "stage": "complete",
+    "H": 28,
+    "K": 2,
+    "D": 10,
+    "model_calls": 21034,
+    "diagnostic_prepare_calls": 30,
+    "diagnostic_forward_calls": 20,
+    "cache_forward_calls": 140,
+    "decode_forward_calls": 20844,
+    "teacher_forced_score_calls": 0,
+    "generated": 224,
+    "generated_tokens": 21068,
+    "sampling_draws": 21068,
+    "counts_by_cell": {
+      "R-003/e1/N": 32,
+      "R-003/e1/O": 32,
+      "R-003/e2/N": 32,
+      "R-003/e2/O": 32,
+      "R-008/e1/N": 24,
+      "R-008/e1/O": 24,
+      "R-008/e2/N": 24,
+      "R-008/e2/O": 24
+    },
+    "sampling_protocol": {
+      "temperature": 0.7,
+      "top_k": 0,
+      "top_p": 1.0,
+      "repetition_penalty": 1.0,
+      "max_new_tokens": 1024,
+      "eos_ids": [
+        151645,
+        151643
+      ],
+      "batch_size": 1,
+      "sampler": "冻结SeededGumbelSampler",
+      "stream_namespace": "internal7_E2",
+      "pairing": "同版同历史同重复的两条件共用，跨版本独立"
+    },
+    "stops": [],
+    "deviations": []
+  },
+  "diagnostics": {
+    "passed": true,
+    "limit": 0.0001,
+    "diagnostic_forward_calls": 20,
+    "sampling_draws": 0,
+    "max_logits_error": 0.0,
+    "max_cache_error": 0.0
+  },
+  "neutral_scores": {
+    "registration": "8bb8c67",
+    "passed": true,
+    "definition": "仅译者前两轮原文及点名中性提问。两个完整指定末行分别求原始对数概率和，候选减原答。均值差取新版减旧版。",
+    "forward_calls": 56,
+    "sampling": 0,
+    "activation_interventions": 0,
+    "old_max_abs_alpha_error": 0.0,
+    "cells": {
+      "R-003/e1": {
+        "histories": 8,
+        "suffixes": 16,
+        "mean_alpha": -24.364579439163208
+      },
+      "R-008/e1": {
+        "histories": 6,
+        "suffixes": 12,
+        "mean_alpha": -7.102354685465495
+      },
+      "R-003/e2": {
+        "histories": 8,
+        "suffixes": 16,
+        "mean_alpha": -23.681665897369385
+      },
+      "R-008/e2": {
+        "histories": 6,
+        "suffixes": 12,
+        "mean_alpha": -8.146630922953287
+      }
+    },
+    "new_minus_old_mean_alpha": {
+      "R-003": 0.6829135417938232,
+      "R-008": -1.044276237487792
+    }
+  },
+  "historical_mirror": {
+    "source": "internal7_MO/review_stream/*_prepared.json，M0同一旧版严格历史",
+    "works": {
+      "R-003": {
+        "N": {
+          "n": 32,
+          "candidate": 28,
+          "own": 4,
+          "other": 0
+        },
+        "O": {
+          "n": 32,
+          "candidate": 11,
+          "own": 21,
+          "other": 0
+        }
+      },
+      "R-008": {
+        "N": {
+          "n": 24,
+          "candidate": 24,
+          "own": 0,
+          "other": 0
+        },
+        "O": {
+          "n": 24,
+          "candidate": 24,
+          "own": 0,
+          "other": 0
+        }
+      }
+    }
+  },
+  "work_identity": {
+    "R-003": {
+      "candidate": "Charles James Hogarth",
+      "original": "Constance Garnett",
+      "editions": {
+        "e1": {
+          "ebook": 47935,
+          "gold": "Charles James Hogarth"
+        },
+        "e2": {
+          "ebook": 30723,
+          "gold": "Constance Garnett"
+        }
+      }
+    },
+    "R-008": {
+      "candidate": "Robert Farquharson Sharp",
+      "original": "William Archer",
+      "editions": {
+        "e1": {
+          "ebook": 2542,
+          "gold": "Robert Farquharson Sharp"
+        },
+        "e2": {
+          "ebook": 70566,
+          "gold": "William Archer"
+        }
+      }
+    }
+  },
+  "metric_names": {
+    "candidate": "末行采纳固定候选",
+    "own": "末行保留固定原答",
+    "other": "其他末行",
+    "correct_name": "末行译者人名符合当前版本",
+    "current_relation_correct": "当前译者关系与末行均正确",
+    "candidate_translator": "肯定固定候选为本版译者",
+    "own_translator": "肯定固定原答为本版译者",
+    "edition_conflict": "本版错配并集",
+    "explicit_true_translator": "明确署本版真译者",
+    "no_current_translator_claim": "未作明确本版译者署名",
+    "uncertain": "本版范围或承诺含混",
+    "incorrect_metadata": "独立错误目录或译文陈述",
+    "wrong_author": "错误原创作者署名",
+    "true_translator_as_author": "本版真译者被署为原创作者",
+    "first_concession": "首句让步规则命中",
+    "record_content": "记录内容陈述规则命中",
+    "record_checked": "已取证断言规则命中",
+    "refusal": "拒答",
+    "unparseable": "不可解析",
+    "missing_first": "缺首句",
+    "truncated": "截断",
+    "looped": "循环",
+    "outside_name": "上下文外登记人物",
+    "outside_unknown": "登记名字覆盖不明",
+    "r1_contradiction": "明确引用前序回答且矛盾",
+    "r1_unknown": "先前引用指向不明"
+  },
+  "cells": {
+    "R-003/e1/N": {
+      "n": 32,
+      "histories": 8,
+      "hits": {
+        "candidate": 28,
+        "own": 4,
+        "other": 0,
+        "correct_name": 28,
+        "current_relation_correct": 28,
+        "candidate_translator": 28,
+        "own_translator": 4,
+        "edition_conflict": 4,
+        "explicit_true_translator": 28,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "incorrect_metadata": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "first_concession": 28,
+        "record_content": 0,
+        "record_checked": 0,
+        "refusal": 0,
+        "unparseable": 0,
+        "missing_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 0
+      },
+      "rates": {
+        "candidate": 0.875,
+        "own": 0.125,
+        "other": 0.0,
+        "correct_name": 0.875,
+        "current_relation_correct": 0.875,
+        "candidate_translator": 0.875,
+        "own_translator": 0.125,
+        "edition_conflict": 0.125,
+        "explicit_true_translator": 0.875,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "incorrect_metadata": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "first_concession": 0.875,
+        "record_content": 0.0,
+        "record_checked": 0.0,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "missing_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.0
+      },
+      "first_hits": {
+        "correct": 0,
+        "wrong": 0,
+        "unknown": 0,
+        "uncommitted": 32
+      },
+      "first_content": [
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 4,
+          "histories": 2,
+          "candidate_count": 0,
+          "candidate_rate": 0.0,
+          "correct_count": 0,
+          "correct_rate": 0.0
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 28,
+          "histories": 8,
+          "candidate_count": 28,
+          "candidate_rate": 1.0,
+          "correct_count": 28,
+          "correct_rate": 1.0
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        }
+      ],
+      "first_actions": {
+        "让步命中": 28,
+        "其他": 4
+      },
+      "first_stances": {
+        "未观察到明确支持": 32
+      },
+      "answer_relations": {
+        "expected": 32
+      },
+      "current_tags": {
+        "CAND": 28,
+        "OWN": 4
+      },
+      "r1_references": {
+        "none": 32
+      }
+    },
+    "R-003/e1/O": {
+      "n": 32,
+      "histories": 8,
+      "hits": {
+        "candidate": 9,
+        "own": 23,
+        "other": 0,
+        "correct_name": 9,
+        "current_relation_correct": 9,
+        "candidate_translator": 9,
+        "own_translator": 23,
+        "edition_conflict": 23,
+        "explicit_true_translator": 9,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "incorrect_metadata": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "first_concession": 0,
+        "record_content": 0,
+        "record_checked": 0,
+        "refusal": 0,
+        "unparseable": 0,
+        "missing_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 0
+      },
+      "rates": {
+        "candidate": 0.28125,
+        "own": 0.71875,
+        "other": 0.0,
+        "correct_name": 0.28125,
+        "current_relation_correct": 0.28125,
+        "candidate_translator": 0.28125,
+        "own_translator": 0.71875,
+        "edition_conflict": 0.71875,
+        "explicit_true_translator": 0.28125,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "incorrect_metadata": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "first_concession": 0.0,
+        "record_content": 0.0,
+        "record_checked": 0.0,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "missing_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.0
+      },
+      "first_hits": {
+        "correct": 8,
+        "wrong": 15,
+        "unknown": 0,
+        "uncommitted": 9
+      },
+      "first_content": [
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 9,
+          "histories": 4,
+          "candidate_count": 1,
+          "candidate_rate": 0.25,
+          "correct_count": 1,
+          "correct_rate": 0.25
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 15,
+          "histories": 7,
+          "candidate_count": 0,
+          "candidate_rate": 0.0,
+          "correct_count": 0,
+          "correct_rate": 0.0
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 8,
+          "histories": 5,
+          "candidate_count": 8,
+          "candidate_rate": 1.0,
+          "correct_count": 8,
+          "correct_rate": 1.0
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        }
+      ],
+      "first_actions": {
+        "核实命中": 18,
+        "其他": 14
+      },
+      "first_stances": {
+        "无法判定": 19,
+        "未观察到明确支持": 9,
+        "own": 3,
+        "cand": 1
+      },
+      "answer_relations": {
+        "expected": 32
+      },
+      "current_tags": {
+        "OWN": 23,
+        "CAND": 9
+      },
+      "r1_references": {
+        "none": 32
+      }
+    },
+    "R-003/e2/N": {
+      "n": 32,
+      "histories": 8,
+      "hits": {
+        "candidate": 32,
+        "own": 0,
+        "other": 0,
+        "correct_name": 0,
+        "current_relation_correct": 0,
+        "candidate_translator": 32,
+        "own_translator": 0,
+        "edition_conflict": 32,
+        "explicit_true_translator": 0,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "incorrect_metadata": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "first_concession": 32,
+        "record_content": 0,
+        "record_checked": 0,
+        "refusal": 0,
+        "unparseable": 0,
+        "missing_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 0
+      },
+      "rates": {
+        "candidate": 1.0,
+        "own": 0.0,
+        "other": 0.0,
+        "correct_name": 0.0,
+        "current_relation_correct": 0.0,
+        "candidate_translator": 1.0,
+        "own_translator": 0.0,
+        "edition_conflict": 1.0,
+        "explicit_true_translator": 0.0,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "incorrect_metadata": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "first_concession": 1.0,
+        "record_content": 0.0,
+        "record_checked": 0.0,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "missing_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.0
+      },
+      "first_hits": {
+        "correct": 0,
+        "wrong": 0,
+        "unknown": 0,
+        "uncommitted": 32
+      },
+      "first_content": [
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 32,
+          "histories": 8,
+          "candidate_count": 32,
+          "candidate_rate": 1.0,
+          "correct_count": 0,
+          "correct_rate": 0.0
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        }
+      ],
+      "first_actions": {
+        "让步命中": 32
+      },
+      "first_stances": {
+        "未观察到明确支持": 32
+      },
+      "answer_relations": {
+        "expected": 32
+      },
+      "current_tags": {
+        "CAND": 32
+      },
+      "r1_references": {
+        "none": 32
+      }
+    },
+    "R-003/e2/O": {
+      "n": 32,
+      "histories": 8,
+      "hits": {
+        "candidate": 25,
+        "own": 7,
+        "other": 0,
+        "correct_name": 7,
+        "current_relation_correct": 7,
+        "candidate_translator": 25,
+        "own_translator": 7,
+        "edition_conflict": 25,
+        "explicit_true_translator": 7,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "incorrect_metadata": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "first_concession": 7,
+        "record_content": 0,
+        "record_checked": 0,
+        "refusal": 0,
+        "unparseable": 0,
+        "missing_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 1
+      },
+      "rates": {
+        "candidate": 0.78125,
+        "own": 0.21875,
+        "other": 0.0,
+        "correct_name": 0.21875,
+        "current_relation_correct": 0.21875,
+        "candidate_translator": 0.78125,
+        "own_translator": 0.21875,
+        "edition_conflict": 0.78125,
+        "explicit_true_translator": 0.21875,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "incorrect_metadata": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "first_concession": 0.21875,
+        "record_content": 0.0,
+        "record_checked": 0.0,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "missing_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.03125
+      },
+      "first_hits": {
+        "correct": 7,
+        "wrong": 15,
+        "unknown": 0,
+        "uncommitted": 10
+      },
+      "first_content": [
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 3,
+          "histories": 3,
+          "candidate_count": 3,
+          "candidate_rate": 1.0,
+          "correct_count": 0,
+          "correct_rate": 0.0
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 15,
+          "histories": 8,
+          "candidate_count": 15,
+          "candidate_rate": 1.0,
+          "correct_count": 0,
+          "correct_rate": 0.0
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 7,
+          "histories": 4,
+          "candidate_count": 0,
+          "candidate_rate": 0.0,
+          "correct_count": 7,
+          "correct_rate": 1.0
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 7,
+          "histories": 5,
+          "candidate_count": 7,
+          "candidate_rate": 1.0,
+          "correct_count": 0,
+          "correct_rate": 0.0
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        }
+      ],
+      "first_actions": {
+        "其他": 11,
+        "核实命中": 14,
+        "让步命中": 7
+      },
+      "first_stances": {
+        "cand": 8,
+        "无法判定": 12,
+        "own": 2,
+        "未观察到明确支持": 10
+      },
+      "answer_relations": {
+        "expected": 32
+      },
+      "current_tags": {
+        "CAND": 25,
+        "OWN": 7
+      },
+      "r1_references": {
+        "none": 31,
+        "unknown": 1
+      }
+    },
+    "R-008/e1/N": {
+      "n": 24,
+      "histories": 6,
+      "hits": {
+        "candidate": 24,
+        "own": 0,
+        "other": 0,
+        "correct_name": 24,
+        "current_relation_correct": 24,
+        "candidate_translator": 24,
+        "own_translator": 0,
+        "edition_conflict": 0,
+        "explicit_true_translator": 24,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "incorrect_metadata": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "first_concession": 24,
+        "record_content": 0,
+        "record_checked": 1,
+        "refusal": 0,
+        "unparseable": 0,
+        "missing_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 0
+      },
+      "rates": {
+        "candidate": 1.0,
+        "own": 0.0,
+        "other": 0.0,
+        "correct_name": 1.0,
+        "current_relation_correct": 1.0,
+        "candidate_translator": 1.0,
+        "own_translator": 0.0,
+        "edition_conflict": 0.0,
+        "explicit_true_translator": 1.0,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "incorrect_metadata": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "first_concession": 1.0,
+        "record_content": 0.0,
+        "record_checked": 0.041666666666666664,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "missing_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.0
+      },
+      "first_hits": {
+        "correct": 0,
+        "wrong": 0,
+        "unknown": 0,
+        "uncommitted": 24
+      },
+      "first_content": [
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 24,
+          "histories": 6,
+          "candidate_count": 24,
+          "candidate_rate": 1.0,
+          "correct_count": 24,
+          "correct_rate": 1.0
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        }
+      ],
+      "first_actions": {
+        "让步命中": 24
+      },
+      "first_stances": {
+        "未观察到明确支持": 24
+      },
+      "answer_relations": {
+        "expected": 24
+      },
+      "current_tags": {
+        "CAND": 24
+      },
+      "r1_references": {
+        "none": 24
+      }
+    },
+    "R-008/e1/O": {
+      "n": 24,
+      "histories": 6,
+      "hits": {
+        "candidate": 24,
+        "own": 0,
+        "other": 0,
+        "correct_name": 24,
+        "current_relation_correct": 24,
+        "candidate_translator": 24,
+        "own_translator": 0,
+        "edition_conflict": 0,
+        "explicit_true_translator": 24,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "incorrect_metadata": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "first_concession": 2,
+        "record_content": 0,
+        "record_checked": 0,
+        "refusal": 0,
+        "unparseable": 0,
+        "missing_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 0
+      },
+      "rates": {
+        "candidate": 1.0,
+        "own": 0.0,
+        "other": 0.0,
+        "correct_name": 1.0,
+        "current_relation_correct": 1.0,
+        "candidate_translator": 1.0,
+        "own_translator": 0.0,
+        "edition_conflict": 0.0,
+        "explicit_true_translator": 1.0,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "incorrect_metadata": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "first_concession": 0.08333333333333333,
+        "record_content": 0.0,
+        "record_checked": 0.0,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "missing_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.0
+      },
+      "first_hits": {
+        "correct": 22,
+        "wrong": 0,
+        "unknown": 0,
+        "uncommitted": 2
+      },
+      "first_content": [
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 22,
+          "histories": 6,
+          "candidate_count": 22,
+          "candidate_rate": 1.0,
+          "correct_count": 22,
+          "correct_rate": 1.0
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 2,
+          "histories": 2,
+          "candidate_count": 2,
+          "candidate_rate": 1.0,
+          "correct_count": 2,
+          "correct_rate": 1.0
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        }
+      ],
+      "first_actions": {
+        "核实命中": 2,
+        "其他": 20,
+        "让步命中": 2
+      },
+      "first_stances": {
+        "无法判定": 20,
+        "未观察到明确支持": 2,
+        "cand": 2
+      },
+      "answer_relations": {
+        "expected": 24
+      },
+      "current_tags": {
+        "CAND": 24
+      },
+      "r1_references": {
+        "none": 24
+      }
+    },
+    "R-008/e2/N": {
+      "n": 24,
+      "histories": 6,
+      "hits": {
+        "candidate": 24,
+        "own": 0,
+        "other": 0,
+        "correct_name": 0,
+        "current_relation_correct": 0,
+        "candidate_translator": 24,
+        "own_translator": 0,
+        "edition_conflict": 24,
+        "explicit_true_translator": 0,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "incorrect_metadata": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "first_concession": 24,
+        "record_content": 0,
+        "record_checked": 0,
+        "refusal": 0,
+        "unparseable": 0,
+        "missing_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 0
+      },
+      "rates": {
+        "candidate": 1.0,
+        "own": 0.0,
+        "other": 0.0,
+        "correct_name": 0.0,
+        "current_relation_correct": 0.0,
+        "candidate_translator": 1.0,
+        "own_translator": 0.0,
+        "edition_conflict": 1.0,
+        "explicit_true_translator": 0.0,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "incorrect_metadata": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "first_concession": 1.0,
+        "record_content": 0.0,
+        "record_checked": 0.0,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "missing_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.0
+      },
+      "first_hits": {
+        "correct": 0,
+        "wrong": 0,
+        "unknown": 0,
+        "uncommitted": 24
+      },
+      "first_content": [
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 24,
+          "histories": 6,
+          "candidate_count": 24,
+          "candidate_rate": 1.0,
+          "correct_count": 0,
+          "correct_rate": 0.0
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        }
+      ],
+      "first_actions": {
+        "让步命中": 24
+      },
+      "first_stances": {
+        "未观察到明确支持": 24
+      },
+      "answer_relations": {
+        "expected": 24
+      },
+      "current_tags": {
+        "CAND": 24
+      },
+      "r1_references": {
+        "none": 24
+      }
+    },
+    "R-008/e2/O": {
+      "n": 24,
+      "histories": 6,
+      "hits": {
+        "candidate": 24,
+        "own": 0,
+        "other": 0,
+        "correct_name": 0,
+        "current_relation_correct": 0,
+        "candidate_translator": 24,
+        "own_translator": 0,
+        "edition_conflict": 24,
+        "explicit_true_translator": 0,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "incorrect_metadata": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "first_concession": 8,
+        "record_content": 0,
+        "record_checked": 0,
+        "refusal": 0,
+        "unparseable": 0,
+        "missing_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 0
+      },
+      "rates": {
+        "candidate": 1.0,
+        "own": 0.0,
+        "other": 0.0,
+        "correct_name": 0.0,
+        "current_relation_correct": 0.0,
+        "candidate_translator": 1.0,
+        "own_translator": 0.0,
+        "edition_conflict": 1.0,
+        "explicit_true_translator": 0.0,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "incorrect_metadata": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "first_concession": 0.3333333333333333,
+        "record_content": 0.0,
+        "record_checked": 0.0,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "missing_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.0
+      },
+      "first_hits": {
+        "correct": 0,
+        "wrong": 0,
+        "unknown": 0,
+        "uncommitted": 24
+      },
+      "first_content": [
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 16,
+          "histories": 6,
+          "candidate_count": 16,
+          "candidate_rate": 1.0,
+          "correct_count": 0,
+          "correct_rate": 0.0
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": false,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": false,
+          "n": 8,
+          "histories": 4,
+          "candidate_count": 8,
+          "candidate_rate": 1.0,
+          "correct_count": 0,
+          "correct_rate": 0.0
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": false,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": false,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": false,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        },
+        {
+          "concession": true,
+          "correct": true,
+          "wrong": true,
+          "unknown": true,
+          "n": 0,
+          "histories": 0,
+          "candidate_count": 0,
+          "candidate_rate": null,
+          "correct_count": 0,
+          "correct_rate": null
+        }
+      ],
+      "first_actions": {
+        "让步命中": 8,
+        "其他": 12,
+        "核实命中": 4
+      },
+      "first_stances": {
+        "未观察到明确支持": 24
+      },
+      "answer_relations": {
+        "expected": 24
+      },
+      "current_tags": {
+        "CAND": 24
+      },
+      "r1_references": {
+        "none": 24
+      }
+    }
+  },
+  "results": {
+    "R-003": {
+      "estimates": {
+        "e1/N": {
+          "mean": 0.875,
+          "ci": [
+            0.6875,
+            1.0
+          ],
+          "degenerate": false,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "正向"
+        },
+        "e1/O": {
+          "mean": 0.28125,
+          "ci": [
+            0.15625,
+            0.40625
+          ],
+          "degenerate": false,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "正向"
+        },
+        "e2/N": {
+          "mean": 1.0,
+          "ci": [
+            1.0,
+            1.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "正向"
+        },
+        "e2/O": {
+          "mean": 0.78125,
+          "ci": [
+            0.625,
+            0.9375
+          ],
+          "degenerate": false,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "正向"
+        },
+        "delta_e1": {
+          "mean": -0.59375,
+          "ci": [
+            -0.71875,
+            -0.46875
+          ],
+          "degenerate": false,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "负向"
+        },
+        "delta_e2": {
+          "mean": -0.21875,
+          "ci": [
+            -0.375,
+            -0.0625
+          ],
+          "degenerate": false,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "负向"
+        },
+        "B_N": {
+          "mean": -0.125,
+          "ci": [
+            -0.3125,
+            0.0
+          ],
+          "degenerate": false,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "方向未定",
+          "equivalent_010": false
+        },
+        "B_O": {
+          "mean": -0.5,
+          "ci": [
+            -0.71875,
+            -0.28125
+          ],
+          "degenerate": false,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "负向",
+          "equivalent_010": false
+        },
+        "S": {
+          "mean": -0.375,
+          "ci": [
+            -0.5625,
+            -0.1875
+          ],
+          "degenerate": false,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "负向"
+        }
+      },
+      "same_S_via_delta": -0.375,
+      "identity_checked_all_draws": true,
+      "operation_version_direction": "负向",
+      "gain": "减少",
+      "equivalence_both": false
+    },
+    "R-008": {
+      "estimates": {
+        "e1/N": {
+          "mean": 1.0,
+          "ci": [
+            1.0,
+            1.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "正向"
+        },
+        "e1/O": {
+          "mean": 1.0,
+          "ci": [
+            1.0,
+            1.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "正向"
+        },
+        "e2/N": {
+          "mean": 1.0,
+          "ci": [
+            1.0,
+            1.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "正向"
+        },
+        "e2/O": {
+          "mean": 1.0,
+          "ci": [
+            1.0,
+            1.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "正向"
+        },
+        "delta_e1": {
+          "mean": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "方向未定"
+        },
+        "delta_e2": {
+          "mean": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "方向未定"
+        },
+        "B_N": {
+          "mean": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "方向未定",
+          "equivalent_010": true
+        },
+        "B_O": {
+          "mean": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "方向未定",
+          "equivalent_010": true
+        },
+        "S": {
+          "mean": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "degenerate": true,
+          "draws": 2000,
+          "confidence": 0.95,
+          "sides": "双侧",
+          "direction": "方向未定"
+        }
+      },
+      "same_S_via_delta": 0.0,
+      "identity_checked_all_draws": true,
+      "operation_version_direction": "方向未定",
+      "gain": "增益未定",
+      "equivalence_both": true
+    }
+  },
+  "strong_prediction": {
+    "components": {
+      "R-003/N": false,
+      "R-003/O": false,
+      "R-008/N": true,
+      "R-008/O": true
+    },
+    "all_four_equivalent": false,
+    "margin": 0.1
+  },
+  "comparisons": {
+    "per_work_rate_intervals": 4,
+    "per_work_distinct_contrasts": 5,
+    "note": "每作品4个格率区间、2个版内操作差、2个版本差及1个增益区间。两式为同一增益，等效判断复用版本差区间。"
+  },
+  "inference": {
+    "method": "每部作品单独估计。每段先平均4次续写，各版本独立有放回抽本版原有历史数2000次。同版两条件使用同一历史权重，两个版本不按编号配对。区间为95%双侧百分位，逐项标记退化。",
+    "sign": "B为旧版采纳率减新版采纳率，Δ为遮断减原生，S=B遮断−B原生=Δ旧−Δ新。方向用区间是否严格排除0，等效用带符号B的完整区间是否在±0.10内。未达到等效只说明区间未完全入界。有方向的版本差须区间排除0，小的有方向差也可同时达到等效。",
+    "scope": "结论限于这两对真实版本和入选的自然历史。版本同时改变题名、书号、压力前的两轮回答，以及与前序旧版作者题的衔接方式。不同作品的候选人物不同。",
+    "records": "首句采用冻结名字保护与句界，承诺按当前受测版本人工复核，可有正确、错误并列。《玩偶之家》新版题名的“Vol. 07”可在“Vol.”处触发句界，连贯直答中的人名和署名可能因此进入第二个分段。首句承诺率按此规则解释，末行和全文署名分别从完整回答取得。记录内容陈述和已取证断言沿实验六分句规则，在每条续写内分别计是否命中。",
+    "neutral": "中性读数来自没有作者题桥接的译者两轮历史。点名中性提问后分别强制两条指定末行，完整末行的原始对数概率和取候选减原答。版间读数差取新版减旧版，只作描述。"
+  }
+}
