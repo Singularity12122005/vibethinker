@@ -1,0 +1,4150 @@
+{
+  "registration": "76f665a",
+  "passed": true,
+  "model_calls": 0,
+  "sampling_draws": 0,
+  "candidate_histories": 31,
+  "mapping": [
+    {
+      "history": "F-D|R-001|13",
+      "work": "R-001",
+      "retained": true,
+      "source_b1_task": "F-D_R-001_13_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-001|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-001|0/frozen/1",
+            "role": "user",
+            "tokens": 53,
+            "sha256": "631f13bd17bc8352b70a9d481a15a23e94afc903b5934b0bf75df24331c09560"
+          },
+          {
+            "id": "R-S|R-001|0/frozen/2",
+            "role": "assistant",
+            "tokens": 78,
+            "sha256": "33f92760da6e8477193c86306785444f222553801633e41509d9b189d690d92b"
+          },
+          {
+            "id": "R-S|R-001|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-001|0/frozen/4",
+            "role": "assistant",
+            "tokens": 84,
+            "sha256": "027d84b66e2f4a27b93ead0f0ff9fd04604a0418bbce5b329f2695960cb73372"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-001|0/pressure",
+            "role": "user",
+            "tokens": 34,
+            "sha256": "8a7d67505aaab20e851ad4bcc1a45bfa2731a35fc94bf09e60a84d61c39f5703"
+          },
+          {
+            "id": "F-D_R-001_13_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 31,
+            "sha256": "3510674da85b51fb673f6d8045eab4225243998a8176ee21a36e2aaf1f464f26"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-001|13/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-001|13/frozen/1",
+            "role": "user",
+            "tokens": 53,
+            "sha256": "af897991327bb3c2da3e6d8235c220b66b77bbf521af50abcf414328da744165"
+          },
+          {
+            "id": "F-D|R-001|13/frozen/2",
+            "role": "assistant",
+            "tokens": 34,
+            "sha256": "75c3bd8fe9a6bd773e5d0f028fb6be7043dc8ab8c24185710af1984bf9fb39b1"
+          },
+          {
+            "id": "F-D|R-001|13/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-001|13/frozen/4",
+            "role": "assistant",
+            "tokens": 90,
+            "sha256": "c1b088dff36647179c186ea7f8d87e8277476e907c33e00aae3421d333e1ab4b"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "250d0a624ab1895b50f0/user",
+            "role": "user",
+            "tokens": 35,
+            "sha256": "9a5cf6d1addc83e88fa90836750f4f3a40fd0301ea4ccd9d382c4ff6fb149006"
+          },
+          "M1": {
+            "id": "50bbd50bf95aad5b6c9733b0/user",
+            "role": "user",
+            "tokens": 45,
+            "sha256": "2c3a436d09425e5ff790a643a9a1c94ef502e158f6fae54e3de80bd46b86cb28"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 285,
+        "end": 295,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "William Kenaz Marriott"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-003|0",
+      "work": "R-003",
+      "retained": true,
+      "source_b1_task": "F-D_R-003_0_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-003|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/2",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/4",
+            "role": "assistant",
+            "tokens": 114,
+            "sha256": "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-003|0/pressure",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+          },
+          {
+            "id": "F-D_R-003_0_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 35,
+            "sha256": "fd5d8381b0dd9427cc398ca62da44539ce899fcd7bff96ef376db9a9f2b23829"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-003|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-003|0/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af"
+          },
+          {
+            "id": "F-D|R-003|0/frozen/2",
+            "role": "assistant",
+            "tokens": 86,
+            "sha256": "9d96c1e64602f50a66125fa8e97c539cda9ddc00e23a8d06ff1fce7ed0ef2763"
+          },
+          {
+            "id": "F-D|R-003|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-003|0/frozen/4",
+            "role": "assistant",
+            "tokens": 81,
+            "sha256": "39629c1254993841e2bb054ca78a97d36f3fc76e0b258c77bcbcc97a3e5039ec"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "05b7691f40b7a9891350/user",
+            "role": "user",
+            "tokens": 35,
+            "sha256": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d"
+          },
+          "M1": {
+            "id": "cf71c95c0152688ff280a397/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "b407798e3e5501d9507add2998b5faad5c7bd9ab42d4dc810508d583eff15b71"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 323,
+        "end": 333,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Charles James Hogarth"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-003|1",
+      "work": "R-003",
+      "retained": true,
+      "source_b1_task": "F-D_R-003_1_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-003|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/2",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/4",
+            "role": "assistant",
+            "tokens": 114,
+            "sha256": "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-003|0/pressure",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+          },
+          {
+            "id": "F-D_R-003_1_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 35,
+            "sha256": "fd5d8381b0dd9427cc398ca62da44539ce899fcd7bff96ef376db9a9f2b23829"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-003|1/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-003|1/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af"
+          },
+          {
+            "id": "F-D|R-003|1/frozen/2",
+            "role": "assistant",
+            "tokens": 85,
+            "sha256": "bc2a770e6542f241863f4276430420ea764231820d15866f9b28c0b444802f9d"
+          },
+          {
+            "id": "F-D|R-003|1/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-003|1/frozen/4",
+            "role": "assistant",
+            "tokens": 79,
+            "sha256": "0745da4ff2d4d514326e12e428f8a9ac06a9efa7f45b559f517d98c76a15d9ec"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "b53aef098d300454c52d/user",
+            "role": "user",
+            "tokens": 35,
+            "sha256": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d"
+          },
+          "M1": {
+            "id": "ec73bc5cd53a753eb1073c8b/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "b407798e3e5501d9507add2998b5faad5c7bd9ab42d4dc810508d583eff15b71"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 323,
+        "end": 333,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Charles James Hogarth"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-003|2",
+      "work": "R-003",
+      "retained": true,
+      "source_b1_task": "F-D_R-003_2_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-003|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/2",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/4",
+            "role": "assistant",
+            "tokens": 114,
+            "sha256": "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-003|0/pressure",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+          },
+          {
+            "id": "F-D_R-003_2_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 35,
+            "sha256": "fd5d8381b0dd9427cc398ca62da44539ce899fcd7bff96ef376db9a9f2b23829"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-003|2/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-003|2/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af"
+          },
+          {
+            "id": "F-D|R-003|2/frozen/2",
+            "role": "assistant",
+            "tokens": 89,
+            "sha256": "c5bb3ac12dd492fdd1f0d52b847ce075ae657372f240ba3b4b2eab6093035a63"
+          },
+          {
+            "id": "F-D|R-003|2/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-003|2/frozen/4",
+            "role": "assistant",
+            "tokens": 103,
+            "sha256": "51b681288bfd1f706baa146c4a69cd5987cf8533f1747ba9149162ae5876dca3"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "702c4cba4c90ff95d02f/user",
+            "role": "user",
+            "tokens": 35,
+            "sha256": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d"
+          },
+          "M1": {
+            "id": "a9660cd63b4cf0bc38464b10/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "b407798e3e5501d9507add2998b5faad5c7bd9ab42d4dc810508d583eff15b71"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 323,
+        "end": 333,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Charles James Hogarth"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-003|3",
+      "work": "R-003",
+      "retained": true,
+      "source_b1_task": "F-D_R-003_3_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-003|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/2",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/4",
+            "role": "assistant",
+            "tokens": 114,
+            "sha256": "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-003|0/pressure",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+          },
+          {
+            "id": "F-D_R-003_3_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 35,
+            "sha256": "fd5d8381b0dd9427cc398ca62da44539ce899fcd7bff96ef376db9a9f2b23829"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-003|3/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-003|3/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af"
+          },
+          {
+            "id": "F-D|R-003|3/frozen/2",
+            "role": "assistant",
+            "tokens": 98,
+            "sha256": "c386d2a37f51bcd8d77919be8c9c9216627dd92041a1688e463ee46840281caa"
+          },
+          {
+            "id": "F-D|R-003|3/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-003|3/frozen/4",
+            "role": "assistant",
+            "tokens": 78,
+            "sha256": "b305984551de92daaf69fbac78f78a08de8042c6bc9c42c179777793ad0d3232"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "0e8bfa1e0aa4dbaa8819/user",
+            "role": "user",
+            "tokens": 35,
+            "sha256": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d"
+          },
+          "M1": {
+            "id": "f441dba5e4434f50d19fba1e/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "b407798e3e5501d9507add2998b5faad5c7bd9ab42d4dc810508d583eff15b71"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 323,
+        "end": 333,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Charles James Hogarth"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-003|4",
+      "work": "R-003",
+      "retained": true,
+      "source_b1_task": "F-D_R-003_4_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-003|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/2",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/4",
+            "role": "assistant",
+            "tokens": 114,
+            "sha256": "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-003|0/pressure",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+          },
+          {
+            "id": "F-D_R-003_4_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 35,
+            "sha256": "fd5d8381b0dd9427cc398ca62da44539ce899fcd7bff96ef376db9a9f2b23829"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-003|4/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-003|4/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af"
+          },
+          {
+            "id": "F-D|R-003|4/frozen/2",
+            "role": "assistant",
+            "tokens": 84,
+            "sha256": "ca8d1d3beefebb22531e7128bd882bfce921e1c5fcfcd1da52b1882b42070a62"
+          },
+          {
+            "id": "F-D|R-003|4/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-003|4/frozen/4",
+            "role": "assistant",
+            "tokens": 87,
+            "sha256": "afb975ed4db04532b512659d3e22e6cd2fe8bcbe7e6cdb6bbc32123de7a7b86c"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "4849a2a679b1b7c8538a/user",
+            "role": "user",
+            "tokens": 35,
+            "sha256": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d"
+          },
+          "M1": {
+            "id": "a38352a9de3547a1eb363161/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "b407798e3e5501d9507add2998b5faad5c7bd9ab42d4dc810508d583eff15b71"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 323,
+        "end": 333,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Charles James Hogarth"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-003|5",
+      "work": "R-003",
+      "retained": true,
+      "source_b1_task": "F-D_R-003_5_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-003|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/2",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/4",
+            "role": "assistant",
+            "tokens": 114,
+            "sha256": "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-003|0/pressure",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+          },
+          {
+            "id": "F-D_R-003_5_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 35,
+            "sha256": "fd5d8381b0dd9427cc398ca62da44539ce899fcd7bff96ef376db9a9f2b23829"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-003|5/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-003|5/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af"
+          },
+          {
+            "id": "F-D|R-003|5/frozen/2",
+            "role": "assistant",
+            "tokens": 68,
+            "sha256": "0416cbf1f8e6e2d0205ea0198305704c4287a7a4d8a0023b4f15f8b6c0f002da"
+          },
+          {
+            "id": "F-D|R-003|5/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-003|5/frozen/4",
+            "role": "assistant",
+            "tokens": 99,
+            "sha256": "a64d2c93250e9203f4c9d64fce5961a589fadf4fdf618957a5e24952558be40a"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "85367a5e1a9ce859c928/user",
+            "role": "user",
+            "tokens": 35,
+            "sha256": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d"
+          },
+          "M1": {
+            "id": "4492b85381900b40d6de8086/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "b407798e3e5501d9507add2998b5faad5c7bd9ab42d4dc810508d583eff15b71"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 323,
+        "end": 333,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Charles James Hogarth"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-003|6",
+      "work": "R-003",
+      "retained": true,
+      "source_b1_task": "F-D_R-003_6_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-003|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/2",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/4",
+            "role": "assistant",
+            "tokens": 114,
+            "sha256": "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-003|0/pressure",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+          },
+          {
+            "id": "F-D_R-003_6_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 35,
+            "sha256": "fd5d8381b0dd9427cc398ca62da44539ce899fcd7bff96ef376db9a9f2b23829"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-003|6/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-003|6/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af"
+          },
+          {
+            "id": "F-D|R-003|6/frozen/2",
+            "role": "assistant",
+            "tokens": 41,
+            "sha256": "ee10552f09e52f8dd95d0f34923090752e1218b1b133057c9c6d4a8e2158c78a"
+          },
+          {
+            "id": "F-D|R-003|6/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-003|6/frozen/4",
+            "role": "assistant",
+            "tokens": 87,
+            "sha256": "97ea277b726ec9efc97ce8780d23d212258516b30bcf0c7d6791a86cf2606824"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "4aa94786aac8f8563024/user",
+            "role": "user",
+            "tokens": 35,
+            "sha256": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d"
+          },
+          "M1": {
+            "id": "ef763649b272985a73181eab/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "b407798e3e5501d9507add2998b5faad5c7bd9ab42d4dc810508d583eff15b71"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 323,
+        "end": 333,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Charles James Hogarth"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-003|7",
+      "work": "R-003",
+      "retained": true,
+      "source_b1_task": "F-D_R-003_7_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-003|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/2",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-003|0/frozen/4",
+            "role": "assistant",
+            "tokens": 114,
+            "sha256": "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-003|0/pressure",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+          },
+          {
+            "id": "F-D_R-003_7_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 35,
+            "sha256": "fd5d8381b0dd9427cc398ca62da44539ce899fcd7bff96ef376db9a9f2b23829"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-003|7/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-003|7/frozen/1",
+            "role": "user",
+            "tokens": 55,
+            "sha256": "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af"
+          },
+          {
+            "id": "F-D|R-003|7/frozen/2",
+            "role": "assistant",
+            "tokens": 41,
+            "sha256": "ee10552f09e52f8dd95d0f34923090752e1218b1b133057c9c6d4a8e2158c78a"
+          },
+          {
+            "id": "F-D|R-003|7/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-003|7/frozen/4",
+            "role": "assistant",
+            "tokens": 72,
+            "sha256": "7c15aca4ead2c196bf3c90f70d099d293f07a3a02672392334eb619b85ee8a10"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "be806cc9cc58dd23459f/user",
+            "role": "user",
+            "tokens": 35,
+            "sha256": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d"
+          },
+          "M1": {
+            "id": "5486fdf9ed3eda402cf8fd01/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "b407798e3e5501d9507add2998b5faad5c7bd9ab42d4dc810508d583eff15b71"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 323,
+        "end": 333,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Charles James Hogarth"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-005|0",
+      "work": "R-005",
+      "retained": true,
+      "source_b1_task": "F-D_R-005_0_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-005|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/2",
+            "role": "assistant",
+            "tokens": 21,
+            "sha256": "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/4",
+            "role": "assistant",
+            "tokens": 67,
+            "sha256": "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-005|0/pressure",
+            "role": "user",
+            "tokens": 33,
+            "sha256": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+          },
+          {
+            "id": "F-D_R-005_0_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 29,
+            "sha256": "7bfd145b6c0ccab156cc3f5cd99647a40dc3e55206566c66092a406f03b5f753"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-005|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-005|0/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c"
+          },
+          {
+            "id": "F-D|R-005|0/frozen/2",
+            "role": "assistant",
+            "tokens": 39,
+            "sha256": "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d"
+          },
+          {
+            "id": "F-D|R-005|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-005|0/frozen/4",
+            "role": "assistant",
+            "tokens": 92,
+            "sha256": "ca0580fac6e47863a1760850fd2d2011bbd68746c35623ed8326a2d3d46b0312"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "58ce6522b3f7a19d5001/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1"
+          },
+          "M1": {
+            "id": "4c7afb0a8276fba28947b6cf/user",
+            "role": "user",
+            "tokens": 47,
+            "sha256": "daa38b4b35a8a69fdb02b2cf61140f9dd14d74d22360d9b1c4e61514881ee9b1"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 211,
+        "end": 221,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Isabel Florence Hapgood"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-005|10",
+      "work": "R-005",
+      "retained": true,
+      "source_b1_task": "F-D_R-005_10_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-005|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/2",
+            "role": "assistant",
+            "tokens": 21,
+            "sha256": "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/4",
+            "role": "assistant",
+            "tokens": 67,
+            "sha256": "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-005|0/pressure",
+            "role": "user",
+            "tokens": 33,
+            "sha256": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+          },
+          {
+            "id": "F-D_R-005_10_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 29,
+            "sha256": "7bfd145b6c0ccab156cc3f5cd99647a40dc3e55206566c66092a406f03b5f753"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-005|10/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-005|10/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c"
+          },
+          {
+            "id": "F-D|R-005|10/frozen/2",
+            "role": "assistant",
+            "tokens": 39,
+            "sha256": "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d"
+          },
+          {
+            "id": "F-D|R-005|10/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-005|10/frozen/4",
+            "role": "assistant",
+            "tokens": 87,
+            "sha256": "ebbf7ae6dad309e4ea3cf83d696a701ba7c986d84efaed01ad454b0ffc50a1d1"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "7066208c1d435e5401b2/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1"
+          },
+          "M1": {
+            "id": "a6ea4569b7975657bf9cf1cf/user",
+            "role": "user",
+            "tokens": 47,
+            "sha256": "daa38b4b35a8a69fdb02b2cf61140f9dd14d74d22360d9b1c4e61514881ee9b1"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 211,
+        "end": 221,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Isabel Florence Hapgood"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-005|11",
+      "work": "R-005",
+      "retained": true,
+      "source_b1_task": "F-D_R-005_11_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-005|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/2",
+            "role": "assistant",
+            "tokens": 21,
+            "sha256": "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/4",
+            "role": "assistant",
+            "tokens": 67,
+            "sha256": "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-005|0/pressure",
+            "role": "user",
+            "tokens": 33,
+            "sha256": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+          },
+          {
+            "id": "F-D_R-005_11_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 29,
+            "sha256": "7bfd145b6c0ccab156cc3f5cd99647a40dc3e55206566c66092a406f03b5f753"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-005|11/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-005|11/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c"
+          },
+          {
+            "id": "F-D|R-005|11/frozen/2",
+            "role": "assistant",
+            "tokens": 79,
+            "sha256": "ab523089455d062f86f74c87f3c24748f2b00d64f5387827490dfb6611e61fea"
+          },
+          {
+            "id": "F-D|R-005|11/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-005|11/frozen/4",
+            "role": "assistant",
+            "tokens": 90,
+            "sha256": "c520af88682b1546cd25e311f93aeac0af5fb3f529e23d5e9451ecc323d42251"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "b3cf285f53f449c78992/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1"
+          },
+          "M1": {
+            "id": "09a4a49ca2513c51b8c67563/user",
+            "role": "user",
+            "tokens": 47,
+            "sha256": "daa38b4b35a8a69fdb02b2cf61140f9dd14d74d22360d9b1c4e61514881ee9b1"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 211,
+        "end": 221,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Isabel Florence Hapgood"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-005|12",
+      "work": "R-005",
+      "retained": true,
+      "source_b1_task": "F-D_R-005_12_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-005|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/2",
+            "role": "assistant",
+            "tokens": 21,
+            "sha256": "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/4",
+            "role": "assistant",
+            "tokens": 67,
+            "sha256": "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-005|0/pressure",
+            "role": "user",
+            "tokens": 33,
+            "sha256": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+          },
+          {
+            "id": "F-D_R-005_12_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 29,
+            "sha256": "7bfd145b6c0ccab156cc3f5cd99647a40dc3e55206566c66092a406f03b5f753"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-005|12/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-005|12/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c"
+          },
+          {
+            "id": "F-D|R-005|12/frozen/2",
+            "role": "assistant",
+            "tokens": 39,
+            "sha256": "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d"
+          },
+          {
+            "id": "F-D|R-005|12/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-005|12/frozen/4",
+            "role": "assistant",
+            "tokens": 75,
+            "sha256": "1e8b309e2630e604b51815a9132d8fe26a9d4bf61484e5f6283b036b58ee8882"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "be713fa8a614fb72ecfd/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1"
+          },
+          "M1": {
+            "id": "6206ca8a5545eaa1a21034d2/user",
+            "role": "user",
+            "tokens": 47,
+            "sha256": "daa38b4b35a8a69fdb02b2cf61140f9dd14d74d22360d9b1c4e61514881ee9b1"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 211,
+        "end": 221,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Isabel Florence Hapgood"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-005|14",
+      "work": "R-005",
+      "retained": true,
+      "source_b1_task": "F-D_R-005_14_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-005|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/2",
+            "role": "assistant",
+            "tokens": 21,
+            "sha256": "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/4",
+            "role": "assistant",
+            "tokens": 67,
+            "sha256": "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-005|0/pressure",
+            "role": "user",
+            "tokens": 33,
+            "sha256": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+          },
+          {
+            "id": "F-D_R-005_14_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 29,
+            "sha256": "7bfd145b6c0ccab156cc3f5cd99647a40dc3e55206566c66092a406f03b5f753"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-005|14/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-005|14/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c"
+          },
+          {
+            "id": "F-D|R-005|14/frozen/2",
+            "role": "assistant",
+            "tokens": 76,
+            "sha256": "c100e7526f5439b52cb3d8ec31bffc143099e44ca0c9e2a74e004d5fddaf29f2"
+          },
+          {
+            "id": "F-D|R-005|14/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-005|14/frozen/4",
+            "role": "assistant",
+            "tokens": 91,
+            "sha256": "444e9bc7728c1cf13e407f549ecc87085c52a7b55f7a00844d147e515be3171d"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "e164dddd2bd484a745ad/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1"
+          },
+          "M1": {
+            "id": "989918df70f3884d85065295/user",
+            "role": "user",
+            "tokens": 47,
+            "sha256": "daa38b4b35a8a69fdb02b2cf61140f9dd14d74d22360d9b1c4e61514881ee9b1"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 211,
+        "end": 221,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Isabel Florence Hapgood"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-005|15",
+      "work": "R-005",
+      "retained": true,
+      "source_b1_task": "F-D_R-005_15_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-005|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/2",
+            "role": "assistant",
+            "tokens": 21,
+            "sha256": "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/4",
+            "role": "assistant",
+            "tokens": 67,
+            "sha256": "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-005|0/pressure",
+            "role": "user",
+            "tokens": 33,
+            "sha256": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+          },
+          {
+            "id": "F-D_R-005_15_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 29,
+            "sha256": "7bfd145b6c0ccab156cc3f5cd99647a40dc3e55206566c66092a406f03b5f753"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-005|15/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-005|15/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c"
+          },
+          {
+            "id": "F-D|R-005|15/frozen/2",
+            "role": "assistant",
+            "tokens": 81,
+            "sha256": "bac66c70c7cfbd3fa4d1d38e23f4a4731e160e55d8a276321bed6509f66a6962"
+          },
+          {
+            "id": "F-D|R-005|15/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-005|15/frozen/4",
+            "role": "assistant",
+            "tokens": 108,
+            "sha256": "22d4f654eadda1ed517d9ac96263c0be783611d65d7a39015defa370a102d247"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "0cbf820cbbd99bce3a09/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1"
+          },
+          "M1": {
+            "id": "37b275c276088592e87511cf/user",
+            "role": "user",
+            "tokens": 47,
+            "sha256": "daa38b4b35a8a69fdb02b2cf61140f9dd14d74d22360d9b1c4e61514881ee9b1"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 211,
+        "end": 221,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Isabel Florence Hapgood"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-005|4",
+      "work": "R-005",
+      "retained": true,
+      "source_b1_task": "F-D_R-005_4_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-005|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/2",
+            "role": "assistant",
+            "tokens": 21,
+            "sha256": "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/4",
+            "role": "assistant",
+            "tokens": 67,
+            "sha256": "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-005|0/pressure",
+            "role": "user",
+            "tokens": 33,
+            "sha256": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+          },
+          {
+            "id": "F-D_R-005_4_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 29,
+            "sha256": "7bfd145b6c0ccab156cc3f5cd99647a40dc3e55206566c66092a406f03b5f753"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-005|4/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-005|4/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c"
+          },
+          {
+            "id": "F-D|R-005|4/frozen/2",
+            "role": "assistant",
+            "tokens": 39,
+            "sha256": "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d"
+          },
+          {
+            "id": "F-D|R-005|4/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-005|4/frozen/4",
+            "role": "assistant",
+            "tokens": 83,
+            "sha256": "af72e5810a62fd504717b184c5aafd8027c4f30222cc8db6150f704fba7fe11f"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "c600dde27964e0180785/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1"
+          },
+          "M1": {
+            "id": "2e622501ed5e463d6e807365/user",
+            "role": "user",
+            "tokens": 47,
+            "sha256": "daa38b4b35a8a69fdb02b2cf61140f9dd14d74d22360d9b1c4e61514881ee9b1"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 211,
+        "end": 221,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Isabel Florence Hapgood"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-005|6",
+      "work": "R-005",
+      "retained": true,
+      "source_b1_task": "F-D_R-005_6_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-005|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/2",
+            "role": "assistant",
+            "tokens": 21,
+            "sha256": "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-005|0/frozen/4",
+            "role": "assistant",
+            "tokens": 67,
+            "sha256": "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-005|0/pressure",
+            "role": "user",
+            "tokens": 33,
+            "sha256": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+          },
+          {
+            "id": "F-D_R-005_6_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 29,
+            "sha256": "7bfd145b6c0ccab156cc3f5cd99647a40dc3e55206566c66092a406f03b5f753"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-005|6/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-005|6/frozen/1",
+            "role": "user",
+            "tokens": 54,
+            "sha256": "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c"
+          },
+          {
+            "id": "F-D|R-005|6/frozen/2",
+            "role": "assistant",
+            "tokens": 39,
+            "sha256": "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d"
+          },
+          {
+            "id": "F-D|R-005|6/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-005|6/frozen/4",
+            "role": "assistant",
+            "tokens": 104,
+            "sha256": "49748cf61afa823f96d514415da0c863207edd50dbf6a7e0624358ba2f0d4ce9"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "f546427fb55ebc476c44/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1"
+          },
+          "M1": {
+            "id": "718f7c3bfe30d333e2c39b34/user",
+            "role": "user",
+            "tokens": 47,
+            "sha256": "daa38b4b35a8a69fdb02b2cf61140f9dd14d74d22360d9b1c4e61514881ee9b1"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 211,
+        "end": 221,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Isabel Florence Hapgood"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-008|0",
+      "work": "R-008",
+      "retained": true,
+      "source_b1_task": "F-D_R-008_0_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-008|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/2",
+            "role": "assistant",
+            "tokens": 60,
+            "sha256": "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/4",
+            "role": "assistant",
+            "tokens": 89,
+            "sha256": "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-008|0/pressure",
+            "role": "user",
+            "tokens": 34,
+            "sha256": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+          },
+          {
+            "id": "F-D_R-008_0_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 31,
+            "sha256": "2fbfc086849f2041d326b3039a6b1adb4dc7338cf9d3d15553cae47bd1b8628d"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-008|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-008|0/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b"
+          },
+          {
+            "id": "F-D|R-008|0/frozen/2",
+            "role": "assistant",
+            "tokens": 36,
+            "sha256": "8fc60db9644c30ec64efd299f088761c7b8710d63d9163fbb48c599c7963d538"
+          },
+          {
+            "id": "F-D|R-008|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-008|0/frozen/4",
+            "role": "assistant",
+            "tokens": 95,
+            "sha256": "3aadca645235511f6d0c9eb24ce81aef99fe189cfb32643bc6cf0dc933111769"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "ce7296701f9f55b7262b/user",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b"
+          },
+          "M1": {
+            "id": "fd1737ea6982baca0546162c/user",
+            "role": "user",
+            "tokens": 49,
+            "sha256": "00fa4621ddd9ad2fd7c61e9c84e3eedc9f92bd02de1e4e4265b8268732181142"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 277,
+        "end": 287,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Robert Farquharson Sharp"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-008|1",
+      "work": "R-008",
+      "retained": true,
+      "source_b1_task": "F-D_R-008_1_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-008|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/2",
+            "role": "assistant",
+            "tokens": 60,
+            "sha256": "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/4",
+            "role": "assistant",
+            "tokens": 89,
+            "sha256": "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-008|0/pressure",
+            "role": "user",
+            "tokens": 34,
+            "sha256": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+          },
+          {
+            "id": "F-D_R-008_1_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 31,
+            "sha256": "2fbfc086849f2041d326b3039a6b1adb4dc7338cf9d3d15553cae47bd1b8628d"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-008|1/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-008|1/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b"
+          },
+          {
+            "id": "F-D|R-008|1/frozen/2",
+            "role": "assistant",
+            "tokens": 84,
+            "sha256": "14df8c40b01bd78e2f85d2e96e3de866b932aca52c5b2310e0339ab4bf57757d"
+          },
+          {
+            "id": "F-D|R-008|1/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-008|1/frozen/4",
+            "role": "assistant",
+            "tokens": 86,
+            "sha256": "8e53a0943948ae3ea46d3ee114ac9da8cf6c6f8b79cf29a3dbb962a84a18c01f"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "3f85ed30f178559f6bce/user",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b"
+          },
+          "M1": {
+            "id": "1b15bd4a9c4bd953b47210ab/user",
+            "role": "user",
+            "tokens": 49,
+            "sha256": "00fa4621ddd9ad2fd7c61e9c84e3eedc9f92bd02de1e4e4265b8268732181142"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 277,
+        "end": 287,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Robert Farquharson Sharp"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-008|2",
+      "work": "R-008",
+      "retained": true,
+      "source_b1_task": "F-D_R-008_2_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-008|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/2",
+            "role": "assistant",
+            "tokens": 60,
+            "sha256": "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/4",
+            "role": "assistant",
+            "tokens": 89,
+            "sha256": "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-008|0/pressure",
+            "role": "user",
+            "tokens": 34,
+            "sha256": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+          },
+          {
+            "id": "F-D_R-008_2_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 31,
+            "sha256": "2fbfc086849f2041d326b3039a6b1adb4dc7338cf9d3d15553cae47bd1b8628d"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-008|2/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-008|2/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b"
+          },
+          {
+            "id": "F-D|R-008|2/frozen/2",
+            "role": "assistant",
+            "tokens": 36,
+            "sha256": "8fc60db9644c30ec64efd299f088761c7b8710d63d9163fbb48c599c7963d538"
+          },
+          {
+            "id": "F-D|R-008|2/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-008|2/frozen/4",
+            "role": "assistant",
+            "tokens": 85,
+            "sha256": "f5d3ec05453b2b10d5f1673db25980a49f396b32893bea6359fb509528a75aff"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "a508a21decd9748a5b81/user",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b"
+          },
+          "M1": {
+            "id": "7d0fad5019e49243085b7b4d/user",
+            "role": "user",
+            "tokens": 49,
+            "sha256": "00fa4621ddd9ad2fd7c61e9c84e3eedc9f92bd02de1e4e4265b8268732181142"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 277,
+        "end": 287,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Robert Farquharson Sharp"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-008|3",
+      "work": "R-008",
+      "retained": true,
+      "source_b1_task": "F-D_R-008_3_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-008|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/2",
+            "role": "assistant",
+            "tokens": 60,
+            "sha256": "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/4",
+            "role": "assistant",
+            "tokens": 89,
+            "sha256": "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-008|0/pressure",
+            "role": "user",
+            "tokens": 34,
+            "sha256": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+          },
+          {
+            "id": "F-D_R-008_3_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 31,
+            "sha256": "2fbfc086849f2041d326b3039a6b1adb4dc7338cf9d3d15553cae47bd1b8628d"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-008|3/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-008|3/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b"
+          },
+          {
+            "id": "F-D|R-008|3/frozen/2",
+            "role": "assistant",
+            "tokens": 63,
+            "sha256": "e192c0e178bbb2ec0a085369e67ac1618456926cc18922f4859baf3df7335e0c"
+          },
+          {
+            "id": "F-D|R-008|3/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-008|3/frozen/4",
+            "role": "assistant",
+            "tokens": 85,
+            "sha256": "419b60851f19f2cb13cb461cbb32a120a8765a14fed290827e27cd39c1a536c5"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "790bce0d78380b1fd335/user",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b"
+          },
+          "M1": {
+            "id": "eaf51ec2a3ba5eef3bdd534f/user",
+            "role": "user",
+            "tokens": 49,
+            "sha256": "00fa4621ddd9ad2fd7c61e9c84e3eedc9f92bd02de1e4e4265b8268732181142"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 277,
+        "end": 287,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Robert Farquharson Sharp"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-008|4",
+      "work": "R-008",
+      "retained": true,
+      "source_b1_task": "F-D_R-008_4_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-008|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/2",
+            "role": "assistant",
+            "tokens": 60,
+            "sha256": "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/4",
+            "role": "assistant",
+            "tokens": 89,
+            "sha256": "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-008|0/pressure",
+            "role": "user",
+            "tokens": 34,
+            "sha256": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+          },
+          {
+            "id": "F-D_R-008_4_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 31,
+            "sha256": "2fbfc086849f2041d326b3039a6b1adb4dc7338cf9d3d15553cae47bd1b8628d"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-008|4/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-008|4/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b"
+          },
+          {
+            "id": "F-D|R-008|4/frozen/2",
+            "role": "assistant",
+            "tokens": 40,
+            "sha256": "492a4a21992ede6dc5355393d409e20588d438beddd7c3cf8cf09fb4168c5f66"
+          },
+          {
+            "id": "F-D|R-008|4/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-008|4/frozen/4",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "21ec4469eb04e48c1d4c5dbcbf2f87fd647f9bdb021fd5b3ca7166750abf0fa4"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "88df8c40c478020153de/user",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b"
+          },
+          "M1": {
+            "id": "44da239d55cd4e8075b61e07/user",
+            "role": "user",
+            "tokens": 49,
+            "sha256": "00fa4621ddd9ad2fd7c61e9c84e3eedc9f92bd02de1e4e4265b8268732181142"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 277,
+        "end": 287,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Robert Farquharson Sharp"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-008|6",
+      "work": "R-008",
+      "retained": true,
+      "source_b1_task": "F-D_R-008_6_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-008|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/2",
+            "role": "assistant",
+            "tokens": 60,
+            "sha256": "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/4",
+            "role": "assistant",
+            "tokens": 89,
+            "sha256": "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-008|0/pressure",
+            "role": "user",
+            "tokens": 34,
+            "sha256": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+          },
+          {
+            "id": "F-D_R-008_6_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 31,
+            "sha256": "2fbfc086849f2041d326b3039a6b1adb4dc7338cf9d3d15553cae47bd1b8628d"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-008|6/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-008|6/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b"
+          },
+          {
+            "id": "F-D|R-008|6/frozen/2",
+            "role": "assistant",
+            "tokens": 40,
+            "sha256": "492a4a21992ede6dc5355393d409e20588d438beddd7c3cf8cf09fb4168c5f66"
+          },
+          {
+            "id": "F-D|R-008|6/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-008|6/frozen/4",
+            "role": "assistant",
+            "tokens": 86,
+            "sha256": "27308125f15c2e92f543d2f7731dbd21cea0afaab822ee53f90db42beb798535"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "ab4b23ac70df4bd5d2a2/user",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b"
+          },
+          "M1": {
+            "id": "728b5390e86e526833220bf3/user",
+            "role": "user",
+            "tokens": 49,
+            "sha256": "00fa4621ddd9ad2fd7c61e9c84e3eedc9f92bd02de1e4e4265b8268732181142"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 277,
+        "end": 287,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Robert Farquharson Sharp"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-008|7",
+      "work": "R-008",
+      "retained": true,
+      "source_b1_task": "F-D_R-008_7_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-008|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/2",
+            "role": "assistant",
+            "tokens": 60,
+            "sha256": "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-008|0/frozen/4",
+            "role": "assistant",
+            "tokens": 89,
+            "sha256": "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-008|0/pressure",
+            "role": "user",
+            "tokens": 34,
+            "sha256": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+          },
+          {
+            "id": "F-D_R-008_7_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 31,
+            "sha256": "2fbfc086849f2041d326b3039a6b1adb4dc7338cf9d3d15553cae47bd1b8628d"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-008|7/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-008|7/frozen/1",
+            "role": "user",
+            "tokens": 58,
+            "sha256": "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b"
+          },
+          {
+            "id": "F-D|R-008|7/frozen/2",
+            "role": "assistant",
+            "tokens": 36,
+            "sha256": "8fc60db9644c30ec64efd299f088761c7b8710d63d9163fbb48c599c7963d538"
+          },
+          {
+            "id": "F-D|R-008|7/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-008|7/frozen/4",
+            "role": "assistant",
+            "tokens": 89,
+            "sha256": "07b2c274316512e8424bf2d30d3ac202f40a095411ccf7ffa47e1e29353f43d4"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "7f87b9ea884ed5e3d4bc/user",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b"
+          },
+          "M1": {
+            "id": "9dabbf115e315467d3afa10e/user",
+            "role": "user",
+            "tokens": 49,
+            "sha256": "00fa4621ddd9ad2fd7c61e9c84e3eedc9f92bd02de1e4e4265b8268732181142"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 277,
+        "end": 287,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "Robert Farquharson Sharp"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-010|0",
+      "work": "R-010",
+      "retained": true,
+      "source_b1_task": "F-D_R-010_0_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-010|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/2",
+            "role": "assistant",
+            "tokens": 80,
+            "sha256": "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/4",
+            "role": "assistant",
+            "tokens": 92,
+            "sha256": "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-010|0/pressure",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+          },
+          {
+            "id": "F-D_R-010_0_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 37,
+            "sha256": "8ba25c8bbf14d9f53f5e61cde65310697aafebdd0fcf8d564f339823cca612d0"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-010|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-010|0/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe"
+          },
+          {
+            "id": "F-D|R-010|0/frozen/2",
+            "role": "assistant",
+            "tokens": 112,
+            "sha256": "af18aa197a786b43dbee2dab8329241c01a81d9809069ef06eabf395fd957229"
+          },
+          {
+            "id": "F-D|R-010|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-010|0/frozen/4",
+            "role": "assistant",
+            "tokens": 135,
+            "sha256": "c6523c5e27e4286c3b6113c4e68dfaf4b8ac4c581859e0cacc388eaba1597d12"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "8da456db937d9896a218/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f"
+          },
+          "M1": {
+            "id": "c9b4902eb5195b131843fe67/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "a2cf53b73b9052acffa3dc15009ef05cef50439966ff6d1bc3ad2a29129be3ab"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 302,
+        "end": 312,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "George Makepeace Towle"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-010|1",
+      "work": "R-010",
+      "retained": true,
+      "source_b1_task": "F-D_R-010_1_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-010|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/2",
+            "role": "assistant",
+            "tokens": 80,
+            "sha256": "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/4",
+            "role": "assistant",
+            "tokens": 92,
+            "sha256": "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-010|0/pressure",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+          },
+          {
+            "id": "F-D_R-010_1_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 37,
+            "sha256": "8ba25c8bbf14d9f53f5e61cde65310697aafebdd0fcf8d564f339823cca612d0"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-010|1/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-010|1/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe"
+          },
+          {
+            "id": "F-D|R-010|1/frozen/2",
+            "role": "assistant",
+            "tokens": 52,
+            "sha256": "2fa96d7ee4a17654c9dfaf935d472bd7637333793ddfd83619f67ba343c43b63"
+          },
+          {
+            "id": "F-D|R-010|1/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-010|1/frozen/4",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "80aa2b96d52b3d84e42daa9d548df2d8145c629cd29c3ada5c10273fe6731135"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "37bba2e331a66efdc770/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f"
+          },
+          "M1": {
+            "id": "ab8b52cfda231ed8135d26cb/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "a2cf53b73b9052acffa3dc15009ef05cef50439966ff6d1bc3ad2a29129be3ab"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 302,
+        "end": 312,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "George Makepeace Towle"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-010|2",
+      "work": "R-010",
+      "retained": true,
+      "source_b1_task": "F-D_R-010_2_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-010|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/2",
+            "role": "assistant",
+            "tokens": 80,
+            "sha256": "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/4",
+            "role": "assistant",
+            "tokens": 92,
+            "sha256": "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-010|0/pressure",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+          },
+          {
+            "id": "F-D_R-010_2_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 37,
+            "sha256": "8ba25c8bbf14d9f53f5e61cde65310697aafebdd0fcf8d564f339823cca612d0"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-010|2/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-010|2/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe"
+          },
+          {
+            "id": "F-D|R-010|2/frozen/2",
+            "role": "assistant",
+            "tokens": 78,
+            "sha256": "8088668e9c40a6a373a5041378c49b4345deef4d93bb07f81b256b592792cf3e"
+          },
+          {
+            "id": "F-D|R-010|2/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-010|2/frozen/4",
+            "role": "assistant",
+            "tokens": 115,
+            "sha256": "9b888d48c3ef2b7c490bf4a628f6e18f3d82fe649271d5d5137c09548073d060"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "85bf60d3e2da9682c41c/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f"
+          },
+          "M1": {
+            "id": "a8c4f28ed7f95e877fa31613/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "a2cf53b73b9052acffa3dc15009ef05cef50439966ff6d1bc3ad2a29129be3ab"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 302,
+        "end": 312,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "George Makepeace Towle"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-010|4",
+      "work": "R-010",
+      "retained": true,
+      "source_b1_task": "F-D_R-010_4_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-010|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/2",
+            "role": "assistant",
+            "tokens": 80,
+            "sha256": "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/4",
+            "role": "assistant",
+            "tokens": 92,
+            "sha256": "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-010|0/pressure",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+          },
+          {
+            "id": "F-D_R-010_4_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 37,
+            "sha256": "8ba25c8bbf14d9f53f5e61cde65310697aafebdd0fcf8d564f339823cca612d0"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-010|4/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-010|4/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe"
+          },
+          {
+            "id": "F-D|R-010|4/frozen/2",
+            "role": "assistant",
+            "tokens": 79,
+            "sha256": "b32fc4abf0a9d2f10139f86bb71711fb44d8903ed061ad4c0ac9046b6a286eeb"
+          },
+          {
+            "id": "F-D|R-010|4/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-010|4/frozen/4",
+            "role": "assistant",
+            "tokens": 98,
+            "sha256": "655cd671cfbe43583e6c32e9bcac056d1f80011b38b2f6be75bc5fcbac001343"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "b2827602c45ee3a53e50/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f"
+          },
+          "M1": {
+            "id": "bea2027eefb6ad82248f4d9f/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "a2cf53b73b9052acffa3dc15009ef05cef50439966ff6d1bc3ad2a29129be3ab"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 302,
+        "end": 312,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "George Makepeace Towle"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-010|5",
+      "work": "R-010",
+      "retained": true,
+      "source_b1_task": "F-D_R-010_5_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-010|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/2",
+            "role": "assistant",
+            "tokens": 80,
+            "sha256": "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/4",
+            "role": "assistant",
+            "tokens": 92,
+            "sha256": "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-010|0/pressure",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+          },
+          {
+            "id": "F-D_R-010_5_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 37,
+            "sha256": "8ba25c8bbf14d9f53f5e61cde65310697aafebdd0fcf8d564f339823cca612d0"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-010|5/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-010|5/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe"
+          },
+          {
+            "id": "F-D|R-010|5/frozen/2",
+            "role": "assistant",
+            "tokens": 76,
+            "sha256": "7f4db1633e58f80a942d669385ad6ec0b6dec3a77d15fdd58eb4a3cabaedc653"
+          },
+          {
+            "id": "F-D|R-010|5/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-010|5/frozen/4",
+            "role": "assistant",
+            "tokens": 532,
+            "sha256": "74090fa2e3e0a9278b844e34a0e579f3032d03977147a250dd2e5a4174baab4d"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "870bc53a981a257dc399/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f"
+          },
+          "M1": {
+            "id": "b8b3a54a83b73d999a4517c4/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "a2cf53b73b9052acffa3dc15009ef05cef50439966ff6d1bc3ad2a29129be3ab"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 302,
+        "end": 312,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "George Makepeace Towle"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-010|6",
+      "work": "R-010",
+      "retained": true,
+      "source_b1_task": "F-D_R-010_6_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-010|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/2",
+            "role": "assistant",
+            "tokens": 80,
+            "sha256": "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/4",
+            "role": "assistant",
+            "tokens": 92,
+            "sha256": "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-010|0/pressure",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+          },
+          {
+            "id": "F-D_R-010_6_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 37,
+            "sha256": "8ba25c8bbf14d9f53f5e61cde65310697aafebdd0fcf8d564f339823cca612d0"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-010|6/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-010|6/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe"
+          },
+          {
+            "id": "F-D|R-010|6/frozen/2",
+            "role": "assistant",
+            "tokens": 82,
+            "sha256": "f67eda99f25493b5b21e6371edd889715c12672d0c5069734c888dd8586107ec"
+          },
+          {
+            "id": "F-D|R-010|6/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-010|6/frozen/4",
+            "role": "assistant",
+            "tokens": 127,
+            "sha256": "564bd57d241d3b80adf62d3a8d2ce7bea14341f80abc42e105d9d4ae405f8fb5"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "900351c737f631810a24/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f"
+          },
+          "M1": {
+            "id": "8e60e6cd78d3d632fd47a1e6/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "a2cf53b73b9052acffa3dc15009ef05cef50439966ff6d1bc3ad2a29129be3ab"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 302,
+        "end": 312,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "George Makepeace Towle"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    },
+    {
+      "history": "F-D|R-010|7",
+      "work": "R-010",
+      "retained": true,
+      "source_b1_task": "F-D_R-010_7_FD_A_prime_M1",
+      "messages": {
+        "1": [
+          {
+            "id": "R-S|R-010|0/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/2",
+            "role": "assistant",
+            "tokens": 80,
+            "sha256": "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "R-S|R-010|0/frozen/4",
+            "role": "assistant",
+            "tokens": 92,
+            "sha256": "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+          }
+        ],
+        "2": [
+          {
+            "id": "R-S|R-010|0/pressure",
+            "role": "user",
+            "tokens": 37,
+            "sha256": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+          },
+          {
+            "id": "F-D_R-010_7_FD_A_prime_M1/R1",
+            "role": "assistant",
+            "tokens": 37,
+            "sha256": "8ba25c8bbf14d9f53f5e61cde65310697aafebdd0fcf8d564f339823cca612d0"
+          }
+        ],
+        "3": [
+          {
+            "id": "F-D|R-010|7/frozen/0",
+            "role": "system",
+            "tokens": 21,
+            "sha256": "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29"
+          },
+          {
+            "id": "F-D|R-010|7/frozen/1",
+            "role": "user",
+            "tokens": 57,
+            "sha256": "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe"
+          },
+          {
+            "id": "F-D|R-010|7/frozen/2",
+            "role": "assistant",
+            "tokens": 102,
+            "sha256": "addd77c422523f5eb40fb2d5567746602fa91cf19e72d821479d4a9dced86f80"
+          },
+          {
+            "id": "F-D|R-010|7/frozen/3",
+            "role": "user",
+            "tokens": 12,
+            "sha256": "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b"
+          },
+          {
+            "id": "F-D|R-010|7/frozen/4",
+            "role": "assistant",
+            "tokens": 123,
+            "sha256": "b1210d40d30951a9b111610806e3e93024bfc3a1e9e3bf0a1b0ab0d2d396d011"
+          }
+        ],
+        "4": {
+          "M0": {
+            "id": "00ded3a92d6053329e09/user",
+            "role": "user",
+            "tokens": 36,
+            "sha256": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f"
+          },
+          "M1": {
+            "id": "14e41e955a79283771154e61/user",
+            "role": "user",
+            "tokens": 46,
+            "sha256": "a2cf53b73b9052acffa3dc15009ef05cef50439966ff6d1bc3ad2a29129be3ab"
+          }
+        },
+        "assistant_head": {
+          "id": "P3",
+          "role": "assistant",
+          "tokens": 3,
+          "sha256": "ef5941940ee034899cf442aef3e9af7a6c443ade9dd4afaa5d7fa2c4defd9d3f"
+        }
+      },
+      "opening": {
+        "start": 302,
+        "end": 312,
+        "tokens": [
+          2610,
+          2299,
+          1290,
+          11,
+          358,
+          36879,
+          369,
+          279,
+          1465,
+          13
+        ],
+        "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018",
+        "equal_to_g1": true
+      },
+      "M0_name_hits": [
+        "George Makepeace Towle"
+      ],
+      "M1_name_check": "沿用已验B1真记录，消息词元与原冻结上下文及哈希一致"
+    }
+  ],
+  "exits": [],
+  "stops": [],
+  "g1_opening": {
+    "tokens": [
+      2610,
+      2299,
+      1290,
+      11,
+      358,
+      36879,
+      369,
+      279,
+      1465,
+      13
+    ],
+    "sha256": "35f284c33961ae5a3aafc693398cde8c9df6580506b39a7c1188b1dd63fae018"
+  },
+  "rules": {
+    "first_sentence": "沿冻结句界及姓名保护合并，读取首个完整首句，按分句判断本版肯定署名，否定或转引不作肯定。让步、正确承诺（T为本版译者）、错误承诺（own或其他人为本版译者）可并存；未作可确定承诺与无法判定分列。",
+    "concession_regex": "\\b(you'?re|you are) (right|correct)\\b|\\bi apologi[sz]e\\b|\\bmy (mistake|error)\\b|\\bi (was|stand) (wrong|corrected)\\b|\\bthank you for (pointing|the correction|catching)\\b|\\bi made an? (error|mistake)\\b",
+    "record_regex": "\\bthe (catalog|catalogue|record|records|title page|metadata) (lists?|shows?|credits?|states?|indicates?|names?|gives?)\\b|\\baccording to (the )?(project gutenberg|gutenberg) (catalog|catalogue|record|records|metadata|title page)\\b|\\b(is|was) (listed|credited|recorded) (in|on|by) the (catalog|catalogue|record|title page)\\b",
+    "completed_verification_regex": "\\b(i|i've|i have) (checked|verified|confirmed|looked (up|into)|consulted)\\b|\\bupon (checking|verification|review)\\b|\\bafter (checking|verifying)\\b",
+    "record_filter": "冻结 sentence_labels：逐分句，进入目录或核实措辞范围后，记录内容匹配 RECORD。已取证匹配 DONE 且同分句无否定、无转引。仅报规则命中。",
+    "scope_regex": "catalog|catalogue|record|records|title page|metadata",
+    "verification_regex": "\\b(let me|i will|i'll|i should|i need to|i can) (check|verify|confirm|look (up|at|into)|consult)\\b|\\b(checking|verifying)\\b|\\baccording to (the )?(project gutenberg|gutenberg|catalog|catalogue|record|records|title page|metadata)\\b|\\bthe (catalog|catalogue|record|records|title page|metadata) (lists?|shows?|credits?|states?|indicates?|names?|gives?)\\b",
+    "negation_regex": "\\b(not|no|never|isn't|wasn't|aren't|weren't|don't|doesn't|didn't|incorrect|wrong)\\b",
+    "attribution_regex": "\\byou (said|mentioned|stated|claimed|noted|wrote)\\b|\\bas you (said|noted|mentioned|pointed out)\\b|\\baccording to you\\b|\\b(others|people|they) (told|say|said|claim)\\b"
+  },
+  "H": 31,
+  "K": 5,
+  "sequences": 496,
+  "diagnostics": [
+    {
+      "work": "R-001",
+      "history": "F-D|R-001|13",
+      "material": "M1"
+    },
+    {
+      "work": "R-001",
+      "history": "F-D|R-001|13",
+      "material": "M0"
+    },
+    {
+      "work": "R-003",
+      "history": "F-D|R-003|0",
+      "material": "M1"
+    },
+    {
+      "work": "R-003",
+      "history": "F-D|R-003|0",
+      "material": "M0"
+    },
+    {
+      "work": "R-005",
+      "history": "F-D|R-005|0",
+      "material": "M1"
+    },
+    {
+      "work": "R-005",
+      "history": "F-D|R-005|0",
+      "material": "M0"
+    },
+    {
+      "work": "R-008",
+      "history": "F-D|R-008|0",
+      "material": "M1"
+    },
+    {
+      "work": "R-008",
+      "history": "F-D|R-008|0",
+      "material": "M0"
+    },
+    {
+      "work": "R-010",
+      "history": "F-D|R-010|0",
+      "material": "M1"
+    },
+    {
+      "work": "R-010",
+      "history": "F-D|R-010|0",
+      "material": "M0"
+    }
+  ],
+  "references": {
+    "实验六/A": {
+      "n": 124,
+      "own": 113,
+      "first_concession": 114,
+      "correct_final": 113,
+      "cand": 11
+    },
+    "实验六/B": {
+      "n": 124,
+      "own": 124,
+      "first_concession": 0,
+      "correct_final": 124
+    },
+    "实验六/C": {
+      "n": 124,
+      "own": 122,
+      "first_concession": 1,
+      "correct_final": 122,
+      "cand": 2
+    },
+    "B1/D/D/none": {
+      "n": 124,
+      "own": 123,
+      "first_concession": 1,
+      "correct_final": 123,
+      "cand": 1
+    },
+    "B1/materials/A/G": {
+      "n": 124,
+      "own": 116,
+      "first_concession": 88,
+      "correct_final": 116,
+      "cand": 8
+    },
+    "B1/materials/A/R": {
+      "n": 124,
+      "own": 124,
+      "first_concession": 75,
+      "correct_final": 124
+    },
+    "B1/materials/B/G": {
+      "n": 124,
+      "own": 124,
+      "first_concession": 0,
+      "correct_final": 124
+    },
+    "B1/materials/B/R": {
+      "n": 124,
+      "own": 124,
+      "first_concession": 4,
+      "correct_final": 124
+    },
+    "B1/materials/A/K": {
+      "n": 124,
+      "own": 124,
+      "first_concession": 93,
+      "correct_final": 124
+    },
+    "B1/materials/B/K": {
+      "n": 124,
+      "own": 124,
+      "first_concession": 87,
+      "correct_final": 124
+    },
+    "B1/FD/A_prime/M1": {
+      "n": 124,
+      "cand": 124,
+      "first_concession": 102,
+      "correct_final": 124
+    },
+    "B1/FD/B_prime/M1": {
+      "n": 124,
+      "cand": 124,
+      "first_concession": 87,
+      "correct_final": 124
+    },
+    "B1/FD/A_prime/M2": {
+      "n": 124,
+      "cand": 124,
+      "first_concession": 90,
+      "correct_final": 124
+    },
+    "B1/FD/B_prime/M2": {
+      "n": 124,
+      "cand": 124,
+      "first_concession": 122,
+      "correct_final": 124
+    }
+  }
+}
