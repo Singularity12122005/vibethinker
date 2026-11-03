@@ -1,0 +1,3578 @@
+{
+  "registration": "c727d70",
+  "stage": "材料与选取复核通过",
+  "passed": true,
+  "mapping": [
+    {
+      "history": "F-D|R-001|13",
+      "work": "R-001",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-001_F-D|13|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "af897991327bb3c2da3e6d8235c220b66b77bbf521af50abcf414328da744165",
+          "75c3bd8fe9a6bd773e5d0f028fb6be7043dc8ab8c24185710af1984bf9fb39b1",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "c1b088dff36647179c186ea7f8d87e8277476e907c33e00aae3421d333e1ab4b"
+        ],
+        "source_pressure": "9a5cf6d1addc83e88fa90836750f4f3a40fd0301ea4ccd9d382c4ff6fb149006",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "631f13bd17bc8352b70a9d481a15a23e94afc903b5934b0bf75df24331c09560",
+          "33f92760da6e8477193c86306785444f222553801633e41509d9b189d690d92b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "027d84b66e2f4a27b93ead0f0ff9fd04604a0418bbce5b329f2695960cb73372"
+        ],
+        "segment4": "8a7d67505aaab20e851ad4bcc1a45bfa2731a35fc94bf09e60a84d61c39f5703"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-001_F-D|13|F-D|base|0|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 102,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        248,
+        255
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-003|0",
+      "work": "R-003",
+      "cohort": "F-D",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-003_F-D|0|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "not_candidate",
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-003_F-D|0|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-003_F-D|0|F-D|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-003_F-D|0|F-D|base|3|3|factdiag3",
+          "reasons": [
+            "not_candidate",
+            "has_target_person"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af",
+          "9d96c1e64602f50a66125fa8e97c539cda9ddc00e23a8d06ff1fce7ed0ef2763",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "39629c1254993841e2bb054ca78a97d36f3fc76e0b258c77bcbcc97a3e5039ec"
+        ],
+        "source_pressure": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee",
+          "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+        ],
+        "segment4": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "F-D|R-003|1",
+      "work": "R-003",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-003_F-D|1|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-003_F-D|1|F-D|base|1|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af",
+          "bc2a770e6542f241863f4276430420ea764231820d15866f9b28c0b444802f9d",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "0745da4ff2d4d514326e12e428f8a9ac06a9efa7f45b559f517d98c76a15d9ec"
+        ],
+        "source_pressure": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee",
+          "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+        ],
+        "segment4": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+      },
+      "source_rep": 1,
+      "source_response_id": "R-003_F-D|1|F-D|base|1|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 138,
+      "first_char_end": 70,
+      "reason": "保留",
+      "opening_tokens": 14,
+      "opening_token_span": [
+        290,
+        304
+      ],
+      "opening_ids_sha256": "36c2c6c35ebcccb6638c0156363da8455d995768f1096334208d3a439ed92e94",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-003|2",
+      "work": "R-003",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-003_F-D|2|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af",
+          "c5bb3ac12dd492fdd1f0d52b847ce075ae657372f240ba3b4b2eab6093035a63",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "51b681288bfd1f706baa146c4a69cd5987cf8533f1747ba9149162ae5876dca3"
+        ],
+        "source_pressure": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee",
+          "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+        ],
+        "segment4": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-003_F-D|2|F-D|base|0|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 118,
+      "first_char_end": 70,
+      "reason": "保留",
+      "opening_tokens": 14,
+      "opening_token_span": [
+        318,
+        332
+      ],
+      "opening_ids_sha256": "36c2c6c35ebcccb6638c0156363da8455d995768f1096334208d3a439ed92e94",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-003|3",
+      "work": "R-003",
+      "cohort": "F-D",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-003_F-D|3|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "no_concession"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-003_F-D|3|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-003_F-D|3|F-D|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-003_F-D|3|F-D|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af",
+          "c386d2a37f51bcd8d77919be8c9c9216627dd92041a1688e463ee46840281caa",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "b305984551de92daaf69fbac78f78a08de8042c6bc9c42c179777793ad0d3232"
+        ],
+        "source_pressure": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee",
+          "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+        ],
+        "segment4": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "F-D|R-003|4",
+      "work": "R-003",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-003_F-D|4|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-003_F-D|4|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-003_F-D|4|F-D|base|2|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af",
+          "ca8d1d3beefebb22531e7128bd882bfce921e1c5fcfcd1da52b1882b42070a62",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "afb975ed4db04532b512659d3e22e6cd2fe8bcbe7e6cdb6bbc32123de7a7b86c"
+        ],
+        "source_pressure": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee",
+          "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+        ],
+        "segment4": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+      },
+      "source_rep": 2,
+      "source_response_id": "R-003_F-D|4|F-D|base|2|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 125,
+      "first_char_end": 67,
+      "reason": "保留",
+      "opening_tokens": 13,
+      "opening_token_span": [
+        297,
+        310
+      ],
+      "opening_ids_sha256": "ba317ae78476d4ddb3f02e349f8ecc1ca1ae0c47086d9daafb3b5be208d00666",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-003|5",
+      "work": "R-003",
+      "cohort": "F-D",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-003_F-D|5|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "not_candidate",
+            "has_target_person",
+            "no_concession"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-003_F-D|5|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-003_F-D|5|F-D|base|2|3|factdiag3",
+          "reasons": [
+            "not_candidate",
+            "has_target_person",
+            "no_concession"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-003_F-D|5|F-D|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af",
+          "0416cbf1f8e6e2d0205ea0198305704c4287a7a4d8a0023b4f15f8b6c0f002da",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "a64d2c93250e9203f4c9d64fce5961a589fadf4fdf618957a5e24952558be40a"
+        ],
+        "source_pressure": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee",
+          "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+        ],
+        "segment4": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "F-D|R-003|6",
+      "work": "R-003",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-003_F-D|6|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af",
+          "ee10552f09e52f8dd95d0f34923090752e1218b1b133057c9c6d4a8e2158c78a",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "97ea277b726ec9efc97ce8780d23d212258516b30bcf0c7d6791a86cf2606824"
+        ],
+        "source_pressure": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee",
+          "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+        ],
+        "segment4": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-003_F-D|6|F-D|base|0|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 119,
+      "first_char_end": 65,
+      "reason": "保留",
+      "opening_tokens": 13,
+      "opening_token_span": [
+        254,
+        267
+      ],
+      "opening_ids_sha256": "ac86db2859ab0a85aa49f0eeb06a925ac172e5419b845902bcdd464f7628fc2c",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-003|7",
+      "work": "R-003",
+      "cohort": "F-D",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-003_F-D|7|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-003_F-D|7|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-003_F-D|7|F-D|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-003_F-D|7|F-D|base|3|3|factdiag3",
+          "reasons": [
+            "not_candidate",
+            "has_target_person"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0c16c8cd26d1f142430bb712f6ab02cafd58805cf50c6a8c7f0eeda8c25338af",
+          "ee10552f09e52f8dd95d0f34923090752e1218b1b133057c9c6d4a8e2158c78a",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7c15aca4ead2c196bf3c90f70d099d293f07a3a02672392334eb619b85ee8a10"
+        ],
+        "source_pressure": "875d7150a1911ad10c29cbe25074c8b7b20611dcb3f3f863b383262f1c0a082d",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bb3e6e7291e80dcd55853af0a0e6fdbfc8fcdf1b13dd8e8ae10081b9ec2b39ee",
+          "660106cb5c50cd332be77c4140c01034d8a47b9f31544202088605a8553e9b9b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "83327841a2eb5499595258895acf557d10bbbe287841ee2d82dc05144d2970cc"
+        ],
+        "segment4": "9ae9e2e24e33fb82f1cd6a85d894e8eb482fc5a7ca36a429526ad5bbbc01c97a"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "F-D|R-005|0",
+      "work": "R-005",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_F-D|0|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "ca0580fac6e47863a1760850fd2d2011bbd68746c35623ed8326a2d3d46b0312"
+        ],
+        "source_pressure": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-005_F-D|0|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 148,
+      "first_char_end": 70,
+      "reason": "保留",
+      "opening_tokens": 14,
+      "opening_token_span": [
+        257,
+        271
+      ],
+      "opening_ids_sha256": "36c2c6c35ebcccb6638c0156363da8455d995768f1096334208d3a439ed92e94",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-005|10",
+      "work": "R-005",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_F-D|10|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "ebbf7ae6dad309e4ea3cf83d696a701ba7c986d84efaed01ad454b0ffc50a1d1"
+        ],
+        "source_pressure": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-005_F-D|10|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 131,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        252,
+        259
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-005|11",
+      "work": "R-005",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_F-D|11|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "ab523089455d062f86f74c87f3c24748f2b00d64f5387827490dfb6611e61fea",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "c520af88682b1546cd25e311f93aeac0af5fb3f529e23d5e9451ecc323d42251"
+        ],
+        "source_pressure": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-005_F-D|11|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 140,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        295,
+        302
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-005|12",
+      "work": "R-005",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_F-D|12|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-005_F-D|12|F-D|base|1|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "1e8b309e2630e604b51815a9132d8fe26a9d4bf61484e5f6283b036b58ee8882"
+        ],
+        "source_pressure": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 1,
+      "source_response_id": "R-005_F-D|12|F-D|base|1|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 103,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        240,
+        247
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-005|14",
+      "work": "R-005",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_F-D|14|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-005_F-D|14|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "no_concession"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-005_F-D|14|F-D|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-005_F-D|14|F-D|base|3|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "c100e7526f5439b52cb3d8ec31bffc143099e44ca0c9e2a74e004d5fddaf29f2",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "444e9bc7728c1cf13e407f549ecc87085c52a7b55f7a00844d147e515be3171d"
+        ],
+        "source_pressure": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 3,
+      "source_response_id": "R-005_F-D|14|F-D|base|3|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 125,
+      "first_char_end": 70,
+      "reason": "保留",
+      "opening_tokens": 14,
+      "opening_token_span": [
+        293,
+        307
+      ],
+      "opening_ids_sha256": "36c2c6c35ebcccb6638c0156363da8455d995768f1096334208d3a439ed92e94",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-005|15",
+      "work": "R-005",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_F-D|15|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "bac66c70c7cfbd3fa4d1d38e23f4a4731e160e55d8a276321bed6509f66a6962",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "22d4f654eadda1ed517d9ac96263c0be783611d65d7a39015defa370a102d247"
+        ],
+        "source_pressure": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-005_F-D|15|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 162,
+      "first_char_end": 67,
+      "reason": "保留",
+      "opening_tokens": 13,
+      "opening_token_span": [
+        315,
+        328
+      ],
+      "opening_ids_sha256": "f3fb4c24b471b286c2185d95850a927f3154788bec9b4fa514ea0a5cf11c0a30",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-005|4",
+      "work": "R-005",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_F-D|4|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "af72e5810a62fd504717b184c5aafd8027c4f30222cc8db6150f704fba7fe11f"
+        ],
+        "source_pressure": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-005_F-D|4|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 131,
+      "first_char_end": 65,
+      "reason": "保留",
+      "opening_tokens": 13,
+      "opening_token_span": [
+        248,
+        261
+      ],
+      "opening_ids_sha256": "33f2f8b1dad2e31c3139aa3e4321ff15781db0ea17f689fa68c8f0b7c8618422",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-005|6",
+      "work": "R-005",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_F-D|6|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-005_F-D|6|F-D|base|1|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "bd01671b369ddb59aa55aab77cf5cc79804ae1d269e4cbbae01795133054cd2d",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "49748cf61afa823f96d514415da0c863207edd50dbf6a7e0624358ba2f0d4ce9"
+        ],
+        "source_pressure": "17af445a5d8a9bfa044e4e0798ab5d8dc112e2c3b170876bf07d1f540f66b4f1",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 1,
+      "source_response_id": "R-005_F-D|6|F-D|base|1|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 142,
+      "first_char_end": 67,
+      "reason": "保留",
+      "opening_tokens": 13,
+      "opening_token_span": [
+        269,
+        282
+      ],
+      "opening_ids_sha256": "f3fb4c24b471b286c2185d95850a927f3154788bec9b4fa514ea0a5cf11c0a30",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-008|0",
+      "work": "R-008",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-008_F-D|0|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b",
+          "8fc60db9644c30ec64efd299f088761c7b8710d63d9163fbb48c599c7963d538",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "3aadca645235511f6d0c9eb24ce81aef99fe189cfb32643bc6cf0dc933111769"
+        ],
+        "source_pressure": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2",
+          "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+        ],
+        "segment4": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-008_F-D|0|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 116,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        262,
+        269
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-008|1",
+      "work": "R-008",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-008_F-D|1|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b",
+          "14df8c40b01bd78e2f85d2e96e3de866b932aca52c5b2310e0339ab4bf57757d",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "8e53a0943948ae3ea46d3ee114ac9da8cf6c6f8b79cf29a3dbb962a84a18c01f"
+        ],
+        "source_pressure": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2",
+          "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+        ],
+        "segment4": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-008_F-D|1|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 117,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        301,
+        308
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-008|2",
+      "work": "R-008",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-008_F-D|2|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b",
+          "8fc60db9644c30ec64efd299f088761c7b8710d63d9163fbb48c599c7963d538",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "f5d3ec05453b2b10d5f1673db25980a49f396b32893bea6359fb509528a75aff"
+        ],
+        "source_pressure": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2",
+          "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+        ],
+        "segment4": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-008_F-D|2|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 98,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        252,
+        259
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-008|3",
+      "work": "R-008",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-008_F-D|3|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b",
+          "e192c0e178bbb2ec0a085369e67ac1618456926cc18922f4859baf3df7335e0c",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "419b60851f19f2cb13cb461cbb32a120a8765a14fed290827e27cd39c1a536c5"
+        ],
+        "source_pressure": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2",
+          "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+        ],
+        "segment4": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-008_F-D|3|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 134,
+      "first_char_end": 67,
+      "reason": "保留",
+      "opening_tokens": 14,
+      "opening_token_span": [
+        279,
+        293
+      ],
+      "opening_ids_sha256": "8c565f51d36391045868558f0f1657735cec7ed56245a7e4974786ee38af097e",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-008|4",
+      "work": "R-008",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-008_F-D|4|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b",
+          "492a4a21992ede6dc5355393d409e20588d438beddd7c3cf8cf09fb4168c5f66",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "21ec4469eb04e48c1d4c5dbcbf2f87fd647f9bdb021fd5b3ca7166750abf0fa4"
+        ],
+        "source_pressure": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2",
+          "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+        ],
+        "segment4": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-008_F-D|4|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 137,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        253,
+        260
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-008|6",
+      "work": "R-008",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-008_F-D|6|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-008_F-D|6|F-D|base|1|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b",
+          "492a4a21992ede6dc5355393d409e20588d438beddd7c3cf8cf09fb4168c5f66",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "27308125f15c2e92f543d2f7731dbd21cea0afaab822ee53f90db42beb798535"
+        ],
+        "source_pressure": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2",
+          "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+        ],
+        "segment4": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+      },
+      "source_rep": 1,
+      "source_response_id": "R-008_F-D|6|F-D|base|1|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 104,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        257,
+        264
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-008|7",
+      "work": "R-008",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-008_F-D|7|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "28d8409e05ca9be6e2cb9e042673e740426a8708156faf96a7a2feaffbeb7b0b",
+          "8fc60db9644c30ec64efd299f088761c7b8710d63d9163fbb48c599c7963d538",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "07b2c274316512e8424bf2d30d3ac202f40a095411ccf7ffa47e1e29353f43d4"
+        ],
+        "source_pressure": "7b5384177d70f76c2db1b2cd4ce42da6159c689c353715e964521affcbddf04b",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "a7132bfb808f399c35bd6373261f30bf4ad6cb68ac815f1914c58f314db2ccb2",
+          "d2117712778b745ce37ee075642acd1ee447e9ccd03fa25c89c1a2e28145dfae",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "09a95af3bbb8f99141b09f171c21c5750a334dc03a94879db652cc0f05c9ccd1"
+        ],
+        "segment4": "2f3a96d5c112bc33864ca03725a7679323072abb29db59ad4bc38a3cbbb19de5"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-008_F-D|7|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 130,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        256,
+        263
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-010|0",
+      "work": "R-010",
+      "cohort": "F-D",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-010_F-D|0|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-010_F-D|0|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-010_F-D|0|F-D|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-010_F-D|0|F-D|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe",
+          "af18aa197a786b43dbee2dab8329241c01a81d9809069ef06eabf395fd957229",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "c6523c5e27e4286c3b6113c4e68dfaf4b8ac4c581859e0cacc388eaba1597d12"
+        ],
+        "source_pressure": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f",
+          "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+        ],
+        "segment4": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "F-D|R-010|1",
+      "work": "R-010",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-010_F-D|1|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe",
+          "2fa96d7ee4a17654c9dfaf935d472bd7637333793ddfd83619f67ba343c43b63",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "80aa2b96d52b3d84e42daa9d548df2d8145c629cd29c3ada5c10273fe6731135"
+        ],
+        "source_pressure": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f",
+          "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+        ],
+        "segment4": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-010_F-D|1|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 103,
+      "first_char_end": 16,
+      "reason": "保留",
+      "opening_tokens": 4,
+      "opening_token_span": [
+        263,
+        267
+      ],
+      "opening_ids_sha256": "aa8d8414cd51b0ebd45c3599610a2b5ad03907fb40345ea3e6cc0a14ef88dc31",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-010|2",
+      "work": "R-010",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-010_F-D|2|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-010_F-D|2|F-D|base|1|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe",
+          "8088668e9c40a6a373a5041378c49b4345deef4d93bb07f81b256b592792cf3e",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "9b888d48c3ef2b7c490bf4a628f6e18f3d82fe649271d5d5137c09548073d060"
+        ],
+        "source_pressure": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f",
+          "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+        ],
+        "segment4": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+      },
+      "source_rep": 1,
+      "source_response_id": "R-010_F-D|2|F-D|base|1|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 96,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        322,
+        329
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "F-D|R-010|4",
+      "work": "R-010",
+      "cohort": "F-D",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-010_F-D|4|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-010_F-D|4|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person",
+            "no_concession"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-010_F-D|4|F-D|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-010_F-D|4|F-D|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person",
+            "no_concession"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe",
+          "b32fc4abf0a9d2f10139f86bb71711fb44d8903ed061ad4c0ac9046b6a286eeb",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "655cd671cfbe43583e6c32e9bcac056d1f80011b38b2f6be75bc5fcbac001343"
+        ],
+        "source_pressure": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f",
+          "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+        ],
+        "segment4": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "F-D|R-010|5",
+      "work": "R-010",
+      "cohort": "F-D",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-010_F-D|5|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-010_F-D|5|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-010_F-D|5|F-D|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-010_F-D|5|F-D|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person",
+            "no_concession"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe",
+          "7f4db1633e58f80a942d669385ad6ec0b6dec3a77d15fdd58eb4a3cabaedc653",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "74090fa2e3e0a9278b844e34a0e579f3032d03977147a250dd2e5a4174baab4d"
+        ],
+        "source_pressure": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f",
+          "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+        ],
+        "segment4": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "F-D|R-010|6",
+      "work": "R-010",
+      "cohort": "F-D",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-010_F-D|6|F-D|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-010_F-D|6|F-D|base|1|3|factdiag3",
+          "reasons": [
+            "no_concession"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-010_F-D|6|F-D|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-010_F-D|6|F-D|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe",
+          "f67eda99f25493b5b21e6371edd889715c12672d0c5069734c888dd8586107ec",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "564bd57d241d3b80adf62d3a8d2ce7bea14341f80abc42e105d9d4ae405f8fb5"
+        ],
+        "source_pressure": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f",
+          "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+        ],
+        "segment4": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "F-D|R-010|7",
+      "work": "R-010",
+      "cohort": "F-D",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-010_F-D|7|F-D|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe",
+          "addd77c422523f5eb40fb2d5567746602fa91cf19e72d821479d4a9dced86f80",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "b1210d40d30951a9b111610806e3e93024bfc3a1e9e3bf0a1b0ab0d2d396d011"
+        ],
+        "source_pressure": "cf91fdcf26bd8f943e84a3fb14904fd66cb4c9fffbd860c9aa100687ab71388f",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f",
+          "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+        ],
+        "segment4": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-010_F-D|7|F-D|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 110,
+      "first_char_end": 16,
+      "reason": "保留",
+      "opening_tokens": 4,
+      "opening_token_span": [
+        354,
+        358
+      ],
+      "opening_ids_sha256": "aa8d8414cd51b0ebd45c3599610a2b5ad03907fb40345ea3e6cc0a14ef88dc31",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 0,
+      "post_first_edition_mismatch_sentences": 0
+    },
+    {
+      "history": "S_T|R-001|0",
+      "work": "R-001",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-001_S_T|0|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-001_S_T|0|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-001_S_T|0|S_T|base|2|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "af897991327bb3c2da3e6d8235c220b66b77bbf521af50abcf414328da744165",
+          "7d8cbbc7aa144901ba8ccde27fee085bb01b74111727fa518c8c9d81e63873ba",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "3c970da1b389f6e25f0e69c3019142a37d4397d23cb489e066aae87e3e95a2df"
+        ],
+        "source_pressure": "1fae69111a586bbcea8305b94e99d1bc92198dee9c0819dec6fc304386011f9e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "631f13bd17bc8352b70a9d481a15a23e94afc903b5934b0bf75df24331c09560",
+          "33f92760da6e8477193c86306785444f222553801633e41509d9b189d690d92b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "027d84b66e2f4a27b93ead0f0ff9fd04604a0418bbce5b329f2695960cb73372"
+        ],
+        "segment4": "8a7d67505aaab20e851ad4bcc1a45bfa2731a35fc94bf09e60a84d61c39f5703"
+      },
+      "source_rep": 2,
+      "source_response_id": "R-001_S_T|0|S_T|base|2|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 130,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        244,
+        251
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-001|1",
+      "work": "R-001",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-001_S_T|1|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-001_S_T|1|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-001_S_T|1|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-001_S_T|1|S_T|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 4,
+          "response_id": "R-001_S_T|1|S_T|base|4|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "af897991327bb3c2da3e6d8235c220b66b77bbf521af50abcf414328da744165",
+          "7d8cbbc7aa144901ba8ccde27fee085bb01b74111727fa518c8c9d81e63873ba",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "08db221d7672ba93a606a7b7ab49a26938a2ca3b5a59ff8dc4ec12e7516e5621"
+        ],
+        "source_pressure": "1fae69111a586bbcea8305b94e99d1bc92198dee9c0819dec6fc304386011f9e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "631f13bd17bc8352b70a9d481a15a23e94afc903b5934b0bf75df24331c09560",
+          "33f92760da6e8477193c86306785444f222553801633e41509d9b189d690d92b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "027d84b66e2f4a27b93ead0f0ff9fd04604a0418bbce5b329f2695960cb73372"
+        ],
+        "segment4": "8a7d67505aaab20e851ad4bcc1a45bfa2731a35fc94bf09e60a84d61c39f5703"
+      },
+      "source_rep": 4,
+      "source_response_id": "R-001_S_T|1|S_T|base|4|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 122,
+      "first_char_end": 74,
+      "reason": "保留",
+      "opening_tokens": 15,
+      "opening_token_span": [
+        244,
+        259
+      ],
+      "opening_ids_sha256": "b56d4275a514f45866f96b0fbc6b6b3975f374cd7af64746410801cccc9e3f63",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 2,
+      "post_first_edition_mismatch_sentences": 2
+    },
+    {
+      "history": "S_T|R-001|3",
+      "work": "R-001",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-001_S_T|3|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "af897991327bb3c2da3e6d8235c220b66b77bbf521af50abcf414328da744165",
+          "5d5311cf3d3dfa667da80dfdceef970643fbdc26c0d0cb73480942b178e998b8",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "a6a29040e0fb75bb8236efa23263c04125cfd36d269597907fbce134a3cd4188"
+        ],
+        "source_pressure": "1fae69111a586bbcea8305b94e99d1bc92198dee9c0819dec6fc304386011f9e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "631f13bd17bc8352b70a9d481a15a23e94afc903b5934b0bf75df24331c09560",
+          "33f92760da6e8477193c86306785444f222553801633e41509d9b189d690d92b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "027d84b66e2f4a27b93ead0f0ff9fd04604a0418bbce5b329f2695960cb73372"
+        ],
+        "segment4": "8a7d67505aaab20e851ad4bcc1a45bfa2731a35fc94bf09e60a84d61c39f5703"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-001_S_T|3|S_T|base|0|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 99,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        242,
+        249
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-001|4",
+      "work": "R-001",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-001_S_T|4|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-001_S_T|4|S_T|base|1|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "af897991327bb3c2da3e6d8235c220b66b77bbf521af50abcf414328da744165",
+          "7d8cbbc7aa144901ba8ccde27fee085bb01b74111727fa518c8c9d81e63873ba",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "c304855eb5e1e00a5bc017be74eb2f5bd56e42c75e8dfb0dc0e7ccc763704757"
+        ],
+        "source_pressure": "1fae69111a586bbcea8305b94e99d1bc92198dee9c0819dec6fc304386011f9e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "631f13bd17bc8352b70a9d481a15a23e94afc903b5934b0bf75df24331c09560",
+          "33f92760da6e8477193c86306785444f222553801633e41509d9b189d690d92b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "027d84b66e2f4a27b93ead0f0ff9fd04604a0418bbce5b329f2695960cb73372"
+        ],
+        "segment4": "8a7d67505aaab20e851ad4bcc1a45bfa2731a35fc94bf09e60a84d61c39f5703"
+      },
+      "source_rep": 1,
+      "source_response_id": "R-001_S_T|4|S_T|base|1|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 141,
+      "first_char_end": 64,
+      "reason": "保留",
+      "opening_tokens": 13,
+      "opening_token_span": [
+        243,
+        256
+      ],
+      "opening_ids_sha256": "08692f6b16cad70c0ab3af0f82cb4feb4fbf8af72ff74385a0970f73a681faf2",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-001|5",
+      "work": "R-001",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-001_S_T|5|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "af897991327bb3c2da3e6d8235c220b66b77bbf521af50abcf414328da744165",
+          "7d8cbbc7aa144901ba8ccde27fee085bb01b74111727fa518c8c9d81e63873ba",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "09f2dc017d17b4fcd1d29bb4884d4795c02e5c11632b5863adb60cc750f48143"
+        ],
+        "source_pressure": "1fae69111a586bbcea8305b94e99d1bc92198dee9c0819dec6fc304386011f9e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "631f13bd17bc8352b70a9d481a15a23e94afc903b5934b0bf75df24331c09560",
+          "33f92760da6e8477193c86306785444f222553801633e41509d9b189d690d92b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "027d84b66e2f4a27b93ead0f0ff9fd04604a0418bbce5b329f2695960cb73372"
+        ],
+        "segment4": "8a7d67505aaab20e851ad4bcc1a45bfa2731a35fc94bf09e60a84d61c39f5703"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-001_S_T|5|S_T|base|0|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 122,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        250,
+        257
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-001|6",
+      "work": "R-001",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-001_S_T|6|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "af897991327bb3c2da3e6d8235c220b66b77bbf521af50abcf414328da744165",
+          "7d8cbbc7aa144901ba8ccde27fee085bb01b74111727fa518c8c9d81e63873ba",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "cff97864f7b00d147005c49d8aa1ccc3ce6c2df79fae00bfe5267019953428c4"
+        ],
+        "source_pressure": "1fae69111a586bbcea8305b94e99d1bc92198dee9c0819dec6fc304386011f9e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "631f13bd17bc8352b70a9d481a15a23e94afc903b5934b0bf75df24331c09560",
+          "33f92760da6e8477193c86306785444f222553801633e41509d9b189d690d92b",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "027d84b66e2f4a27b93ead0f0ff9fd04604a0418bbce5b329f2695960cb73372"
+        ],
+        "segment4": "8a7d67505aaab20e851ad4bcc1a45bfa2731a35fc94bf09e60a84d61c39f5703"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-001_S_T|6|S_T|base|0|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 1,
+      "body_and_final_tokens": 129,
+      "first_char_end": 67,
+      "reason": "保留",
+      "opening_tokens": 13,
+      "opening_token_span": [
+        238,
+        251
+      ],
+      "opening_ids_sha256": "f3fb4c24b471b286c2185d95850a927f3154788bec9b4fa514ea0a5cf11c0a30",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 2,
+      "post_first_edition_mismatch_sentences": 2
+    },
+    {
+      "history": "S_T|R-002|0",
+      "work": "R-002",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-002_S_T|0|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-002_S_T|0|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-002_S_T|0|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-002_S_T|0|S_T|base|3|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "6a496c4f948fc7c19f7f961b4a655792207fe135281e1ec4735fb4f79355c00c",
+          "44074605a8e57cf48976ab29cdd40ee648661310d10fe260625cddff193561f3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "9ba213cf51995a311bb355f1cc5ea48ad64d81b48e9c3e69e72075eb4b17c443"
+        ],
+        "source_pressure": "530f6f8f7beef60cbc0d31df93abd6040b6537aaf8a8512a790ef879d3a5ed8e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "c4af25643d14ee156c27425887045361714f72cdd12b35ce8d7bc72bf1ae5c74",
+          "90a29921c14ab288c3eed21c6b0e85bb137acb77b9c4c5196afbed1547ebc165",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "00a77ecdb95b3dcfd106d107a69f5aa6e1509dd967081386379b1a254d5bb473"
+        ],
+        "segment4": "bf845461e17107ba3fb31fbc07ebd2eb4425b2feb5556de966c546256ee7fdbd"
+      },
+      "source_rep": 3,
+      "source_response_id": "R-002_S_T|0|S_T|base|3|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 121,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        239,
+        246
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-002|1",
+      "work": "R-002",
+      "cohort": "S_T",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-002_S_T|1|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-002_S_T|1|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-002_S_T|1|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-002_S_T|1|S_T|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 4,
+          "response_id": "R-002_S_T|1|S_T|base|4|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 5,
+          "response_id": "R-002_S_T|1|S_T|base|5|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 6,
+          "response_id": "R-002_S_T|1|S_T|base|6|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 7,
+          "response_id": "R-002_S_T|1|S_T|base|7|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "6a496c4f948fc7c19f7f961b4a655792207fe135281e1ec4735fb4f79355c00c",
+          "44074605a8e57cf48976ab29cdd40ee648661310d10fe260625cddff193561f3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "fa1cd6d74d4d6c1732487cea36121c1cc3e85a8dcf41b2b3ec233c56498b1839"
+        ],
+        "source_pressure": "530f6f8f7beef60cbc0d31df93abd6040b6537aaf8a8512a790ef879d3a5ed8e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "c4af25643d14ee156c27425887045361714f72cdd12b35ce8d7bc72bf1ae5c74",
+          "90a29921c14ab288c3eed21c6b0e85bb137acb77b9c4c5196afbed1547ebc165",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "00a77ecdb95b3dcfd106d107a69f5aa6e1509dd967081386379b1a254d5bb473"
+        ],
+        "segment4": "bf845461e17107ba3fb31fbc07ebd2eb4425b2feb5556de966c546256ee7fdbd"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "S_T|R-002|2",
+      "work": "R-002",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-002_S_T|2|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-002_S_T|2|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-002_S_T|2|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-002_S_T|2|S_T|base|3|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "6a496c4f948fc7c19f7f961b4a655792207fe135281e1ec4735fb4f79355c00c",
+          "44074605a8e57cf48976ab29cdd40ee648661310d10fe260625cddff193561f3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "82ad56351669947ce0dab60810e29aee8a9c61c9c39dbec393ed577e5421fad1"
+        ],
+        "source_pressure": "530f6f8f7beef60cbc0d31df93abd6040b6537aaf8a8512a790ef879d3a5ed8e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "c4af25643d14ee156c27425887045361714f72cdd12b35ce8d7bc72bf1ae5c74",
+          "90a29921c14ab288c3eed21c6b0e85bb137acb77b9c4c5196afbed1547ebc165",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "00a77ecdb95b3dcfd106d107a69f5aa6e1509dd967081386379b1a254d5bb473"
+        ],
+        "segment4": "bf845461e17107ba3fb31fbc07ebd2eb4425b2feb5556de966c546256ee7fdbd"
+      },
+      "source_rep": 3,
+      "source_response_id": "R-002_S_T|2|S_T|base|3|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 1,
+      "body_and_final_tokens": 122,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        235,
+        242
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-002|3",
+      "work": "R-002",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-002_S_T|3|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-002_S_T|3|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-002_S_T|3|S_T|base|2|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "6a496c4f948fc7c19f7f961b4a655792207fe135281e1ec4735fb4f79355c00c",
+          "44074605a8e57cf48976ab29cdd40ee648661310d10fe260625cddff193561f3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "431fbe8289867c4c70ad6fa2cfa5de21694b9e244d7aa6d582cb92282bac93c2"
+        ],
+        "source_pressure": "530f6f8f7beef60cbc0d31df93abd6040b6537aaf8a8512a790ef879d3a5ed8e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "c4af25643d14ee156c27425887045361714f72cdd12b35ce8d7bc72bf1ae5c74",
+          "90a29921c14ab288c3eed21c6b0e85bb137acb77b9c4c5196afbed1547ebc165",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "00a77ecdb95b3dcfd106d107a69f5aa6e1509dd967081386379b1a254d5bb473"
+        ],
+        "segment4": "bf845461e17107ba3fb31fbc07ebd2eb4425b2feb5556de966c546256ee7fdbd"
+      },
+      "source_rep": 2,
+      "source_response_id": "R-002_S_T|3|S_T|base|2|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 111,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        231,
+        238
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-002|5",
+      "work": "R-002",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-002_S_T|5|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-002_S_T|5|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-002_S_T|5|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-002_S_T|5|S_T|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 4,
+          "response_id": "R-002_S_T|5|S_T|base|4|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "6a496c4f948fc7c19f7f961b4a655792207fe135281e1ec4735fb4f79355c00c",
+          "44074605a8e57cf48976ab29cdd40ee648661310d10fe260625cddff193561f3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "e7eb53348aa5f11deed79945cd95a84e9575c157d98252bf19c5b076b052efa4"
+        ],
+        "source_pressure": "530f6f8f7beef60cbc0d31df93abd6040b6537aaf8a8512a790ef879d3a5ed8e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "c4af25643d14ee156c27425887045361714f72cdd12b35ce8d7bc72bf1ae5c74",
+          "90a29921c14ab288c3eed21c6b0e85bb137acb77b9c4c5196afbed1547ebc165",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "00a77ecdb95b3dcfd106d107a69f5aa6e1509dd967081386379b1a254d5bb473"
+        ],
+        "segment4": "bf845461e17107ba3fb31fbc07ebd2eb4425b2feb5556de966c546256ee7fdbd"
+      },
+      "source_rep": 4,
+      "source_response_id": "R-002_S_T|5|S_T|base|4|3|factdiag3",
+      "source_file": "pilot_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 91,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        235,
+        242
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-002|6",
+      "work": "R-002",
+      "cohort": "S_T",
+      "retained": false,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-002_S_T|6|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-002_S_T|6|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-002_S_T|6|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-002_S_T|6|S_T|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 4,
+          "response_id": "R-002_S_T|6|S_T|base|4|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 5,
+          "response_id": "R-002_S_T|6|S_T|base|5|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 6,
+          "response_id": "R-002_S_T|6|S_T|base|6|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 7,
+          "response_id": "R-002_S_T|6|S_T|base|7|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "6a496c4f948fc7c19f7f961b4a655792207fe135281e1ec4735fb4f79355c00c",
+          "44074605a8e57cf48976ab29cdd40ee648661310d10fe260625cddff193561f3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "10f2b76c67911795b5fc7271b2d41803c694155f0770d8c357aa8e438ebfa73d"
+        ],
+        "source_pressure": "530f6f8f7beef60cbc0d31df93abd6040b6537aaf8a8512a790ef879d3a5ed8e",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "c4af25643d14ee156c27425887045361714f72cdd12b35ce8d7bc72bf1ae5c74",
+          "90a29921c14ab288c3eed21c6b0e85bb137acb77b9c4c5196afbed1547ebc165",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "00a77ecdb95b3dcfd106d107a69f5aa6e1509dd967081386379b1a254d5bb473"
+        ],
+        "segment4": "bf845461e17107ba3fb31fbc07ebd2eb4425b2feb5556de966c546256ee7fdbd"
+      },
+      "reason": "没有符合内容条件的续写"
+    },
+    {
+      "history": "S_T|R-004|0",
+      "work": "R-004",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-004_S_T|0|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "614c682c0bdbc005024ffaca905c8f548dfc3da7caa3cfb9aef220b422a075ed",
+          "24ab5d435282b47044b4d840a9106d19d6c50c3a5e483bcd164a6f72bf894a56",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "a0d2292c0f326df591bd97adc4c4352edaa475aab93f6537fc8ce85c289dfe55"
+        ],
+        "source_pressure": "21a40cf0317c3c242439494e1e8548fcfaf16f99ec0fe5679641860a9f22a543",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "d7fdd113ee886baf05e3a85748b5bf46931b0562b08e50d5d68d4fabb634667f",
+          "70921d5e251d8c6c3dcaada14095693e1808981ee3ee4ee937f210db84e4dc14",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "2df8a99ce5ffeb2a5a3684dfd64b1965c5c42223cfbbb22dbf7b469ea4866d16"
+        ],
+        "segment4": "c48ddeb943001e895aa91c8905ed1fd61ce9c7147053aafe4895bd059dad794d"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-004_S_T|0|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 130,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        264,
+        271
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-004|1",
+      "work": "R-004",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-004_S_T|1|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "614c682c0bdbc005024ffaca905c8f548dfc3da7caa3cfb9aef220b422a075ed",
+          "e3a6401dcba12ea2f2d02636a11328dfe8dcc1347a65e801d664685eadc173b7",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "f289c0bbcc6659c2c29809ba82347ec0cf2a63e4acd54f0acb1be0750a25440d"
+        ],
+        "source_pressure": "21a40cf0317c3c242439494e1e8548fcfaf16f99ec0fe5679641860a9f22a543",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "d7fdd113ee886baf05e3a85748b5bf46931b0562b08e50d5d68d4fabb634667f",
+          "70921d5e251d8c6c3dcaada14095693e1808981ee3ee4ee937f210db84e4dc14",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "2df8a99ce5ffeb2a5a3684dfd64b1965c5c42223cfbbb22dbf7b469ea4866d16"
+        ],
+        "segment4": "c48ddeb943001e895aa91c8905ed1fd61ce9c7147053aafe4895bd059dad794d"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-004_S_T|1|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 140,
+      "first_char_end": 70,
+      "reason": "保留",
+      "opening_tokens": 14,
+      "opening_token_span": [
+        273,
+        287
+      ],
+      "opening_ids_sha256": "36c2c6c35ebcccb6638c0156363da8455d995768f1096334208d3a439ed92e94",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 4,
+      "post_first_edition_mismatch_sentences": 4
+    },
+    {
+      "history": "S_T|R-004|2",
+      "work": "R-004",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-004_S_T|2|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "614c682c0bdbc005024ffaca905c8f548dfc3da7caa3cfb9aef220b422a075ed",
+          "24ab5d435282b47044b4d840a9106d19d6c50c3a5e483bcd164a6f72bf894a56",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "d75031981b0bc87aca40d82ad26c9ae56d0660affc49a84209e5d9207eb20f9f"
+        ],
+        "source_pressure": "21a40cf0317c3c242439494e1e8548fcfaf16f99ec0fe5679641860a9f22a543",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "d7fdd113ee886baf05e3a85748b5bf46931b0562b08e50d5d68d4fabb634667f",
+          "70921d5e251d8c6c3dcaada14095693e1808981ee3ee4ee937f210db84e4dc14",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "2df8a99ce5ffeb2a5a3684dfd64b1965c5c42223cfbbb22dbf7b469ea4866d16"
+        ],
+        "segment4": "c48ddeb943001e895aa91c8905ed1fd61ce9c7147053aafe4895bd059dad794d"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-004_S_T|2|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 104,
+      "first_char_end": 68,
+      "reason": "保留",
+      "opening_tokens": 13,
+      "opening_token_span": [
+        268,
+        281
+      ],
+      "opening_ids_sha256": "ada8e4524ff56ca05cf34c1655af4722d3416438c8c89f05903a494c5e0a92db",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 2,
+      "post_first_edition_mismatch_sentences": 2
+    },
+    {
+      "history": "S_T|R-004|3",
+      "work": "R-004",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-004_S_T|3|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "614c682c0bdbc005024ffaca905c8f548dfc3da7caa3cfb9aef220b422a075ed",
+          "e3a6401dcba12ea2f2d02636a11328dfe8dcc1347a65e801d664685eadc173b7",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "d6750a435d2e365ab52cd392d3c3958a8d2030a132e993e197862efbc9892daa"
+        ],
+        "source_pressure": "21a40cf0317c3c242439494e1e8548fcfaf16f99ec0fe5679641860a9f22a543",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "d7fdd113ee886baf05e3a85748b5bf46931b0562b08e50d5d68d4fabb634667f",
+          "70921d5e251d8c6c3dcaada14095693e1808981ee3ee4ee937f210db84e4dc14",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "2df8a99ce5ffeb2a5a3684dfd64b1965c5c42223cfbbb22dbf7b469ea4866d16"
+        ],
+        "segment4": "c48ddeb943001e895aa91c8905ed1fd61ce9c7147053aafe4895bd059dad794d"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-004_S_T|3|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 122,
+      "first_char_end": 66,
+      "reason": "保留",
+      "opening_tokens": 13,
+      "opening_token_span": [
+        267,
+        280
+      ],
+      "opening_ids_sha256": "f96730dbb40334c912db174abc198da94cd71398492df2280c02e95488e5fcb2",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-004|4",
+      "work": "R-004",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-004_S_T|4|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "614c682c0bdbc005024ffaca905c8f548dfc3da7caa3cfb9aef220b422a075ed",
+          "24ab5d435282b47044b4d840a9106d19d6c50c3a5e483bcd164a6f72bf894a56",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "0e903592c893c13142ae2db2995ebd44c4f9390ce2713e956be8fd90602320b7"
+        ],
+        "source_pressure": "21a40cf0317c3c242439494e1e8548fcfaf16f99ec0fe5679641860a9f22a543",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "d7fdd113ee886baf05e3a85748b5bf46931b0562b08e50d5d68d4fabb634667f",
+          "70921d5e251d8c6c3dcaada14095693e1808981ee3ee4ee937f210db84e4dc14",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "2df8a99ce5ffeb2a5a3684dfd64b1965c5c42223cfbbb22dbf7b469ea4866d16"
+        ],
+        "segment4": "c48ddeb943001e895aa91c8905ed1fd61ce9c7147053aafe4895bd059dad794d"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-004_S_T|4|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 99,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        260,
+        267
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 2,
+      "post_first_edition_mismatch_sentences": 2
+    },
+    {
+      "history": "S_T|R-004|5",
+      "work": "R-004",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-004_S_T|5|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "614c682c0bdbc005024ffaca905c8f548dfc3da7caa3cfb9aef220b422a075ed",
+          "24ab5d435282b47044b4d840a9106d19d6c50c3a5e483bcd164a6f72bf894a56",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "d9921cb74e3383f9af371961f889ba081b36def1d3ba632d5b92de0208c3b6b1"
+        ],
+        "source_pressure": "21a40cf0317c3c242439494e1e8548fcfaf16f99ec0fe5679641860a9f22a543",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "d7fdd113ee886baf05e3a85748b5bf46931b0562b08e50d5d68d4fabb634667f",
+          "70921d5e251d8c6c3dcaada14095693e1808981ee3ee4ee937f210db84e4dc14",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "2df8a99ce5ffeb2a5a3684dfd64b1965c5c42223cfbbb22dbf7b469ea4866d16"
+        ],
+        "segment4": "c48ddeb943001e895aa91c8905ed1fd61ce9c7147053aafe4895bd059dad794d"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-004_S_T|5|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 127,
+      "first_char_end": 70,
+      "reason": "保留",
+      "opening_tokens": 14,
+      "opening_token_span": [
+        260,
+        274
+      ],
+      "opening_ids_sha256": "36c2c6c35ebcccb6638c0156363da8455d995768f1096334208d3a439ed92e94",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 4,
+      "post_first_edition_mismatch_sentences": 4
+    },
+    {
+      "history": "S_T|R-005|3",
+      "work": "R-005",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_S_T|3|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "no_concession"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-005_S_T|3|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-005_S_T|3|S_T|base|2|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "198356c346d0f2d6b080a2e512f90ec5ce980ee6ac639fb34c34cc409d5614e8",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "e1e61eb6389d5305d8408c96a664d0c3d4a1452f400158631a8cb9317bfabf2b"
+        ],
+        "source_pressure": "2f37cf02bbefd86a84b139b8a2ee0310e221923776055d13ac64d3ec7fe9b16c",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 2,
+      "source_response_id": "R-005_S_T|3|S_T|base|2|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 1,
+      "body_and_final_tokens": 68,
+      "first_char_end": 16,
+      "reason": "保留",
+      "opening_tokens": 4,
+      "opening_token_span": [
+        291,
+        295
+      ],
+      "opening_ids_sha256": "aa8d8414cd51b0ebd45c3599610a2b5ad03907fb40345ea3e6cc0a14ef88dc31",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 1,
+      "post_first_edition_mismatch_sentences": 1
+    },
+    {
+      "history": "S_T|R-005|5",
+      "work": "R-005",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_S_T|5|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "198356c346d0f2d6b080a2e512f90ec5ce980ee6ac639fb34c34cc409d5614e8",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "06a9811e36ce663d28b21188ea6448d261d037ec316fb59e01cd313cf23334a3"
+        ],
+        "source_pressure": "2f37cf02bbefd86a84b139b8a2ee0310e221923776055d13ac64d3ec7fe9b16c",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-005_S_T|5|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 95,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        418,
+        425
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 2,
+      "post_first_edition_mismatch_sentences": 2
+    },
+    {
+      "history": "S_T|R-005|7",
+      "work": "R-005",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-005_S_T|7|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "86da04c0172aa3901e6ad0b9f68f01066160f8417db46e696622202a9168607c",
+          "50e51dc337176fee4072da366286ee1f3cc4ac681d7d332d0111c5f89129fe6d",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "961cfa93ffe9b43283d7e2dbcd24966a67fe687872d04a303687fa49cac9cca3"
+        ],
+        "source_pressure": "2f37cf02bbefd86a84b139b8a2ee0310e221923776055d13ac64d3ec7fe9b16c",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "4e915180ef18349110677f3ef6b00663acae7de80cdaeb606bbf6f2bb2c64dba",
+          "e4024f2104483307797a31a751c0c6901ab244dd90a623964d2333bbf6031ef3",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "7028bdc246ed8758f20e19efee2c3b2ceabadfa00cd7e8e04ea4155d03536a1e"
+        ],
+        "segment4": "38557fec027c307348fb2258681a0da2daa83c3f529cb8fe5198f5a52ca487c9"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-005_S_T|7|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 99,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        325,
+        332
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 2,
+      "post_first_edition_mismatch_sentences": 2
+    },
+    {
+      "history": "S_T|R-006|1",
+      "work": "R-006",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-006_S_T|1|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-006_S_T|1|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-006_S_T|1|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-006_S_T|1|S_T|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 4,
+          "response_id": "R-006_S_T|1|S_T|base|4|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 5,
+          "response_id": "R-006_S_T|1|S_T|base|5|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 6,
+          "response_id": "R-006_S_T|1|S_T|base|6|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0fca50d5e3c19cd84da0d62f4fcf77110e1e27bbeca613aecb04e5d436c961a6",
+          "eb03d2ffb5064991833ef0ee920713a340aec3b57bfd91eab4a345e622572e5a",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "0ad5d0b3bd69eeb6ac18c66a606cb882803a3692e9e6e1788442d80cc6150f8c"
+        ],
+        "source_pressure": "5eceefa1a7acfb84482eaca68d3816160d6a6e33fbed12b70ddbb88a815aafa9",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "93d9b399c1deddcd935986a04dba842952fdfbe71f4dc29d697ea2b8c1980830",
+          "0b14d9b600755acb41816baf872ef35c5cb31b0d8daf6beb30351e98b4ec0db1",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "aa4fc91eb5165ee9d1809ce0ca452a7a84ac1b4e40715a95b0f3f97faf35977e"
+        ],
+        "segment4": "4b19180d2f3dae88656337c72bcc2ba10fb3a49e8c15805307228b4eaa13ddab"
+      },
+      "source_rep": 6,
+      "source_response_id": "R-006_S_T|1|S_T|base|6|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 121,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        270,
+        277
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-006|2",
+      "work": "R-006",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-006_S_T|2|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-006_S_T|2|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "no_concession"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-006_S_T|2|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-006_S_T|2|S_T|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 4,
+          "response_id": "R-006_S_T|2|S_T|base|4|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0fca50d5e3c19cd84da0d62f4fcf77110e1e27bbeca613aecb04e5d436c961a6",
+          "bc2d72c1183562bc2a201e60ab1e81288aa454b92813240923a43cac2f90d65c",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "abebca1f88e77e540758658943b19a384b56d53dd3208c38f7678f7f6736890f"
+        ],
+        "source_pressure": "5eceefa1a7acfb84482eaca68d3816160d6a6e33fbed12b70ddbb88a815aafa9",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "93d9b399c1deddcd935986a04dba842952fdfbe71f4dc29d697ea2b8c1980830",
+          "0b14d9b600755acb41816baf872ef35c5cb31b0d8daf6beb30351e98b4ec0db1",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "aa4fc91eb5165ee9d1809ce0ca452a7a84ac1b4e40715a95b0f3f97faf35977e"
+        ],
+        "segment4": "4b19180d2f3dae88656337c72bcc2ba10fb3a49e8c15805307228b4eaa13ddab"
+      },
+      "source_rep": 4,
+      "source_response_id": "R-006_S_T|2|S_T|base|4|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 129,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        276,
+        283
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-006|4",
+      "work": "R-006",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-006_S_T|4|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "0fca50d5e3c19cd84da0d62f4fcf77110e1e27bbeca613aecb04e5d436c961a6",
+          "550ea741afc244d1e2c7b6e6441802268379543035f0315901a41b55f9c04f97",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "6ed026021a9516bee9db52f29935ef46c8a20b010c7cf8687af31c0281f6061f"
+        ],
+        "source_pressure": "5eceefa1a7acfb84482eaca68d3816160d6a6e33fbed12b70ddbb88a815aafa9",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "93d9b399c1deddcd935986a04dba842952fdfbe71f4dc29d697ea2b8c1980830",
+          "0b14d9b600755acb41816baf872ef35c5cb31b0d8daf6beb30351e98b4ec0db1",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "aa4fc91eb5165ee9d1809ce0ca452a7a84ac1b4e40715a95b0f3f97faf35977e"
+        ],
+        "segment4": "4b19180d2f3dae88656337c72bcc2ba10fb3a49e8c15805307228b4eaa13ddab"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-006_S_T|4|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 138,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        278,
+        285
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-007|0",
+      "work": "R-007",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-007_S_T|0|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-007_S_T|0|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-007_S_T|0|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-007_S_T|0|S_T|base|3|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 4,
+          "response_id": "R-007_S_T|0|S_T|base|4|3|factdiag3",
+          "reasons": [
+            "has_target_person",
+            "no_concession"
+          ]
+        },
+        {
+          "rep": 5,
+          "response_id": "R-007_S_T|0|S_T|base|5|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "60b366259814dc8180de9f5f160915bc0d067ffef7b4264b2da831b3f544154a",
+          "8156b3260f2122d90d1951527ed4c50da543da90630df5006f0eb27057782319",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "34ad914ba28871df944f80997b6d57ef5a2f03c6cc9fa56ab1819700a9b23d57"
+        ],
+        "source_pressure": "e0f2f88162668883cb8a7d2cf079bad27844d6a02d27829b07e1a0d8bca557ab",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "04deb9d29303c49afcfdf2dd8c74fdf75767f19b395ae5f7b9c05588235bb13b",
+          "a1d40b7efc2ed9007dd2a972c816768eb13f43896540727eee2337db633089d5",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "96861d50319c97b01a3206c7b7033b735971f28452392b50ae5689c2d96dcff1"
+        ],
+        "segment4": "249a1b016c42a6111198a1064154005c5d94e5838a842aa5d5eda65c0811cdec"
+      },
+      "source_rep": 5,
+      "source_response_id": "R-007_S_T|0|S_T|base|5|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 100,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        281,
+        288
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-007|1",
+      "work": "R-007",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-007_S_T|1|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "60b366259814dc8180de9f5f160915bc0d067ffef7b4264b2da831b3f544154a",
+          "8156b3260f2122d90d1951527ed4c50da543da90630df5006f0eb27057782319",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "e3dadfdac1e403eae58e5bfd76891797abd3e216529c9ef568414d517f28f30a"
+        ],
+        "source_pressure": "e0f2f88162668883cb8a7d2cf079bad27844d6a02d27829b07e1a0d8bca557ab",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "04deb9d29303c49afcfdf2dd8c74fdf75767f19b395ae5f7b9c05588235bb13b",
+          "a1d40b7efc2ed9007dd2a972c816768eb13f43896540727eee2337db633089d5",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "96861d50319c97b01a3206c7b7033b735971f28452392b50ae5689c2d96dcff1"
+        ],
+        "segment4": "249a1b016c42a6111198a1064154005c5d94e5838a842aa5d5eda65c0811cdec"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-007_S_T|1|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 130,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        270,
+        277
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-007|2",
+      "work": "R-007",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-007_S_T|2|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "60b366259814dc8180de9f5f160915bc0d067ffef7b4264b2da831b3f544154a",
+          "8156b3260f2122d90d1951527ed4c50da543da90630df5006f0eb27057782319",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "ce6ca4608984b62ac6b830775768deea786616efaaa90379f7c2933c4474fcf3"
+        ],
+        "source_pressure": "e0f2f88162668883cb8a7d2cf079bad27844d6a02d27829b07e1a0d8bca557ab",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "04deb9d29303c49afcfdf2dd8c74fdf75767f19b395ae5f7b9c05588235bb13b",
+          "a1d40b7efc2ed9007dd2a972c816768eb13f43896540727eee2337db633089d5",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "96861d50319c97b01a3206c7b7033b735971f28452392b50ae5689c2d96dcff1"
+        ],
+        "segment4": "249a1b016c42a6111198a1064154005c5d94e5838a842aa5d5eda65c0811cdec"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-007_S_T|2|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 70,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        276,
+        283
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 2,
+      "post_first_edition_mismatch_sentences": 2
+    },
+    {
+      "history": "S_T|R-007|3",
+      "work": "R-007",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-007_S_T|3|S_T|base|0|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "60b366259814dc8180de9f5f160915bc0d067ffef7b4264b2da831b3f544154a",
+          "8156b3260f2122d90d1951527ed4c50da543da90630df5006f0eb27057782319",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "4cc6d05c0942941207ef770b7812c6008ce6ac951ad1dd3a01baded34aef6498"
+        ],
+        "source_pressure": "e0f2f88162668883cb8a7d2cf079bad27844d6a02d27829b07e1a0d8bca557ab",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "04deb9d29303c49afcfdf2dd8c74fdf75767f19b395ae5f7b9c05588235bb13b",
+          "a1d40b7efc2ed9007dd2a972c816768eb13f43896540727eee2337db633089d5",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "96861d50319c97b01a3206c7b7033b735971f28452392b50ae5689c2d96dcff1"
+        ],
+        "segment4": "249a1b016c42a6111198a1064154005c5d94e5838a842aa5d5eda65c0811cdec"
+      },
+      "source_rep": 0,
+      "source_response_id": "R-007_S_T|3|S_T|base|0|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 116,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        270,
+        277
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-007|4",
+      "work": "R-007",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-007_S_T|4|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-007_S_T|4|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-007_S_T|4|S_T|base|2|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 3,
+          "response_id": "R-007_S_T|4|S_T|base|3|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "60b366259814dc8180de9f5f160915bc0d067ffef7b4264b2da831b3f544154a",
+          "8156b3260f2122d90d1951527ed4c50da543da90630df5006f0eb27057782319",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "066396f8c5160713df4becb925ff37c5e83c25f29411b58c98ae3fd604b24060"
+        ],
+        "source_pressure": "e0f2f88162668883cb8a7d2cf079bad27844d6a02d27829b07e1a0d8bca557ab",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "04deb9d29303c49afcfdf2dd8c74fdf75767f19b395ae5f7b9c05588235bb13b",
+          "a1d40b7efc2ed9007dd2a972c816768eb13f43896540727eee2337db633089d5",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "96861d50319c97b01a3206c7b7033b735971f28452392b50ae5689c2d96dcff1"
+        ],
+        "segment4": "249a1b016c42a6111198a1064154005c5d94e5838a842aa5d5eda65c0811cdec"
+      },
+      "source_rep": 3,
+      "source_response_id": "R-007_S_T|4|S_T|base|3|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 96,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        263,
+        270
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-007|5",
+      "work": "R-007",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-007_S_T|5|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-007_S_T|5|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-007_S_T|5|S_T|base|2|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "60b366259814dc8180de9f5f160915bc0d067ffef7b4264b2da831b3f544154a",
+          "8156b3260f2122d90d1951527ed4c50da543da90630df5006f0eb27057782319",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "2a348f356b2092b9948ad484dc440a682f852605e53075c276258a0ee51086ad"
+        ],
+        "source_pressure": "e0f2f88162668883cb8a7d2cf079bad27844d6a02d27829b07e1a0d8bca557ab",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "04deb9d29303c49afcfdf2dd8c74fdf75767f19b395ae5f7b9c05588235bb13b",
+          "a1d40b7efc2ed9007dd2a972c816768eb13f43896540727eee2337db633089d5",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "96861d50319c97b01a3206c7b7033b735971f28452392b50ae5689c2d96dcff1"
+        ],
+        "segment4": "249a1b016c42a6111198a1064154005c5d94e5838a842aa5d5eda65c0811cdec"
+      },
+      "source_rep": 2,
+      "source_response_id": "R-007_S_T|5|S_T|base|2|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 0,
+      "body_and_final_tokens": 134,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        284,
+        291
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    },
+    {
+      "history": "S_T|R-010|8",
+      "work": "R-010",
+      "cohort": "S_T",
+      "retained": true,
+      "checked": [
+        {
+          "rep": 0,
+          "response_id": "R-010_S_T|8|S_T|base|0|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 1,
+          "response_id": "R-010_S_T|8|S_T|base|1|3|factdiag3",
+          "reasons": [
+            "has_target_person"
+          ]
+        },
+        {
+          "rep": 2,
+          "response_id": "R-010_S_T|8|S_T|base|2|3|factdiag3",
+          "reasons": []
+        }
+      ],
+      "copied_hashes": {
+        "segment1": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "3b89a3ae14b346989db4d1bca89985b59c22622ff72f6a5e2aee410eb2c4bbbe",
+          "4e62d8765f4131db2bd072c90c5d7b05cfca6b4e6dd7698ae356b7c8fc4186d6",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "dcaa6c771804789738dc9d12c59017fe4d98a5605df77ba23ad5f7d0baf0071f"
+        ],
+        "source_pressure": "c13ae8919061a1110e1c3c4dab64161fcafe655e501f75f994e67f76752aa234",
+        "segment3": [
+          "65309e28c14854d381ab56c622f36f6c61570bd6437acce78fc5b85336535b29",
+          "bd86266dba6874dbd4d9ad2cc9e3b15d5e99f4e37f3d8127acb361475e75742f",
+          "0629ab741a9035c46d6216b4f18bc726c448419b570ef3f2ad73925040015646",
+          "f82e14f105900539e5378306a040384e8ad2d5df716ff8010867d8ca44a7dd8b",
+          "8b03108009b6b2809ec1b60ff54288f96e4711a597e9688026c7fb83d242bb65"
+        ],
+        "segment4": "cd9ba9286efc530896b5802d30bca931a26d6eb90d41a04723e899f11ad69aec"
+      },
+      "source_rep": 2,
+      "source_response_id": "R-010_S_T|8|S_T|base|2|3|factdiag3",
+      "source_file": "remaining_t3.json",
+      "F_name": false,
+      "other_concessions": 1,
+      "body_and_final_tokens": 126,
+      "first_char_end": 33,
+      "reason": "保留",
+      "opening_tokens": 7,
+      "opening_token_span": [
+        354,
+        361
+      ],
+      "opening_ids_sha256": "0944978c5179796ec23a5f32329e29aba4b89e469f173b4c1d1b82fce916e681",
+      "boundary_extra_whitespace": 0,
+      "exact_copied_segments": true,
+      "edition_mismatch_sentences": 3,
+      "post_first_edition_mismatch_sentences": 3
+    }
+  ],
+  "stops": [],
+  "model_calls": 0,
+  "sampling_draws": 0,
+  "H": 52,
+  "K": 9,
+  "D": 10,
+  "works": [
+    "R-001",
+    "R-002",
+    "R-003",
+    "R-004",
+    "R-005",
+    "R-006",
+    "R-007",
+    "R-008",
+    "R-010"
+  ],
+  "sequences": 416,
+  "diagnostics": [
+    "F-D|R-001|13",
+    "S_T|R-002|0",
+    "S_T|R-004|0",
+    "F-D|R-005|0",
+    "S_T|R-006|1",
+    "S_T|R-007|0",
+    "F-D|R-008|0",
+    "F-D|R-003|1",
+    "F-D|R-003|2",
+    "F-D|R-003|4"
+  ],
+  "diagnostic_comparisons": 20,
+  "reason_counts": {
+    "保留": 52,
+    "没有符合内容条件的续写": 10
+  }
+}
