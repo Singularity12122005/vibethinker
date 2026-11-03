@@ -1,0 +1,680 @@
+{
+  "registration": "8bb8c67",
+  "material_commit": "829d42e",
+  "H": 28,
+  "K": 2,
+  "D": 10,
+  "sequences": 224,
+  "passed": true,
+  "stops": [],
+  "mapping": [
+    {
+      "history": "e1|R-003|0",
+      "work": "R-003",
+      "version": "e1",
+      "idx": 0,
+      "source_history": "F-D|R-003|0",
+      "ebook": 47935,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Charles James Hogarth",
+      "bounds": [
+        355,
+        610,
+        645,
+        648
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-003|1",
+      "work": "R-003",
+      "version": "e1",
+      "idx": 1,
+      "source_history": "F-D|R-003|1",
+      "ebook": 47935,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Charles James Hogarth",
+      "bounds": [
+        355,
+        607,
+        642,
+        645
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-003|2",
+      "work": "R-003",
+      "version": "e1",
+      "idx": 2,
+      "source_history": "F-D|R-003|2",
+      "ebook": 47935,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Charles James Hogarth",
+      "bounds": [
+        355,
+        635,
+        670,
+        673
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-003|3",
+      "work": "R-003",
+      "version": "e1",
+      "idx": 3,
+      "source_history": "F-D|R-003|3",
+      "ebook": 47935,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Charles James Hogarth",
+      "bounds": [
+        355,
+        619,
+        654,
+        657
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-003|4",
+      "work": "R-003",
+      "version": "e1",
+      "idx": 4,
+      "source_history": "F-D|R-003|4",
+      "ebook": 47935,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Charles James Hogarth",
+      "bounds": [
+        355,
+        614,
+        649,
+        652
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-003|5",
+      "work": "R-003",
+      "version": "e1",
+      "idx": 5,
+      "source_history": "F-D|R-003|5",
+      "ebook": 47935,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Charles James Hogarth",
+      "bounds": [
+        355,
+        610,
+        645,
+        648
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-003|6",
+      "work": "R-003",
+      "version": "e1",
+      "idx": 6,
+      "source_history": "F-D|R-003|6",
+      "ebook": 47935,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Charles James Hogarth",
+      "bounds": [
+        355,
+        571,
+        606,
+        609
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-003|7",
+      "work": "R-003",
+      "version": "e1",
+      "idx": 7,
+      "source_history": "F-D|R-003|7",
+      "ebook": 47935,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Charles James Hogarth",
+      "bounds": [
+        355,
+        556,
+        591,
+        594
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-003|0",
+      "work": "R-003",
+      "version": "e2",
+      "idx": 0,
+      "source_history": "E2-R-003-30723/recheck/0",
+      "ebook": 30723,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Constance Garnett",
+      "bounds": [
+        355,
+        569,
+        604,
+        607
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-003|1",
+      "work": "R-003",
+      "version": "e2",
+      "idx": 1,
+      "source_history": "E2-R-003-30723/recheck/1",
+      "ebook": 30723,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Constance Garnett",
+      "bounds": [
+        355,
+        613,
+        648,
+        651
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-003|2",
+      "work": "R-003",
+      "version": "e2",
+      "idx": 2,
+      "source_history": "E2-R-003-30723/recheck/2",
+      "ebook": 30723,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Constance Garnett",
+      "bounds": [
+        355,
+        555,
+        590,
+        593
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-003|3",
+      "work": "R-003",
+      "version": "e2",
+      "idx": 3,
+      "source_history": "E2-R-003-30723/recheck/3",
+      "ebook": 30723,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Constance Garnett",
+      "bounds": [
+        355,
+        620,
+        655,
+        658
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-003|4",
+      "work": "R-003",
+      "version": "e2",
+      "idx": 4,
+      "source_history": "E2-R-003-30723/recheck/4",
+      "ebook": 30723,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Constance Garnett",
+      "bounds": [
+        355,
+        626,
+        661,
+        664
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-003|5",
+      "work": "R-003",
+      "version": "e2",
+      "idx": 5,
+      "source_history": "E2-R-003-30723/recheck/5",
+      "ebook": 30723,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Constance Garnett",
+      "bounds": [
+        355,
+        599,
+        634,
+        637
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-003|6",
+      "work": "R-003",
+      "version": "e2",
+      "idx": 6,
+      "source_history": "E2-R-003-30723/recheck/6",
+      "ebook": 30723,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Constance Garnett",
+      "bounds": [
+        355,
+        575,
+        610,
+        613
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-003|7",
+      "work": "R-003",
+      "version": "e2",
+      "idx": 7,
+      "source_history": "E2-R-003-30723/recheck/7",
+      "ebook": 30723,
+      "candidate": "Charles James Hogarth",
+      "own": "Constance Garnett",
+      "truth": "Constance Garnett",
+      "bounds": [
+        355,
+        601,
+        636,
+        639
+      ],
+      "opening_span": [
+        323,
+        333
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-008|0",
+      "work": "R-008",
+      "version": "e1",
+      "idx": 0,
+      "source_history": "F-D|R-008|0",
+      "ebook": 2542,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "Robert Farquharson Sharp",
+      "bounds": [
+        305,
+        527,
+        564,
+        567
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-008|1",
+      "work": "R-008",
+      "version": "e1",
+      "idx": 1,
+      "source_history": "F-D|R-008|1",
+      "ebook": 2542,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "Robert Farquharson Sharp",
+      "bounds": [
+        305,
+        566,
+        603,
+        606
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-008|2",
+      "work": "R-008",
+      "version": "e1",
+      "idx": 2,
+      "source_history": "F-D|R-008|2",
+      "ebook": 2542,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "Robert Farquharson Sharp",
+      "bounds": [
+        305,
+        517,
+        554,
+        557
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-008|3",
+      "work": "R-008",
+      "version": "e1",
+      "idx": 3,
+      "source_history": "F-D|R-008|3",
+      "ebook": 2542,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "Robert Farquharson Sharp",
+      "bounds": [
+        305,
+        544,
+        581,
+        584
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-008|6",
+      "work": "R-008",
+      "version": "e1",
+      "idx": 6,
+      "source_history": "F-D|R-008|6",
+      "ebook": 2542,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "Robert Farquharson Sharp",
+      "bounds": [
+        305,
+        522,
+        559,
+        562
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e1|R-008|7",
+      "work": "R-008",
+      "version": "e1",
+      "idx": 7,
+      "source_history": "F-D|R-008|7",
+      "ebook": 2542,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "Robert Farquharson Sharp",
+      "bounds": [
+        305,
+        521,
+        558,
+        561
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-008|0",
+      "work": "R-008",
+      "version": "e2",
+      "idx": 0,
+      "source_history": "E2-R-008-70566/recheck/0",
+      "ebook": 70566,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "William Archer",
+      "bounds": [
+        305,
+        558,
+        595,
+        598
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-008|3",
+      "work": "R-008",
+      "version": "e2",
+      "idx": 3,
+      "source_history": "E2-R-008-70566/recheck/3",
+      "ebook": 70566,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "William Archer",
+      "bounds": [
+        305,
+        627,
+        664,
+        667
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-008|4",
+      "work": "R-008",
+      "version": "e2",
+      "idx": 4,
+      "source_history": "E2-R-008-70566/recheck/4",
+      "ebook": 70566,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "William Archer",
+      "bounds": [
+        305,
+        534,
+        571,
+        574
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-008|6",
+      "work": "R-008",
+      "version": "e2",
+      "idx": 6,
+      "source_history": "E2-R-008-70566/recheck/6",
+      "ebook": 70566,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "William Archer",
+      "bounds": [
+        305,
+        528,
+        565,
+        568
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-008|7",
+      "work": "R-008",
+      "version": "e2",
+      "idx": 7,
+      "source_history": "E2-R-008-70566/recheck/7",
+      "ebook": 70566,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "William Archer",
+      "bounds": [
+        305,
+        565,
+        602,
+        605
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    },
+    {
+      "history": "e2|R-008|9",
+      "work": "R-008",
+      "version": "e2",
+      "idx": 9,
+      "source_history": "E2-R-008-70566/recheck/9",
+      "ebook": 70566,
+      "candidate": "Robert Farquharson Sharp",
+      "own": "William Archer",
+      "truth": "William Archer",
+      "bounds": [
+        305,
+        543,
+        580,
+        583
+      ],
+      "opening_span": [
+        277,
+        287
+      ],
+      "retained": true
+    }
+  ],
+  "diagnostics": [
+    {
+      "work": "R-003",
+      "version": "e1",
+      "history": "e1|R-003|0"
+    },
+    {
+      "work": "R-008",
+      "version": "e1",
+      "history": "e1|R-008|0"
+    },
+    {
+      "work": "R-003",
+      "version": "e2",
+      "history": "e2|R-003|0"
+    },
+    {
+      "work": "R-008",
+      "version": "e2",
+      "history": "e2|R-008|0"
+    },
+    {
+      "work": "R-003",
+      "version": "e1",
+      "history": "e1|R-003|1"
+    },
+    {
+      "work": "R-008",
+      "version": "e1",
+      "history": "e1|R-008|1"
+    },
+    {
+      "work": "R-003",
+      "version": "e2",
+      "history": "e2|R-003|1"
+    },
+    {
+      "work": "R-008",
+      "version": "e2",
+      "history": "e2|R-008|3"
+    },
+    {
+      "work": "R-003",
+      "version": "e1",
+      "history": "e1|R-003|2"
+    },
+    {
+      "work": "R-008",
+      "version": "e1",
+      "history": "e1|R-008|2"
+    }
+  ]
+}
