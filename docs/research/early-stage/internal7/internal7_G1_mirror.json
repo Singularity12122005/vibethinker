@@ -1,0 +1,1590 @@
+{
+  "registration": "76f665a",
+  "report": "internal7_G1_mirror",
+  "previous_G1_candidate_gate_passed": false,
+  "coverage": {
+    "source_histories": 31,
+    "H": 31,
+    "K": 5,
+    "formal": 496,
+    "per_cell": 124,
+    "excluded_histories": 0,
+    "reviewed": 496,
+    "all_formal_in_denominator": true,
+    "review_sources": {
+      "方法复核代理": 272,
+      "统计复核代理": 112,
+      "主执行代理": 112
+    },
+    "histories_by_work": {
+      "R-001": 1,
+      "R-003": 8,
+      "R-005": 8,
+      "R-008": 7,
+      "R-010": 7
+    }
+  },
+  "calls": {
+    "stage": "complete",
+    "registration": "76f665a",
+    "generated": 496,
+    "generated_tokens": 45045,
+    "sampling_draws": 45045,
+    "model_calls": 44909,
+    "cache_forward_calls": 310,
+    "decode_forward_calls": 44549,
+    "diagnostic_forward_calls": 20,
+    "diagnostic_prepare_calls": 30,
+    "counts_by_cell": {
+      "M1/N": 124,
+      "M1/O": 124,
+      "M0/N": 124,
+      "M0/O": 124
+    },
+    "stops": [],
+    "deviations": [],
+    "sampling_protocol": {
+      "temperature": 0.7,
+      "top_k": 0,
+      "top_p": 1.0,
+      "repetition_penalty": 1.0,
+      "max_new_tokens": 1024,
+      "eos_ids": [
+        151645,
+        151643
+      ],
+      "batch_size": 1,
+      "sampler": "冻结SeededGumbelSampler",
+      "stream_namespace": "internal7_MO",
+      "pairing": "四格共用同一历史、重复的抽样流"
+    }
+  },
+  "diagnostics": {
+    "registration": "76f665a",
+    "passed": true,
+    "status": "complete",
+    "limit": 0.0001,
+    "diagnostic_forward_calls": 20,
+    "current": null,
+    "diagnostic_prepare_calls": 30,
+    "sampling_draws": 0,
+    "max_logits_error": 0.0,
+    "max_cache_error": 0.0
+  },
+  "metric_names": {
+    "candidate": "末行为真译者（正确更新）",
+    "own": "坚持错误自答",
+    "other": "其他末行",
+    "candidate_translator": "候选被署为本版译者",
+    "edition_conflict": "本版错配并集",
+    "explicit_true_translator": "明确本版真译者",
+    "no_current_translator_claim": "未命中本版译者断言",
+    "uncertain": "本版范围含混",
+    "wrong_author": "错误原创作者署名",
+    "true_translator_as_author": "本版真译者被署为作者",
+    "incorrect_metadata": "独立错误目录或译文陈述",
+    "current_relation_correct": "当前关系作答正确",
+    "first_concession": "首句让步规则命中",
+    "refusal": "拒答",
+    "unparseable": "不可解析",
+    "own_translator": "错误自答被署为本版译者",
+    "no_first": "缺首句",
+    "truncated": "截断",
+    "looped": "循环",
+    "record_content": "记录内容陈述规则命中",
+    "record_checked": "已取证断言规则命中",
+    "outside_name": "上下文外登记人物",
+    "outside_unknown": "上下文外名字覆盖未定",
+    "r1_contradiction": "明确指向前序回答且矛盾",
+    "r1_unknown": "先前引用指向不明"
+  },
+  "cells": {
+    "M1/N": {
+      "n": 124,
+      "histories": 31,
+      "hits": {
+        "candidate": 124,
+        "own": 0,
+        "other": 0,
+        "candidate_translator": 124,
+        "edition_conflict": 0,
+        "explicit_true_translator": 124,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "incorrect_metadata": 0,
+        "current_relation_correct": 124,
+        "first_concession": 101,
+        "refusal": 0,
+        "unparseable": 0,
+        "own_translator": 0,
+        "no_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "record_content": 1,
+        "record_checked": 16,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 12
+      },
+      "rates": {
+        "candidate": 1.0,
+        "own": 0.0,
+        "other": 0.0,
+        "candidate_translator": 1.0,
+        "edition_conflict": 0.0,
+        "explicit_true_translator": 1.0,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "incorrect_metadata": 0.0,
+        "current_relation_correct": 1.0,
+        "first_concession": 0.8145161290322581,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "own_translator": 0.0,
+        "no_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "record_content": 0.008064516129032258,
+        "record_checked": 0.12903225806451613,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.0967741935483871
+      },
+      "first_actions": {
+        "让步命中": 101,
+        "其他": 23
+      },
+      "first_stances": {
+        "未观察到明确支持": 124
+      },
+      "current_tags": {
+        "ZZtrue": 124
+      },
+      "answer_relations": {
+        "expected": 124
+      },
+      "r1_references": {
+        "none": 112,
+        "unknown": 12
+      },
+      "first_content": {
+        "marginals": {
+          "concession": {
+            "n": 101,
+            "histories": 28,
+            "correct_updates": 101,
+            "rate": 1.0
+          },
+          "correct": {
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          "wrong": {
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          "unknown": {
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          "uncommitted": {
+            "n": 124,
+            "histories": 31,
+            "correct_updates": 124,
+            "rate": 1.0
+          }
+        },
+        "crosses": [
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": false,
+            "unknown": false,
+            "n": 23,
+            "histories": 9,
+            "correct_updates": 23,
+            "rate": 1.0
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": false,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": false,
+            "unknown": false,
+            "n": 101,
+            "histories": 28,
+            "correct_updates": 101,
+            "rate": 1.0
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": false,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          }
+        ]
+      }
+    },
+    "M1/O": {
+      "n": 124,
+      "histories": 31,
+      "hits": {
+        "candidate": 124,
+        "own": 0,
+        "other": 0,
+        "candidate_translator": 124,
+        "edition_conflict": 0,
+        "explicit_true_translator": 124,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "incorrect_metadata": 0,
+        "current_relation_correct": 124,
+        "first_concession": 95,
+        "refusal": 0,
+        "unparseable": 0,
+        "own_translator": 0,
+        "no_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "record_content": 1,
+        "record_checked": 17,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 6
+      },
+      "rates": {
+        "candidate": 1.0,
+        "own": 0.0,
+        "other": 0.0,
+        "candidate_translator": 1.0,
+        "edition_conflict": 0.0,
+        "explicit_true_translator": 1.0,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "incorrect_metadata": 0.0,
+        "current_relation_correct": 1.0,
+        "first_concession": 0.7661290322580645,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "own_translator": 0.0,
+        "no_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "record_content": 0.008064516129032258,
+        "record_checked": 0.13709677419354838,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.04838709677419355
+      },
+      "first_actions": {
+        "让步命中": 95,
+        "核实命中": 12,
+        "其他": 17
+      },
+      "first_stances": {
+        "未观察到明确支持": 95,
+        "cand": 9,
+        "无法判定": 20
+      },
+      "current_tags": {
+        "ZZtrue": 124
+      },
+      "answer_relations": {
+        "expected": 124
+      },
+      "r1_references": {
+        "none": 118,
+        "unknown": 6
+      },
+      "first_content": {
+        "marginals": {
+          "concession": {
+            "n": 95,
+            "histories": 29,
+            "correct_updates": 95,
+            "rate": 1.0
+          },
+          "correct": {
+            "n": 29,
+            "histories": 14,
+            "correct_updates": 29,
+            "rate": 1.0
+          },
+          "wrong": {
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          "unknown": {
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          "uncommitted": {
+            "n": 95,
+            "histories": 29,
+            "correct_updates": 95,
+            "rate": 1.0
+          }
+        },
+        "crosses": [
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": false,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": false,
+            "unknown": false,
+            "n": 29,
+            "histories": 14,
+            "correct_updates": 29,
+            "rate": 1.0
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": false,
+            "unknown": false,
+            "n": 95,
+            "histories": 29,
+            "correct_updates": 95,
+            "rate": 1.0
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": false,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          }
+        ]
+      }
+    },
+    "M0/N": {
+      "n": 124,
+      "histories": 31,
+      "hits": {
+        "candidate": 120,
+        "own": 4,
+        "other": 0,
+        "candidate_translator": 120,
+        "edition_conflict": 4,
+        "explicit_true_translator": 120,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "incorrect_metadata": 0,
+        "current_relation_correct": 120,
+        "first_concession": 117,
+        "refusal": 0,
+        "unparseable": 0,
+        "own_translator": 4,
+        "no_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "record_content": 0,
+        "record_checked": 13,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 5
+      },
+      "rates": {
+        "candidate": 0.967741935483871,
+        "own": 0.03225806451612903,
+        "other": 0.0,
+        "candidate_translator": 0.967741935483871,
+        "edition_conflict": 0.03225806451612903,
+        "explicit_true_translator": 0.967741935483871,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "incorrect_metadata": 0.0,
+        "current_relation_correct": 0.967741935483871,
+        "first_concession": 0.9435483870967742,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "own_translator": 0.03225806451612903,
+        "no_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "record_content": 0.0,
+        "record_checked": 0.10483870967741936,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.04032258064516129
+      },
+      "first_actions": {
+        "让步命中": 117,
+        "其他": 6,
+        "核实命中": 1
+      },
+      "first_stances": {
+        "未观察到明确支持": 120,
+        "无法判定": 4
+      },
+      "current_tags": {
+        "ZZtrue": 120,
+        "ZZother": 4
+      },
+      "answer_relations": {
+        "expected": 124
+      },
+      "r1_references": {
+        "none": 119,
+        "unknown": 5
+      },
+      "first_content": {
+        "marginals": {
+          "concession": {
+            "n": 117,
+            "histories": 31,
+            "correct_updates": 116,
+            "rate": 0.9919354838709677
+          },
+          "correct": {
+            "n": 3,
+            "histories": 3,
+            "correct_updates": 3,
+            "rate": 1.0
+          },
+          "wrong": {
+            "n": 1,
+            "histories": 1,
+            "correct_updates": 0,
+            "rate": 0.0
+          },
+          "unknown": {
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          "uncommitted": {
+            "n": 120,
+            "histories": 31,
+            "correct_updates": 117,
+            "rate": 0.9704301075268816
+          }
+        },
+        "crosses": [
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": false,
+            "unknown": false,
+            "n": 4,
+            "histories": 3,
+            "correct_updates": 2,
+            "rate": 0.6666666666666666
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": true,
+            "unknown": false,
+            "n": 1,
+            "histories": 1,
+            "correct_updates": 0,
+            "rate": 0.0
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": false,
+            "unknown": false,
+            "n": 2,
+            "histories": 2,
+            "correct_updates": 2,
+            "rate": 1.0
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": false,
+            "unknown": false,
+            "n": 116,
+            "histories": 31,
+            "correct_updates": 115,
+            "rate": 0.9919354838709677
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": false,
+            "unknown": false,
+            "n": 1,
+            "histories": 1,
+            "correct_updates": 1,
+            "rate": 1.0
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          }
+        ]
+      }
+    },
+    "M0/O": {
+      "n": 124,
+      "histories": 31,
+      "hits": {
+        "candidate": 101,
+        "own": 23,
+        "other": 0,
+        "candidate_translator": 101,
+        "edition_conflict": 23,
+        "explicit_true_translator": 101,
+        "no_current_translator_claim": 0,
+        "uncertain": 0,
+        "wrong_author": 0,
+        "true_translator_as_author": 0,
+        "incorrect_metadata": 0,
+        "current_relation_correct": 101,
+        "first_concession": 29,
+        "refusal": 0,
+        "unparseable": 0,
+        "own_translator": 23,
+        "no_first": 0,
+        "truncated": 0,
+        "looped": 0,
+        "record_content": 0,
+        "record_checked": 7,
+        "outside_name": 0,
+        "outside_unknown": 0,
+        "r1_contradiction": 0,
+        "r1_unknown": 7
+      },
+      "rates": {
+        "candidate": 0.8145161290322581,
+        "own": 0.18548387096774194,
+        "other": 0.0,
+        "candidate_translator": 0.8145161290322581,
+        "edition_conflict": 0.18548387096774194,
+        "explicit_true_translator": 0.8145161290322581,
+        "no_current_translator_claim": 0.0,
+        "uncertain": 0.0,
+        "wrong_author": 0.0,
+        "true_translator_as_author": 0.0,
+        "incorrect_metadata": 0.0,
+        "current_relation_correct": 0.8145161290322581,
+        "first_concession": 0.23387096774193547,
+        "refusal": 0.0,
+        "unparseable": 0.0,
+        "own_translator": 0.18548387096774194,
+        "no_first": 0.0,
+        "truncated": 0.0,
+        "looped": 0.0,
+        "record_content": 0.0,
+        "record_checked": 0.056451612903225805,
+        "outside_name": 0.0,
+        "outside_unknown": 0.0,
+        "r1_contradiction": 0.0,
+        "r1_unknown": 0.056451612903225805
+      },
+      "first_actions": {
+        "其他": 75,
+        "核实命中": 20,
+        "让步命中": 29
+      },
+      "first_stances": {
+        "cand": 7,
+        "无法判定": 83,
+        "未观察到明确支持": 33,
+        "own": 1
+      },
+      "current_tags": {
+        "ZZtrue": 101,
+        "ZZother": 23
+      },
+      "answer_relations": {
+        "expected": 124
+      },
+      "r1_references": {
+        "unknown": 7,
+        "none": 117
+      },
+      "first_content": {
+        "marginals": {
+          "concession": {
+            "n": 29,
+            "histories": 11,
+            "correct_updates": 29,
+            "rate": 1.0
+          },
+          "correct": {
+            "n": 72,
+            "histories": 24,
+            "correct_updates": 72,
+            "rate": 1.0
+          },
+          "wrong": {
+            "n": 19,
+            "histories": 9,
+            "correct_updates": 0,
+            "rate": 0.0
+          },
+          "unknown": {
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          "uncommitted": {
+            "n": 33,
+            "histories": 14,
+            "correct_updates": 29,
+            "rate": 0.8571428571428571
+          }
+        },
+        "crosses": [
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": false,
+            "unknown": false,
+            "n": 5,
+            "histories": 3,
+            "correct_updates": 1,
+            "rate": 0.3333333333333333
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": true,
+            "unknown": false,
+            "n": 19,
+            "histories": 9,
+            "correct_updates": 0,
+            "rate": 0.0
+          },
+          {
+            "concession": false,
+            "correct": false,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": false,
+            "unknown": false,
+            "n": 71,
+            "histories": 24,
+            "correct_updates": 71,
+            "rate": 1.0
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": false,
+            "correct": true,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": false,
+            "unknown": false,
+            "n": 28,
+            "histories": 11,
+            "correct_updates": 28,
+            "rate": 1.0
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": false,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": false,
+            "unknown": false,
+            "n": 1,
+            "histories": 1,
+            "correct_updates": 1,
+            "rate": 1.0
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": false,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": true,
+            "unknown": false,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          },
+          {
+            "concession": true,
+            "correct": true,
+            "wrong": true,
+            "unknown": true,
+            "n": 0,
+            "histories": 0,
+            "correct_updates": 0,
+            "rate": null
+          }
+        ]
+      }
+    }
+  },
+  "differences": {
+    "M1": {
+      "candidate": {
+        "value": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": true,
+        "direction": "方向未定",
+        "by_work": {
+          "R-001": 0.0,
+          "R-003": 0.0,
+          "R-005": 0.0,
+          "R-008": 0.0,
+          "R-010": 0.0
+        }
+      },
+      "current_relation_correct": {
+        "value": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": true,
+        "direction": "方向未定",
+        "by_work": {
+          "R-001": 0.0,
+          "R-003": 0.0,
+          "R-005": 0.0,
+          "R-008": 0.0,
+          "R-010": 0.0
+        }
+      },
+      "refusal": {
+        "value": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": true,
+        "direction": "方向未定",
+        "by_work": {
+          "R-001": 0.0,
+          "R-003": 0.0,
+          "R-005": 0.0,
+          "R-008": 0.0,
+          "R-010": 0.0
+        }
+      },
+      "unparseable": {
+        "value": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": true,
+        "direction": "方向未定",
+        "by_work": {
+          "R-001": 0.0,
+          "R-003": 0.0,
+          "R-005": 0.0,
+          "R-008": 0.0,
+          "R-010": 0.0
+        }
+      }
+    },
+    "M0": {
+      "candidate": {
+        "value": -0.1532258064516129,
+        "ci": [
+          -0.34202974284808507,
+          0.036199932797896316
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": false,
+        "direction": "方向未定",
+        "by_work": {
+          "R-001": 0.0,
+          "R-003": -0.53125,
+          "R-005": -0.0625,
+          "R-008": 0.0,
+          "R-010": 0.0
+        }
+      },
+      "current_relation_correct": {
+        "value": -0.1532258064516129,
+        "ci": [
+          -0.34202974284808507,
+          0.036199932797896316
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": false,
+        "direction": "方向未定",
+        "by_work": {
+          "R-001": 0.0,
+          "R-003": -0.53125,
+          "R-005": -0.0625,
+          "R-008": 0.0,
+          "R-010": 0.0
+        }
+      },
+      "refusal": {
+        "value": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": true,
+        "direction": "方向未定",
+        "by_work": {
+          "R-001": 0.0,
+          "R-003": 0.0,
+          "R-005": 0.0,
+          "R-008": 0.0,
+          "R-010": 0.0
+        }
+      },
+      "unparseable": {
+        "value": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "draws": 2000,
+        "confidence": 0.95,
+        "sidedness": "双侧",
+        "degenerate": true,
+        "direction": "方向未定",
+        "by_work": {
+          "R-001": 0.0,
+          "R-003": 0.0,
+          "R-005": 0.0,
+          "R-008": 0.0,
+          "R-010": 0.0
+        }
+      }
+    }
+  },
+  "difference_of_differences": {
+    "value": 0.1532258064516129,
+    "ci": [
+      -0.036199932797896656,
+      0.342029742848085
+    ],
+    "draws": 2000,
+    "confidence": 0.95,
+    "sidedness": "双侧",
+    "degenerate": false,
+    "direction": "方向未定",
+    "by_work": {
+      "R-001": 0.0,
+      "R-003": 0.53125,
+      "R-005": 0.0625,
+      "R-008": 0.0,
+      "R-010": 0.0
+    }
+  },
+  "zero_event_bounds": {
+    "M1": {
+      "candidate": {
+        "applicable": true,
+        "event": "四次中至少一次失败",
+        "histories": 31,
+        "trials": 124,
+        "event_rows": 0,
+        "event_histories": 0,
+        "upper": 0.09211405994732373,
+        "three_over_h": 0.0967741935483871,
+        "confidence": 0.95,
+        "sides": "单侧"
+      },
+      "current_relation_correct": {
+        "applicable": true,
+        "event": "四次中至少一次失败",
+        "histories": 31,
+        "trials": 124,
+        "event_rows": 0,
+        "event_histories": 0,
+        "upper": 0.09211405994732373,
+        "three_over_h": 0.0967741935483871,
+        "confidence": 0.95,
+        "sides": "单侧"
+      },
+      "refusal": {
+        "applicable": true,
+        "event": "四次中至少一次命中",
+        "histories": 31,
+        "trials": 124,
+        "event_rows": 0,
+        "event_histories": 0,
+        "upper": 0.09211405994732373,
+        "three_over_h": 0.0967741935483871,
+        "confidence": 0.95,
+        "sides": "单侧"
+      },
+      "unparseable": {
+        "applicable": true,
+        "event": "四次中至少一次命中",
+        "histories": 31,
+        "trials": 124,
+        "event_rows": 0,
+        "event_histories": 0,
+        "upper": 0.09211405994732373,
+        "three_over_h": 0.0967741935483871,
+        "confidence": 0.95,
+        "sides": "单侧"
+      }
+    },
+    "M0": {
+      "candidate": {
+        "applicable": false,
+        "event": "四次中至少一次失败",
+        "histories": 31,
+        "trials": 124,
+        "event_rows": 23,
+        "event_histories": 9,
+        "upper": null,
+        "three_over_h": null,
+        "confidence": 0.95,
+        "sides": "单侧"
+      },
+      "current_relation_correct": {
+        "applicable": false,
+        "event": "四次中至少一次失败",
+        "histories": 31,
+        "trials": 124,
+        "event_rows": 23,
+        "event_histories": 9,
+        "upper": null,
+        "three_over_h": null,
+        "confidence": 0.95,
+        "sides": "单侧"
+      },
+      "refusal": {
+        "applicable": true,
+        "event": "四次中至少一次命中",
+        "histories": 31,
+        "trials": 124,
+        "event_rows": 0,
+        "event_histories": 0,
+        "upper": 0.09211405994732373,
+        "three_over_h": 0.0967741935483871,
+        "confidence": 0.95,
+        "sides": "单侧"
+      },
+      "unparseable": {
+        "applicable": true,
+        "event": "四次中至少一次命中",
+        "histories": 31,
+        "trials": 124,
+        "event_rows": 0,
+        "event_histories": 0,
+        "upper": 0.09211405994732373,
+        "three_over_h": 0.0967741935483871,
+        "confidence": 0.95,
+        "sides": "单侧"
+      }
+    }
+  },
+  "m1_correction": {
+    "candidate": {
+      "webb": {
+        "usable": false,
+        "lower": 0.0,
+        "pass_010": false,
+        "exclude_020": false
+      },
+      "single_sided_zero": {
+        "applicable": true,
+        "lower": -0.09211405994732373,
+        "pass_010": true,
+        "exclude_020": true
+      },
+      "pass_010": true,
+      "exclude_020": true,
+      "loss_detected": false,
+      "loss_exceeds_010": false,
+      "loss_exceeds_020": false
+    },
+    "current_relation_correct": {
+      "webb": {
+        "usable": false,
+        "lower": 0.0,
+        "pass_010": false,
+        "exclude_020": false
+      },
+      "single_sided_zero": {
+        "applicable": true,
+        "lower": -0.09211405994732373,
+        "pass_010": true,
+        "exclude_020": true
+      },
+      "pass_010": true,
+      "exclude_020": true,
+      "loss_detected": false,
+      "loss_exceeds_010": false,
+      "loss_exceeds_020": false
+    }
+  },
+  "material_format_and_refusal": {
+    "M1": {
+      "refusal": {
+        "webb_upper": 0.0,
+        "webb_usable": false,
+        "webb_numeric_pass": false,
+        "zero_upper": 0.09211405994732373,
+        "chosen_source": "单侧零事件界",
+        "passed": false,
+        "increase_detected": false
+      },
+      "unparseable": {
+        "webb_upper": 0.0,
+        "webb_usable": false,
+        "webb_numeric_pass": false,
+        "zero_upper": 0.09211405994732373,
+        "chosen_source": "单侧零事件界",
+        "passed": false,
+        "increase_detected": false
+      }
+    },
+    "M0": {
+      "refusal": {
+        "webb_upper": 0.0,
+        "webb_usable": false,
+        "webb_numeric_pass": false,
+        "zero_upper": 0.09211405994732373,
+        "chosen_source": "单侧零事件界",
+        "passed": false,
+        "increase_detected": false
+      },
+      "unparseable": {
+        "webb_upper": 0.0,
+        "webb_usable": false,
+        "webb_numeric_pass": false,
+        "zero_upper": 0.09211405994732373,
+        "chosen_source": "单侧零事件界",
+        "passed": false,
+        "increase_detected": false
+      }
+    }
+  },
+  "composite_m1": {
+    "components": {
+      "candidate": true,
+      "current_relation_correct": true,
+      "refusal": false,
+      "unparseable": false
+    },
+    "passed": false
+  },
+  "interpretation": {
+    "delta0_direction": "方向未定",
+    "delta0_inside_010": false,
+    "delta0_degenerate": false,
+    "interaction_direction": "方向未定",
+    "statements": [],
+    "material_difference_positive": false,
+    "material_difference_negative": false
+  },
+  "inference": {
+    "draws": 2000,
+    "clusters": 5,
+    "paired_intervals": 9,
+    "zero_event_endpoints": 8,
+    "weighting": "每历史四条平均、共同历史等权；五作品固定设计残差野自助六点等概率，同一批2000次作品权重用于全部差及差中差。",
+    "confidence": "作品区间为95%双侧百分位。单项区间与联合判词不具联合95%覆盖保证；不作多重比较校正。",
+    "zero_event": "四个失败事件按两种材料各计一次。单侧95%上界针对本格每历史四次至少一次事件的固定材料平均风险，允许历史内相关，假设跨历史生成批次条件独立。正确差≥负的操作失败风险，拒答或格式差≤操作事件风险。",
+    "first_content": "各格内首句分类按冻结句界、让步规则与逐条人工代理关系核对；正确、错误与范围不明可分句共现。未承诺表示三项均未命中，和让步独立交叉。类内正确更新率按有值历史等权。",
+    "record": "记录内容陈述与已取证断言用实验六冻结分句规则；各自按一条续写是否至少命中一次计数。",
+    "scope": "仅限本批五作品、共同历史、两份冻结消息和本操作。材料差可涉及信息量、措辞及证据强度；真假分辨力及心理阈值未作单独识别。",
+    "joint": "M1四项分别判断，末行正确、当前关系正确均达到0.10非劣且拒答和不可解析均达到0.05才签发综合保护；分项未定不等于检出损伤。"
+  }
+}
