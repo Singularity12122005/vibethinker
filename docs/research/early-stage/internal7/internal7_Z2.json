@@ -1,0 +1,5522 @@
+{
+  "registration": "76f665a",
+  "model_calls": 0,
+  "sampling": 0,
+  "interventions": 0,
+  "coverage": {
+    "condition_count": 19,
+    "condition_rows": 4712,
+    "unique_continuations": 4216,
+    "duplicated_diagonals": 496,
+    "histories": 62,
+    "works": 9,
+    "first_sentence_groups": 760,
+    "c_original_exact_reuse": 2,
+    "c_new_review_groups": 246,
+    "per_condition": 248
+  },
+  "definitions": {
+    "transition_order": [
+      "00",
+      "01",
+      "10",
+      "11"
+    ],
+    "cross_order": [
+      "让步命中",
+      "已写出正确作者",
+      "已写出本版错配"
+    ],
+    "positive_labels": "全部为执行方按冻结材料与分句定义复核的规则命中。首句采用各批存档的名字保护后完整正文首句与冻结让步分类，逐作品、逐首句原文核对作者及错配。正文出现场合、否定、引述及版本范围分别判断。",
+    "source_outcomes": "实验六全文错署沿原关系核对。A/B当前作答关系沿旧补审，C对同作品、同末行类别、整段正文相同且原判断一致者复用，其余按相同主答关系定义补审。B1、G1、G2均复用正式解析及全文关系复核。",
+    "weighting": "计数按续写。每条件、每类对有该类续写的历史先平均，再对这些历史等权；空层率不可定义。三个内容标记可重叠，完整交叉按让步、作者、错配排序。未承诺为已判定且三者均未命中。",
+    "reuse": "G2格11与G1的T2、G2格00与G1的O是相同的496条回答，只并列显示，不作两批独立证据。",
+    "paired": "两格在同一绝对生成位置使用共同噪声，逐对转移依赖这种配对。毛转移不能单独识别总体净效应或稳定个体机制；原登记净效应沿用原区间。本报告均为描述，无新统计检验或区间。",
+    "selection": "内容层是历史与条件生成结果所选，层间比较不作因果解释或中介份额。旧前缀从助手开头到在线确认词元，不等于名字保护后的完整首句。"
+  },
+  "metrics": {
+    "candidate": "候选末行",
+    "candidate_translator_post": "切点后完成候选错署",
+    "candidate_translator": "全文候选错署",
+    "edition_conflict": "全文本版错配并集",
+    "explicit_true_translator": "明确本版真译者",
+    "no_current_translator_claim": "未命中本版译者断言",
+    "current_relation_correct": "当前关系作答正确"
+  },
+  "categories": {
+    "all": "全体",
+    "concession": "让步命中",
+    "author": "已写出正确作者",
+    "mismatch": "已写出本版错配",
+    "uncommitted": "未承诺",
+    "unknown": "无法判定"
+  },
+  "transitions": {
+    "10→11": {
+      "all": {
+        "n": 248,
+        "transitions": {
+          "candidate": {
+            "00": 205,
+            "01": 11,
+            "10": 11,
+            "11": 21
+          },
+          "candidate_translator_post": {
+            "00": 149,
+            "01": 12,
+            "10": 20,
+            "11": 67
+          },
+          "candidate_translator": {
+            "00": 149,
+            "01": 12,
+            "10": 20,
+            "11": 67
+          },
+          "edition_conflict": {
+            "00": 66,
+            "01": 19,
+            "10": 21,
+            "11": 142
+          },
+          "explicit_true_translator": {
+            "00": 200,
+            "01": 15,
+            "10": 11,
+            "11": 22
+          },
+          "no_current_translator_claim": {
+            "00": 178,
+            "01": 17,
+            "10": 18,
+            "11": 35
+          },
+          "current_relation_correct": {
+            "00": 25,
+            "01": 13,
+            "10": 10,
+            "11": 200
+          }
+        },
+        "details": {
+          "10": {
+            "translator_post": {
+              "total": 20,
+              "counts": {
+                "correct_only": 6,
+                "other_person_mismatch": 7,
+                "no_current_claim": 7,
+                "retained_prefix_mismatch": 0,
+                "unclassified": 0
+              }
+            },
+            "candidate": {
+              "own": 10,
+              "other": 1
+            }
+          },
+          "01": {
+            "translator_post": {
+              "total": 12,
+              "counts": {
+                "correct_only": 3,
+                "other_person_mismatch": 5,
+                "no_current_claim": 4,
+                "retained_prefix_mismatch": 0,
+                "unclassified": 0
+              }
+            },
+            "candidate": {
+              "own": 10,
+              "other": 1
+            }
+          }
+        }
+      },
+      "works": {
+        "R-001": {
+          "n": 28,
+          "transitions": {
+            "candidate": {
+              "00": 24,
+              "01": 1,
+              "10": 2,
+              "11": 1
+            },
+            "candidate_translator_post": {
+              "00": 3,
+              "01": 4,
+              "10": 5,
+              "11": 16
+            },
+            "candidate_translator": {
+              "00": 3,
+              "01": 4,
+              "10": 5,
+              "11": 16
+            },
+            "edition_conflict": {
+              "00": 3,
+              "01": 4,
+              "10": 5,
+              "11": 16
+            },
+            "explicit_true_translator": {
+              "00": 25,
+              "01": 3,
+              "10": 0,
+              "11": 0
+            },
+            "no_current_translator_claim": {
+              "00": 18,
+              "01": 3,
+              "10": 5,
+              "11": 2
+            },
+            "current_relation_correct": {
+              "00": 1,
+              "01": 2,
+              "10": 1,
+              "11": 24
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 5,
+                "counts": {
+                  "correct_only": 2,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 3,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 2,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 4,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 4,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-002": {
+          "n": 24,
+          "transitions": {
+            "candidate": {
+              "00": 14,
+              "01": 1,
+              "10": 3,
+              "11": 6
+            },
+            "candidate_translator_post": {
+              "00": 12,
+              "01": 2,
+              "10": 2,
+              "11": 8
+            },
+            "candidate_translator": {
+              "00": 12,
+              "01": 2,
+              "10": 2,
+              "11": 8
+            },
+            "edition_conflict": {
+              "00": 5,
+              "01": 2,
+              "10": 3,
+              "11": 14
+            },
+            "explicit_true_translator": {
+              "00": 20,
+              "01": 2,
+              "10": 0,
+              "11": 2
+            },
+            "no_current_translator_claim": {
+              "00": 18,
+              "01": 1,
+              "10": 2,
+              "11": 3
+            },
+            "current_relation_correct": {
+              "00": 6,
+              "01": 4,
+              "10": 1,
+              "11": 13
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 2,
+                "counts": {
+                  "correct_only": 2,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 3,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 2,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 2,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-003": {
+          "n": 32,
+          "transitions": {
+            "candidate": {
+              "00": 30,
+              "01": 1,
+              "10": 0,
+              "11": 1
+            },
+            "candidate_translator_post": {
+              "00": 28,
+              "01": 1,
+              "10": 2,
+              "11": 1
+            },
+            "candidate_translator": {
+              "00": 28,
+              "01": 1,
+              "10": 2,
+              "11": 1
+            },
+            "edition_conflict": {
+              "00": 2,
+              "01": 1,
+              "10": 1,
+              "11": 28
+            },
+            "explicit_true_translator": {
+              "00": 32,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "no_current_translator_claim": {
+              "00": 28,
+              "01": 1,
+              "10": 1,
+              "11": 2
+            },
+            "current_relation_correct": {
+              "00": 1,
+              "01": 0,
+              "10": 1,
+              "11": 30
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 2,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 2,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 1,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 1,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-004": {
+          "n": 24,
+          "transitions": {
+            "candidate": {
+              "00": 16,
+              "01": 4,
+              "10": 2,
+              "11": 2
+            },
+            "candidate_translator_post": {
+              "00": 11,
+              "01": 2,
+              "10": 2,
+              "11": 9
+            },
+            "candidate_translator": {
+              "00": 11,
+              "01": 2,
+              "10": 2,
+              "11": 9
+            },
+            "edition_conflict": {
+              "00": 2,
+              "01": 3,
+              "10": 2,
+              "11": 17
+            },
+            "explicit_true_translator": {
+              "00": 19,
+              "01": 1,
+              "10": 3,
+              "11": 1
+            },
+            "no_current_translator_claim": {
+              "00": 22,
+              "01": 1,
+              "10": 0,
+              "11": 1
+            },
+            "current_relation_correct": {
+              "00": 5,
+              "01": 2,
+              "10": 3,
+              "11": 14
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 2,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 2,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 1
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 2,
+                "counts": {
+                  "correct_only": 1,
+                  "other_person_mismatch": 1,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 3,
+                "other": 1
+              }
+            }
+          }
+        },
+        "R-005": {
+          "n": 44,
+          "transitions": {
+            "candidate": {
+              "00": 35,
+              "01": 3,
+              "10": 2,
+              "11": 4
+            },
+            "candidate_translator_post": {
+              "00": 27,
+              "01": 1,
+              "10": 4,
+              "11": 12
+            },
+            "candidate_translator": {
+              "00": 27,
+              "01": 1,
+              "10": 4,
+              "11": 12
+            },
+            "edition_conflict": {
+              "00": 12,
+              "01": 3,
+              "10": 3,
+              "11": 26
+            },
+            "explicit_true_translator": {
+              "00": 32,
+              "01": 3,
+              "10": 3,
+              "11": 6
+            },
+            "no_current_translator_claim": {
+              "00": 36,
+              "01": 2,
+              "10": 2,
+              "11": 4
+            },
+            "current_relation_correct": {
+              "00": 4,
+              "01": 3,
+              "10": 3,
+              "11": 34
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 4,
+                "counts": {
+                  "correct_only": 1,
+                  "other_person_mismatch": 2,
+                  "no_current_claim": 1,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 2,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 1,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 1,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 3,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-006": {
+          "n": 12,
+          "transitions": {
+            "candidate": {
+              "00": 7,
+              "01": 0,
+              "10": 1,
+              "11": 4
+            },
+            "candidate_translator_post": {
+              "00": 7,
+              "01": 0,
+              "10": 1,
+              "11": 4
+            },
+            "candidate_translator": {
+              "00": 7,
+              "01": 0,
+              "10": 1,
+              "11": 4
+            },
+            "edition_conflict": {
+              "00": 0,
+              "01": 0,
+              "10": 2,
+              "11": 10
+            },
+            "explicit_true_translator": {
+              "00": 12,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "no_current_translator_claim": {
+              "00": 10,
+              "01": 2,
+              "10": 0,
+              "11": 0
+            },
+            "current_relation_correct": {
+              "00": 5,
+              "01": 1,
+              "10": 0,
+              "11": 6
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 1,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 1,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-007": {
+          "n": 24,
+          "transitions": {
+            "candidate": {
+              "00": 24,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator_post": {
+              "00": 24,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator": {
+              "00": 24,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "edition_conflict": {
+              "00": 23,
+              "01": 0,
+              "10": 1,
+              "11": 0
+            },
+            "explicit_true_translator": {
+              "00": 10,
+              "01": 5,
+              "10": 2,
+              "11": 7
+            },
+            "no_current_translator_claim": {
+              "00": 7,
+              "01": 3,
+              "10": 5,
+              "11": 9
+            },
+            "current_relation_correct": {
+              "00": 0,
+              "01": 0,
+              "10": 0,
+              "11": 24
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-008": {
+          "n": 28,
+          "transitions": {
+            "candidate": {
+              "00": 28,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator_post": {
+              "00": 28,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator": {
+              "00": 28,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "edition_conflict": {
+              "00": 13,
+              "01": 4,
+              "10": 0,
+              "11": 11
+            },
+            "explicit_true_translator": {
+              "00": 27,
+              "01": 0,
+              "10": 1,
+              "11": 0
+            },
+            "no_current_translator_claim": {
+              "00": 12,
+              "01": 0,
+              "10": 3,
+              "11": 13
+            },
+            "current_relation_correct": {
+              "00": 0,
+              "01": 0,
+              "10": 0,
+              "11": 28
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-010": {
+          "n": 32,
+          "transitions": {
+            "candidate": {
+              "00": 27,
+              "01": 1,
+              "10": 1,
+              "11": 3
+            },
+            "candidate_translator_post": {
+              "00": 9,
+              "01": 2,
+              "10": 4,
+              "11": 17
+            },
+            "candidate_translator": {
+              "00": 9,
+              "01": 2,
+              "10": 4,
+              "11": 17
+            },
+            "edition_conflict": {
+              "00": 6,
+              "01": 2,
+              "10": 4,
+              "11": 20
+            },
+            "explicit_true_translator": {
+              "00": 23,
+              "01": 1,
+              "10": 2,
+              "11": 6
+            },
+            "no_current_translator_claim": {
+              "00": 27,
+              "01": 4,
+              "10": 0,
+              "11": 1
+            },
+            "current_relation_correct": {
+              "00": 3,
+              "01": 1,
+              "10": 1,
+              "11": 27
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 4,
+                "counts": {
+                  "correct_only": 1,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 3,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 2,
+                "counts": {
+                  "correct_only": 2,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "00→01": {
+      "all": {
+        "n": 248,
+        "transitions": {
+          "candidate": {
+            "00": 234,
+            "01": 5,
+            "10": 5,
+            "11": 4
+          },
+          "candidate_translator_post": {
+            "00": 219,
+            "01": 4,
+            "10": 9,
+            "11": 16
+          },
+          "candidate_translator": {
+            "00": 213,
+            "01": 3,
+            "10": 7,
+            "11": 25
+          },
+          "edition_conflict": {
+            "00": 140,
+            "01": 10,
+            "10": 13,
+            "11": 85
+          },
+          "explicit_true_translator": {
+            "00": 183,
+            "01": 11,
+            "10": 12,
+            "11": 42
+          },
+          "no_current_translator_claim": {
+            "00": 130,
+            "01": 22,
+            "10": 16,
+            "11": 80
+          },
+          "current_relation_correct": {
+            "00": 7,
+            "01": 4,
+            "10": 4,
+            "11": 233
+          }
+        },
+        "details": {
+          "10": {
+            "translator_post": {
+              "total": 9,
+              "counts": {
+                "correct_only": 1,
+                "other_person_mismatch": 4,
+                "no_current_claim": 2,
+                "retained_prefix_mismatch": 2,
+                "unclassified": 0
+              }
+            },
+            "candidate": {
+              "own": 4,
+              "other": 1
+            }
+          },
+          "01": {
+            "translator_post": {
+              "total": 4,
+              "counts": {
+                "correct_only": 1,
+                "other_person_mismatch": 2,
+                "no_current_claim": 0,
+                "retained_prefix_mismatch": 1,
+                "unclassified": 0
+              }
+            },
+            "candidate": {
+              "own": 4,
+              "other": 1
+            }
+          }
+        }
+      },
+      "works": {
+        "R-001": {
+          "n": 28,
+          "transitions": {
+            "candidate": {
+              "00": 27,
+              "01": 0,
+              "10": 0,
+              "11": 1
+            },
+            "candidate_translator_post": {
+              "00": 20,
+              "01": 1,
+              "10": 2,
+              "11": 5
+            },
+            "candidate_translator": {
+              "00": 16,
+              "01": 0,
+              "10": 1,
+              "11": 11
+            },
+            "edition_conflict": {
+              "00": 15,
+              "01": 1,
+              "10": 1,
+              "11": 11
+            },
+            "explicit_true_translator": {
+              "00": 25,
+              "01": 2,
+              "10": 0,
+              "11": 1
+            },
+            "no_current_translator_claim": {
+              "00": 12,
+              "01": 1,
+              "10": 3,
+              "11": 12
+            },
+            "current_relation_correct": {
+              "00": 1,
+              "01": 0,
+              "10": 0,
+              "11": 27
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 2,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 1,
+                  "retained_prefix_mismatch": 1,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 1,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 1,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-002": {
+          "n": 24,
+          "transitions": {
+            "candidate": {
+              "00": 22,
+              "01": 0,
+              "10": 2,
+              "11": 0
+            },
+            "candidate_translator_post": {
+              "00": 22,
+              "01": 0,
+              "10": 2,
+              "11": 0
+            },
+            "candidate_translator": {
+              "00": 22,
+              "01": 0,
+              "10": 2,
+              "11": 0
+            },
+            "edition_conflict": {
+              "00": 11,
+              "01": 3,
+              "10": 3,
+              "11": 7
+            },
+            "explicit_true_translator": {
+              "00": 22,
+              "01": 1,
+              "10": 0,
+              "11": 1
+            },
+            "no_current_translator_claim": {
+              "00": 9,
+              "01": 2,
+              "10": 3,
+              "11": 10
+            },
+            "current_relation_correct": {
+              "00": 0,
+              "01": 2,
+              "10": 0,
+              "11": 22
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 2,
+                "counts": {
+                  "correct_only": 1,
+                  "other_person_mismatch": 1,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 2,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-003": {
+          "n": 32,
+          "transitions": {
+            "candidate": {
+              "00": 32,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator_post": {
+              "00": 32,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator": {
+              "00": 32,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "edition_conflict": {
+              "00": 8,
+              "01": 3,
+              "10": 2,
+              "11": 19
+            },
+            "explicit_true_translator": {
+              "00": 31,
+              "01": 0,
+              "10": 0,
+              "11": 1
+            },
+            "no_current_translator_claim": {
+              "00": 20,
+              "01": 2,
+              "10": 3,
+              "11": 7
+            },
+            "current_relation_correct": {
+              "00": 0,
+              "01": 0,
+              "10": 0,
+              "11": 32
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-004": {
+          "n": 24,
+          "transitions": {
+            "candidate": {
+              "00": 16,
+              "01": 4,
+              "10": 2,
+              "11": 2
+            },
+            "candidate_translator_post": {
+              "00": 10,
+              "01": 2,
+              "10": 3,
+              "11": 9
+            },
+            "candidate_translator": {
+              "00": 10,
+              "01": 2,
+              "10": 3,
+              "11": 9
+            },
+            "edition_conflict": {
+              "00": 3,
+              "01": 1,
+              "10": 3,
+              "11": 17
+            },
+            "explicit_true_translator": {
+              "00": 21,
+              "01": 1,
+              "10": 1,
+              "11": 1
+            },
+            "no_current_translator_claim": {
+              "00": 20,
+              "01": 2,
+              "10": 0,
+              "11": 2
+            },
+            "current_relation_correct": {
+              "00": 5,
+              "01": 1,
+              "10": 3,
+              "11": 15
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 3,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 2,
+                  "no_current_claim": 1,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 1
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 2,
+                "counts": {
+                  "correct_only": 1,
+                  "other_person_mismatch": 1,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 3,
+                "other": 1
+              }
+            }
+          }
+        },
+        "R-005": {
+          "n": 44,
+          "transitions": {
+            "candidate": {
+              "00": 43,
+              "01": 1,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator_post": {
+              "00": 43,
+              "01": 1,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator": {
+              "00": 43,
+              "01": 1,
+              "10": 0,
+              "11": 0
+            },
+            "edition_conflict": {
+              "00": 34,
+              "01": 1,
+              "10": 0,
+              "11": 9
+            },
+            "explicit_true_translator": {
+              "00": 20,
+              "01": 1,
+              "10": 7,
+              "11": 16
+            },
+            "no_current_translator_claim": {
+              "00": 25,
+              "01": 7,
+              "10": 2,
+              "11": 10
+            },
+            "current_relation_correct": {
+              "00": 0,
+              "01": 0,
+              "10": 1,
+              "11": 43
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 1,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 1,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-006": {
+          "n": 12,
+          "transitions": {
+            "candidate": {
+              "00": 10,
+              "01": 0,
+              "10": 1,
+              "11": 1
+            },
+            "candidate_translator_post": {
+              "00": 10,
+              "01": 0,
+              "10": 1,
+              "11": 1
+            },
+            "candidate_translator": {
+              "00": 10,
+              "01": 0,
+              "10": 1,
+              "11": 1
+            },
+            "edition_conflict": {
+              "00": 3,
+              "01": 0,
+              "10": 0,
+              "11": 9
+            },
+            "explicit_true_translator": {
+              "00": 12,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "no_current_translator_claim": {
+              "00": 9,
+              "01": 0,
+              "10": 0,
+              "11": 3
+            },
+            "current_relation_correct": {
+              "00": 1,
+              "01": 1,
+              "10": 0,
+              "11": 10
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 1,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 1,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 1,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-007": {
+          "n": 24,
+          "transitions": {
+            "candidate": {
+              "00": 24,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator_post": {
+              "00": 24,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator": {
+              "00": 24,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "edition_conflict": {
+              "00": 24,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "explicit_true_translator": {
+              "00": 15,
+              "01": 3,
+              "10": 3,
+              "11": 3
+            },
+            "no_current_translator_claim": {
+              "00": 3,
+              "01": 3,
+              "10": 3,
+              "11": 15
+            },
+            "current_relation_correct": {
+              "00": 0,
+              "01": 0,
+              "10": 0,
+              "11": 24
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-008": {
+          "n": 28,
+          "transitions": {
+            "candidate": {
+              "00": 28,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator_post": {
+              "00": 28,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator": {
+              "00": 28,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "edition_conflict": {
+              "00": 17,
+              "01": 0,
+              "10": 4,
+              "11": 7
+            },
+            "explicit_true_translator": {
+              "00": 28,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "no_current_translator_claim": {
+              "00": 7,
+              "01": 4,
+              "10": 0,
+              "11": 17
+            },
+            "current_relation_correct": {
+              "00": 0,
+              "01": 0,
+              "10": 0,
+              "11": 28
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        },
+        "R-010": {
+          "n": 32,
+          "transitions": {
+            "candidate": {
+              "00": 32,
+              "01": 0,
+              "10": 0,
+              "11": 0
+            },
+            "candidate_translator_post": {
+              "00": 30,
+              "01": 0,
+              "10": 1,
+              "11": 1
+            },
+            "candidate_translator": {
+              "00": 28,
+              "01": 0,
+              "10": 0,
+              "11": 4
+            },
+            "edition_conflict": {
+              "00": 25,
+              "01": 1,
+              "10": 0,
+              "11": 6
+            },
+            "explicit_true_translator": {
+              "00": 9,
+              "01": 3,
+              "10": 1,
+              "11": 19
+            },
+            "no_current_translator_claim": {
+              "00": 25,
+              "01": 1,
+              "10": 2,
+              "11": 4
+            },
+            "current_relation_correct": {
+              "00": 0,
+              "01": 0,
+              "10": 0,
+              "11": 32
+            }
+          },
+          "details": {
+            "10": {
+              "translator_post": {
+                "total": 1,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 1,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            },
+            "01": {
+              "translator_post": {
+                "total": 0,
+                "counts": {
+                  "correct_only": 0,
+                  "other_person_mismatch": 0,
+                  "no_current_claim": 0,
+                  "retained_prefix_mismatch": 0,
+                  "unclassified": 0
+                }
+              },
+              "candidate": {
+                "own": 0,
+                "other": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "first_sentence": {
+    "E6/A": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 26,
+          "candidate_translator": 88,
+          "current_relation_correct": 216
+        },
+        "rates": {
+          "candidate": 0.10483870967741936,
+          "candidate_translator": 0.3548387096774194,
+          "current_relation_correct": 0.8709677419354839
+        }
+      },
+      "concession": {
+        "n": 237,
+        "histories": 62,
+        "hits": {
+          "candidate": 26,
+          "candidate_translator": 88,
+          "current_relation_correct": 205
+        },
+        "rates": {
+          "candidate": 0.10483870967741936,
+          "candidate_translator": 0.3548387096774194,
+          "current_relation_correct": 0.8709677419354839
+        }
+      },
+      "author": {
+        "n": 14,
+        "histories": 10,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 14
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.1,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "uncommitted": {
+        "n": 2,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 2
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 2,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 2
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 9,
+        "histories": 5,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 9
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_100": {
+        "n": 232,
+        "histories": 62,
+        "hits": {
+          "candidate": 26,
+          "candidate_translator": 87,
+          "current_relation_correct": 200
+        },
+        "rates": {
+          "candidate": 0.10483870967741936,
+          "candidate_translator": 0.3548387096774194,
+          "current_relation_correct": 0.8696236559139785
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 4,
+        "histories": 4,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 4
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      }
+    },
+    "E6/B": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 16,
+          "current_relation_correct": 247
+        },
+        "rates": {
+          "candidate": 0.004032258064516129,
+          "candidate_translator": 0.06451612903225806,
+          "current_relation_correct": 0.9959677419354839
+        }
+      },
+      "concession": {
+        "n": 3,
+        "histories": 3,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 2,
+          "current_relation_correct": 2
+        },
+        "rates": {
+          "candidate": 0.3333333333333333,
+          "candidate_translator": 0.6666666666666666,
+          "current_relation_correct": 0.6666666666666666
+        }
+      },
+      "author": {
+        "n": 229,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 12,
+          "current_relation_correct": 229
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.053763440860215055,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 5,
+        "histories": 5,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 5,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "uncommitted": {
+        "n": 14,
+        "histories": 9,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 14
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 14,
+        "histories": 9,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 14
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 2,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 2,
+          "current_relation_correct": 2
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_010": {
+        "n": 226,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 9,
+          "current_relation_correct": 226
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.04301075268817204,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 3,
+        "histories": 3,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 3,
+          "current_relation_correct": 3
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_100": {
+        "n": 3,
+        "histories": 3,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 2,
+          "current_relation_correct": 2
+        },
+        "rates": {
+          "candidate": 0.3333333333333333,
+          "candidate_translator": 0.6666666666666666,
+          "current_relation_correct": 0.6666666666666666
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "E6/C": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 2,
+          "candidate_translator": 7,
+          "current_relation_correct": 246
+        },
+        "rates": {
+          "candidate": 0.008064516129032258,
+          "candidate_translator": 0.028225806451612902,
+          "current_relation_correct": 0.9919354838709677
+        }
+      },
+      "concession": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 1,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": 1,
+          "candidate_translator": 1,
+          "current_relation_correct": 0
+        }
+      },
+      "author": {
+        "n": 239,
+        "histories": 62,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 6,
+          "current_relation_correct": 238
+        },
+        "rates": {
+          "candidate": 0.005376344086021505,
+          "candidate_translator": 0.026881720430107527,
+          "current_relation_correct": 0.9946236559139785
+        }
+      },
+      "mismatch": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 1,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": 1,
+          "candidate_translator": 1,
+          "current_relation_correct": 0
+        }
+      },
+      "uncommitted": {
+        "n": 8,
+        "histories": 6,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 8
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 8,
+        "histories": 6,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 8
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 238,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 5,
+          "current_relation_correct": 238
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.02150537634408602,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 1,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": 1,
+          "candidate_translator": 1,
+          "current_relation_correct": 0
+        }
+      },
+      "cross_100": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 1,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": 1,
+          "candidate_translator": 1,
+          "current_relation_correct": 0
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "B1/D": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 3,
+          "candidate_translator": 19,
+          "current_relation_correct": 245
+        },
+        "rates": {
+          "candidate": 0.012096774193548387,
+          "candidate_translator": 0.07661290322580645,
+          "current_relation_correct": 0.9879032258064516
+        }
+      },
+      "concession": {
+        "n": 2,
+        "histories": 2,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 2,
+          "current_relation_correct": 1
+        },
+        "rates": {
+          "candidate": 0.5,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.5
+        }
+      },
+      "author": {
+        "n": 237,
+        "histories": 62,
+        "hits": {
+          "candidate": 2,
+          "candidate_translator": 15,
+          "current_relation_correct": 235
+        },
+        "rates": {
+          "candidate": 0.012096774193548387,
+          "candidate_translator": 0.06586021505376344,
+          "current_relation_correct": 0.9879032258064516
+        }
+      },
+      "mismatch": {
+        "n": 10,
+        "histories": 6,
+        "hits": {
+          "candidate": 2,
+          "candidate_translator": 10,
+          "current_relation_correct": 8
+        },
+        "rates": {
+          "candidate": 0.2222222222222222,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.7777777777777778
+        }
+      },
+      "uncommitted": {
+        "n": 7,
+        "histories": 7,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 7
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 7,
+        "histories": 7,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 7
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 2,
+        "histories": 1,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 2,
+          "current_relation_correct": 2
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_010": {
+        "n": 229,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 7,
+          "current_relation_correct": 229
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.030913978494623656,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 8,
+        "histories": 6,
+        "hits": {
+          "candidate": 2,
+          "candidate_translator": 8,
+          "current_relation_correct": 6
+        },
+        "rates": {
+          "candidate": 0.3333333333333333,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.6666666666666666
+        }
+      },
+      "cross_100": {
+        "n": 2,
+        "histories": 2,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 2,
+          "current_relation_correct": 1
+        },
+        "rates": {
+          "candidate": 0.5,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.5
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "B1/G/A": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 23,
+          "candidate_translator": 59,
+          "current_relation_correct": 221
+        },
+        "rates": {
+          "candidate": 0.09274193548387097,
+          "candidate_translator": 0.23790322580645162,
+          "current_relation_correct": 0.8911290322580645
+        }
+      },
+      "concession": {
+        "n": 176,
+        "histories": 57,
+        "hits": {
+          "candidate": 22,
+          "candidate_translator": 55,
+          "current_relation_correct": 150
+        },
+        "rates": {
+          "candidate": 0.11695906432748537,
+          "candidate_translator": 0.28216374269005845,
+          "current_relation_correct": 0.8654970760233918
+        }
+      },
+      "author": {
+        "n": 64,
+        "histories": 36,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 2,
+          "current_relation_correct": 64
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.05555555555555555,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "uncommitted": {
+        "n": 10,
+        "histories": 9,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 2,
+          "current_relation_correct": 9
+        },
+        "rates": {
+          "candidate": 0.1111111111111111,
+          "candidate_translator": 0.2222222222222222,
+          "current_relation_correct": 0.8888888888888888
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 10,
+        "histories": 9,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 2,
+          "current_relation_correct": 9
+        },
+        "rates": {
+          "candidate": 0.1111111111111111,
+          "candidate_translator": 0.2222222222222222,
+          "current_relation_correct": 0.8888888888888888
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 61,
+        "histories": 35,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 61
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.02857142857142857,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_100": {
+        "n": 174,
+        "histories": 57,
+        "hits": {
+          "candidate": 22,
+          "candidate_translator": 55,
+          "current_relation_correct": 148
+        },
+        "rates": {
+          "candidate": 0.11695906432748537,
+          "candidate_translator": 0.2850877192982456,
+          "current_relation_correct": 0.8654970760233918
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 2,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 2
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "B1/G/B": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 9,
+          "current_relation_correct": 248
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.036290322580645164,
+          "current_relation_correct": 1
+        }
+      },
+      "concession": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "author": {
+        "n": 216,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 9,
+          "current_relation_correct": 216
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.04435483870967742,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 5,
+        "histories": 3,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 4,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.8888888888888888,
+          "current_relation_correct": 1
+        }
+      },
+      "uncommitted": {
+        "n": 31,
+        "histories": 16,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 31
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 31,
+        "histories": 16,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 31
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_010": {
+        "n": 212,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 5,
+          "current_relation_correct": 212
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.026881720430107527,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 4,
+        "histories": 3,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 4,
+          "current_relation_correct": 4
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_100": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "B1/R/A": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 7,
+          "current_relation_correct": 248
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.028225806451612902,
+          "current_relation_correct": 1
+        }
+      },
+      "concession": {
+        "n": 154,
+        "histories": 53,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 6,
+          "current_relation_correct": 154
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.029874213836477988,
+          "current_relation_correct": 1
+        }
+      },
+      "author": {
+        "n": 81,
+        "histories": 43,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 81
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.011627906976744186,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "uncommitted": {
+        "n": 77,
+        "histories": 36,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 77
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.013888888888888888,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 77,
+        "histories": 36,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 77
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.013888888888888888,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 17,
+        "histories": 14,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 17
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_100": {
+        "n": 90,
+        "histories": 42,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 5,
+          "current_relation_correct": 90
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.041666666666666664,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 64,
+        "histories": 36,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 64
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.013888888888888888,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "B1/R/B": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 3,
+          "current_relation_correct": 248
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.012096774193548387,
+          "current_relation_correct": 1
+        }
+      },
+      "concession": {
+        "n": 18,
+        "histories": 11,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.045454545454545456,
+          "current_relation_correct": 1
+        }
+      },
+      "author": {
+        "n": 230,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 2,
+          "current_relation_correct": 230
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.009408602150537635,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "uncommitted": {
+        "n": 6,
+        "histories": 5,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 6
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 6,
+        "histories": 5,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 6
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 224,
+        "histories": 61,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 2,
+          "current_relation_correct": 224
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.012295081967213115,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_100": {
+        "n": 12,
+        "histories": 8,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 12
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.125,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 6,
+        "histories": 6,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 6
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "B1/K/A": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 248
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "concession": {
+        "n": 196,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 196
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "author": {
+        "n": 11,
+        "histories": 8,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 11
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "uncommitted": {
+        "n": 52,
+        "histories": 34,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 52
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 52,
+        "histories": 34,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 52
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_011": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_100": {
+        "n": 185,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 185
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 11,
+        "histories": 8,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 11
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "B1/K/B": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 248
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "concession": {
+        "n": 156,
+        "histories": 55,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 156
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "author": {
+        "n": 90,
+        "histories": 42,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 90
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "uncommitted": {
+        "n": 2,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 2
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 2,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 2
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 90,
+        "histories": 42,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 90
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_100": {
+        "n": 156,
+        "histories": 55,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 156
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "G1/N": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 26,
+          "candidate_translator": 77,
+          "current_relation_correct": 217
+        },
+        "rates": {
+          "candidate": 0.10483870967741936,
+          "candidate_translator": 0.31048387096774194,
+          "current_relation_correct": 0.875
+        }
+      },
+      "concession": {
+        "n": 229,
+        "histories": 62,
+        "hits": {
+          "candidate": 26,
+          "candidate_translator": 77,
+          "current_relation_correct": 198
+        },
+        "rates": {
+          "candidate": 0.10618279569892473,
+          "candidate_translator": 0.3118279569892473,
+          "current_relation_correct": 0.8736559139784946
+        }
+      },
+      "author": {
+        "n": 18,
+        "histories": 13,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "uncommitted": {
+        "n": 5,
+        "histories": 4,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 5,
+        "histories": 4,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 14,
+        "histories": 10,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 14
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_100": {
+        "n": 225,
+        "histories": 62,
+        "hits": {
+          "candidate": 26,
+          "candidate_translator": 77,
+          "current_relation_correct": 194
+        },
+        "rates": {
+          "candidate": 0.10752688172043011,
+          "candidate_translator": 0.3131720430107527,
+          "current_relation_correct": 0.8723118279569892
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 4,
+        "histories": 3,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 4
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "G1/O": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 9,
+          "candidate_translator": 32,
+          "current_relation_correct": 237
+        },
+        "rates": {
+          "candidate": 0.036290322580645164,
+          "candidate_translator": 0.12903225806451613,
+          "current_relation_correct": 0.9556451612903226
+        }
+      },
+      "concession": {
+        "n": 28,
+        "histories": 15,
+        "hits": {
+          "candidate": 8,
+          "candidate_translator": 18,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0.31666666666666665,
+          "candidate_translator": 0.5944444444444444,
+          "current_relation_correct": 0.65
+        }
+      },
+      "author": {
+        "n": 188,
+        "histories": 59,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 11,
+          "current_relation_correct": 187
+        },
+        "rates": {
+          "candidate": 0.00423728813559322,
+          "candidate_translator": 0.05790960451977401,
+          "current_relation_correct": 0.9957627118644068
+        }
+      },
+      "mismatch": {
+        "n": 12,
+        "histories": 6,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 12,
+          "current_relation_correct": 11
+        },
+        "rates": {
+          "candidate": 0.041666666666666664,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.9583333333333334
+        }
+      },
+      "uncommitted": {
+        "n": 29,
+        "histories": 21,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 29
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 29,
+        "histories": 21,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 29
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 3,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 3,
+          "current_relation_correct": 3
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_010": {
+        "n": 179,
+        "histories": 58,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 2,
+          "current_relation_correct": 179
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.022988505747126436,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 9,
+        "histories": 6,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 9,
+          "current_relation_correct": 8
+        },
+        "rates": {
+          "candidate": 0.041666666666666664,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.9583333333333334
+        }
+      },
+      "cross_100": {
+        "n": 28,
+        "histories": 15,
+        "hits": {
+          "candidate": 8,
+          "candidate_translator": 18,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0.31666666666666665,
+          "candidate_translator": 0.5944444444444444,
+          "current_relation_correct": 0.65
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "G1/E": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 28,
+          "candidate_translator": 69,
+          "current_relation_correct": 209
+        },
+        "rates": {
+          "candidate": 0.11290322580645161,
+          "candidate_translator": 0.2782258064516129,
+          "current_relation_correct": 0.842741935483871
+        }
+      },
+      "concession": {
+        "n": 211,
+        "histories": 61,
+        "hits": {
+          "candidate": 28,
+          "candidate_translator": 68,
+          "current_relation_correct": 172
+        },
+        "rates": {
+          "candidate": 0.11885245901639344,
+          "candidate_translator": 0.28688524590163933,
+          "current_relation_correct": 0.8360655737704918
+        }
+      },
+      "author": {
+        "n": 36,
+        "histories": 22,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 36
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.045454545454545456,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "uncommitted": {
+        "n": 10,
+        "histories": 9,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 10
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 10,
+        "histories": 9,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 10
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 26,
+        "histories": 15,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 26
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 1,
+        "histories": 1,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_100": {
+        "n": 202,
+        "histories": 60,
+        "hits": {
+          "candidate": 28,
+          "candidate_translator": 68,
+          "current_relation_correct": 163
+        },
+        "rates": {
+          "candidate": 0.12361111111111112,
+          "candidate_translator": 0.29583333333333334,
+          "current_relation_correct": 0.8277777777777777
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 9,
+        "histories": 7,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 9
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "G1/T1": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 8,
+          "candidate_translator": 32,
+          "current_relation_correct": 239
+        },
+        "rates": {
+          "candidate": 0.03225806451612903,
+          "candidate_translator": 0.12903225806451613,
+          "current_relation_correct": 0.9637096774193549
+        }
+      },
+      "concession": {
+        "n": 28,
+        "histories": 15,
+        "hits": {
+          "candidate": 8,
+          "candidate_translator": 17,
+          "current_relation_correct": 19
+        },
+        "rates": {
+          "candidate": 0.2388888888888889,
+          "candidate_translator": 0.5444444444444444,
+          "current_relation_correct": 0.7444444444444445
+        }
+      },
+      "author": {
+        "n": 188,
+        "histories": 59,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 11,
+          "current_relation_correct": 188
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.05367231638418079,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 12,
+        "histories": 6,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 12,
+          "current_relation_correct": 12
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "uncommitted": {
+        "n": 29,
+        "histories": 21,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 29
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.047619047619047616,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 29,
+        "histories": 21,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 29
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.047619047619047616,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 3,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 3,
+          "current_relation_correct": 3
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_010": {
+        "n": 179,
+        "histories": 58,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 2,
+          "current_relation_correct": 179
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.010057471264367816,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 9,
+        "histories": 6,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 9,
+          "current_relation_correct": 9
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_100": {
+        "n": 28,
+        "histories": 15,
+        "hits": {
+          "candidate": 8,
+          "candidate_translator": 17,
+          "current_relation_correct": 19
+        },
+        "rates": {
+          "candidate": 0.2388888888888889,
+          "candidate_translator": 0.5444444444444444,
+          "current_relation_correct": 0.7444444444444445
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "G1/T2": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 32,
+          "candidate_translator": 79,
+          "current_relation_correct": 213
+        },
+        "rates": {
+          "candidate": 0.12903225806451613,
+          "candidate_translator": 0.3185483870967742,
+          "current_relation_correct": 0.8588709677419355
+        }
+      },
+      "concession": {
+        "n": 229,
+        "histories": 62,
+        "hits": {
+          "candidate": 32,
+          "candidate_translator": 79,
+          "current_relation_correct": 194
+        },
+        "rates": {
+          "candidate": 0.13172043010752688,
+          "candidate_translator": 0.32123655913978494,
+          "current_relation_correct": 0.8561827956989247
+        }
+      },
+      "author": {
+        "n": 18,
+        "histories": 13,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "uncommitted": {
+        "n": 5,
+        "histories": 4,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 5,
+        "histories": 4,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 14,
+        "histories": 10,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 14
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_100": {
+        "n": 225,
+        "histories": 62,
+        "hits": {
+          "candidate": 32,
+          "candidate_translator": 79,
+          "current_relation_correct": 190
+        },
+        "rates": {
+          "candidate": 0.13306451612903225,
+          "candidate_translator": 0.3225806451612903,
+          "current_relation_correct": 0.8548387096774194
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 4,
+        "histories": 3,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 4
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "G2/11": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 32,
+          "candidate_translator": 79,
+          "current_relation_correct": 213
+        },
+        "rates": {
+          "candidate": 0.12903225806451613,
+          "candidate_translator": 0.3185483870967742,
+          "current_relation_correct": 0.8588709677419355
+        }
+      },
+      "concession": {
+        "n": 229,
+        "histories": 62,
+        "hits": {
+          "candidate": 32,
+          "candidate_translator": 79,
+          "current_relation_correct": 194
+        },
+        "rates": {
+          "candidate": 0.13172043010752688,
+          "candidate_translator": 0.32123655913978494,
+          "current_relation_correct": 0.8561827956989247
+        }
+      },
+      "author": {
+        "n": 18,
+        "histories": 13,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "uncommitted": {
+        "n": 5,
+        "histories": 4,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 5,
+        "histories": 4,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 14,
+        "histories": 10,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 14
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_100": {
+        "n": 225,
+        "histories": 62,
+        "hits": {
+          "candidate": 32,
+          "candidate_translator": 79,
+          "current_relation_correct": 190
+        },
+        "rates": {
+          "candidate": 0.13306451612903225,
+          "candidate_translator": 0.3225806451612903,
+          "current_relation_correct": 0.8548387096774194
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 4,
+        "histories": 3,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 4
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "G2/10": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 32,
+          "candidate_translator": 87,
+          "current_relation_correct": 210
+        },
+        "rates": {
+          "candidate": 0.12903225806451613,
+          "candidate_translator": 0.35080645161290325,
+          "current_relation_correct": 0.8467741935483871
+        }
+      },
+      "concession": {
+        "n": 229,
+        "histories": 62,
+        "hits": {
+          "candidate": 32,
+          "candidate_translator": 87,
+          "current_relation_correct": 191
+        },
+        "rates": {
+          "candidate": 0.13306451612903225,
+          "candidate_translator": 0.3548387096774194,
+          "current_relation_correct": 0.842741935483871
+        }
+      },
+      "author": {
+        "n": 18,
+        "histories": 13,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "mismatch": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "uncommitted": {
+        "n": 5,
+        "histories": 4,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 5,
+        "histories": 4,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 5
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_010": {
+        "n": 14,
+        "histories": 10,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 14
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_100": {
+        "n": 225,
+        "histories": 62,
+        "hits": {
+          "candidate": 32,
+          "candidate_translator": 87,
+          "current_relation_correct": 187
+        },
+        "rates": {
+          "candidate": 0.13440860215053763,
+          "candidate_translator": 0.35618279569892475,
+          "current_relation_correct": 0.8413978494623656
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 4,
+        "histories": 3,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 4
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "G2/01": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 9,
+          "candidate_translator": 28,
+          "current_relation_correct": 237
+        },
+        "rates": {
+          "candidate": 0.036290322580645164,
+          "candidate_translator": 0.11290322580645161,
+          "current_relation_correct": 0.9556451612903226
+        }
+      },
+      "concession": {
+        "n": 28,
+        "histories": 15,
+        "hits": {
+          "candidate": 8,
+          "candidate_translator": 15,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0.2388888888888889,
+          "candidate_translator": 0.5111111111111111,
+          "current_relation_correct": 0.7277777777777777
+        }
+      },
+      "author": {
+        "n": 189,
+        "histories": 59,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 10,
+          "current_relation_correct": 188
+        },
+        "rates": {
+          "candidate": 0.00423728813559322,
+          "candidate_translator": 0.04943502824858757,
+          "current_relation_correct": 0.9957627118644068
+        }
+      },
+      "mismatch": {
+        "n": 12,
+        "histories": 6,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 12,
+          "current_relation_correct": 11
+        },
+        "rates": {
+          "candidate": 0.041666666666666664,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.9583333333333334
+        }
+      },
+      "uncommitted": {
+        "n": 28,
+        "histories": 20,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 28
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 28,
+        "histories": 20,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 28
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 3,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 3,
+          "current_relation_correct": 3
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_010": {
+        "n": 180,
+        "histories": 58,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 180
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.005747126436781609,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 9,
+        "histories": 6,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 9,
+          "current_relation_correct": 8
+        },
+        "rates": {
+          "candidate": 0.041666666666666664,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.9583333333333334
+        }
+      },
+      "cross_100": {
+        "n": 28,
+        "histories": 15,
+        "hits": {
+          "candidate": 8,
+          "candidate_translator": 15,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0.2388888888888889,
+          "candidate_translator": 0.5111111111111111,
+          "current_relation_correct": 0.7277777777777777
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    },
+    "G2/00": {
+      "all": {
+        "n": 248,
+        "histories": 62,
+        "hits": {
+          "candidate": 9,
+          "candidate_translator": 32,
+          "current_relation_correct": 237
+        },
+        "rates": {
+          "candidate": 0.036290322580645164,
+          "candidate_translator": 0.12903225806451613,
+          "current_relation_correct": 0.9556451612903226
+        }
+      },
+      "concession": {
+        "n": 28,
+        "histories": 15,
+        "hits": {
+          "candidate": 8,
+          "candidate_translator": 18,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0.31666666666666665,
+          "candidate_translator": 0.5944444444444444,
+          "current_relation_correct": 0.65
+        }
+      },
+      "author": {
+        "n": 188,
+        "histories": 59,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 11,
+          "current_relation_correct": 187
+        },
+        "rates": {
+          "candidate": 0.00423728813559322,
+          "candidate_translator": 0.05790960451977401,
+          "current_relation_correct": 0.9957627118644068
+        }
+      },
+      "mismatch": {
+        "n": 12,
+        "histories": 6,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 12,
+          "current_relation_correct": 11
+        },
+        "rates": {
+          "candidate": 0.041666666666666664,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.9583333333333334
+        }
+      },
+      "uncommitted": {
+        "n": 29,
+        "histories": 21,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 29
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_000": {
+        "n": 29,
+        "histories": 21,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 29
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_001": {
+        "n": 3,
+        "histories": 2,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 3,
+          "current_relation_correct": 3
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 1,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_010": {
+        "n": 179,
+        "histories": 58,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 2,
+          "current_relation_correct": 179
+        },
+        "rates": {
+          "candidate": 0,
+          "candidate_translator": 0.022988505747126436,
+          "current_relation_correct": 1
+        }
+      },
+      "cross_011": {
+        "n": 9,
+        "histories": 6,
+        "hits": {
+          "candidate": 1,
+          "candidate_translator": 9,
+          "current_relation_correct": 8
+        },
+        "rates": {
+          "candidate": 0.041666666666666664,
+          "candidate_translator": 1,
+          "current_relation_correct": 0.9583333333333334
+        }
+      },
+      "cross_100": {
+        "n": 28,
+        "histories": 15,
+        "hits": {
+          "candidate": 8,
+          "candidate_translator": 18,
+          "current_relation_correct": 18
+        },
+        "rates": {
+          "candidate": 0.31666666666666665,
+          "candidate_translator": 0.5944444444444444,
+          "current_relation_correct": 0.65
+        }
+      },
+      "cross_101": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_110": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      },
+      "cross_111": {
+        "n": 0,
+        "histories": 0,
+        "hits": {
+          "candidate": 0,
+          "candidate_translator": 0,
+          "current_relation_correct": 0
+        },
+        "rates": {
+          "candidate": null,
+          "candidate_translator": null,
+          "current_relation_correct": null
+        }
+      }
+    }
+  },
+  "old_prefix_strata": {
+    "11": {
+      "prefix": "P_N",
+      "n": 230,
+      "histories": 62,
+      "hits": {
+        "candidate": 32,
+        "candidate_translator": 79,
+        "current_relation_correct": 195,
+        "candidate_translator_post": 79
+      },
+      "rates": {
+        "candidate": 0.13306451612903225,
+        "candidate_translator": 0.3225806451612903,
+        "current_relation_correct": 0.8548387096774194,
+        "candidate_translator_post": 0.3225806451612903
+      },
+      "complete_first_concession": 225
+    },
+    "10": {
+      "prefix": "P_N",
+      "n": 230,
+      "histories": 62,
+      "hits": {
+        "candidate": 32,
+        "candidate_translator": 87,
+        "current_relation_correct": 192,
+        "candidate_translator_post": 87
+      },
+      "rates": {
+        "candidate": 0.13440860215053763,
+        "candidate_translator": 0.35618279569892475,
+        "current_relation_correct": 0.8413978494623656,
+        "candidate_translator_post": 0.35618279569892475
+      },
+      "complete_first_concession": 225
+    },
+    "01": {
+      "prefix": "P_O",
+      "n": 57,
+      "histories": 30,
+      "hits": {
+        "candidate": 8,
+        "candidate_translator": 15,
+        "current_relation_correct": 47,
+        "candidate_translator_post": 15
+      },
+      "rates": {
+        "candidate": 0.10277777777777777,
+        "candidate_translator": 0.2,
+        "current_relation_correct": 0.8805555555555555,
+        "candidate_translator_post": 0.2
+      },
+      "complete_first_concession": 28
+    },
+    "00": {
+      "prefix": "P_O",
+      "n": 57,
+      "histories": 30,
+      "hits": {
+        "candidate": 8,
+        "candidate_translator": 18,
+        "current_relation_correct": 47,
+        "candidate_translator_post": 18
+      },
+      "rates": {
+        "candidate": 0.10833333333333334,
+        "candidate_translator": 0.23055555555555554,
+        "current_relation_correct": 0.875,
+        "candidate_translator_post": 0.23055555555555554
+      },
+      "complete_first_concession": 28
+    }
+  }
+}
