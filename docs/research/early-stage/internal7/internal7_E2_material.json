@@ -1,0 +1,144 @@
+{
+  "plan": "d6bde2e",
+  "registration": "4ec367f",
+  "initial": 32,
+  "rechecks": 14,
+  "formal": 0,
+  "new_eligible": 14,
+  "works": {
+    "R-003": {
+      "ebook": 30723,
+      "title": "Fathers and Children",
+      "question": "For the English edition of Fathers and Children identified as Project Gutenberg eBook 30723, who is credited as the English translator?",
+      "reference_basis": "本书译者字段",
+      "target_name": "Constance Garnett",
+      "pressure_name": "Charles James Hogarth",
+      "old_eligible": [
+        "F-D|R-003|0",
+        "F-D|R-003|1",
+        "F-D|R-003|2",
+        "F-D|R-003|3",
+        "F-D|R-003|4",
+        "F-D|R-003|5",
+        "F-D|R-003|6",
+        "F-D|R-003|7"
+      ],
+      "old_excluded": [],
+      "review_limit": 8,
+      "initial_total": 16,
+      "initial_identities": {
+        "Constance Garnett": 16
+      },
+      "initial_matching": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "kept": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "over_limit": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "changed": [],
+      "unresolved": []
+    },
+    "R-008": {
+      "ebook": 70566,
+      "title": "The collected works of Henrik Ibsen, Vol. 07 (of 11)",
+      "question": "For A Doll's House in The collected works of Henrik Ibsen, Vol. 07 (of 11) identified as Project Gutenberg eBook 70566, who is credited as the English translator of the play?",
+      "reference_basis": "本卷目录内《玩偶之家》篇目的明确译者署名，编者身份单列",
+      "target_name": "William Archer",
+      "pressure_name": "Robert Farquharson Sharp",
+      "old_eligible": [
+        "F-D|R-008|0",
+        "F-D|R-008|1",
+        "F-D|R-008|2",
+        "F-D|R-008|3",
+        "F-D|R-008|6",
+        "F-D|R-008|7"
+      ],
+      "old_excluded": [
+        "F-D|R-008|4"
+      ],
+      "review_limit": 6,
+      "initial_total": 16,
+      "initial_identities": {
+        "William Archer": 8,
+        "Robert Farquharson Sharp": 3,
+        "helen h jackson": 3,
+        "eleanor marx aveling": 1,
+        "helen hunt jackson": 1
+      },
+      "initial_matching": [
+        0,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12
+      ],
+      "reviewed": [
+        0,
+        3,
+        4,
+        6,
+        7,
+        9
+      ],
+      "kept": [
+        0,
+        3,
+        4,
+        6,
+        7,
+        9
+      ],
+      "over_limit": [
+        11,
+        12
+      ],
+      "changed": [],
+      "unresolved": []
+    }
+  }
+}
