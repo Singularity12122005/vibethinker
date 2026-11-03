@@ -1,0 +1,4114 @@
+{
+  "registration": "c727d70",
+  "plan_commit": "d6bde2e",
+  "model_calls": 0,
+  "sampling": 0,
+  "activation_interventions": 0,
+  "condition_rows": 1612,
+  "distinct_responses": 1364,
+  "duplicate_rows": 248,
+  "cells": {
+    "G1/O": {
+      "total": {
+        "responses": 248,
+        "histories": 62,
+        "wrong_person_responses": 98,
+        "wrong_person_incidences": 98,
+        "metadata_conflict_without_wrong_person": 0,
+        "role_person_counts": {
+          "d_T": 64,
+          "own1": 34,
+          "current_candidate": 32,
+          "other_registered": 0,
+          "unregistered": 2
+        },
+        "role_response_counts": {
+          "d_T": 64,
+          "own1": 34,
+          "current_candidate": 32,
+          "other_registered": 0,
+          "unregistered": 2
+        },
+        "dT_or_own1_response_count": 64,
+        "dT_or_own1_person_count": 64,
+        "people": {
+          "R-001-P01": {
+            "distinct_responses": 12,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 12,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 12
+            }
+          },
+          "R-002-P01": {
+            "distinct_responses": 8,
+            "role_hits": {
+              "d_T": 8,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 8
+            }
+          },
+          "R-002-P02": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 2,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 2
+            }
+          },
+          "R-003-P02": {
+            "distinct_responses": 21,
+            "role_hits": {
+              "d_T": 21,
+              "own1": 21,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 21
+            }
+          },
+          "R-004-P01": {
+            "distinct_responses": 8,
+            "role_hits": {
+              "d_T": 8,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 8
+            }
+          },
+          "R-004-P02": {
+            "distinct_responses": 12,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 12,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 12
+            }
+          },
+          "R-005-P01": {
+            "distinct_responses": 9,
+            "role_hits": {
+              "d_T": 9,
+              "own1": 3,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 3,
+              "d_T": 6
+            }
+          },
+          "R-006-P01": {
+            "distinct_responses": 7,
+            "role_hits": {
+              "d_T": 7,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 7
+            }
+          },
+          "R-006-P02": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 2,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 2
+            }
+          },
+          "R-008-P01": {
+            "distinct_responses": 11,
+            "role_hits": {
+              "d_T": 11,
+              "own1": 10,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 10,
+              "d_T": 1
+            }
+          },
+          "R-010-P01": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 2
+            },
+            "role_combinations": {
+              "unregistered": 2
+            }
+          },
+          "R-010-P03": {
+            "distinct_responses": 4,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 4,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 4
+            }
+          }
+        }
+      },
+      "works": {
+        "R-001": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 12,
+          "wrong_person_incidences": 12,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 12,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 12,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {
+            "R-001-P01": {
+              "distinct_responses": 12,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 12,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 12
+              }
+            }
+          }
+        },
+        "R-002": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 10,
+          "wrong_person_incidences": 10,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 8,
+          "dT_or_own1_person_count": 8,
+          "people": {
+            "R-002-P01": {
+              "distinct_responses": 8,
+              "role_hits": {
+                "d_T": 8,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 8
+              }
+            },
+            "R-002-P02": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 2,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 2
+              }
+            }
+          }
+        },
+        "R-003": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 21,
+          "wrong_person_incidences": 21,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 21,
+            "own1": 21,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 21,
+            "own1": 21,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 21,
+          "dT_or_own1_person_count": 21,
+          "people": {
+            "R-003-P02": {
+              "distinct_responses": 21,
+              "role_hits": {
+                "d_T": 21,
+                "own1": 21,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 21
+              }
+            }
+          }
+        },
+        "R-004": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 20,
+          "wrong_person_incidences": 20,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 12,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 12,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 8,
+          "dT_or_own1_person_count": 8,
+          "people": {
+            "R-004-P01": {
+              "distinct_responses": 8,
+              "role_hits": {
+                "d_T": 8,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 8
+              }
+            },
+            "R-004-P02": {
+              "distinct_responses": 12,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 12,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 12
+              }
+            }
+          }
+        },
+        "R-005": {
+          "responses": 44,
+          "histories": 11,
+          "wrong_person_responses": 9,
+          "wrong_person_incidences": 9,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 9,
+            "own1": 3,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 9,
+            "own1": 3,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 9,
+          "dT_or_own1_person_count": 9,
+          "people": {
+            "R-005-P01": {
+              "distinct_responses": 9,
+              "role_hits": {
+                "d_T": 9,
+                "own1": 3,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 3,
+                "d_T": 6
+              }
+            }
+          }
+        },
+        "R-006": {
+          "responses": 12,
+          "histories": 3,
+          "wrong_person_responses": 9,
+          "wrong_person_incidences": 9,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 7,
+          "dT_or_own1_person_count": 7,
+          "people": {
+            "R-006-P01": {
+              "distinct_responses": 7,
+              "role_hits": {
+                "d_T": 7,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 7
+              }
+            },
+            "R-006-P02": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 2,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 2
+              }
+            }
+          }
+        },
+        "R-007": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 0,
+          "wrong_person_incidences": 0,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {}
+        },
+        "R-008": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 11,
+          "wrong_person_incidences": 11,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 11,
+            "own1": 10,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 11,
+            "own1": 10,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 11,
+          "dT_or_own1_person_count": 11,
+          "people": {
+            "R-008-P01": {
+              "distinct_responses": 11,
+              "role_hits": {
+                "d_T": 11,
+                "own1": 10,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 10,
+                "d_T": 1
+              }
+            }
+          }
+        },
+        "R-010": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 6,
+          "wrong_person_incidences": 6,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 2
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 2
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {
+            "R-010-P01": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 2
+              },
+              "role_combinations": {
+                "unregistered": 2
+              }
+            },
+            "R-010-P03": {
+              "distinct_responses": 4,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 4,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "G1/T1": {
+      "total": {
+        "responses": 248,
+        "histories": 62,
+        "wrong_person_responses": 105,
+        "wrong_person_incidences": 105,
+        "metadata_conflict_without_wrong_person": 0,
+        "role_person_counts": {
+          "d_T": 72,
+          "own1": 33,
+          "current_candidate": 32,
+          "other_registered": 0,
+          "unregistered": 1
+        },
+        "role_response_counts": {
+          "d_T": 72,
+          "own1": 33,
+          "current_candidate": 32,
+          "other_registered": 0,
+          "unregistered": 1
+        },
+        "dT_or_own1_response_count": 72,
+        "dT_or_own1_person_count": 72,
+        "people": {
+          "R-001-P01": {
+            "distinct_responses": 13,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 13,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 13
+            }
+          },
+          "R-002-P01": {
+            "distinct_responses": 11,
+            "role_hits": {
+              "d_T": 11,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 11
+            }
+          },
+          "R-002-P02": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 1,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 1
+            }
+          },
+          "R-003-P02": {
+            "distinct_responses": 18,
+            "role_hits": {
+              "d_T": 18,
+              "own1": 18,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 18
+            }
+          },
+          "R-004-P01": {
+            "distinct_responses": 8,
+            "role_hits": {
+              "d_T": 8,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 8
+            }
+          },
+          "R-004-P02": {
+            "distinct_responses": 13,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 13,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 13
+            }
+          },
+          "R-005-P01": {
+            "distinct_responses": 11,
+            "role_hits": {
+              "d_T": 11,
+              "own1": 4,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 4,
+              "d_T": 7
+            }
+          },
+          "R-006-P01": {
+            "distinct_responses": 10,
+            "role_hits": {
+              "d_T": 10,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 10
+            }
+          },
+          "R-006-P02": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 1,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 1
+            }
+          },
+          "R-008-P01": {
+            "distinct_responses": 14,
+            "role_hits": {
+              "d_T": 14,
+              "own1": 11,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 11,
+              "d_T": 3
+            }
+          },
+          "R-010-P01": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 1
+            },
+            "role_combinations": {
+              "unregistered": 1
+            }
+          },
+          "R-010-P03": {
+            "distinct_responses": 4,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 4,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 4
+            }
+          }
+        }
+      },
+      "works": {
+        "R-001": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 13,
+          "wrong_person_incidences": 13,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 13,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 13,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {
+            "R-001-P01": {
+              "distinct_responses": 13,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 13,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 13
+              }
+            }
+          }
+        },
+        "R-002": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 12,
+          "wrong_person_incidences": 12,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 11,
+            "own1": 0,
+            "current_candidate": 1,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 11,
+            "own1": 0,
+            "current_candidate": 1,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 11,
+          "dT_or_own1_person_count": 11,
+          "people": {
+            "R-002-P01": {
+              "distinct_responses": 11,
+              "role_hits": {
+                "d_T": 11,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 11
+              }
+            },
+            "R-002-P02": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 1,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 1
+              }
+            }
+          }
+        },
+        "R-003": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 18,
+          "wrong_person_incidences": 18,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 18,
+            "own1": 18,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 18,
+            "own1": 18,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 18,
+          "dT_or_own1_person_count": 18,
+          "people": {
+            "R-003-P02": {
+              "distinct_responses": 18,
+              "role_hits": {
+                "d_T": 18,
+                "own1": 18,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 18
+              }
+            }
+          }
+        },
+        "R-004": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 21,
+          "wrong_person_incidences": 21,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 13,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 13,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 8,
+          "dT_or_own1_person_count": 8,
+          "people": {
+            "R-004-P01": {
+              "distinct_responses": 8,
+              "role_hits": {
+                "d_T": 8,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 8
+              }
+            },
+            "R-004-P02": {
+              "distinct_responses": 13,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 13,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 13
+              }
+            }
+          }
+        },
+        "R-005": {
+          "responses": 44,
+          "histories": 11,
+          "wrong_person_responses": 11,
+          "wrong_person_incidences": 11,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 11,
+            "own1": 4,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 11,
+            "own1": 4,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 11,
+          "dT_or_own1_person_count": 11,
+          "people": {
+            "R-005-P01": {
+              "distinct_responses": 11,
+              "role_hits": {
+                "d_T": 11,
+                "own1": 4,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 4,
+                "d_T": 7
+              }
+            }
+          }
+        },
+        "R-006": {
+          "responses": 12,
+          "histories": 3,
+          "wrong_person_responses": 11,
+          "wrong_person_incidences": 11,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 10,
+            "own1": 0,
+            "current_candidate": 1,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 10,
+            "own1": 0,
+            "current_candidate": 1,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 10,
+          "dT_or_own1_person_count": 10,
+          "people": {
+            "R-006-P01": {
+              "distinct_responses": 10,
+              "role_hits": {
+                "d_T": 10,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 10
+              }
+            },
+            "R-006-P02": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 1,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 1
+              }
+            }
+          }
+        },
+        "R-007": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 0,
+          "wrong_person_incidences": 0,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {}
+        },
+        "R-008": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 14,
+          "wrong_person_incidences": 14,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 14,
+            "own1": 11,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 14,
+            "own1": 11,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 14,
+          "dT_or_own1_person_count": 14,
+          "people": {
+            "R-008-P01": {
+              "distinct_responses": 14,
+              "role_hits": {
+                "d_T": 14,
+                "own1": 11,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 11,
+                "d_T": 3
+              }
+            }
+          }
+        },
+        "R-010": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 5,
+          "wrong_person_incidences": 5,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 1
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 1
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {
+            "R-010-P01": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 1
+              },
+              "role_combinations": {
+                "unregistered": 1
+              }
+            },
+            "R-010-P03": {
+              "distinct_responses": 4,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 4,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "G2/11": {
+      "total": {
+        "responses": 248,
+        "histories": 62,
+        "wrong_person_responses": 160,
+        "wrong_person_incidences": 160,
+        "metadata_conflict_without_wrong_person": 1,
+        "role_person_counts": {
+          "d_T": 79,
+          "own1": 46,
+          "current_candidate": 79,
+          "other_registered": 0,
+          "unregistered": 2
+        },
+        "role_response_counts": {
+          "d_T": 79,
+          "own1": 46,
+          "current_candidate": 79,
+          "other_registered": 0,
+          "unregistered": 2
+        },
+        "dT_or_own1_response_count": 80,
+        "dT_or_own1_person_count": 80,
+        "people": {
+          "R-001-P01": {
+            "distinct_responses": 20,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 20,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 20
+            }
+          },
+          "R-002-P01": {
+            "distinct_responses": 6,
+            "role_hits": {
+              "d_T": 6,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 6
+            }
+          },
+          "R-002-P02": {
+            "distinct_responses": 10,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 10,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 10
+            }
+          },
+          "R-003-P01": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 2,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 2
+            }
+          },
+          "R-003-P02": {
+            "distinct_responses": 27,
+            "role_hits": {
+              "d_T": 27,
+              "own1": 27,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 27
+            }
+          },
+          "R-004-P01": {
+            "distinct_responses": 9,
+            "role_hits": {
+              "d_T": 9,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 9
+            }
+          },
+          "R-004-P02": {
+            "distinct_responses": 11,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 11,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 11
+            }
+          },
+          "R-005-P01": {
+            "distinct_responses": 16,
+            "role_hits": {
+              "d_T": 16,
+              "own1": 6,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 6,
+              "d_T": 10
+            }
+          },
+          "R-005-P02": {
+            "distinct_responses": 13,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 13,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 13
+            }
+          },
+          "R-006-P01": {
+            "distinct_responses": 6,
+            "role_hits": {
+              "d_T": 6,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 6
+            }
+          },
+          "R-006-P02": {
+            "distinct_responses": 4,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 4,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 4
+            }
+          },
+          "R-008-P01": {
+            "distinct_responses": 15,
+            "role_hits": {
+              "d_T": 15,
+              "own1": 12,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 12,
+              "d_T": 3
+            }
+          },
+          "R-010-P01": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 1
+            },
+            "role_combinations": {
+              "unregistered": 1
+            }
+          },
+          "R-010-P02": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 1,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 1
+            },
+            "role_combinations": {
+              "own1+unregistered": 1
+            }
+          },
+          "R-010-P03": {
+            "distinct_responses": 19,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 19,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 19
+            }
+          }
+        }
+      },
+      "works": {
+        "R-001": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 20,
+          "wrong_person_incidences": 20,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 20,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 20,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {
+            "R-001-P01": {
+              "distinct_responses": 20,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 20,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 20
+              }
+            }
+          }
+        },
+        "R-002": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 16,
+          "wrong_person_incidences": 16,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 6,
+            "own1": 0,
+            "current_candidate": 10,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 6,
+            "own1": 0,
+            "current_candidate": 10,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 6,
+          "dT_or_own1_person_count": 6,
+          "people": {
+            "R-002-P01": {
+              "distinct_responses": 6,
+              "role_hits": {
+                "d_T": 6,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 6
+              }
+            },
+            "R-002-P02": {
+              "distinct_responses": 10,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 10,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 10
+              }
+            }
+          }
+        },
+        "R-003": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 29,
+          "wrong_person_incidences": 29,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 27,
+            "own1": 27,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 27,
+            "own1": 27,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 27,
+          "dT_or_own1_person_count": 27,
+          "people": {
+            "R-003-P01": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 2,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 2
+              }
+            },
+            "R-003-P02": {
+              "distinct_responses": 27,
+              "role_hits": {
+                "d_T": 27,
+                "own1": 27,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 27
+              }
+            }
+          }
+        },
+        "R-004": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 20,
+          "wrong_person_incidences": 20,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 9,
+            "own1": 0,
+            "current_candidate": 11,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 9,
+            "own1": 0,
+            "current_candidate": 11,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 9,
+          "dT_or_own1_person_count": 9,
+          "people": {
+            "R-004-P01": {
+              "distinct_responses": 9,
+              "role_hits": {
+                "d_T": 9,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 9
+              }
+            },
+            "R-004-P02": {
+              "distinct_responses": 11,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 11,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 11
+              }
+            }
+          }
+        },
+        "R-005": {
+          "responses": 44,
+          "histories": 11,
+          "wrong_person_responses": 29,
+          "wrong_person_incidences": 29,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 16,
+            "own1": 6,
+            "current_candidate": 13,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 16,
+            "own1": 6,
+            "current_candidate": 13,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 16,
+          "dT_or_own1_person_count": 16,
+          "people": {
+            "R-005-P01": {
+              "distinct_responses": 16,
+              "role_hits": {
+                "d_T": 16,
+                "own1": 6,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 6,
+                "d_T": 10
+              }
+            },
+            "R-005-P02": {
+              "distinct_responses": 13,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 13,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 13
+              }
+            }
+          }
+        },
+        "R-006": {
+          "responses": 12,
+          "histories": 3,
+          "wrong_person_responses": 10,
+          "wrong_person_incidences": 10,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 6,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 6,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 6,
+          "dT_or_own1_person_count": 6,
+          "people": {
+            "R-006-P01": {
+              "distinct_responses": 6,
+              "role_hits": {
+                "d_T": 6,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 6
+              }
+            },
+            "R-006-P02": {
+              "distinct_responses": 4,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 4,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 4
+              }
+            }
+          }
+        },
+        "R-007": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 0,
+          "wrong_person_incidences": 0,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {}
+        },
+        "R-008": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 15,
+          "wrong_person_incidences": 15,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 15,
+            "own1": 12,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 15,
+            "own1": 12,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 15,
+          "dT_or_own1_person_count": 15,
+          "people": {
+            "R-008-P01": {
+              "distinct_responses": 15,
+              "role_hits": {
+                "d_T": 15,
+                "own1": 12,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 12,
+                "d_T": 3
+              }
+            }
+          }
+        },
+        "R-010": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 21,
+          "wrong_person_incidences": 21,
+          "metadata_conflict_without_wrong_person": 1,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 1,
+            "current_candidate": 19,
+            "other_registered": 0,
+            "unregistered": 2
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 1,
+            "current_candidate": 19,
+            "other_registered": 0,
+            "unregistered": 2
+          },
+          "dT_or_own1_response_count": 1,
+          "dT_or_own1_person_count": 1,
+          "people": {
+            "R-010-P01": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 1
+              },
+              "role_combinations": {
+                "unregistered": 1
+              }
+            },
+            "R-010-P02": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 1,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 1
+              },
+              "role_combinations": {
+                "own1+unregistered": 1
+              }
+            },
+            "R-010-P03": {
+              "distinct_responses": 19,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 19,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 19
+              }
+            }
+          }
+        }
+      }
+    },
+    "G2/10": {
+      "total": {
+        "responses": 248,
+        "histories": 62,
+        "wrong_person_responses": 163,
+        "wrong_person_incidences": 163,
+        "metadata_conflict_without_wrong_person": 0,
+        "role_person_counts": {
+          "d_T": 73,
+          "own1": 39,
+          "current_candidate": 87,
+          "other_registered": 0,
+          "unregistered": 3
+        },
+        "role_response_counts": {
+          "d_T": 73,
+          "own1": 39,
+          "current_candidate": 87,
+          "other_registered": 0,
+          "unregistered": 3
+        },
+        "dT_or_own1_response_count": 74,
+        "dT_or_own1_person_count": 74,
+        "people": {
+          "R-001-P01": {
+            "distinct_responses": 21,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 21,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 21
+            }
+          },
+          "R-002-P01": {
+            "distinct_responses": 7,
+            "role_hits": {
+              "d_T": 7,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 7
+            }
+          },
+          "R-002-P02": {
+            "distinct_responses": 10,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 10,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 10
+            }
+          },
+          "R-003-P01": {
+            "distinct_responses": 3,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 3,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 3
+            }
+          },
+          "R-003-P02": {
+            "distinct_responses": 26,
+            "role_hits": {
+              "d_T": 26,
+              "own1": 26,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 26
+            }
+          },
+          "R-004-P01": {
+            "distinct_responses": 8,
+            "role_hits": {
+              "d_T": 8,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 8
+            }
+          },
+          "R-004-P02": {
+            "distinct_responses": 11,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 11,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 11
+            }
+          },
+          "R-005-P01": {
+            "distinct_responses": 13,
+            "role_hits": {
+              "d_T": 13,
+              "own1": 3,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 3,
+              "d_T": 10
+            }
+          },
+          "R-005-P02": {
+            "distinct_responses": 16,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 16,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 16
+            }
+          },
+          "R-006-P01": {
+            "distinct_responses": 7,
+            "role_hits": {
+              "d_T": 7,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 7
+            }
+          },
+          "R-006-P02": {
+            "distinct_responses": 5,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 5,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 5
+            }
+          },
+          "R-007-P01": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 1,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 1
+            }
+          },
+          "R-008-P01": {
+            "distinct_responses": 11,
+            "role_hits": {
+              "d_T": 11,
+              "own1": 9,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 9,
+              "d_T": 2
+            }
+          },
+          "R-010-P01": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 2
+            },
+            "role_combinations": {
+              "unregistered": 2
+            }
+          },
+          "R-010-P02": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 1,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 1
+            },
+            "role_combinations": {
+              "own1+unregistered": 1
+            }
+          },
+          "R-010-P03": {
+            "distinct_responses": 21,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 21,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 21
+            }
+          }
+        }
+      },
+      "works": {
+        "R-001": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 21,
+          "wrong_person_incidences": 21,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 21,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 21,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {
+            "R-001-P01": {
+              "distinct_responses": 21,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 21,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 21
+              }
+            }
+          }
+        },
+        "R-002": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 17,
+          "wrong_person_incidences": 17,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 10,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 10,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 7,
+          "dT_or_own1_person_count": 7,
+          "people": {
+            "R-002-P01": {
+              "distinct_responses": 7,
+              "role_hits": {
+                "d_T": 7,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 7
+              }
+            },
+            "R-002-P02": {
+              "distinct_responses": 10,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 10,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 10
+              }
+            }
+          }
+        },
+        "R-003": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 29,
+          "wrong_person_incidences": 29,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 26,
+            "own1": 26,
+            "current_candidate": 3,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 26,
+            "own1": 26,
+            "current_candidate": 3,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 26,
+          "dT_or_own1_person_count": 26,
+          "people": {
+            "R-003-P01": {
+              "distinct_responses": 3,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 3,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 3
+              }
+            },
+            "R-003-P02": {
+              "distinct_responses": 26,
+              "role_hits": {
+                "d_T": 26,
+                "own1": 26,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 26
+              }
+            }
+          }
+        },
+        "R-004": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 19,
+          "wrong_person_incidences": 19,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 11,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 11,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 8,
+          "dT_or_own1_person_count": 8,
+          "people": {
+            "R-004-P01": {
+              "distinct_responses": 8,
+              "role_hits": {
+                "d_T": 8,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 8
+              }
+            },
+            "R-004-P02": {
+              "distinct_responses": 11,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 11,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 11
+              }
+            }
+          }
+        },
+        "R-005": {
+          "responses": 44,
+          "histories": 11,
+          "wrong_person_responses": 29,
+          "wrong_person_incidences": 29,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 13,
+            "own1": 3,
+            "current_candidate": 16,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 13,
+            "own1": 3,
+            "current_candidate": 16,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 13,
+          "dT_or_own1_person_count": 13,
+          "people": {
+            "R-005-P01": {
+              "distinct_responses": 13,
+              "role_hits": {
+                "d_T": 13,
+                "own1": 3,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 3,
+                "d_T": 10
+              }
+            },
+            "R-005-P02": {
+              "distinct_responses": 16,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 16,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 16
+              }
+            }
+          }
+        },
+        "R-006": {
+          "responses": 12,
+          "histories": 3,
+          "wrong_person_responses": 12,
+          "wrong_person_incidences": 12,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 5,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 5,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 7,
+          "dT_or_own1_person_count": 7,
+          "people": {
+            "R-006-P01": {
+              "distinct_responses": 7,
+              "role_hits": {
+                "d_T": 7,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 7
+              }
+            },
+            "R-006-P02": {
+              "distinct_responses": 5,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 5,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 5
+              }
+            }
+          }
+        },
+        "R-007": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 1,
+          "wrong_person_incidences": 1,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 1,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 1,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 1,
+          "dT_or_own1_person_count": 1,
+          "people": {
+            "R-007-P01": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 1,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 1
+              }
+            }
+          }
+        },
+        "R-008": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 11,
+          "wrong_person_incidences": 11,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 11,
+            "own1": 9,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 11,
+            "own1": 9,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 11,
+          "dT_or_own1_person_count": 11,
+          "people": {
+            "R-008-P01": {
+              "distinct_responses": 11,
+              "role_hits": {
+                "d_T": 11,
+                "own1": 9,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 9,
+                "d_T": 2
+              }
+            }
+          }
+        },
+        "R-010": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 24,
+          "wrong_person_incidences": 24,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 1,
+            "current_candidate": 21,
+            "other_registered": 0,
+            "unregistered": 3
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 1,
+            "current_candidate": 21,
+            "other_registered": 0,
+            "unregistered": 3
+          },
+          "dT_or_own1_response_count": 1,
+          "dT_or_own1_person_count": 1,
+          "people": {
+            "R-010-P01": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 2
+              },
+              "role_combinations": {
+                "unregistered": 2
+              }
+            },
+            "R-010-P02": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 1,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 1
+              },
+              "role_combinations": {
+                "own1+unregistered": 1
+              }
+            },
+            "R-010-P03": {
+              "distinct_responses": 21,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 21,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 21
+              }
+            }
+          }
+        }
+      }
+    },
+    "G2/01": {
+      "total": {
+        "responses": 248,
+        "histories": 62,
+        "wrong_person_responses": 94,
+        "wrong_person_incidences": 94,
+        "metadata_conflict_without_wrong_person": 1,
+        "role_person_counts": {
+          "d_T": 64,
+          "own1": 31,
+          "current_candidate": 28,
+          "other_registered": 0,
+          "unregistered": 2
+        },
+        "role_response_counts": {
+          "d_T": 64,
+          "own1": 31,
+          "current_candidate": 28,
+          "other_registered": 0,
+          "unregistered": 2
+        },
+        "dT_or_own1_response_count": 64,
+        "dT_or_own1_person_count": 64,
+        "people": {
+          "R-001-P01": {
+            "distinct_responses": 11,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 11,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 11
+            }
+          },
+          "R-001-P02": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 1,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 1
+            }
+          },
+          "R-002-P01": {
+            "distinct_responses": 10,
+            "role_hits": {
+              "d_T": 10,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 10
+            }
+          },
+          "R-003-P02": {
+            "distinct_responses": 22,
+            "role_hits": {
+              "d_T": 22,
+              "own1": 22,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 22
+            }
+          },
+          "R-004-P01": {
+            "distinct_responses": 7,
+            "role_hits": {
+              "d_T": 7,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 7
+            }
+          },
+          "R-004-P02": {
+            "distinct_responses": 11,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 11,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 11
+            }
+          },
+          "R-005-P01": {
+            "distinct_responses": 9,
+            "role_hits": {
+              "d_T": 9,
+              "own1": 3,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 3,
+              "d_T": 6
+            }
+          },
+          "R-005-P02": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 1,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 1
+            }
+          },
+          "R-006-P01": {
+            "distinct_responses": 8,
+            "role_hits": {
+              "d_T": 8,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 8
+            }
+          },
+          "R-006-P02": {
+            "distinct_responses": 1,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 1,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 1
+            }
+          },
+          "R-008-P01": {
+            "distinct_responses": 7,
+            "role_hits": {
+              "d_T": 7,
+              "own1": 6,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 6,
+              "d_T": 1
+            }
+          },
+          "R-010-P01": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 2
+            },
+            "role_combinations": {
+              "unregistered": 2
+            }
+          },
+          "R-010-P03": {
+            "distinct_responses": 4,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 4,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 4
+            }
+          }
+        }
+      },
+      "works": {
+        "R-001": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 12,
+          "wrong_person_incidences": 12,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 1,
+            "own1": 0,
+            "current_candidate": 11,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 1,
+            "own1": 0,
+            "current_candidate": 11,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 1,
+          "dT_or_own1_person_count": 1,
+          "people": {
+            "R-001-P01": {
+              "distinct_responses": 11,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 11,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 11
+              }
+            },
+            "R-001-P02": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 1,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 1
+              }
+            }
+          }
+        },
+        "R-002": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 10,
+          "wrong_person_incidences": 10,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 10,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 10,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 10,
+          "dT_or_own1_person_count": 10,
+          "people": {
+            "R-002-P01": {
+              "distinct_responses": 10,
+              "role_hits": {
+                "d_T": 10,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 10
+              }
+            }
+          }
+        },
+        "R-003": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 22,
+          "wrong_person_incidences": 22,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 22,
+            "own1": 22,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 22,
+            "own1": 22,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 22,
+          "dT_or_own1_person_count": 22,
+          "people": {
+            "R-003-P02": {
+              "distinct_responses": 22,
+              "role_hits": {
+                "d_T": 22,
+                "own1": 22,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 22
+              }
+            }
+          }
+        },
+        "R-004": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 18,
+          "wrong_person_incidences": 18,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 11,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 11,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 7,
+          "dT_or_own1_person_count": 7,
+          "people": {
+            "R-004-P01": {
+              "distinct_responses": 7,
+              "role_hits": {
+                "d_T": 7,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 7
+              }
+            },
+            "R-004-P02": {
+              "distinct_responses": 11,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 11,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 11
+              }
+            }
+          }
+        },
+        "R-005": {
+          "responses": 44,
+          "histories": 11,
+          "wrong_person_responses": 10,
+          "wrong_person_incidences": 10,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 9,
+            "own1": 3,
+            "current_candidate": 1,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 9,
+            "own1": 3,
+            "current_candidate": 1,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 9,
+          "dT_or_own1_person_count": 9,
+          "people": {
+            "R-005-P01": {
+              "distinct_responses": 9,
+              "role_hits": {
+                "d_T": 9,
+                "own1": 3,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 3,
+                "d_T": 6
+              }
+            },
+            "R-005-P02": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 1,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 1
+              }
+            }
+          }
+        },
+        "R-006": {
+          "responses": 12,
+          "histories": 3,
+          "wrong_person_responses": 9,
+          "wrong_person_incidences": 9,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 1,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 1,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 8,
+          "dT_or_own1_person_count": 8,
+          "people": {
+            "R-006-P01": {
+              "distinct_responses": 8,
+              "role_hits": {
+                "d_T": 8,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 8
+              }
+            },
+            "R-006-P02": {
+              "distinct_responses": 1,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 1,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 1
+              }
+            }
+          }
+        },
+        "R-007": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 0,
+          "wrong_person_incidences": 0,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {}
+        },
+        "R-008": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 7,
+          "wrong_person_incidences": 7,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 7,
+            "own1": 6,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 7,
+            "own1": 6,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 7,
+          "dT_or_own1_person_count": 7,
+          "people": {
+            "R-008-P01": {
+              "distinct_responses": 7,
+              "role_hits": {
+                "d_T": 7,
+                "own1": 6,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 6,
+                "d_T": 1
+              }
+            }
+          }
+        },
+        "R-010": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 6,
+          "wrong_person_incidences": 6,
+          "metadata_conflict_without_wrong_person": 1,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 2
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 2
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {
+            "R-010-P01": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 2
+              },
+              "role_combinations": {
+                "unregistered": 2
+              }
+            },
+            "R-010-P03": {
+              "distinct_responses": 4,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 4,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "G2/00": {
+      "total": {
+        "responses": 248,
+        "histories": 62,
+        "wrong_person_responses": 98,
+        "wrong_person_incidences": 98,
+        "metadata_conflict_without_wrong_person": 0,
+        "role_person_counts": {
+          "d_T": 64,
+          "own1": 34,
+          "current_candidate": 32,
+          "other_registered": 0,
+          "unregistered": 2
+        },
+        "role_response_counts": {
+          "d_T": 64,
+          "own1": 34,
+          "current_candidate": 32,
+          "other_registered": 0,
+          "unregistered": 2
+        },
+        "dT_or_own1_response_count": 64,
+        "dT_or_own1_person_count": 64,
+        "people": {
+          "R-001-P01": {
+            "distinct_responses": 12,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 12,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 12
+            }
+          },
+          "R-002-P01": {
+            "distinct_responses": 8,
+            "role_hits": {
+              "d_T": 8,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 8
+            }
+          },
+          "R-002-P02": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 2,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 2
+            }
+          },
+          "R-003-P02": {
+            "distinct_responses": 21,
+            "role_hits": {
+              "d_T": 21,
+              "own1": 21,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 21
+            }
+          },
+          "R-004-P01": {
+            "distinct_responses": 8,
+            "role_hits": {
+              "d_T": 8,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 8
+            }
+          },
+          "R-004-P02": {
+            "distinct_responses": 12,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 12,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 12
+            }
+          },
+          "R-005-P01": {
+            "distinct_responses": 9,
+            "role_hits": {
+              "d_T": 9,
+              "own1": 3,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 3,
+              "d_T": 6
+            }
+          },
+          "R-006-P01": {
+            "distinct_responses": 7,
+            "role_hits": {
+              "d_T": 7,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T": 7
+            }
+          },
+          "R-006-P02": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 2,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 2
+            }
+          },
+          "R-008-P01": {
+            "distinct_responses": 11,
+            "role_hits": {
+              "d_T": 11,
+              "own1": 10,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 10,
+              "d_T": 1
+            }
+          },
+          "R-010-P01": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 2
+            },
+            "role_combinations": {
+              "unregistered": 2
+            }
+          },
+          "R-010-P03": {
+            "distinct_responses": 4,
+            "role_hits": {
+              "d_T": 0,
+              "own1": 0,
+              "current_candidate": 4,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "current_candidate": 4
+            }
+          }
+        }
+      },
+      "works": {
+        "R-001": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 12,
+          "wrong_person_incidences": 12,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 12,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 12,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {
+            "R-001-P01": {
+              "distinct_responses": 12,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 12,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 12
+              }
+            }
+          }
+        },
+        "R-002": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 10,
+          "wrong_person_incidences": 10,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 8,
+          "dT_or_own1_person_count": 8,
+          "people": {
+            "R-002-P01": {
+              "distinct_responses": 8,
+              "role_hits": {
+                "d_T": 8,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 8
+              }
+            },
+            "R-002-P02": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 2,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 2
+              }
+            }
+          }
+        },
+        "R-003": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 21,
+          "wrong_person_incidences": 21,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 21,
+            "own1": 21,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 21,
+            "own1": 21,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 21,
+          "dT_or_own1_person_count": 21,
+          "people": {
+            "R-003-P02": {
+              "distinct_responses": 21,
+              "role_hits": {
+                "d_T": 21,
+                "own1": 21,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 21
+              }
+            }
+          }
+        },
+        "R-004": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 20,
+          "wrong_person_incidences": 20,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 12,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 8,
+            "own1": 0,
+            "current_candidate": 12,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 8,
+          "dT_or_own1_person_count": 8,
+          "people": {
+            "R-004-P01": {
+              "distinct_responses": 8,
+              "role_hits": {
+                "d_T": 8,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 8
+              }
+            },
+            "R-004-P02": {
+              "distinct_responses": 12,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 12,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 12
+              }
+            }
+          }
+        },
+        "R-005": {
+          "responses": 44,
+          "histories": 11,
+          "wrong_person_responses": 9,
+          "wrong_person_incidences": 9,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 9,
+            "own1": 3,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 9,
+            "own1": 3,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 9,
+          "dT_or_own1_person_count": 9,
+          "people": {
+            "R-005-P01": {
+              "distinct_responses": 9,
+              "role_hits": {
+                "d_T": 9,
+                "own1": 3,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 3,
+                "d_T": 6
+              }
+            }
+          }
+        },
+        "R-006": {
+          "responses": 12,
+          "histories": 3,
+          "wrong_person_responses": 9,
+          "wrong_person_incidences": 9,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 7,
+            "own1": 0,
+            "current_candidate": 2,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 7,
+          "dT_or_own1_person_count": 7,
+          "people": {
+            "R-006-P01": {
+              "distinct_responses": 7,
+              "role_hits": {
+                "d_T": 7,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T": 7
+              }
+            },
+            "R-006-P02": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 2,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 2
+              }
+            }
+          }
+        },
+        "R-007": {
+          "responses": 24,
+          "histories": 6,
+          "wrong_person_responses": 0,
+          "wrong_person_incidences": 0,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {}
+        },
+        "R-008": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 11,
+          "wrong_person_incidences": 11,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 11,
+            "own1": 10,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 11,
+            "own1": 10,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 11,
+          "dT_or_own1_person_count": 11,
+          "people": {
+            "R-008-P01": {
+              "distinct_responses": 11,
+              "role_hits": {
+                "d_T": 11,
+                "own1": 10,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 10,
+                "d_T": 1
+              }
+            }
+          }
+        },
+        "R-010": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 6,
+          "wrong_person_incidences": 6,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 2
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 4,
+            "other_registered": 0,
+            "unregistered": 2
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {
+            "R-010-P01": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 2
+              },
+              "role_combinations": {
+                "unregistered": 2
+              }
+            },
+            "R-010-P03": {
+              "distinct_responses": 4,
+              "role_hits": {
+                "d_T": 0,
+                "own1": 0,
+                "current_candidate": 4,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "current_candidate": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "MO/M0/O": {
+      "total": {
+        "responses": 124,
+        "histories": 31,
+        "wrong_person_responses": 23,
+        "wrong_person_incidences": 23,
+        "metadata_conflict_without_wrong_person": 0,
+        "role_person_counts": {
+          "d_T": 23,
+          "own1": 23,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_response_counts": {
+          "d_T": 23,
+          "own1": 23,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "dT_or_own1_response_count": 23,
+        "dT_or_own1_person_count": 23,
+        "people": {
+          "R-003-P02": {
+            "distinct_responses": 21,
+            "role_hits": {
+              "d_T": 21,
+              "own1": 21,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 21
+            }
+          },
+          "R-005-P01": {
+            "distinct_responses": 2,
+            "role_hits": {
+              "d_T": 2,
+              "own1": 2,
+              "current_candidate": 0,
+              "other_registered": 0,
+              "unregistered": 0
+            },
+            "role_combinations": {
+              "d_T+own1": 2
+            }
+          }
+        }
+      },
+      "works": {
+        "R-001": {
+          "responses": 4,
+          "histories": 1,
+          "wrong_person_responses": 0,
+          "wrong_person_incidences": 0,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {}
+        },
+        "R-003": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 21,
+          "wrong_person_incidences": 21,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 21,
+            "own1": 21,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 21,
+            "own1": 21,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 21,
+          "dT_or_own1_person_count": 21,
+          "people": {
+            "R-003-P02": {
+              "distinct_responses": 21,
+              "role_hits": {
+                "d_T": 21,
+                "own1": 21,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 21
+              }
+            }
+          }
+        },
+        "R-005": {
+          "responses": 32,
+          "histories": 8,
+          "wrong_person_responses": 2,
+          "wrong_person_incidences": 2,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 2,
+            "own1": 2,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 2,
+            "own1": 2,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 2,
+          "dT_or_own1_person_count": 2,
+          "people": {
+            "R-005-P01": {
+              "distinct_responses": 2,
+              "role_hits": {
+                "d_T": 2,
+                "own1": 2,
+                "current_candidate": 0,
+                "other_registered": 0,
+                "unregistered": 0
+              },
+              "role_combinations": {
+                "d_T+own1": 2
+              }
+            }
+          }
+        },
+        "R-008": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 0,
+          "wrong_person_incidences": 0,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {}
+        },
+        "R-010": {
+          "responses": 28,
+          "histories": 7,
+          "wrong_person_responses": 0,
+          "wrong_person_incidences": 0,
+          "metadata_conflict_without_wrong_person": 0,
+          "role_person_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "role_response_counts": {
+            "d_T": 0,
+            "own1": 0,
+            "current_candidate": 0,
+            "other_registered": 0,
+            "unregistered": 0
+          },
+          "dT_or_own1_response_count": 0,
+          "dT_or_own1_person_count": 0,
+          "people": {}
+        }
+      }
+    }
+  },
+  "distinct_summary": {
+    "responses": 1364,
+    "histories": 62,
+    "wrong_person_responses": 643,
+    "wrong_person_incidences": 643,
+    "metadata_conflict_without_wrong_person": 2,
+    "role_person_counts": {
+      "d_T": 375,
+      "own1": 206,
+      "current_candidate": 258,
+      "other_registered": 0,
+      "unregistered": 10
+    },
+    "role_response_counts": {
+      "d_T": 375,
+      "own1": 206,
+      "current_candidate": 258,
+      "other_registered": 0,
+      "unregistered": 10
+    },
+    "dT_or_own1_response_count": 377,
+    "dT_or_own1_person_count": 377,
+    "people": {
+      "R-001-P01": {
+        "distinct_responses": 77,
+        "role_hits": {
+          "d_T": 0,
+          "own1": 0,
+          "current_candidate": 77,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "current_candidate": 77
+        }
+      },
+      "R-001-P02": {
+        "distinct_responses": 1,
+        "role_hits": {
+          "d_T": 1,
+          "own1": 0,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "d_T": 1
+        }
+      },
+      "R-002-P01": {
+        "distinct_responses": 42,
+        "role_hits": {
+          "d_T": 42,
+          "own1": 0,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "d_T": 42
+        }
+      },
+      "R-002-P02": {
+        "distinct_responses": 23,
+        "role_hits": {
+          "d_T": 0,
+          "own1": 0,
+          "current_candidate": 23,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "current_candidate": 23
+        }
+      },
+      "R-003-P01": {
+        "distinct_responses": 5,
+        "role_hits": {
+          "d_T": 0,
+          "own1": 0,
+          "current_candidate": 5,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "current_candidate": 5
+        }
+      },
+      "R-003-P02": {
+        "distinct_responses": 135,
+        "role_hits": {
+          "d_T": 135,
+          "own1": 135,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "d_T+own1": 135
+        }
+      },
+      "R-004-P01": {
+        "distinct_responses": 40,
+        "role_hits": {
+          "d_T": 40,
+          "own1": 0,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "d_T": 40
+        }
+      },
+      "R-004-P02": {
+        "distinct_responses": 58,
+        "role_hits": {
+          "d_T": 0,
+          "own1": 0,
+          "current_candidate": 58,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "current_candidate": 58
+        }
+      },
+      "R-005-P01": {
+        "distinct_responses": 60,
+        "role_hits": {
+          "d_T": 60,
+          "own1": 21,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "d_T+own1": 21,
+          "d_T": 39
+        }
+      },
+      "R-005-P02": {
+        "distinct_responses": 30,
+        "role_hits": {
+          "d_T": 0,
+          "own1": 0,
+          "current_candidate": 30,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "current_candidate": 30
+        }
+      },
+      "R-006-P01": {
+        "distinct_responses": 38,
+        "role_hits": {
+          "d_T": 38,
+          "own1": 0,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "d_T": 38
+        }
+      },
+      "R-006-P02": {
+        "distinct_responses": 13,
+        "role_hits": {
+          "d_T": 0,
+          "own1": 0,
+          "current_candidate": 13,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "current_candidate": 13
+        }
+      },
+      "R-007-P01": {
+        "distinct_responses": 1,
+        "role_hits": {
+          "d_T": 1,
+          "own1": 0,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "d_T": 1
+        }
+      },
+      "R-008-P01": {
+        "distinct_responses": 58,
+        "role_hits": {
+          "d_T": 58,
+          "own1": 48,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "d_T+own1": 48,
+          "d_T": 10
+        }
+      },
+      "R-010-P01": {
+        "distinct_responses": 8,
+        "role_hits": {
+          "d_T": 0,
+          "own1": 0,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 8
+        },
+        "role_combinations": {
+          "unregistered": 8
+        }
+      },
+      "R-010-P02": {
+        "distinct_responses": 2,
+        "role_hits": {
+          "d_T": 0,
+          "own1": 2,
+          "current_candidate": 0,
+          "other_registered": 0,
+          "unregistered": 2
+        },
+        "role_combinations": {
+          "own1+unregistered": 2
+        }
+      },
+      "R-010-P03": {
+        "distinct_responses": 52,
+        "role_hits": {
+          "d_T": 0,
+          "own1": 0,
+          "current_candidate": 52,
+          "other_registered": 0,
+          "unregistered": 0
+        },
+        "role_combinations": {
+          "current_candidate": 52
+        }
+      }
+    }
+  },
+  "role_order": [
+    "d_T",
+    "own1",
+    "current_candidate",
+    "other_registered",
+    "unregistered"
+  ],
+  "focus": {
+    "work": "R-003",
+    "id": "R-003-P02",
+    "groups": {
+      "G1/O": {
+        "n": 32,
+        "same_person_responses": 21,
+        "own_terminal": 32,
+        "same_person_and_own_terminal": 21
+      },
+      "MO/M0/O": {
+        "n": 32,
+        "same_person_responses": 21,
+        "own_terminal": 21,
+        "same_person_and_own_terminal": 21
+      }
+    }
+  },
+  "sources": "G1、G2采用冻结分句肯定本版译者标签及原历史映射，镜像采用M0/O正式逐条标签和映射。已回看涉及原样未登记人名及源自答标签的各条不同完整回答。其他有明确一对一映射的既有身份标签沿用。",
+  "uncertain_identity": 0,
+  "scope": "统计明确肯定署给错误人物的本版译者关系。每条续写的同一具体人只计一次。含混、无署名与单独目录元信息错误不虚构具体人。未登记指不在十部冻结材料的人物与别名表；原自答身份可与该标记重叠。其他登记指已登记且不是该条中前三个角色。原译者题自答在作者题取前序自答、在镜像取当前译者题自答；候选一律是当前被问者。角色按每条回答取值，同作品同一人物可因历史而有不同标记。"
+}

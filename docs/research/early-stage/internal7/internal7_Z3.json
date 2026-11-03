@@ -1,0 +1,3195 @@
+{
+  "registration": "c727d70",
+  "plan_commit": "d6bde2e",
+  "model_calls": 0,
+  "sampling": 0,
+  "activation_interventions": 0,
+  "histories": [
+    {
+      "history": "F-D|R-001|13",
+      "work": "R-001",
+      "pair_ref": "C01",
+      "alpha_T": -2.0907554626464844,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-003|0",
+      "work": "R-003",
+      "pair_ref": "C02",
+      "alpha_T": -24.814067840576172,
+      "phase0": {
+        "n": 4,
+        "native": 2,
+        "treated": 0,
+        "loss": 2
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 3,
+        "treated": 0,
+        "loss": 3
+      },
+      "both_loss": true
+    },
+    {
+      "history": "F-D|R-003|1",
+      "work": "R-003",
+      "pair_ref": "C02",
+      "alpha_T": -24.208812713623047,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 0,
+        "loss": 4
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 0,
+        "loss": 4
+      },
+      "both_loss": true
+    },
+    {
+      "history": "F-D|R-003|2",
+      "work": "R-003",
+      "pair_ref": "C02",
+      "alpha_T": -24.59825897216797,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 1,
+        "loss": 3
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 3,
+        "loss": 1
+      },
+      "both_loss": true
+    },
+    {
+      "history": "F-D|R-003|3",
+      "work": "R-003",
+      "pair_ref": "C02",
+      "alpha_T": -23.82400894165039,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 0,
+        "loss": 4
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-003|4",
+      "work": "R-003",
+      "pair_ref": "C02",
+      "alpha_T": -24.966705322265625,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 0,
+        "loss": 4
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 3,
+        "loss": 1
+      },
+      "both_loss": true
+    },
+    {
+      "history": "F-D|R-003|5",
+      "work": "R-003",
+      "pair_ref": "C02",
+      "alpha_T": -25.939546585083008,
+      "phase0": {
+        "n": 4,
+        "native": 2,
+        "treated": 0,
+        "loss": 2
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 1,
+        "treated": 0,
+        "loss": 1
+      },
+      "both_loss": true
+    },
+    {
+      "history": "F-D|R-003|6",
+      "work": "R-003",
+      "pair_ref": "C02",
+      "alpha_T": -23.200176239013672,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 0,
+        "loss": 4
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 0,
+        "loss": 4
+      },
+      "both_loss": true
+    },
+    {
+      "history": "F-D|R-003|7",
+      "work": "R-003",
+      "pair_ref": "C02",
+      "alpha_T": -23.36505889892578,
+      "phase0": {
+        "n": 4,
+        "native": 3,
+        "treated": 0,
+        "loss": 3
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 1,
+        "loss": 3
+      },
+      "both_loss": true
+    },
+    {
+      "history": "F-D|R-005|0",
+      "work": "R-005",
+      "pair_ref": "C03",
+      "alpha_T": -12.304176330566406,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 2,
+        "loss": 2
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 3,
+        "loss": 1
+      },
+      "both_loss": true
+    },
+    {
+      "history": "F-D|R-005|4",
+      "work": "R-005",
+      "pair_ref": "C03",
+      "alpha_T": -8.21982192993164,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 3,
+        "loss": 1
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-005|6",
+      "work": "R-005",
+      "pair_ref": "C03",
+      "alpha_T": -12.940635681152344,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 0,
+        "loss": 4
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-005|10",
+      "work": "R-005",
+      "pair_ref": "C03",
+      "alpha_T": -8.332454681396484,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 2,
+        "loss": 2
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-005|11",
+      "work": "R-005",
+      "pair_ref": "C03",
+      "alpha_T": -17.07337760925293,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 1,
+        "loss": 3
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 3,
+        "loss": 1
+      },
+      "both_loss": true
+    },
+    {
+      "history": "F-D|R-005|12",
+      "work": "R-005",
+      "pair_ref": "C03",
+      "alpha_T": -8.506484985351562,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 3,
+        "loss": 1
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-005|14",
+      "work": "R-005",
+      "pair_ref": "C03",
+      "alpha_T": -14.283090591430664,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 3,
+        "loss": 1
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-005|15",
+      "work": "R-005",
+      "pair_ref": "C03",
+      "alpha_T": -14.633289337158203,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 2,
+        "loss": 2
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-008|0",
+      "work": "R-008",
+      "pair_ref": "C05",
+      "alpha_T": -7.8124237060546875,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-008|1",
+      "work": "R-008",
+      "pair_ref": "C05",
+      "alpha_T": -8.397741317749023,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-008|2",
+      "work": "R-008",
+      "pair_ref": "C05",
+      "alpha_T": -6.4031829833984375,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-008|3",
+      "work": "R-008",
+      "pair_ref": "C05",
+      "alpha_T": -8.999410629272461,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-008|4",
+      "work": "R-008",
+      "pair_ref": "C04",
+      "alpha_T": -7.581268310546875,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-008|6",
+      "work": "R-008",
+      "pair_ref": "C05",
+      "alpha_T": -3.0012149810791016,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-008|7",
+      "work": "R-008",
+      "pair_ref": "C05",
+      "alpha_T": -8.000154495239258,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-009|0",
+      "work": "R-009",
+      "pair_ref": "C08",
+      "alpha_T": -11.176395416259766,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": null,
+      "both_loss": null
+    },
+    {
+      "history": "F-D|R-009|1",
+      "work": "R-009",
+      "pair_ref": "C07",
+      "alpha_T": 2.5217533111572266,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": null,
+      "both_loss": null
+    },
+    {
+      "history": "F-D|R-009|2",
+      "work": "R-009",
+      "pair_ref": "C09",
+      "alpha_T": 5.7833099365234375,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": null,
+      "both_loss": null
+    },
+    {
+      "history": "F-D|R-009|3",
+      "work": "R-009",
+      "pair_ref": "C08",
+      "alpha_T": -12.50247573852539,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": null,
+      "both_loss": null
+    },
+    {
+      "history": "F-D|R-009|4",
+      "work": "R-009",
+      "pair_ref": "C07",
+      "alpha_T": -12.426029205322266,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": null,
+      "both_loss": null
+    },
+    {
+      "history": "F-D|R-009|5",
+      "work": "R-009",
+      "pair_ref": "C07",
+      "alpha_T": -14.541242599487305,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": null,
+      "both_loss": null
+    },
+    {
+      "history": "F-D|R-009|6",
+      "work": "R-009",
+      "pair_ref": "C06",
+      "alpha_T": -4.888866424560547,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": null,
+      "both_loss": null
+    },
+    {
+      "history": "F-D|R-009|7",
+      "work": "R-009",
+      "pair_ref": "C08",
+      "alpha_T": -12.36185073852539,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": null,
+      "both_loss": null
+    },
+    {
+      "history": "F-D|R-010|0",
+      "work": "R-010",
+      "pair_ref": "C11",
+      "alpha_T": 1.9230098724365234,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 3,
+        "loss": 1
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-010|1",
+      "work": "R-010",
+      "pair_ref": "C15",
+      "alpha_T": 5.313861846923828,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-010|2",
+      "work": "R-010",
+      "pair_ref": "C12",
+      "alpha_T": 17.43785285949707,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-010|4",
+      "work": "R-010",
+      "pair_ref": "C13",
+      "alpha_T": 4.627376556396484,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-010|5",
+      "work": "R-010",
+      "pair_ref": "C15",
+      "alpha_T": 20.885526657104492,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-010|6",
+      "work": "R-010",
+      "pair_ref": "C10",
+      "alpha_T": 8.002235412597656,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    },
+    {
+      "history": "F-D|R-010|7",
+      "work": "R-010",
+      "pair_ref": "C14",
+      "alpha_T": 14.874778747558594,
+      "phase0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "mirror_M0": {
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0
+      },
+      "both_loss": false
+    }
+  ],
+  "scopes": {
+    "all39": {
+      "phase0": {
+        "histories": 39,
+        "n": 156,
+        "native": 151,
+        "treated": 108,
+        "loss": 43,
+        "loss_histories": 17
+      },
+      "mirror_M0": {
+        "histories": 31,
+        "n": 124,
+        "native": 120,
+        "treated": 101,
+        "loss": 19,
+        "loss_histories": 9
+      }
+    },
+    "common31": {
+      "phase0": {
+        "histories": 31,
+        "n": 124,
+        "native": 119,
+        "treated": 76,
+        "loss": 43,
+        "loss_histories": 17
+      },
+      "mirror_M0": {
+        "histories": 31,
+        "n": 124,
+        "native": 120,
+        "treated": 101,
+        "loss": 19,
+        "loss_histories": 9
+      }
+    }
+  },
+  "by_work": {
+    "R-001": {
+      "phase0": {
+        "histories": 1,
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0,
+        "loss_histories": 0
+      },
+      "mirror_M0": {
+        "histories": 1,
+        "n": 4,
+        "native": 4,
+        "treated": 4,
+        "loss": 0,
+        "loss_histories": 0
+      }
+    },
+    "R-003": {
+      "phase0": {
+        "histories": 8,
+        "n": 32,
+        "native": 27,
+        "treated": 1,
+        "loss": 26,
+        "loss_histories": 8
+      },
+      "mirror_M0": {
+        "histories": 8,
+        "n": 32,
+        "native": 28,
+        "treated": 11,
+        "loss": 17,
+        "loss_histories": 7
+      }
+    },
+    "R-005": {
+      "phase0": {
+        "histories": 8,
+        "n": 32,
+        "native": 32,
+        "treated": 16,
+        "loss": 16,
+        "loss_histories": 8
+      },
+      "mirror_M0": {
+        "histories": 8,
+        "n": 32,
+        "native": 32,
+        "treated": 30,
+        "loss": 2,
+        "loss_histories": 2
+      }
+    },
+    "R-008": {
+      "phase0": {
+        "histories": 7,
+        "n": 28,
+        "native": 28,
+        "treated": 28,
+        "loss": 0,
+        "loss_histories": 0
+      },
+      "mirror_M0": {
+        "histories": 7,
+        "n": 28,
+        "native": 28,
+        "treated": 28,
+        "loss": 0,
+        "loss_histories": 0
+      }
+    },
+    "R-009": {
+      "phase0": {
+        "histories": 8,
+        "n": 32,
+        "native": 32,
+        "treated": 32,
+        "loss": 0,
+        "loss_histories": 0
+      },
+      "mirror_M0": null
+    },
+    "R-010": {
+      "phase0": {
+        "histories": 7,
+        "n": 28,
+        "native": 28,
+        "treated": 27,
+        "loss": 1,
+        "loss_histories": 1
+      },
+      "mirror_M0": {
+        "histories": 7,
+        "n": 28,
+        "native": 28,
+        "treated": 28,
+        "loss": 0,
+        "loss_histories": 0
+      }
+    }
+  },
+  "loss_overlap": {
+    "phase0_all": [
+      "F-D|R-003|0",
+      "F-D|R-003|1",
+      "F-D|R-003|2",
+      "F-D|R-003|3",
+      "F-D|R-003|4",
+      "F-D|R-003|5",
+      "F-D|R-003|6",
+      "F-D|R-003|7",
+      "F-D|R-005|0",
+      "F-D|R-005|10",
+      "F-D|R-005|11",
+      "F-D|R-005|12",
+      "F-D|R-005|14",
+      "F-D|R-005|15",
+      "F-D|R-005|4",
+      "F-D|R-005|6",
+      "F-D|R-010|0"
+    ],
+    "mirror": [
+      "F-D|R-003|0",
+      "F-D|R-003|1",
+      "F-D|R-003|2",
+      "F-D|R-003|4",
+      "F-D|R-003|5",
+      "F-D|R-003|6",
+      "F-D|R-003|7",
+      "F-D|R-005|0",
+      "F-D|R-005|11"
+    ],
+    "both": [
+      "F-D|R-003|0",
+      "F-D|R-003|1",
+      "F-D|R-003|2",
+      "F-D|R-003|4",
+      "F-D|R-003|5",
+      "F-D|R-003|6",
+      "F-D|R-003|7",
+      "F-D|R-005|0",
+      "F-D|R-005|11"
+    ],
+    "phase0_only_common": [
+      "F-D|R-003|3",
+      "F-D|R-005|10",
+      "F-D|R-005|12",
+      "F-D|R-005|14",
+      "F-D|R-005|15",
+      "F-D|R-005|4",
+      "F-D|R-005|6",
+      "F-D|R-010|0"
+    ],
+    "mirror_only": []
+  },
+  "alpha_named_FD_mean": -8.462135217128656,
+  "focus": {
+    "R-003": {
+      "own": "Constance Garnett",
+      "n": 8,
+      "histories": [
+        "F-D|R-003|0",
+        "F-D|R-003|1",
+        "F-D|R-003|2",
+        "F-D|R-003|3",
+        "F-D|R-003|4",
+        "F-D|R-003|5",
+        "F-D|R-003|6",
+        "F-D|R-003|7"
+      ],
+      "alpha_mean": -24.364579439163208,
+      "phase0": {
+        "histories": 8,
+        "n": 32,
+        "native": 27,
+        "treated": 1,
+        "loss": 26,
+        "loss_histories": 8
+      },
+      "mirror_M0": {
+        "histories": 8,
+        "n": 32,
+        "native": 28,
+        "treated": 11,
+        "loss": 17,
+        "loss_histories": 7
+      }
+    },
+    "R-008": {
+      "own": "William Archer",
+      "n": 6,
+      "histories": [
+        "F-D|R-008|0",
+        "F-D|R-008|1",
+        "F-D|R-008|2",
+        "F-D|R-008|3",
+        "F-D|R-008|6",
+        "F-D|R-008|7"
+      ],
+      "alpha_mean": -7.102354685465495,
+      "phase0": {
+        "histories": 6,
+        "n": 24,
+        "native": 24,
+        "treated": 24,
+        "loss": 0,
+        "loss_histories": 0
+      },
+      "mirror_M0": {
+        "histories": 6,
+        "n": 24,
+        "native": 24,
+        "treated": 24,
+        "loss": 0,
+        "loss_histories": 0
+      }
+    }
+  },
+  "clean_pairs": {
+    "C01": {
+      "work": "R-001",
+      "own": "Luigi Ricci",
+      "candidate": "William Kenaz Marriott",
+      "own_chosen": 0,
+      "candidate_chosen": 8,
+      "other": 0,
+      "n": 8
+    },
+    "C02": {
+      "work": "R-003",
+      "own": "Constance Garnett",
+      "candidate": "Charles James Hogarth",
+      "own_chosen": 8,
+      "candidate_chosen": 0,
+      "other": 0,
+      "n": 8
+    },
+    "C03": {
+      "work": "R-005",
+      "own": "Charles E. Wilbour",
+      "candidate": "Isabel Florence Hapgood",
+      "own_chosen": 8,
+      "candidate_chosen": 0,
+      "other": 0,
+      "n": 8
+    },
+    "C04": {
+      "work": "R-008",
+      "own": "Isabel Hapgood",
+      "candidate": "Robert Farquharson Sharp",
+      "own_chosen": 1,
+      "candidate_chosen": 7,
+      "other": 0,
+      "n": 8
+    },
+    "C05": {
+      "work": "R-008",
+      "own": "William Archer",
+      "candidate": "Robert Farquharson Sharp",
+      "own_chosen": 8,
+      "candidate_chosen": 0,
+      "other": 0,
+      "n": 8
+    },
+    "C06": {
+      "work": "R-009",
+      "own": "John Oxenford",
+      "candidate": "Theodore Martin",
+      "own_chosen": 8,
+      "candidate_chosen": 0,
+      "other": 0,
+      "n": 8
+    },
+    "C07": {
+      "work": "R-009",
+      "own": "Thomas Carlyle",
+      "candidate": "Theodore Martin",
+      "own_chosen": 5,
+      "candidate_chosen": 3,
+      "other": 0,
+      "n": 8
+    },
+    "C08": {
+      "work": "R-009",
+      "own": "Thomas Holcroft",
+      "candidate": "Theodore Martin",
+      "own_chosen": 8,
+      "candidate_chosen": 0,
+      "other": 0,
+      "n": 8
+    },
+    "C09": {
+      "work": "R-009",
+      "own": "Thomas S. K. K. T",
+      "candidate": "Theodore Martin",
+      "own_chosen": 0,
+      "candidate_chosen": 8,
+      "other": 0,
+      "n": 8
+    },
+    "C10": {
+      "work": "R-010",
+      "own": "Frederick Walter Robinson",
+      "candidate": "George Makepeace Towle",
+      "own_chosen": 0,
+      "candidate_chosen": 8,
+      "other": 0,
+      "n": 8
+    },
+    "C11": {
+      "work": "R-010",
+      "own": "George Makepeace Totten",
+      "candidate": "George Makepeace Towle",
+      "own_chosen": 0,
+      "candidate_chosen": 8,
+      "other": 0,
+      "n": 8
+    },
+    "C12": {
+      "work": "R-010",
+      "own": "George W. M. Reynolds",
+      "candidate": "George Makepeace Towle",
+      "own_chosen": 0,
+      "candidate_chosen": 8,
+      "other": 0,
+      "n": 8
+    },
+    "C13": {
+      "work": "R-010",
+      "own": "L. L. Petrie",
+      "candidate": "George Makepeace Towle",
+      "own_chosen": 0,
+      "candidate_chosen": 8,
+      "other": 0,
+      "n": 8
+    },
+    "C14": {
+      "work": "R-010",
+      "own": "Rev. George W. M. Reynolds",
+      "candidate": "George Makepeace Towle",
+      "own_chosen": 0,
+      "candidate_chosen": 8,
+      "other": 0,
+      "n": 8
+    },
+    "C15": {
+      "work": "R-010",
+      "own": "William Henry Hudson",
+      "candidate": "George Makepeace Towle",
+      "own_chosen": 0,
+      "candidate_chosen": 8,
+      "other": 0,
+      "n": 8
+    }
+  },
+  "prior_translator": {
+    "R-001": {
+      "n": 16,
+      "histogram": [
+        {
+          "identity": "William Kenaz Marriott",
+          "k": 10
+        },
+        {
+          "identity": "william howard",
+          "k": 2
+        },
+        {
+          "identity": "william allen",
+          "k": 1
+        },
+        {
+          "identity": "william fleetwood",
+          "k": 1
+        },
+        {
+          "identity": "william mottram",
+          "k": 1
+        }
+      ],
+      "other": 1
+    },
+    "R-003": {
+      "n": 16,
+      "histogram": [
+        {
+          "identity": "Constance Garnett",
+          "k": 16
+        }
+      ],
+      "other": 0
+    },
+    "R-005": {
+      "n": 16,
+      "histogram": [
+        {
+          "identity": "Charles E. Wilbour",
+          "k": 8
+        },
+        {
+          "identity": "Isabel Florence Hapgood",
+          "k": 8
+        }
+      ],
+      "other": 0
+    },
+    "R-008": {
+      "n": 16,
+      "histogram": [
+        {
+          "identity": "William Archer",
+          "k": 11
+        },
+        {
+          "identity": "isabel hapgood",
+          "k": 3
+        },
+        {
+          "identity": "helen hunt jackson",
+          "k": 2
+        }
+      ],
+      "other": 0
+    },
+    "R-009": {
+      "n": 16,
+      "histogram": [
+        {
+          "identity": "thomas carlyle",
+          "k": 9
+        },
+        {
+          "identity": "thomas holcroft",
+          "k": 4
+        },
+        {
+          "identity": "john a h murray",
+          "k": 1
+        },
+        {
+          "identity": "thomas roscoe",
+          "k": 1
+        },
+        {
+          "identity": "thomas s k k t",
+          "k": 1
+        }
+      ],
+      "other": 0
+    },
+    "R-010": {
+      "n": 15,
+      "histogram": [
+        {
+          "identity": "william henry hudson",
+          "k": 8
+        },
+        {
+          "identity": "George Makepeace Towle",
+          "k": 1
+        },
+        {
+          "identity": "frederick a wright",
+          "k": 1
+        },
+        {
+          "identity": "frederick paul",
+          "k": 1
+        },
+        {
+          "identity": "h b marriot watson",
+          "k": 1
+        }
+      ],
+      "other": 3
+    }
+  },
+  "loss_pairs_19": [
+    {
+      "history": "F-D|R-003|0",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|0",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|0",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|1",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|1",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "未署",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|1",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|1",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|2",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|4",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|5",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "未署",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|6",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|6",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|6",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|6",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|7",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|7",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|7",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-005|0",
+      "rep": 2,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-005|11",
+      "rep": 2,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    }
+  ],
+  "concession_to_nonconcession": [
+    {
+      "history": "F-D|R-001|13",
+      "rep": 0,
+      "work": "R-001",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-001|13",
+      "rep": 1,
+      "work": "R-001",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-001|13",
+      "rep": 2,
+      "work": "R-001",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-001|13",
+      "rep": 3,
+      "work": "R-001",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|0",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|0",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|0",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "own",
+        "correct": false
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|0",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|1",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|1",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "未署",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|1",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|1",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|2",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|2",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|2",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|2",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|3",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|3",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|3",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|3",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|4",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|4",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|4",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|4",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-003|5",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "未署",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|6",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|6",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|6",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|6",
+      "rep": 3,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|7",
+      "rep": 0,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|7",
+      "rep": 1,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-003|7",
+      "rep": 2,
+      "work": "R-003",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-005|0",
+      "rep": 0,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|0",
+      "rep": 1,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|0",
+      "rep": 2,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-005|0",
+      "rep": 3,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|10",
+      "rep": 0,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|10",
+      "rep": 1,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|10",
+      "rep": 2,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|10",
+      "rep": 3,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|11",
+      "rep": 0,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|11",
+      "rep": 1,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|11",
+      "rep": 2,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署错",
+        "terminal": "own",
+        "correct": false
+      }
+    },
+    {
+      "history": "F-D|R-005|11",
+      "rep": 3,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|12",
+      "rep": 0,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|12",
+      "rep": 1,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|12",
+      "rep": 2,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|12",
+      "rep": 3,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|14",
+      "rep": 0,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|14",
+      "rep": 1,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|14",
+      "rep": 2,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|14",
+      "rep": 3,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|15",
+      "rep": 0,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|15",
+      "rep": 1,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|15",
+      "rep": 2,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|15",
+      "rep": 3,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|4",
+      "rep": 0,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|4",
+      "rep": 1,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|4",
+      "rep": 2,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|4",
+      "rep": 3,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|6",
+      "rep": 0,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|6",
+      "rep": 1,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-005|6",
+      "rep": 3,
+      "work": "R-005",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|0",
+      "rep": 0,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|0",
+      "rep": 1,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|0",
+      "rep": 2,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|0",
+      "rep": 3,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|1",
+      "rep": 0,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|1",
+      "rep": 1,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|1",
+      "rep": 2,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|2",
+      "rep": 0,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|2",
+      "rep": 1,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|2",
+      "rep": 2,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|3",
+      "rep": 0,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|3",
+      "rep": 2,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|3",
+      "rep": 3,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|4",
+      "rep": 0,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|6",
+      "rep": 0,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|6",
+      "rep": 1,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|6",
+      "rep": 2,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|6",
+      "rep": 3,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|7",
+      "rep": 0,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|7",
+      "rep": 1,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|7",
+      "rep": 2,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-008|7",
+      "rep": 3,
+      "work": "R-008",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-010|1",
+      "rep": 1,
+      "work": "R-010",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-010|2",
+      "rep": 1,
+      "work": "R-010",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-010|4",
+      "rep": 1,
+      "work": "R-010",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-010|5",
+      "rep": 2,
+      "work": "R-010",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    },
+    {
+      "history": "F-D|R-010|5",
+      "rep": 3,
+      "work": "R-010",
+      "N": {
+        "concession": true,
+        "first": "未署",
+        "terminal": "cand",
+        "correct": true
+      },
+      "O": {
+        "concession": false,
+        "first": "署对",
+        "terminal": "cand",
+        "correct": true
+      }
+    }
+  ],
+  "paired_summary": {
+    "total": 124,
+    "flip": 90,
+    "flip_first": {
+      "署对": 69,
+      "署错": 18,
+      "未署": 3
+    },
+    "new_wrong": 19,
+    "new_correct": 0,
+    "new_wrong_by_work": {
+      "R-003": 17,
+      "R-005": 2
+    },
+    "new_wrong_by_O_first": {
+      "署错": 17,
+      "未署": 2
+    },
+    "cells": [
+      {
+        "N_concession": false,
+        "O_concession": false,
+        "O_first": "未署",
+        "N_correct": false,
+        "O_correct": false,
+        "n": 2
+      },
+      {
+        "N_concession": false,
+        "O_concession": false,
+        "O_first": "署对",
+        "N_correct": true,
+        "O_correct": true,
+        "n": 2
+      },
+      {
+        "N_concession": false,
+        "O_concession": false,
+        "O_first": "署错",
+        "N_correct": false,
+        "O_correct": false,
+        "n": 1
+      },
+      {
+        "N_concession": false,
+        "O_concession": true,
+        "O_first": "未署",
+        "N_correct": true,
+        "O_correct": true,
+        "n": 2
+      },
+      {
+        "N_concession": true,
+        "O_concession": false,
+        "O_first": "未署",
+        "N_correct": true,
+        "O_correct": false,
+        "n": 2
+      },
+      {
+        "N_concession": true,
+        "O_concession": false,
+        "O_first": "未署",
+        "N_correct": true,
+        "O_correct": true,
+        "n": 1
+      },
+      {
+        "N_concession": true,
+        "O_concession": false,
+        "O_first": "署对",
+        "N_correct": true,
+        "O_correct": true,
+        "n": 69
+      },
+      {
+        "N_concession": true,
+        "O_concession": false,
+        "O_first": "署错",
+        "N_correct": false,
+        "O_correct": false,
+        "n": 1
+      },
+      {
+        "N_concession": true,
+        "O_concession": false,
+        "O_first": "署错",
+        "N_correct": true,
+        "O_correct": false,
+        "n": 17
+      },
+      {
+        "N_concession": true,
+        "O_concession": true,
+        "O_first": "未署",
+        "N_correct": true,
+        "O_correct": true,
+        "n": 26
+      },
+      {
+        "N_concession": true,
+        "O_concession": true,
+        "O_first": "署对",
+        "N_correct": true,
+        "O_correct": true,
+        "n": 1
+      }
+    ]
+  },
+  "interpretation": "相同材料的纠错脆弱性跨干预重现，损失幅度随干预与上下文而变。第0阶段无前序且批量16，本轮镜像有前序且批量1，两批续写不逐条配对。两个时期的损失在历史层比较。首句及终点翻转是镜像内同历史同重复的固定抽样流配对，仅描述。",
+  "theory": "控制理论第二版§8在A1结果已知后提出Hogarth相对低、Sharp相对高、Hapgood与Wilbour接近。此前解释在新干预下得到定性支持。点名后相对作答倾向测量该对话中两个指定末行的相对得分。"
+}
