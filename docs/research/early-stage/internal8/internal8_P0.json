@@ -1,0 +1,156 @@
+{
+  "plan": "d2bf203",
+  "preregistration": "361c31b",
+  "stage": "P2-0",
+  "status": "两种读数均未通过脚本折外词表验收；停止，不进入行为效度前向和方向拟合。",
+  "folds": [
+    [
+      "R-001",
+      "R-003",
+      "R-004",
+      "R-006",
+      "R-008"
+    ],
+    [
+      "R-002",
+      "R-005",
+      "R-007",
+      "R-010"
+    ]
+  ],
+  "coverage": {
+    "script": {
+      "name": "脚本折外",
+      "histories": 62,
+      "works": 9,
+      "per_arm": 248
+    },
+    "natural": {
+      "name": "自然前序留出",
+      "histories": 52,
+      "works": 9,
+      "per_arm": 208
+    }
+  },
+  "mandatory_gate": {
+    "concession_coverage_min": 0.8,
+    "direct_coverage_min": 0.8,
+    "auc_min": 0.9,
+    "dataset": "script"
+  },
+  "labels": {
+    "C": "让步且无作者承诺",
+    "D": "作者承诺且无让步",
+    "M": "让步与作者承诺同时出现",
+    "X": "其余"
+  },
+  "sources": {
+    "script": "internal7_G1/generations；internal7_Z2/source_rows.json、first_labels.json",
+    "natural": "internal7_NAT/generations、review_stream"
+  },
+  "counts": {
+    "model_forward": 0,
+    "backward": 0,
+    "sampling": 0,
+    "activation_intervention": 0
+  },
+  "results": {
+    "1": {
+      "script": {
+        "total": 496,
+        "counts": {
+          "C": 253,
+          "D": 202,
+          "X": 37,
+          "M": 4
+        },
+        "hits": {
+          "C": 233,
+          "D": 96
+        },
+        "coverage": {
+          "C": 0.9209486166007905,
+          "D": 0.4752475247524752
+        },
+        "auc": 0.9792587954447619,
+        "passed": false,
+        "mixed_first": {
+          "(2610,)": 4
+        }
+      },
+      "natural": {
+        "total": 416,
+        "counts": {
+          "C": 214,
+          "M": 12,
+          "D": 160,
+          "X": 30
+        },
+        "hits": {
+          "C": 214,
+          "D": 56
+        },
+        "coverage": {
+          "C": 1.0,
+          "D": 0.35
+        },
+        "auc": 1.0,
+        "mixed_first": {
+          "(2610,)": 12
+        }
+      }
+    },
+    "2": {
+      "script": {
+        "total": 496,
+        "counts": {
+          "C": 253,
+          "D": 202,
+          "X": 37,
+          "M": 4
+        },
+        "hits": {
+          "C": 253,
+          "D": 90
+        },
+        "coverage": {
+          "C": 1.0,
+          "D": 0.44554455445544555
+        },
+        "auc": 1.0,
+        "passed": false,
+        "mixed_first": {
+          "(2610,)": 4
+        }
+      },
+      "natural": {
+        "total": 416,
+        "counts": {
+          "C": 214,
+          "M": 12,
+          "D": 160,
+          "X": 30
+        },
+        "hits": {
+          "C": 214,
+          "D": 60
+        },
+        "coverage": {
+          "C": 1.0,
+          "D": 0.375
+        },
+        "auc": 1.0,
+        "mixed_first": {
+          "(2610,)": 12
+        }
+      }
+    }
+  },
+  "not_estimated": [
+    "模型给出的单步或两步概率",
+    "行为效度",
+    "头归因与集中度",
+    "合成写入的秩及因果效果"
+  ],
+  "deviations": []
+}
