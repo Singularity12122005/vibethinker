@@ -54,6 +54,26 @@ def verify_archive(pairs):
     return archive
 
 
+def context(tokenizer, builder, pair, side, row, condition):
+    from program_update_development import OLD_OPENING
+    turns, followups, _ = material(pair, 0 if side == "E" else 1)
+    text = tokenizer.apply_chat_template(messages(turns), tokenize=False, add_generation_prompt=True)
+    enc = lambda s: tokenizer.encode(s, add_special_tokens=False)
+    assert enc(text) == row["prompt_ids"] and not row["truncated"]
+    assert text.count(OLD_OPENING) == 1
+    before = text.split(OLD_OPENING)[0]
+    lo, hi = len(enc(before)), len(enc(before + OLD_OPENING))
+    assert tokenizer.decode(row["prompt_ids"][lo:hi], skip_special_tokens=False,
+                            clean_up_tokenization_spaces=False) == OLD_OPENING
+    answer = builder.normalize(row["raw_ids"], "stop").ids
+    ids, user_span = builder.next_turn(row["prompt_ids"], answer, followups[condition])
+    header = enc("<|im_start|>assistant\n")
+    ah = len(ids) - len(header)
+    assert ids[ah:] == header and 0 < lo < hi < user_span[0] < user_span[1] <= ah
+    return {"ids": ids, "opening_span": (lo, hi),
+            "bounds": [len(row["prompt_ids"]), len(row["prompt_ids"]) + len(answer), ah, len(ids)]}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=("materials", "sample", "native"))
@@ -75,6 +95,12 @@ def main():
             prompts = {name: messages(material(pair, 0)[0]) for name, pair in pairs.items()}
             collect(directory, prompts, STAGE, complete=True)
         else:
+            import sys
+            from transformers import AutoTokenizer
+            sys.path.insert(0, str(RUNS / "internal8_P0_w17"))
+            import g1_runtime_main as legacy
+            tokenizer = AutoTokenizer.from_pretrained(MODEL, local_files_only=True)
+            builder = legacy.TurnBuilder(lambda s: tokenizer.encode(s, add_special_tokens=False), "instruct")
             selected = json.loads((directory / "selected_histories.json").read_text())
             easy = json.loads((directory / "first_answers.json").read_text())
             prompts = {}
@@ -82,10 +108,11 @@ def main():
                 name, side, key = entry["family"], entry["side"], entry["key"]
                 row = (easy if side == "E" else archive)[key]
                 assert not row["truncated"]
-                turns, followups, _ = material(pairs[name], 0 if side == "E" else 1)
-                for condition_index, message in enumerate(followups.values()):
-                    history = turns + (("assistant", row["text"]), ("user", message))
-                    prompts[f"{name}-{side}-{key}-c{condition_index}"] = messages(history)
+                _, followups, _ = material(pairs[name], 0 if side == "E" else 1)
+                for condition_index, condition in enumerate(followups):
+                    ctx = context(tokenizer, builder, pairs[name], side, row, condition)
+                    prompts[f"{name}-{side}-{key}-c{condition_index}"] = {
+                        "input_ids": ctx["ids"], "bounds": ctx["bounds"]}
             collect(directory, prompts, STAGE + "_native", complete=True,
                     repeats=1, filename="native_answers.json")
     finally:

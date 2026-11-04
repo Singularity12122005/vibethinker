@@ -71,10 +71,15 @@ def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
     stops = (legacy.IM_END, legacy.ENDOFTEXT)
     with torch.inference_mode():
         for item, messages in prompts.items():
-            rendered = tokenizer.apply_chat_template(messages, tokenize=False,
-                                                      add_generation_prompt=True)
-            assert rendered.endswith("<|im_start|>assistant\n") and "<think>" not in rendered
-            ids = tokenizer.encode(rendered, add_special_tokens=False)
+            if isinstance(messages, dict) and "input_ids" in messages:
+                ids = messages["input_ids"]
+                header = tokenizer.encode("<|im_start|>assistant\n", add_special_tokens=False)
+                assert ids[-len(header):] == header
+            else:
+                rendered = tokenizer.apply_chat_template(messages, tokenize=False,
+                                                          add_generation_prompt=True)
+                assert rendered.endswith("<|im_start|>assistant\n") and "<think>" not in rendered
+                ids = tokenizer.encode(rendered, add_special_tokens=False)
             for i in range(repeats):
                 row = rows.get(f"{item}-{i}")
                 if row is not None:
@@ -85,7 +90,12 @@ def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
                 continue
             if engine is None:
                 engine = Engine()
-            initial = engine.call(ids, None, "program_first_prefill")
+            if isinstance(messages, dict) and "bounds" in messages:
+                ctx = {"ids": ids, "bounds": messages["bounds"]}
+                prefix = engine.prefix(ctx)
+                initial = engine.call(ids[ctx["bounds"][2]:], prefix, "program_follow_header")
+            else:
+                initial = engine.call(ids, None, "program_first_prefill")
             for i in range(repeats):
                 key = f"{item}-{i}"
                 previous = rows.get(key)
