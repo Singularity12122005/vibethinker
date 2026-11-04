@@ -65,7 +65,10 @@ def context(tokenizer, builder, pair, side, row, condition):
     lo, hi = len(enc(before)), len(enc(before + OLD_OPENING))
     assert tokenizer.decode(row["prompt_ids"][lo:hi], skip_special_tokens=False,
                             clean_up_tokenization_spaces=False) == OLD_OPENING
-    answer = builder.normalize(row["raw_ids"], "stop").ids
+    normalized = builder.normalize(row["raw_ids"], "stop")
+    assert not normalized.truncated and not normalized.stray_think_tokens
+    answer = normalized.ids
+    assert answer[:-1] == row["raw_ids"][:-1]
     ids, user_span = builder.next_turn(row["prompt_ids"], answer, followups[condition])
     header = enc("<|im_start|>assistant\n")
     ah = len(ids) - len(header)
