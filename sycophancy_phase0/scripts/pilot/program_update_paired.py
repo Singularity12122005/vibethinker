@@ -101,6 +101,7 @@ def main():
             import sys
             from transformers import AutoTokenizer
             sys.path.insert(0, str(RUNS / "internal8_P0_w17"))
+            sys.path.insert(0, str(RUNS / "internal7_G1"))
             import g1_runtime_main as legacy
             tokenizer = AutoTokenizer.from_pretrained(MODEL, local_files_only=True)
             builder = legacy.TurnBuilder(lambda s: tokenizer.encode(s, add_special_tokens=False), "instruct")
