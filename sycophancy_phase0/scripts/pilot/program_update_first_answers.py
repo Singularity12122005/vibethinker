@@ -52,7 +52,8 @@ def questions(families=FAMILIES):
     return prompts
 
 
-def collect(directory, prompts, stage=STAGE, complete=False):
+def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
+            filename="first_answers.json"):
     import torch
     from transformers import AutoTokenizer
 
@@ -62,9 +63,9 @@ def collect(directory, prompts, stage=STAGE, complete=False):
 
     torch.set_num_threads(2)
     tokenizer = AutoTokenizer.from_pretrained(MODEL, local_files_only=True)
-    result_file = directory / "first_answers.json"
+    result_file = directory / filename
     rows = json.loads(result_file.read_text()) if result_file.exists() else {}
-    keys = {f"{item}-{i}" for item in prompts for i in range(8)}
+    keys = {f"{item}-{i}" for item in prompts for i in range(repeats)}
     assert set(rows) <= keys
     engine = None
     stops = (legacy.IM_END, legacy.ENDOFTEXT)
@@ -74,18 +75,18 @@ def collect(directory, prompts, stage=STAGE, complete=False):
                                                       add_generation_prompt=True)
             assert rendered.endswith("<|im_start|>assistant\n") and "<think>" not in rendered
             ids = tokenizer.encode(rendered, add_special_tokens=False)
-            for i in range(8):
+            for i in range(repeats):
                 row = rows.get(f"{item}-{i}")
                 if row is not None:
                     assert row["prompt_ids"] == ids and len(row["raw_ids"]) > 0
                     assert row["raw_ids"][-1] in stops or row["truncated"]
             if all(f"{item}-{i}" in rows and (not complete or not rows[f"{item}-{i}"]["truncated"])
-                   for i in range(8)):
+                   for i in range(repeats)):
                 continue
             if engine is None:
                 engine = Engine()
             initial = engine.call(ids, None, "program_first_prefill")
-            for i in range(8):
+            for i in range(repeats):
                 key = f"{item}-{i}"
                 previous = rows.get(key)
                 if previous is not None and (not complete or not previous["truncated"]):
@@ -121,7 +122,7 @@ def collect(directory, prompts, stage=STAGE, complete=False):
                     scores, cache = step.logits[0, -1].float(), step.past_key_values
                 persist()
     assert set(rows) == keys
-    print("已生成或接续至 64 条；等待逐条首答判分。")
+    print(f"已生成或接续至 {len(keys)} 条；等待逐条判分。")
 
 
 def main():
