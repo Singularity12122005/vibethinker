@@ -52,7 +52,7 @@ def questions(families=FAMILIES):
     return prompts
 
 
-def collect(directory, prompts, stage=STAGE):
+def collect(directory, prompts, stage=STAGE, complete=False):
     import torch
     from transformers import AutoTokenizer
 
@@ -77,16 +77,18 @@ def collect(directory, prompts, stage=STAGE):
             for i in range(8):
                 row = rows.get(f"{item}-{i}")
                 if row is not None:
-                    assert row["prompt_ids"] == ids and 0 < len(row["raw_ids"]) <= 1024
-                    assert row["raw_ids"][-1] in stops or len(row["raw_ids"]) == 1024
-            if all(f"{item}-{i}" in rows for i in range(8)):
+                    assert row["prompt_ids"] == ids and len(row["raw_ids"]) > 0
+                    assert row["raw_ids"][-1] in stops or row["truncated"]
+            if all(f"{item}-{i}" in rows and (not complete or not rows[f"{item}-{i}"]["truncated"])
+                   for i in range(8)):
                 continue
             if engine is None:
                 engine = Engine()
             initial = engine.call(ids, None, "program_first_prefill")
             for i in range(8):
                 key = f"{item}-{i}"
-                if key in rows:
+                previous = rows.get(key)
+                if previous is not None and (not complete or not previous["truncated"]):
                     continue
                 seed = legacy.derive_seed(stage, item, "first", "native", i, 1)
                 sampler = legacy.SeededGumbelSampler([seed], temperature=.7, device="cuda")
@@ -94,20 +96,30 @@ def collect(directory, prompts, stage=STAGE):
                 cache = copy.deepcopy(initial.past_key_values)
                 scores = initial.logits[0, -1].float()
                 raw = []
-                for _ in range(1024):
+                frozen = previous["raw_ids"] if previous else []
+                def persist():
+                    result = {"prompt_ids": ids, "raw_ids": list(raw),
+                              "text": tokenizer.decode(raw, skip_special_tokens=True),
+                              "truncated": raw[-1] not in stops}
+                    if previous:
+                        result["initial_stop_length"] = previous.get("initial_stop_length", len(frozen))
+                    rows[key] = result
+                    tmp = result_file.with_suffix(".part")
+                    tmp.write_text(json.dumps(rows, ensure_ascii=False), encoding="utf8")
+                    tmp.replace(result_file)
+                while True:
                     token = sampler(seq, scores[None, :]).argmax(-1).item()
+                    if len(raw) < len(frozen):
+                        assert token == frozen[len(raw)], (key, len(raw), "原词元续接核对失败")
                     raw.append(token)
-                    if token in stops or len(raw) == 1024:
+                    if token in stops or (not complete and len(raw) == 1024):
                         break
+                    if complete and len(raw) > len(frozen) and len(raw) % 128 == 0:
+                        persist()
                     seq = torch.cat((seq, seq.new_tensor([[token]])), dim=1)
                     step = engine.call([token], cache, "program_first_token")
                     scores, cache = step.logits[0, -1].float(), step.past_key_values
-                rows[key] = {"prompt_ids": ids, "raw_ids": raw,
-                             "text": tokenizer.decode(raw, skip_special_tokens=True),
-                             "truncated": raw[-1] not in stops}
-                tmp = result_file.with_suffix(".part")
-                tmp.write_text(json.dumps(rows, ensure_ascii=False), encoding="utf8")
-                tmp.replace(result_file)
+                persist()
     assert set(rows) == keys
     print("已生成或接续至 64 条；等待逐条首答判分。")
 
@@ -116,6 +128,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=("materials", "configuration", "sample"))
     parser.add_argument("--hard", action="store_true")
+    parser.add_argument("--complete", action="store_true",
+                        help="原词元原抽样流续接触顶项，至自然结束")
+    parser.add_argument("--wait", action="store_true",
+                        help="等原采样进程释放本批目录再接续")
     args = parser.parse_args()
     action = args.action
     if action == "configuration":
@@ -136,8 +152,8 @@ def main():
     directory.mkdir(exist_ok=True)
     fd = os.open(directory, os.O_RDONLY)
     try:
-        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        collect(directory, prompts, stage)
+        fcntl.flock(fd, fcntl.LOCK_EX | (0 if args.wait else fcntl.LOCK_NB))
+        collect(directory, prompts, stage, args.complete)
     finally:
         os.close(fd)
 
