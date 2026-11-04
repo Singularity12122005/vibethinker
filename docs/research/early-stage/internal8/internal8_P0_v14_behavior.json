@@ -1,0 +1,146 @@
+{
+  "script": {
+    "histories": 62,
+    "works": 9,
+    "means": {
+      "oN": 2.5635491648027973,
+      "oO": -3.334315946025233,
+      "diff": 5.897865110828031,
+      "rate_diff": 0.8104838709677419,
+      "pCn": 0.846952055490786,
+      "pCo": 0.10931619119541973,
+      "pDn": 0.04754264459282445,
+      "pDo": 0.3965555352962486,
+      "pTn": 0.9199843608563946,
+      "pTo": 0.13225000570227782,
+      "pTCn": 0.846952055490786,
+      "pTCo": 0.10931619119541973,
+      "nT": 9.580645161290322,
+      "nTC": 1
+    },
+    "difference_ci95": [
+      5.230154870237623,
+      6.567165350385235
+    ],
+    "spearman": -0.008265109027326585,
+    "rate_difference_counts": {
+      "0.0": 3,
+      "0.25": 3,
+      "0.5": 5,
+      "0.75": 16,
+      "1.0": 35
+    },
+    "meets_criteria": false
+  },
+  "natural": {
+    "histories": 52,
+    "works": 9,
+    "means": {
+      "oN": 4.387018790611854,
+      "oO": -3.490849568293645,
+      "diff": 7.8778683589054985,
+      "rate_diff": 0.8653846153846154,
+      "pCn": 0.9599076887735953,
+      "pCo": 0.11033820102588485,
+      "pDn": 0.020802037716591188,
+      "pDo": 0.371384914610714,
+      "pTn": 0.9645995784264344,
+      "pTo": 0.11173938745587993,
+      "pTCn": 0.9599076887735953,
+      "pTCo": 0.11033820102588485,
+      "nT": 8.153846153846153,
+      "nTC": 1
+    },
+    "difference_ci95": [
+      7.260711388022703,
+      8.453457345281329
+    ],
+    "spearman": 0.12400289612818471,
+    "rate_difference_counts": {
+      "0.0": 3,
+      "0.25": 1,
+      "0.5": 2,
+      "0.75": 9,
+      "1.0": 37
+    },
+    "meets_criteria": true
+  },
+  "forwards": 570,
+  "backwards": 0,
+  "sampling": 0,
+  "script_pass": false,
+  "plan": "5523de8",
+  "prereg": "6647652",
+  "archive_gate": "40faa1f",
+  "outcome": "stopped_at_behavioral_validity",
+  "criteria": {
+    "lower_paired_difference_ci95": "> 0",
+    "spearman": "> 0",
+    "decision_sample": "script",
+    "natural": "descriptive_only"
+  },
+  "archive_classification": {
+    "script": {
+      "sensitivity": [
+        233,
+        253
+      ],
+      "specificity": [
+        236,
+        239
+      ],
+      "known_direct_coverage": [
+        96,
+        202
+      ]
+    },
+    "natural": {
+      "sensitivity": [
+        214,
+        214
+      ],
+      "specificity": [
+        188,
+        190
+      ],
+      "known_direct_coverage": [
+        56,
+        160
+      ]
+    }
+  },
+  "bootstrap": {
+    "unit": "work",
+    "n": 2000,
+    "statistic": "pooled_history_mean_with_work_multiplicity",
+    "interval": "percentile_95"
+  },
+  "calls": {
+    "pre_assistant_prefix": 342,
+    "native_head": 114,
+    "masked_head": 114,
+    "masked_query_positions_per_head": 3,
+    "masked_layers": 48
+  },
+  "archived_bridge": {
+    "source": "internal7_I1_localization.md",
+    "group": "A",
+    "native_minus_masked": [
+      7.13051,
+      6.59707,
+      7.60676
+    ],
+    "source_context": "script",
+    "statistic": "five_token_contrast",
+    "new_calls": 0
+  },
+  "not_run": [
+    "backup_two_token",
+    "attribution",
+    "edit_identity",
+    "head_selection",
+    "subspace_fit",
+    "semantic_grading",
+    "sampling"
+  ]
+}
