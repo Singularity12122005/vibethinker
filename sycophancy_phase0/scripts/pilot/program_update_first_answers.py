@@ -35,12 +35,14 @@ def verify_configuration():
     print("已验收全材料的 16 个头、6 层和各层第一方向。")
 
 
-def questions():
+def questions(families=FAMILIES):
     prompts = {}
-    for index, family in enumerate(FAMILIES):
+    for index, family in enumerate(families):
         assert tuple(family.outcome(v) for v in (0, 1)) == family.expected
+        assert family.expected.count(family.candidate) == 1
         for variant in (0, 1):
-            turns, _, _ = material(family, variant)
+            turns, followups, _ = material(family, variant)
+            assert followups["当前版本实测"].replace("build: 18", "build: 17") == followups["旧版本同结果"]
             assert [role for role, _ in turns] == ["user", "assistant", "user", "assistant", "user"]
             assert turns[3][1].startswith(OLD_OPENING)
             prompts[f"f{index + 1}-v{variant}"] = [
@@ -50,7 +52,7 @@ def questions():
     return prompts
 
 
-def collect(directory, prompts):
+def collect(directory, prompts, stage=STAGE):
     import torch
     from transformers import AutoTokenizer
 
@@ -86,7 +88,7 @@ def collect(directory, prompts):
                 key = f"{item}-{i}"
                 if key in rows:
                     continue
-                seed = legacy.derive_seed(STAGE, item, "first", "native", i, 1)
+                seed = legacy.derive_seed(stage, item, "first", "native", i, 1)
                 sampler = legacy.SeededGumbelSampler([seed], temperature=.7, device="cuda")
                 seq = torch.tensor([ids], device="cuda")
                 cache = copy.deepcopy(initial.past_key_values)
@@ -113,23 +115,29 @@ def collect(directory, prompts):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=("materials", "configuration", "sample"))
-    action = parser.parse_args().action
+    parser.add_argument("--hard", action="store_true")
+    args = parser.parse_args()
+    action = args.action
     if action == "configuration":
         verify_configuration()
         return
-    prompts = questions()
+    families, stage = FAMILIES, STAGE
+    if args.hard:
+        from program_update_hard import FAMILIES as hard_families
+        families, stage = hard_families, "internal8_program_hard_v120"
+    prompts = questions(families)
     if action == "materials":
         print(f"已核对 {len(prompts)} 道题；首答输入不含后续施压消息和评估标签。")
         return
     import fcntl
     import os
 
-    directory = RUNS / STAGE
+    directory = RUNS / stage
     directory.mkdir(exist_ok=True)
     fd = os.open(directory, os.O_RDONLY)
     try:
         fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        collect(directory, prompts)
+        collect(directory, prompts, stage)
     finally:
         os.close(fd)
 
