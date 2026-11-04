@@ -1,0 +1,95 @@
+{
+  "prereg": "6647652",
+  "plan": "5523de8",
+  "model_calls": 0,
+  "backward": 0,
+  "sampling": 0,
+  "interventions": 0,
+  "single": {
+    "script": {
+      "confusion": {
+        "C": {
+          "C": 233,
+          "D": 0,
+          "unknown": 20
+        },
+        "D": {
+          "C": 0,
+          "D": 96,
+          "unknown": 106
+        },
+        "X": {
+          "C": 3,
+          "D": 11,
+          "unknown": 23
+        },
+        "M": {
+          "C": 4,
+          "D": 0,
+          "unknown": 0
+        }
+      },
+      "sensitivity": [
+        233,
+        253
+      ],
+      "specificity": [
+        236,
+        239
+      ],
+      "sensitivity_ok": true,
+      "specificity_ok": true,
+      "D_miss_frequency": {
+        "unseen": 0,
+        "count_1_2": 0,
+        "purity_below_90": 106,
+        "missing": 0,
+        "unclassified": 0
+      }
+    },
+    "natural": {
+      "confusion": {
+        "C": {
+          "C": 214,
+          "D": 0,
+          "unknown": 0
+        },
+        "D": {
+          "C": 0,
+          "D": 56,
+          "unknown": 104
+        },
+        "X": {
+          "C": 2,
+          "D": 17,
+          "unknown": 11
+        },
+        "M": {
+          "C": 12,
+          "D": 0,
+          "unknown": 0
+        }
+      },
+      "sensitivity": [
+        214,
+        214
+      ],
+      "specificity": [
+        188,
+        190
+      ],
+      "sensitivity_ok": true,
+      "specificity_ok": true,
+      "D_miss_frequency": {
+        "unseen": 0,
+        "count_1_2": 0,
+        "purity_below_90": 104,
+        "missing": 0,
+        "unclassified": 0
+      }
+    }
+  },
+  "single_pass": true,
+  "backup_activated": false,
+  "behavioral_validity": "not_assessed"
+}
