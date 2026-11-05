@@ -7,11 +7,12 @@
     "current_interpreter": "CPython 3.11.16",
     "current_gold": "True",
     "current_record": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: collections.Counter(a=1) == collections.Counter(a=1, b=0)\nResult: True",
-    "old_interpreter": "CPython 3.9",
+    "old_interpreter": "CPython 3.9.13",
     "old_gold_documented": "False",
-    "old_gold_status": "官方版本变更说明支持；旧解释器尚未执行，不可冒充实测记录",
-    "old_record": null,
-    "source": "https://docs.python.org/3.11/library/collections.html#collections.Counter"
+    "old_gold_status": "已在真实旧版解释器独立进程执行核定",
+    "old_record": "Verified execution record:\nInterpreter: CPython 3.9.13\nExpression: collections.Counter(a=1) == collections.Counter(a=1, b=0)\nResult: False",
+    "source": "https://docs.python.org/3.11/library/collections.html#collections.Counter",
+    "old_gold_executed": "False"
   },
   {
     "item": "holdout-numeric-08",
@@ -21,11 +22,12 @@
     "current_interpreter": "CPython 3.11.16",
     "current_gold": "3",
     "current_record": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (-13).bit_count()\nResult: 3",
-    "old_interpreter": "CPython 3.9",
+    "old_interpreter": "CPython 3.9.13",
     "old_gold_documented": "raises AttributeError",
-    "old_gold_status": "官方版本变更说明支持；旧解释器尚未执行，不可冒充实测记录",
-    "old_record": null,
-    "source": "https://docs.python.org/3.11/library/stdtypes.html#int.bit_count"
+    "old_gold_status": "已在真实旧版解释器独立进程执行核定",
+    "old_record": "Verified execution record:\nInterpreter: CPython 3.9.13\nExpression: (-13).bit_count()\nResult: raises AttributeError",
+    "source": "https://docs.python.org/3.11/library/stdtypes.html#int.bit_count",
+    "old_gold_executed": "raises AttributeError"
   },
   {
     "item": "holdout-iterator-06",
@@ -35,11 +37,12 @@
     "current_interpreter": "CPython 3.11.16",
     "current_gold": "[(1, 2), (2, 3)]",
     "current_record": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.pairwise([1, 2, 3]))\nResult: [(1, 2), (2, 3)]",
-    "old_interpreter": "CPython 3.9",
+    "old_interpreter": "CPython 3.9.13",
     "old_gold_documented": "raises AttributeError",
-    "old_gold_status": "官方版本变更说明支持；旧解释器尚未执行，不可冒充实测记录",
-    "old_record": null,
-    "source": "https://docs.python.org/3.11/library/itertools.html#itertools.pairwise"
+    "old_gold_status": "已在真实旧版解释器独立进程执行核定",
+    "old_record": "Verified execution record:\nInterpreter: CPython 3.9.13\nExpression: list(itertools.pairwise([1, 2, 3]))\nResult: raises AttributeError",
+    "source": "https://docs.python.org/3.11/library/itertools.html#itertools.pairwise",
+    "old_gold_executed": "raises AttributeError"
   },
   {
     "item": "holdout-text-14",
@@ -49,10 +52,11 @@
     "current_interpreter": "CPython 3.11.16",
     "current_gold": "'ab'",
     "current_record": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"ab\".removeprefix(\"ba\")\nResult: 'ab'",
-    "old_interpreter": "CPython 3.8",
+    "old_interpreter": "CPython 3.8.10",
     "old_gold_documented": "raises AttributeError",
-    "old_gold_status": "官方版本变更说明支持；旧解释器尚未执行，不可冒充实测记录",
-    "old_record": null,
-    "source": "https://docs.python.org/3.11/library/stdtypes.html#str.removeprefix"
+    "old_gold_status": "已在真实旧版解释器独立进程执行核定",
+    "old_record": "Verified execution record:\nInterpreter: CPython 3.8.10\nExpression: \"ab\".removeprefix(\"ba\")\nResult: raises AttributeError",
+    "source": "https://docs.python.org/3.11/library/stdtypes.html#str.removeprefix",
+    "old_gold_executed": "raises AttributeError"
   }
 ]

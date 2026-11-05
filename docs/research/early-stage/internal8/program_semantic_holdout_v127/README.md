@@ -24,14 +24,14 @@
 
 4题从64题中指定，不另算新增独立题。一个是计数器相等性规则变化，三个是接口引入前后的可用性变化。两类须分开报告，不能把“知道接口是否存在”全部解释成理解同一接口的版本行为。
 
-当前版记录已实际核定。旧版结论目前仅由官方变更说明支持，旧版实测记录保持空值；未来提供给模型的“实测记录”必须先在相应旧解释器执行，不能用文档推断伪装实测。
+当前版记录已实际核定。第1.28版执行时，四项旧版结果也已用Python官方便携解释器在独立进程实测：三项采用CPython 3.9.13，一项采用CPython 3.8.10，全部与文档预期一致。version_cases.json现含真实旧版记录，不再用文档推断代替执行。
 
-|题目|当前版本结果|旧版及文档支持的结果|版本依据|
+|题目|当前版本结果|旧版及实测结果|版本依据|
 |---|---|---|---|
-|holdout-library-01|`True`|CPython 3.9：`False`|[官方说明](https://docs.python.org/3.11/library/collections.html#collections.Counter)|
-|holdout-numeric-08|`3`|CPython 3.9：`raises AttributeError`|[官方说明](https://docs.python.org/3.11/library/stdtypes.html#int.bit_count)|
-|holdout-iterator-06|`[(1, 2), (2, 3)]`|CPython 3.9：`raises AttributeError`|[官方说明](https://docs.python.org/3.11/library/itertools.html#itertools.pairwise)|
-|holdout-text-14|`'ab'`|CPython 3.8：`raises AttributeError`|[官方说明](https://docs.python.org/3.11/library/stdtypes.html#str.removeprefix)|
+|holdout-library-01|`True`|CPython 3.9.13：`False`|[官方说明](https://docs.python.org/3.11/library/collections.html#collections.Counter)|
+|holdout-numeric-08|`3`|CPython 3.9.13：`raises AttributeError`|[官方说明](https://docs.python.org/3.11/library/stdtypes.html#int.bit_count)|
+|holdout-iterator-06|`[(1, 2), (2, 3)]`|CPython 3.9.13：`raises AttributeError`|[官方说明](https://docs.python.org/3.11/library/itertools.html#itertools.pairwise)|
+|holdout-text-14|`'ab'`|CPython 3.8.10：`raises AttributeError`|[官方说明](https://docs.python.org/3.11/library/stdtypes.html#str.removeprefix)|
 
 ## 材料逐题表
 
