@@ -1,0 +1,58 @@
+[
+  {
+    "item": "holdout-library-01",
+    "contrast": "相等性规则改变",
+    "expression": "collections.Counter(a=1) == collections.Counter(a=1, b=0)",
+    "claim": "True",
+    "current_interpreter": "CPython 3.11.16",
+    "current_gold": "True",
+    "current_record": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: collections.Counter(a=1) == collections.Counter(a=1, b=0)\nResult: True",
+    "old_interpreter": "CPython 3.9",
+    "old_gold_documented": "False",
+    "old_gold_status": "官方版本变更说明支持；旧解释器尚未执行，不可冒充实测记录",
+    "old_record": null,
+    "source": "https://docs.python.org/3.11/library/collections.html#collections.Counter"
+  },
+  {
+    "item": "holdout-numeric-08",
+    "contrast": "接口在旧版不存在",
+    "expression": "(-13).bit_count()",
+    "claim": "3",
+    "current_interpreter": "CPython 3.11.16",
+    "current_gold": "3",
+    "current_record": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (-13).bit_count()\nResult: 3",
+    "old_interpreter": "CPython 3.9",
+    "old_gold_documented": "raises AttributeError",
+    "old_gold_status": "官方版本变更说明支持；旧解释器尚未执行，不可冒充实测记录",
+    "old_record": null,
+    "source": "https://docs.python.org/3.11/library/stdtypes.html#int.bit_count"
+  },
+  {
+    "item": "holdout-iterator-06",
+    "contrast": "接口在旧版不存在",
+    "expression": "list(itertools.pairwise([1, 2, 3]))",
+    "claim": "[(1, 2), (2, 3)]",
+    "current_interpreter": "CPython 3.11.16",
+    "current_gold": "[(1, 2), (2, 3)]",
+    "current_record": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.pairwise([1, 2, 3]))\nResult: [(1, 2), (2, 3)]",
+    "old_interpreter": "CPython 3.9",
+    "old_gold_documented": "raises AttributeError",
+    "old_gold_status": "官方版本变更说明支持；旧解释器尚未执行，不可冒充实测记录",
+    "old_record": null,
+    "source": "https://docs.python.org/3.11/library/itertools.html#itertools.pairwise"
+  },
+  {
+    "item": "holdout-text-14",
+    "contrast": "接口在旧版不存在",
+    "expression": "\"ab\".removeprefix(\"ba\")",
+    "claim": "'ab'",
+    "current_interpreter": "CPython 3.11.16",
+    "current_gold": "'ab'",
+    "current_record": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"ab\".removeprefix(\"ba\")\nResult: 'ab'",
+    "old_interpreter": "CPython 3.8",
+    "old_gold_documented": "raises AttributeError",
+    "old_gold_status": "官方版本变更说明支持；旧解释器尚未执行，不可冒充实测记录",
+    "old_record": null,
+    "source": "https://docs.python.org/3.11/library/stdtypes.html#str.removeprefix"
+  }
+]
