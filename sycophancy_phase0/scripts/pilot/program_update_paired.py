@@ -96,7 +96,7 @@ def main():
         archive = verify_archive(pairs)
         if args.action == "sample":
             prompts = {name: messages(material(pair, 0)[0]) for name, pair in pairs.items()}
-            collect(directory, prompts, STAGE, complete=True)
+            collect(directory, prompts, STAGE, complete=True, max_new_tokens=16384)
         else:
             import sys
             from transformers import AutoTokenizer
@@ -118,7 +118,7 @@ def main():
                     prompts[f"{name}-{side}-{key}-c{condition_index}"] = {
                         "input_ids": ctx["ids"], "bounds": ctx["bounds"]}
             collect(directory, prompts, STAGE + "_native", complete=True,
-                    repeats=1, filename="native_answers.json")
+                    repeats=1, filename="native_answers.json", max_new_tokens=16384)
     finally:
         os.close(fd)
 

@@ -53,7 +53,7 @@ def questions(families=FAMILIES):
 
 
 def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
-            filename="first_answers.json"):
+            filename="first_answers.json", max_new_tokens=None):
     import torch
     from transformers import AutoTokenizer
 
@@ -69,6 +69,9 @@ def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
     assert set(rows) <= keys
     engine = None
     stops = (legacy.IM_END, legacy.ENDOFTEXT)
+    def finished(row):
+        return (not row["truncated"] or (max_new_tokens is not None
+                and len(row["raw_ids"]) >= max_new_tokens))
     with torch.inference_mode():
         for item, messages in prompts.items():
             if isinstance(messages, dict) and "input_ids" in messages:
@@ -85,7 +88,7 @@ def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
                 if row is not None:
                     assert row["prompt_ids"] == ids and len(row["raw_ids"]) > 0
                     assert row["raw_ids"][-1] in stops or row["truncated"]
-            if all(f"{item}-{i}" in rows and (not complete or not rows[f"{item}-{i}"]["truncated"])
+            if all(f"{item}-{i}" in rows and (not complete or finished(rows[f"{item}-{i}"]))
                    for i in range(repeats)):
                 continue
             if engine is None:
@@ -99,7 +102,7 @@ def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
             for i in range(repeats):
                 key = f"{item}-{i}"
                 previous = rows.get(key)
-                if previous is not None and (not complete or not previous["truncated"]):
+                if previous is not None and (not complete or finished(previous)):
                     continue
                 seed = legacy.derive_seed(stage, item, "first", "native", i, 1)
                 sampler = legacy.SeededGumbelSampler([seed], temperature=.7, device="cuda")
@@ -114,6 +117,9 @@ def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
                               "truncated": raw[-1] not in stops}
                     if previous:
                         result["initial_stop_length"] = previous.get("initial_stop_length", len(frozen))
+                    if (max_new_tokens is not None and len(raw) >= max_new_tokens
+                            and raw[-1] not in stops):
+                        result["incomplete_reason"] = "length_limit"
                     rows[key] = result
                     tmp = result_file.with_suffix(".part")
                     tmp.write_text(json.dumps(rows, ensure_ascii=False), encoding="utf8")
@@ -123,7 +129,8 @@ def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
                     if len(raw) < len(frozen):
                         assert token == frozen[len(raw)], (key, len(raw), "原词元续接核对失败")
                     raw.append(token)
-                    if token in stops or (not complete and len(raw) == 1024):
+                    if (token in stops or (not complete and len(raw) == 1024)
+                            or (max_new_tokens is not None and len(raw) >= max_new_tokens)):
                         break
                     if complete and len(raw) > len(frozen) and len(raw) % 128 == 0:
                         persist()
@@ -132,7 +139,7 @@ def collect(directory, prompts, stage=STAGE, complete=False, repeats=8,
                     scores, cache = step.logits[0, -1].float(), step.past_key_values
                 persist()
     assert set(rows) == keys
-    print(f"已生成或接续至 {len(keys)} 条；等待逐条判分。")
+    print(f"已处理 {len(keys)} 条；自然结束 {sum(not r['truncated'] for r in rows.values())} 条；等待逐条判分。")
 
 
 def main():
