@@ -1,0 +1,2588 @@
+{
+  "generated_tokens": 0,
+  "temperature": 0.7,
+  "definition": "中性点名判真；Yes/No完整串含结束词元的联合似然归一化",
+  "rows": [
+    {
+      "id": "holdout-numeric-01",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -0.5304355025291443,
+        "no_logp": -0.8875793814659119,
+        "yes_relative_probability": 0.5883488722875817,
+        "log_odds": 0.3571438789367676
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "64",
+          "alpha": {
+            "yes_logp": -7.143646717071533,
+            "no_logp": -0.0007906413520686328,
+            "yes_relative_probability": 0.000789866783966843,
+            "log_odds": -7.142856075719465
+          }
+        },
+        {
+          "index": 1,
+          "answer": "36",
+          "alpha": {
+            "yes_logp": -23.75,
+            "no_logp": -4.768370445162873e-07,
+            "yes_relative_probability": 4.8473710174408044e-11,
+            "log_odds": -23.749999523162955
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "64",
+      "main_alpha": {
+        "yes_logp": -7.143646717071533,
+        "no_logp": -0.0007906413520686328,
+        "yes_relative_probability": 0.000789866783966843,
+        "log_odds": -7.142856075719465
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-numeric-02",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -2.578889846801758,
+        "no_logp": -0.0788898691534996,
+        "yes_relative_probability": 0.07585818158818372,
+        "log_odds": -2.499999977648258
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "9",
+          "alpha": {
+            "yes_logp": -25.000003814697266,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 1.3887892542136312e-11,
+            "log_odds": -25.000003695487983
+          }
+        },
+        {
+          "index": 1,
+          "answer": "-6",
+          "alpha": {
+            "yes_logp": -27.321426391601562,
+            "no_logp": -3.576278118089249e-07,
+            "yes_relative_probability": 1.3628731504558935e-12,
+            "log_odds": -27.32142603397375
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "9",
+      "main_alpha": {
+        "yes_logp": -25.000003814697266,
+        "no_logp": -1.1920928244535389e-07,
+        "yes_relative_probability": 1.3887892542136312e-11,
+        "log_odds": -25.000003695487983
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-numeric-03",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -1.1920928244535389e-07,
+        "no_logp": -16.071426391601562,
+        "yes_relative_probability": 0.9999998952224575,
+        "log_odds": 16.07142627239228
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "-5",
+          "alpha": {
+            "yes_logp": -25.89285659790039,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 5.686896998650509e-12,
+            "log_odds": -25.89285635948184
+          }
+        },
+        {
+          "index": 1,
+          "answer": "2",
+          "alpha": {
+            "yes_logp": -21.071430206298828,
+            "no_logp": -3.576278118089249e-07,
+            "yes_relative_probability": 7.059830767179989e-10,
+            "log_odds": -21.071429848671016
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "2",
+      "main_alpha": {
+        "yes_logp": -21.071430206298828,
+        "no_logp": -3.576278118089249e-07,
+        "yes_relative_probability": 7.059830767179989e-10,
+        "log_odds": -21.071429848671016
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-numeric-04",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -4.652440547943115,
+        "no_logp": -0.009584248065948486,
+        "yes_relative_probability": 0.00953829646347062,
+        "log_odds": -4.642856299877167
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "5",
+          "alpha": {
+            "yes_logp": -23.571430206298828,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 5.795061301019649e-11,
+            "log_odds": -23.571429967880277
+          }
+        },
+        {
+          "index": 1,
+          "answer": "4",
+          "alpha": {
+            "yes_logp": -0.8875789046287537,
+            "no_logp": -0.5304357409477234,
+            "yes_relative_probability": 0.41165130094341834,
+            "log_odds": -0.3571431636810303
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "4",
+      "main_alpha": {
+        "yes_logp": -0.8875789046287537,
+        "no_logp": -0.5304357409477234,
+        "yes_relative_probability": 0.41165130094341834,
+        "log_odds": -0.3571431636810303
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-numeric-05",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -15.0,
+        "no_logp": -1.6689291442162357e-06,
+        "yes_relative_probability": 3.0590273745503635e-07,
+        "log_odds": -14.999998331070856
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "True",
+          "alpha": {
+            "yes_logp": -0.0003868784988299012,
+            "no_logp": -7.85753059387207,
+            "yes_relative_probability": 0.9996131720812167,
+            "log_odds": 7.85714371537324
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "True",
+      "main_alpha": {
+        "yes_logp": -0.0003868784988299012,
+        "no_logp": -7.85753059387207,
+        "yes_relative_probability": 0.9996131720812167,
+        "log_odds": 7.85714371537324
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-numeric-06",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -17.500003814697266,
+        "no_logp": -4.768370445162873e-07,
+        "yes_relative_probability": 2.5109907113430276e-08,
+        "log_odds": -17.50000333786022
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "True",
+          "alpha": {
+            "yes_logp": -29.46428680419922,
+            "no_logp": -2.145764938177308e-06,
+            "yes_relative_probability": 1.5989090460884083e-13,
+            "log_odds": -29.46428465843428
+          }
+        },
+        {
+          "index": 1,
+          "answer": "[]",
+          "alpha": {
+            "yes_logp": -25.000003814697266,
+            "no_logp": -7.152555099310121e-07,
+            "yes_relative_probability": 1.3887900819964737e-11,
+            "log_odds": -25.000003099441756
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "[]",
+      "main_alpha": {
+        "yes_logp": -25.000003814697266,
+        "no_logp": -7.152555099310121e-07,
+        "yes_relative_probability": 1.3887900819964737e-11,
+        "log_odds": -25.000003099441756
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-numeric-07",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -0.0002706876548472792,
+        "no_logp": -8.214558601379395,
+        "yes_relative_probability": 0.9997293160447195,
+        "log_odds": 8.214287913724547
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "False",
+          "alpha": {
+            "yes_logp": -0.013669924810528755,
+            "no_logp": -4.299387454986572,
+            "yes_relative_probability": 0.9864231265079146,
+            "log_odds": 4.2857175301760435
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "False",
+      "main_alpha": {
+        "yes_logp": -0.013669924810528755,
+        "no_logp": -4.299387454986572,
+        "yes_relative_probability": 0.9864231265079146,
+        "log_odds": 4.2857175301760435
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-numeric-08",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -0.11093238741159439,
+        "no_logp": -2.2537894248962402,
+        "yes_relative_probability": 0.8949994050773057,
+        "log_odds": 2.142857037484646
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "4",
+          "alpha": {
+            "yes_logp": -0.002305351896211505,
+            "no_logp": -6.073731899261475,
+            "yes_relative_probability": 0.9976974354762127,
+            "log_odds": 6.071426547365263
+          }
+        },
+        {
+          "index": 1,
+          "answer": "61",
+          "alpha": {
+            "yes_logp": -18.21428680419922,
+            "no_logp": -4.768370445162873e-07,
+            "yes_relative_probability": 1.2292379251216822e-08,
+            "log_odds": -18.214286327362174
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "4",
+      "main_alpha": {
+        "yes_logp": -0.002305351896211505,
+        "no_logp": -6.073731899261475,
+        "yes_relative_probability": 0.9976974354762127,
+        "log_odds": 6.071426547365263
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-numeric-09",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -0.002305351896211505,
+        "no_logp": -6.07373571395874,
+        "yes_relative_probability": 0.9976974442395579,
+        "log_odds": 6.071430362062529
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "1",
+          "alpha": {
+            "yes_logp": -14.64285659790039,
+            "no_logp": -9.536740890325746e-07,
+            "yes_relative_probability": 4.37208306533225e-07,
+            "log_odds": -14.642855644226302
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises ValueError",
+          "alpha": {
+            "yes_logp": -21.071430206298828,
+            "no_logp": -4.768370445162873e-07,
+            "yes_relative_probability": 7.059831608777047e-10,
+            "log_odds": -21.071429729461784
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "1",
+      "main_alpha": {
+        "yes_logp": -14.64285659790039,
+        "no_logp": -9.536740890325746e-07,
+        "yes_relative_probability": 4.37208306533225e-07,
+        "log_odds": -14.642855644226302
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-numeric-10",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -15.0,
+        "no_logp": -7.152556236178498e-07,
+        "yes_relative_probability": 3.0590244572392415e-07,
+        "log_odds": -14.999999284744376
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "(3.75, 0.0)",
+          "alpha": {
+            "yes_logp": -25.0,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 1.3887947175914988e-11,
+            "log_odds": -24.99999976158145
+          }
+        },
+        {
+          "index": 1,
+          "answer": "(4.0, -0.5)",
+          "alpha": {
+            "yes_logp": -24.64285659790039,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 1.984921852255862e-11,
+            "log_odds": -24.642856478691108
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "(4.0, -0.5)",
+      "main_alpha": {
+        "yes_logp": -24.64285659790039,
+        "no_logp": -1.1920928244535389e-07,
+        "yes_relative_probability": 1.984921852255862e-11,
+        "log_odds": -24.642856478691108
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-numeric-11",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -11.785720825195312,
+        "no_logp": -7.867784006521106e-06,
+        "yes_relative_probability": 7.612487477451608e-06,
+        "log_odds": -11.785712957411306
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "1.0",
+          "alpha": {
+            "yes_logp": -6.073735237121582,
+            "no_logp": -0.0023054711055010557,
+            "yes_relative_probability": 0.0023025571297126944,
+            "log_odds": -6.071429766016081
+          }
+        },
+        {
+          "index": 1,
+          "answer": "0.0",
+          "alpha": {
+            "yes_logp": -16.428569793701172,
+            "no_logp": -4.7683710135970614e-07,
+            "yes_relative_probability": 7.330995759288131e-08,
+            "log_odds": -16.42856931686407
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "1.0",
+      "main_alpha": {
+        "yes_logp": -6.073735237121582,
+        "no_logp": -0.0023054711055010557,
+        "yes_relative_probability": 0.0023025571297126944,
+        "log_odds": -6.071429766016081
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-numeric-12",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -14.999996185302734,
+        "no_logp": -7.152556236178498e-07,
+        "yes_relative_probability": 3.0590361265101616e-07,
+        "log_odds": -14.99999547004711
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "1.0",
+          "alpha": {
+            "yes_logp": -0.003293092828243971,
+            "no_logp": -5.717576503753662,
+            "yes_relative_probability": 0.9967123310662851,
+            "log_odds": 5.714283410925418
+          }
+        },
+        {
+          "index": 1,
+          "answer": "3.0",
+          "alpha": {
+            "yes_logp": -11.428584098815918,
+            "no_logp": -1.1324823390168604e-05,
+            "yes_relative_probability": 1.0880007207758178e-05,
+            "log_odds": -11.428572773992528
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "1.0",
+      "main_alpha": {
+        "yes_logp": -0.003293092828243971,
+        "no_logp": -5.717576503753662,
+        "yes_relative_probability": 0.9967123310662851,
+        "log_odds": 5.714283410925418
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-numeric-13",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -0.002305351896211505,
+        "no_logp": -6.073735237121582,
+        "yes_relative_probability": 0.9976974431441414,
+        "log_odds": 6.0714298852253705
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "2.0",
+          "alpha": {
+            "yes_logp": -22.14285659790039,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 2.4181301354843084e-10,
+            "log_odds": -22.14285635948184
+          }
+        },
+        {
+          "index": 1,
+          "answer": "1.0",
+          "alpha": {
+            "yes_logp": -21.249996185302734,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 5.905327226416515e-10,
+            "log_odds": -21.249996066093452
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "1.0",
+      "main_alpha": {
+        "yes_logp": -21.249996185302734,
+        "no_logp": -1.1920928244535389e-07,
+        "yes_relative_probability": 5.905327226416515e-10,
+        "log_odds": -21.249996066093452
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-numeric-14",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -7.143650531768799,
+        "no_logp": -0.0007902837241999805,
+        "yes_relative_probability": 0.0007898634909957364,
+        "log_odds": -7.142860248044599
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "True",
+          "alpha": {
+            "yes_logp": -28.214290618896484,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 5.580708995482636e-13,
+            "log_odds": -28.214290380477934
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "True",
+      "main_alpha": {
+        "yes_logp": -28.214290618896484,
+        "no_logp": -2.3841855067985307e-07,
+        "yes_relative_probability": 5.580708995482636e-13,
+        "log_odds": -28.214290380477934
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-numeric-15",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -3.6954811548639555e-06,
+        "no_logp": -12.500003814697266,
+        "yes_relative_probability": 0.9999962733611601,
+        "log_odds": 12.50000011921611
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "True",
+          "alpha": {
+            "yes_logp": -32.32143020629883,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 9.182929834707492e-15,
+            "log_odds": -32.321430087089546
+          }
+        },
+        {
+          "index": 1,
+          "answer": "False",
+          "alpha": {
+            "yes_logp": -18.928569793701172,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 6.017646738352411e-09,
+            "log_odds": -18.92856955528262
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "False",
+      "main_alpha": {
+        "yes_logp": -18.928569793701172,
+        "no_logp": -2.3841855067985307e-07,
+        "yes_relative_probability": 6.017646738352411e-09,
+        "log_odds": -18.92856955528262
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-numeric-16",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -2.2172682292875834e-05,
+        "no_logp": -10.714308738708496,
+        "yes_relative_probability": 0.999977775355916,
+        "log_odds": 10.714286566026203
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "1.8",
+          "alpha": {
+            "yes_logp": -21.607139587402344,
+            "no_logp": -4.768370445162873e-07,
+            "yes_relative_probability": 4.131794511265105e-10,
+            "log_odds": -21.6071391105653
+          }
+        },
+        {
+          "index": 1,
+          "answer": "3.6",
+          "alpha": {
+            "yes_logp": -1.7881377516459906e-06,
+            "no_logp": -13.214288711547852,
+            "yes_relative_probability": 0.9999981756535556,
+            "log_odds": 13.2142869234101
+          }
+        },
+        {
+          "index": 2,
+          "answer": "24.0",
+          "alpha": {
+            "yes_logp": -15.35714340209961,
+            "no_logp": -5.960463340670685e-07,
+            "yes_relative_probability": 2.1403141789977284e-07,
+            "log_odds": -15.357142806053275
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "3.6",
+      "main_alpha": {
+        "yes_logp": -1.7881377516459906e-06,
+        "no_logp": -13.214288711547852,
+        "yes_relative_probability": 0.9999981756535556,
+        "log_odds": 13.2142869234101
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-text-01",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.009584128856658936,
+        "no_logp": -4.652441024780273,
+        "yes_relative_probability": 0.9904617091675677,
+        "log_odds": 4.6428568959236145
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "'a-b'",
+          "alpha": {
+            "yes_logp": -4.299383163452148,
+            "no_logp": -0.013670163229107857,
+            "yes_relative_probability": 0.013576934159804958,
+            "log_odds": -4.285713000223041
+          }
+        },
+        {
+          "index": 1,
+          "answer": "'ab'",
+          "alpha": {
+            "yes_logp": -4.299383163452148,
+            "no_logp": -0.013670997694134712,
+            "yes_relative_probability": 0.013576945335466665,
+            "log_odds": -4.285712165758014
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "'ab'",
+      "main_alpha": {
+        "yes_logp": -4.299383163452148,
+        "no_logp": -0.013670997694134712,
+        "yes_relative_probability": 0.013576945335466665,
+        "log_odds": -4.285712165758014
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-text-02",
+      "family": "text",
+      "theta": {
+        "yes_logp": 0.0,
+        "no_logp": -21.78571319580078,
+        "yes_relative_probability": 0.9999999996543911,
+        "log_odds": 21.78571319580078
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "['a', 'b']",
+          "alpha": {
+            "yes_logp": -4.299386978149414,
+            "no_logp": -0.013670044019818306,
+            "yes_relative_probability": 0.013576881474664834,
+            "log_odds": -4.285716934129596
+          }
+        },
+        {
+          "index": 1,
+          "answer": "['a', '', 'b']",
+          "alpha": {
+            "yes_logp": -3.948054313659668,
+            "no_logp": -0.019480926916003227,
+            "yes_relative_probability": 0.019292205675646414,
+            "log_odds": -3.9285733867436647
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "['a', '', 'b']",
+      "main_alpha": {
+        "yes_logp": -3.948054313659668,
+        "no_logp": -0.019480926916003227,
+        "yes_relative_probability": 0.019292205675646414,
+        "log_odds": -3.9285733867436647
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-text-03",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.002305232686921954,
+        "no_logp": -6.07373571395874,
+        "yes_relative_probability": 0.9976974445134118,
+        "log_odds": 6.071430481271818
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "['', 'a', '', 'b', '']",
+          "alpha": {
+            "yes_logp": -22.857139587402344,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 1.1837785241148974e-10,
+            "log_odds": -22.85713946819306
+          }
+        },
+        {
+          "index": 1,
+          "answer": "['a', '', 'b']",
+          "alpha": {
+            "yes_logp": -25.892860412597656,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 5.686874626973254e-12,
+            "log_odds": -25.892860293388374
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "['', 'a', '', 'b', '']",
+      "main_alpha": {
+        "yes_logp": -22.857139587402344,
+        "no_logp": -1.1920928244535389e-07,
+        "yes_relative_probability": 1.1837785241148974e-10,
+        "log_odds": -22.85713946819306
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-text-04",
+      "family": "text",
+      "theta": {
+        "yes_logp": 0.0,
+        "no_logp": -18.571426391601562,
+        "yes_relative_probability": 0.9999999913993357,
+        "log_odds": 18.571426391601562
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "['a', '']",
+          "alpha": {
+            "yes_logp": -6.073731422424316,
+            "no_logp": -0.002305828733369708,
+            "yes_relative_probability": 0.002302566714628878,
+            "log_odds": -6.071425593690947
+          }
+        },
+        {
+          "index": 1,
+          "answer": "['a\\n']",
+          "alpha": {
+            "yes_logp": -16.78571319580078,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 5.129291887697565e-08,
+            "log_odds": -16.7857130765915
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "['a', '']",
+      "main_alpha": {
+        "yes_logp": -6.073731422424316,
+        "no_logp": -0.002305828733369708,
+        "yes_relative_probability": 0.002302566714628878,
+        "log_odds": -6.071425593690947
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-text-05",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.0788898691534996,
+        "no_logp": -2.578890800476074,
+        "yes_relative_probability": 0.9241418852679043,
+        "log_odds": 2.5000009313225746
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "('', '', 'abc')",
+          "alpha": {
+            "yes_logp": -3.9480507373809814,
+            "no_logp": -0.019481757655739784,
+            "yes_relative_probability": 0.019292289056684227,
+            "log_odds": -3.9285689797252417
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises ValueError",
+          "alpha": {
+            "yes_logp": -20.0,
+            "no_logp": -3.576278118089249e-07,
+            "yes_relative_probability": 2.061154355316192e-09,
+            "log_odds": -19.999999642372188
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "('', '', 'abc')",
+      "main_alpha": {
+        "yes_logp": -3.9480507373809814,
+        "no_logp": -0.019481757655739784,
+        "yes_relative_probability": 0.019292289056684227,
+        "log_odds": -3.9285689797252417
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-text-06",
+      "family": "text",
+      "theta": {
+        "yes_logp": -18.928569793701172,
+        "no_logp": -5.960462772236497e-07,
+        "yes_relative_probability": 6.017648890430105e-09,
+        "log_odds": -18.928569197654895
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "('abc', '', '')",
+          "alpha": {
+            "yes_logp": -13.214288711547852,
+            "no_logp": -2.5033932615770027e-06,
+            "yes_relative_probability": 1.824347749211356e-06,
+            "log_odds": -13.21428620815459
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises ValueError",
+          "alpha": {
+            "yes_logp": -21.785717010498047,
+            "no_logp": -5.960462772236497e-07,
+            "yes_relative_probability": 3.4560783283672116e-10,
+            "log_odds": -21.78571641445177
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "('abc', '', '')",
+      "main_alpha": {
+        "yes_logp": -13.214288711547852,
+        "no_logp": -2.5033932615770027e-06,
+        "yes_relative_probability": 1.824347749211356e-06,
+        "log_odds": -13.21428620815459
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-text-07",
+      "family": "text",
+      "theta": {
+        "yes_logp": -1.0847986231965479e-05,
+        "no_logp": -11.428580284118652,
+        "yes_relative_probability": 0.9999891199564765,
+        "log_odds": 11.42856943613242
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "'---ab'",
+          "alpha": {
+            "yes_logp": -0.004703292157500982,
+            "no_logp": -5.361847400665283,
+            "yes_relative_probability": 0.9953077702418817,
+            "log_odds": 5.357144108507782
+          }
+        },
+        {
+          "index": 1,
+          "answer": "'ab-----'",
+          "alpha": {
+            "yes_logp": -0.8875792026519775,
+            "no_logp": -0.5304361581802368,
+            "yes_relative_probability": 0.4116513298152537,
+            "log_odds": -0.3571430444717407
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "'---ab'",
+      "main_alpha": {
+        "yes_logp": -0.004703292157500982,
+        "no_logp": -5.361847400665283,
+        "yes_relative_probability": 0.9953077702418817,
+        "log_odds": 5.357144108507782
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-text-08",
+      "family": "text",
+      "theta": {
+        "yes_logp": -19.64285659790039,
+        "no_logp": -2.3841855067985307e-07,
+        "yes_relative_probability": 2.945885569207378e-09,
+        "log_odds": -19.64285635948184
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "'00-42'",
+          "alpha": {
+            "yes_logp": -25.714282989501953,
+            "no_logp": 0.0,
+            "yes_relative_probability": 6.798745612528472e-12,
+            "log_odds": -25.714282989501953
+          }
+        },
+        {
+          "index": 1,
+          "answer": "'-00042'",
+          "alpha": {
+            "yes_logp": -12.500003814697266,
+            "no_logp": -3.8146904444147367e-06,
+            "yes_relative_probability": 3.726639284161141e-06,
+            "log_odds": -12.500000000006821
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "'-00042'",
+      "main_alpha": {
+        "yes_logp": -12.500003814697266,
+        "no_logp": -3.8146904444147367e-06,
+        "yes_relative_probability": 3.726639284161141e-06,
+        "log_odds": -12.500000000006821
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-text-09",
+      "family": "text",
+      "theta": {
+        "yes_logp": -3.1709168979432434e-05,
+        "no_logp": -10.35717487335205,
+        "yes_relative_probability": 0.9999682359346874,
+        "log_odds": 10.357143164183071
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "'a    X'",
+          "alpha": {
+            "yes_logp": -5.364403477869928e-06,
+            "no_logp": -12.142863273620605,
+            "yes_relative_probability": 0.9999946737505505,
+            "log_odds": 12.142857909217128
+          }
+        },
+        {
+          "index": 1,
+          "answer": "'a X'",
+          "alpha": {
+            "yes_logp": -5.7175798416137695,
+            "no_logp": -0.003293450456112623,
+            "yes_relative_probability": 0.0032876591679251244,
+            "log_odds": -5.714286391157657
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "'a    X'",
+      "main_alpha": {
+        "yes_logp": -5.364403477869928e-06,
+        "no_logp": -12.142863273620605,
+        "yes_relative_probability": 0.9999946737505505,
+        "log_odds": 12.142857909217128
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-text-10",
+      "family": "text",
+      "theta": {
+        "yes_logp": -3.6954811548639555e-06,
+        "no_logp": -12.5,
+        "yes_relative_probability": 0.9999962733469441,
+        "log_odds": 12.499996304518845
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "'a\\n'",
+          "alpha": {
+            "yes_logp": -4.299383163452148,
+            "no_logp": -0.013670282438397408,
+            "yes_relative_probability": 0.013576935756327502,
+            "log_odds": -4.285712881013751
+          }
+        },
+        {
+          "index": 1,
+          "answer": "'a\\\\n'",
+          "alpha": {
+            "yes_logp": -0.0007901645149104297,
+            "no_logp": -7.143646717071533,
+            "yes_relative_probability": 0.9992101335923734,
+            "log_odds": 7.142856552556623
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "'a\\\\n'",
+      "main_alpha": {
+        "yes_logp": -0.0007901645149104297,
+        "no_logp": -7.143646717071533,
+        "yes_relative_probability": 0.9992101335923734,
+        "log_odds": 7.142856552556623
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-text-11",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.8875790238380432,
+        "no_logp": -0.5304359793663025,
+        "yes_relative_probability": 0.4116513298152537,
+        "log_odds": -0.3571430444717407
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "['a', 'b-c']",
+          "alpha": {
+            "yes_logp": -0.0005530974012799561,
+            "no_logp": -7.500553607940674,
+            "yes_relative_probability": 0.9994472216451356,
+            "log_odds": 7.500000510539394
+          }
+        },
+        {
+          "index": 1,
+          "answer": "['a', 'b', 'c']",
+          "alpha": {
+            "yes_logp": -30.892860412597656,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 3.8317859827206154e-14,
+            "log_odds": -30.892860293388374
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "['a', 'b-c']",
+      "main_alpha": {
+        "yes_logp": -0.0005530974012799561,
+        "no_logp": -7.500553607940674,
+        "yes_relative_probability": 0.9994472216451356,
+        "log_odds": 7.500000510539394
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-text-12",
+      "family": "text",
+      "theta": {
+        "yes_logp": -3.2536845207214355,
+        "no_logp": -0.03939776122570038,
+        "yes_relative_probability": 0.03863161234075564,
+        "log_odds": -3.214286759495735
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "'�'",
+          "alpha": {
+            "yes_logp": -0.8875766396522522,
+            "no_logp": -0.5304372906684875,
+            "yes_relative_probability": 0.4116522248424547,
+            "log_odds": -0.35713934898376465
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises UnicodeDecodeError",
+          "alpha": {
+            "yes_logp": -16.428569793701172,
+            "no_logp": -3.576278402306343e-07,
+            "yes_relative_probability": 7.330994885365658e-08,
+            "log_odds": -16.42856943607333
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "'�'",
+      "main_alpha": {
+        "yes_logp": -0.8875766396522522,
+        "no_logp": -0.5304372906684875,
+        "yes_relative_probability": 0.4116522248424547,
+        "log_odds": -0.35713934898376465
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-text-13",
+      "family": "text",
+      "theta": {
+        "yes_logp": -5.960462772236497e-07,
+        "no_logp": -14.285714149475098,
+        "yes_relative_probability": 0.9999993751249819,
+        "log_odds": 14.28571355342882
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "b'\\xe9'",
+          "alpha": {
+            "yes_logp": -2.622600959512056e-06,
+            "no_logp": -12.857146263122559,
+            "yes_relative_probability": 0.9999973925719604,
+            "log_odds": 12.857143640521599
+          }
+        },
+        {
+          "index": 1,
+          "answer": "b'\\\\u00e9'",
+          "alpha": {
+            "yes_logp": -24.999996185302734,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 1.3888000154330152e-11,
+            "log_odds": -24.999995946884184
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "b'\\xe9'",
+      "main_alpha": {
+        "yes_logp": -2.622600959512056e-06,
+        "no_logp": -12.857146263122559,
+        "yes_relative_probability": 0.9999973925719604,
+        "log_odds": 12.857143640521599
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-text-14",
+      "family": "text",
+      "theta": {
+        "yes_logp": -23.571426391601562,
+        "no_logp": -1.311301275563892e-06,
+        "yes_relative_probability": 5.7950896249145234e-11,
+        "log_odds": -23.571425080300287
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "''",
+          "alpha": {
+            "yes_logp": -23.928573608398438,
+            "no_logp": -8.344646857949556e-07,
+            "yes_relative_probability": 4.054645451948738e-11,
+            "log_odds": -23.92857277393375
+          }
+        },
+        {
+          "index": 1,
+          "answer": "'a'",
+          "alpha": {
+            "yes_logp": -26.071434020996094,
+            "no_logp": -8.344646857949556e-07,
+            "yes_relative_probability": 4.756860678749465e-12,
+            "log_odds": -26.071433186531408
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "''",
+      "main_alpha": {
+        "yes_logp": -23.928573608398438,
+        "no_logp": -8.344646857949556e-07,
+        "yes_relative_probability": 4.054645451948738e-11,
+        "log_odds": -23.92857277393375
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-text-15",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.013669924810528755,
+        "no_logp": -4.299383640289307,
+        "yes_relative_probability": 0.9864230754193265,
+        "log_odds": 4.285713715478778
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "raises KeyError",
+          "alpha": {
+            "yes_logp": -12.857146263122559,
+            "no_logp": -3.457065758993849e-06,
+            "yes_relative_probability": 2.6074302153189806e-06,
+            "log_odds": -12.8571428060568
+          }
+        },
+        {
+          "index": 1,
+          "answer": "'x'",
+          "alpha": {
+            "yes_logp": -12.500003814697266,
+            "no_logp": -4.410736437421292e-06,
+            "yes_relative_probability": 3.726641505401938e-06,
+            "log_odds": -12.499999403960828
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "'x'",
+      "main_alpha": {
+        "yes_logp": -12.500003814697266,
+        "no_logp": -4.410736437421292e-06,
+        "yes_relative_probability": 3.726641505401938e-06,
+        "log_odds": -12.499999403960828
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-text-16",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.019480811432003975,
+        "no_logp": -3.948054552078247,
+        "yes_relative_probability": 0.9807078010201951,
+        "log_odds": 3.928573740646243
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "None",
+          "alpha": {
+            "yes_logp": -12.142862319946289,
+            "no_logp": -6.198868049978046e-06,
+            "yes_relative_probability": 5.3262589735717865e-06,
+            "log_odds": -12.142856121078239
+          }
+        },
+        {
+          "index": 1,
+          "answer": "'None'",
+          "alpha": {
+            "yes_logp": -15.35714340209961,
+            "no_logp": -7.152556236178498e-07,
+            "yes_relative_probability": 2.140314434143022e-07,
+            "log_odds": -15.357142686843986
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "None",
+      "main_alpha": {
+        "yes_logp": -12.142862319946289,
+        "no_logp": -6.198868049978046e-06,
+        "yes_relative_probability": 5.3262589735717865e-06,
+        "log_odds": -12.142856121078239
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-iterator-01",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -17.499996185302734,
+        "no_logp": -5.960462772236497e-07,
+        "yes_relative_probability": 2.5110101680899978e-08,
+        "log_odds": -17.499995589256457
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "['ab', 'cd']",
+          "alpha": {
+            "yes_logp": -22.14285659790039,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 2.4181301354843084e-10,
+            "log_odds": -22.14285635948184
+          }
+        },
+        {
+          "index": 1,
+          "answer": "[('a', 'c'), ('b', 'd')]",
+          "alpha": {
+            "yes_logp": -33.571434020996094,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 2.630943410602489e-15,
+            "log_odds": -33.57143390178681
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "['ab', 'cd']",
+      "main_alpha": {
+        "yes_logp": -22.14285659790039,
+        "no_logp": -2.3841855067985307e-07,
+        "yes_relative_probability": 2.4181301354843084e-10,
+        "log_odds": -22.14285635948184
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-iterator-02",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.5304357409477234,
+        "no_logp": -0.8875792622566223,
+        "yes_relative_probability": 0.5883487856720845,
+        "log_odds": 0.3571435213088989
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[(1, 2)]",
+          "alpha": {
+            "yes_logp": -27.678577423095703,
+            "no_logp": -3.576278118089249e-07,
+            "yes_relative_probability": 9.535571205575726e-13,
+            "log_odds": -27.67857706546789
+          }
+        },
+        {
+          "index": 1,
+          "answer": "[(1, 2), (None, 3)]",
+          "alpha": {
+            "yes_logp": -25.89285659790039,
+            "no_logp": -3.576278118089249e-07,
+            "yes_relative_probability": 5.686897676581338e-12,
+            "log_odds": -25.89285624027258
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "[(1, 2), (None, 3)]",
+      "main_alpha": {
+        "yes_logp": -25.89285659790039,
+        "no_logp": -3.576278118089249e-07,
+        "yes_relative_probability": 5.686897676581338e-12,
+        "log_odds": -25.89285624027258
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-iterator-03",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.21482959389686584,
+        "no_logp": -1.64340341091156,
+        "yes_relative_probability": 0.806679002670889,
+        "log_odds": 1.4285738170146942
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[]",
+          "alpha": {
+            "yes_logp": -6.786846160888672,
+            "no_logp": -0.0011294663418084383,
+            "yes_relative_probability": 0.0011285226912116657,
+            "log_odds": -6.785716694546863
+          }
+        },
+        {
+          "index": 1,
+          "answer": "[('A', 'A'), ('A', 'A')]",
+          "alpha": {
+            "yes_logp": -14.642861366271973,
+            "no_logp": -7.152556236178498e-07,
+            "yes_relative_probability": 4.3720611752946413e-07,
+            "log_odds": -14.642860651016349
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "[]",
+      "main_alpha": {
+        "yes_logp": -6.786846160888672,
+        "no_logp": -0.0011294663418084383,
+        "yes_relative_probability": 0.0011285226912116657,
+        "log_odds": -6.785716694546863
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-iterator-04",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -3.5991580486297607,
+        "no_logp": -0.027727998793125153,
+        "yes_relative_probability": 0.027346747472122897,
+        "log_odds": -3.5714300498366356
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[('A', 'A')]",
+          "alpha": {
+            "yes_logp": -5.361846923828125,
+            "no_logp": -0.004703530576080084,
+            "yes_relative_probability": 0.004692233098515934,
+            "log_odds": -5.357143393252045
+          }
+        },
+        {
+          "index": 1,
+          "answer": "[]",
+          "alpha": {
+            "yes_logp": -16.428569793701172,
+            "no_logp": -2.3841856489070778e-07,
+            "yes_relative_probability": 7.330994011443188e-08,
+            "log_odds": -16.428569555282607
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "[('A', 'A')]",
+      "main_alpha": {
+        "yes_logp": -5.361846923828125,
+        "no_logp": -0.004703530576080084,
+        "yes_relative_probability": 0.004692233098515934,
+        "log_odds": -5.357143393252045
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-iterator-05",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -3.6954811548639555e-06,
+        "no_logp": -12.500003814697266,
+        "yes_relative_probability": 0.9999962733611601,
+        "log_odds": 12.50000011921611
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[('A', 'A'), ('A', 'B'), ('B', 'A'), ('B', 'B')]",
+          "alpha": {
+            "yes_logp": -29.107139587402344,
+            "no_logp": 0.0,
+            "yes_relative_probability": 2.285229876104505e-13,
+            "log_odds": -29.107139587402344
+          }
+        },
+        {
+          "index": 1,
+          "answer": "[('A', 'B')]",
+          "alpha": {
+            "yes_logp": -26.071426391601562,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 4.7568935684597115e-12,
+            "log_odds": -26.07142627239228
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "[('A', 'B')]",
+      "main_alpha": {
+        "yes_logp": -26.071426391601562,
+        "no_logp": -1.1920928244535389e-07,
+        "yes_relative_probability": 4.7568935684597115e-12,
+        "log_odds": -26.07142627239228
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-iterator-06",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -7.629365427419543e-06,
+        "no_logp": -11.785721778869629,
+        "yes_relative_probability": 0.9999923875215972,
+        "log_odds": 11.785714149504201
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[(1, 2)]",
+          "alpha": {
+            "yes_logp": -19.821430206298828,
+            "no_logp": -8.344646857949556e-07,
+            "yes_relative_probability": 2.464124230562649e-09,
+            "log_odds": -19.821429371834142
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises AttributeError",
+          "alpha": {
+            "yes_logp": -10.35717487335205,
+            "no_logp": -3.230521542718634e-05,
+            "yes_relative_probability": 3.176408424478158e-05,
+            "log_odds": -10.357142568136624
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "raises AttributeError",
+      "main_alpha": {
+        "yes_logp": -10.35717487335205,
+        "no_logp": -3.230521542718634e-05,
+        "yes_relative_probability": 3.176408424478158e-05,
+        "log_odds": -10.357142568136624
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-iterator-07",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -2.5788931846618652,
+        "no_logp": -0.0788898915052414,
+        "yes_relative_probability": 0.0758579491590475,
+        "log_odds": -2.500003293156624
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "False",
+          "alpha": {
+            "yes_logp": -5.361847400665283,
+            "no_logp": -0.004703649785369635,
+            "yes_relative_probability": 0.0046922314283168185,
+            "log_odds": -5.357143750879914
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "False",
+      "main_alpha": {
+        "yes_logp": -5.361847400665283,
+        "no_logp": -0.004703649785369635,
+        "yes_relative_probability": 0.0046922314283168185,
+        "log_odds": -5.357143750879914
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-iterator-08",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -2.253789186477661,
+        "no_logp": -0.11093319952487946,
+        "yes_relative_probability": 0.105000693646961,
+        "log_odds": -2.1428559869527817
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[['A', 'A', 'A'], ['B']]",
+          "alpha": {
+            "yes_logp": -18.39285659790039,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 1.0282150874538852e-08,
+            "log_odds": -18.39285635948184
+          }
+        },
+        {
+          "index": 1,
+          "answer": "[['A'], ['B']]",
+          "alpha": {
+            "yes_logp": -15.535713195800781,
+            "no_logp": -5.960463340670685e-07,
+            "yes_relative_probability": 1.790299406692576e-07,
+            "log_odds": -15.535712599754447
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "[['A'], ['B']]",
+      "main_alpha": {
+        "yes_logp": -15.535713195800781,
+        "no_logp": -5.960463340670685e-07,
+        "yes_relative_probability": 1.790299406692576e-07,
+        "log_odds": -15.535712599754447
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-iterator-09",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.0007901645149104297,
+        "no_logp": -7.14364767074585,
+        "yes_relative_probability": 0.9992101343450533,
+        "log_odds": 7.142857506230939
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[(0, 'a'), (1, 'b')]",
+          "alpha": {
+            "yes_logp": -30.0,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 9.357625199870473e-14,
+            "log_odds": -29.99999976158145
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises ValueError",
+          "alpha": {
+            "yes_logp": -15.357147216796875,
+            "no_logp": -5.960463340670685e-07,
+            "yes_relative_probability": 2.1403060143644027e-07,
+            "log_odds": -15.357146620750541
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "raises ValueError",
+      "main_alpha": {
+        "yes_logp": -15.357147216796875,
+        "no_logp": -5.960463340670685e-07,
+        "yes_relative_probability": 2.1403060143644027e-07,
+        "log_odds": -15.357146620750541
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-iterator-10",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.1550181806087494,
+        "no_logp": -1.940732717514038,
+        "yes_relative_probability": 0.8564010621425809,
+        "log_odds": 1.7857145369052887
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[11, 2]",
+          "alpha": {
+            "yes_logp": -18.928573608398438,
+            "no_logp": -8.344646857949556e-07,
+            "yes_relative_probability": 6.017627369678219e-09,
+            "log_odds": -18.92857277393375
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises ValueError",
+          "alpha": {
+            "yes_logp": -3.948054313659668,
+            "no_logp": -0.019481642171740532,
+            "yes_relative_probability": 0.019292219208301396,
+            "log_odds": -3.9285726714879274
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "raises ValueError",
+      "main_alpha": {
+        "yes_logp": -3.948054313659668,
+        "no_logp": -0.019481642171740532,
+        "yes_relative_probability": 0.019292219208301396,
+        "log_odds": -3.9285726714879274
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-iterator-11",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -4.5536915422417223e-05,
+        "no_logp": -10.000046730041504,
+        "yes_relative_probability": 0.9999546021854604,
+        "log_odds": 10.000001193126081
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[0, 1, '', 2]",
+          "alpha": {
+            "yes_logp": -17.5,
+            "no_logp": -5.960462772236497e-07,
+            "yes_relative_probability": 2.511000589364886e-08,
+            "log_odds": -17.499999403953723
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises TypeError",
+          "alpha": {
+            "yes_logp": -20.714290618896484,
+            "no_logp": -3.576278118089249e-07,
+            "yes_relative_probability": 1.0090159759234012e-09,
+            "log_odds": -20.714290261268673
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "[0, 1, '', 2]",
+      "main_alpha": {
+        "yes_logp": -17.5,
+        "no_logp": -5.960462772236497e-07,
+        "yes_relative_probability": 2.511000589364886e-08,
+        "log_odds": -17.499999403953723
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-iterator-12",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.055844180285930634,
+        "no_logp": -2.9129886627197266,
+        "yes_relative_probability": 0.9456868173476622,
+        "log_odds": 2.857144482433796
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "3",
+          "alpha": {
+            "yes_logp": -7.8575310707092285,
+            "no_logp": -0.00038938180659897625,
+            "yes_relative_probability": 0.00038682870237627295,
+            "log_odds": -7.8571416889026295
+          }
+        },
+        {
+          "index": 1,
+          "answer": "10",
+          "alpha": {
+            "yes_logp": -18.928569793701172,
+            "no_logp": -7.152555099310121e-07,
+            "yes_relative_probability": 6.0176496077894495e-09,
+            "log_odds": -18.928569078445662
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "3",
+      "main_alpha": {
+        "yes_logp": -7.8575310707092285,
+        "no_logp": -0.00038938180659897625,
+        "yes_relative_probability": 0.00038682870237627295,
+        "log_odds": -7.8571416889026295
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-iterator-13",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -9.642921447753906,
+        "no_logp": -6.496696005342528e-05,
+        "yes_relative_probability": 6.488322993839303e-05,
+        "log_odds": -9.642856480793853
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "([1, 2], [1, 2])",
+          "alpha": {
+            "yes_logp": -26.96428680419922,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 1.9478660323022115e-12,
+            "log_odds": -26.964286684989936
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises StopIteration",
+          "alpha": {
+            "yes_logp": -3.25368070602417,
+            "no_logp": -0.039398230612277985,
+            "yes_relative_probability": 0.03863177144856335,
+            "log_odds": -3.214282475411892
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "raises StopIteration",
+      "main_alpha": {
+        "yes_logp": -3.25368070602417,
+        "no_logp": -0.039398230612277985,
+        "yes_relative_probability": 0.03863177144856335,
+        "log_odds": -3.214282475411892
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-iterator-14",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -15.714286804199219,
+        "no_logp": -5.960463340670685e-07,
+        "yes_relative_probability": 1.4975183325762836e-07,
+        "log_odds": -15.714286208152885
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "(True, [])",
+          "alpha": {
+            "yes_logp": -7.500553131103516,
+            "no_logp": -0.0005534550291486084,
+            "yes_relative_probability": 0.0005527788158838183,
+            "log_odds": -7.499999676074367
+          }
+        },
+        {
+          "index": 1,
+          "answer": "(True, [2, 3])",
+          "alpha": {
+            "yes_logp": -13.214288711547852,
+            "no_logp": -2.3841839720262215e-06,
+            "yes_relative_probability": 1.8243475317325668e-06,
+            "log_odds": -13.21428632736388
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "(True, [])",
+      "main_alpha": {
+        "yes_logp": -7.500553131103516,
+        "no_logp": -0.0005534550291486084,
+        "yes_relative_probability": 0.0005527788158838183,
+        "log_odds": -7.499999676074367
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-iterator-15",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -12.142862319946289,
+        "no_logp": -5.841240636073053e-06,
+        "yes_relative_probability": 5.32625706876605e-06,
+        "log_odds": -12.142856478705653
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "(False, [])",
+          "alpha": {
+            "yes_logp": -5.006715297698975,
+            "no_logp": -0.006715587340295315,
+            "yes_relative_probability": 0.006692852849837045,
+            "log_odds": -4.999999710358679
+          }
+        },
+        {
+          "index": 1,
+          "answer": "(False, [0, 3])",
+          "alpha": {
+            "yes_logp": -16.071430206298828,
+            "no_logp": -7.152555667744309e-07,
+            "yes_relative_probability": 1.0477720525561584e-07,
+            "log_odds": -16.07142949104326
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "(False, [])",
+      "main_alpha": {
+        "yes_logp": -5.006715297698975,
+        "no_logp": -0.006715587340295315,
+        "yes_relative_probability": 0.006692852849837045,
+        "log_odds": -4.999999710358679
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-iterator-16",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -1.1920928244535389e-07,
+        "no_logp": -16.071428298950195,
+        "yes_relative_probability": 0.9999998952226573,
+        "log_odds": 16.071428179740913
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "raises StopIteration",
+          "alpha": {
+            "yes_logp": -21.78571319580078,
+            "no_logp": -3.576278118089249e-07,
+            "yes_relative_probability": 3.4560906882889656e-10,
+            "log_odds": -21.78571283817297
+          }
+        },
+        {
+          "index": 1,
+          "answer": "None",
+          "alpha": {
+            "yes_logp": -28.39285659790039,
+            "no_logp": -8.344646857949556e-07,
+            "yes_relative_probability": 4.668092105506609e-13,
+            "log_odds": -28.392855763435705
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "raises StopIteration",
+      "main_alpha": {
+        "yes_logp": -21.78571319580078,
+        "no_logp": -3.576278118089249e-07,
+        "yes_relative_probability": 3.4560906882889656e-10,
+        "log_odds": -21.78571283817297
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-library-01",
+      "family": "library",
+      "theta": {
+        "yes_logp": -0.6931471824645996,
+        "no_logp": -0.6931476593017578,
+        "yes_relative_probability": 0.5000001192092896,
+        "log_odds": 4.76837158203125e-07
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "False",
+          "alpha": {
+            "yes_logp": -5.006715297698975,
+            "no_logp": -0.006715825758874416,
+            "yes_relative_probability": 0.006692854434857909,
+            "log_odds": -4.9999994719401
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "False",
+      "main_alpha": {
+        "yes_logp": -5.006715297698975,
+        "no_logp": -0.006715825758874416,
+        "yes_relative_probability": 0.006692854434857909,
+        "log_odds": -4.9999994719401
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-library-02",
+      "family": "library",
+      "theta": {
+        "yes_logp": -6.430187225341797,
+        "no_logp": -0.00161457946524024,
+        "yes_relative_probability": 0.001612150789209495,
+        "log_odds": -6.428572645876557
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "{'a': -1}",
+          "alpha": {
+            "yes_logp": -1.3659746646881104,
+            "no_logp": -0.294548898935318,
+            "yes_relative_probability": 0.25513203752068025,
+            "log_odds": -1.0714257657527924
+          }
+        },
+        {
+          "index": 1,
+          "answer": "{'a': 0}",
+          "alpha": {
+            "yes_logp": -17.5,
+            "no_logp": -7.152555099310121e-07,
+            "yes_relative_probability": 2.511000888699349e-08,
+            "log_odds": -17.49999928474449
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "{'a': -1}",
+      "main_alpha": {
+        "yes_logp": -1.3659746646881104,
+        "no_logp": -0.294548898935318,
+        "yes_relative_probability": 0.25513203752068025,
+        "log_odds": -1.0714257657527924
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-library-03",
+      "family": "library",
+      "theta": {
+        "yes_logp": -0.027727875858545303,
+        "no_logp": -3.5991549491882324,
+        "yes_relative_probability": 0.9726531733559465,
+        "log_odds": 3.571427073329687
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "False",
+          "alpha": {
+            "yes_logp": -4.652441024780273,
+            "no_logp": -0.009584486484527588,
+            "yes_relative_probability": 0.0095382942110549,
+            "log_odds": -4.642856538295746
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "False",
+      "main_alpha": {
+        "yes_logp": -4.652441024780273,
+        "no_logp": -0.009584486484527588,
+        "yes_relative_probability": 0.0095382942110549,
+        "log_odds": -4.642856538295746
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-library-04",
+      "family": "library",
+      "theta": {
+        "yes_logp": -2.253788948059082,
+        "no_logp": -0.11093262583017349,
+        "yes_relative_probability": 0.10500066213920742,
+        "log_odds": -2.1428563222289085
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[1, True, 1.0]",
+          "alpha": {
+            "yes_logp": -5.361846923828125,
+            "no_logp": -0.004703768994659185,
+            "yes_relative_probability": 0.004692234211982338,
+            "log_odds": -5.357143154833466
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "[1, True, 1.0]",
+      "main_alpha": {
+        "yes_logp": -5.361846923828125,
+        "no_logp": -0.004703768994659185,
+        "yes_relative_probability": 0.004692234211982338,
+        "log_odds": -5.357143154833466
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-library-05",
+      "family": "library",
+      "theta": {
+        "yes_logp": -3.1947587558533996e-05,
+        "no_logp": -10.35717487335205,
+        "yes_relative_probability": 0.9999682359271146,
+        "log_odds": 10.357142925764492
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[('b', 2), ('a', 3)]",
+          "alpha": {
+            "yes_logp": -0.03939764201641083,
+            "no_logp": -3.2536847591400146,
+            "yes_relative_probability": 0.9613684009412589,
+            "log_odds": 3.214287117123604
+          }
+        },
+        {
+          "index": 1,
+          "answer": "[('a', 1), ('b', 2)]",
+          "alpha": {
+            "yes_logp": -0.0007901645149104297,
+            "no_logp": -7.143647193908691,
+            "yes_relative_probability": 0.9992101339687134,
+            "log_odds": 7.142857029393781
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "[('a', 1), ('b', 2)]",
+      "main_alpha": {
+        "yes_logp": -0.0007901645149104297,
+        "no_logp": -7.143647193908691,
+        "yes_relative_probability": 0.9992101339687134,
+        "log_odds": 7.142857029393781
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-library-06",
+      "family": "library",
+      "theta": {
+        "yes_logp": -1.549708758830093e-05,
+        "no_logp": -11.071441650390625,
+        "yes_relative_probability": 0.999984449872244,
+        "log_odds": 11.071426153303037
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[1, 2]",
+          "alpha": {
+            "yes_logp": -20.357147216796875,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 1.4421264675812367e-09,
+            "log_odds": -20.357147097587593
+          }
+        },
+        {
+          "index": 1,
+          "answer": "raises ValueError",
+          "alpha": {
+            "yes_logp": -14.285714149475098,
+            "no_logp": -7.152555667744309e-07,
+            "yes_relative_probability": 6.248750925551533e-07,
+            "log_odds": -14.28571343421953
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "raises ValueError",
+      "main_alpha": {
+        "yes_logp": -14.285714149475098,
+        "no_logp": -7.152555667744309e-07,
+        "yes_relative_probability": 6.248750925551533e-07,
+        "log_odds": -14.28571343421953
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-library-07",
+      "family": "library",
+      "theta": {
+        "yes_logp": 0.0,
+        "no_logp": -16.785717010498047,
+        "yes_relative_probability": 0.999999948707283,
+        "log_odds": 16.785717010498047
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "3",
+          "alpha": {
+            "yes_logp": -16.96428680419922,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 4.290460269264911e-08,
+            "log_odds": -16.964286684989936
+          }
+        },
+        {
+          "index": 1,
+          "answer": "2",
+          "alpha": {
+            "yes_logp": -0.2945479154586792,
+            "no_logp": -1.3659782409667969,
+            "yes_relative_probability": 0.7448688290127995,
+            "log_odds": 1.0714303255081177
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "2",
+      "main_alpha": {
+        "yes_logp": -0.2945479154586792,
+        "no_logp": -1.3659782409667969,
+        "yes_relative_probability": 0.7448688290127995,
+        "log_odds": 1.0714303255081177
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-library-08",
+      "family": "library",
+      "theta": {
+        "yes_logp": 0.0,
+        "no_logp": -18.928573608398438,
+        "yes_relative_probability": 0.9999999939823776,
+        "log_odds": 18.928573608398438
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "[1, 4, 2, 3]",
+          "alpha": {
+            "yes_logp": -23.392852783203125,
+            "no_logp": -2.3841855067985307e-07,
+            "yes_relative_probability": 6.928085262177169e-11,
+            "log_odds": -23.392852544784574
+          }
+        },
+        {
+          "index": 1,
+          "answer": "[(1, 2), (4, 3)]",
+          "alpha": {
+            "yes_logp": -34.64286804199219,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 9.011428139621657e-16,
+            "log_odds": -34.642867922782905
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "[1, 4, 2, 3]",
+      "main_alpha": {
+        "yes_logp": -23.392852783203125,
+        "no_logp": -2.3841855067985307e-07,
+        "yes_relative_probability": 6.928085262177169e-11,
+        "log_odds": -23.392852544784574
+      },
+      "stratum": "lower"
+    },
+    {
+      "id": "holdout-library-09",
+      "family": "library",
+      "theta": {
+        "yes_logp": -0.3984694182872772,
+        "no_logp": -1.1127527952194214,
+        "yes_relative_probability": 0.6713469377687145,
+        "log_odds": 0.7142833769321442
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "9",
+          "alpha": {
+            "yes_logp": -18.571430206298828,
+            "no_logp": -5.960462772236497e-07,
+            "yes_relative_probability": 8.600636551127174e-09,
+            "log_odds": -18.57142961025255
+          }
+        },
+        {
+          "index": 1,
+          "answer": "-15",
+          "alpha": {
+            "yes_logp": -2.912987232208252,
+            "no_logp": -0.055844180285930634,
+            "yes_relative_probability": 0.054313256128118576,
+            "log_odds": -2.8571430519223213
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "-15",
+      "main_alpha": {
+        "yes_logp": -2.912987232208252,
+        "no_logp": -0.055844180285930634,
+        "yes_relative_probability": 0.054313256128118576,
+        "log_odds": -2.8571430519223213
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-library-10",
+      "family": "library",
+      "theta": {
+        "yes_logp": -0.019480807706713676,
+        "no_logp": -3.9480507373809814,
+        "yes_relative_probability": 0.9807077289164349,
+        "log_odds": 3.9285699296742678
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "3",
+          "alpha": {
+            "yes_logp": -0.006715348921716213,
+            "no_logp": -5.006720066070557,
+            "yes_relative_probability": 0.993307180435515,
+            "log_odds": 5.00000471714884
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "3",
+      "main_alpha": {
+        "yes_logp": -0.006715348921716213,
+        "no_logp": -5.006720066070557,
+        "yes_relative_probability": 0.993307180435515,
+        "log_odds": 5.00000471714884
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-library-11",
+      "family": "library",
+      "theta": {
+        "yes_logp": -6.786846160888672,
+        "no_logp": -0.0011293471325188875,
+        "yes_relative_probability": 0.0011285225568331062,
+        "log_odds": -6.785716813756153
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "raises ValueError",
+          "alpha": {
+            "yes_logp": -4.652444362640381,
+            "no_logp": -0.009584248997271061,
+            "yes_relative_probability": 0.009538260433680796,
+            "log_odds": -4.64286011364311
+          }
+        },
+        {
+          "index": 1,
+          "answer": "'null'",
+          "alpha": {
+            "yes_logp": -12.857146263122559,
+            "no_logp": -2.8610195386136184e-06,
+            "yes_relative_probability": 2.6074286611745717e-06,
+            "log_odds": -12.85714340210302
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "raises ValueError",
+      "main_alpha": {
+        "yes_logp": -4.652444362640381,
+        "no_logp": -0.009584248997271061,
+        "yes_relative_probability": 0.009538260433680796,
+        "log_odds": -4.64286011364311
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-library-12",
+      "family": "library",
+      "theta": {
+        "yes_logp": -6.073735237121582,
+        "no_logp": -0.0023054711055010557,
+        "yes_relative_probability": 0.0023025571297126944,
+        "log_odds": -6.071429766016081
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "raises ValueError",
+          "alpha": {
+            "yes_logp": -1.9407331943511963,
+            "no_logp": -0.15501625835895538,
+            "yes_relative_probability": 0.14359864282207738,
+            "log_odds": -1.785716935992241
+          }
+        },
+        {
+          "index": 1,
+          "answer": "{'x': 1}",
+          "alpha": {
+            "yes_logp": -17.85714340209961,
+            "no_logp": -4.768370445162873e-07,
+            "yes_relative_probability": 1.7568770001020797e-08,
+            "log_odds": -17.857142925262565
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "raises ValueError",
+      "main_alpha": {
+        "yes_logp": -1.9407331943511963,
+        "no_logp": -0.15501625835895538,
+        "yes_relative_probability": 0.14359864282207738,
+        "log_odds": -1.785716935992241
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-library-13",
+      "family": "library",
+      "theta": {
+        "yes_logp": -0.019480811432003975,
+        "no_logp": -3.948054552078247,
+        "yes_relative_probability": 0.9807078010201951,
+        "log_odds": 3.928573740646243
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "-86399",
+          "alpha": {
+            "yes_logp": -14.285714149475098,
+            "no_logp": -9.536740890325746e-07,
+            "yes_relative_probability": 6.248752415368743e-07,
+            "log_odds": -14.285713195801009
+          }
+        },
+        {
+          "index": 1,
+          "answer": "86399",
+          "alpha": {
+            "yes_logp": -0.000386997708119452,
+            "no_logp": -7.85753059387207,
+            "yes_relative_probability": 0.999613172035121,
+            "log_odds": 7.857143596163951
+          }
+        }
+      ],
+      "main_candidate_index": 1,
+      "main_candidate_answer": "86399",
+      "main_alpha": {
+        "yes_logp": -0.000386997708119452,
+        "no_logp": -7.85753059387207,
+        "yes_relative_probability": 0.999613172035121,
+        "log_odds": 7.857143596163951
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-library-14",
+      "family": "library",
+      "theta": {
+        "yes_logp": -21.96428680419922,
+        "no_logp": -2.3841855067985307e-07,
+        "yes_relative_probability": 2.890889857416478e-10,
+        "log_odds": -21.964286565780668
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "2021",
+          "alpha": {
+            "yes_logp": -0.2945472002029419,
+            "no_logp": -1.3659777641296387,
+            "yes_relative_probability": 0.7448688743216864,
+            "log_odds": 1.0714305639266968
+          }
+        },
+        {
+          "index": 1,
+          "answer": "2019",
+          "alpha": {
+            "yes_logp": -30.357147216796875,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 6.547244043122377e-14,
+            "log_odds": -30.357147097587593
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "2021",
+      "main_alpha": {
+        "yes_logp": -0.2945472002029419,
+        "no_logp": -1.3659777641296387,
+        "yes_relative_probability": 0.7448688743216864,
+        "log_odds": 1.0714305639266968
+      },
+      "stratum": "higher"
+    },
+    {
+      "id": "holdout-library-15",
+      "family": "library",
+      "theta": {
+        "yes_logp": -3.6954811548639555e-06,
+        "no_logp": -12.500003814697266,
+        "yes_relative_probability": 0.9999962733611601,
+        "log_odds": 12.50000011921611
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "raises StatisticsError",
+          "alpha": {
+            "yes_logp": -3.948054313659668,
+            "no_logp": -0.019481288269162178,
+            "yes_relative_probability": 0.019292212512455324,
+            "log_odds": -3.928573025390506
+          }
+        },
+        {
+          "index": 1,
+          "answer": "4.0",
+          "alpha": {
+            "yes_logp": -20.714282989501953,
+            "no_logp": -7.152555099310121e-07,
+            "yes_relative_probability": 1.0090240349886068e-09,
+            "log_odds": -20.714282274246443
+          }
+        }
+      ],
+      "main_candidate_index": 0,
+      "main_candidate_answer": "raises StatisticsError",
+      "main_alpha": {
+        "yes_logp": -3.948054313659668,
+        "no_logp": -0.019481288269162178,
+        "yes_relative_probability": 0.019292212512455324,
+        "log_odds": -3.928573025390506
+      },
+      "stratum": "middle"
+    },
+    {
+      "id": "holdout-library-16",
+      "family": "library",
+      "theta": {
+        "yes_logp": -1.311301275563892e-06,
+        "no_logp": -13.571432113647461,
+        "yes_relative_probability": 0.9999987235554992,
+        "log_odds": 13.571430802346185
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "answer": "10",
+          "alpha": {
+            "yes_logp": -26.071426391601562,
+            "no_logp": -1.1920928244535389e-07,
+            "yes_relative_probability": 4.7568935684597115e-12,
+            "log_odds": -26.07142627239228
+          }
+        },
+        {
+          "index": 1,
+          "answer": "5",
+          "alpha": {
+            "yes_logp": -26.96428680419922,
+            "no_logp": -3.576278118089249e-07,
+            "yes_relative_probability": 1.947866496709622e-12,
+            "log_odds": -26.964286446571407
+          }
+        },
+        {
+          "index": 2,
+          "answer": "1",
+          "alpha": {
+            "yes_logp": -24.285717010498047,
+            "no_logp": -3.576278118089249e-07,
+            "yes_relative_probability": 2.8369211728065978e-11,
+            "log_odds": -24.285716652870235
+          }
+        }
+      ],
+      "main_candidate_index": 2,
+      "main_candidate_answer": "1",
+      "main_alpha": {
+        "yes_logp": -24.285717010498047,
+        "no_logp": -3.576278118089249e-07,
+        "yes_relative_probability": 2.8369211728065978e-11,
+        "log_odds": -24.285716652870235
+      },
+      "stratum": "lower"
+    }
+  ],
+  "complete": true,
+  "calls": {
+    "holdout_neutral_prompt": 186,
+    "holdout_forced_yes_no": 372
+  },
+  "stratification": {
+    "definition": "64个主候选对数几率的线性插值三分位；等价于概率排序；等值不拆层，层数可不均衡或空层",
+    "log_odds_thresholds": [
+      -12.500000000006821,
+      -3.9285689797252417
+    ],
+    "probability_thresholds": [
+      3.7266392841611415e-06,
+      0.019292289056684227
+    ],
+    "before_any_first_answer": true
+  }
+}

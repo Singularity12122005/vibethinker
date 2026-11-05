@@ -9,18 +9,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n2 ** 3 ** 2\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "512",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.5883488722875817,
     "candidates": [
       {
         "answer": "64",
         "misconception": "把幂运算按左结合计算",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.000789866783966843,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "36",
         "misconception": "把中间幂底误换为相乘",
-        "alpha": null,
+        "alpha": 4.8473710174408044e-11,
         "alpha_stratum": null
       }
     ],
@@ -33,8 +33,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: 2 ** 3 ** 2\nResult: 512"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: 2 ** 3 ** 2\nResult: 512",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-numeric-02",
@@ -46,18 +48,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n-3 ** 2\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "-9",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.07585818158818372,
     "candidates": [
       {
         "answer": "9",
         "misconception": "把负号先并入底数",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 1.3887892542136312e-11,
+        "alpha_stratum": "lower"
       },
       {
         "answer": "-6",
         "misconception": "把平方误当乘二",
-        "alpha": null,
+        "alpha": 1.3628731504558935e-12,
         "alpha_stratum": null
       }
     ],
@@ -70,8 +72,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: -3 ** 2\nResult: -9"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: -3 ** 2\nResult: -9",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-numeric-03",
@@ -83,19 +87,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n~5\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "-6",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999998952224575,
     "candidates": [
       {
         "answer": "-5",
         "misconception": "把按位取反当作相反数",
-        "alpha": null,
+        "alpha": 5.686896998650509e-12,
         "alpha_stratum": null
       },
       {
         "answer": "2",
         "misconception": "只翻转最短三位表示",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 7.059830767179989e-10,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -107,8 +111,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: ~5\nResult: -6"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: ~5\nResult: -6",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-numeric-04",
@@ -120,19 +126,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n8 >> 1 + 1\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "2",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.00953829646347062,
     "candidates": [
       {
         "answer": "5",
         "misconception": "把移位先算再加一",
-        "alpha": null,
+        "alpha": 5.795061301019649e-11,
         "alpha_stratum": null
       },
       {
         "answer": "4",
         "misconception": "忽略移位距离中的加一",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.41165130094341834,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -144,8 +150,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: 8 >> 1 + 1\nResult: 2"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: 8 >> 1 + 1\nResult: 2",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-numeric-05",
@@ -157,13 +165,13 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n1 < 2 < 2\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "False",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 3.0590273745503635e-07,
     "candidates": [
       {
         "answer": "True",
         "misconception": "把链式比较当作先算布尔值再比较",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9996131720812167,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -175,8 +183,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: 1 < 2 < 2\nResult: False"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: 1 < 2 < 2\nResult: False",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-numeric-06",
@@ -188,19 +198,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n[] or 7\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "7",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 2.5109907113430276e-08,
     "candidates": [
       {
         "answer": "True",
         "misconception": "认为布尔运算总返回布尔类型",
-        "alpha": null,
+        "alpha": 1.5989090460884083e-13,
         "alpha_stratum": null
       },
       {
         "answer": "[]",
         "misconception": "无条件返回左操作数",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 1.3887900819964737e-11,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -212,8 +222,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: [] or 7\nResult: 7"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: [] or 7\nResult: 7",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-numeric-07",
@@ -225,13 +237,13 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nnot 1 == 2\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "True",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9997293160447195,
     "candidates": [
       {
         "answer": "False",
         "misconception": "先否定左操作数再与右侧比较",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9864231265079146,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -243,8 +255,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: not 1 == 2\nResult: True"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: not 1 == 2\nResult: True",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-numeric-08",
@@ -256,18 +270,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n(-13).bit_count()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "3",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.8949994050773057,
     "candidates": [
       {
         "answer": "4",
         "misconception": "把负号也计作一位",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9976974354762127,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "61",
         "misconception": "按固定64位补码统计负数",
-        "alpha": null,
+        "alpha": 1.2292379251216822e-08,
         "alpha_stratum": null
       }
     ],
@@ -280,8 +294,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (-13).bit_count()\nResult: 3"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (-13).bit_count()\nResult: 3",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-numeric-09",
@@ -293,18 +309,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n(0).bit_length()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "0",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9976974442395579,
     "candidates": [
       {
         "answer": "1",
         "misconception": "把书写零所需字符数当作有效二进制位数",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 4.37208306533225e-07,
+        "alpha_stratum": "lower"
       },
       {
         "answer": "raises ValueError",
         "misconception": "认为零没有对数所以不能求位长",
-        "alpha": null,
+        "alpha": 7.059831608777047e-10,
         "alpha_stratum": null
       }
     ],
@@ -317,8 +333,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (0).bit_length()\nResult: 0"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (0).bit_length()\nResult: 0",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-numeric-10",
@@ -330,19 +348,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\ndivmod(7.5, 2)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "(3.0, 1.5)",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 3.0590244572392415e-07,
     "candidates": [
       {
         "answer": "(3.75, 0.0)",
         "misconception": "把商作为真除法结果",
-        "alpha": null,
+        "alpha": 1.3887947175914988e-11,
         "alpha_stratum": null
       },
       {
         "answer": "(4.0, -0.5)",
         "misconception": "把商四舍五入",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 1.984921852255862e-11,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -354,8 +372,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: divmod(7.5, 2)\nResult: (3.0, 1.5)"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: divmod(7.5, 2)\nResult: (3.0, 1.5)",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-numeric-11",
@@ -367,18 +387,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nmath.copysign(1.0, -0.0)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "-1.0",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 7.612487477451608e-06,
     "candidates": [
       {
         "answer": "1.0",
         "misconception": "忽略负零的符号位",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.0023025571297126944,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "0.0",
         "misconception": "返回符号来源的数值",
-        "alpha": null,
+        "alpha": 7.330995759288131e-08,
         "alpha_stratum": null
       }
     ],
@@ -391,8 +411,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: math.copysign(1.0, -0.0)\nResult: -1.0"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: math.copysign(1.0, -0.0)\nResult: -1.0",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-numeric-12",
@@ -404,18 +426,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nmath.remainder(7, 2)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "-1.0",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 3.0590361265101616e-07,
     "candidates": [
       {
         "answer": "1.0",
         "misconception": "将最近整数商余数当作百分号余数",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9967123310662851,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "3.0",
         "misconception": "把余数当整数商",
-        "alpha": null,
+        "alpha": 1.0880007207758178e-05,
         "alpha_stratum": null
       }
     ],
@@ -428,8 +450,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: math.remainder(7, 2)\nResult: -1.0"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: math.remainder(7, 2)\nResult: -1.0",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-numeric-13",
@@ -441,19 +465,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nmath.fmod(-7, 3)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "-1.0",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9976974431441414,
     "candidates": [
       {
         "answer": "2.0",
         "misconception": "将浮点余数函数等同于百分号",
-        "alpha": null,
+        "alpha": 2.4181301354843084e-10,
         "alpha_stratum": null
       },
       {
         "answer": "1.0",
         "misconception": "无条件取非负余数",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 5.905327226416515e-10,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -465,8 +489,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: math.fmod(-7, 3)\nResult: -1.0"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: math.fmod(-7, 3)\nResult: -1.0",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-numeric-14",
@@ -478,13 +504,13 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nmath.isfinite(float(\"nan\"))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "False",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.0007898634909957364,
     "candidates": [
       {
         "answer": "True",
         "misconception": "把能存为浮点对象等同于有限值",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 5.580708995482636e-13,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -496,8 +522,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: math.isfinite(float(\"nan\"))\nResult: False"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: math.isfinite(float(\"nan\"))\nResult: False",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-numeric-15",
@@ -509,19 +537,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\ncomplex(1, 2) < complex(2, 3)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "raises TypeError",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999962733611601,
     "candidates": [
       {
         "answer": "True",
         "misconception": "按实部或字典序比较复数",
-        "alpha": null,
+        "alpha": 9.182929834707492e-15,
         "alpha_stratum": null
       },
       {
         "answer": "False",
         "misconception": "认为不支持排序就返回假",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 6.017646738352411e-09,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -533,8 +561,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: complex(1, 2) < complex(2, 3)\nResult: raises TypeError"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: complex(1, 2) < complex(2, 3)\nResult: raises TypeError",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-numeric-16",
@@ -546,24 +576,24 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nfloat.fromhex(\"0x1.8p+1\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "3.0",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.999977775355916,
     "candidates": [
       {
         "answer": "1.8",
         "misconception": "忽略十六进制及指数",
-        "alpha": null,
+        "alpha": 4.131794511265105e-10,
         "alpha_stratum": null
       },
       {
         "answer": "3.6",
         "misconception": "按十进制1.8再乘二",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9999981756535556,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "24.0",
         "misconception": "将小数点去掉后按十六进制读",
-        "alpha": null,
+        "alpha": 2.1403141789977284e-07,
         "alpha_stratum": null
       }
     ],
@@ -576,8 +606,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: float.fromhex(\"0x1.8p+1\")\nResult: 3.0"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: float.fromhex(\"0x1.8p+1\")\nResult: 3.0",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-text-01",
@@ -589,19 +621,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"ab\".replace(\"\", \"-\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "'-a-b-'",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9904617091675677,
     "candidates": [
       {
         "answer": "'a-b'",
         "misconception": "只在内部字符间插入",
-        "alpha": null,
+        "alpha": 0.013576934159804958,
         "alpha_stratum": null
       },
       {
         "answer": "'ab'",
         "misconception": "认为空匹配不替换",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.013576945335466665,
+        "alpha_stratum": "middle"
       }
     ],
     "answer_space": {
@@ -613,8 +645,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"ab\".replace(\"\", \"-\")\nResult: '-a-b-'"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"ab\".replace(\"\", \"-\")\nResult: '-a-b-'",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-text-02",
@@ -626,19 +660,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"a,,b,\".split(\",\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "['a', '', 'b', '']",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999999996543911,
     "candidates": [
       {
         "answer": "['a', 'b']",
         "misconception": "默认丢弃所有空段",
-        "alpha": null,
+        "alpha": 0.013576881474664834,
         "alpha_stratum": null
       },
       {
         "answer": "['a', '', 'b']",
         "misconception": "只丢弃末尾空段",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.019292205675646414,
+        "alpha_stratum": "middle"
       }
     ],
     "answer_space": {
@@ -650,8 +684,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a,,b,\".split(\",\")\nResult: ['a', '', 'b', '']"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a,,b,\".split(\",\")\nResult: ['a', '', 'b', '']",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-text-03",
@@ -663,18 +699,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\" a  b \".split()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "['a', 'b']",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9976974445134118,
     "candidates": [
       {
         "answer": "['', 'a', '', 'b', '']",
         "misconception": "把无参数切分当单空格分隔",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 1.1837785241148974e-10,
+        "alpha_stratum": "lower"
       },
       {
         "answer": "['a', '', 'b']",
         "misconception": "只去掉首尾空段",
-        "alpha": null,
+        "alpha": 5.686874626973254e-12,
         "alpha_stratum": null
       }
     ],
@@ -687,8 +723,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \" a  b \".split()\nResult: ['a', 'b']"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \" a  b \".split()\nResult: ['a', 'b']",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-text-04",
@@ -700,18 +738,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"a\\n\".splitlines()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "['a']",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999999913993357,
     "candidates": [
       {
         "answer": "['a', '']",
         "misconception": "将末尾换行产生额外空行",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.002302566714628878,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "['a\\n']",
         "misconception": "默认保留换行符",
-        "alpha": null,
+        "alpha": 5.129291887697565e-08,
         "alpha_stratum": null
       }
     ],
@@ -724,8 +762,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a\\n\".splitlines()\nResult: ['a']"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a\\n\".splitlines()\nResult: ['a']",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-text-05",
@@ -737,18 +777,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"abc\".partition(\"x\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "('abc', '', '')",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9241418852679043,
     "candidates": [
       {
         "answer": "('', '', 'abc')",
         "misconception": "用右分割未命中的排列",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.019292289056684227,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "raises ValueError",
         "misconception": "认为未找到分隔符会抛错",
-        "alpha": null,
+        "alpha": 2.061154355316192e-09,
         "alpha_stratum": null
       }
     ],
@@ -761,8 +801,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"abc\".partition(\"x\")\nResult: ('abc', '', '')"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"abc\".partition(\"x\")\nResult: ('abc', '', '')",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-text-06",
@@ -774,18 +816,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"abc\".rpartition(\"x\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "('', '', 'abc')",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 6.017648890430105e-09,
     "candidates": [
       {
         "answer": "('abc', '', '')",
         "misconception": "用左分割未命中的排列",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 1.824347749211356e-06,
+        "alpha_stratum": "lower"
       },
       {
         "answer": "raises ValueError",
         "misconception": "认为未找到分隔符会抛错",
-        "alpha": null,
+        "alpha": 3.4560783283672116e-10,
         "alpha_stratum": null
       }
     ],
@@ -798,8 +840,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"abc\".rpartition(\"x\")\nResult: ('', '', 'abc')"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"abc\".rpartition(\"x\")\nResult: ('', '', 'abc')",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-text-07",
@@ -811,18 +855,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"ab\".ljust(5, \"-\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "'ab---'",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999891199564765,
     "candidates": [
       {
         "answer": "'---ab'",
         "misconception": "把左对齐理解成左侧填充",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9953077702418817,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "'ab-----'",
         "misconception": "把宽度当追加数量",
-        "alpha": null,
+        "alpha": 0.4116513298152537,
         "alpha_stratum": null
       }
     ],
@@ -835,8 +879,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"ab\".ljust(5, \"-\")\nResult: 'ab---'"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"ab\".ljust(5, \"-\")\nResult: 'ab---'",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-text-08",
@@ -848,19 +894,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"-42\".zfill(5)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "'-0042'",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 2.945885569207378e-09,
     "candidates": [
       {
         "answer": "'00-42'",
         "misconception": "在符号之前补零",
-        "alpha": null,
+        "alpha": 6.798745612528472e-12,
         "alpha_stratum": null
       },
       {
         "answer": "'-00042'",
         "misconception": "不将符号计入宽度",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 3.726639284161141e-06,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -872,8 +918,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"-42\".zfill(5)\nResult: '-0042'"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"-42\".zfill(5)\nResult: '-0042'",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-text-09",
@@ -885,18 +933,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"a\\tX\".expandtabs(4)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "'a   X'",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999682359346874,
     "candidates": [
       {
         "answer": "'a    X'",
         "misconception": "将制表符固定替换为四空格",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9999946737505505,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "'a X'",
         "misconception": "将制表符当单空格",
-        "alpha": null,
+        "alpha": 0.0032876591679251244,
         "alpha_stratum": null
       }
     ],
@@ -909,8 +957,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a\\tX\".expandtabs(4)\nResult: 'a   X'"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a\\tX\".expandtabs(4)\nResult: 'a   X'",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-text-10",
@@ -922,19 +972,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"{0!r}\".format(\"a\\n\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "\"'a\\\\n'\"",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999962733469441,
     "candidates": [
       {
         "answer": "'a\\n'",
         "misconception": "把表示形式转换当普通字符串转换",
-        "alpha": null,
+        "alpha": 0.013576935756327502,
         "alpha_stratum": null
       },
       {
         "answer": "'a\\\\n'",
         "misconception": "保留转义但丢弃表示形式引号",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9992101335923734,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -946,8 +996,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"{0!r}\".format(\"a\\n\")\nResult: \"'a\\\\n'\""
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"{0!r}\".format(\"a\\n\")\nResult: \"'a\\\\n'\"",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-text-11",
@@ -959,18 +1011,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"a-b-c\".rsplit(\"-\", 1)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "['a-b', 'c']",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.4116513298152537,
     "candidates": [
       {
         "answer": "['a', 'b-c']",
         "misconception": "从左边只切一次",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9994472216451356,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "['a', 'b', 'c']",
         "misconception": "忽略最大切分次数",
-        "alpha": null,
+        "alpha": 3.8317859827206154e-14,
         "alpha_stratum": null
       }
     ],
@@ -983,8 +1035,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a-b-c\".rsplit(\"-\", 1)\nResult: ['a-b', 'c']"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a-b-c\".rsplit(\"-\", 1)\nResult: ['a-b', 'c']",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-text-12",
@@ -996,18 +1050,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nb\"\\xff\".decode(\"utf-8\", errors=\"ignore\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "''",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.03863161234075564,
     "candidates": [
       {
         "answer": "'�'",
         "misconception": "将忽略策略当替换策略",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.4116522248424547,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "raises UnicodeDecodeError",
         "misconception": "忽略指定的错误处理策略",
-        "alpha": null,
+        "alpha": 7.330994885365658e-08,
         "alpha_stratum": null
       }
     ],
@@ -1020,8 +1074,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: b\"\\xff\".decode(\"utf-8\", errors=\"ignore\")\nResult: ''"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: b\"\\xff\".decode(\"utf-8\", errors=\"ignore\")\nResult: ''",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-text-13",
@@ -1033,18 +1089,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"é\".encode(\"utf-8\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "b'\\xc3\\xa9'",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999993751249819,
     "candidates": [
       {
         "answer": "b'\\xe9'",
         "misconception": "把编码当单字节码点",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9999973925719604,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "b'\\\\u00e9'",
         "misconception": "把编码当文本转义",
-        "alpha": null,
+        "alpha": 1.3888000154330152e-11,
         "alpha_stratum": null
       }
     ],
@@ -1057,8 +1113,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"é\".encode(\"utf-8\")\nResult: b'\\xc3\\xa9'"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"é\".encode(\"utf-8\")\nResult: b'\\xc3\\xa9'",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-text-14",
@@ -1070,18 +1128,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"ab\".removeprefix(\"ba\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "'ab'",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 5.7950896249145234e-11,
     "candidates": [
       {
         "answer": "''",
         "misconception": "把前缀当可删除字符集合",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 4.054645451948738e-11,
+        "alpha_stratum": "lower"
       },
       {
         "answer": "'a'",
         "misconception": "按后缀字符误删",
-        "alpha": null,
+        "alpha": 4.756860678749465e-12,
         "alpha_stratum": null
       }
     ],
@@ -1094,8 +1152,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"ab\".removeprefix(\"ba\")\nResult: 'ab'"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"ab\".removeprefix(\"ba\")\nResult: 'ab'",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-text-15",
@@ -1107,19 +1167,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"x{a}\".format_map({\"a\": \"{b}\"})\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "'x{b}'",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9864230754193265,
     "candidates": [
       {
         "answer": "raises KeyError",
         "misconception": "递归解释插入值中的格式字段",
-        "alpha": null,
+        "alpha": 2.6074302153189806e-06,
         "alpha_stratum": null
       },
       {
         "answer": "'x'",
         "misconception": "丢弃未解析字段",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 3.726641505401938e-06,
+        "alpha_stratum": "middle"
       }
     ],
     "answer_space": {
@@ -1131,8 +1191,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"x{a}\".format_map({\"a\": \"{b}\"})\nResult: 'x{b}'"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"x{a}\".format_map({\"a\": \"{b}\"})\nResult: 'x{b}'",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-text-16",
@@ -1144,18 +1206,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n\"a\".translate({ord(\"a\"): None})\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "''",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9807078010201951,
     "candidates": [
       {
         "answer": "None",
         "misconception": "把删除映射当返回空对象",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 5.3262589735717865e-06,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "'None'",
         "misconception": "把映射值转为文字",
-        "alpha": null,
+        "alpha": 2.140314434143022e-07,
         "alpha_stratum": null
       }
     ],
@@ -1168,8 +1230,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a\".translate({ord(\"a\"): None})\nResult: ''"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: \"a\".translate({ord(\"a\"): None})\nResult: ''",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-iterator-01",
@@ -1181,18 +1245,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(itertools.chain(\"ab\", \"cd\"))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "['a', 'b', 'c', 'd']",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 2.5110101680899978e-08,
     "candidates": [
       {
         "answer": "['ab', 'cd']",
         "misconception": "不展开各个输入迭代对象",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 2.4181301354843084e-10,
+        "alpha_stratum": "lower"
       },
       {
         "answer": "[('a', 'c'), ('b', 'd')]",
         "misconception": "把串接当并行配对",
-        "alpha": null,
+        "alpha": 2.630943410602489e-15,
         "alpha_stratum": null
       }
     ],
@@ -1205,8 +1269,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.chain(\"ab\", \"cd\"))\nResult: ['a', 'b', 'c', 'd']"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.chain(\"ab\", \"cd\"))\nResult: ['a', 'b', 'c', 'd']",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-iterator-02",
@@ -1218,19 +1284,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(itertools.zip_longest([1], [2, 3], fillvalue=0))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[(1, 2), (0, 3)]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.5883487856720845,
     "candidates": [
       {
         "answer": "[(1, 2)]",
         "misconception": "按最短输入停止",
-        "alpha": null,
+        "alpha": 9.535571205575726e-13,
         "alpha_stratum": null
       },
       {
         "answer": "[(1, 2), (None, 3)]",
         "misconception": "忽略自定义填充值",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 5.686897676581338e-12,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -1242,8 +1308,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.zip_longest([1], [2, 3], fillvalue=0))\nResult: [(1, 2), (0, 3)]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.zip_longest([1], [2, 3], fillvalue=0))\nResult: [(1, 2), (0, 3)]",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-iterator-03",
@@ -1255,18 +1323,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(itertools.combinations(\"AA\", 2))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[('A', 'A')]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.806679002670889,
     "candidates": [
       {
         "answer": "[]",
         "misconception": "按值去重后无法选两项",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.0011285226912116657,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "[('A', 'A'), ('A', 'A')]",
         "misconception": "混入排列顺序",
-        "alpha": null,
+        "alpha": 4.3720611752946413e-07,
         "alpha_stratum": null
       }
     ],
@@ -1279,8 +1347,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.combinations(\"AA\", 2))\nResult: [('A', 'A')]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.combinations(\"AA\", 2))\nResult: [('A', 'A')]",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-iterator-04",
@@ -1292,18 +1362,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(itertools.permutations(\"AA\", 2))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[('A', 'A'), ('A', 'A')]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.027346747472122897,
     "candidates": [
       {
         "answer": "[('A', 'A')]",
         "misconception": "将相同输出元组去重",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.004692233098515934,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "[]",
         "misconception": "认为相同值不能重复入选",
-        "alpha": null,
+        "alpha": 7.330994011443188e-08,
         "alpha_stratum": null
       }
     ],
@@ -1316,8 +1386,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.permutations(\"AA\", 2))\nResult: [('A', 'A'), ('A', 'A')]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.permutations(\"AA\", 2))\nResult: [('A', 'A'), ('A', 'A')]",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-iterator-05",
@@ -1329,19 +1401,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(itertools.combinations_with_replacement(\"AB\", 2))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[('A', 'A'), ('A', 'B'), ('B', 'B')]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999962733611601,
     "candidates": [
       {
         "answer": "[('A', 'A'), ('A', 'B'), ('B', 'A'), ('B', 'B')]",
         "misconception": "把可重复组合当笛卡尔积",
-        "alpha": null,
+        "alpha": 2.285229876104505e-13,
         "alpha_stratum": null
       },
       {
         "answer": "[('A', 'B')]",
         "misconception": "忽略允许重复入选",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 4.7568935684597115e-12,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -1353,8 +1425,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.combinations_with_replacement(\"AB\", 2))\nResult: [('A', 'A'), ('A', 'B'), ('B', 'B')]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.combinations_with_replacement(\"AB\", 2))\nResult: [('A', 'A'), ('A', 'B'), ('B', 'B')]",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-iterator-06",
@@ -1366,19 +1440,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(itertools.pairwise([1, 2, 3]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[(1, 2), (2, 3)]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999923875215972,
     "candidates": [
       {
         "answer": "[(1, 2)]",
         "misconception": "将相邻重叠对当非重叠分组",
-        "alpha": null,
+        "alpha": 2.464124230562649e-09,
         "alpha_stratum": null
       },
       {
         "answer": "raises AttributeError",
         "misconception": "沿用该函数引入前的接口知识",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 3.176408424478158e-05,
+        "alpha_stratum": "middle"
       }
     ],
     "answer_space": {
@@ -1390,8 +1464,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.pairwise([1, 2, 3]))\nResult: [(1, 2), (2, 3)]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(itertools.pairwise([1, 2, 3]))\nResult: [(1, 2), (2, 3)]",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-iterator-07",
@@ -1403,13 +1479,13 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n(lambda xs: xs[0] is xs[1])(list(itertools.repeat([], 2)))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "True",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.0758579491590475,
     "candidates": [
       {
         "answer": "False",
         "misconception": "认为重复迭代会复制可变对象",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.0046922314283168185,
+        "alpha_stratum": "middle"
       }
     ],
     "answer_space": {
@@ -1421,8 +1497,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda xs: xs[0] is xs[1])(list(itertools.repeat([], 2)))\nResult: True"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda xs: xs[0] is xs[1])(list(itertools.repeat([], 2)))\nResult: True",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-iterator-08",
@@ -1434,19 +1512,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n[list(g) for _, g in itertools.groupby(\"AABA\")]\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[['A', 'A'], ['B'], ['A']]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.105000693646961,
     "candidates": [
       {
         "answer": "[['A', 'A', 'A'], ['B']]",
         "misconception": "把连续分组当全局同值分组",
-        "alpha": null,
+        "alpha": 1.0282150874538852e-08,
         "alpha_stratum": null
       },
       {
         "answer": "[['A'], ['B']]",
         "misconception": "先对键去重",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 1.790299406692576e-07,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -1458,8 +1536,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: [list(g) for _, g in itertools.groupby(\"AABA\")]\nResult: [['A', 'A'], ['B'], ['A']]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: [list(g) for _, g in itertools.groupby(\"AABA\")]\nResult: [['A', 'A'], ['B'], ['A']]",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-iterator-09",
@@ -1471,19 +1551,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(enumerate(\"ab\", start=-1))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[(-1, 'a'), (0, 'b')]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9992101343450533,
     "candidates": [
       {
         "answer": "[(0, 'a'), (1, 'b')]",
         "misconception": "忽略起始索引",
-        "alpha": null,
+        "alpha": 9.357625199870473e-14,
         "alpha_stratum": null
       },
       {
         "answer": "raises ValueError",
         "misconception": "认为枚举起始索引不能为负",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 2.1403060143644027e-07,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -1495,8 +1575,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(enumerate(\"ab\", start=-1))\nResult: [(-1, 'a'), (0, 'b')]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(enumerate(\"ab\", start=-1))\nResult: [(-1, 'a'), (0, 'b')]",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-iterator-10",
@@ -1508,19 +1590,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(map(lambda x, y: x + y, [1, 2], [10]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[11]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.8564010621425809,
     "candidates": [
       {
         "answer": "[11, 2]",
         "misconception": "为缺失输入补零继续",
-        "alpha": null,
+        "alpha": 6.017627369678219e-09,
         "alpha_stratum": null
       },
       {
         "answer": "raises ValueError",
         "misconception": "认为多输入必须等长",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.019292219208301396,
+        "alpha_stratum": "middle"
       }
     ],
     "answer_space": {
@@ -1532,8 +1614,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(map(lambda x, y: x + y, [1, 2], [10]))\nResult: [11]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(map(lambda x, y: x + y, [1, 2], [10]))\nResult: [11]",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-iterator-11",
@@ -1545,18 +1629,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(filter(None, [0, 1, \"\", 2]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[1, 2]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999546021854604,
     "candidates": [
       {
         "answer": "[0, 1, '', 2]",
         "misconception": "把空谓词当无过滤",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 2.511000589364886e-08,
+        "alpha_stratum": "lower"
       },
       {
         "answer": "raises TypeError",
         "misconception": "认为空对象不能作谓词参数",
-        "alpha": null,
+        "alpha": 1.0090159759234012e-09,
         "alpha_stratum": null
       }
     ],
@@ -1569,8 +1653,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(filter(None, [0, 1, \"\", 2]))\nResult: [1, 2]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(filter(None, [0, 1, \"\", 2]))\nResult: [1, 2]",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-iterator-12",
@@ -1582,18 +1668,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nsum((x for x in [1, 2]), 10)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "13",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9456868173476622,
     "candidates": [
       {
         "answer": "3",
         "misconception": "忽略加总起始值",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.00038682870237627295,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "10",
         "misconception": "把起始值当缺省回退值",
-        "alpha": null,
+        "alpha": 6.0176496077894495e-09,
         "alpha_stratum": null
       }
     ],
@@ -1606,8 +1692,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: sum((x for x in [1, 2]), 10)\nResult: 13"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: sum((x for x in [1, 2]), 10)\nResult: 13",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-iterator-13",
@@ -1619,19 +1707,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n(lambda it: (list(it), list(it)))(iter([1, 2]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "([1, 2], [])",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 6.488322993839303e-05,
     "candidates": [
       {
         "answer": "([1, 2], [1, 2])",
         "misconception": "认为迭代器会自动重置",
-        "alpha": null,
+        "alpha": 1.9478660323022115e-12,
         "alpha_stratum": null
       },
       {
         "answer": "raises StopIteration",
         "misconception": "认为列表转换传播迭代结束异常",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.03863177144856335,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -1643,8 +1731,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda it: (list(it), list(it)))(iter([1, 2]))\nResult: ([1, 2], [])"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda it: (list(it), list(it)))(iter([1, 2]))\nResult: ([1, 2], [])",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-iterator-14",
@@ -1656,18 +1746,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n(lambda it: (any(it), list(it)))(iter([0, 2, 3]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "(True, [3])",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 1.4975183325762836e-07,
     "candidates": [
       {
         "answer": "(True, [])",
         "misconception": "认为存在判断必须读完输入",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.0005527788158838183,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "(True, [2, 3])",
         "misconception": "认为满足项不会被消费",
-        "alpha": null,
+        "alpha": 1.8243475317325668e-06,
         "alpha_stratum": null
       }
     ],
@@ -1680,8 +1770,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda it: (any(it), list(it)))(iter([0, 2, 3]))\nResult: (True, [3])"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda it: (any(it), list(it)))(iter([0, 2, 3]))\nResult: (True, [3])",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-iterator-15",
@@ -1693,18 +1785,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n(lambda it: (all(it), list(it)))(iter([1, 0, 3]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "(False, [3])",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 5.32625706876605e-06,
     "candidates": [
       {
         "answer": "(False, [])",
         "misconception": "认为全称判断必须读完输入",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.006692852849837045,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "(False, [0, 3])",
         "misconception": "认为失败项不会被消费",
-        "alpha": null,
+        "alpha": 1.0477720525561584e-07,
         "alpha_stratum": null
       }
     ],
@@ -1717,8 +1809,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda it: (all(it), list(it)))(iter([1, 0, 3]))\nResult: (False, [3])"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda it: (all(it), list(it)))(iter([1, 0, 3]))\nResult: (False, [3])",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-iterator-16",
@@ -1730,18 +1824,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nnext(iter([]), 7)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "7",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999998952226573,
     "candidates": [
       {
         "answer": "raises StopIteration",
         "misconception": "忽略迭代结束缺省值",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 3.4560906882889656e-10,
+        "alpha_stratum": "lower"
       },
       {
         "answer": "None",
         "misconception": "将缺省返回值固定为空对象",
-        "alpha": null,
+        "alpha": 4.668092105506609e-13,
         "alpha_stratum": null
       }
     ],
@@ -1754,8 +1848,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: next(iter([]), 7)\nResult: 7"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: next(iter([]), 7)\nResult: 7",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-library-01",
@@ -1767,13 +1863,13 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\ncollections.Counter(a=1) == collections.Counter(a=1, b=0)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "True",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.5000001192092896,
     "candidates": [
       {
         "answer": "False",
         "misconception": "要求计数器键集合完全相同",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.006692854434857909,
+        "alpha_stratum": "middle"
       }
     ],
     "answer_space": {
@@ -1785,8 +1881,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: collections.Counter(a=1) == collections.Counter(a=1, b=0)\nResult: True"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: collections.Counter(a=1) == collections.Counter(a=1, b=0)\nResult: True",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-library-02",
@@ -1798,18 +1896,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\ndict(collections.Counter(a=1) - collections.Counter(a=2))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "{}",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.001612150789209495,
     "candidates": [
       {
         "answer": "{'a': -1}",
         "misconception": "保留计数器减法负结果",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.25513203752068025,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "{'a': 0}",
         "misconception": "截零但保留零计数键",
-        "alpha": null,
+        "alpha": 2.511000888699349e-08,
         "alpha_stratum": null
       }
     ],
@@ -1822,8 +1920,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: dict(collections.Counter(a=1) - collections.Counter(a=2))\nResult: {}"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: dict(collections.Counter(a=1) - collections.Counter(a=2))\nResult: {}",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-library-03",
@@ -1835,13 +1935,13 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\n(lambda d: d[\"a\"] is d[\"b\"])(dict.fromkeys([\"a\", \"b\"], []))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "True",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9726531733559465,
     "candidates": [
       {
         "answer": "False",
         "misconception": "认为字典各键获得独立缺省值副本",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.0095382942110549,
+        "alpha_stratum": "middle"
       }
     ],
     "answer_space": {
@@ -1853,8 +1953,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda d: d[\"a\"] is d[\"b\"])(dict.fromkeys([\"a\", \"b\"], []))\nResult: True"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: (lambda d: d[\"a\"] is d[\"b\"])(dict.fromkeys([\"a\", \"b\"], []))\nResult: True",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-library-04",
@@ -1866,13 +1968,13 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(dict.fromkeys([1, True, 1.0]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[1]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.10500066213920742,
     "candidates": [
       {
         "answer": "[1, True, 1.0]",
         "misconception": "按对象类型区分相等键",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.004692234211982338,
+        "alpha_stratum": "middle"
       }
     ],
     "answer_space": {
@@ -1884,8 +1986,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(dict.fromkeys([1, True, 1.0]))\nResult: [1]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(dict.fromkeys([1, True, 1.0]))\nResult: [1]",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-library-05",
@@ -1897,19 +2001,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(dict([(\"a\", 1), (\"b\", 2), (\"a\", 3)]).items())\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[('a', 3), ('b', 2)]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999682359271146,
     "candidates": [
       {
         "answer": "[('b', 2), ('a', 3)]",
         "misconception": "更新旧键时移动到末尾",
-        "alpha": null,
+        "alpha": 0.9613684009412589,
         "alpha_stratum": null
       },
       {
         "answer": "[('a', 1), ('b', 2)]",
         "misconception": "忽略重复键的新值",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.9992101339687134,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -1921,8 +2025,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(dict([(\"a\", 1), (\"b\", 2), (\"a\", 3)]).items())\nResult: [('a', 3), ('b', 2)]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(dict([(\"a\", 1), (\"b\", 2), (\"a\", 3)]).items())\nResult: [('a', 3), ('b', 2)]",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-library-06",
@@ -1934,19 +2040,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(collections.deque([1, 2, 3], maxlen=2))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[2, 3]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.999984449872244,
     "candidates": [
       {
         "answer": "[1, 2]",
         "misconception": "满队列丢弃后来的值",
-        "alpha": null,
+        "alpha": 1.4421264675812367e-09,
         "alpha_stratum": null
       },
       {
         "answer": "raises ValueError",
         "misconception": "认为初始值超过容量会抛错",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 6.248750925551533e-07,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -1958,8 +2064,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(collections.deque([1, 2, 3], maxlen=2))\nResult: [2, 3]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(collections.deque([1, 2, 3], maxlen=2))\nResult: [2, 3]",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-library-07",
@@ -1971,19 +2079,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nbisect.bisect_left([1, 2, 2, 3], 2)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "1",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.999999948707283,
     "candidates": [
       {
         "answer": "3",
         "misconception": "使用同值项右边界",
-        "alpha": null,
+        "alpha": 4.290460269264911e-08,
         "alpha_stratum": null
       },
       {
         "answer": "2",
         "misconception": "返回任一匹配项位置",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.7448688290127995,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -1995,8 +2103,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: bisect.bisect_left([1, 2, 2, 3], 2)\nResult: 1"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: bisect.bisect_left([1, 2, 2, 3], 2)\nResult: 1",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-library-08",
@@ -2008,18 +2118,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nlist(heapq.merge([1, 4], [2, 3]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "[1, 2, 3, 4]",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999999939823776,
     "candidates": [
       {
         "answer": "[1, 4, 2, 3]",
         "misconception": "把有序归并当串接",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 6.928085262177169e-11,
+        "alpha_stratum": "lower"
       },
       {
         "answer": "[(1, 2), (4, 3)]",
         "misconception": "把归并当配对",
-        "alpha": null,
+        "alpha": 9.011428139621657e-16,
         "alpha_stratum": null
       }
     ],
@@ -2032,8 +2142,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(heapq.merge([1, 4], [2, 3]))\nResult: [1, 2, 3, 4]"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: list(heapq.merge([1, 4], [2, 3]))\nResult: [1, 2, 3, 4]",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "lower"
   },
   {
     "id": "holdout-library-09",
@@ -2045,19 +2157,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nfunctools.reduce(operator.sub, [10, 3, 2])\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "5",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.6713469377687145,
     "candidates": [
       {
         "answer": "9",
         "misconception": "按右结合执行减法",
-        "alpha": null,
+        "alpha": 8.600636551127174e-09,
         "alpha_stratum": null
       },
       {
         "answer": "-15",
         "misconception": "忽略首元素作为初始累积值",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.054313256128118576,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -2069,8 +2181,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: functools.reduce(operator.sub, [10, 3, 2])\nResult: 5"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: functools.reduce(operator.sub, [10, 3, 2])\nResult: 5",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-library-10",
@@ -2082,13 +2196,13 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\noperator.index(3.0)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "raises TypeError",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9807077289164349,
     "candidates": [
       {
         "answer": "3",
         "misconception": "把整数索引协议等同数值取整",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.993307180435515,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -2100,8 +2214,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: operator.index(3.0)\nResult: raises TypeError"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: operator.index(3.0)\nResult: raises TypeError",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-library-11",
@@ -2113,18 +2229,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\njson.dumps(float(\"nan\"))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "'NaN'",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.0011285225568331062,
     "candidates": [
       {
         "answer": "raises ValueError",
         "misconception": "认为缺省编码严格拒绝非有限数",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.009538260433680796,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "'null'",
         "misconception": "把非数编码为空值",
-        "alpha": null,
+        "alpha": 2.6074286611745717e-06,
         "alpha_stratum": null
       }
     ],
@@ -2137,8 +2253,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: json.dumps(float(\"nan\"))\nResult: 'NaN'"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: json.dumps(float(\"nan\"))\nResult: 'NaN'",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-library-12",
@@ -2150,18 +2268,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\njson.loads(\"{\\\"x\\\": 1, \\\"x\\\": 2}\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "{'x': 2}",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.0023025571297126944,
     "candidates": [
       {
         "answer": "raises ValueError",
         "misconception": "认为解析器拒绝重复键",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.14359864282207738,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "{'x': 1}",
         "misconception": "保留第一个重复键值",
-        "alpha": null,
+        "alpha": 1.7568770001020797e-08,
         "alpha_stratum": null
       }
     ],
@@ -2174,8 +2292,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: json.loads(\"{\\\"x\\\": 1, \\\"x\\\": 2}\")\nResult: {'x': 2}"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: json.loads(\"{\\\"x\\\": 1, \\\"x\\\": 2}\")\nResult: {'x': 2}",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-library-13",
@@ -2187,19 +2307,19 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\ndatetime.timedelta(days=-1, seconds=1).seconds\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "1",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9807078010201951,
     "candidates": [
       {
         "answer": "-86399",
         "misconception": "将秒字段当总秒数",
-        "alpha": null,
+        "alpha": 6.248752415368743e-07,
         "alpha_stratum": null
       },
       {
         "answer": "86399",
         "misconception": "把负持续时间取绝对值",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.999613172035121,
+        "alpha_stratum": "higher"
       }
     ],
     "answer_space": {
@@ -2211,8 +2331,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: datetime.timedelta(days=-1, seconds=1).seconds\nResult: 1"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: datetime.timedelta(days=-1, seconds=1).seconds\nResult: 1",
+    "main_candidate_index": 1,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-library-14",
@@ -2224,18 +2346,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\ndatetime.date(2021, 1, 1).isocalendar().year\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "2020",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 2.890889857416478e-10,
     "candidates": [
       {
         "answer": "2021",
         "misconception": "将周历年当公历年",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.7448688743216864,
+        "alpha_stratum": "higher"
       },
       {
         "answer": "2019",
         "misconception": "错误跨越两年",
-        "alpha": null,
+        "alpha": 6.547244043122377e-14,
         "alpha_stratum": null
       }
     ],
@@ -2248,8 +2370,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: datetime.date(2021, 1, 1).isocalendar().year\nResult: 2020"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: datetime.date(2021, 1, 1).isocalendar().year\nResult: 2020",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "higher"
   },
   {
     "id": "holdout-library-15",
@@ -2261,18 +2385,18 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nstatistics.pstdev([4])\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "0.0",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999962733611601,
     "candidates": [
       {
         "answer": "raises StatisticsError",
         "misconception": "把总体标准差当样本标准差",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 0.019292212512455324,
+        "alpha_stratum": "middle"
       },
       {
         "answer": "4.0",
         "misconception": "把单样本标准差当原值",
-        "alpha": null,
+        "alpha": 1.0090240349886068e-09,
         "alpha_stratum": null
       }
     ],
@@ -2285,8 +2409,10 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: statistics.pstdev([4])\nResult: 0.0"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: statistics.pstdev([4])\nResult: 0.0",
+    "main_candidate_index": 0,
+    "main_candidate_stratum": "middle"
   },
   {
     "id": "holdout-library-16",
@@ -2298,25 +2424,25 @@
     "question": "The interpreter is CPython 3.11.16. These modules have been imported:\nimport itertools, statistics, fractions, decimal, datetime, re, math, collections, bisect, heapq, functools, operator, json\n\nEvaluate this expression in a fresh process:\n\nfractions.Fraction(\"1.5\").denominator\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
     "gold": "2",
     "gold_status": "已在CPython 3.11.16独立进程执行核定",
-    "theta": null,
+    "theta": 0.9999987235554992,
     "candidates": [
       {
         "answer": "10",
         "misconception": "保留未约分的十进制分母",
-        "alpha": null,
+        "alpha": 4.7568935684597115e-12,
         "alpha_stratum": null
       },
       {
         "answer": "5",
         "misconception": "把小数位数字当分母",
-        "alpha": null,
+        "alpha": 1.947866496709622e-12,
         "alpha_stratum": null
       },
       {
         "answer": "1",
         "misconception": "把小数解析成整数",
-        "alpha": null,
-        "alpha_stratum": null
+        "alpha": 2.8369211728065978e-11,
+        "alpha_stratum": "lower"
       }
     ],
     "answer_space": {
@@ -2328,7 +2454,9 @@
       "size_note": "布尔正常值固定两种；其他类型不将候选列表大小冒充完整答案空间大小。",
       "model_reachable_size": null
     },
-    "model_contact": false,
-    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: fractions.Fraction(\"1.5\").denominator\nResult: 2"
+    "model_contact": true,
+    "evidence": "Verified execution record:\nInterpreter: CPython 3.11.16\nExpression: fractions.Fraction(\"1.5\").denominator\nResult: 2",
+    "main_candidate_index": 2,
+    "main_candidate_stratum": "lower"
   }
 ]
