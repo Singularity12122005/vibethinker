@@ -1,0 +1,492 @@
+{
+  "rows": [
+    {
+      "id": "numeric-01",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -17.857139587402344,
+        "no_logp": -4.768370445162873e-07,
+        "yes_relative_probability": 1.7568829946412734e-08
+      },
+      "alpha": {
+        "yes_logp": -10.35717487335205,
+        "no_logp": -3.206679684808478e-05,
+        "yes_relative_probability": 3.176408790750429e-05
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "numeric-02",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -3.25368070602417,
+        "no_logp": -0.03939787298440933,
+        "yes_relative_probability": 0.03863176330924034
+      },
+      "alpha": {
+        "yes_logp": -3.25368070602417,
+        "no_logp": -0.03939787298440933,
+        "yes_relative_probability": 0.03863176330924034
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "numeric-03",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -0.6931473016738892,
+        "no_logp": -0.6931473016738892,
+        "yes_relative_probability": 0.5
+      },
+      "alpha": {
+        "yes_logp": -14.64285659790039,
+        "no_logp": -7.152556236178498e-07,
+        "yes_relative_probability": 4.372082855752524e-07
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "numeric-04",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -5.006715297698975,
+        "no_logp": -0.006715825758874416,
+        "yes_relative_probability": 0.006692854221910238
+      },
+      "alpha": {
+        "yes_logp": -27.14285659790039,
+        "no_logp": -2.3841855067985307e-07,
+        "yes_relative_probability": 1.629322870198846e-12
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "numeric-05",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -1.1920928244535389e-07,
+        "no_logp": -16.428569793701172,
+        "yes_relative_probability": 0.9999998807907104
+      },
+      "alpha": {
+        "yes_logp": -27.5,
+        "no_logp": -1.1920928244535389e-07,
+        "yes_relative_probability": 1.1399918552548738e-12
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "numeric-06",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -16.071426391601562,
+        "no_logp": -1.907347041196772e-06,
+        "yes_relative_probability": 1.0477772605099744e-07
+      },
+      "alpha": {
+        "yes_logp": -2.912987232208252,
+        "no_logp": -0.05584430694580078,
+        "yes_relative_probability": 0.054313261061906815
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "numeric-07",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -3.206679684808478e-05,
+        "no_logp": -10.357175827026367,
+        "yes_relative_probability": 0.9999682903289795
+      },
+      "alpha": {
+        "yes_logp": -19.64285659790039,
+        "no_logp": -8.344646857949556e-07,
+        "yes_relative_probability": 2.945884869376414e-09
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "numeric-08",
+      "family": "numeric",
+      "theta": {
+        "yes_logp": -15.35714340209961,
+        "no_logp": -7.152556236178498e-07,
+        "yes_relative_probability": 2.140314876442062e-07
+      },
+      "alpha": {
+        "yes_logp": -11.428584098815918,
+        "no_logp": -1.096719552151626e-05,
+        "yes_relative_probability": 1.087999771698378e-05
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "text-01",
+      "family": "text",
+      "theta": {
+        "yes_logp": -10.71430492401123,
+        "no_logp": -2.264951945107896e-05,
+        "yes_relative_probability": 2.2224745407584123e-05
+      },
+      "alpha": {
+        "yes_logp": -1.1127549409866333,
+        "no_logp": -0.39846885204315186,
+        "yes_relative_probability": 0.32865244150161743
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "text-02",
+      "family": "text",
+      "theta": {
+        "yes_logp": -1.9407298564910889,
+        "no_logp": -0.15501688420772552,
+        "yes_relative_probability": 0.14359913766384125
+      },
+      "alpha": {
+        "yes_logp": -3.5991578102111816,
+        "no_logp": -0.027727998793125153,
+        "yes_relative_probability": 0.02734675630927086
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "text-03",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.004703292157500982,
+        "no_logp": -5.361846923828125,
+        "yes_relative_probability": 0.9953077435493469
+      },
+      "alpha": {
+        "yes_logp": -4.299383163452148,
+        "no_logp": -0.013669924810528755,
+        "yes_relative_probability": 0.0135769322514534
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "text-04",
+      "family": "text",
+      "theta": {
+        "yes_logp": -1.549708758830093e-05,
+        "no_logp": -11.071446418762207,
+        "yes_relative_probability": 0.9999845027923584
+      },
+      "alpha": {
+        "yes_logp": -14.64285659790039,
+        "no_logp": -9.536740890325746e-07,
+        "yes_relative_probability": 4.372082855752524e-07
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "text-05",
+      "family": "text",
+      "theta": {
+        "yes_logp": -1.1127550601959229,
+        "no_logp": -0.3984682559967041,
+        "yes_relative_probability": 0.3286523222923279
+      },
+      "alpha": {
+        "yes_logp": -0.21483036875724792,
+        "no_logp": -1.6434004306793213,
+        "yes_relative_probability": 0.8066784143447876
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "text-06",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.00018940561858471483,
+        "no_logp": -8.571619987487793,
+        "yes_relative_probability": 0.9998106360435486
+      },
+      "alpha": {
+        "yes_logp": -5.006715297698975,
+        "no_logp": -0.006715706549584866,
+        "yes_relative_probability": 0.006692854221910238
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "text-07",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.0277276411652565,
+        "no_logp": -3.599158525466919,
+        "yes_relative_probability": 0.9726532697677612
+      },
+      "alpha": {
+        "yes_logp": -15.35714340209961,
+        "no_logp": -3.576278402306343e-07,
+        "yes_relative_probability": 2.1403127448138548e-07
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "text-08",
+      "family": "text",
+      "theta": {
+        "yes_logp": -0.03939776122570038,
+        "no_logp": -3.2536849975585938,
+        "yes_relative_probability": 0.9613683819770813
+      },
+      "alpha": {
+        "yes_logp": -11.07144546508789,
+        "no_logp": -1.6093134036054835e-05,
+        "yes_relative_probability": 1.5550082025583833e-05
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "iterator-01",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.004703411366790533,
+        "no_logp": -5.361847400665283,
+        "yes_relative_probability": 0.9953077435493469
+      },
+      "alpha": {
+        "yes_logp": -8.928702354431152,
+        "no_logp": -0.00013362482422962785,
+        "yes_relative_probability": 0.0001325300254393369
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "iterator-02",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -2.253789186477661,
+        "no_logp": -0.1109333410859108,
+        "yes_relative_probability": 0.10500070452690125
+      },
+      "alpha": {
+        "yes_logp": -3.948054313659668,
+        "no_logp": -0.01948152668774128,
+        "yes_relative_probability": 0.01929221674799919
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "iterator-03",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.0003877129638567567,
+        "no_logp": -7.857531547546387,
+        "yes_relative_probability": 0.9996132254600525
+      },
+      "alpha": {
+        "yes_logp": -7.143651008605957,
+        "no_logp": -0.0007915949681773782,
+        "yes_relative_probability": 0.0007898641051724553
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "iterator-04",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.5304356217384338,
+        "no_logp": -0.8875797390937805,
+        "yes_relative_probability": 0.588348925113678
+      },
+      "alpha": {
+        "yes_logp": -1.6434001922607422,
+        "no_logp": -0.2148311734199524,
+        "yes_relative_probability": 0.19332174956798553
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "iterator-05",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -7.748574716970325e-06,
+        "no_logp": -11.785720825195312,
+        "yes_relative_probability": 0.9999923706054688
+      },
+      "alpha": {
+        "yes_logp": -1.1127523183822632,
+        "no_logp": -0.39847004413604736,
+        "yes_relative_probability": 0.32865333557128906
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "iterator-06",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.002305351896211505,
+        "no_logp": -6.073736667633057,
+        "yes_relative_probability": 0.9976974129676819
+      },
+      "alpha": {
+        "yes_logp": -23.928573608398438,
+        "no_logp": -1.311301275563892e-06,
+        "yes_relative_probability": 4.0546496715698765e-11
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "iterator-07",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -0.2148297131061554,
+        "no_logp": -1.6434035301208496,
+        "yes_relative_probability": 0.8066790103912354
+      },
+      "alpha": {
+        "yes_logp": -4.299386978149414,
+        "no_logp": -0.01367064006626606,
+        "yes_relative_probability": 0.013576885685324669
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "iterator-08",
+      "family": "iterator",
+      "theta": {
+        "yes_logp": -16.428569793701172,
+        "no_logp": -9.536739753457368e-07,
+        "yes_relative_probability": 7.330991991238989e-08
+      },
+      "alpha": {
+        "yes_logp": -4.299386978149414,
+        "no_logp": -0.01367064006626606,
+        "yes_relative_probability": 0.013576885685324669
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "library-01",
+      "family": "library",
+      "theta": {
+        "yes_logp": -8.214557647705078,
+        "no_logp": -0.00027223737561143935,
+        "yes_relative_probability": 0.00027068451163358986
+      },
+      "alpha": {
+        "yes_logp": -14.285717964172363,
+        "no_logp": -1.1920925544472993e-06,
+        "yes_relative_probability": 6.248728254831803e-07
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "library-02",
+      "family": "library",
+      "theta": {
+        "yes_logp": -22.500001907348633,
+        "no_logp": -8.344646857949556e-07,
+        "yes_relative_probability": 1.6918946799115986e-10
+      },
+      "alpha": {
+        "yes_logp": -0.027728118002414703,
+        "no_logp": -3.59915828704834,
+        "yes_relative_probability": 0.9726532697677612
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "library-03",
+      "family": "library",
+      "theta": {
+        "yes_logp": -6.786846160888672,
+        "no_logp": -0.001129704643972218,
+        "yes_relative_probability": 0.0011285229120403528
+      },
+      "alpha": {
+        "yes_logp": -21.78571319580078,
+        "no_logp": -1.0728830375228426e-06,
+        "yes_relative_probability": 3.4560959649709844e-10
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "library-04",
+      "family": "library",
+      "theta": {
+        "yes_logp": -13.571431159973145,
+        "no_logp": -1.7881383200801793e-06,
+        "yes_relative_probability": 1.2764463690473349e-06
+      },
+      "alpha": {
+        "yes_logp": -0.027727879583835602,
+        "no_logp": -3.599158525466919,
+        "yes_relative_probability": 0.9726532697677612
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "library-05",
+      "family": "library",
+      "theta": {
+        "yes_logp": -0.009584248065948486,
+        "no_logp": -4.652440547943115,
+        "yes_relative_probability": 0.9904616475105286
+      },
+      "alpha": {
+        "yes_logp": -21.428569793701172,
+        "no_logp": -1.1920928244535389e-07,
+        "yes_relative_probability": 4.939584297147803e-10
+      },
+      "stratum": "lower_within_family"
+    },
+    {
+      "id": "library-06",
+      "family": "library",
+      "theta": {
+        "yes_logp": -10.35717487335205,
+        "no_logp": -3.242442471673712e-05,
+        "yes_relative_probability": 3.176408790750429e-05
+      },
+      "alpha": {
+        "yes_logp": -1.549708758830093e-05,
+        "no_logp": -11.07144546508789,
+        "yes_relative_probability": 0.9999845027923584
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "library-07",
+      "family": "library",
+      "theta": {
+        "yes_logp": -10.714308738708496,
+        "no_logp": -2.2411100871977396e-05,
+        "yes_relative_probability": 2.2224639906198718e-05
+      },
+      "alpha": {
+        "yes_logp": -5.7175798416137695,
+        "no_logp": -0.003293569665402174,
+        "yes_relative_probability": 0.003287659492343664
+      },
+      "stratum": "higher_within_family"
+    },
+    {
+      "id": "library-08",
+      "family": "library",
+      "theta": {
+        "yes_logp": -0.004703411366790533,
+        "no_logp": -5.361847400665283,
+        "yes_relative_probability": 0.9953077435493469
+      },
+      "alpha": {
+        "yes_logp": -26.785717010498047,
+        "no_logp": -4.768370445162873e-07,
+        "yes_relative_probability": 2.328685855257362e-12
+      },
+      "stratum": "lower_within_family"
+    }
+  ],
+  "temperature": 0.7,
+  "generated_tokens": 0,
+  "definition": "same neutral truth-evaluation prompt; normalized Yes/No joint likelihood including IM_END",
+  "calls": {
+    "neutral_prompt": 64,
+    "forced_answer": 128
+  },
+  "complete": true
+}

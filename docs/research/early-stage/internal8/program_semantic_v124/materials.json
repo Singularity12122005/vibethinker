@@ -1,0 +1,322 @@
+[
+  {
+    "id": "numeric-01",
+    "family": "numeric",
+    "expression": "round(2.675, 2)",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nround(2.675, 2)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "2.67",
+    "candidate": "2.68",
+    "misconception": "十进制直觉四舍五入",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: round(2.675, 2)\nobserved: 2.67"
+  },
+  {
+    "id": "numeric-02",
+    "family": "numeric",
+    "expression": "round(2.5)",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nround(2.5)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "2",
+    "candidate": "3",
+    "misconception": "中点一律向上舍入",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: round(2.5)\nobserved: 2"
+  },
+  {
+    "id": "numeric-03",
+    "family": "numeric",
+    "expression": "-7 // 3",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n-7 // 3\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "-3",
+    "candidate": "-2",
+    "misconception": "整数除法一律向零截断",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: -7 // 3\nobserved: -3"
+  },
+  {
+    "id": "numeric-04",
+    "family": "numeric",
+    "expression": "-7 % 3",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n-7 % 3\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "2",
+    "candidate": "-1",
+    "misconception": "余数符号沿用被除数",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: -7 % 3\nobserved: 2"
+  },
+  {
+    "id": "numeric-05",
+    "family": "numeric",
+    "expression": "0.1 + 0.2 == 0.3",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n0.1 + 0.2 == 0.3\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "False",
+    "candidate": "True",
+    "misconception": "浮点加法等于精确十进制加法",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: 0.1 + 0.2 == 0.3\nobserved: False"
+  },
+  {
+    "id": "numeric-06",
+    "family": "numeric",
+    "expression": "int(\"1_000\")",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nint(\"1_000\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "1000",
+    "candidate": "raises ValueError",
+    "misconception": "字符串数字不允许下划线",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: int(\"1_000\")\nobserved: 1000"
+  },
+  {
+    "id": "numeric-07",
+    "family": "numeric",
+    "expression": "pow(2, -1, 5)",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\npow(2, -1, 5)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "3",
+    "candidate": "raises ValueError",
+    "misconception": "三参数幂不接受负指数",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: pow(2, -1, 5)\nobserved: 3"
+  },
+  {
+    "id": "numeric-08",
+    "family": "numeric",
+    "expression": "bool(float(\"nan\"))",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nbool(float(\"nan\"))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "True",
+    "candidate": "False",
+    "misconception": "非数值必定转换为假",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: bool(float(\"nan\"))\nobserved: True"
+  },
+  {
+    "id": "text-01",
+    "family": "text",
+    "expression": "\"\".isalpha()",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n\"\".isalpha()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "False",
+    "candidate": "True",
+    "misconception": "空字符串的全称条件一律为真",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: \"\".isalpha()\nobserved: False"
+  },
+  {
+    "id": "text-02",
+    "family": "text",
+    "expression": "\"²\".isdigit()",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n\"²\".isdigit()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "True",
+    "candidate": "False",
+    "misconception": "数字字符仅限十进制可解析字符",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: \"²\".isdigit()\nobserved: True"
+  },
+  {
+    "id": "text-03",
+    "family": "text",
+    "expression": "\"四\".isnumeric()",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n\"四\".isnumeric()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "True",
+    "candidate": "False",
+    "misconception": "汉字不属于数值字符",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: \"四\".isnumeric()\nobserved: True"
+  },
+  {
+    "id": "text-04",
+    "family": "text",
+    "expression": "\"\".isascii()",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n\"\".isascii()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "True",
+    "candidate": "False",
+    "misconception": "空字符串不属于字符集合",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: \"\".isascii()\nobserved: True"
+  },
+  {
+    "id": "text-05",
+    "family": "text",
+    "expression": "\"ß\".upper()",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n\"ß\".upper()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "'SS'",
+    "candidate": "'ẞ'",
+    "misconception": "大写映射必定只有一个字符",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: \"ß\".upper()\nobserved: 'SS'"
+  },
+  {
+    "id": "text-06",
+    "family": "text",
+    "expression": "len(\"e\\u0301\")",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nlen(\"e\\u0301\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "2",
+    "candidate": "1",
+    "misconception": "字符串长度等于可见字形数",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: len(\"e\\u0301\")\nobserved: 2"
+  },
+  {
+    "id": "text-07",
+    "family": "text",
+    "expression": "\"ababa\".count(\"aba\")",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n\"ababa\".count(\"aba\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "1",
+    "candidate": "2",
+    "misconception": "子串计数包含重叠匹配",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: \"ababa\".count(\"aba\")\nobserved: 1"
+  },
+  {
+    "id": "text-08",
+    "family": "text",
+    "expression": "\"abc\".strip(\"ac\")",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\n\"abc\".strip(\"ac\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "'b'",
+    "candidate": "'abc'",
+    "misconception": "去除参数被当作完整子串",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: \"abc\".strip(\"ac\")\nobserved: 'b'"
+  },
+  {
+    "id": "iterator-01",
+    "family": "iterator",
+    "expression": "list(zip([1, 2], [3], strict=True))",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nlist(zip([1, 2], [3], strict=True))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "raises ValueError",
+    "candidate": "[(1, 3)]",
+    "misconception": "严格配对仍在较短输入处停止",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: list(zip([1, 2], [3], strict=True))\nobserved: raises ValueError"
+  },
+  {
+    "id": "iterator-02",
+    "family": "iterator",
+    "expression": "list(itertools.islice(range(5), 3, 1))",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nlist(itertools.islice(range(5), 3, 1))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "[]",
+    "candidate": "raises ValueError",
+    "misconception": "结束位置小于起始位置即报错",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: list(itertools.islice(range(5), 3, 1))\nobserved: []"
+  },
+  {
+    "id": "iterator-03",
+    "family": "iterator",
+    "expression": "list(itertools.accumulate([2, 3], initial=10))",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nlist(itertools.accumulate([2, 3], initial=10))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "[10, 12, 15]",
+    "candidate": "[12, 15]",
+    "misconception": "初始累计值不进入输出",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: list(itertools.accumulate([2, 3], initial=10))\nobserved: [10, 12, 15]"
+  },
+  {
+    "id": "iterator-04",
+    "family": "iterator",
+    "expression": "list(itertools.compress(\"ABC\", [1, 0]))",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nlist(itertools.compress(\"ABC\", [1, 0]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "['A']",
+    "candidate": "['A', 'C']",
+    "misconception": "缺失的选择项默认为真",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: list(itertools.compress(\"ABC\", [1, 0]))\nobserved: ['A']"
+  },
+  {
+    "id": "iterator-05",
+    "family": "iterator",
+    "expression": "list(itertools.product(\"AB\", repeat=0))",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nlist(itertools.product(\"AB\", repeat=0))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "[()]",
+    "candidate": "[]",
+    "misconception": "零重笛卡尔积为空集合",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: list(itertools.product(\"AB\", repeat=0))\nobserved: [()]"
+  },
+  {
+    "id": "iterator-06",
+    "family": "iterator",
+    "expression": "list(itertools.takewhile(lambda x: x < 3, [1, 3, 2]))",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nlist(itertools.takewhile(lambda x: x < 3, [1, 3, 2]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "[1]",
+    "candidate": "[1, 2]",
+    "misconception": "前缀筛选等于全序列过滤",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: list(itertools.takewhile(lambda x: x < 3, [1, 3, 2]))\nobserved: [1]"
+  },
+  {
+    "id": "iterator-07",
+    "family": "iterator",
+    "expression": "list(itertools.dropwhile(lambda x: x < 3, [1, 3, 2]))",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nlist(itertools.dropwhile(lambda x: x < 3, [1, 3, 2]))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "[3, 2]",
+    "candidate": "[3]",
+    "misconception": "丢弃前缀等于全序列过滤",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: list(itertools.dropwhile(lambda x: x < 3, [1, 3, 2]))\nobserved: [3, 2]"
+  },
+  {
+    "id": "iterator-08",
+    "family": "iterator",
+    "expression": "list(itertools.tee([1, 2], 0))",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nlist(itertools.tee([1, 2], 0))\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "[]",
+    "candidate": "raises ValueError",
+    "misconception": "分流器数量必须大于零",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: list(itertools.tee([1, 2], 0))\nobserved: []"
+  },
+  {
+    "id": "library-01",
+    "family": "library",
+    "expression": "statistics.mode([2, 2, 1, 1])",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nstatistics.mode([2, 2, 1, 1])\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "2",
+    "candidate": "1",
+    "misconception": "并列众数返回最小值",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: statistics.mode([2, 2, 1, 1])\nobserved: 2"
+  },
+  {
+    "id": "library-02",
+    "family": "library",
+    "expression": "statistics.harmonic_mean([0, -1])",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nstatistics.harmonic_mean([0, -1])\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "0",
+    "candidate": "raises StatisticsError",
+    "misconception": "所有负值都会在零值前完成检查",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: statistics.harmonic_mean([0, -1])\nobserved: 0"
+  },
+  {
+    "id": "library-03",
+    "family": "library",
+    "expression": "statistics.median_low([1, 2, 4, 8])",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nstatistics.median_low([1, 2, 4, 8])\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "2",
+    "candidate": "3.0",
+    "misconception": "较低中位数仍平均两个中间值",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: statistics.median_low([1, 2, 4, 8])\nobserved: 2"
+  },
+  {
+    "id": "library-04",
+    "family": "library",
+    "expression": "statistics.quantiles([10, 20, 30], n=4, method=\"exclusive\")",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nstatistics.quantiles([10, 20, 30], n=4, method=\"exclusive\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "[10.0, 20.0, 30.0]",
+    "candidate": "[15.0, 20.0, 25.0]",
+    "misconception": "排除式分位数沿用包含式插值",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: statistics.quantiles([10, 20, 30], n=4, method=\"exclusive\")\nobserved: [10.0, 20.0, 30.0]"
+  },
+  {
+    "id": "library-05",
+    "family": "library",
+    "expression": "fractions.Fraction(0.1) == fractions.Fraction(1, 10)",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nfractions.Fraction(0.1) == fractions.Fraction(1, 10)\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "False",
+    "candidate": "True",
+    "misconception": "从浮点构造分数恢复十进制原值",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: fractions.Fraction(0.1) == fractions.Fraction(1, 10)\nobserved: False"
+  },
+  {
+    "id": "library-06",
+    "family": "library",
+    "expression": "decimal.Decimal(\"1.00\").as_tuple().exponent",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\ndecimal.Decimal(\"1.00\").as_tuple().exponent\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "-2",
+    "candidate": "0",
+    "misconception": "十进制对象自动删除尾随零",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: decimal.Decimal(\"1.00\").as_tuple().exponent\nobserved: -2"
+  },
+  {
+    "id": "library-07",
+    "family": "library",
+    "expression": "datetime.datetime.fromisoformat(\"2020-01-01T00:00:00Z\").utcoffset().total_seconds()",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\ndatetime.datetime.fromisoformat(\"2020-01-01T00:00:00Z\").utcoffset().total_seconds()\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "0.0",
+    "candidate": "raises ValueError",
+    "misconception": "日期解析器不能识别末尾 Z",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: datetime.datetime.fromisoformat(\"2020-01-01T00:00:00Z\").utcoffset().total_seconds()\nobserved: 0.0"
+  },
+  {
+    "id": "library-08",
+    "family": "library",
+    "expression": "re.split(r\"(\\d+)\", \"a12b\")",
+    "question": "The interpreter is CPython 3.11.16. The standard-library modules itertools, statistics, fractions, decimal, datetime, and re have been imported under those names. Evaluate this expression in a fresh process:\n\nre.split(r\"(\\d+)\", \"a12b\")\n\nWhat is its value, or which exception does evaluation raise? Explain briefly. On the final line give the value or the exception type.",
+    "gold": "['a', '12', 'b']",
+    "candidate": "['a', 'b']",
+    "misconception": "正则切分不保留捕获组",
+    "evidence": "Verified execution record\ninterpreter: CPython 3.11.16\nexpression: re.split(r\"(\\d+)\", \"a12b\")\nobserved: ['a', '12', 'b']"
+  }
+]
